@@ -1,0 +1,15 @@
+/* TEAM */
+Orange Management Solutions
+Site: email, link to a contact form, etc.
+Twitter: your Twitter username.
+Location: Frankfurt, Germany
+
+/* THANKS */
+Name: Donald Duck
+
+/* SITE */
+Last update: 2014/08/17
+Standards: HTML5, CSS3, JavaScrip
+Components: jQuery, FontAwesome, D3.js
+Software: Sublime, PHPStorm, Github, Grunt
+IDE: Sublime Text, Notepad++, PHPStorm
