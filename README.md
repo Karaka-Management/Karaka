@@ -1,6 +1,6 @@
 # General
 
-The Orange Management software is a modular web application for small to mid sized companies, educational facilities and health care institutions. The Orange Management software modules can be split into the following different categories:
+The Orange Management software is a modular web application for small to mid sized companies that need CRM, ERP, Intranet and/or CMS features. The Orange Management modules can be split into the following different categories:
 
 * General
 * Business
@@ -13,18 +13,18 @@ Thanks to the modular structure it's easy to have full control over the costs an
 
 ## Pricing & Services
 
-The current pricing model is single payment for the core application and modules. All updates regarding security and software fixes are free for the core application and all modules. Only enhancements, visually and in terms of functionality require a one time payment for that update. This way it's also possible to have full control over software changes and their costs. For convenience reasons Orange Management Solutions also offers various module bundles and upgrade subscriptions for updates during that subscription.
+The current pricing model is single payment for the core application and modules. All updates regarding security and software fixes are free for the core application and all modules. Only enhancements, visually and in terms of functionality require a one time payment for that update. This way it's also possible to have full control over software changes and their costs. For convenience reasons Orange Management also offers various module bundles and upgrade subscriptions for updates during that subscription.
 
-Additional optional services Orange Management Solutions provides are:
+Additional optional services Orange Management provides are:
 
 * Initial software setup with all purchased modules
 * Regular maintenance
-* Customization of all modules provided by Orange Management Solutions
+* Customization of all modules provided by Orange Management
 * Hosting
 
 ## Development Status
 
-Currently Orange Management Solutions is still fully developing the first Alpha version. As soon as we have a running Beta version we are allowing external testers to use our software and a selected amount of inhouse developed modules. A first RC version with a handful of modules is expected to be ready by the end of 2015.
+Currently Orange Management is still fully developing the first Alpha version. As soon as we have a running Beta version we are allowing external testers to use our software and a selected amount of inhouse developed modules.
 
 ## Jobs
 
@@ -40,32 +40,33 @@ Are you interested in joining us? Feel free to contact us at spl1nes.com@gmail.c
 ## Overview
 
 * Project: Orange Management
-* Group: Orange Management Solutions
+* Group: Orange Management
 * Developers: 1
 * Languages: PHP, JS, Java, HTML, CSS
 * Dependencies: d3.js, THREE.js, tcpdf, PhpExcel
-* [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/spl1nes/oms?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
-
-## Live
-
-[![todofy badge](https://todofy.org/b/spl1nes/Orange-Management/develop)](https://todofy.org/r/spl1nes/Orange-Management/develop) [![Build Status](https://travis-ci.org/spl1nes/Orange-Management.svg?branch=slave)](https://travis-ci.org/spl1nes/Orange-Management) [![Dependency Status](https://www.versioneye.com/user/projects/55e48efd8c0f62001c00002e/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55e48efd8c0f62001c00002e) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spl1nes/oms/badges/quality-score.png?b=slave)](https://scrutinizer-ci.com/g/spl1nes/oms/?branch=slave) [![Code Climate](https://codeclimate.com/github/spl1nes/oms/badges/gpa.svg)](https://codeclimate.com/github/spl1nes/oms) [![Test Coverage](https://codeclimate.com/github/spl1nes/oms/badges/coverage.svg)](https://codeclimate.com/github/spl1nes/oms/coverage)
 
 ### Build info
 
+Build infos are getting generated automatically for every build and manually for key commits.
+
+#### Metrics
 [LOC Framework](http://orange-management.de/Build/stats/phpOMS.log) - 
 [LOC Modules](http://orange-management.de/Build/stats/ModulesStats.log) - 
 [Metrics Framework](http://orange-management.de/Build/stats/ReportFramework.html) - 
 [Metrics Modules](http://orange-management.de/Build/stats/ReportModules.html) - 
+
+#### Code quality
 [PhpUnit Framework](http://orange-management.de/Build/logs/phpunit.log) - 
-[PhpCS Framework](http://orange-management.de/Build/logs/phpcsFramework.log) - 
-[PhpCS Modules](http://orange-management.de/Build/logs/phpcsModules.log) - 
 [PhpCPD Framework](http://orange-management.de/Build/logs/phpcpdFramework.log) - 
 [PhpCPD Modules](http://orange-management.de/Build/logs/phpcpdModules.log) - 
-[PhpLint Framework](http://orange-management.de/Build/logs/phpLintFramework.log) - 
-[PhpLint Modules](http://orange-management.de/Build/logs/phpLintModules.log)
 
-### Issues
-[![Stories in Pending](https://badge.waffle.io/spl1nes/oms.svg?label=ready&title=pending)](http://waffle.io/spl1nes/oms)
-[![Stories in Progress](https://badge.waffle.io/spl1nes/oms.svg?label=in%20progress&title=in%20progress)](http://waffle.io/spl1nes/oms)
+#### Linting
+[Php Core](http://orange-management.de/Build/logs/phpLintFramework.log) - 
+[Php Modules](http://orange-management.de/Build/logs/phpLintModules.log) - 
+[Json](http://orange-management.de/Build/logs/jsonLint.log)
 
-[![Throughput Graph](http://graphs.waffle.io/spl1nes/oms/throughput.svg)](https://waffle.io/spl1nes/oms/metrics)
+#### Code style
+[PhpCS Framework](http://orange-management.de/Build/logs/phpcsFramework.log) - 
+[PhpCS Modules](http://orange-management.de/Build/logs/phpcsModules.log) - 
+[Html Tags](http://orange-management.de/Build/logs/htmlinspection.log) - 
+[Empty Attributes](http://orange-management.de/Build/logs/unusedattributes.log)
