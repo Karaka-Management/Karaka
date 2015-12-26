@@ -17,6 +17,7 @@ Vagrantfile
 cache
 .sass-cache
 .idea
+*.phar
 vendor
 bower_components
 node_modules
