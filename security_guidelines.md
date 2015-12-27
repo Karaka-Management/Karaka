@@ -99,14 +99,14 @@ path in order to make sure the path exists and for further validation.
 Example usage:
 
 ```
-if(($pathNew = realpath($path)) === false || strpos($pathNew, self::MODULE_PATH) === false) {
+if(($pathNew = realpath($path)) === false || strpos($pathNew, ROOT_PATH . '/Modules/' . self::$module) === false) {
     throw new FilePathException($path);
 }
 ```
 
 The example throws an exception if the path either doesn't exist or is trying 
-to access a path that doesn't contain the path defined in `self::MODULE_PATH`. 
-Another validation could be:
+to access a path that doesn't contain the path defined in 
+`ROOT_PATH . '/Modules/' . self::$module`. Another validation could be:
 
 ```
 if(($pathNew = realpath($path)) === false || !Validator::startsWith($pathNew, ROOT_PATH)) {
