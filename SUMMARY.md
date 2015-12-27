@@ -1,5 +1,5 @@
 # Summary
 
 * [Introduction](README.md)
-* Security Guidelines
+* [Security Guidelines](security_guidelines.md)
 
