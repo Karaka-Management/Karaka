@@ -4,7 +4,7 @@
 
 The tool to protect clients from CSRF is a randomly generated CSRF token,
 that can be used inside the URI generator. It's highly recomended to make 
-use of this token whenever possible in order to reduce the risk of CSRF 
+use of this token whenever possible to reduce the risk of CSRF 
 attacks.
 
 Example usage:
