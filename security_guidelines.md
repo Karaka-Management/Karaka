@@ -79,12 +79,12 @@ These are just a few examples but it is very important to make sure, that these 
 Example usage:
 
 ```
-if(($pathNew = realpath($path)) === false || strpos($pathNew, ROOT_PATH . '/Modules/' . self::$module) === false) {
+if(($pathNew = realpath($path)) === false || strpos($pathNew, self::MODULE_PATH) === false) {
     throw new FilePathException($path);
 }
 ```
 
-The example throws an exception if the path either doesn't exist or is trying to access a path that doesn't contain the path defined in `ROOT_PATH . '/Modules/' . self::$module`. Another validation could be:
+The example throws an exception if the path either doesn't exist or is trying to access a path that doesn't contain the path defined in `self::MODULE_PATH`. Another validation could be:
 
 ```
 if(($pathNew = realpath($path)) === false || !Validator::startsWith($pathNew, ROOT_PATH)) {

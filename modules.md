@@ -1,21 +1,102 @@
 # Modules
 
-## Info
+The following directory structure should roughly visualize how modules are strucured. The purpose of the different sub-directories and their files will be covered in the following sections.
 
-## Install
+* UniqueModuleName
+    * Admin
+        * Install
+            * Navigation.install.json
+            * Navigation.php
+        * Install.php
+    * Models
+        * YourPhPModels.php
+        * YourJavaScriptModels.js
+    * Theme
+        * Css
+            * yourCss_1.0.0.css
+            * yourScss_1.0.0.scss
+        * Img
+            * yourTemplateImages.jpg
+        * backend
+            * your_template_files.tpl.php
+        * lang
+            * backend.en.lang.php
+            * nav.backend.en.lang.php
+    * Views
+        * YourPhpViews.php
+        * YourJavaScriptViews.js
+    * Controller.php
+    * Controller.js
+    * ModuleUniqueModuleName_1.0.0.js
+    * info.json
 
-## Update
+All modules are located inside the `/Modules` directory and their directory name has to be the module name itself without whitespaces.
 
-## Uninstall
+## Admin
 
-## Routing
+The admin directory contains the install directory as well as the install, delete, update, activate and deactivate script assoziated with this module. The install directory contains installation files required for other modules. The above example contains the two required files for providing navigation information to the navigation module so that the navigation module can display this module in the navigation bar. The navigation installation file as well as all other module installation files must have the same name as the navigation module and will be automatically called on installation if defined in the info.json file. 
 
-## Model, View, Controller, Template
+The content of the navigation install file highly depends on the module and should be documented in the according module. The additional json file is also required by the navigation module for the installation process. How many additional files and how they have to be structured/named should all be documented in the module documentation. If your module doesn't provide any navigation links or in general doesn't use any other modules, your install directory will be empty.
 
-## Resources
+Some modules can be used without requiring any additional installations it all depends on how the other modules got implemented. Thats also why many modules don't offer any integration at all and 
+are almost stand-alone without the possibility to get extended.
 
-## Providing
+### Install.php
 
-## Requesting
+In contrast to the install file for other moduels this file has to follow more strict standards. The following example shows you the bare minimum requirements of a installation file:
 
-## Receiving
+```
+<?php
+namespace Modules\Navigation\Admin;
+
+use phpOMS\DataStorage\Database\DatabaseType;
+use phpOMS\DataStorage\Database\Pool;
+use phpOMS\Module\InstallerAbstract;
+
+class Installer extends InstallerAbstract
+{
+    public static function install(Pool $dbPool, array $info)
+    {
+        parent::install($dbPool, $info);
+
+        switch ($dbPool->get('core')->getType()) {
+            case DatabaseType::MYSQL:
+                /* Your database setup goes here */
+                break;
+        }
+    }
+}
+```
+
+If your application doesn't need to implement any database tables for itself the switch statement can be omitted. From the directory structur at the beginning we can however see that some modules accept information form other modules. The following example shows how the navigation module is accepting information during the installation of other modules:
+
+```
+public static function installExternal(Pool $dbPool, array $data)
+{
+    /* What do you want to do with the data provided by $data? */
+}
+```
+
+Other modules have to create a Navigation.php file inside the install directory with the following method:
+
+```
+public static function install(Pool $dbPool)
+{
+    $navData = json_decode(file_get_contents(__DIR__ . '/Navigation.install.json'), true);
+
+    $class = '\\Modules\\Navigation\\Admin\\Installer';
+    $class::installExternal($dbPool, $navData);
+}
+```
+
+How the receiving module (e.g. Navigation) is accepting information depends on the module itself. The module documentation will also state how the content of the `install()` method has to look like. At the same time if you write a module and are accepting information from other modules during their installation you have to document very well how they have to provide these information. Very often however it will not be necessary to let other modules pass these information during installation and only do this during runtime. 
+
+The navigation module is a good example of passing navigation links during installation. The navigation module could request the link information during runtime this would mean that all modules would have to be initialized for every request since the navigation module doesn't know if these modules are providing links or not. By providing these information during the installation, the navigation module can store these information in a database table and query these information for every page request without initializing all modules or performing some file readings.
+
+### Update.php
+
+### Delete.php
+
+### Activate.php
+
+### Deactivate.php
