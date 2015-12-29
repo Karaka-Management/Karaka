@@ -13,4 +13,5 @@ for this you can find the automatically generated code
 documentation. All the provided information are very important 
 to ensure the quality of the published code and often are mandatory. 
 Not following these guides can cause security issues, worsen the 
-user experience or even cause malfunction.
+user experience or even cause malfunction as well as make it 
+difficult for other developers to understand the code.
