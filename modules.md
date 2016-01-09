@@ -2,7 +2,7 @@
 
 The following directory structure should roughly visualize how modules are strucured. The purpose of the different sub-directories and their files will be covered in the following sections.
 
-* UniqueModuleName
+* {UniqueModuleName}
     * Admin
         * Install
             * Navigation.install.json
@@ -35,7 +35,7 @@ The following directory structure should roughly visualize how modules are struc
         * YourJavaScriptViews.js
     * Controller.php
     * Controller.js
-    * ModuleUniqueModuleName_1.0.0.js
+    * Module{UniqueModuleName}.js
     * info.json
 
 All modules are located inside the `/Modules` directory and their directory name has to be the module name itself without whitespaces.
@@ -123,7 +123,7 @@ The Theme directory contains the current theme for every page this module suppor
 
 ### Css
 
-Every page has its own CSS directory. This application only allows the use of SASS/SCSS as preprocessor. All sass/scss files need to be provided as well as the processed CSS files. Make sure to include the version number in the CSS file name for overwriting the cache on updates. CSS files need to be minimized and if it makes sense concatenated.
+Every page has its own CSS directory. This application only allows the use of SASS/SCSS as preprocessor. All sass/scss files need to be provided as well as the processed CSS files. Make sure to update the version number in the `Controller.php` file. CSS files need to be minimized and if it makes sense concatenated.
 
 ### Img
 
@@ -135,13 +135,14 @@ The Lang directory contains all language files for this application. Usually the
 
 A language file should have the following naming convention:
 
-    {ISO 639-1}.lang.php 
+    {ISO 639-1}.lang.php
+    {UniqueModuleName}.{ISO 639-1}.lang.php 
 
 The content of the language file is straight forward:
 
 ```
 <?php
-$MODLANG['UniqueModuleName'] = [
+$MODLANG['{UniqueModuleName}'] = [
     'StringID' => 'Your localized string',
 ];
 ```

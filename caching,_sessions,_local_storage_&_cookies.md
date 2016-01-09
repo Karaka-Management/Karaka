@@ -14,12 +14,12 @@ Example usage for 30 days caching:
 $resposne->setHeader('Cache-Control', 'Cache-Control: max-age=2592000');
 ```
 
-In order to trigger a re-cache of stylesheets or javascript files make sure to include their version hash as file name. This way version updates will result in a new file name and will be re-cached by the client browser.
+In order to trigger a re-cache of stylesheets or javascript files make sure to update the version in the `Controller.php` file. This way version updates will result in a new virtual file uri and result in a re-cache.
 
 Example usage:
 
 ```
-$head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Media/ModuleMedia_' . self::$version . '.js');
+$head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Media/ModuleMedia.js?v=' . self::MODULE_VERSION);
 ```
 
 ## Sessions
