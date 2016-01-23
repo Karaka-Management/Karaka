@@ -1,0 +1,5 @@
+{
+    "require-dev": {
+        "johnkary/phpunit-speedtrap": "^1.0"
+    }
+}

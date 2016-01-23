@@ -26,3 +26,4 @@ puphpet
 private.php
 private.sh
 Logs
+*.lock
