@@ -71,6 +71,11 @@ $CONFIG = [
     'language' => [
         'en', 'de',
     ],
+    'apis' => [
+        'google' => [
+            'key' => 'AIzaSyCtO4kWuXsqFZgDKBKhmqlQTiDhA1qupCk'
+        ]
+    ],
 ];
 
 include 'private.php';
