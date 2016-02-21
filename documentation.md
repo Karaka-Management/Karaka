@@ -88,6 +88,8 @@ Example:
 
 ## JavaScript
 
+The javascript documentation is based on JsDoc, therefore only valid JsDoc comments are valid for all js files.
+
 ## Scss
 
 The scss documentation is based on SassDoc, therefore only valid SassDoc comments are valid for all scss files.
