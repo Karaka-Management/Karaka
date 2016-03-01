@@ -1,5 +1,6 @@
 <?php
-$factor = 3.77952756;
+$dpi = 82;
+$factor = 100*2.54/$dpi;
 
 $logo = '';
 
