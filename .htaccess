@@ -67,6 +67,15 @@ Options All -Indexes
 Options -ExecCGI
 AddHandler cgi-script .pl .py .jsp .asp .shtml .sh .cgi
 
+# XSS protection
+header always set x-xss-protection "1; mode=block"
+
+# Nosnif
+header always set x-content-type-options "nosniff"
+
+# Iframes only from self
+header always set x-frame-options "SAMEORIGIN"
+
 # Php config
 # This should be removed from here and adjusted in the php.ini file
 php_value upload_max_filesize 40M
