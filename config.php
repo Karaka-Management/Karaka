@@ -58,7 +58,7 @@ $CONFIG = [
         ],
     ],
     'page'     => [
-        'root' => '/Orange-Management/',
+        'root' => '/',
     ],
     'socket'   => [
         'master' => [
