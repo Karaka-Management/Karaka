@@ -80,7 +80,7 @@ Example usage:
 
 ```
 if(($pathNew = realpath($path)) === false || strpos($pathNew, self::MODULE_PATH) === false) {
-    throw new FilePathException($path);
+    throw new PathException($path);
 }
 ```
 
@@ -88,7 +88,7 @@ The example throws an exception if the path either doesn't exist or is trying to
 
 ```
 if(($pathNew = realpath($path)) === false || !Validator::startsWith($pathNew, ROOT_PATH)) {
-    throw new FilePathException($path);
+    throw new PathException($path);
 }
 ```
 
