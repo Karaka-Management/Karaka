@@ -19,6 +19,11 @@ AddType application/vnd.ms-fontobject .eot
 </ifmodule>
 # END Gzip Compression
 
+# Force mime for javascript files
+<Files "*.js">
+    ForceType text/javascript
+</Files>
+
 # BEGIN Caching
 <ifModule mod_expires.c>
     ExpiresActive On
