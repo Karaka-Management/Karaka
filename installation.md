@@ -2,6 +2,12 @@
 
 Installing the application as a developer can be achived by following one of the following instructions
 
+## General 
+
+After installation following one of the instructions make sure you set the appropriate permissions for files and directories:
+
+* 0700 Log
+
 ## Linux Shell Script
 
 This is the prefered way to install the application since this also installs all required dev tools and sets up the direcetory structure by itself. Using this method also tears down previous installs for a fresh install perfect for re-installing from the current development version. Furthermore the use of phpUnit also makes sure that the application is working as intended. The phpUnit install also provides lots of dummy data for better integration and functionality testing of your own code/modules.
