@@ -20,7 +20,7 @@ Example usage in a module handling a API request:
 
 ```
 if($request->getData('CSRF') === null) {
-    $response->setStatusCode(403);
+    $response->setStatusCode(RequestStatus::R_403);
         
     /* optional */
     $response->set($request->__toString(), new Notify('Unknown referrer!', NotifyType::INFO));
