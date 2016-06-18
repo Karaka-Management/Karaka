@@ -83,6 +83,12 @@ AddHandler cgi-script .pl .py .jsp .asp .shtml .sh .cgi
 #    header always set x-frame-options "SAMEORIGIN"
 #</ifmodule>
 
+<FilesMatch "ServiceWorker.js$">
+    <ifmodule mod_headers.c>
+        Header set Service-Worker-Allowed "/"
+    </ifmodule>
+</FilesMatch>
+
 # Php config
 # This should be removed from here and adjusted in the php.ini file
 php_value upload_max_filesize 40M
@@ -90,3 +96,4 @@ php_value post_max_size 40M
 php_value memory_limit 128M
 php_value max_input_time 300
 php_value max_execution_time 300
+
