@@ -28,14 +28,13 @@ The following directory structure should roughly visualize how modules are struc
                 * yourTemplateImages.jpg
             * Lang
                 * en.lang.php
-                * navigation.en.lang.php
+                * Navigation.en.lang.php
             * your_template_files.tpl.php
     * Views
         * YourPhpViews.php
         * YourJavaScriptViews.js
     * Controller.php
     * Controller.js
-    * Module{UniqueModuleName}.js
     * info.json
 
 All modules are located inside the `/Modules` directory and their directory name has to be the module name itself without whitespaces.

@@ -19,7 +19,7 @@ In order to trigger a re-cache of stylesheets or javascript files make sure to u
 Example usage:
 
 ```
-$head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Media/ModuleMedia.js?v=' . self::MODULE_VERSION);
+$head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Media/Controller.js?v=' . self::MODULE_VERSION);
 ```
 
 ## Sessions
