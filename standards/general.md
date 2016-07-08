@@ -12,37 +12,6 @@ The term "class" refers to all classes, interfaces, and traits.
 
 The default indention MUST be 4 spaces.
 
-## Html
-
-### Omitted closing tags
-
-The following closing tags SHOULD be omitted:
-
-* `</li>`
-* `</option>`
-* `</tr>`
-* `</td>`
-* `</th>`
-* `</thead>`
-* `</tbody>`
-* `</tfoot>`
-* `</head>`
-* `</body>`
-* `</html>`
-
-The following tags MUST not specify a end tag (\\):
-
-* `<br \>`
-* `<meta \>`
-* `<input \>`
-* `<hr \>`
-* `<img \>`
-* `<link \>`
-* `<source \>`
-* `<embed \>`
-
-#
-
 ## JavaScript
 
 ## Scss
