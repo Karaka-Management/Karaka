@@ -6,7 +6,7 @@ The php documentation is based on PhpDocumentor, therefore only valid PhpDocumen
 
 ### File
 
-A file documentation is mandatory and needs to have the following layout:
+A file documentation MUST be implemented in the following form:
 
 ```
 /**
@@ -27,7 +27,7 @@ A file documentation is mandatory and needs to have the following layout:
 
 ### Class
 
-A class documentation is mandatory and needs to have the following layout:
+A class documentation MUST be implemented in the following form:
 
 ```
 /**
@@ -45,7 +45,7 @@ A class documentation is mandatory and needs to have the following layout:
 
 #### Member
 
-A member variable documentation is mandatory and needs to have the following layout:
+A member variable documentation MUST be implemented in the following form:
 
 ```
 /**
@@ -58,7 +58,7 @@ A member variable documentation is mandatory and needs to have the following lay
 
 #### Function/Method
 
-A function/method documentation is mandatory and needs to have the following layout:
+A function/method documentation MUST be implemented in the following form:
 
 ```
 /**
