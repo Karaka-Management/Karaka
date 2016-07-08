@@ -90,9 +90,21 @@ Example:
 
 The javascript documentation is based on JsDoc, therefore only valid JsDoc comments are valid for all js files.
 
+### File
+
+### Class
+
+#### Member
+
+#### Function/Method
+
+### Variable
+
 ## Scss
 
 The scss documentation is based on SassDoc, therefore only valid SassDoc comments are valid for all scss files.
+
+### File
 
 ```
 ////
@@ -104,3 +116,11 @@ The scss documentation is based on SassDoc, therefore only valid SassDoc comment
 // @author Your Author 2 <your.second@email.com>
 ////
 ```
+
+### Class
+
+#### Member
+
+#### Function/Method
+
+### Variable
