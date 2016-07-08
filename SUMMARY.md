@@ -4,14 +4,19 @@
 
 ## Setup
 * [Installation](setup/installation.md)
+* [Dev Environment](setup/dev_environment.md)
 
 ## Standards
+* [General](standards/general.md)
 * [Documentation](standards/documentation.md)
+* [Html](standards/html.md)
+* [Php](standards/php.md)
 
 ## Security
 * [Security Guidelines](security/security_guidelines.md)
 
 ## Code Quality
+* [Code Quality](quality/code_quality.md)
 * [Inspections](quality/inspections.md)
 * [Tests](quality/tests.md)
 
