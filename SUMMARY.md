@@ -9,7 +9,7 @@
 * [ConsoleApplication](setup/consoleapplication.md)
 
 ## Administration
-* [General](administration/General.md)
+* [General](administration/general.md)
 * [Accounts](administration/accounts.md)
 * [Groups](administration/groups.md)
 * [Modules](administration/modules.md)
@@ -18,4 +18,9 @@
 ## Maintenance
 * [Backup](maintenance/backup.md)
 * [Updates](maintenance/updates.md)
-* [Monitoring](maintenance/Monitoring.md)
+* [Monitoring](maintenance/monitoring.md)
+
+## Security
+* [Server](security/server.md)
+* [Application](security/application.md)
+* [Mentality](security/mentality.md)
