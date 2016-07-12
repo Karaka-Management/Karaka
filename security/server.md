@@ -26,9 +26,9 @@ Implement passwordless login. This way you don't login into your server by using
 
 There are still many more uncovered topics and tools which definately are worth reading up on.
 
-*. Iptables
-*. Monitoring
-*. fail2ban
-*. UFW
-*. Intrusion detection system
-*. SFTP vs FTP
+* Iptables
+* Monitoring
+* fail2ban
+* UFW
+* Intrusion detection system
+* SFTP vs FTP
