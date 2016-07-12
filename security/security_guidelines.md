@@ -34,7 +34,7 @@ if($request->getData('CSRF') === null) {
 Always! Except the request has the potential to come from third party referrers. Here a few examples of requests that must always have a valid CSRF token:
 
 1. Login/logout
-2. Creating/updating/deleting a news post
+2. Creating/updating/deleting something
 3. Uploading media files
 4. Changes in user settings
 
@@ -43,7 +43,51 @@ Here some examples of requests that **MAY** not need a validation (mostly API GE
 1. Get news posts
 2. Get last log message
 
-It's important to understand that the CSRF token is not equivalent with authentication or API token. Client can be logged out and still need a CSRF token and obviously vice versa.
+It's important to understand that the CSRF token is not equivalent with authentication or API token. Clients can be logged out and still need a CSRF token and obviously vice versa.
+
+## Headers
+
+The following headers must be set for every web application. By default they are already set in the `WebApplication` which gets expanded by all other web applications.
+
+### Content-Security-Policy
+
+Scripts and frames must be provided by the own server or google. This is important in order to prevent the injection of other scripts and clickjacking. Inline javascript is prohibited and may only be defined in the application and not in any modules.
+
+The default CSP looks like the following:
+
+```
+$response->getHeader()->set('content-security-policy', 'script-src \'self\'; frame-src \'self\'', true);
+```
+
+In order to whitelist inline javascript you can use the following logic. This however requires you to know the inline script beforehand `$script`. After setting the CSP header they automatically get locked so that further changes are not possible. This is a security measure in order to prevent any malicious adjustments. 
+
+```
+$response->getHeader()->set('content-security-policy', 'script-src \'self\' \'sha256-' . base64_encode(hash('sha256', $script, true)) . '\'; frame-src \'self\'', true);
+```
+
+### X-XSS-Protection
+
+This header tells the client browser to use local xss protection if available.
+
+```
+$response->getHeader()->set('x-xss-protection', '1; mode=block');
+```
+
+### X-Content-Type-Options
+
+By using this header browsers which support this feature will ignore the content/mime and recognize the file by the provided header only.
+
+```
+$response->getHeader()->set('x-content-type-options', 'nosniff');
+```
+
+### X-Frame-Options
+
+The x-frame-options is providing the same protection for frames as the content-security-policy header. Please only use this header in addition to the content-security-policy if you have to but make sure the rules don't contradict with the content-security-policy.
+
+```
+$response->getHeader()->set('x-frame-options', 'SAMEORIGIN');
+```
 
 ## Super globals
 
