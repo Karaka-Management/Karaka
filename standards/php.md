@@ -143,4 +143,6 @@ The usage of the following functions SHOULD be avoided and inspected for any kin
 * `rename()`
 * `symlink()`
 * `rmdir()`
+* `mkdir()`
+* `touch()`
 * `unlink()`
