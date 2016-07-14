@@ -26,3 +26,4 @@
 ## Components
 * [Caching, Sessions, Local Storage & Cookies](components/caching,_sessions,_local_storage_&_cookies.md)
 * [Modules](components/modules.md)
+* [Modules](components/datamapper.md)
