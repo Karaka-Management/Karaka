@@ -59,6 +59,7 @@ $CONFIG = [
     ],
     'page'     => [
         'root' => '/',
+        'https' => false,
     ],
     'socket'   => [
         'master' => [
