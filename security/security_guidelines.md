@@ -131,7 +131,7 @@ if(($pathNew = realpath($path)) === false || strpos($pathNew, self::MODULE_PATH)
 The example throws an exception if the path either doesn't exist or is trying to access a path that doesn't contain the path defined in `self::MODULE_PATH`. Another validation could be:
 
 ```
-if(($pathNew = realpath($path)) === false || !Validator::startsWith($pathNew, ROOT_PATH)) {
+if(($pathNew = realpath($path)) === false || !StringUtils::startsWith($pathNew, ROOT_PATH)) {
     throw new PathException($path);
 }
 ```
