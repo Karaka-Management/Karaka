@@ -177,10 +177,12 @@ A language file should have the following naming convention:
 The content of the language file is straight forward:
 
 ```
-<?php
-$return [ '{UniqueModuleName}' => [
-    'StringID' => 'Your localized string',
-]];
+<?php return [ 
+    '{UniqueModuleName}' => [
+        'StringID' => 'Your localized string',
+        ...
+    ]
+];
 ```
 
 All other language files are optional and usually are only required by other modules. The navigation module for example requires an extra language file for the navigation elements. This however should be specified in the modules you want to make use of.

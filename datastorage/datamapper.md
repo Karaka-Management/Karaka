@@ -16,10 +16,6 @@ The `$id` can be used as primary key. For this member variable no setter method 
 
 The data mapper itself is where all the magic happens, from inserts, updates, to selects etc. 
 
-### Extending
-
-By default it should extend the `DataMapperAbstract` but it is also possible to extend any other data mapper in case someone wants to extend an already existing data mapper. By default extending another data mapper overwrites its member variables as expected but in many cases it is required to not replace functionality/variables and truly extend it. For this purpose the boolean variable `$overwrite` can be set to false and the data mapper will recognize all variables and configurations.
-
 ### Primary key
 
 The primary key can be indicated with the variable `$primaryField`. This variable should contain the string representation of the database field name. This variable is compulsory.
@@ -68,7 +64,6 @@ With the `$hasMany` variable it's possible to specify other models that belong t
 protected static $hasMany = [
         'model_var_name_3' => [
             'mapper'         => HasManyMapper::class,
-            'relationmapper' => HasManyMapper::class,
             'table'          => 'relation_table_name',
             'dst'            => 'relation_destinaiton_name',
             'src'            => 'relation_source_name',
@@ -76,7 +71,7 @@ protected static $hasMany = [
     ];
 ```
 
-The `mapper` contains the class name of the mapper responsible for the many models that belong to this model. The `relationmapper` is a mapper of a relation table, this is only required if the relation table is very complex and an additional mapper is required to select, insert etc the relation. The `table` contains the name of the table where the relations are defined (this can be the same table as the source model or a relation table). If a model is only in relation with one other model this relation can be defined in the same table as the model and this `table` field can be `null`. The `dst` field contains the name of field where the primary key of the destination is defined. The `src` field is only required for models which have a relation table. This field contains the name of the field where the primary key of the source model is defined.
+The `mapper` contains the class name of the mapper responsible for the many models that belong to this model. The `table` contains the name of the table where the relations are defined (this can be the same table as the source model or a relation table). If a model is only in relation with one other model this relation can be defined in the same table as the model and this `table` field can be `null`. The `dst` field contains the name of field where the primary key of the destination is defined. The `src` field is only required for models which have a relation table. This field contains the name of the field where the primary key of the source model is defined.
 
 A one to many relation would look like the following:
 
@@ -84,7 +79,6 @@ A one to many relation would look like the following:
 protected static $hasMany = [
         'model_var_name_3' => [
             'mapper'         => HasManyMapper::class,
-            'relationmapper' => null,
             'table'          => null,
             'dst'            => 'relation_destinaiton_name',
             'src'            => null,
@@ -98,7 +92,6 @@ A many to many relation which can only be defined in a relation table looks like
 protected static $hasMany = [
         'model_var_name_3' => [
             'mapper'         => HasManyMapper::class,
-            'relationmapper' => null,
             'table'          => 'relation_table_name',
             'dst'            => 'relation_destinaiton_name',
             'src'            => 'relation_source_name',
