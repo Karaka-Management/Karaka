@@ -1,5 +1,4 @@
 # Summary
-
 * [Introduction](README.md)
 
 ## Setup
@@ -12,8 +11,43 @@
 * [Html](standards/html.md)
 * [Php](standards/php.md)
 
+## Basics
+
+* [Php](basics/routing.md)
+* [Php](basics/dispatching.md)
+* [Php](basics/views.md)
+
+### Http
+* [Requests](basics/http/requests.md)
+* [Responses](basics/htttp/responses.md)
+
 ## Security
 * [Security Guidelines](security/security_guidelines.md)
+
+## DataStorage
+* [Cache](datastorage/cache.md)
+* [Session](datastorage/session.md)
+
+### Database
+* [DataMapper](datastorage/database/datamapper.md)
+* [Queries](datastorage/database/queries.md)
+
+## Services
+* [Filesystem](services/filesystem.md)
+* [Mail](services/mail.md)
+* [Money](services/money.md)
+* [Uri](services/uri.md)
+* [Logging](services/logging.md)
+* [Localization](services/localization.md)
+* [Events](services/events.md)
+* [Tasks](services/tasks.md)
+* [Queues](services/queues.md)
+* [Collection](services/collection.md)
+* [Validation](services/validation.md)
+* [Charting](services/charting.md)
+* [Encoding](services/encoding.md)
+* [Encryption](services/encryption.md)
+* [Codes](services/codes.md)
 
 ## Code Quality
 * [Code Quality](quality/code_quality.md)
