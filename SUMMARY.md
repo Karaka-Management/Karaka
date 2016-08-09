@@ -13,13 +13,11 @@
 
 ## Basics
 
-* [Php](basics/routing.md)
-* [Php](basics/dispatching.md)
-* [Php](basics/views.md)
-
-### Http
-* [Requests](basics/http/requests.md)
-* [Responses](basics/htttp/responses.md)
+* [Routing](basics/routing.md)
+* [Dispatching](basics/dispatching.md)
+* [Views](basics/views.md)
+* [Requests](basics/requests.md)
+* [Responses](basics/responses.md)
 
 ## Security
 * [Security Guidelines](security/security_guidelines.md)
@@ -27,6 +25,8 @@
 ## DataStorage
 * [Cache](datastorage/cache.md)
 * [Session](datastorage/session.md)
+* [Cookie](datastorage/cookie.md)
+* [LocalStorage](datastorage/localstorage.md)
 
 ### Database
 * [DataMapper](datastorage/database/datamapper.md)
@@ -58,6 +58,4 @@
 * [Styles and Layout](frontend/styles_and_layout.md)
 
 ## Components
-* [Caching, Sessions, Local Storage & Cookies](components/caching,_sessions,_local_storage_&_cookies.md)
-* [Modules](components/modules.md)
 * [Modules](components/datamapper.md)

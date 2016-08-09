@@ -53,7 +53,7 @@ The currency code of the localization object is the 3 character ISO4217 code. Th
 The currency symbol can be placed either in front or at the end of a value. The `Money` class provides a function called `getCurrency()` which returns a localized representation by specifying the thousands and decimal separator as well as the currency symbol and its position.
 
 ```
-$money->getcurrency(2, ',', '.', '$', 0);
+$money->getCurrency(2, ',', '.', '$', 0);
 ```
 
 ### DateTime
