@@ -13,9 +13,9 @@
 
 ## Basics
 
-* [Php](basics/routing.md)
-* [Php](basics/dispatching.md)
-* [Php](basics/views.md)
+* [Routing](basics/routing.md)
+* [Dispatching](basics/dispatching.md)
+* [Views](basics/views.md)
 
 ### Http
 * [Requests](basics/http/requests.md)
