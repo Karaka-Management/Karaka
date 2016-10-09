@@ -29,6 +29,7 @@ $CONFIG = [
                 [
                     'db'       => 'mysql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
+                    'port'     => '3306', /* db host port */
                     'login'    => 'root', /* db login name */
                     'password' => '123456', /* db login password */
                     'database' => 'oms', /* db name */
@@ -45,6 +46,7 @@ $CONFIG = [
                 [
                     'db'       => 'mysql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
+                    'port'     => '3306', /* db host port */
                     'login'    => 'root', /* db login name */
                     'password' => '123456', /* db login password */
                     'database' => 'oms_log', /* db name */
@@ -77,5 +79,3 @@ $CONFIG = [
         ],
     ],
 ];
-
-include 'private.php';
