@@ -66,9 +66,9 @@ use phpOMS\Module\InstallerAbstract;
 
 class Installer extends InstallerAbstract
 {
-    public static function install(Pool $dbPool, InfoManager $info)
+    public static function install(string $path, Pool $dbPool, InfoManager $info)
     {
-        parent::install($dbPool, $info);
+        parent::install($path, $dbPool, $info);
 
         switch ($dbPool->get('core')->getType()) {
             case DatabaseType::MYSQL:
@@ -91,7 +91,7 @@ public static function installExternal(Pool $dbPool, array $data)
 Other modules have to create a Navigation.php file inside the install directory with the following method:
 
 ```
-public static function install(Pool $dbPool)
+public static function install(string $path, Pool $dbPool)
 {
     $navData = json_decode(file_get_contents(__DIR__ . '/Navigation.install.json'), true);
 
