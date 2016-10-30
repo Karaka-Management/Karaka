@@ -60,7 +60,7 @@ In contrast to the install file for other moduels this file has to follow more s
 namespace Modules\Navigation\Admin;
 
 use phpOMS\DataStorage\Database\DatabaseType;
-use phpOMS\DataStorage\Database\Pool;
+use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
 
