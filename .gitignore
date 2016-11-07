@@ -34,4 +34,4 @@ private.sh
 Logs
 *.lock
 QuickDashboard
-launch.json
+.vscode
