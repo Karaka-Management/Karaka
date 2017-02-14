@@ -25,6 +25,7 @@ Modules for php that may be required depending on your use case are:
 * Memcache
 * Sqlite
 * Socket
+* Curl
 * Imap
 
 Some of these modules are already provided and only need to be activated in your `php.ini` file.
