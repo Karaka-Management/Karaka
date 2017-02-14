@@ -14,7 +14,7 @@ Make sure you have a web server installed such as `Apache` or `Nginx`. If not in
 
 ### Database
 
-Make sure you have a database installed such as `MySQL` or `Postgresql`. If not install one through your package manager. Google for `How to install mysql on XYZ`
+Make sure you have a database installed such as `MySQL` or `Postgresql` and the corresponding drivers and php modules. If not install one through your package manager. Google for `How to install mysql on XYZ`
 
 ### Php
 
@@ -27,6 +27,7 @@ Modules for php that may be required depending on your use case are:
 * Socket
 * Curl
 * Imap
+* bcmath
 
 Some of these modules are already provided and only need to be activated in your `php.ini` file.
 
