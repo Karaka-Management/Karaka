@@ -59,7 +59,7 @@ $CONFIG = [
         ],
     ],
     'language' => [
-        'en', 'de',
+        'en',
     ],
     'apis'     => [
         'google' => [
