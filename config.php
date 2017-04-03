@@ -20,8 +20,6 @@
  * @package    phpOMS\Config
  * @since      1.0.0
  */
-define('ROOT_PATH', __DIR__);
-
 $CONFIG = [
     'db'       => [
         'core' => [
