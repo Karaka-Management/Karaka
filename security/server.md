@@ -12,7 +12,7 @@ HTTPS is a protocol or form of encrypted communication between client and server
 
 ## Root Login
 
-By deactivating root login you can at least prevent yourself from potentially breaking critical system configurations by accident and much more important even if your login credentials get compromised an attacker will be restricted to the permissions of that account while the administrator/root access would compromise not only the files and areas of the web application but also all other programs and directories or in case of a shared server you would also open all doors for attackers to these user files/information.
+By deactivating root login you can at least prevent yourself from potentially breaking critical system configurations by accident and much more important even if your login credentials get compromised an attacker will be restricted to the permissions of that account while the administrator/root access would compromise not only the files and areas of the web application but also all other programs and directories.
 
 ## Updates
 

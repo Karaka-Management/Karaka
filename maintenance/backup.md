@@ -12,4 +12,4 @@ The backup files will be stored on the server where they are getting generated a
 
 The import of the backups is also straight forward by simply clicking import and selecting the backup file. In case the backup version is not support by the current application or module version you'll receive a error message. 
 
-During the import process it's also possible to choose which modules should be imported during the import process for better control. Before importing data into the application it's recommended to perform a backup in case of data corruption. In fact the application automatically offers you to perform a backup right before the import.
+During the import process it's also possible to choose which modules should be imported for better control. Before importing data into the application it's recommended to perform a backup in case of data corruption. In fact the application automatically offers you to perform a backup right before the import.
