@@ -108,8 +108,5 @@ $CONFIG = [
         'google' => [
             'key' => 'AIzaSyCtO4kWuXsqFZgDKBKhmqlQTiDhA1qupCk',
         ],
-    ],
-    'jobs' => [
-        'path' => 'c:/WINDOWS/system32/schtasks.exe'
     ]
 ];
