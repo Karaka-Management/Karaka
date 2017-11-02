@@ -1,0 +1,67 @@
+@keyframes blink { 
+   0% { 
+       border: 3px solid red;
+   } 
+}
+
+*[style] {
+    animation: blink .5s step-end infinite alternate;
+}
+
+a:not([href]),
+a:[href="#"],  
+a:[href=""],  
+a[href*="javascript:void(0)"] {
+    animation: blink .5s step-end infinite alternate;
+}
+
+img:not([alt]), 
+img[alt=""] {
+    animation: blink .5s step-end infinite alternate;
+} 
+
+html:not([lang]),  
+html[lang=""] { 
+    animation: blink .5s step-end infinite alternate;
+ }
+
+ meta[charset]:not([charset="UTF-8"]),
+ meta[charset="UTF-8"]:not(:first-child) {
+    animation: blink .5s step-end infinite alternate;
+ }  
+
+meta[name="viewport"][content*="user-scalable=no"],  
+meta[name="viewport"][content*="maximum-scale"],  
+meta[name="viewport"][content*="minimum-scale"] {
+    animation: blink .5s step-end infinite alternate;
+} 
+
+input:not([id]),  
+select:not([id]),  
+textarea:not([id]) {
+    animation: blink .5s step-end infinite alternate;
+}
+
+label:not([for]) {
+    animation: blink .5s step-end infinite alternate;
+}  
+
+input:not([name]),  
+select:not([name]),  
+textarea:not([name]) {
+    animation: blink .5s step-end infinite alternate;
+}  
+
+form:not([name]):not([id]) {
+    animation: blink .5s step-end infinite alternate;
+}  
+
+button:empty,  
+a:empty {
+    animation: blink .5s step-end infinite alternate;
+}  
+
+script[type="text/javascript"],  
+link[rel="stylesheet"][type="text/css"] {
+    animation: blink .5s step-end infinite alternate;
+}  

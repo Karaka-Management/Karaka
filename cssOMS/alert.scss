@@ -1,0 +1,20 @@
+div.alert {
+    padding: 10px;
+    font-weight: bold;
+
+    i {
+        margin-right: 5px;
+    }
+}
+
+@each $tuple in 
+    'ok' #aaffad #81e27d #459442, 
+    'warning' #f8ffa8 #d6d949 #94972f, 
+    'error' #ff7d79 #ee5649 #a5302a, 
+    'info' #b6d2ff #85b0ee #4865a5 {
+    .alertbox.#{nth($tuple, 1)}, .alert.#{nth($tuple, 1)} {
+        background: #{nth($tuple, 2)};
+        border: 2px solid #{nth($tuple, 3)};
+        color: #{nth($tuple, 4)};
+    }
+}

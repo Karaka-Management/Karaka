@@ -1,0 +1,33 @@
+.center {
+    margin: 0 auto;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.rightText {
+    text-align: right;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.floatRight {
+    float: right;
+}
+
+.pAlignTable {
+    display: table;
+    width: 100%;
+}
+
+.vCenterTable {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.h-overflow {
+    overflow-x: auto;
+}

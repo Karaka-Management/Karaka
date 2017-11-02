@@ -1,0 +1,51 @@
+.wf-100 {
+    width: 100%;
+}
+
+.wf-50 {
+    width: 50%;
+}
+
+.wf-33 {
+    width: 33.33%;
+}
+
+.wf-25 {
+    width: 25%;
+}
+
+.wf-75 {
+    width: 75%;
+}
+
+.wf-66 {
+    width: 66.66%;
+}
+
+.spacer {
+    padding: 5px;
+}
+
+.resizable {
+    resize: both;
+    overflow: auto;
+}
+
+@media only screen and (min-width: 501px) and (max-width: 900px) {
+    .box.w-33, .box.w-25 {
+        width: 49%;
+        width: calc(50% - 5px);
+    }
+
+    .box.w-75, .box.w-66 {
+        width: 49%;
+        width: calc(50% - 5px);
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .box.w-33, .box.w-50, .box.w-25, .box.w-66, .box.w-75 {
+        width: 100%;
+        width: calc(100% - 5px);
+    }
+}

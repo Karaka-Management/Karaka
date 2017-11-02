@@ -1,0 +1,97 @@
+@import "_mixins", "_vars";
+
+.btn {
+    cursor: pointer;
+}
+
+button, input[type="submit"], input[type="button"], a.button {
+    border: 1px solid $content-border-color;
+    cursor: pointer;
+    text-shadow: 1px 1px 1px #ffffff;
+    min-width: 70px;
+    height: 2rem;
+    font-size: 0.9rem;
+    @include gradient-top-bottom(#f1f1f1, 0, #d1d1d1, 100, #d9d9d9);
+    @include box-shadow-out(#ffffff);
+
+    &:hover, :active {
+        text-shadow: -1px -1px 1px #ffffff;
+        @include gradient-top-bottom(#d6d6d6, 0, #ededed, 100, #d9d9d9);
+    }
+}
+
+@mixin color-button($color1, $color2, $fallback, $shadow) {
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #696969;
+    @include gradient-top-bottom($color1, 0, $color2, 100, $fallback);
+    @include box-shadow-out($shadow);
+
+    &:hover, :active {
+        text-shadow: -1px -1px 1px #696969;
+        @include gradient-top-bottom($color2, 0, $color1, 100, $fallback);
+    }
+}
+
+button.red {
+    @include color-button(#f17068, #d16059, #d9645b, #ff8d7c);
+}
+
+button.green {
+    @include color-button(#9df1ad, #77d17c, #90d99d, #c8ffb6);
+}
+
+button.blue {
+    @include color-button(#beddf1, #7ba9d1, #97afd9, #cbf3ff);
+}
+
+ul.btns {
+    list-style: none;
+    overflow: hidden;
+    font-size: 12px;
+    
+    li {
+        background: $content-background-color;
+        border-left: 1px solid $content-border-color;
+        border-top: 1px solid $content-border-color;
+        border-bottom: 1px solid $content-border-color;
+        float: left;
+        text-shadow: -1px -1px 1px #ffffff;
+        cursor: pointer;
+
+        @include box-shadow-out(#ffffff);
+
+        &:last-child {
+            border-right: 1px solid $content-border-color;
+        }
+        
+        &:before {
+            border-left-color: $content-border-color;
+            margin-left: 1px;
+        }
+    }
+    
+    a {
+        display: block;
+        padding: 10px;
+    }
+    
+    .active {
+        cursor: default;
+    }
+    
+    .active, li:hover {
+        background: #ffffff;
+    }
+}
+
+button.simple {
+    background: $content-background-color;
+    border: 1px solid $content-border-color;
+    text-shadow: -1px -1px 1px #ffffff;
+    padding: 5px;
+    min-width: 40px;
+
+    &:hover {
+        background: #ffffff;
+    }
+}

@@ -1,0 +1,101 @@
+@import "_mixins", "_vars";
+
+img {
+    &.frame-1 {
+        padding: 5px;
+        background: $content-background-color;
+        border: 1px solid $content-border-color;
+        @include box-shadow-out(#ffffff);
+        @include border-radius(3px);
+    }
+
+    &.frame-2 {
+        border: 1px solid $content-border-color;
+        background: $content-background-color;
+    }
+
+    &.frame-3 {
+        padding: 5px;
+        background: #ffffff;
+        border: 1px solid $content-border-color;
+        @include box-shadow-out(#ffffff);
+        @include border-radius(3px);
+    }
+}
+
+@keyframes slidy {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+}
+
+div.slider-1 {
+    overflow: hidden;
+    
+    figure {
+        position: relative;
+        width: 500%;
+        margin: 0;
+        left: 0;
+        text-align: left;
+        font-size: 0;
+        animation: 30s slidy infinite;
+
+        img { 
+            width: 20%; float: left; 
+        }
+    }
+}
+
+.slider-2 {
+    width: 100%;
+    position: relative;
+    padding-top: auto;
+    text-align: center;
+    
+    > img {
+        width: 100%;
+        position: absolute;
+        left: 0; top: 0;
+        transition: all 0.5s;
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.75);
+    }
+    
+    input {
+        display: none;
+        
+        &:checked+label {
+            border-color: #666;
+            opacity: 1;
+            
+            +img {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+         ~ img {
+            opacity: 0;
+            transform: scale(1.1);
+        }
+    }
+    
+    label {
+        display: inline-block;
+        margin-top: calc(50% + 15px);
+        margin-left: 15px;
+        border: 3px solid #999;
+        cursor: pointer;
+        opacity: 0.6;
+        
+        img{
+            display: block;
+        }
+    }
+}
