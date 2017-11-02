@@ -1,0 +1,16 @@
+.qa-list .score {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc; }
+  .qa-list .score.closed {
+    background: #f00; }
+  .qa-list .score.open {
+    background: #ff0; }
+  .qa-list .score.done {
+    background: #0f0; }
+.qa-list .scores {
+  flex-basis: min-content; }
+.qa-list .title a {
+  font-size: 2rem; }
+.qa-list .tags {
+  margin-top: 10px; }

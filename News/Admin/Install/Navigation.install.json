@@ -1,0 +1,78 @@
+[
+    {
+        "id": 1000701001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "News",
+        "uri": "{/base}/{/lang}/backend/news/dashboard?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 40,
+        "from": "News",
+        "permission": null,
+        "parent": 1000201001,
+        "children": [
+            {
+                "id": 1000702001,
+                "pid": "/backend/news",
+                "type": 3,
+                "subtype": 1,
+                "name": "News",
+                "uri": "{/base}/{/lang}/backend/news/dashboard?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "News",
+                "permission": null,
+                "parent": 1000701001,
+                "children": []
+            },
+            {
+                "id": 1000703001,
+                "pid": "/backend/news",
+                "type": 3,
+                "subtype": 1,
+                "name": "Archive",
+                "uri": "{/base}/{/lang}/backend/news/archive?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "News",
+                "permission": null,
+                "parent": 1000701001,
+                "children": []
+            },
+            {
+                "id": 1000704001,
+                "pid": "/backend/news",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "{/base}/{/lang}/backend/news/create?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 10,
+                "from": "News",
+                "permission": null,
+                "parent": 1000701001,
+                "children": []
+            },
+            {
+                "id": 1000705001,
+                "pid": "/backend/news",
+                "type": 3,
+                "subtype": 1,
+                "name": "Draft",
+                "uri": "{/base}/{/lang}/backend/news/draft/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 15,
+                "from": "News",
+                "permission": null,
+                "parent": 1000701001,
+                "children": []
+            }
+        ]
+    }
+]

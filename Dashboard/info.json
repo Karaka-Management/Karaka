@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1000200000,
+        "internal": "Dashboard",
+        "external": "Backend Dashboard"
+    },
+    "category": "General",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The backend dashboard module.",
+    "directory": "Dashboard",
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 4,
+            "for": "Content",
+            "from": "Dashboard",
+            "file": "Dashboard"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Dashboard",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

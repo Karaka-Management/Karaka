@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1000201001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 0,
+        "name": "Home",
+        "uri": null,
+        "target": "self",
+        "icon": "fa fa-home",
+        "order": 10,
+        "from": "Dashboard",
+        "permission": null,
+        "parent": 0,
+        "children": [
+            {
+                "id": 1000202001,
+                "pid": "/backend",
+                "type": 2,
+                "subtype": 1,
+                "name": "Dashboard",
+                "uri": "{/base}/{/lang}/backend?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Dashboard",
+                "permission": null,
+                "parent": 1000201001,
+                "children": []
+            }
+        ]
+    },
+    {
+        "id": 1000200001,
+        "pid": "/backend",
+        "type": 1,
+        "subtype": 1,
+        "name": "Logout",
+        "uri": "/{/lang}/api/logout?{?}",
+        "target": "self",
+        "icon": "fa fa-power-off",
+        "order": 999,
+        "from": "Dashboard",
+        "permission": null,
+        "parent": 0,
+        "children": []
+    }
+]

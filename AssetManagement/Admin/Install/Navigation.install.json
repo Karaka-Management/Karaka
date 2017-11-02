@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1006601001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "Asset",
+        "uri": "{/base}/{/lang}/backend/accounting/asset/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 1,
+        "from": 1006600000,
+        "permission": null,
+        "parent": 1002601001,
+        "children": [
+            {
+                "id": 1006602001,
+                "pid": "/backend/accounting/asset",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "{/base}/{/lang}/backend/accounting/asset/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": 1006600000,
+                "permission": null,
+                "parent": 1006601001,
+                "children": []
+            }
+        ]
+    }
+]

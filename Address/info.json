@@ -1,0 +1,26 @@
+{
+    "name": {
+        "id": 1003700000,
+        "internal": "Address",
+        "external": "Address"
+    },
+    "category": "General",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Address module.",
+    "directory": "Address",
+    "dependencies": {
+        "PaymentInformation": "*"
+    },
+    "providing": {
+    },
+    "load": [
+    ]
+}

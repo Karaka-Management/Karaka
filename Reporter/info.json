@@ -1,0 +1,47 @@
+{
+    "name": {
+        "id": 1002700000,
+        "internal": "Reporter",
+        "external": "Reporter"
+    },
+    "category": "Tools",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The administration module.",
+    "directory": "Reporter",
+    "dependencies": {
+        "Admin" : "1.0.0",
+        "Media" : "1.0.0",
+        "Tools" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/reporter"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Reporter",
+            "from": "Reporter"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Reporter",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

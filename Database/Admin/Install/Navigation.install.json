@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1005601001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "Database",
+        "uri": "{/base}/{/lang}/backend/database/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 70,
+        "from": "Database",
+        "permission": null,
+        "parent": 1003301001,
+        "children": [
+            {
+                "id": 1005602001,
+                "pid": "/backend/database",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "{/base}/{/lang}/backend/database/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Database",
+                "permission": null,
+                "parent": 1005601001,
+                "children": []
+            },
+            {
+                "id": 1005602101,
+                "pid": "/backend/database",
+                "type": 3,
+                "subtype": 5,
+                "name": "Create",
+                "uri": "{/base}/{/lang}/backend/database/create?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 15,
+                "from": "Database",
+                "permission": null,
+                "parent": 1005601001,
+                "children": []
+            }
+        ]
+    }
+]

@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1006600000,
+        "internal": "AssetManagement",
+        "external": "Asset Management"
+    },
+    "category": "Finance",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Budget Management module.",
+    "directory": "AssetManagement",
+    "dependencies": {
+        "Controlling": "*"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/accounting/asset"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "AssetManagement",
+            "file": "AssetManagement"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "AssetManagement",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

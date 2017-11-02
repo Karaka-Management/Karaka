@@ -1,0 +1,156 @@
+[
+    {
+        "id": 1000101001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 0,
+        "name": "Admin",
+        "uri": null,
+        "target": "self",
+        "icon": "fa fa-lock",
+        "order": 1,
+        "from": "Admin",
+        "permission": null,
+        "parent": 0,
+        "children": [
+            {
+                "id": 1000102001,
+                "pid": "/backend",
+                "type": 2,
+                "subtype": 1,
+                "name": "General",
+                "uri": "{/base}/{/lang}/backend/admin/settings/general?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Admin",
+                "permission": null,
+                "parent": 1000101001,
+                "children": []
+            },
+            {
+                "id": 1000103001,
+                "pid": "/backend",
+                "type": 2,
+                "subtype": 1,
+                "name": "Groups",
+                "uri": "{/base}/{/lang}/backend/admin/group/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 2,
+                "from": "Admin",
+                "permission": null,
+                "parent": 1000101001,
+                "children": [
+                    {
+                        "id": 1000103103,
+                        "pid": "/backend/admin/group",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "List",
+                        "uri": "{/base}/{/lang}/backend/admin/group/list?{?}",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": "Admin",
+                        "permission": null,
+                        "parent": 1000103001,
+                        "children": []
+                    },
+                    {
+                        "id": 1000103104,
+                        "pid": "/backend/admin/group",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Create",
+                        "uri": "{/base}/{/lang}/backend/admin/group/create?{?}",
+                        "target": "self",
+                        "icon": null,
+                        "order": 5,
+                        "from": "Admin",
+                        "permission": null,
+                        "parent": 1000103001,
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "id": 1000104001,
+                "pid": "/backend",
+                "type": 2,
+                "subtype": 1,
+                "name": "Accounts",
+                "uri": "{/base}/{/lang}/backend/admin/account/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 3,
+                "from": "Admin",
+                "permission": null,
+                "parent": 1000101001,
+                "children": [
+                    {
+                        "id": 1000104101,
+                        "pid": "/backend/admin/account",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "List",
+                        "uri": "{/base}/{/lang}/backend/admin/account/list?{?}",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": "Admin",
+                        "permission": null,
+                        "parent": 1000104001,
+                        "children": []
+                    },
+                    {
+                        "id": 1000104202,
+                        "pid": "/backend/admin/account",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Create",
+                        "uri": "{/base}/{/lang}/backend/admin/account/create?{?}",
+                        "target": "self",
+                        "icon": null,
+                        "order": 5,
+                        "from": "Admin",
+                        "permission": null,
+                        "parent": 1000104001,
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "id": 1000105001,
+                "pid": "/backend",
+                "type": 2,
+                "subtype": 1,
+                "name": "Modules",
+                "uri": "{/base}/{/lang}/backend/admin/module/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 4,
+                "from": "Admin",
+                "permission": null,
+                "parent": 1000101001,
+                "children": [
+                    {
+                        "id": 1000105101,
+                        "pid": "/backend/admin/module",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Settings",
+                        "uri": "{/base}/{/lang}/backend/admin/module/setting?{?}",
+                        "target": "self",
+                        "icon": null,
+                        "order": 4,
+                        "from": "Admin",
+                        "permission": null,
+                        "parent": 1000105001,
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+]

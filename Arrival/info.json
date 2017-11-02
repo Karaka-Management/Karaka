@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1001500000,
+        "internal": "Arrival",
+        "external": "Area Manager"
+    },
+    "category": "Logistics",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Accounting module.",
+    "directory": "Arrival",
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/warehouse/arrival"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Arrival",
+            "from": "Arrival"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Arrival",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

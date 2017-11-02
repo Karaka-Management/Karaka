@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1004700000,
+        "internal": "Organization",
+        "external": "Organization"
+    },
+    "category": "General",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The buisness module.",
+    "directory": "Organization",
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/organization"
+            ],
+            "type": 4,
+            "for": "Organization",
+            "file": "Organization",
+            "from": "Admin"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Organization",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

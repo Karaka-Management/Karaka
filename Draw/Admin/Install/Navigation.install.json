@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1005201001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "Draw",
+        "uri": "{/base}/{/lang}/backend/draw/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 70,
+        "from": "Draw",
+        "permission": null,
+        "parent": 1003301001,
+        "children": [
+            {
+                "id": 1005202001,
+                "pid": "/backend/draw",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "{/base}/{/lang}/backend/draw/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Draw",
+                "permission": null,
+                "parent": 1005201001,
+                "children": []
+            },
+            {
+                "id": 1005202101,
+                "pid": "/backend/draw",
+                "type": 3,
+                "subtype": 5,
+                "name": "Create",
+                "uri": "{/base}/{/lang}/backend/draw/create?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 15,
+                "from": "Draw",
+                "permission": null,
+                "parent": 1005201001,
+                "children": []
+            }
+        ]
+    }
+]

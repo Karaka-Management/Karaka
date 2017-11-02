@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1005000000,
+        "internal": "AccountsPayable",
+        "external": "Accounts Payable"
+    },
+    "category": "Finance",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Accounting module.",
+    "directory": "AccountsPayable",
+    "dependencies": {
+        "PaymentInformation": "*"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "AccountsPayable",
+            "for": "Navigation",
+            "file": "Navigation"
+        },
+        {
+            "pid": [
+                "/backend/accounting/payable"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "AccountsPayable",
+            "from": "AccountsPayable"
+        }
+    ]
+}

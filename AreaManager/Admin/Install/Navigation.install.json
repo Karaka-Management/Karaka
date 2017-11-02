@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1002001001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "AreaManager",
+        "uri": "{/base}/{/lang}/backend/sales/areamanager/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 1,
+        "from": 1002000000,
+        "permission": null,
+        "parent": 1001601001,
+        "children": []
+    },
+    {
+        "id": 1002011001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "AreaManager",
+        "uri": "{/base}/{/lang}/backend/sales/areamanager/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 1,
+        "from": 1002000000,
+        "permission": null,
+        "parent": 1003401001,
+        "children": []
+    }
+]

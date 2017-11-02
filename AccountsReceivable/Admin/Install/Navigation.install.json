@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1004901001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "AccountsReceivable",
+        "uri": "{/base}/{/lang}/backend/accounting/receivable/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 10,
+        "from": "AccountsReceivable",
+        "permission": null,
+        "parent": 1002601001,
+        "children": [
+            {
+                "id": 1004901101,
+                "pid": "/backend/accounting/receivable",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "{/base}/{/lang}/backend/accounting/receivable/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "AccountsReceivable",
+                "permission": null,
+                "parent": 1004901001,
+                "children": [
+                ]
+            },
+            {
+                "id": 1004901201,
+                "pid": "/backend/accounting/receivable",
+                "type": 3,
+                "subtype": 1,
+                "name": "Entries",
+                "uri": "{/base}/{/lang}/backend/accounting/receivable/entries?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "AccountsReceivable",
+                "permission": null,
+                "parent": 1004901001,
+                "children": [
+                ]
+            },
+            {
+                "id": 1004901301,
+                "pid": "/backend/accounting/receivable",
+                "type": 3,
+                "subtype": 1,
+                "name": "Analyze",
+                "uri": "{/base}/{/lang}/backend/accounting/receivable/analyze?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 10,
+                "from": "AccountsReceivable",
+                "permission": null,
+                "parent": 1004901001,
+                "children": [
+                ]
+            },
+            {
+                "id": 1004901401,
+                "pid": "/backend/accounting/receivable",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "{/base}/{/lang}/backend/accounting/receivable/create?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 15,
+                "from": "AccountsReceivable",
+                "permission": null,
+                "parent": 1004901001,
+                "children": [
+                ]
+            }
+        ]
+    }
+]

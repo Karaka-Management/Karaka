@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1006200000,
+        "internal": "Auditor",
+        "external": "Auditor"
+    },
+    "category": "Admin",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The administration module.",
+    "directory": "Auditor",
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/admin/audit"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Auditor",
+            "from": "Auditor"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Auditor",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

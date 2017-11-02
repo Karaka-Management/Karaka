@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1001900000,
+        "internal": "Marketing",
+        "external": "Marketing"
+    },
+    "category": "Marketing",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Marketing module.",
+    "directory": "Marketing",
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/marketing"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "Marketing",
+            "file": "Marketing"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Marketing",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

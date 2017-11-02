@@ -1,0 +1,36 @@
+{
+    "name": {
+        "id": 1003400000,
+        "internal": "MyPrivate",
+        "external": "Private"
+    },
+    "category": "Tools",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Tasks module.",
+    "directory": "MyPrivate",
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "MyPrivate",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

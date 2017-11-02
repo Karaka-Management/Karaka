@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1002801001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 0,
+        "name": "Controlling",
+        "uri": null,
+        "target": "self",
+        "icon": "fa fa-exclamation-triangle",
+        "order": 100,
+        "from": "Controlling",
+        "permission": null,
+        "parent": 1000201001,
+        "children": []
+    }
+]

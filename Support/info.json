@@ -1,0 +1,46 @@
+{
+    "name": {
+        "id": 1002900000,
+        "internal": "Support",
+        "external": "Support"
+    },
+    "category": "Sales",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Support module.",
+    "directory": "Support",
+    "dependencies": {
+        "Admin" : "1.0.0",
+        "Tasks" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/support"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "Support",
+            "file": "Support"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Support",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

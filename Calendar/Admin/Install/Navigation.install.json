@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1000901001,
+        "pid": "/backend",
+        "type": 1,
+        "subtype": 1,
+        "name": "Calendar",
+        "uri": "{/base}/{/lang}/backend/calendar/dashboard?{?}",
+        "target": "self",
+        "icon": "fa fa-calendar",
+        "order": 10,
+        "from": "Calendar",
+        "permission": null,
+        "parent": 1000201001,
+        "children": []
+    },
+    {
+        "id": 1000901002,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "Calendar",
+        "uri": "{/base}/{/lang}/backend/calendar/dashboard?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 30,
+        "from": "Calendar",
+        "permission": null,
+        "parent": 1000201001,
+        "children": []
+    }
+]

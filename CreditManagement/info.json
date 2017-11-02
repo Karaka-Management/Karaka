@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1002300000,
+        "internal": "CreditManagement",
+        "external": "Credit Management"
+    },
+    "category": "Finance",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Research & Development module.",
+    "directory": "CreditManagement",
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/accounting/creditmanagement"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "CreditManagement",
+            "file": "CreditManagement"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "CreditManagement",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

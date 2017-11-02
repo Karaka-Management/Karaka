@@ -1,0 +1,47 @@
+{
+    "name": {
+        "id": 1005500000,
+        "internal": "Workflow",
+        "external": "Workflow"
+    },
+    "category": "Tools",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Workflow module.",
+    "directory": "Workflow",
+    "dependencies": {
+        "Admin" : "1.0.0",
+        "Calendar" : "1.0.0",
+        "Tasks" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/workflow"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "Workflow",
+            "file": "Workflow"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Workflow",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}
