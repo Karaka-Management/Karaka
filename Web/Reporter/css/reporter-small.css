@@ -1,0 +1,125 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    font-family: arial, serif;
+    color: #000;
+    background: #eaecf0
+}
+
+#bar-s {
+    height: 25px;
+    background: #2f2f2f
+}
+
+#bar-b {
+    height: 50px;
+    background: #fff;
+    border-bottom: 1px solid #dadee2;
+    display: table;
+    width: 100%
+}
+
+#bar-b > span {
+    padding-left: 5px
+}
+
+#logo {
+    font-size: 1.7em;
+    width: 1%
+}
+
+#logo a {
+    color: #2f2f2f
+}
+
+#s-bar input[type=text] {
+    width: 50%
+}
+
+#s-bar input[type=submit] {
+    width: 80px
+}
+
+#out {
+    height: 100%;
+    padding-bottom: 75px
+}
+
+#out, #cont {
+    box-sizing: border-box
+}
+
+#snav, #cont {
+    overflow: auto;
+    height: 100%
+}
+
+#t-nav {
+    font-size: 0.75em;
+    color: #fff;
+    float: right;
+    font-weight: bold
+}
+
+#t-nav a {
+    padding: 0 5px 0 5px;
+    line-height: 25px
+}
+
+#t-nav i {
+    margin-right: 5px
+}
+
+#t-nav li {
+    display: inline
+}
+
+#s-nav {
+    width: 170px;
+    background: #2f2f2f;
+    font-size: 0.75em;
+    float: left;
+    height: 100%;
+    overflow-y: auto
+}
+
+#s-nav > li li {
+    border-top: 1px solid #3f3f3f;
+    border-bottom: 1px solid #1a1a1a;
+    color: #fff
+}
+
+#s-nav > li li:first-child {
+    padding: 5px 0 5px 5px
+}
+
+#s-nav > li li a {
+    display: block;
+    padding: 5px 0 5px 5px
+}
+
+#s-nav > li li a:hover {
+    background: #3f3f3f
+}
+
+#s-nav li:last-child li:last-child {
+    border-bottom: none
+}
+
+#s-nav .max, #s-nav .min {
+    float: right
+}
+
+#s-nav i {
+    margin-right: 5px
+}
+
+#cont {
+    padding-right: 0;
+    position: relative
+}
+
+/*# sourceMappingURL=backend-small.css.map */

@@ -1,0 +1,23 @@
+@import "mixins", "backend_vars";
+
+.tab:not(.active) {
+    display: none;
+}
+
+.tab-links {
+    a {
+        padding: 5px;
+        background: #fff;
+        font-size: 0.9em;
+    }
+
+    .active a {
+        background: $d-button-color;
+        color: $d-box-color;
+    }
+
+    li {
+        display: inline-block;
+        margin: 10px 0 5px 5px;
+    }
+}

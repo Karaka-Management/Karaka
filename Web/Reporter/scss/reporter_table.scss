@@ -1,0 +1,121 @@
+@import "mixins", "backend_vars";
+
+.tc-1 {
+    th {
+        font-weight: bold;
+        text-align: left;
+        white-space: nowrap;
+        padding: 5px 15px 5px 3px;
+    }
+
+    td {
+        width: 100%;
+        padding: 5px 15px 5px 0;
+    }
+
+    tr {
+        &:nth-child(2n+1) {
+            background: #fafafa;
+        }
+
+        &:hover {
+            background: #f0f0f0;
+        }
+    }
+}
+
+#t-f {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    z-index: 10;
+}
+
+.t-1 {
+    overflow: auto;
+
+    thead th, thead td, tbody td {
+        padding: 4px;
+        white-space: nowrap;
+    }
+
+    thead {
+        tr:first-child {
+            background: $d-base-color;
+        }
+
+        h1 {
+            display: inline;
+            font-size: 1em;
+        }
+
+        th i {
+            color: $d-box-text-contrast-color;
+        }
+
+        td {
+            cursor: pointer;
+            font-weight: bold;
+            border-bottom: 1px solid $d-border-cont;
+            white-space: nowrap;
+
+            i {
+                color: inherit;
+                margin-left: 5px;
+            }
+        }
+    }
+
+    tbody {
+        a {
+            display: block;
+            padding: 4px;
+        }
+
+        td {
+            cursor: pointer;
+            padding: 0;
+        }
+
+        tr {
+            &:nth-child(2n) {
+                background: #fafafa;
+            }
+
+            &:hover {
+                background: #f0f0f0;
+            }
+
+            &:not(:last-child) td {
+                border-bottom: 1px solid $d-border-cont;
+            }
+        }
+    }
+
+    tfoot {
+        td {
+            padding: 10px;
+            background: $d-cont-color;
+        }
+
+        li {
+            display: inline;
+        }
+
+        a {
+            cursor: pointer;
+            background: $d-box-color;
+            padding: 5px 10px 5px 10px;
+
+            &:hover, &:focus {
+                color: $d-nav-color;
+                background: $d-base-color-o;
+            }
+        }
+
+        .a {
+            color: $d-nav-color;
+            background: $d-nav-hover-color;
+        }
+    }
+}
