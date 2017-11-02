@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1005700000,
+        "internal": "Job",
+        "external": "Job"
+    },
+    "category": "Admin",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Job module.",
+    "directory": "Job",
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/admin/job"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "Job",
+            "file": "Job"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Job",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

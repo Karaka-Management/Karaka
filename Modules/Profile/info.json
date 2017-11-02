@@ -1,0 +1,47 @@
+{
+    "name": {
+        "id": 1000300000,
+        "internal": "Profile",
+        "external": "Profile"
+    },
+    "category": "General",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The profile module.",
+    "directory": "Profile",
+    "dependencies": {
+        "Admin" : "1.0.0",
+        "Calendar" : "1.0.0",
+        "Media" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/profile"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Profile",
+            "from": "Profile"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Profile",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

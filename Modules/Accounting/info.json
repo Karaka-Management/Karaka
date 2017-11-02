@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1002600000,
+        "internal": "Accounting",
+        "external": "Accounting"
+    },
+    "category": "Finance",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Accounting module.",
+    "directory": "Accounting",
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/accounting"
+            ],
+            "type": 4,
+            "for": "Content",
+            "from": "Accounting",
+            "file": "Accounting"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Accounting",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

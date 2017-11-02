@@ -1,0 +1,63 @@
+[
+    {
+        "id": 1005501001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "Workflows",
+        "uri": "{/base}/{/lang}/backend/workflow/dashboard?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 40,
+        "from": "Wokflow",
+        "permission": null,
+        "parent": 1003301001,
+        "children": [
+            {
+                "id": 1005502001,
+                "pid": "/backend/workflow",
+                "type": 3,
+                "subtype": 1,
+                "name": "Dashboard",
+                "uri": "{/base}/{/lang}/backend/workflow/dashboard?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Wokflow",
+                "permission": null,
+                "parent": 1005501001,
+                "children": []
+            },
+            {
+                "id": 1005503001,
+                "pid": "/backend/workflow",
+                "type": 3,
+                "subtype": 1,
+                "name": "Templates",
+                "uri": "{/base}/{/lang}/backend/workflow/template/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "Wokflow",
+                "permission": null,
+                "parent": 1005501001,
+                "children": []
+            },
+            {
+                "id": 1005504001,
+                "pid": "/backend/workflow",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "{/base}/{/lang}/backend/workflow/template/create?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 10,
+                "from": "Wokflow",
+                "permission": null,
+                "parent": 1005501001,
+                "children": []
+            }
+        ]
+    }
+]

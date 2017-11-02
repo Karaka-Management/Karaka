@@ -1,0 +1,47 @@
+{
+    "name": {
+        "id": 1005200000,
+        "internal": "Draw",
+        "external": "Draw"
+    },
+    "category": "Tools",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The administration module.",
+    "directory": "Draw",
+    "dependencies": {
+        "Admin" : "1.0.0",
+        "Media" : "1.0.0",
+        "Tools" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/draw"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Draw",
+            "from": "Draw"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Draw",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1004401001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "CostObjects",
+        "uri": "{/base}/{/lang}/backend/accounting/costobject/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 5,
+        "from": 1004400000,
+        "permission": null,
+        "parent": 1002601001,
+        "children": [
+            {
+                "id": 1004401101,
+                "pid": "/backend",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "{/base}/{/lang}/backend/accounting/costobject/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": 1004400000,
+                "permission": null,
+                "parent": 1004401001,
+                "children": []
+            },
+            {
+                "id": 1004401201,
+                "pid": "/backend",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "{/base}/{/lang}/backend/accounting/costobject/create?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 10,
+                "from": 1004400000,
+                "permission": null,
+                "parent": 1004401001,
+                "children": []
+            }
+        ]
+    }
+]

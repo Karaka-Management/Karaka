@@ -1,0 +1,48 @@
+{
+    "name": {
+        "id": 1004200000,
+        "internal": "EventManagement",
+        "external": "Event Management"
+    },
+    "category": "Tools",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Event Management module.",
+    "directory": "EventManagement",
+    "dependencies": {
+        "Admin" : "1.0.0",
+        "Calendar" : "1.0.0",
+        "Tasks" : "1.0.0",
+        "Tools" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/eventmanagement"
+            ],
+            "type": 4,
+            "for": "Content",
+            "from": "EventManagement",
+            "file": "EventManagement"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "EventManagement",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

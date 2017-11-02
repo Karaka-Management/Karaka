@@ -1,0 +1,78 @@
+[
+    {
+        "id": 1000401001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "Media",
+        "uri": "{/base}/{/lang}/backend/media/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 20,
+        "from": "Media",
+        "permission": null,
+        "parent": 1000201001,
+        "children": [
+            {
+                "id": 1000402001,
+                "pid": "/backend/media",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "{/base}/{/lang}/backend/media/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Media",
+                "permission": null,
+                "parent": 1000401001,
+                "children": []
+            },
+            {
+                "id": 1000403001,
+                "pid": "/backend/media",
+                "type": 3,
+                "subtype": 5,
+                "name": "Create",
+                "uri": "{/base}/{/lang}/backend/media/create?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "Media",
+                "permission": null,
+                "parent": 1000401001,
+                "children": []
+            }
+        ]
+    },
+    {
+        "id": 1000410001,
+        "pid": "/backend/profile/single",
+        "type": 2,
+        "subtype": 2,
+        "name": "Media",
+        "uri": "{/base}/{/lang}/backend/profile/single/media?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 3,
+        "from": "Media",
+        "permission": null,
+        "parent": 1000301001,
+        "children": []
+    },
+    {
+        "id": 1000410002,
+        "pid": "/backend/admin/account",
+        "type": 3,
+        "subtype": 1,
+        "name": "Media",
+        "uri": "{/base}/{/lang}/backend/admin/account/single/media?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 3,
+        "from": "Media",
+        "permission": null,
+        "parent": 1000104001,
+        "children": []
+    }
+]

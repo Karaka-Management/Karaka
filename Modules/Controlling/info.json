@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1002800000,
+        "internal": "Controlling",
+        "external": "Controlling"
+    },
+    "category": "Finance",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Controlling module.",
+    "directory": "Controlling",
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/controlling"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "Controlling",
+            "file": "Controlling"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Controlling",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

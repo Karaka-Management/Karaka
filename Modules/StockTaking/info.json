@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1006700000,
+        "internal": "StockTaking",
+        "external": "Stock Taking"
+    },
+    "category": "Logistics",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Accounting module.",
+    "directory": "StockTaking",
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/warehouse/stocktaking"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "StockTaking",
+            "from": "StockTaking"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "StockTaking",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

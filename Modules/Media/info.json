@@ -1,0 +1,54 @@
+{
+    "name": {
+        "id": 1000400000,
+        "internal": "Media",
+        "external": "Media"
+    },
+    "category": "Tools",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The profile module.",
+    "directory": "Media",
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/media"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Media",
+            "from": "Media"
+        },
+        {
+            "pid": [
+                "/backend/admin"
+            ],
+            "type": 4,
+            "for": "Admin",
+            "file": "Media",
+            "from": "Media"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Media",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

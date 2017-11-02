@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1001701001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "ProjectManagement",
+        "uri": "{/base}/{/lang}/backend/projectmanagement/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 60,
+        "from": "ProjectManagement",
+        "permission": null,
+        "parent": 1003301001,
+        "children": [
+            {
+                "id": 1001702001,
+                "pid": "/backend/projectmanagement",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "{/base}/{/lang}/backend/projectmanagement/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "ProjectManagement",
+                "permission": null,
+                "parent": 1001701001,
+                "children": []
+            },
+            {
+                "id": 1001703001,
+                "pid": "/backend/projectmanagement",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "{/base}/{/lang}/backend/projectmanagement/create?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "ProjectManagement",
+                "permission": null,
+                "parent": 1001701001,
+                "children": []
+            }
+        ]
+    }
+]

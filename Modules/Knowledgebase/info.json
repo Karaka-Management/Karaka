@@ -1,0 +1,47 @@
+{
+    "name": {
+        "id": 1005900000,
+        "internal": "Knowledgebase",
+        "external": "Knowledgebase"
+    },
+    "category": "Tools",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Knowledgebase module.",
+    "directory": "Knowledgebase",
+    "dependencies": {
+        "Admin" : "1.0.0",
+        "Editor" : "1.0.0",
+        "Tools" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/wiki"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "Knowledgebase",
+            "file": "Knowledgebase"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Knowledgebase",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1006701001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "StockTaking",
+        "uri": "{/base}/{/lang}/backend/warehouse/stocktaking/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 10,
+        "from": 1006700000,
+        "permission": null,
+        "parent": 1001301001,
+        "children": [
+            {
+                "id": 1006702101,
+                "pid": "/backend/warehouse/stock",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "{/base}/{/lang}/backend/warehouse/stocktaking/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": 1006700000,
+                "permission": null,
+                "parent": 1006701001,
+                "children": [
+                ]
+            }
+        ]
+    }
+]

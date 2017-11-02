@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1003202001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "Suppliers",
+        "uri": "{/base}/{/lang}/backend/purchase/supplier/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 1,
+        "from": 1003200000,
+        "permission": null,
+        "parent": 1002101001,
+        "children": [
+            {
+                "id": 1003202101,
+                "pid": "/backend/purchase/supplier",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "{/base}/{/lang}/backend/purchase/supplier/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": 1003200000,
+                "permission": null,
+                "parent": 1003202001,
+                "children": []
+            },
+            {
+                "id": 1003202201,
+                "pid": "/backend/purchase/supplier",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "{/base}/{/lang}/backend/purchase/supplier/create?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": 1003200000,
+                "permission": null,
+                "parent": 1003202001,
+                "children": []
+            }
+        ]
+    }
+]

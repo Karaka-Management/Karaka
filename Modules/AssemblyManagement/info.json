@@ -1,0 +1,25 @@
+{
+    "name": {
+        "id": 1100100000,
+        "internal": "AssemblyManagement",
+        "external": "Assembly Management"
+    },
+    "category": "Production",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The buisness module.",
+    "directory": "AssemblyManagement",
+    "dependencies": {
+    },
+    "providing": {
+    },
+    "load": [
+    ]
+}

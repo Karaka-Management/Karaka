@@ -1,0 +1,156 @@
+[
+    {
+        "id": 1004701001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 0,
+        "name": "Organization",
+        "uri": null,
+        "target": "self",
+        "icon": "fa fa-database",
+        "order": 2,
+        "from": "Organization",
+        "permission": null,
+        "parent": 0,
+        "children": [
+            {
+                "id": 1004702001,
+                "pid": "/backend",
+                "type": 2,
+                "subtype": 1,
+                "name": "Units",
+                "uri": "{/base}/{/lang}/backend/organization/unit/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Organization",
+                "permission": null,
+                "parent": 1004701001,
+                "children": [
+                    {
+                        "id": 1004702101,
+                        "pid": "/backend/organization/unit",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "List",
+                        "uri": "{/base}/{/lang}/backend/organization/unit/list?{?}",
+                        "target": "self",
+                        "icon": null,
+                        "order": 5,
+                        "from": "Organization",
+                        "permission": null,
+                        "parent": 1004702001,
+                        "children": []
+                    },
+                    {
+                        "id": 1004702102,
+                        "pid": "/backend/organization/unit",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Create",
+                        "uri": "{/base}/{/lang}/backend/organization/unit/create?{?}",
+                        "target": "self",
+                        "icon": null,
+                        "order": 25,
+                        "from": "Organization",
+                        "permission": null,
+                        "parent": 1004702001,
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "id": 1004703001,
+                "pid": "/backend",
+                "type": 2,
+                "subtype": 1,
+                "name": "Departments",
+                "uri": "{/base}/{/lang}/backend/organization/department/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "Organization",
+                "permission": null,
+                "parent": 1004701001,
+                "children": [
+                    {
+                        "id": 1004703101,
+                        "pid": "/backend/organization/department",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "List",
+                        "uri": "{/base}/{/lang}/backend/organization/department/list?{?}",
+                        "target": "self",
+                        "icon": null,
+                        "order": 5,
+                        "from": "Organization",
+                        "permission": null,
+                        "parent": 1004703001,
+                        "children": []
+                    },
+                    {
+                        "id": 1004703102,
+                        "pid": "/backend/organization/department",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Create",
+                        "uri": "{/base}/{/lang}/backend/organization/department/create?{?}",
+                        "target": "self",
+                        "icon": null,
+                        "order": 25,
+                        "from": "Organization",
+                        "permission": null,
+                        "parent": 1004703001,
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "id": 1004704001,
+                "pid": "/backend",
+                "type": 2,
+                "subtype": 1,
+                "name": "Positions",
+                "uri": "{/base}/{/lang}/backend/organization/position/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 20,
+                "from": "Organization",
+                "permission": null,
+                "parent": 1004701001,
+                "children": [
+                    {
+                        "id": 1004704101,
+                        "pid": "/backend/organization/position",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "List",
+                        "uri": "{/base}/{/lang}/backend/organization/position/list?{?}",
+                        "target": "self",
+                        "icon": null,
+                        "order": 5,
+                        "from": "Organization",
+                        "permission": null,
+                        "parent": 1004704001,
+                        "children": []
+                    },
+                    {
+                        "id": 1004704102,
+                        "pid": "/backend/organization/position",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Create",
+                        "uri": "{/base}/{/lang}/backend/organization/position/create?{?}",
+                        "target": "self",
+                        "icon": null,
+                        "order": 25,
+                        "from": "Organization",
+                        "permission": null,
+                        "parent": 1004704001,
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+]

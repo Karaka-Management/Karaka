@@ -1,0 +1,63 @@
+[
+    {
+        "id": 1006201001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "Auditor",
+        "uri": "{/base}/{/lang}/backend/admin/audit/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 75,
+        "from": "Auditor",
+        "permission": null,
+        "parent": 1000101001,
+        "children": [
+            {
+                "id": 1006202001,
+                "pid": "/backend/admin/audit",
+                "type": 3,
+                "subtype": 1,
+                "name": "Audits",
+                "uri": "{/base}/{/lang}/backend/admin/audit/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Auditor",
+                "permission": null,
+                "parent": 1006201001,
+                "children": []
+            },
+            {
+                "id": 1006203001,
+                "pid": "/backend/admin/audit",
+                "type": 3,
+                "subtype": 1,
+                "name": "Modules",
+                "uri": "{/base}/{/lang}/backend/admin/audit/module/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "Auditor",
+                "permission": null,
+                "parent": 1006201001,
+                "children": []
+            },
+            {
+                "id": 1006204001,
+                "pid": "/backend/admin/audit",
+                "type": 3,
+                "subtype": 1,
+                "name": "Accounts",
+                "uri": "{/base}/{/lang}/backend/admin/audit/account/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 10,
+                "from": "Auditor",
+                "permission": null,
+                "parent": 1006201001,
+                "children": []
+            }
+        ]
+    }
+]

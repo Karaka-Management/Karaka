@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1006301001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "TimeRecording",
+        "uri": "{/base}/{/lang}/backend/hr/timerecording/dashboard?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 70,
+        "from": "HumanResourceTimeRecording",
+        "permission": null,
+        "parent": 1002401001,
+        "children": [
+            {
+                "id": 1006302001,
+                "pid": "/backend/hr/timerecording",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "{/base}/{/lang}/backend/hr/timerecording/dashboard?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "HumanResourceTimeRecording",
+                "permission": null,
+                "parent": 1006301001,
+                "children": []
+            }
+        ]
+    }
+]

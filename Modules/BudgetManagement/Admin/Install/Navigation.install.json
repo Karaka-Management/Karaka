@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1004601001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "Budgeting",
+        "uri": "{/base}/{/lang}/backend/controlling/budget/dashboard?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 1,
+        "from": 1004600000,
+        "permission": null,
+        "parent": 1002801001,
+        "children": [
+            {
+                "id": 1004602001,
+                "pid": "/backend/controlling/budget",
+                "type": 3,
+                "subtype": 1,
+                "name": "Dashboard",
+                "uri": "{/base}/{/lang}/backend/controlling/budget/dashboard?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": 1004600000,
+                "permission": null,
+                "parent": 1004601001,
+                "children": []
+            }
+        ]
+    }
+]

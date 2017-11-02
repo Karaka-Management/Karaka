@@ -1,0 +1,27 @@
+{
+    "name": {
+        "id": 1006100000,
+        "internal": "Comments",
+        "external": "Comments"
+    },
+    "category": "General",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The administration module.",
+    "directory": "Comments",
+    "dependencies": {
+        "Admin" : "1.0.0",
+        "Editor" : "1.0.0"
+    },
+    "providing": {
+    },
+    "load": [
+    ]
+}

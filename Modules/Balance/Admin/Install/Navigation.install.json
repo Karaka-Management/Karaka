@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1006501001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "Balance",
+        "uri": "{/base}/{/lang}/backend/controlling/balance/dashboard?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 1,
+        "from": 1006500000,
+        "permission": null,
+        "parent": 1002801001,
+        "children": [
+            {
+                "id": 1006502001,
+                "pid": "/backend/controlling/balance",
+                "type": 3,
+                "subtype": 1,
+                "name": "Dashboard",
+                "uri": "{/base}/{/lang}/backend/controlling/balance/dashboard?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": 1006500000,
+                "permission": null,
+                "parent": 1006501001,
+                "children": []
+            }
+        ]
+    }
+]

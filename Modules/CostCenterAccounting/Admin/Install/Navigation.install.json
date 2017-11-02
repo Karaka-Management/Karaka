@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1004501001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "CostCenters",
+        "uri": "{/base}/{/lang}/backend/accounting/costcenter/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 5,
+        "from": 1004500000,
+        "permission": null,
+        "parent": 1002601001,
+        "children": [
+            {
+                "id": 1004501101,
+                "pid": "/backend",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "{/base}/{/lang}/backend/accounting/costcenter/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": 1004500000,
+                "permission": null,
+                "parent": 1004501001,
+                "children": []
+            },
+            {
+                "id": 1004503201,
+                "pid": "/backend",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "{/base}/{/lang}/backend/accounting/costcenter/create?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 10,
+                "from": 1004500000,
+                "permission": null,
+                "parent": 1004501001,
+                "children": []
+            }
+        ]
+    }
+]

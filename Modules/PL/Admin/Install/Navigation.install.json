@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1006401001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "P&L",
+        "uri": "{/base}/{/lang}/backend/controlling/pl/dashboard?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 1,
+        "from": 1006400000,
+        "permission": null,
+        "parent": 1002801001,
+        "children": [
+            {
+                "id": 1006402001,
+                "pid": "/backend/controlling/pl",
+                "type": 3,
+                "subtype": 1,
+                "name": "Dashboard",
+                "uri": "{/base}/{/lang}/backend/controlling/pl/dashboard?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": 1006400000,
+                "permission": null,
+                "parent": 1006401001,
+                "children": []
+            }
+        ]
+    }
+]

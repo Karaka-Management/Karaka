@@ -1,0 +1,114 @@
+[
+    {
+        "id": 1002901001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 0,
+        "name": "Support",
+        "uri": null,
+        "target": "self",
+        "icon": "fa fa-question-circle",
+        "order": 80,
+        "from": "Support",
+        "permission": null,
+        "parent": 0,
+        "children": [
+            {
+                "id": 1002901101,
+                "pid": "/backend",
+                "type": 2,
+                "subtype": 1,
+                "name": "Ticket",
+                "uri": "{/base}/{/lang}/backend/support/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Support",
+                "permission": null,
+                "parent": 1002901001,
+                "children": [
+                    {
+                        "id": 1002903101,
+                        "pid": "/backend/support",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "List",
+                        "uri": "{/base}/{/lang}/backend/support/list?{?}",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": "Support",
+                        "permission": null,
+                        "parent": 1002901101,
+                        "children": [
+                        ]
+                    },
+                    {
+                        "id": 1002903201,
+                        "pid": "/backend/support",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Create",
+                        "uri": "{/base}/{/lang}/backend/support/create?{?}",
+                        "target": "self",
+                        "icon": null,
+                        "order": 5,
+                        "from": "Support",
+                        "permission": null,
+                        "parent": 1002901101,
+                        "children": [
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1002901201,
+                "pid": "/backend",
+                "type": 2,
+                "subtype": 1,
+                "name": "Settings",
+                "uri": "{/base}/{/lang}/backend/support/settings/dashboard?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "Support",
+                "permission": null,
+                "parent": 1002901001,
+                "children": [
+                ]
+            },
+            {
+                "id": 1002901301,
+                "pid": "/backend",
+                "type": 2,
+                "subtype": 1,
+                "name": "Analysis",
+                "uri": "{/base}/{/lang}/backend/support/analysis/dashboard?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 10,
+                "from": "Support",
+                "permission": null,
+                "parent": 1002901001,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1002902001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "Support",
+        "uri": "{/base}/{/lang}/backend/private/support/dashboard?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 5,
+        "from": "Support",
+        "permission": null,
+        "parent": 1003401001,
+        "children": [
+        ]
+    }
+]
