@@ -1,0 +1,92 @@
+@import "mixins", "backend_vars";
+
+.b, .t {
+    background: $d-box-color;
+    float: left;
+    margin: 5px 5px 0 5px;
+    box-sizing: border-box;
+    font-size: 0.8em;
+
+    > h1, th > h1, > h2 {
+        color: $d-box-text-contrast-color;
+        font-size: 13px;
+        font-weight: bold;
+        background: $d-base-color;
+        padding: 3px 5px 3px 5px;
+
+        i {
+            float: right;
+            margin: 3px 0 3px 5px;
+        }
+    }
+
+    > h2 {
+        background: #b3b3b3;
+    }
+}
+
+.b .t {
+    margin: 0;
+}
+
+.b {
+    display: inline-block;
+
+    a {
+        color: $d-link-color;
+        text-decoration: underline;
+
+        &:hover {
+            color: $d-link-color-hover;
+            text-decoration: none;
+        }
+    }
+}
+
+.b-5, .t-1 {
+    margin-right: 7px;
+}
+
+.pop {
+    border: 1px solid #dadee2;
+}
+
+.b-5 {
+    //noinspection CssOverwrittenProperties
+    width: 100%;
+    //noinspection CssOverwrittenProperties
+    width: calc(100% - 10px);
+}
+
+.b-6 {
+    margin-right: 275px;
+}
+
+.b-7 {
+    width: 270px;
+    float: right;
+}
+
+.bc-1 {
+    padding: 5px;
+
+    label:first-child {
+        &:after {
+            content: ':'
+        }
+    }
+
+    input[type=text], input[type=password], input[type=email], input[type=date], select {
+        padding: 2px 5px 2px 5px;
+        width: 250px;
+    }
+
+    textarea {
+        width: 250px;
+        min-height: 70px;
+    }
+
+    h1 {
+        display: inline-block;
+    }
+}

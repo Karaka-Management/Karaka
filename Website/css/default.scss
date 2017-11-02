@@ -1,0 +1,92 @@
+.clearfix {
+    clear: both;
+}
+
+.clean {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: 0;
+    vertical-align: top;
+}
+
+.clean:focus {
+    outline: 0;
+}
+
+.rp {
+    position: relative;
+}
+
+.ap {
+    position: absolute;
+}
+
+.lf {
+    float: left;
+}
+
+.rf {
+    float: right;
+}
+
+.op {
+    margin: 0 auto;
+}
+
+.rT {
+    text-align: right;
+}
+
+.lT {
+    text-align: left;
+}
+
+.cT {
+    text-align: center;
+}
+
+.full {
+    width: 100%;
+    max-width: none;
+}
+
+.hfull {
+    height: 100%;
+    max-height: none;
+}
+
+.vT {
+    vertical-align: top;
+}
+
+.vB {
+    vertical-align: bottom;
+}
+
+.vM {
+    vertical-align: middle;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.p {
+    cursor: pointer;
+}
+
+.vC {
+    display: table-cell;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.max, .min, .close {
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.vh {
+    display: none !important;
+}

@@ -1,0 +1,109 @@
+.tc-1 th {
+    font-weight: bold;
+    text-align: left;
+    white-space: nowrap;
+    padding: 5px 15px 5px 3px
+}
+
+.tc-1 td {
+    width: 100%;
+    padding: 5px 15px 5px 0
+}
+
+.tc-1 tr:nth-child(2n+1) {
+    background: #fafafa
+}
+
+.tc-1 tr:hover {
+    background: #f0f0f0
+}
+
+#t-f {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    z-index: 10
+}
+
+.t-1 {
+    overflow: auto
+}
+
+.t-1 thead th, .t-1 thead td, .t-1 tbody td {
+    padding: 4px;
+    white-space: nowrap
+}
+
+.t-1 thead tr:first-child {
+    background: #e74b3c
+}
+
+.t-1 thead h1 {
+    display: inline;
+    font-size: 1em
+}
+
+.t-1 thead th i {
+    color: #fff
+}
+
+.t-1 thead td {
+    cursor: pointer;
+    font-weight: bold;
+    border-bottom: 1px solid #dadee2;
+    white-space: nowrap
+}
+
+.t-1 thead td i {
+    color: inherit;
+    margin-left: 5px
+}
+
+.t-1 tbody a {
+    display: block;
+    padding: 4px
+}
+
+.t-1 tbody td {
+    cursor: pointer;
+    padding: 0
+}
+
+.t-1 tbody tr:nth-child(2n) {
+    background: #fafafa
+}
+
+.t-1 tbody tr:hover {
+    background: #f0f0f0
+}
+
+.t-1 tbody tr:not(:last-child) td {
+    border-bottom: 1px solid #dadee2
+}
+
+.t-1 tfoot td {
+    padding: 10px;
+    background: #eaecf0
+}
+
+.t-1 tfoot li {
+    display: inline
+}
+
+.t-1 tfoot a {
+    cursor: pointer;
+    background: #fff;
+    padding: 5px 10px 5px 10px
+}
+
+.t-1 tfoot a:hover, .t-1 tfoot a:focus {
+    color: #fff;
+    background: #2f2f2f
+}
+
+.t-1 tfoot .a {
+    color: #fff;
+    background: #3f3f3f
+}
+
+/*# sourceMappingURL=backend_table.css.map */

@@ -1,0 +1,88 @@
+.b, .t {
+    background: #fff;
+    float: left;
+    margin: 5px 5px 0 5px;
+    box-sizing: border-box;
+    font-size: 0.8em
+}
+
+.b > h1, .b th > h1, .b > h2, .t > h1, .t th > h1, .t > h2 {
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    background: #e74b3c;
+    padding: 3px 5px 3px 5px
+}
+
+.b > h1 i, .b th > h1 i, .b > h2 i, .t > h1 i, .t th > h1 i, .t > h2 i {
+    float: right;
+    margin: 3px 0 3px 5px
+}
+
+.b > h2, .t > h2 {
+    background: #b3b3b3
+}
+
+.b .t {
+    margin: 0
+}
+
+.b {
+    display: inline-block
+}
+
+.b a {
+    color: #e74b3c;
+    text-decoration: underline
+}
+
+.b a:hover {
+    color: #f95b4c;
+    text-decoration: none
+}
+
+.b-5, .t-1 {
+    margin-right: 7px
+}
+
+.pop {
+    border: 1px solid #dadee2
+}
+
+.b-5 {
+    width: 100%;
+    width: calc(100% - 10px)
+}
+
+.b-6 {
+    margin-right: 275px
+}
+
+.b-7 {
+    width: 270px;
+    float: right
+}
+
+.bc-1 {
+    padding: 5px
+}
+
+.bc-1 label:first-child:after {
+    content: ":"
+}
+
+.bc-1 input[type=text], .bc-1 input[type=password], .bc-1 input[type=email], .bc-1 input[type=date], .bc-1 select {
+    padding: 2px 5px 2px 5px;
+    width: 250px
+}
+
+.bc-1 textarea {
+    width: 250px;
+    min-height: 70px
+}
+
+.bc-1 h1 {
+    display: inline-block
+}
+
+/*# sourceMappingURL=backend_box.css.map */

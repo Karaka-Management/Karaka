@@ -1,0 +1,129 @@
+@import "backend_vars";
+
+html, body {
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    font-family: arial, serif;
+    color: $d-font-color;
+    background: $d-cont-color;
+}
+
+#bar-s {
+    height: 25px;
+    background: $d-base-color-o;
+}
+
+#bar-b {
+    height: 50px;
+    background: #fff;
+    border-bottom: 1px solid $d-border-cont;
+    display: table;
+    width: 100%;
+
+    > span {
+        padding-left: 5px;
+    }
+}
+
+#logo {
+    font-size: 1.7em;
+    width: 1%;
+
+    a {
+        color: $d-base-color-o;
+    }
+}
+
+#s-bar {
+    input[type=text] {
+        width: 50%;
+    }
+
+    input[type=submit] {
+        width: 80px;
+    }
+}
+
+#out {
+    height: 100%;
+    padding-bottom: 75px;
+}
+
+#out, #cont {
+    box-sizing: border-box;
+}
+
+#snav, #cont {
+    overflow: auto;
+    height: 100%;
+}
+
+#t-nav {
+    font-size: 0.75em;
+    color: $d-nav-color;
+    float: right;
+    font-weight: bold;
+
+    a {
+        padding: 0 5px 0 5px;
+        line-height: 25px;
+    }
+
+    i {
+        margin-right: 5px;
+    }
+
+    li {
+        display: inline;
+    }
+}
+
+#s-nav {
+    width: 170px;
+    background: $d-base-color-o;
+    font-size: 0.75em;
+    float: left;
+    height: 100%;
+    overflow-y: auto;
+
+    > li {
+        li {
+            border-top: 1px solid #3f3f3f;
+            border-bottom: 1px solid #1a1a1a;
+            color: $d-nav-color;
+
+            &:first-child {
+                padding: 5px 0 5px 5px;
+            }
+
+            a {
+                display: block;
+                padding: 5px 0 5px 5px;
+
+                &:hover {
+                    background: $d-nav-hover-color;
+                }
+            }
+        }
+    }
+
+    li:last-child li:last-child {
+        border-bottom: none;
+    }
+
+    .max, .min {
+        float: right;
+    }
+
+    i {
+        margin-right: 5px;
+    }
+}
+
+#cont {
+    padding-right: 0;
+    position: relative;
+}

@@ -1,0 +1,38 @@
+#nav-toggle {
+    font-size: 1.7em;
+    width: 1%
+}
+
+#nav-toggle i {
+    padding: 3px 7px 3px 7px
+}
+
+#nav-toggle i:hover, #nav-toggle i:focus {
+    cursor: pointer;
+    background: #f95b4c
+}
+
+#m-nav {
+    width: auto;
+    background: #fff;
+    margin: 5px 5px 0 5px;
+    font-size: 0.85em
+}
+
+#m-nav a {
+    padding: 5px 5px 5px 5px;
+    background: #fff
+}
+
+#m-nav a:hover, #m-nav a:focus, #m-nav a .active {
+    background: #3f3f3f;
+    color: #fff
+}
+
+#m-nav li {
+    display: inline-block;
+    clear: both;
+    padding: 5px 0 5px 0
+}
+
+/*# sourceMappingURL=backend_nav.css.map */

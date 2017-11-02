@@ -1,0 +1,38 @@
+@import "mixins", "backend_vars";
+
+#nav-toggle {
+    font-size: 1.7em;
+    width: 1%;
+
+    i {
+        padding: 3px 7px 3px 7px;
+
+        &:hover, &:focus {
+            cursor: pointer;
+            background: $d-button-color-hover;
+        }
+    }
+}
+
+#m-nav {
+    width: auto;
+    background: #fff;
+    margin: 5px 5px 0 5px;
+    font-size: 0.85em;
+
+    a {
+        padding: 5px 5px 5px 5px;
+        background: #fff;
+
+        &:hover, &:focus, .active {
+            background: $d-nav-bg-color;
+            color: #fff;
+        }
+    }
+
+    li {
+        display: inline-block;
+        clear: both;
+        padding: 5px 0 5px 0;
+    }
+}

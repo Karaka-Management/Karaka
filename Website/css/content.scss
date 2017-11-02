@@ -1,0 +1,144 @@
+#container {
+    p {
+        margin-bottom: 10px;
+    }
+}
+
+#intro-product {
+    background: #eeeeee; /* Old browsers */
+    background: -moz-linear-gradient(top, #eeeeee 0%, #f7f7f7 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #f7f7f7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #eeeeee 0%, #f7f7f7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #eeeeee 0%, #f7f7f7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #eeeeee 0%, #f7f7f7 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #eeeeee 0%, #f7f7f7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#f7f7f7', GradientType=0); /* IE6-9 */
+
+    border-bottom: 2px solid #cdcdcd;
+    overflow: auto;
+}
+
+.content {
+    width: 950px;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 10px 0 10px 0;
+    font-size: 0.85em;
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+}
+
+.front-box {
+    width: 330px;
+    float: left;
+    margin: 10px 10px 10px 0;
+    line-height: 1.5em;
+
+    i {
+        font-size: 60px;
+        margin: 0 10px 0 10px;
+    }
+}
+
+.news-box {
+    width: 230px;
+    float: right;
+    margin: 10px 0 0 0;
+
+    border: 2px dashed #a3a3a3;
+    border-radius: 15px;
+    padding: 10px;
+
+    p {
+        margin: 10px 0 10px 0;
+    }
+
+    ul {
+        margin-left: 20px;
+    }
+
+    li {
+        list-style-type: disc;
+    }
+
+    a {
+        color: #000;
+        font-weight: bold;
+
+        &:hover {
+            color: #ffc200;
+        }
+    }
+}
+
+#intro-request {
+    background: #d6edcc;
+    border-bottom: 2px solid #cdcdcd;
+}
+
+.feedback-box {
+    width: 600px;
+    margin: 10px 0 10px 0;
+    text-align: justify;
+
+    i {
+        font-size: 75px;
+        margin: 0 10px 0 10px;
+    }
+}
+
+#intro-service {
+    background: #c7e0ed;
+    border-bottom: 2px solid #cdcdcd;
+}
+
+.service-box {
+    width: 420px;
+    margin: 10px 0 10px 0;
+    text-align: justify;
+
+    i {
+        font-size: 75px;
+        margin: 0 10px 0 10px;
+    }
+
+    ul {
+        margin: 0 0 10px 40px;
+    }
+
+    li {
+        list-style-type: disc;
+    }
+}
+
+#p-package-1 {
+    overflow: auto;
+
+    background: #d6edcc;
+
+    ul {
+        margin-left: 40px;
+    }
+
+    li {
+        list-style-type: disc;
+    }
+}
+
+#p-package-2 {
+     overflow: auto;
+
+     background: #c7e0ed;
+ }
+
+#p-package-3 {
+    overflow: auto;
+
+    background: #edd5e6;
+}

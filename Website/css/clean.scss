@@ -1,0 +1,40 @@
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, nav, section, iframe, label {
+    margin: 0;
+    padding: 0;
+}
+
+a, img, button, input[type=submit], input[type=button] {
+    outline: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+ul {
+    list-style: none;
+}
+
+input, select, textarea {
+    box-sizing: border-box;
+}
+
+input[type=checkbox] {
+    margin-right: 5px;
+}
+
+button, input[type=submit], input[type=button] {
+    &::-moz-focus-inner {
+        border: 0;
+    }
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}

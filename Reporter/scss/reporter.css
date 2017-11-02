@@ -1,0 +1,517 @@
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, nav, section, iframe, label {
+    margin: 0;
+    padding: 0;
+}
+
+a, img, button, input[type=submit], input[type=button] {
+    outline: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+ul {
+    list-style: none;
+}
+
+input, select, textarea {
+    box-sizing: border-box;
+}
+
+input[type=checkbox] {
+    margin-right: 5px;
+}
+
+button::-moz-focus-inner, input[type=submit]::-moz-focus-inner, input[type=button]::-moz-focus-inner {
+    border: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.clean {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: 0;
+    vertical-align: top;
+}
+
+.clean:focus {
+    outline: 0;
+}
+
+.rp {
+    position: relative;
+}
+
+.ap {
+    position: absolute;
+}
+
+.lf {
+    float: left;
+}
+
+.rf {
+    float: right;
+}
+
+.op {
+    margin: 0 auto;
+}
+
+.rT {
+    text-align: right;
+}
+
+.lT {
+    text-align: left;
+}
+
+.cT {
+    text-align: center;
+}
+
+.full {
+    width: 100%;
+    max-width: none;
+}
+
+.hfull {
+    height: 100%;
+    max-height: none;
+}
+
+.vT {
+    vertical-align: top;
+}
+
+.vB {
+    vertical-align: bottom;
+}
+
+.vM {
+    vertical-align: middle;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.p {
+    cursor: pointer;
+}
+
+.vC {
+    display: table-cell;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.max, .min, .close {
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.vh {
+    display: none !important;
+}
+
+#dim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    z-index: 5;
+}
+
+input[type=text], select {
+    outline-color: #f95b4c;
+}
+
+button, input[type=submit], input[type=button], .button {
+    background: #e74b3c;
+    color: #fff;
+    text-indent: 0;
+    padding: 5px 10px 5px 10px;
+    border-width: 0;
+    cursor: pointer;
+}
+
+button:hover, input[type=submit]:hover, input[type=button]:hover, .button:hover {
+    background: #f95b4c;
+}
+
+#s-bar input[type=submit] {
+    padding: 5px;
+}
+
+#s-bar input[type=text] {
+    padding: 3px 2px 3px 2px;
+}
+
+#nav-toggle {
+    font-size: 1.7em;
+    width: 1%;
+}
+
+#nav-toggle i {
+    padding: 3px 7px 3px 7px;
+}
+
+#nav-toggle i:hover {
+    cursor: pointer;
+    background: #f95b4c;
+}
+
+#m-nav {
+    width: auto;
+    background: #fff;
+    margin: 5px 5px 0 5px;
+    font-size: 0.85em;
+    padding: 5px 0 5px 0;
+}
+
+#m-nav a {
+    padding: 0 5px 0 5px;
+}
+
+#m-nav li {
+    display: inline;
+}
+
+.c-bar {
+    margin-top: 5px;
+    background: #fff;
+    box-sizing: border-box;
+    float: left;
+    width: 100%;
+}
+
+.b, .t {
+    background: #fff;
+    float: left;
+    margin: 5px 5px 0 5px;
+    box-sizing: border-box;
+    font-size: 0.8em;
+}
+
+.b > h1, .b th > h1, .b > h2, .t > h1, .t th > h1, .t > h2 {
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    background: #e74b3c;
+    padding: 3px 5px 3px 5px;
+}
+
+.b > h1 i, .b th > h1 i, .b > h2 i, .t > h1 i, .t th > h1 i, .t > h2 i {
+    float: right;
+    margin: 3px 0 3px 5px;
+}
+
+.b > h2, .t > h2 {
+    background: #b3b3b3;
+}
+
+.b .t {
+    margin: 0;
+}
+
+.b {
+    display: inline-block;
+}
+
+.b a {
+    color: #e74b3c;
+    text-decoration: underline;
+}
+
+.b a:hover {
+    color: #f95b4c;
+    text-decoration: none;
+}
+
+.b-5, .t-1 {
+    margin-right: 7px;
+}
+
+.pop {
+    border: 1px solid #dadee2;
+}
+
+.b-5 {
+    width: 100%;
+    width: calc(100% - 10px);
+}
+
+.b-6 {
+    margin-right: 275px;
+}
+
+.b-7 {
+    width: 270px;
+    float: right;
+}
+
+.bc-1 {
+    padding: 5px;
+}
+
+.bc-1 label:first-child:after {
+    content: ":";
+}
+
+.bc-1 input[type=text], .bc-1 input[type=password], .bc-1 input[type=email], .bc-1 input[type=date], .bc-1 select {
+    padding: 2px 5px 2px 5px;
+    width: 250px;
+}
+
+.bc-1 textarea {
+    width: 250px;
+    min-height: 70px;
+}
+
+.bc-1 h1 {
+    display: inline-block;
+}
+
+.img-1 {
+    margin: 3px;
+    padding: 3px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.tab:not(.active) {
+    display: none;
+}
+
+.tab-links a {
+    padding: 5px;
+    background: #fff;
+    font-size: 0.9em;
+}
+
+.tab-links .active a {
+    background: #e74b3c;
+    color: #fff;
+}
+
+.tab-links li {
+    display: inline-block;
+    margin: 10px 0 5px 5px;
+}
+
+.tc-1 th {
+    font-weight: bold;
+    text-align: left;
+    white-space: nowrap;
+    padding: 5px 15px 5px 3px;
+}
+
+.tc-1 td {
+    width: 100%;
+    padding: 5px 15px 5px 0;
+}
+
+.tc-1 tr:nth-child(2n+1) {
+    background: #fafafa;
+}
+
+.tc-1 tr:hover {
+    background: #f0f0f0;
+}
+
+.l-1 label:first-child {
+    font-weight: bold;
+}
+
+.l-1 li:nth-child(2n+3) {
+    margin-top: 15px;
+}
+
+.l-1 li:nth-child(2n+2) {
+    margin-top: 5px;
+}
+
+.l-1 input + select {
+    width: auto;
+    margin-left: 5px;
+}
+
+.l-2 li:nth-child(2n+1) {
+    display: inline;
+}
+
+#t-f {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    z-index: 10;
+}
+
+.t-1 thead th, .t-1 thead td, .t-1 tbody td {
+    padding: 4px;
+    white-space: nowrap;
+}
+
+.t-1 thead tr:first-child {
+    background: #e74b3c;
+}
+
+.t-1 thead h1 {
+    display: inline;
+    font-size: 1em;
+}
+
+.t-1 thead th i {
+    color: #fff;
+}
+
+.t-1 thead td {
+    cursor: pointer;
+    font-weight: bold;
+    border-bottom: 1px solid #dadee2;
+    white-space: nowrap;
+}
+
+.t-1 thead td i {
+    color: inherit;
+    margin-left: 5px;
+}
+
+.t-1 tbody a {
+    display: block;
+    padding: 4px;
+}
+
+.t-1 tbody td {
+    cursor: pointer;
+    padding: 0;
+}
+
+.t-1 tbody tr:nth-child(2n) {
+    background: #fafafa;
+}
+
+.t-1 tbody tr:hover {
+    background: #f0f0f0;
+}
+
+.t-1 tbody tr:not(:last-child) td {
+    border-bottom: 1px solid #dadee2;
+}
+
+.t-1 tfoot td {
+    padding: 10px;
+    background: #eaecf0;
+}
+
+.t-1 tfoot li {
+    display: inline;
+}
+
+.t-1 tfoot a {
+    cursor: pointer;
+    background: #fff;
+    padding: 5px 10px 5px 10px;
+}
+
+.t-1 tfoot a:hover {
+    color: #fff;
+    background: #2f2f2f;
+}
+
+.t-1 tfoot .a {
+    color: #fff;
+    background: #3f3f3f;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+
+@media only screen and (min-width: 1101px) {
+    .b-1 {
+        width: 31.5%;
+        width: calc(33.3% - 10px);
+    }
+
+    .b-2 {
+        width: 48.5%;
+        width: calc(50% - 10px);
+    }
+
+    .b-3 {
+        width: 63%;
+        width: calc(66.6% - 10px);
+    }
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1100px) {
+    .b-1 {
+        width: 48.5%;
+        width: calc(50% - 10px);
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .b-2, .b-3 {
+        width: 100%;
+        width: calc(100% - 10px);
+    }
+}
+
+@media only screen and (min-width: 801px) {
+    .b-4 {
+        width: 48.5%;
+        width: calc(50% - 10px);
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .b-1, .b-3 {
+        width: 100%;
+        width: calc(100% - 10px);
+    }
+
+    #logo {
+        display: none;
+    }
+
+    #s-nav {
+        width: 100%;
+    }
+
+    #s-bar input[type=text] {
+        width: 80%;
+        width: calc(100% - 90px);
+    }
+}
+
+/*# sourceMappingURL=backend.css.map */

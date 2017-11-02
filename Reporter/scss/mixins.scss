@@ -1,0 +1,69 @@
+@mixin box-sizing($box-model) {
+    -moz-box-sizing: $box-model;
+    -webkit-box-sizing: $box-model;
+    box-sizing: $box-model;
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+    background-clip: padding-box;
+}
+
+@mixin border-top-radius($radius) {
+    -webkit-border-top-right-radius: $radius;
+    border-top-right-radius: $radius;
+    -webkit-border-top-left-radius: $radius;
+    border-top-left-radius: $radius;
+    background-clip: padding-box;
+}
+
+@mixin border-right-radius($radius) {
+    -webkit-border-bottom-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+    -webkit-border-top-right-radius: $radius;
+    border-top-right-radius: $radius;
+    background-clip: padding-box;
+}
+
+@mixin border-bottom-radius($radius) {
+    -webkit-border-bottom-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+    -webkit-border-bottom-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+    background-clip: padding-box;
+}
+
+@mixin border-left-radius($radius) {
+    -webkit-border-bottom-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+    -webkit-border-top-left-radius: $radius;
+    border-top-left-radius: $radius;
+    background-clip: padding-box;
+}
+
+@mixin gradient-top-bottom($start, $pos, $end, $pos2, $bg) {
+    background: $bg;
+    background: -moz-linear-gradient(top, $start $pos, $end $pos2);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop($pos, $start), color-stop($pos2, $end));
+    background: -webkit-linear-gradient(top, $start $pos, $end $pos2);
+    background: -o-linear-gradient(top, $start $pos, $end $pos2);
+    background: -ms-linear-gradient(top, $start $pos, $end $pos2);
+    background: linear-gradient(to bottom, $start $pos, $end $pos2);
+}
+
+@mixin box-shadow-top($color) {
+    -moz-box-shadow: inset 0px 1px 0px 0px $color;
+    -webkit-box-shadow: inset 0px 1px 0px 0px $color;
+    box-shadow: inset 0px 1px 0px 0px $color;
+}
+
+@mixin transform-rotate($deg) {
+    -webkit-transform: rotate($deg);
+    -moz-transform: rotate($deg);
+    -o-transform: rotate($deg);
+    -ms-transform: rotate($deg);
+    transform: rotate($deg);
+}
