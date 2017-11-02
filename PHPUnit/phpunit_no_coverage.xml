@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+        bootstrap="Bootstrap.php"
+        colors="true"
+        stopOnError="true"
+        stopOnFailure="true"
+        stopOnIncomplete="false"
+        stopOnSkipped="false"
+        beStrictAboutTestsThatDoNotTestAnything="false"
+        >
+    <testsuites>
+        <testsuite name="Install">
+            <directory>Install*</directory>
+        </testsuite>
+        <testsuite name="phpOMS">
+            <directory>phpOMS*</directory>
+        </testsuite>
+        <testsuite name="Modules">
+            <directory>Modules*</directory>
+        </testsuite>
+        <testsuite name="Model">
+            <directory>Model*</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="false" processUncoveredFilesFromWhitelist="false">
+            <directory suffix=".php">../../*</directory>
+            <exclude>
+                <directory suffix="tpl.php">../../*</directory>
+                <directory>../../Demo/*</directory>
+                <directory>../../Tests/*</directory>
+                <directory>../../vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

@@ -1,0 +1,52 @@
+{
+    "name": {
+        "id": 1000100000,
+        "internal": "ABC",
+        "external": "ABC"
+    },
+    "version": "1.0.0",
+    "category": "Test",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The administration module.",
+    "directory": "Admin",
+    "dependencies": [],
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "1854402adfd24425fd13776a2d3787151609b360"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Admin",
+            "from": "Admin"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Admin",
+            "for": "Navigation",
+            "file": "Navigation"
+        },
+        {
+            "pid": [
+                "1854402adfd24425fd13776a2d3787151609b360"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "",
+            "from": "Admin"
+        }
+    ]
+}
