@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+        bootstrap="Bootstrap.php"
+        stopOnError="false"
+        stopOnFailure="false"
+        stopOnIncomplete="false"
+        stopOnSkipped="false"
+        >
+    <testsuites>
+        <testsuite name="Install">
+            <directory>Install*</directory>
+        </testsuite>
+        <testsuite name="phpOMS">
+            <directory>phpOMS*</directory>
+        </testsuite>
+        <testsuite name="Modules">
+            <directory>Modules*</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

@@ -1,0 +1,12 @@
+describe('EvaluatorTest', function ()
+{
+    "use strict";
+
+    beforeEach(function ()
+    {
+    });
+
+    afterEach(function ()
+    {
+    });
+}

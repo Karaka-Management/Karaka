@@ -1,0 +1,99 @@
+<html>
+<head>
+    <style>
+        svg {
+            font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+        }
+
+        svg .axis {
+            font-size: 12px;
+        }
+
+        svg .title {
+            font-size: 25px;
+        }
+
+        svg .subtitle {
+            font-size: 12px;
+        }
+
+        svg .footer {
+            font-size: 12px;
+        }
+
+        svg .axis path,
+        svg .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+
+        svg .line {
+            fill: none;
+            stroke: steelblue;
+        }
+
+        svg .tick > line {
+            opacity: 1;
+        }
+
+        svg rect.zoom-panel {
+            cursor: move;
+            fill: none;
+            pointer-events: all;
+        }
+
+        svg .dot {
+            stroke-width: 2px;
+            fill: #fff;
+        }
+
+        .dataPoint:hover {
+            cursor: pointer;
+        }
+
+        svg .dataPoint-dot {
+            stroke-width: 3px;
+            fill: #fff;
+        }
+
+        svg .dot:hover {
+            stroke-width: 3px;
+            fill: #000;
+
+            cursor: pointer;
+        }
+
+        .grid .tick {
+            stroke: lightgrey;
+            stroke-opacity: 0.7;
+            shape-rendering: crispEdges;
+        }
+        .grid path {
+            stroke-width: 0;
+        }
+
+        div.tooltip {
+            color: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: left;
+            padding: 5px;
+            font: 12px sans-serif;
+            background: #363636;
+            border: 0;
+            border-radius: 3px;
+            pointer-events: none;
+        }
+    </style>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script>
+        jsOMS = {};
+    </script>
+    <script src="../../../../jsOMS/Chart/Position.enum.js"></script>
+    <script src="../../../../jsOMS/Chart/Chart.js"></script>
+
+<body>
+<div id="chart" style="width: 100%; height: 100%"></div>
+<script src="../../../../jsOMS/Chart/ColumnChart.js"></script>

@@ -1,0 +1,27 @@
+<html>
+<head>
+    <script>
+        jsOMS = {};
+        jsOMS.Modules = {};
+        jsOMS.Modules.Draw = {};
+    </script>
+    <script src="../../../../Modules/Draw/Models/DrawType.enum.js"></script>
+    <script src="../../../../Modules/Draw/Models/Editor.js"></script>
+    <script>
+        if (document.readyState === 'complete' || document.readyState === 'loaded' || document.readyState === 'interactive') {
+            var temp = new jsOMS.Modules.Draw.Editor(document.getElementsByClassName('m-draw')[0]);
+            temp.bind();
+        } else {
+            document.addEventListener("DOMContentLoaded", function (event) {
+                var temp = new jsOMS.Modules.Draw.Editor(document.getElementsByClassName('m-draw')[0]);
+                temp.bind();
+            });
+        }
+    </script>
+<body>
+<div class="m-draw" style="width: 80%; height: 30%;">
+    <input type="hidden" class="m-editor-color" value="#ff0000">
+    <input type="hidden" class="m-editor-size" value="#ff0000">
+    <input type="hidden" class="m-editor-type" value="#ff0000">
+    <canvas style="border:1px solid #000000;"></canvas>
+</div>
