@@ -1,0 +1,191 @@
+@import "_mixins", "_vars";
+
+input, select, textarea, .textarea {
+    border: 1px solid $content-border-color;
+}
+
+progress {
+    height: 20px;
+    width: 100%;
+    min-width: 150px;
+}
+
+.textarea,
+.tag-input,
+textarea,
+select,
+input[type="password"],
+input[type="text"],
+input[type="datetime"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+input[type="datetime-local"] {
+    box-sizing: border-box;
+    color: #454545;
+    background: #fff;
+    width: 100%;
+    height: 2rem;
+    min-width: 70px;
+    max-width: 100%;
+    padding: 7px;
+    font-size: 0.9rem;
+    border: solid 1px #dcdcdc;
+    transition: background 0.3s, border 0.3s;
+    box-shadow: inset 1px 1px 4px -2px #c5c5c5;
+
+    &:focus {
+        border-color:#0c69d6;
+    }
+}
+
+select {
+    cursor: pointer;
+    padding: 0 7px 0 7px; /* overwrites input padding: 7px. don't know why i have to do this! */
+}
+
+option {
+    line-height: 1rem;
+}
+
+input[type="file"] {
+    border: solid 1px #dcdcdc;
+    width: 100%;
+    max-width: 100%;
+    color: #454545;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+input[placeholder], textarea {
+    font-family: 'FontAwesome', serif;
+}
+
+input:invalid {
+    transition: all 0.5s;
+    border: 1px solid #b85450;
+}
+
+.textarea {
+    overflow: auto;
+    resize: both;
+}
+
+textarea, .textarea {
+    min-height: 100px;
+    @include box-sizing(border-box);
+}
+
+span.check input[type="checkbox"], span.radio input[type="radio"] {
+    position: relative;
+    vertical-align: middle;
+    bottom: 1px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+input[type="range"] {
+    border: none;
+    width: 100%;
+    min-width: 150px;
+    cursor: pointer;
+}
+
+.input {
+    width: 100%;
+    min-width: 120px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    button {
+        @include box-sizing(border-box);
+        display: inline-block;
+        background: #fff;
+        height: 2rem;
+        font-size: 1rem;
+        min-width: 40px;
+        border-left: solid 1px #dcdcdc;
+        border-top: solid 1px #dcdcdc;
+        border-bottom: solid 1px #dcdcdc;
+        border-right: none;
+        padding: 0;
+
+        position: relative;
+        vertical-align: middle;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        &:hover {
+            background: #fff;
+        }
+    }
+
+    i {
+        position: relative;
+        vertical-align: middle;
+    }
+
+    input {
+        @include box-sizing(border-box);
+        font-size: 1em;
+
+        position: relative;
+        vertical-align: middle;
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+    &:hover .content {
+        display: block;
+    }
+
+    .content {
+        display: none;
+        position: absolute;
+        z-index: 2;
+        background: #fff;
+
+        input {
+            display: none;
+        }
+
+        label {
+            display: block;
+            margin: 5px;
+            padding: 5px;
+        }
+    }
+}
+
+select.plain {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.tag-input {
+    input {
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .tag {
+        padding: 3px;
+        font-size: 0.8rem;
+    }
+}

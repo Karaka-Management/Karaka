@@ -1,0 +1,16 @@
+article a {
+    color: #8ea4ff;
+    border-bottom: 1px dotted #8ea4ff;
+
+    &:hover {
+        border-bottom: none;
+    }
+}
+
+.unseen {
+    font-weight: bold;
+}
+
+[data-href] {
+    cursor: pointer;
+}
