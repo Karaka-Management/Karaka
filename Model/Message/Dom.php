@@ -137,6 +137,11 @@ class Dom implements \Serializable, ArrayableInterface
         return $this->__toString();
     }
 
+    public function jsonSerialize()
+    {
+        return $this->toArray();
+    }
+
     public function unserialize($raw) 
     {
         return '';

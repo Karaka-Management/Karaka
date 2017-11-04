@@ -176,11 +176,11 @@ class Notify implements \Serializable, ArrayableInterface
     /**
      * Render message.
      *
-     * @return string
+     * @return array
      *
      * @since  1.0.0
      */
-    public function jsonSerialize() : string
+    public function jsonSerialize()
     {
         return $this->toArray();
     }
