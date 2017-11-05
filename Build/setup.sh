@@ -9,7 +9,7 @@ mkdir -p ${ROOT_PATH}
 rm -r -f ${INSPECTION_PATH}
 mkdir -p ${INSPECTION_PATH}
 
-# Handling git
+# Create git repositories
 c=0;
 for i in "${GITHUB_URL[@]}"
 do
@@ -27,7 +27,7 @@ do
     c=$((c+1))
 done
 
-# Creating directories
+# Creating directories for inspection
 mkdir -p ${INSPECTION_PATH}/logs
 mkdir -p ${INSPECTION_PATH}/Framework/logs
 mkdir -p ${INSPECTION_PATH}/Framework/metrics
@@ -52,8 +52,11 @@ mkdir -p ${INSPECTION_PATH}/Test/Js
 chmod -R 777 ${ROOT_PATH}
 
 cd ${ROOT_PATH}
-touch private.php
 
+# Add subtree remotes
+. Helper/defineSubtrees.sh
+
+# Setup tools for inspection
 if [ ! -d "$TOOLS_PATH" ]; then
     mkdir -p ${TOOLS_PATH}
 
@@ -77,7 +80,5 @@ if [ ! -d "$TOOLS_PATH" ]; then
     php composer.phar install
 fi
 
+# Link vendor
 ln -s ${TOOLS_PATH}/vendor ${ROOT_PATH}/vendor
-
-# Installing tools
-[[ $(jsonlint -h) != *"Usage: jsonlint"* ]] && npm install jsonlint -g
