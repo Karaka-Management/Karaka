@@ -13,7 +13,7 @@ const popupButtonAction = function (action, callback)
     const popup = action.base === 'self' ? (action.selector === '' ? [element] : element.querySelectorAll(action.selector)) : document.querySelectorAll(action.selector);
 
     for(let i in popup) {
-        if(!popup[i] || !(popup[i] instanceof HTMLElement)) {
+        if(!popup.hasOwnProperty(i) || !popup[i] || !(popup[i] instanceof HTMLElement)) {
             continue;
         }
 
@@ -25,7 +25,7 @@ const popupButtonAction = function (action, callback)
         }
 
         for(let j in clone) {
-            if(!(clone[j] instanceof HTMLElement)) {
+            if(!clone.hasOwnProperty(j) || !(clone[j] instanceof HTMLElement)) {
                 continue;
             }
 

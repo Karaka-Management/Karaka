@@ -14,7 +14,7 @@ const removeButtonAction = function (action, callback, element)
     const e = action.base === 'self' ? (action.selector === '' ? [element] : element.querySelectorAll(action.selector)) : document.querySelectorAll(action.selector);
 
     for(let i in e) {
-        if(!e[i] || !(e[i] instanceof HTMLElement)) {
+        if(!e.hasOwnProperty(i) || !e[i] || !(e[i] instanceof HTMLElement)) {
             continue;
         }
 
