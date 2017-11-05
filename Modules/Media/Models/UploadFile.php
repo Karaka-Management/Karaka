@@ -202,7 +202,7 @@ class UploadFile
                 } elseif ($extension === 'jpg' || $extension === 'jpeg') {
                     $img = imagecreatefromjpeg($path);
                 } else {
-                    $img = imagecreatefromgif ($path);
+                    $img = imagecreatefromgif($path);
                 }
 
                 imageinterlace($img, (int) $this->interlaced);
@@ -212,7 +212,7 @@ class UploadFile
                 } elseif ($extension === 'jpg' || $extension === 'jpeg') {
                     imagejpeg($img, $path);
                 } else {
-                    imagegif ($img, $path);
+                    imagegif($img, $path);
                 }
 
                 imagedestroy($img);

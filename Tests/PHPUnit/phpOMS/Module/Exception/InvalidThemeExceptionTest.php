@@ -21,7 +21,7 @@ use phpOMS\Module\Exception\InvalidThemeException;
 class InvalidThemeExceptionTest extends \PHPUnit\Framework\TestCase
 {
     public function testException()
-	{
-		self::assertInstanceOf(\UnexpectedValueException::class, new InvalidThemeException(''));
-	}
+    {
+        self::assertInstanceOf(\UnexpectedValueException::class, new InvalidThemeException(''));
+    }
 }

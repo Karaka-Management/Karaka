@@ -21,8 +21,8 @@ use phpOMS\Utils\TaskSchedule\Cron;
 
 class CronTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

@@ -231,7 +231,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $mediaCreated = [];
 
         if (!empty($files)) {
-            $upload  = new UploadFile();
+            $upload = new UploadFile();
             $upload->setOutputDir(self::createMediaPath($basePath));
 
             $status       = $upload->upload($files);
