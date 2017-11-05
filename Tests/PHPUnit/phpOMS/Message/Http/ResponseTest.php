@@ -22,22 +22,22 @@ use phpOMS\Localization\Localization;
 
 class ResponseTest extends \PHPUnit\Framework\TestCase
 {
-	public function testDefault()
-	{
-		$response = new Response(new Localization());
-		self::assertEquals('', $response->getBody());
-		self::assertEquals('', $response->render());
-		self::assertEquals([], $response->toArray());
-		self::assertInstanceOf('\phpOMS\Localization\Localization', $response->getHeader()->getL11n());
-		self::assertInstanceOf('\phpOMS\Message\Http\Header', $response->getHeader());
-	}
+    public function testDefault()
+    {
+        $response = new Response(new Localization());
+        self::assertEquals('', $response->getBody());
+        self::assertEquals('', $response->render());
+        self::assertEquals([], $response->toArray());
+        self::assertInstanceOf('\phpOMS\Localization\Localization', $response->getHeader()->getL11n());
+        self::assertInstanceOf('\phpOMS\Message\Http\Header', $response->getHeader());
+    }
 
-	public function testSetGet()
-	{
-		$response = new Response(new Localization());
+    public function testSetGet()
+    {
+        $response = new Response(new Localization());
 
-		$response->setResponse(['a' => 1]);
-		self::assertTrue($response->remove('a'));
-		self::assertFalse($response->remove('a'));
-	}
+        $response->setResponse(['a' => 1]);
+        self::assertTrue($response->remove('a'));
+        self::assertFalse($response->remove('a'));
+    }
 }

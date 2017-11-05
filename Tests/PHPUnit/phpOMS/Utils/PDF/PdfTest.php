@@ -21,8 +21,8 @@ use phpOMS\Utils\PDF\Pdf;
 
 class PdfTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

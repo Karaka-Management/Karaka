@@ -22,32 +22,32 @@ use phpOMS\Localization\ISO4217CharEnum;
 
 class CurrencyTest extends \PHPUnit\Framework\TestCase
 {
-	public function testCurrency()
-	{
-		self::assertGreaterThan(0, Currency::fromEurTo(1, ISO4217CharEnum::_USD));
-		self::assertGreaterThan(0, Currency::fromToEur(1, ISO4217CharEnum::_USD));
-		
-		Currency::resetCurrencies();
-		self::assertGreaterThan(0, Currency::convertCurrency(1, ISO4217CharEnum::_USD, ISO4217CharEnum::_GBP));
-	}
+    public function testCurrency()
+    {
+        self::assertGreaterThan(0, Currency::fromEurTo(1, ISO4217CharEnum::_USD));
+        self::assertGreaterThan(0, Currency::fromToEur(1, ISO4217CharEnum::_USD));
+        
+        Currency::resetCurrencies();
+        self::assertGreaterThan(0, Currency::convertCurrency(1, ISO4217CharEnum::_USD, ISO4217CharEnum::_GBP));
+    }
 
-	/**
+    /**
      * @expectedException \InvalidArgumentException
      */
     public function testInvalidFromEur()
     {
         Currency::fromEurTo(1, 'ERROR');
-	}
-	
-	/**
+    }
+    
+    /**
      * @expectedException \InvalidArgumentException
      */
     public function testInvalidToEur()
     {
         Currency::fromToEur(1, 'ERROR');
-	}
-	
-	/**
+    }
+    
+    /**
      * @expectedException \InvalidArgumentException
      */
     public function testInvalidConvert()

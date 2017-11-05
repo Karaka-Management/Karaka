@@ -21,8 +21,8 @@ use phpOMS\Math\Stochastic\Distribution\UniformDistributionContinuous;
 
 class UniformDistributionContinuousTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

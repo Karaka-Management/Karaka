@@ -21,8 +21,8 @@ use phpOMS\Utils\IO\Json\InvalidJsonException;
 
 class InvalidJsonExceptionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testException()
-	{
-		self::assertInstanceOf(\UnexpectedValueException::class, new InvalidJsonException(''));
-	}
+    public function testException()
+    {
+        self::assertInstanceOf(\UnexpectedValueException::class, new InvalidJsonException(''));
+    }
 }

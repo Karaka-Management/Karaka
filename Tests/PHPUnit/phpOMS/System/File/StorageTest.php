@@ -23,23 +23,23 @@ use phpOMS\System\File\Ftp\FtpStorage;
 
 class StorageTest extends \PHPUnit\Framework\TestCase
 {
-	public function testStorage()
-	{
-		self::assertInstanceOf('\phpOMS\System\File\Local\LocalStorage', Storage::env('local'));
-		self::assertInstanceOf('\phpOMS\System\File\Local\LocalStorage', Storage::env());
+    public function testStorage()
+    {
+        self::assertInstanceOf('\phpOMS\System\File\Local\LocalStorage', Storage::env('local'));
+        self::assertInstanceOf('\phpOMS\System\File\Local\LocalStorage', Storage::env());
 
-		self::assertTrue(Storage::register('ftp', '\phpOMS\System\File\Ftp\FtpStorage'));
-		self::assertTrue(Storage::register('test', LocalStorage::getInstance()));
-		self::assertInstanceOf('\phpOMS\System\File\Ftp\FtpStorage', Storage::env('ftp'));
-		self::assertInstanceOf('\phpOMS\System\File\Local\LocalStorage', Storage::env('test'));
-	}
+        self::assertTrue(Storage::register('ftp', '\phpOMS\System\File\Ftp\FtpStorage'));
+        self::assertTrue(Storage::register('test', LocalStorage::getInstance()));
+        self::assertInstanceOf('\phpOMS\System\File\Ftp\FtpStorage', Storage::env('ftp'));
+        self::assertInstanceOf('\phpOMS\System\File\Local\LocalStorage', Storage::env('test'));
+    }
 
-	/**
-	 * @expectedException \Exception
-	 */
-	public function testInvalidStorage()
-	{
-		self::assertInstanceOf('\phpOMS\System\File\Local\LocalStorage', Storage::env('invalid'));
-	}
+    /**
+     * @expectedException \Exception
+     */
+    public function testInvalidStorage()
+    {
+        self::assertInstanceOf('\phpOMS\System\File\Local\LocalStorage', Storage::env('invalid'));
+    }
 }
 

@@ -21,8 +21,8 @@ use phpOMS\Utils\Parser\LaTex\Expressions\Sum;
 
 class SumTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

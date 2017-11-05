@@ -21,8 +21,8 @@ use phpOMS\Math\Stochastic\Distribution\WeibullDistribution;
 
 class WeibullDistributionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

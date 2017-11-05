@@ -21,8 +21,8 @@ use phpOMS\Math\Statistic\Forecast\Regression\LogLevelRegression;
 
 class LogLevelRegressionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

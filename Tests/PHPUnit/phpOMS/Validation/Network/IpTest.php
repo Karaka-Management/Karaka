@@ -21,17 +21,17 @@ use phpOMS\Validation\Network\Ip;
 
 class IpTest extends \PHPUnit\Framework\TestCase
 {
-	public function testValid()
-	{
-		self::assertTrue(IP::isValid('192.168.178.1'));
-		self::assertTrue(IP::isValid('2001:0db8:85a3:0000:0000:8a2e:0370:7334'));
-		self::assertFalse(IP::isValid('192.168.178.257'));
-		self::assertFalse(IP::isValid('localhost'));
+    public function testValid()
+    {
+        self::assertTrue(IP::isValid('192.168.178.1'));
+        self::assertTrue(IP::isValid('2001:0db8:85a3:0000:0000:8a2e:0370:7334'));
+        self::assertFalse(IP::isValid('192.168.178.257'));
+        self::assertFalse(IP::isValid('localhost'));
 
-		self::assertFalse(IP::isValidIpv6('192.168.178.1'));
-		self::assertTrue(IP::isValidIpv6('2001:0db8:85a3:0000:0000:8a2e:0370:7334'));
+        self::assertFalse(IP::isValidIpv6('192.168.178.1'));
+        self::assertTrue(IP::isValidIpv6('2001:0db8:85a3:0000:0000:8a2e:0370:7334'));
 
-		self::assertTrue(IP::isValidIpv4('192.168.178.1'));
-		self::assertFalse(IP::isValidIpv4('2001:0db8:85a3:0000:0000:8a2e:0370:7334'));
-	}
+        self::assertTrue(IP::isValidIpv4('192.168.178.1'));
+        self::assertFalse(IP::isValidIpv4('2001:0db8:85a3:0000:0000:8a2e:0370:7334'));
+    }
 }

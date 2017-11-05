@@ -21,8 +21,8 @@ use phpOMS\Utils\RnG\Numeric;
 
 class NumericTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

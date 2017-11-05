@@ -21,8 +21,8 @@ use phpOMS\Socket\Packets\PacketManager;
 
 class PacketManagerTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

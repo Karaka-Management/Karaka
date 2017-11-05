@@ -21,8 +21,8 @@ use phpOMS\Utils\Converter\Ip;
 
 class IpTest extends \PHPUnit\Framework\TestCase
 {
-	public function testIp()
-	{
-		self::assertTrue(abs(1527532998.0 - Ip::ip2Float('91.12.77.198')) < 1);
-	}
+    public function testIp()
+    {
+        self::assertTrue(abs(1527532998.0 - Ip::ip2Float('91.12.77.198')) < 1);
+    }
 }

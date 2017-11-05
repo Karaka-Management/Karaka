@@ -21,9 +21,9 @@ use phpOMS\Utils\Parser\LaTex\Types\MathFunction;
 
 class MathFunctionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }
 

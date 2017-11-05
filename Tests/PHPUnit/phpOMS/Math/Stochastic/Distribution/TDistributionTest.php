@@ -21,8 +21,8 @@ use phpOMS\Math\Stochastic\Distribution\TDistribution;
 
 class TDistributionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

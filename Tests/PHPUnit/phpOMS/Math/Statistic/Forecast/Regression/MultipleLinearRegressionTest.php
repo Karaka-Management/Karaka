@@ -21,8 +21,8 @@ use phpOMS\Math\Statistic\Forecast\Regression\MultipleLinearRegression;
 
 class MultipleLinearRegressionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

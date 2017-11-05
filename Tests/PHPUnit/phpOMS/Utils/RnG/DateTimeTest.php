@@ -21,21 +21,21 @@ use phpOMS\Utils\RnG\DateTime;
 
 class DateTimeTest extends \PHPUnit\Framework\TestCase
 {
-	public function testRnG()
-	{
-		for($i = 0; $i < 100; $i++) {
-			$dateMin = new \DateTime();
-			$dateMax = new \DateTime();
+    public function testRnG()
+    {
+        for($i = 0; $i < 100; $i++) {
+            $dateMin = new \DateTime();
+            $dateMax = new \DateTime();
 
-			$min = mt_rand(0, PHP_INT_MAX-2);
-			$max = mt_rand($min + 1, PHP_INT_MAX);
+            $min = mt_rand(0, PHP_INT_MAX-2);
+            $max = mt_rand($min + 1, PHP_INT_MAX);
 
-			$dateMin->setTimestamp($min);
-			$dateMax->setTimestamp($max);
+            $dateMin->setTimestamp($min);
+            $dateMax->setTimestamp($max);
 
-			$rng = DateTime::generateDateTime($dateMin, $dateMax);
+            $rng = DateTime::generateDateTime($dateMin, $dateMax);
 
-			self::assertTrue($rng->getTimestamp() >= $min && $rng->getTimestamp() <= $max);
-		}
-	}
+            self::assertTrue($rng->getTimestamp() >= $min && $rng->getTimestamp() <= $max);
+        }
+    }
 }

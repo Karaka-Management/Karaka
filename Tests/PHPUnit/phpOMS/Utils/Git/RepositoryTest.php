@@ -21,8 +21,8 @@ use phpOMS\Utils\Git\Repository;
 
 class RepositoryTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

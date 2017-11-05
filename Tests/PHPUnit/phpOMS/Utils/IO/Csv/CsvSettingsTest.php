@@ -21,8 +21,8 @@ use phpOMS\Utils\IO\Csv\CsvSettings;
 
 class CsvSettingsTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

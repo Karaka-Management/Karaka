@@ -21,8 +21,8 @@ use phpOMS\Utils\RnG\Name;
 
 class NameTest extends \PHPUnit\Framework\TestCase
 {
-	public function testRandom()
-	{
-		self::assertNotEquals(Name::generateName(['female']), Name::generateName(['male']));
-	}
+    public function testRandom()
+    {
+        self::assertNotEquals(Name::generateName(['female']), Name::generateName(['male']));
+    }
 }

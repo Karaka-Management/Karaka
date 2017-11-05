@@ -22,7 +22,7 @@ use phpOMS\Stdlib\Base\Exception\InvalidEnumName;
 class InvalidEnumNameTest extends \PHPUnit\Framework\TestCase
 {
     public function testException()
-	{
-		self::assertInstanceOf(\UnexpectedValueException::class, new InvalidEnumName(''));
-	}
+    {
+        self::assertInstanceOf(\UnexpectedValueException::class, new InvalidEnumName(''));
+    }
 }

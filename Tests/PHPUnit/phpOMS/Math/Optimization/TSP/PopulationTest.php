@@ -21,8 +21,8 @@ use phpOMS\Math\Optimization\TSP\Population;
 
 class PopulationTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

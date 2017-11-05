@@ -24,14 +24,14 @@ use phpOMS\Math\Optimization\TSP\Population;
 
 class GATest extends \PHPUnit\Framework\TestCase
 {
-	public function testTsp()
-	{
-		$cities = [new City()];
-		$cityPool = new CityPool($cities);
-		$ga = new Ga($cityPool);
+    public function testTsp()
+    {
+        $cities = [new City()];
+        $cityPool = new CityPool($cities);
+        $ga = new Ga($cityPool);
 
-		$basePopulation = new Population($cityPool, 1000, true);
-		$population = $ga->evolvePopulation($basePopulation);
+        $basePopulation = new Population($cityPool, 1000, true);
+        $population = $ga->evolvePopulation($basePopulation);
 
-	}
+    }
 }

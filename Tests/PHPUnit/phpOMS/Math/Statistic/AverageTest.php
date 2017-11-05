@@ -21,8 +21,8 @@ use phpOMS\Math\Statistic\Average;
 
 class AverageTest extends \PHPUnit\Framework\TestCase
 {
-	public function testAverage()
-	{
-		self::assertEquals(-3/2, Average::averageDatasetChange([6, 7, 6, 3, 0]));
-	}
+    public function testAverage()
+    {
+        self::assertEquals(-3/2, Average::averageDatasetChange([6, 7, 6, 3, 0]));
+    }
 }

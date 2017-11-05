@@ -22,14 +22,14 @@ use phpOMS\Utils\RnG\StringUtils;
 
 class CaesarTest extends \PHPUnit\Framework\TestCase
 {
-	public function testVolume()
-	{
-		for($i = 0; $i < 100; $i++) {
-			$raw = StringUtils::generateString(1, 100);
-			$key = StringUtils::generateString(1, 100);
+    public function testVolume()
+    {
+        for($i = 0; $i < 100; $i++) {
+            $raw = StringUtils::generateString(1, 100);
+            $key = StringUtils::generateString(1, 100);
 
-			self::assertNotEquals($raw, Caesar::encode($raw, $key));
-			self::assertEquals($raw, Caesar::decode(Caesar::encode($raw, $key), $key));
-		}
-	}
+            self::assertNotEquals($raw, Caesar::encode($raw, $key));
+            self::assertEquals($raw, Caesar::decode(Caesar::encode($raw, $key), $key));
+        }
+    }
 }

@@ -21,8 +21,8 @@ use phpOMS\Math\Stochastic\Distribution\HypergeometricDistribution;
 
 class HypergeometricDistributionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

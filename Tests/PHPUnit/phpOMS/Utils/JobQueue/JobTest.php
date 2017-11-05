@@ -21,8 +21,8 @@ use phpOMS\Utils\JobQueue\Job;
 
 class JobTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

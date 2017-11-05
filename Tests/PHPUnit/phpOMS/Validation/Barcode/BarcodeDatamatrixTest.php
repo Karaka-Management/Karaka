@@ -21,8 +21,8 @@ use phpOMS\Validation\Barcode\BarcodeDatamatrix;
 
 class BarcodeDatamatrixTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

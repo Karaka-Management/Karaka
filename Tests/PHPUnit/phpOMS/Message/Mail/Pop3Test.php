@@ -21,8 +21,8 @@ use phpOMS\Message\Mail\Pop3;
 
 class Pop3Test extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

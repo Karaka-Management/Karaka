@@ -21,10 +21,10 @@ use phpOMS\Validation\Network\Email;
 
 class EmailTest extends \PHPUnit\Framework\TestCase
 {
-	public function testValidation()
-	{
-		self::assertTrue(Email::isValid('test.string@email.com'));
-		self::assertFalse(Email::isValid('test.string@email'));
-		self::assertTrue(Email::isValid('test.string+1234@email.com'));
-	}
+    public function testValidation()
+    {
+        self::assertTrue(Email::isValid('test.string@email.com'));
+        self::assertFalse(Email::isValid('test.string@email'));
+        self::assertTrue(Email::isValid('test.string+1234@email.com'));
+    }
 }

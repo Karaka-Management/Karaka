@@ -21,18 +21,18 @@ use phpOMS\Utils\Encoding\Gray;
 
 class GrayTest extends \PHPUnit\Framework\TestCase
 {
-	public function testEncoding()
-	{
-		self::assertEquals(55, Gray::encode(37));
-		self::assertEquals(37, Gray::decode(55));
-	}
+    public function testEncoding()
+    {
+        self::assertEquals(55, Gray::encode(37));
+        self::assertEquals(37, Gray::decode(55));
+    }
 
-	public function testVolume()
-	{
-		for($i = 0; $i < 100; $i++) {
-			$raw = mt_rand(0, 2040140512);
+    public function testVolume()
+    {
+        for($i = 0; $i < 100; $i++) {
+            $raw = mt_rand(0, 2040140512);
 
-			self::assertEquals($raw, Gray::decode(Gray::encode($raw)));
-		}
-	}
+            self::assertEquals($raw, Gray::decode(Gray::encode($raw)));
+        }
+    }
 }

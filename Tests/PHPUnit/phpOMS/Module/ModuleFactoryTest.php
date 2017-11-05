@@ -22,8 +22,8 @@ use phpOMS\Module\ModuleFactory;
 
 class ModuleFactoryTest extends \PHPUnit\Framework\TestCase
 {
-	public function testFactory()
-	{
-		self::assertInstanceOf(\Modules\Admin\Controller::class, ModuleFactory::getInstance('Admin', new class extends ApplicationAbstract {}));
-	}
+    public function testFactory()
+    {
+        self::assertInstanceOf(\Modules\Admin\Controller::class, ModuleFactory::getInstance('Admin', new class extends ApplicationAbstract {}));
+    }
 }

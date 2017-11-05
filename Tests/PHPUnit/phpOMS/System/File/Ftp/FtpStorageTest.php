@@ -21,9 +21,9 @@ use phpOMS\System\File\Ftp\FtpStorage;
 
 class FtpStorageTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }
 

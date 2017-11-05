@@ -21,17 +21,17 @@ use phpOMS\UnhandledHandler;
 
 class UnhandledHandlerTest extends \PHPUnit\Framework\TestCase
 {
-	public function testErrorHandling()
-	{
-		set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
+    public function testErrorHandling()
+    {
+        set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
         set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
         register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
 
-		trigger_error('', E_USER_ERROR);
-		
-		UnhandledHandler::shutdownHandler();
+        trigger_error('', E_USER_ERROR);
+        
+        UnhandledHandler::shutdownHandler();
 
-		self::assertFalse(UnhandledHandler::errorHandler(0, '', '', 0));
-	}
+        self::assertFalse(UnhandledHandler::errorHandler(0, '', '', 0));
+    }
 
 }

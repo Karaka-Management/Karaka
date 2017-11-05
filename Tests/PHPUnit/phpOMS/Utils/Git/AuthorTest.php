@@ -21,8 +21,8 @@ use phpOMS\Utils\Git\Author;
 
 class AuthorTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

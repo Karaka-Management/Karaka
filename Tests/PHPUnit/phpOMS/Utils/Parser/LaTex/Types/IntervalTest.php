@@ -21,8 +21,8 @@ use phpOMS\Utils\Parser\LaTex\Types\Interval;
 
 class IntervalTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

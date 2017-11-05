@@ -21,49 +21,49 @@ use phpOMS\Utils\Encoding\Huffman\Dictionary;
 
 class DictionaryTest extends \PHPUnit\Framework\TestCase
 {
-	/**
+    /**
      * @expectedException \InvalidArgumentException
      */
     public function testInvalidGetCharacter()
     {
-		$dict = new Dictionary();
-		$dict->get('as');
-	}
+        $dict = new Dictionary();
+        $dict->get('as');
+    }
 
-	/**
+    /**
      * @expectedException \InvalidArgumentException
      */
     public function testNotExistingGetCharacter()
     {
-		$dict = new Dictionary();
-		$dict->get('a');
-	}
+        $dict = new Dictionary();
+        $dict->get('a');
+    }
 
-	/**
+    /**
      * @expectedException \InvalidArgumentException
      */
     public function testInvalidSetCharacter()
     {
-		$dict = new Dictionary();
-		$dict->set('as', 'test');
-	}
+        $dict = new Dictionary();
+        $dict->set('as', 'test');
+    }
 
-	/**
+    /**
      * @expectedException \InvalidArgumentException
      */
     public function testInvalidSetDuplicateCharacter()
     {
-		$dict = new Dictionary();
-		$dict->set('a', '1');
-		$dict->set('a', '1');
-	}
+        $dict = new Dictionary();
+        $dict->set('a', '1');
+        $dict->set('a', '1');
+    }
 
-	/**
+    /**
      * @expectedException \InvalidArgumentException
      */
     public function testInvalidFormattedValue()
     {
-		$dict = new Dictionary();
-		$dict->set('a', '1a');
-	}
+        $dict = new Dictionary();
+        $dict->set('a', '1a');
+    }
 }

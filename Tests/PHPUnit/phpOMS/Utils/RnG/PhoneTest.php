@@ -21,8 +21,8 @@ use phpOMS\Utils\RnG\Phone;
 
 class PhoneTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

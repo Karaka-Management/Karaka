@@ -21,8 +21,8 @@ use phpOMS\Math\Stochastic\Distribution\CauchyDistribution;
 
 class CauchyDistributionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

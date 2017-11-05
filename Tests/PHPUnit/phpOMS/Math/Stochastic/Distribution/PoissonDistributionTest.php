@@ -21,8 +21,8 @@ use phpOMS\Math\Stochastic\Distribution\PoissonDistribution;
 
 class PoissonDistributionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

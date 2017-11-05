@@ -21,8 +21,8 @@ use phpOMS\Utils\Barcode\C25;
 
 class C25Test extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

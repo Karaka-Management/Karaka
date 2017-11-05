@@ -21,9 +21,9 @@ use phpOMS\Validation\Barcode\Barcode25;
 
 class Barcode25Test extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }
 

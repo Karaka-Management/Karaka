@@ -21,8 +21,8 @@ use phpOMS\Socket\Server\ClientManager;
 
 class ClientManagerTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

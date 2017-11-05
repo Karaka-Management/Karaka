@@ -21,9 +21,9 @@ use phpOMS\Stdlib\Graph\Tree;
 
 class TreeTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }
 

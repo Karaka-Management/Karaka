@@ -21,16 +21,16 @@ use phpOMS\Message\Http\RequestMethod;
 
 class RequestMethodTest extends \PHPUnit\Framework\TestCase
 {
-	public function testEnums()
-	{
-		self::assertEquals(6, count(RequestMethod::getConstants()));
-		self::assertEquals(RequestMethod::getConstants(), array_unique(RequestMethod::getConstants()));
-		
-		self::assertEquals('GET', RequestMethod::GET);
-		self::assertEquals('POST', RequestMethod::POST);
-		self::assertEquals('PUT', RequestMethod::PUT);
-		self::assertEquals('DELETE', RequestMethod::DELETE);
-		self::assertEquals('HEAD', RequestMethod::HEAD);
-		self::assertEquals('TRACE', RequestMethod::TRACE);
-	}
+    public function testEnums()
+    {
+        self::assertEquals(6, count(RequestMethod::getConstants()));
+        self::assertEquals(RequestMethod::getConstants(), array_unique(RequestMethod::getConstants()));
+        
+        self::assertEquals('GET', RequestMethod::GET);
+        self::assertEquals('POST', RequestMethod::POST);
+        self::assertEquals('PUT', RequestMethod::PUT);
+        self::assertEquals('DELETE', RequestMethod::DELETE);
+        self::assertEquals('HEAD', RequestMethod::HEAD);
+        self::assertEquals('TRACE', RequestMethod::TRACE);
+    }
 }
