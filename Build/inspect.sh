@@ -17,9 +17,6 @@ mysql -e 'create database oms;' -u ${DB_USER} -p${DB_PASSWORD}
 # Stats & metrics
 . Inspection/Php/stats.sh
 
-# Local inspection
-. Inspection/Php/tools.sh
-
 # Linting
 . Inspection/Php/linting.sh
 . Inspection/Json/linting.sh
