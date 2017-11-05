@@ -23,7 +23,7 @@ require_once __DIR__ . '/../../../../../../config.php';
 
 class BuilderTest extends \PHPUnit\Framework\TestCase
 {
-    protected $con    = null;
+    protected $con = null;
 
     protected function setUp()
     {

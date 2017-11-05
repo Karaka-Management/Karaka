@@ -94,7 +94,7 @@ class Application
         $themeLanguage = include $path;
         $this->app->l11nManager->loadLanguage($response->getHeader()->getL11n()->getLanguage(), 0, $themeLanguage);
 
-        $head     = new Head();
+        $head = new Head();
         $baseUri = $request->getUri()->getBase();
         $head->addAsset(AssetType::CSS, $baseUri . 'cssOMS/styles.css');
 

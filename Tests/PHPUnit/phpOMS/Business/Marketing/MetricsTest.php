@@ -22,6 +22,6 @@ class MetricsTest extends \PHPUnit\Framework\TestCase
 {
     public function testMetrics()
     {
-        self::assertTrue(0.85-Metrics::getCustomerRetention(105, 20, 100) < 0.01);
+        self::assertTrue(0.85 - Metrics::getCustomerRetention(105, 20, 100) < 0.01);
     }
 }

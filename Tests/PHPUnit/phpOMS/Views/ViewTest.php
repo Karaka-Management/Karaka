@@ -37,7 +37,7 @@ class ViewTest extends \PHPUnit\Framework\TestCase
         /** @var array $CONFIG */
         $this->dbPool->create('core', $GLOBALS['CONFIG']['db']['core']['masters']['admin']);
 
-        $this->app         = new class extends ApplicationAbstract
+        $this->app = new class extends ApplicationAbstract
         {
         };
 
