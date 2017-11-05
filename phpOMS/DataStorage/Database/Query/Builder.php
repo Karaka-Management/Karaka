@@ -229,6 +229,7 @@ class Builder extends BuilderAbstract
      * Constructor.
      *
      * @param ConnectionAbstract $connection Database connection
+     * @param bool $readOnly Query is read only
      *
      * @since  1.0.0
      */
@@ -352,6 +353,8 @@ class Builder extends BuilderAbstract
      *
      * @return Builder
      *
+     * @throws \Exception
+     *
      * @since  1.0.0
      */
     public function raw(string $raw) : Builder
@@ -420,7 +423,7 @@ class Builder extends BuilderAbstract
      *
      * @since  1.0.0
      */
-    public function distinct(...$columns) : Builder
+    public function distinct() : Builder
     {
         $this->distinct = true;
 
@@ -551,6 +554,8 @@ class Builder extends BuilderAbstract
      * Where and sub condition.
      *
      * @param Where $where Where sub condition
+     * @param mixed $operator Operator
+     * @param mixed $values Values
      *
      * @return Builder
      *
@@ -565,6 +570,8 @@ class Builder extends BuilderAbstract
      * Where or sub condition.
      *
      * @param Where $where Where sub condition
+     * @param mixed $operator Operator
+     * @param mixed $values Values
      *
      * @return Builder
      *
@@ -853,6 +860,8 @@ class Builder extends BuilderAbstract
      *
      * @return Builder
      *
+     * @throws \Exception
+     *
      * @since  1.0.0
      */
     public function insert(...$columns) : Builder
@@ -958,9 +967,11 @@ class Builder extends BuilderAbstract
     /**
      * Update columns.
      *
-     * @param array $columns Column names to update
+     * @param array $tables Column names to update
      *
      * @return Builder
+     *
+     * @throws \Exception
      *
      * @since  1.0.0
      */
@@ -1130,16 +1141,20 @@ class Builder extends BuilderAbstract
     /**
      * Get bind parameter type.
      *
+     * @param mixed $value Value to bind
+     *
      * @return mixed
+     *
+     * @throws \Exception
      *
      * @since  1.0.0
      */
     public static function getBindParamType($value)
     {
         if (is_int($value)) {
-            return PDO::PARAM_INT;
+            return \PDO::PARAM_INT;
         } elseif (is_string($value) || is_float($value)) {
-            return PDO::PARAM_STR;
+            return \PDO::PARAM_STR;
         }
         
         throw new \Exception();

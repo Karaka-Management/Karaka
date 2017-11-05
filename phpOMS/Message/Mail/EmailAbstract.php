@@ -32,7 +32,7 @@ class EmailAbstract
      * @var string
      * @since 1.0.0
      */
-    private $host = '';
+    protected $host = '';
 
     /**
      * Port.
@@ -40,7 +40,7 @@ class EmailAbstract
      * @var int
      * @since 1.0.0
      */
-    private $port = 25;
+    protected $port = 25;
 
     /**
      * Use ssl.
@@ -48,7 +48,7 @@ class EmailAbstract
      * @var bool
      * @since 1.0.0
      */
-    private $ssl = false;
+    protected $ssl = false;
 
     /**
      * Mailbox base.
@@ -56,7 +56,7 @@ class EmailAbstract
      * @var string
      * @since 1.0.0
      */
-    private $mailbox = '';
+    protected $mailbox = '';
 
     /**
      * Timeout.
@@ -64,7 +64,7 @@ class EmailAbstract
      * @var int
      * @since 1.0.0
      */
-    private $timeout = 30;
+    protected $timeout = 30;
 
     /**
      * Construct
@@ -92,8 +92,10 @@ class EmailAbstract
     /**
      * Decode
      *
-     * @param string $host Content to decode
+     * @param string $content Content to decode
      * @param int $encoding Encoding type
+     *
+     * @return string
      *
      * @since  1.0.0
      */
@@ -101,12 +103,10 @@ class EmailAbstract
     {
         if ($encoding == 3) {
             return imap_base64($content);
+        } elseif ($encoding == 1) {
+            return imap_8bit($content);
         } else {
-            if ($encoding == 1) {
-                return imap_8bit($content);
-            } else {
-                return imap_qprint($content);
-            }
+            return imap_qprint($content);
         }
     }
 

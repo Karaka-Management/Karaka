@@ -20,6 +20,7 @@ use phpOMS\System\File\Local\File;
 use phpOMS\System\File\Local\Directory;
 use phpOMS\System\File\Local\LocalStorage;
 use phpOMS\Utils\IO\Zip\Zip;
+use phpOMS\Utils\StringUtils;
 
 /**
  * Package Manager model.
@@ -128,13 +129,11 @@ class PackageManager
     /**
      * Hash array of files
      * 
-     * @param array $files Files to hash
-     * 
      * @return string Hash value of files
      *
      * @since  1.0.0
      */
-    private function hashFiles(array $files) : string
+    private function hashFiles() : string
     {
         $files = Directory::list($this->extractPath . '/package');
         $state = \sodium_crypto_generichash_init();
@@ -155,6 +154,8 @@ class PackageManager
      * 
      * @return void
      *
+     * @throws \Exception
+     *
      * @since  1.0.0
      */
     public function install() /* : void */
@@ -172,6 +173,8 @@ class PackageManager
 
     /**
      * Move files
+     *
+     * @param mixed $components Component data
      * 
      * @return void
      *
@@ -186,6 +189,8 @@ class PackageManager
 
     /**
      * Copy files
+     *
+     * @param mixed $components Component data
      * 
      * @return void
      *
@@ -204,6 +209,8 @@ class PackageManager
 
     /**
      * Delete files
+     *
+     * @param mixed $components Component data
      * 
      * @return void
      *
@@ -218,6 +225,8 @@ class PackageManager
 
     /**
      * Execute commands
+     *
+     * @param mixed $components Component data
      * 
      * @return void
      *
@@ -245,6 +254,9 @@ class PackageManager
 
     /**
      * Authenticate package
+     *
+     * @param string $signedHash Hash to authenticate
+     * @param string $rawHash Hash to compare against
      * 
      * @return bool
      *

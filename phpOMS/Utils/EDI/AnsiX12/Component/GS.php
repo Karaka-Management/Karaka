@@ -162,7 +162,7 @@ class GS
 
     public function unserialize($raw)
     {
-        $split = explode($raw);
+        $split = explode($raw, '*');
 
         $this->setFunctionalGroupHeader(trim($split[0]));
         $this->setFunctionalIdentifierCode(trim($split[1]));

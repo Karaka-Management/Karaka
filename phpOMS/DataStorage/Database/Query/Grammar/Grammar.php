@@ -172,7 +172,7 @@ class Grammar extends GrammarAbstract
      * Compile select.
      *
      * @param Builder $query   Builder
-     * @param array   $columns Columns
+     * @param array   $table Table
      *
      * @return string
      *

@@ -16,7 +16,6 @@ declare(strict_types = 1);
 namespace phpOMS\Utils\IO\Zip;
 
 use phpOMS\System\File\FileUtils;
-use phpOMS\Utils\StringUtils;
 
 /**
  * Zip class for handling zip files.

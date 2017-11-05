@@ -15,8 +15,6 @@ declare(strict_types = 1);
 
 namespace phpOMS\Message;
 
-use phpOMS\Utils\ArrayUtils;
-
 /**
  * Response abstract class.
  *

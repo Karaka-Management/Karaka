@@ -19,7 +19,6 @@ use phpOMS\Localization\ISO4217CharEnum;
 use phpOMS\Message\Http\Rest;
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\RequestMethod;
-use phpOMS\Localization\Localization;
 use phpOMS\Uri\Http;
 
 /**

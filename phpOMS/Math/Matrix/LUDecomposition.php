@@ -165,7 +165,7 @@ class LUDecomposition
         for ($k = 0; $k < $this->n; ++$k) {
             for ($i = $k + 1; $i < $this->n; ++$i) {
                 for ($j = 0; $j < $nx; ++$j) {
-                    $X->A[$i][$j] -= $X->A[$k][$j] * $this->LU[$i][$k];
+                    $X[$i][$j] -= $X[$k][$j] * $this->LU[$i][$k];
                 }
             }
         }
@@ -173,11 +173,11 @@ class LUDecomposition
         // Solve U*X = Y;
         for ($k = $this->n - 1; $k >= 0; --$k) {
             for ($j = 0; $j < $nx; ++$j) {
-                $X->A[$k][$j] /= $this->LU[$k][$k];
+                $X[$k][$j] /= $this->LU[$k][$k];
             }
             for ($i = 0; $i < $k; ++$i) {
                 for ($j = 0; $j < $nx; ++$j) {
-                    $X->A[$i][$j] -= $X->A[$k][$j] * $this->LU[$i][$k];
+                    $X[$i][$j] -= $X[$k][$j] * $this->LU[$i][$k];
                 }
             }
         }

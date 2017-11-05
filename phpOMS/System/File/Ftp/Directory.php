@@ -17,8 +17,6 @@ namespace phpOMS\System\File\Ftp;
 
 use phpOMS\System\File\ContainerInterface;
 use phpOMS\System\File\DirectoryInterface;
-use phpOMS\System\File\PathException;
-use phpOMS\Utils\StringUtils;
 use phpOMS\System\File\Local\FileAbstract;
 use phpOMS\System\File\Local\Directory as DirectoryLocal;
 

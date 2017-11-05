@@ -197,7 +197,7 @@ class FileLogger implements LoggerInterface
      *
      * @param string $id the ID by which this time measurement gets identified
      *
-     * @return int The time measurement in ms
+     * @return float The time measurement in ms
      *
      * @since  1.0.0
      */
