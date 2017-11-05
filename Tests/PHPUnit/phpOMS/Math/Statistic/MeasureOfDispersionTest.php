@@ -23,6 +23,6 @@ class MeasureOfDispersionTest extends \PHPUnit\Framework\TestCase
 {
     public function testRange()
     {
-        self::assertEquals((float) (9-1), MeasureOfDispersion::range([4, 5, 9, 1, 3]));
+        self::assertEquals((float) (9 - 1), MeasureOfDispersion::range([4, 5, 9, 1, 3]));
     }
 }

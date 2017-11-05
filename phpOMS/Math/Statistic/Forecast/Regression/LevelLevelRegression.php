@@ -26,7 +26,7 @@ namespace phpOMS\Math\Statistic\Forecast\Regression;
  */
 class LevelLevelRegression extends RegressionAbstract
 {
-	/**
+    /**
      * {@inheritdoc}
      */
     public static function getSlope(float $b1, float $y, float $x) : float

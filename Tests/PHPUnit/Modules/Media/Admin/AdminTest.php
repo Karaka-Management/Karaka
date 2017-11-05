@@ -30,7 +30,7 @@ require_once __DIR__ . '/../../../../../config.php';
 
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
-    protected $dbPool    = null;
+    protected $dbPool = null;
 
     protected function setUp()
     {
