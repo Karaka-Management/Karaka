@@ -124,5 +124,5 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
     {
         $news = new NewsArticle();
         $news->setLanguage('9999');
-	}
+    }
 }

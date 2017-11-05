@@ -5,25 +5,25 @@ describe('FormViewTest', function ()
 
     beforeEach(function ()
     {
-    	document.body.innerHTML += '
-    		<form id="' + testId + '" method="POST" action="{base}/{#testHiddenInputText}">
-    			<input id="testInputText" value="inputtext" name="testInputTextName">
-    			<input id="testInputRequired" value="" name="testInputRequiredName" required>
-    			<input id="testInputPattern" value="" name="testInputPatternName" pattern="\d+">
-    			<input type="hidden" id="testHiddenInputText" name="testHiddenInputTextName" value="hidden input text">
-    			<textarea id="testTextarea" name="testTextareaName" value="textarea text"></textarea>
-    			<input type="submit" id="defaultSubmit">
-    			<button type="submit" id="buttenSubmit">
-    		</form>
+        document.body.innerHTML += '
+            <form id="' + testId + '" method="POST" action="{base}/{#testHiddenInputText}">
+                <input id="testInputText" value="inputtext" name="testInputTextName">
+                <input id="testInputRequired" value="" name="testInputRequiredName" required>
+                <input id="testInputPattern" value="" name="testInputPatternName" pattern="\d+">
+                <input type="hidden" id="testHiddenInputText" name="testHiddenInputTextName" value="hidden input text">
+                <textarea id="testTextarea" name="testTextareaName" value="textarea text"></textarea>
+                <input type="submit" id="defaultSubmit">
+                <button type="submit" id="buttenSubmit">
+            </form>
 
-    		<input form="' + testId + '" id="externalInputText" name="externalInputTextName" value="external text">
-    	';
+            <input form="' + testId + '" id="externalInputText" name="externalInputTextName" value="external text">
+        ';
     });
 
     afterEach(function ()
     {
-    	let element = document.getElementById(testId);
-    	element.parentNode.removeChild(element);
+        let element = document.getElementById(testId);
+        element.parentNode.removeChild(element);
     });
 
     describe('testDefault', function ()

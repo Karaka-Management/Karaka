@@ -21,8 +21,8 @@ use phpOMS\Business\Finance\Forecasting\ClassicalDecomposition;
 
 class ClassicalDecompositionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

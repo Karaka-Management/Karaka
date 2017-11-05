@@ -21,17 +21,17 @@ use phpOMS\Business\Finance\StockBonds;
 
 class StockBondsTest extends \PHPUnit\Framework\TestCase
 {
-	public function testRatios()
-	{
-		self::assertEquals(100 / 50, StockBonds::getBookValuePerShare(100, 50));
-		self::assertEquals(100 / 50, StockBonds::getCurrentYield(100, 50));
-		self::assertEquals(100 / 50, StockBonds::getDividendPayoutRatio(100, 50));
-		self::assertEquals(100 / 50, StockBonds::getDividendYield(100, 50));
-		self::assertEquals(100 / 50, StockBonds::getDividendsPerShare(100, 50));
-		self::assertEquals(100 / 50, StockBonds::getEarningsPerShare(100, 50));
-		self::assertEquals(100 / 50, StockBonds::getEquityMultiplier(100, 50));
-		self::assertEquals(100 / 50, StockBonds::getPriceToBookValue(100, 50));
-		self::assertEquals(100 / 50, StockBonds::getPriceEarningsRatio(100, 50));
-		self::assertEquals(100 / 50, StockBonds::getPriceToSalesRatio(100, 50));
-	}
+    public function testRatios()
+    {
+        self::assertEquals(100 / 50, StockBonds::getBookValuePerShare(100, 50));
+        self::assertEquals(100 / 50, StockBonds::getCurrentYield(100, 50));
+        self::assertEquals(100 / 50, StockBonds::getDividendPayoutRatio(100, 50));
+        self::assertEquals(100 / 50, StockBonds::getDividendYield(100, 50));
+        self::assertEquals(100 / 50, StockBonds::getDividendsPerShare(100, 50));
+        self::assertEquals(100 / 50, StockBonds::getEarningsPerShare(100, 50));
+        self::assertEquals(100 / 50, StockBonds::getEquityMultiplier(100, 50));
+        self::assertEquals(100 / 50, StockBonds::getPriceToBookValue(100, 50));
+        self::assertEquals(100 / 50, StockBonds::getPriceEarningsRatio(100, 50));
+        self::assertEquals(100 / 50, StockBonds::getPriceToSalesRatio(100, 50));
+    }
 }

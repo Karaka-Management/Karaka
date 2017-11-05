@@ -21,20 +21,20 @@ use phpOMS\DataStorage\Cache\CacheFactory;
 
 class CacheFactoryTest extends \PHPUnit\Framework\TestCase
 {
-	public function testCreate()
-	{
-		self::assertInstanceOf(
-			\phpOMS\DataStorage\Cache\FileCache::class, 
-			CacheFactory::create(['type' => 'file', 'path' => 'Cache'])
-		);
-	}
+    public function testCreate()
+    {
+        self::assertInstanceOf(
+            \phpOMS\DataStorage\Cache\FileCache::class, 
+            CacheFactory::create(['type' => 'file', 'path' => 'Cache'])
+        );
+    }
 
-	/**
-	 * @expectedException \InvalidArgumentException
-	 */
-	public function testInvalidCacheType()
-	{
-		CacheFactory::create(['type' => 'invalid', 'path' => 'Cache']);
-	}
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testInvalidCacheType()
+    {
+        CacheFactory::create(['type' => 'invalid', 'path' => 'Cache']);
+    }
 }
 

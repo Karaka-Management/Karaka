@@ -21,33 +21,33 @@ use phpOMS\Math\Number\Prime;
 
 class PrimeTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPrime()
-	{
-		self::assertTrue(Prime::isPrime(2));
-		self::assertTrue(Prime::isPrime(997));
-		self::assertFalse(Prime::isPrime(998));
-	}
+    public function testPrime()
+    {
+        self::assertTrue(Prime::isPrime(2));
+        self::assertTrue(Prime::isPrime(997));
+        self::assertFalse(Prime::isPrime(998));
+    }
 
-	public function testSieve()
-	{
-		self::assertTrue(Prime::isPrime(Prime::sieveOfEratosthenes(12)[3]));
-		self::assertTrue(Prime::isPrime(Prime::sieveOfEratosthenes(51)[7]));
-	}
+    public function testSieve()
+    {
+        self::assertTrue(Prime::isPrime(Prime::sieveOfEratosthenes(12)[3]));
+        self::assertTrue(Prime::isPrime(Prime::sieveOfEratosthenes(51)[7]));
+    }
 
-	public function testRabin()
-	{
-		self::assertTrue(Prime::rabinTest(2));
-		self::assertFalse(Prime::rabinTest(4));
-		self::assertFalse(Prime::rabinTest(9));
-		self::assertTrue(Prime::rabinTest(997));
-		self::assertFalse(Prime::rabinTest(998));
-	}
+    public function testRabin()
+    {
+        self::assertTrue(Prime::rabinTest(2));
+        self::assertFalse(Prime::rabinTest(4));
+        self::assertFalse(Prime::rabinTest(9));
+        self::assertTrue(Prime::rabinTest(997));
+        self::assertFalse(Prime::rabinTest(998));
+    }
 
-	public function testMersenne()
-	{
-		self::assertEquals(2047, Prime::mersenne(11));
-		self::assertTrue(Prime::isMersenne(Prime::mersenne(2)));
-		self::assertTrue(Prime::isMersenne(Prime::mersenne(4)));
-		self::assertFalse(Prime::isMersenne(2046));
-	}
+    public function testMersenne()
+    {
+        self::assertEquals(2047, Prime::mersenne(11));
+        self::assertTrue(Prime::isMersenne(Prime::mersenne(2)));
+        self::assertTrue(Prime::isMersenne(Prime::mersenne(4)));
+        self::assertFalse(Prime::isMersenne(2046));
+    }
 }

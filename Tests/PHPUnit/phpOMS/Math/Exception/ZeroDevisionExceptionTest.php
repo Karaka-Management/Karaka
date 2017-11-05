@@ -21,7 +21,7 @@ use phpOMS\Math\Exception\ZeroDevisionException;
 class ZeroDevisionExceptionTest extends \PHPUnit\Framework\TestCase
 {
     public function testException()
-	{
-		self::assertInstanceOf(\UnexpectedValueException::class, new ZeroDevisionException());
-	}
+    {
+        self::assertInstanceOf(\UnexpectedValueException::class, new ZeroDevisionException());
+    }
 }

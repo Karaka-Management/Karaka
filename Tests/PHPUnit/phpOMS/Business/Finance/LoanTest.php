@@ -21,9 +21,9 @@ use phpOMS\Business\Finance\Loan;
 
 class LoanTest extends \PHPUnit\Framework\TestCase
 {
-	public function testRatios()
-	{
-		self::assertEquals(100 / 50, Loan::getLoanToDepositRatio(100, 50));
-		self::assertEquals(100 / 50, Loan::getLoanToValueRatio(100, 50));
-	}
+    public function testRatios()
+    {
+        self::assertEquals(100 / 50, Loan::getLoanToDepositRatio(100, 50));
+        self::assertEquals(100 / 50, Loan::getLoanToValueRatio(100, 50));
+    }
 }

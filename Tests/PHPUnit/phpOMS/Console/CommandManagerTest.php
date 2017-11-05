@@ -21,8 +21,8 @@ use phpOMS\Console\CommandManager;
 
 class CommandManagerTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

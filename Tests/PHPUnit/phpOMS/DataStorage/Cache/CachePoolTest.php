@@ -22,26 +22,26 @@ use phpOMS\DataStorage\Cache\FileCache;
 
 class CachePoolTest extends \PHPUnit\Framework\TestCase
 {
-	public function testDefault()
-	{
-		$pool = new CachePool();
+    public function testDefault()
+    {
+        $pool = new CachePool();
 
-		self::assertFalse($pool->remove('core'));
-		self::assertEquals(null, $pool->get());
-	}
+        self::assertFalse($pool->remove('core'));
+        self::assertEquals(null, $pool->get());
+    }
 
-	public function testGetSet()
-	{
-		$pool = new CachePool();
+    public function testGetSet()
+    {
+        $pool = new CachePool();
 
-		self::assertTrue($pool->add('test', new FileCache(__DIR__)));
-		self::assertFalse($pool->add('test', new FileCache(__DIR__)));
-		self::assertInstanceOf('\phpOMS\DataStorage\Cache\CacheInterface', $pool->get('test'));
-		self::assertTrue($pool->create('abc', ['type' => 'file', 'path' => __DIR__]));
-		self::assertInstanceOf('\phpOMS\DataStorage\Cache\CacheInterface', $pool->get('abc'));
-		self::assertTrue($pool->remove('abc'));
-		self::assertEquals(null, $pool->get('abc'));
-		self::assertInstanceOf('\phpOMS\DataStorage\Cache\CacheInterface', $pool->get('test'));
-		self::assertFalse($pool->remove('abc'));
-	}
+        self::assertTrue($pool->add('test', new FileCache(__DIR__)));
+        self::assertFalse($pool->add('test', new FileCache(__DIR__)));
+        self::assertInstanceOf('\phpOMS\DataStorage\Cache\CacheInterface', $pool->get('test'));
+        self::assertTrue($pool->create('abc', ['type' => 'file', 'path' => __DIR__]));
+        self::assertInstanceOf('\phpOMS\DataStorage\Cache\CacheInterface', $pool->get('abc'));
+        self::assertTrue($pool->remove('abc'));
+        self::assertEquals(null, $pool->get('abc'));
+        self::assertInstanceOf('\phpOMS\DataStorage\Cache\CacheInterface', $pool->get('test'));
+        self::assertFalse($pool->remove('abc'));
+    }
 }

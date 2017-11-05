@@ -21,8 +21,8 @@ use phpOMS\Math\Matrix\IdentityMatrix;
 
 class IdentityMatrixTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

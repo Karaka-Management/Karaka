@@ -21,8 +21,8 @@ use phpOMS\Math\Geometry\Shape\D2\Polygon;
 
 class PolygonTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

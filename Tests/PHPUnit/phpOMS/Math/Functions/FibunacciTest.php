@@ -21,19 +21,19 @@ use phpOMS\Math\Functions\Fibunacci;
 
 class FibunacciTest extends \PHPUnit\Framework\TestCase
 {
-	public function testFibunacci()
-	{
-		self::assertTrue(Fibunacci::isFibunacci(13));
-		self::assertTrue(Fibunacci::isFibunacci(55));
-		self::assertTrue(Fibunacci::isFibunacci(89));
-		self::assertFalse(Fibunacci::isFibunacci(6));
-		self::assertFalse(Fibunacci::isFibunacci(87));
+    public function testFibunacci()
+    {
+        self::assertTrue(Fibunacci::isFibunacci(13));
+        self::assertTrue(Fibunacci::isFibunacci(55));
+        self::assertTrue(Fibunacci::isFibunacci(89));
+        self::assertFalse(Fibunacci::isFibunacci(6));
+        self::assertFalse(Fibunacci::isFibunacci(87));
 
-		self::assertEquals(1, Fibunacci::fibunacci(1));
-		self::assertTrue(Fibunacci::isFibunacci(Fibunacci::binet(3)));
-		self::assertTrue(Fibunacci::isFibunacci(Fibunacci::binet(6)));
+        self::assertEquals(1, Fibunacci::fibunacci(1));
+        self::assertTrue(Fibunacci::isFibunacci(Fibunacci::binet(3)));
+        self::assertTrue(Fibunacci::isFibunacci(Fibunacci::binet(6)));
 
-		self::assertEquals(Fibunacci::binet(6), Fibunacci::fibunacci(6));
-		self::assertEquals(Fibunacci::binet(8), Fibunacci::fibunacci(8));
-	}
+        self::assertEquals(Fibunacci::binet(6), Fibunacci::fibunacci(6));
+        self::assertEquals(Fibunacci::binet(8), Fibunacci::fibunacci(8));
+    }
 }

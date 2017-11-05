@@ -21,8 +21,8 @@ use phpOMS\DataStorage\Database\Query\Grammar\PostgresGrammar;
 
 class PostgresGrammarTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

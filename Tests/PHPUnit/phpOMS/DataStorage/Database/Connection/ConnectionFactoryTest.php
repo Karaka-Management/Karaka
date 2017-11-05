@@ -22,19 +22,19 @@ use phpOMS\DataStorage\Database\Connection\MysqlConnection;
 
 class ConnectionFactoryTest extends \PHPUnit\Framework\TestCase
 {
-	public function testCreate()
-	{
-		self::assertInstanceOf(
-			MysqlConnection::class, 
-			ConnectionFactory::create($GLOBALS['CONFIG']['db']['core']['masters']['admin'])
-		);
-	}
+    public function testCreate()
+    {
+        self::assertInstanceOf(
+            MysqlConnection::class, 
+            ConnectionFactory::create($GLOBALS['CONFIG']['db']['core']['masters']['admin'])
+        );
+    }
 
-	/**
-	 * @expectedException \InvalidArgumentException
-	 */
-	public function testInvalidDatabaseType()
-	{
-		ConnectionFactory::create(['db' => 'invalid']);
-	}
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testInvalidDatabaseType()
+    {
+        ConnectionFactory::create(['db' => 'invalid']);
+    }
 }

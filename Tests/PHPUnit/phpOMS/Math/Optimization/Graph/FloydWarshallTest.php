@@ -21,8 +21,8 @@ use phpOMS\Math\Optimization\Graph\FloydWarshall;
 
 class FloydWarshallTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

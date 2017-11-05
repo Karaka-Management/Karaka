@@ -21,8 +21,8 @@ use phpOMS\Math\Number\Rational;
 
 class RationalTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

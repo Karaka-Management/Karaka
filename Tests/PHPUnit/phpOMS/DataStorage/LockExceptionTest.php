@@ -21,9 +21,9 @@ use phpOMS\DataStorage\LockException;
 
 class LockExceptionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testException()
-	{
-		self::assertInstanceOf(\RuntimeException::class, new LockException(''));
-	}
+    public function testException()
+    {
+        self::assertInstanceOf(\RuntimeException::class, new LockException(''));
+    }
 }
 

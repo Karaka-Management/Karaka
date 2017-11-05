@@ -232,7 +232,7 @@ class BuilderTest extends \PHPUnit\Framework\TestCase
     {
         $query = new Builder($this->con, true);
         $query->update();
-	}
+    }
     
     /**
      * @expectedException \Exception
@@ -241,5 +241,5 @@ class BuilderTest extends \PHPUnit\Framework\TestCase
     {
         $query = new Builder($this->con, true);
         $query->delete();
-	}
+    }
 }

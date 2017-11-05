@@ -22,21 +22,21 @@ use phpOMS\Math\Matrix\CholeskyDecomposition;
 
 class CholeskyDecompositionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testDecomposition()
-	{
-		$this->B = new Matrix();
+    public function testDecomposition()
+    {
+        $this->B = new Matrix();
         $this->B->setMatrix([
             [25, 15, -5],
             [15, 17, 0],
             [-5, 0, 11],
-		]);
+        ]);
 
-		$cholesky = new CholeskyDecomposition($this->B);
-		
-		self::assertEquals([
-			[5, 0, 0],
-			[3, 3, 0],
-			[-1, 1, 3],
-		], $cholesky->getL()->toArray(), '', 0.2);
-	}
+        $cholesky = new CholeskyDecomposition($this->B);
+        
+        self::assertEquals([
+            [5, 0, 0],
+            [3, 3, 0],
+            [-1, 1, 3],
+        ], $cholesky->getL()->toArray(), '', 0.2);
+    }
 }

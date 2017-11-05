@@ -22,52 +22,52 @@ use phpOMS\DataStorage\LockException;
 
 class CookieJarTest extends \PHPUnit\Framework\TestCase
 {
-	public function testDefault()
-	{
-		$jar = new CookieJar();
+    public function testDefault()
+    {
+        $jar = new CookieJar();
 
-		self::assertFalse(CookieJar::isLocked());
-		self::assertFalse($jar->delete('abc'));
-		self::assertFalse($jar->delete('asd'));
-	}
+        self::assertFalse(CookieJar::isLocked());
+        self::assertFalse($jar->delete('abc'));
+        self::assertFalse($jar->delete('asd'));
+    }
 
-	public function testCookie()
-	{
-		$jar = new CookieJar();
+    public function testCookie()
+    {
+        $jar = new CookieJar();
 
-		self::assertTrue($jar->set('test', 'value'));
-		self::assertFalse($jar->set('test', 'value', 86400, '/', null, false, true, false));
-		self::assertTrue($jar->set('test2', 'value2', 86400, '/', null, false, true, false));
-		self::assertTrue($jar->set('test3', 'value3', 86400, '/', null, false, true, false));
+        self::assertTrue($jar->set('test', 'value'));
+        self::assertFalse($jar->set('test', 'value', 86400, '/', null, false, true, false));
+        self::assertTrue($jar->set('test2', 'value2', 86400, '/', null, false, true, false));
+        self::assertTrue($jar->set('test3', 'value3', 86400, '/', null, false, true, false));
 
-		// header already set
-		//self::assertTrue($jar->delete('test2'));
-		//self::assertFalse($jar->delete('test2'));
+        // header already set
+        //self::assertTrue($jar->delete('test2'));
+        //self::assertFalse($jar->delete('test2'));
 
-		self::assertTrue($jar->remove('test2'));
-		self::assertFalse($jar->remove('test2'));
-	}
+        self::assertTrue($jar->remove('test2'));
+        self::assertFalse($jar->remove('test2'));
+    }
 
-	/**
-	 * @expectedException \phpOMS\DataStorage\LockException
-	 */
-	public function testDeleteLocked()
-	{
-		$jar = new CookieJar();
-		self::assertTrue($jar->set('test', 'value'));
+    /**
+     * @expectedException \phpOMS\DataStorage\LockException
+     */
+    public function testDeleteLocked()
+    {
+        $jar = new CookieJar();
+        self::assertTrue($jar->set('test', 'value'));
 
-		CookieJar::lock();
-		$jar->delete('test');
-	}
+        CookieJar::lock();
+        $jar->delete('test');
+    }
 
-	/**
-	 * @expectedException \phpOMS\DataStorage\LockException
-	 */
-	public function testSaveLocked()
-	{
-		CookieJar::lock();
+    /**
+     * @expectedException \phpOMS\DataStorage\LockException
+     */
+    public function testSaveLocked()
+    {
+        CookieJar::lock();
 
-		$jar = new CookieJar();
-		$jar->save();
-	}
+        $jar = new CookieJar();
+        $jar->save();
+    }
 }

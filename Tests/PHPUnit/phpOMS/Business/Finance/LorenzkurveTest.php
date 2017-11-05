@@ -21,11 +21,11 @@ use phpOMS\Business\Finance\Lorenzkurve;
 
 class LorenzkurveTest extends \PHPUnit\Framework\TestCase
 {
-	public function testLorenz()
-	{
-		$arr = [1, 1, 1, 1, 1, 1, 1, 10, 33, 50];
+    public function testLorenz()
+    {
+        $arr = [1, 1, 1, 1, 1, 1, 1, 10, 33, 50];
 
-		self::assertTrue(abs(0.71 - LorenzKurve::getGiniCoefficient($arr)) < 0.01);
-	}
+        self::assertTrue(abs(0.71 - LorenzKurve::getGiniCoefficient($arr)) < 0.01);
+    }
 }
 

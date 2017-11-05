@@ -21,8 +21,8 @@ use phpOMS\DataStorage\Database\Schema\Builder;
 
 class BuilderTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

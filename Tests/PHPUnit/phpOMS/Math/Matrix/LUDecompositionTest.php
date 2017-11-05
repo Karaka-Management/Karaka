@@ -22,27 +22,27 @@ use phpOMS\Math\Matrix\LUDecomposition;
 
 class LUDecompositionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testDecomposition()
-	{
-		$this->B = new Matrix();
+    public function testDecomposition()
+    {
+        $this->B = new Matrix();
         $this->B->setMatrix([
             [1, 2, 3],
             [4, 5, 6],
             [7, 8, 9],
-		]);
+        ]);
 
         $lu = new LUDecomposition($this->B);
         
-/*		self::assertEquals([
-			[1, 0, 0],
-			[4, 1, 0],
-			[7, 2, 1],
+/*        self::assertEquals([
+            [1, 0, 0],
+            [4, 1, 0],
+            [7, 2, 1],
         ], $lu->getL()->toArray(), '', 0.2);
         
         self::assertEquals([
-			[1, 2, 3],
-			[0, -3, -6],
-			[0, 0, 0],
-		], $lu->getU()->toArray(), '', 0.2);*/
-	}
+            [1, 2, 3],
+            [0, -3, -6],
+            [0, 0, 0],
+        ], $lu->getU()->toArray(), '', 0.2);*/
+    }
 }

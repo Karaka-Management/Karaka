@@ -21,8 +21,8 @@ use phpOMS\DataStorage\Database\Connection\SqlServerConnection;
 
 class SqlServerConnectionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

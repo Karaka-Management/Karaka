@@ -21,8 +21,8 @@ use phpOMS\DataStorage\Session\SocketSession;
 
 class SocketSessionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

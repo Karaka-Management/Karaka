@@ -21,8 +21,8 @@ use phpOMS\Math\Geometry\Shape\D3\Prism;
 
 class PrismTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

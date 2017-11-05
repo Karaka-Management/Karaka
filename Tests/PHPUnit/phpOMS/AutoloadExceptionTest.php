@@ -21,8 +21,8 @@ use phpOMS\AutoloadException;
 
 class AutoloadExceptionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testException()
-	{
-		self::assertInstanceOf(\RuntimeException::class, new AutoloadException(''));
-	}
+    public function testException()
+    {
+        self::assertInstanceOf(\RuntimeException::class, new AutoloadException(''));
+    }
 }

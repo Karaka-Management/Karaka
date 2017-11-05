@@ -21,8 +21,8 @@ use phpOMS\Math\Optimization\Knappsack\BruteForce;
 
 class BruteForceTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

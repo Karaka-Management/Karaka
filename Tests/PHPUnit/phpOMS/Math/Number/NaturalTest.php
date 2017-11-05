@@ -21,12 +21,12 @@ use phpOMS\Math\Number\Natural;
 
 class NaturalTest extends \PHPUnit\Framework\TestCase
 {
-	public function testNatural()
-	{
-		self::assertTrue(Natural::isNatural(1235));
-		self::assertTrue(Natural::isNatural(0));
-		self::assertFalse(Natural::isNatural(-1235));
-		self::assertFalse(Natural::isNatural('123'));
-		self::assertFalse(Natural::isNatural(1.23));
-	}
+    public function testNatural()
+    {
+        self::assertTrue(Natural::isNatural(1235));
+        self::assertTrue(Natural::isNatural(0));
+        self::assertFalse(Natural::isNatural(-1235));
+        self::assertFalse(Natural::isNatural('123'));
+        self::assertFalse(Natural::isNatural(1.23));
+    }
 }

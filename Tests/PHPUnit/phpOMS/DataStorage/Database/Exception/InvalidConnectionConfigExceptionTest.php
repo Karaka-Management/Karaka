@@ -21,7 +21,7 @@ use phpOMS\DataStorage\Database\Exception\InvalidConnectionConfigException;
 class InvalidConnectionConfigExceptionTest extends \PHPUnit\Framework\TestCase
 {
     public function testException()
-	{
-		self::assertInstanceOf(\InvalidArgumentException::class, new InvalidConnectionConfigException(''));
-	}
+    {
+        self::assertInstanceOf(\InvalidArgumentException::class, new InvalidConnectionConfigException(''));
+    }
 }

@@ -21,8 +21,8 @@ use phpOMS\Math\Optimization\ShiftScheduling\Worker;
 
 class WorkerTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

@@ -21,9 +21,9 @@ use phpOMS\Math\Numerics\Interpolation\PolynomialInterpolation;
 
 class PolynomialInterpolationTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }
 

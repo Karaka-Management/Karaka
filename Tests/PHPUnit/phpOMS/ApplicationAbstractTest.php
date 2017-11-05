@@ -22,8 +22,8 @@ use phpOMS\UnhandledHandler;
 
 class ApplicationAbstractTest extends \PHPUnit\Framework\TestCase
 {
-	public function testGetSet()
-	{
+    public function testGetSet()
+    {
         $obj = new class extends ApplicationAbstract {};
             
         $obj->appName = 'Test';
@@ -31,5 +31,5 @@ class ApplicationAbstractTest extends \PHPUnit\Framework\TestCase
 
         $obj->appName = 'ABC';
         self::assertEquals('Test', $obj->appName);
-	}
+    }
 }

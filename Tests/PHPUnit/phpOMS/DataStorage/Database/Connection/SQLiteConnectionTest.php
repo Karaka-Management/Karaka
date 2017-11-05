@@ -21,8 +21,8 @@ use phpOMS\DataStorage\Database\Connection\SQLiteConnection;
 
 class SQLiteConnectionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

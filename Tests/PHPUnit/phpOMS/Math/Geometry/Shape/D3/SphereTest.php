@@ -21,8 +21,8 @@ use phpOMS\Math\Geometry\Shape\D3\Sphere;
 
 class SphereTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

@@ -21,8 +21,8 @@ use phpOMS\Business\Finance\Forecasting\GARCH;
 
 class GARCHTest extends \PHPUnit\Framework\TestCase
 {
-	public function testPlaceholder()
-	{
-		self::markTestIncomplete();
-	}
+    public function testPlaceholder()
+    {
+        self::markTestIncomplete();
+    }
 }

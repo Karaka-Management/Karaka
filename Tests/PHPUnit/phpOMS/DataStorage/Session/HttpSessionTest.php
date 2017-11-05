@@ -21,30 +21,30 @@ use phpOMS\DataStorage\Session\HttpSession;
 
 class HttpSessionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testDefault()
-	{
-		$session = new HttpSession();
-		self::assertEquals(null, $session->get('key'));
-		self::assertGreaterThan(0, strlen($session->getSID()));
-		self::assertFalse(HttpSession::isLocked());
-	}
+    public function testDefault()
+    {
+        $session = new HttpSession();
+        self::assertEquals(null, $session->get('key'));
+        self::assertGreaterThan(0, strlen($session->getSID()));
+        self::assertFalse(HttpSession::isLocked());
+    }
 
-	public function testGetSet()
-	{
-		$session = new HttpSession(1, false, 1);
-		self::assertTrue($session->set('test', 'value'));
-		self::assertEquals('value', $session->get('test'));
+    public function testGetSet()
+    {
+        $session = new HttpSession(1, false, 1);
+        self::assertTrue($session->set('test', 'value'));
+        self::assertEquals('value', $session->get('test'));
 
-		self::assertFalse($session->set('test', 'value2', false));
-		self::assertEquals('value', $session->get('test'));
+        self::assertFalse($session->set('test', 'value2', false));
+        self::assertEquals('value', $session->get('test'));
 
-		self::assertTrue($session->set('test', 'value3'));
-		self::assertEquals('value3', $session->get('test'));
+        self::assertTrue($session->set('test', 'value3'));
+        self::assertEquals('value3', $session->get('test'));
 
-		self::assertTrue($session->remove('test'));
-		self::assertFalse($session->remove('test'));
+        self::assertTrue($session->remove('test'));
+        self::assertFalse($session->remove('test'));
 
-		$session->setSID('abc');
-		self::assertEquals('abc', $session->getSID());
-	}
+        $session->setSID('abc');
+        self::assertEquals('abc', $session->getSID());
+    }
 }
