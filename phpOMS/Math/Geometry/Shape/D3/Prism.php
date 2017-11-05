@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
- namespace phpOMS\Math\Geometry\Shape\D3;
+namespace phpOMS\Math\Geometry\Shape\D3;
 
 class Prism implements D3ShapeInterface
 {

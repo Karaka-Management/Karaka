@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
- namespace phpOMS\Math\Statistic\Forecast\Regression;
+namespace phpOMS\Math\Statistic\Forecast\Regression;
 
 use phpOMS\Math\Matrix\Matrix;
 

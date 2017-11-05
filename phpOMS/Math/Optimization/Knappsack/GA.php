@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
- namespace phpOMS\Math\Optimization\Knappsack;
+namespace phpOMS\Math\Optimization\Knappsack;
 
 class GA
 {

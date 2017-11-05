@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
- namespace phpOMS\Math\Optimization\ShiftScheduling;
+namespace phpOMS\Math\Optimization\ShiftScheduling;
 
 class Worker
 {

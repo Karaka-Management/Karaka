@@ -298,7 +298,7 @@ class Task implements \JsonSerializable
      */
     public function setDone(\DateTime $done)
     {
-        $this->done = $done;;
+        $this->done = $done;
     }
 
     /**
