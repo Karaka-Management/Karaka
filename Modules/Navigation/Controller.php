@@ -144,7 +144,7 @@ class Controller extends ModuleAbstract implements WebInterface
                 continue;
             }
 
-            $path =  __DIR__ . '/../..' . $path . '.' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php';
+            $path = __DIR__ . '/../..' . $path . '.' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php';
 
             /** @noinspection PhpIncludeInspection */
             $lang = include $path;

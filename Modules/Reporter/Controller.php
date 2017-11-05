@@ -392,7 +392,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     private function createMediaCollectionFromRequest(RequestAbstract $request) : int
     {
-        $files    = json_decode($request->getData('files'));
+        $files = json_decode($request->getData('files'));
         // TODO: make sure this user has permissions for provided files
 
         /* Create collection */

@@ -56,7 +56,7 @@ class KanbanColumnMapperTest extends \PHPUnit\Framework\TestCase
 
             $column->setName($text->generateText(mt_rand(3, 7)));
             $column->setBoard(1);
-            $column->setOrder($i+1);
+            $column->setOrder($i + 1);
 
             $id = KanbanColumnMapper::create($column);
         }

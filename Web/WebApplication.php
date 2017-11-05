@@ -61,12 +61,12 @@ class WebApplication extends ApplicationAbstract
             $applicationName = $this->getApplicationName($request->getUri()->getPathElement(1) ?? '');
             $app = '\Web\\' . $applicationName . '\Application';
             $sub = new $app($this, $config);
-        } catch(DatabaseException $e) {
+        } catch (DatabaseException $e) {
             $this->logger->critical(FileLogger::MSG_FULL, [
                 'message' => $e->getMessage(),
                 'line'    => 62]);
             $sub = new \Web\E503\Application($this, $config);
-        } catch(UnexpectedApplicationException $e) {
+        } catch (UnexpectedApplicationException $e) {
             $this->logger->critical(FileLogger::MSG_FULL, [
                 'message' => $e->getMessage(),
                 'line'    => 64]);

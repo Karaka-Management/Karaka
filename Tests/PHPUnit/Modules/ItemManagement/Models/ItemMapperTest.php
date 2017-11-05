@@ -63,7 +63,7 @@ class ItemMapperTest extends \PHPUnit\Framework\TestCase
         for ($i = 1; $i < 1000; $i++) {
             $item = new Item();
 
-            $item->setNumber($i+1);
+            $item->setNumber($i + 1);
             $item->setArticleGroup(mt_rand(1000, 3000));
             $item->setProductGroup(mt_rand(11, 30));
             $item->setSegment(mt_rand(1, 9));
