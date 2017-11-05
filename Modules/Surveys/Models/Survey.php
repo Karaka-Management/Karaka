@@ -14,8 +14,6 @@
 declare(strict_types = 1);
 namespace Modules\Surveys;
 
-use phpOMS\Pattern\Multition;
-
 /**
  * Survey class.
  *
@@ -25,7 +23,7 @@ use phpOMS\Pattern\Multition;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Survey implements Multition
+class Survey
 {
 
     /**

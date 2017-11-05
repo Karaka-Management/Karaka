@@ -27,7 +27,7 @@ class RestTest extends \PHPUnit\Framework\TestCase
 {
     public function testRequest()
     {
-        $request = new Request(new Http('http://website.orange-management.de/phpOMS/LICENSE.txt'));
+        $request = new Request(new Http('http://orange-management.de/phpOMS/LICENSE.txt'));
         $request->setMethod(RequestMethod::GET);
 
         self::assertEquals(

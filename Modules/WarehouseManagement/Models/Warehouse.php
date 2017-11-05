@@ -14,8 +14,6 @@
 declare(strict_types = 1);
 namespace Modules\Warehousing\Models;
 
-use phpOMS\Pattern\Multition;
-
 /**
  * Warehouse class.
  *
@@ -25,7 +23,7 @@ use phpOMS\Pattern\Multition;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Warehouse implements Multition
+class Warehouse
 {
 
     /**

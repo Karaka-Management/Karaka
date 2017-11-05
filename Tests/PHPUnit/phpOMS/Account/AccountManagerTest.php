@@ -40,7 +40,6 @@ class AccountManagerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(0, $manager->count());
         self::assertInstanceOf('\phpOMS\Account\Account', $manager->get(0));
         self::assertInstanceOf('\phpOMS\Account\NullAccount', $manager->get(-1));
-        self::assertInstanceOf('\phpOMS\Auth\Auth', $manager->getAuth());
     }
 
     public function testSetGet()

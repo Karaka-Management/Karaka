@@ -13,8 +13,6 @@
  */ /* TODO: maybe make this a framework object? and let warehousing, sales, purchase extend this */
 namespace Modules\Warehousing\Models;
 
-use phpOMS\Pattern\Multition;
-
 /**
  * Article class.
  *
@@ -24,7 +22,7 @@ use phpOMS\Pattern\Multition;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Article implements Multition
+class Article 
 {
 
     /**
