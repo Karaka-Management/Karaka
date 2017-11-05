@@ -71,7 +71,7 @@
             this.recognition.grammars = this.speechRecognitionList;
         }
 
-        this.recognition.onstart = function() {}
+        this.recognition.onstart = function() {};
 
         this.recognition.onresult = function(event) {
             let result = jsOMS.trim(event.results[event.resultIndex][0].transcript);
@@ -82,18 +82,18 @@
                 console.log('found');
                 self.commands[result]();
             }
-        }
+        };
 
         this.recognition.onspeechend = function() {
-        }
+        };
 
         this.recognition.onnomatch = function(event) {
             jsOMS.Log.Logger.instance.warning('Couldn\'t recognize speech');
-        }
+        };
 
         this.recognition.onerror = function(event) {
             jsOMS.Log.Logger.instance.warning('Error during speech recognition: ' + event.error);
-        }
+        };
     };
 
     /**
@@ -127,7 +127,7 @@
      * Add command/grammar and callback.
      *
      * @param {string} command Command id
-     * @param {Callback} callback Callback for command
+     * @param {callback} callback Callback for command
      * 
      * @return {void}
      *

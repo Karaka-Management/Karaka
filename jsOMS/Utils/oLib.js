@@ -19,7 +19,7 @@
      * @param {Object} data Object
      * @param {string} delim Path delimiter
      *
-     * @return {mixed}
+     * @return
      *
      * @function
      *
@@ -31,6 +31,10 @@
         let current = data;
 
         for(let key in pathParts) {
+            if(!pathParts.hasOwnProperty(key)) {
+                continue;
+            }
+
             if(current === null) {
                 return null;
             }

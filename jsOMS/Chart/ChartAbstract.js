@@ -221,6 +221,10 @@
     jsOMS.Chart.ChartAbstract.prototype.findAxisDomain = function ()
     {
         for (let id in this.axis) {
+            if(!this.axis.hasOwnProperty(id)) {
+                continue;
+            }
+
             this.axis[id].max = d3.max(this.dataset, function (m)
             {
                 return d3.max(m.points, function (d)
@@ -528,7 +532,7 @@
                 0,
                 this.dimension.height
                 - this.margin.top
-                - this.margin.bottom,
+                - this.margin.bottom
             ], 0.3);
         } else {
             return d3.scale.linear().range([
@@ -586,7 +590,7 @@
 
     jsOMS.Chart.ChartAbstract.prototype.calculateDimension = function ()
     {
-        let box = this.chartSelect.node().getBoundingClientRect()
+        let box = this.chartSelect.node().getBoundingClientRect();
 
         this.dimension = {
             width: box.width,

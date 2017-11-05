@@ -126,6 +126,10 @@
             keyValPairs = query.split('&');
 
             for (pairNum in keyValPairs) {
+                if(!keyValPairs.hasOwnProperty(pairNum)) {
+                    continue;
+                }
+
                 const key = keyValPairs[pairNum].split('=')[0];
 
                 if (!key.length) {

@@ -21,7 +21,7 @@
     jsOMS.Message.Notification.App.AppNotification.prototype.setStatus = function(status)
     {
         this.status = status;
-    }
+    };
 
     jsOMS.Message.Notification.App.AppNotification.prototype.requestPermission = function()
     {

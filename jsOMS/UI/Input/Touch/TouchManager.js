@@ -83,24 +83,22 @@
             jsOMS.preventAll(event);
 
             if (elapsedTime > 300 && distY < 3 && distX < 3) {
-                let rightClick = document.createEvent('MouseEvents');
-
-                rightClick.initMouseEvent(
-                    'click',
-                    true,        // canBubble
-                    true,        // cancelable
-                    window,      // view - set to the window object
-                    1,           // detail - # of mouse clicks
-                    touch.pageX, // screenX - the page X coordinate
-                    touch.pageY, // screenY - the page Y coordinate
-                    touch.pageX, // clientX - the window X coordinate
-                    touch.pageY,  // clientY - the window Y coordinate
-                    false,       // ctrlKey
-                    false,       // altKey
-                    false,       // shiftKey
-                    false,       // metaKey
-                    2,           // button - 1 = left, 2 = right
-                    null         // relatedTarget
+                let rightClick = MouseEvent('click',
+                    {
+                        bubbles: true,
+                        cancelable: true,
+                        view: window,
+                        screenX: touch.pageX,
+                        screenY: touch.pageY,
+                        clientX: touch.pageX,
+                        clientY: touch.pageY,
+                        ctrlKey: false,
+                        altKey: false,
+                        shiftKey: false,
+                        metaKey: false,
+                        button: 2,
+                        relatedTarget: null
+                    }
                 );
                 
                 document.dispatchEvent(rightClick);

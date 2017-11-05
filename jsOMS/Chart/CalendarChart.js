@@ -61,7 +61,7 @@
             .datum(format);
 
         rect.append("title")
-            .text(function(d) { return; });
+            .text(function(d) { });
 
         svg.selectAll(".month")
             .data(function(d) { return d3.time.months(new Date(parseInt(d.name), 0, 1), new Date(parseInt(d.name) + 1, 0, 1)); })

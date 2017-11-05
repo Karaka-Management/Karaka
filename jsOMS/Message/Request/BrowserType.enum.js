@@ -20,6 +20,6 @@
         IE: 'msie',
         EDGE: 'edge',
         CHROME: 'chrome',
-        BLINK: 'blink',
+        BLINK: 'blink'
     });
 }(window.jsOMS = window.jsOMS || {}));

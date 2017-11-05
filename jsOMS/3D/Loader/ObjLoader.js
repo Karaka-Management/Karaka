@@ -124,7 +124,7 @@
 							inherited  : false,
 
 							clone : function( index ) {
-								var cloned = {
+								const cloned = {
 									index      : ( typeof index === 'number' ? index : this.index ),
 									name       : this.name,
 									mtllib     : this.mtllib,

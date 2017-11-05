@@ -41,7 +41,7 @@
      */
     jsOMS.Config.Options.prototype.set = function (key, value, overwrite)
     {
-        overwrite = typeof overwrite === 'bool' ? overwrite : false;
+        overwrite = typeof overwrite === 'undefined' ? overwrite : false;
 
         if (overwrite || typeof this.options[key] === 'undefined') {
             this.options[key] = value;

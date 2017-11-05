@@ -110,7 +110,7 @@
     /**
      * Get supported voices.
      * 
-     * @return {array}
+     * @return {Array}
      *
      * @since  1.0.0
      */

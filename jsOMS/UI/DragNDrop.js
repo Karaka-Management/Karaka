@@ -62,7 +62,7 @@
     /**
      * Bind DOM elment
      *
-     * @param {Object} id DOM elment
+     * @param {string} id DOM elment
      *
      * @since 1.0.0
      */

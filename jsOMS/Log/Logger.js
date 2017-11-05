@@ -337,7 +337,7 @@
     {
         context = typeof context === 'undefined' ? {} : context;
 
-        this.write(message, context, context);
+        this.write(message, context, level);
     };
 
     /**

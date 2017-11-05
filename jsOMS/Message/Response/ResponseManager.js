@@ -55,7 +55,7 @@
      *
      * @param {string} key Response key
      * @param {Array|Object} data Date to use in callback
-     * @param {string} [request] Request id for request specific execution
+     * @param {jsOMS.Message.Request.Request} [request] Request id for request specific execution
      *
      * @method
      *

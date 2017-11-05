@@ -15,6 +15,6 @@
     
     jsOMS.Message.Notification.NotificationType = Object.freeze({
         APP_NOTIFICATION: 1,
-        BROWSER_NOTIFICATION: 2,
+        BROWSER_NOTIFICATION: 2
     });
 }(window.jsOMS = window.jsOMS || {}));

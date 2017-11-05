@@ -99,7 +99,7 @@
      * Executes the callback specified for this group if all events are finished
      *
      * @param {string|int} group Group id
-     * @param {string|int} id Event id
+     * @param {string|int} [id] Event id
      * @param {Object} [data] Data for event
      *
      * @return {boolean}
@@ -153,8 +153,8 @@
      *
      * @param {string|int} group Group id
      * @param {function} callback Callback
-     * @param {boolean} remove Should be removed after execution
-     * @param {boolean} reset Reset after triggering
+     * @param {boolean} [remove] Should be removed after execution
+     * @param {boolean} [reset] Reset after triggering
      *
      * @return {boolean}
      *

@@ -132,7 +132,6 @@ with ({p: MathProcessor.prototype}) {
         }
     };
     p.error = function (s) {
-        return;
         //throw new Error("MathProcessor: " + (s || "Wrong expression"));
     };
 }

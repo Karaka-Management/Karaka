@@ -21,7 +21,7 @@
     jsOMS.Message.Notification.Browser.BrowserNotification.prototype.setStatus = function(status)
     {
         this.status = status;
-    }
+    };
 
     jsOMS.Message.Notification.Browser.BrowserNotification.prototype.requestPermission = function()
     {
