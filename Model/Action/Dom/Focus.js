@@ -11,4 +11,4 @@ const focusAction = function (action, callback)
     focus.focus();
 
     callback();
-}
+};

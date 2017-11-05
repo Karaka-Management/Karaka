@@ -11,4 +11,4 @@ const hideAction = function (action, callback)
     jsOMS.addClass(hide, 'vh');
 
     callback();
-}
+};

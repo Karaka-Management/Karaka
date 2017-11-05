@@ -11,4 +11,4 @@ const showAction = function (action, callback)
     jsOMS.removeClass(show, 'vh');
 
     callback();
-}
+};

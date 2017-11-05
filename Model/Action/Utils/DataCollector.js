@@ -1,7 +1,13 @@
 /**
- * Collects data based on selectors
+ * Collect data.
+ *
+ * @param {Object} action Action data
+ * @param {function} callback Callback
+ * @param {Object} element Action element
+ *
+ * @since 1.0.0
  */
-const dataCollectionAction = function (action, callback)
+const dataCollectionAction = function (action, callback, element)
 {
     "use strict";
     

@@ -15,9 +15,7 @@ declare(strict_types = 1);
 
 namespace Model\Message;
 
-
 use phpOMS\Contract\ArrayableInterface;
-use phpOMS\Contract\RenderableInterface;
 
 /**
  * Dom class.

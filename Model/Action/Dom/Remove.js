@@ -1,8 +1,9 @@
 /**
  * Set message.
  *
- * @param {{title:string},{content:string},{level:int},{delay:int},{stay:int}} action Message data
+ * @param {Object} action Action data
  * @param {function} callback Callback
+ * @param {Object} element Action element
  *
  * @since 1.0.0
  */
