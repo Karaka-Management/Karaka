@@ -6,6 +6,7 @@
         stopOnFailure="true"
         stopOnIncomplete="false"
         stopOnSkipped="false"
+        processIsolation = "false"
         beStrictAboutTestsThatDoNotTestAnything="false"
         >
     <testsuites>
