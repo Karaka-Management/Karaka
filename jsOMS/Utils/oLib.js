@@ -16,7 +16,7 @@
      * Trim char from string
      *
      * @param {string} path Array path
-     * @param {obj} data Object
+     * @param {Object} data Object
      * @param {string} delim Path delimiter
      *
      * @return {mixed}
@@ -134,7 +134,7 @@
         }
         
         return n;
-    }
+    };
 
     /**
      * Class finder

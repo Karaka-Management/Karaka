@@ -105,7 +105,7 @@
         }
         
         return n;
-    }
+    };
 
     /**
      * Integer hash

@@ -4,12 +4,12 @@
  *
  * PHP Version 7.1
  *
- * @category   TBD
- * @package    TBD
+ * @category   Framework
+ * @package    phpOMS\Business\Finance\Forecasting
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
 
@@ -23,9 +23,9 @@ use phpOMS\Math\Statistic\Average;
  * This can be used to simplify time series patterns for forecasts.
  *
  * @category   Framework
- * @package    phpOMS\Math\Finance\Forecasting
+ * @package    phpOMS\Business\Finance\Forecasting
  * @license    OMS License 1.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  * @see        https://www.otexts.org/fpp/6/1
  * @since      1.0.0
  */

@@ -9,7 +9,7 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  * @todo only load events of 3 month or 1 year?!
  */
 declare(strict_types = 1);
@@ -26,7 +26,7 @@ use phpOMS\DataStorage\Database\RelationType;
  * @category   Calendar
  * @package    Modules
  * @license    OMS License 1.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  * @since      1.0.0
  */
 class CalendarMapper extends DataMapperAbstract

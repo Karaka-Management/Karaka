@@ -153,7 +153,7 @@
      *
      * @since 1.0.0
      */
-    jsOMS.Asset.AssetManager.prototype.remove = function (key, isHashed)
+    jsOMS.Asset.AssetManager.prototype.remove = function (key)
     {
         key = jsOMS.hash(key);
 

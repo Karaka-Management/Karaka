@@ -26,7 +26,7 @@
      *
      * @param {string} key Query key
      * @param {string} value Query value
-     * @param {boolean} overwrite Overwrite if already exists?
+     * @param {boolean} [overwrite] Overwrite if already exists?
      *
      * @return {boolean}
      *
@@ -52,7 +52,7 @@
      *
      * @param {string} key
      * 
-     * @return {string}|null
+     * @return {string}
      *
      * @method
      *
@@ -61,7 +61,7 @@
     jsOMS.Uri.UriFactory.getQuery = function (key)
     {
         if (!jsOMS.Uri.UriFactory.uri.hasOwnProperty(key)) {
-            return null;
+            return '';
         }
 
         return jsOMS.Uri.UriFactory.uri[key];
@@ -185,7 +185,7 @@
      * % = Current url
      *
      * @param {string} uri Raw uri
-     * @param {Object} toMatch Key/value pair to replace in raw
+     * @param {Object} [toMatch] Key/value pair to replace in raw
      *
      * @function
      *

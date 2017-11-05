@@ -4,19 +4,18 @@
  *
  * PHP Version 7.1
  *
- * @category   TBD
- * @package    TBD
+ * @category   Framework
+ * @package    phpOMS\Account
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
 
 namespace phpOMS\Account;
 
 use phpOMS\Auth\Auth;
-use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Session\SessionInterface;
 
 /**
@@ -27,7 +26,7 @@ use phpOMS\DataStorage\Session\SessionInterface;
  * @category   Framework
  * @package    phpOMS\Account
  * @license    OMS License 1.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  * @since      1.0.0
  */
 class AccountManager implements \Countable
@@ -50,14 +49,6 @@ class AccountManager implements \Countable
     private $session = null;
 
     /**
-     * Authenticator.
-     *
-     * @var Auth
-     * @since 1.0.0
-     */
-    private $auth = null;
-
-    /**
      * Constructor.
      *
      * @param SessionInterface   $session    Session
@@ -66,8 +57,7 @@ class AccountManager implements \Countable
      */
     public function __construct(SessionInterface $session)
     {
-        $this->session    = $session;
-        $this->auth       = new Auth($this->session);
+        $this->session = $session;
     }
 
     /**
@@ -82,7 +72,7 @@ class AccountManager implements \Countable
     public function get(int $id = 0) : Account
     {
         if ($id === 0) {
-            $account = new Account($this->auth->authenticate());
+            $account = new Account(Auth::authenticate($this->session));
 
             if (!isset($this->accounts[$account->getId()])) {
                 $this->accounts[$account->getId()] = $account;
@@ -92,18 +82,6 @@ class AccountManager implements \Countable
         }
 
         return $this->accounts[$id] ?? new NullAccount();
-    }
-
-    /**
-     * Returns the authentication manager
-     *
-     * @return Auth
-     *
-     * @since  1.0.0
-     */
-    public function getAuth() : Auth
-    {
-        return $this->auth;
     }
 
     /**

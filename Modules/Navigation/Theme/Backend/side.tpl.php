@@ -9,7 +9,7 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */
 /**
  * @var \Modules\Navigation\Views\NavigationView $this
@@ -45,5 +45,5 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::SIDE])) : ?>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */ endif;

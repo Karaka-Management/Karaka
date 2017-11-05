@@ -4,12 +4,12 @@
  *
  * PHP Version 7.1
  *
- * @category   TBD
- * @package    TBD
+ * @category   Framework
+ * @package    phpOMS\Business\Finance\Forecasting\ExponentialSmoothing
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
 
@@ -21,9 +21,9 @@ use phpOMS\Stdlib\Base\Enum;
  * Smoothing enum.
  *
  * @category   Framework
- * @package    phpOMS\Html
+ * @package    phpOMS\Business\Finance\Forecasting\ExponentialSmoothing
  * @license    OMS License 1.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  * @since      1.0.0
  */
 abstract class TrendType extends Enum

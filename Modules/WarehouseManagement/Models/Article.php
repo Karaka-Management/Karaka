@@ -9,7 +9,7 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */ /* TODO: maybe make this a framework object? and let warehousing, sales, purchase extend this */
 namespace Modules\Warehousing\Models;
 
@@ -21,7 +21,7 @@ use phpOMS\Pattern\Multition;
  * @category   Warehousing
  * @package    Framework
  * @license    OMS License 1.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  * @since      1.0.0
  */
 class Article implements Multition

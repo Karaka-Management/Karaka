@@ -33,9 +33,9 @@
     /**
      * Get logging instance
      *
-     * @param {boolean} verbose Verbose logging
-     * @param {boolean} ui Ui logging
-     * @param {boolean} remote Remote logging
+     * @param {boolean} [verbose] Verbose logging
+     * @param {boolean} [ui] Ui logging
+     * @param {boolean} [remote] Remote logging
      * 
      * @return {Object}
      *
@@ -58,8 +58,8 @@
      * Interpolate message
      *
      * @param {string} message Message structure
-     * @param {Object} context Context to put into message
-     * @param {string} level Log level
+     * @param {Object} [context] Context to put into message
+     * @param {string} [level] Log level
      * 
      * @return {string}
      *
@@ -84,7 +84,7 @@
      * Create context
      *
      * @param {string} message Message to display
-     * @param {Object} context Context to put into message
+     * @param {Object} [context] Context to put into message
      * @param {string} level Log level
      * 
      * @return {Object}
@@ -110,7 +110,7 @@
      * Create log message
      *
      * @param {string} message Message to display
-     * @param {Object} context Context to put into message
+     * @param {Object} [context] Context to put into message
      * @param {string} level Log level
      * 
      * @return {void}
@@ -172,7 +172,7 @@
      * Create log message
      *
      * @param {string} message Message to display
-     * @param {Object} context Context to put into message
+     * @param {Object} [context] Context to put into message
      * 
      * @return {void}
      *
@@ -191,7 +191,7 @@
      * Create log message
      *
      * @param {string} message Message to display
-     * @param {Object} context Context to put into message
+     * @param {Object} [context] Context to put into message
      * 
      * @return {void}
      *
@@ -210,7 +210,7 @@
      * Create log message
      *
      * @param {string} message Message to display
-     * @param {Object} context Context to put into message
+     * @param {Object} [context] Context to put into message
      * 
      * @return {void}
      *
@@ -229,7 +229,7 @@
      * Create log message
      *
      * @param {string} message Message to display
-     * @param {Object} context Context to put into message
+     * @param {Object} [context] Context to put into message
      * 
      * @return {void}
      *
@@ -248,7 +248,7 @@
      * Create log message
      *
      * @param {string} message Message to display
-     * @param {Object} context Context to put into message
+     * @param {Object} [context] Context to put into message
      * 
      * @return {void}
      *
@@ -267,7 +267,7 @@
      * Create log message
      *
      * @param {string} message Message to display
-     * @param {Object} context Context to put into message
+     * @param {Object} [context] Context to put into message
      * 
      * @return {void}
      *
@@ -286,7 +286,7 @@
      * Create log message
      *
      * @param {string} message Message to display
-     * @param {Object} context Context to put into message
+     * @param {Object} [context] Context to put into message
      * 
      * @return {void}
      *
@@ -305,7 +305,7 @@
      * Create log message
      *
      * @param {string} message Message to display
-     * @param {Object} context Context to put into message
+     * @param {Object} [context] Context to put into message
      * 
      * @return {void}
      *
@@ -325,7 +325,7 @@
      *
      * @param {string} level Log level
      * @param {string} message Message to display
-     * @param {Object} context Context to put into message
+     * @param {Object} [context] Context to put into message
      * 
      * @return {void}
      *
@@ -343,8 +343,9 @@
     /**
      * Create log message
      *
+     * @param {string} level Log level
      * @param {string} message Message to display
-     * @param {Object} context Context to put into message
+     * @param {Object} [context] Context to put into message
      * 
      * @return {void}
      *

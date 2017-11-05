@@ -100,6 +100,7 @@
      *
      * @param {string|int} group Group id
      * @param {string|int} id Event id
+     * @param {Object} [data] Data for event
      *
      * @return {boolean}
      *
@@ -112,7 +113,7 @@
         id = typeof id !== 'undefined' ? id : 0;
 
         if(!this.callbacks.hasOwnProperty(group)) {
-            return;
+            return false;
         }
 
         if (typeof this.groups[group] !== 'undefined') {
@@ -155,7 +156,7 @@
      * @param {boolean} remove Should be removed after execution
      * @param {boolean} reset Reset after triggering
      *
-     * @return {void}
+     * @return {boolean}
      *
      * @method
      *

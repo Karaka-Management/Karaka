@@ -9,7 +9,7 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
 
@@ -21,7 +21,7 @@ namespace phpOMS\Math\Geometry\ConvexHull;
  * @category   Framework
  * @package    phpOMS\Utils\TaskSchedule
  * @license    OMS License 1.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  * @since      1.0.0
  *
  * @todo       : implement vertice class or use vertice class used by graphs? May be usefull in order to give vertices IDs!

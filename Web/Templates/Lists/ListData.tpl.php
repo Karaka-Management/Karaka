@@ -9,7 +9,7 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */ /** @var \Web\Views\Lists\ListView $this */ ?>
 <table class="t t-data m-<?= $this->printHtml($this->module); ?> mp-<?= $this->printHtml(($this->module + $this->pageId)); ?>"
        id="i-<?= $this->printHtml(($this->module + $this->id)); ?>">

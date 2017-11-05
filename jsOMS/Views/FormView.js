@@ -127,7 +127,7 @@
      */
     jsOMS.Views.FormView.prototype.getFormElements = function ()
     {
-        const form = document.getElementById(this.id)
+        const form = document.getElementById(this.id);
 
         if(!form) {
             return [];

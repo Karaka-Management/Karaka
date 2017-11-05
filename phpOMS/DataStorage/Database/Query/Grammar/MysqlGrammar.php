@@ -9,7 +9,7 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
 
@@ -22,7 +22,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
  * @category   Framework
  * @package    phpOMS\DataStorage\Database\Query\Grammar
  * @license    OMS License 1.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  * @since      1.0.0
  */
 class MysqlGrammar extends Grammar

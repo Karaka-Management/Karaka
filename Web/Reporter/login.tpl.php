@@ -9,7 +9,7 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */
 $loginForm = new \Web\Views\Form\FormView($this->app, $this->request, $this->response);
 $loginForm->setTemplate('/Web/Templates/Forms/FormFull');

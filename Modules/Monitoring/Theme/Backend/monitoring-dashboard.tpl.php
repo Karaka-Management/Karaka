@@ -9,7 +9,7 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */
 $logs = $this->app->logger->countLogs();
 $penetrators = $this->app->logger->getHighestPerpetrator();

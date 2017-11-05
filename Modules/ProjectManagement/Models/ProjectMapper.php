@@ -9,7 +9,7 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
 namespace Modules\ProjectManagement\Models;
@@ -28,7 +28,7 @@ use Modules\Media\Models\MediaMapper;
  * @category   Calendar
  * @package    Modules
  * @license    OMS License 1.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  * @since      1.0.0
  */
 class ProjectMapper extends DataMapperAbstract

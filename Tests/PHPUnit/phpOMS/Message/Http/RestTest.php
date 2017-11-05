@@ -10,7 +10,7 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */
 
 namespace Tests\PHPUnit\phpOMS\Message\Http;
@@ -27,7 +27,7 @@ class RestTest extends \PHPUnit\Framework\TestCase
 {
 	public function testRequest()
 	{
-		$request = new Request(new Http('http://orange-management.de/phpOMS/LICENSE.txt'));
+		$request = new Request(new Http('http://website.orange-management.de/phpOMS/LICENSE.txt'));
 		$request->setMethod(RequestMethod::GET);
 
 		self::assertEquals(

@@ -9,10 +9,11 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */
 namespace Web\Api;
 
+use phpOMS\Auth\Auth;
 use phpOMS\Auth\LoginReturnType;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\Message\Http\Request;
@@ -53,7 +54,7 @@ use Web\WebApplication;
  * @category   Framework
  * @package    Framework
  * @license    OMS License 1.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  * @since      1.0.0
  */
 class Application
@@ -133,7 +134,7 @@ class Application
         $this->app->eventManager   = new EventManager();
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
 
-        $aid = $this->app->accountManager->getAuth()->authenticate();
+        $aid = Auth::authenticate($this->app->sessionManager);
         $request->getHeader()->setAccount($aid);
         $response->getHeader()->setAccount($aid);
 

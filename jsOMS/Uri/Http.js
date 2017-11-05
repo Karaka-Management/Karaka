@@ -41,7 +41,7 @@
      * Parse uri
      *
      * @param {string} str Url to parse
-     * @param {string} mode Parsing mode
+     * @param {string} [mode] Parsing mode
      *
      * @return {Object}
      *
@@ -341,7 +341,7 @@
     /**
      * Get Uri path offset
      *
-     * @return {string}
+     * @return {int}
      *
      * @method
      *

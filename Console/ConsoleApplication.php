@@ -9,7 +9,7 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */
 namespace Console;
 
@@ -32,7 +32,7 @@ use phpOMS\Router\Router;
  * @category   Framework
  * @package    Framework
  * @license    OMS License 1.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  * @since      1.0.0
  */
 class ConsoleApplication extends ApplicationAbstract
@@ -59,7 +59,6 @@ class ConsoleApplication extends ApplicationAbstract
         $this->dbPool = new DatabasePool();
         $this->dbPool->create('core', $config['db']['core']['masters'][0]);
 
-        /* TODO: implement persistent file session with time limit (maybe partially the same as socket session)  */
         $this->cachePool      = new CachePool($this->dbPool);
         $this->appSettings    = new CoreSettings($this->dbPool->get());
         $this->eventManager   = new EventManager();

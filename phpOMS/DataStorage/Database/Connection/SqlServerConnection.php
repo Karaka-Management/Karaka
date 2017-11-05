@@ -9,7 +9,7 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
 
@@ -29,7 +29,7 @@ use phpOMS\DataStorage\Database\Schema\Grammar\MysqlGrammar as MysqlSchemaGramma
  * @category   Framework
  * @package    phpOMS\DataStorage\Database
  * @license    OMS License 1.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  * @since      1.0.0
  */
 class SqlServerConnection extends ConnectionAbstract

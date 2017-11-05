@@ -9,7 +9,7 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */ 
 if ($this->results > 0): ?>
     <select class="rf onChange" data-request="groups-list-length" data-bind='{"::limit": 25}' data-requesttype="GET"

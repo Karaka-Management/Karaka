@@ -9,7 +9,7 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
 
@@ -25,7 +25,7 @@ use phpOMS\DataStorage\LockException;
  * @category   Framework
  * @package    phpOMS\DataStorage\Session
  * @license    OMS License 1.0
- * @link       http://orange-management.com
+ * @link       http://website.orange-management.de
  * @since      1.0.0
  */
 class HttpSession implements SessionInterface
@@ -78,6 +78,10 @@ class HttpSession implements SessionInterface
     {
         if (self::$isLocked) {
             throw new LockException('HttpSession');
+        }
+
+        if (session_id()) {
+            session_write_close();
         }
 
         if (!is_bool($sid)) {

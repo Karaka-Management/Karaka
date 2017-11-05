@@ -154,7 +154,9 @@
      * Run event action.
      *
      * @param {Element} e Button
+     * @param {Object} listener Listener
      * @param {Object} action Action
+     * @param {Object} data Data for the next action
      *
      * @return {void}
      *
