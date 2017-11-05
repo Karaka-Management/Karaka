@@ -128,5 +128,5 @@ class TaskTest extends \PHPUnit\Framework\TestCase
     {
         $task = new Task();
         $task->setPriority(9999);
-	}
+    }
 }

@@ -81,7 +81,7 @@ class SupplierMapperTest extends \PHPUnit\Framework\TestCase
             $supplier->getProfile()->getAccount()->setStatus(AccountStatus::ACTIVE);
             $supplier->getProfile()->getAccount()->setType(AccountType::USER);
 
-            $supplier->setNumber($i+1);
+            $supplier->setNumber($i + 1);
             $supplier->setStatus(2);
             $supplier->setType(3);
 

@@ -81,7 +81,7 @@ class ClientMapperTest extends \PHPUnit\Framework\TestCase
             $client->getProfile()->getAccount()->setStatus(AccountStatus::ACTIVE);
             $client->getProfile()->getAccount()->setType(AccountType::USER);
 
-            $client->setNumber($i+1);
+            $client->setNumber($i + 1);
             $client->setStatus(2);
             $client->setType(3);
 
