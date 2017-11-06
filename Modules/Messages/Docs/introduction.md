@@ -1,6 +1,6 @@
 # Introduction
 
-The *Messages* module is used for internal and external email communication.
+The **Messages** module is used for internal and external email communication.
 
 # Target Group
 
