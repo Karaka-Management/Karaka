@@ -20,11 +20,11 @@ Example usage in a module handling a API request:
 
 ```
 if($request->getData('CSRF') === null) {
-    $response->setStatusCode(RequestStatusCode::R_403);
-        
+    $response->setStatusCode(RequestStatus::R_403);
+
     /* optional */
     $response->set($request->__toString(), new Notify('Unknown referrer!', NotifyType::INFO));
-    
+
     return;
 }
 ```
@@ -56,13 +56,13 @@ Scripts and frames must be provided by the own server or google. This is importa
 The default CSP looks like the following:
 
 ```
-$response->getHeader()->set('content-security-policy', 'script-src \'self\'; child-src \'self\'', true);
+$response->getHeader()->set('content-security-policy', 'script-src \'self\'; frame-src \'self\'', true);
 ```
 
-In order to whitelist inline javascript you can use the following logic. This however requires you to know the inline script beforehand `$script`. After setting the CSP header they automatically get locked so that further changes are not possible. This is a security measure in order to prevent any malicious adjustments. 
+In order to whitelist inline javascript you can use the following logic. This however requires you to know the inline script beforehand `$script`. After setting the CSP header they automatically get locked so that further changes are not possible. This is a security measure in order to prevent any malicious adjustments.
 
 ```
-$response->getHeader()->set('content-security-policy', 'script-src \'self\' \'sha256-' . base64_encode(hash('sha256', $script, true)) . '\'; child-src \'self\'', true);
+$response->getHeader()->set('content-security-policy', 'script-src \'self\' \'sha256-' . base64_encode(hash('sha256', $script, true)) . '\'; frame-src \'self\'', true);
 ```
 
 ### X-XSS-Protection
@@ -105,7 +105,7 @@ In some cases super globals will even be overwritten by values from these classe
 Input validation be implemented on multiple levels.
 
 1. Regex validation in html/javascript by using the `pattern=""` attribute
-2. Type hints for method parameters and method returns wherever possible.
+2. Type hints for method parameters wherever possible.
 3. Making use of the `Validation` classes as much as possible
 4. **Don't** sanitize at all! Accept or dismiss.
 
@@ -131,9 +131,9 @@ if(($pathNew = realpath($path)) === false || strpos($pathNew, self::MODULE_PATH)
 The example throws an exception if the path either doesn't exist or is trying to access a path that doesn't contain the path defined in `self::MODULE_PATH`. Another validation could be:
 
 ```
-if(($pathNew = realpath($path)) === false || !Validator::startsWith($pathNew, ROOT_PATH)) {
+if(($pathNew = realpath($path)) === false || !StringUtils::startsWith($pathNew, ROOT_PATH)) {
     throw new PathException($path);
 }
 ```
 
-This example now is not only checking if the path exists and if it contains a path element, it also makes sure that the path is inside the application root path.
+This example now is not only checking if the path exists and if it contains a path element, it also makes sure that the path is inside the application root path. You could as easily replace `ROOT_PATH` with `self::MODULE_PATH` and this validation would make sure `$path` only directs within a module.

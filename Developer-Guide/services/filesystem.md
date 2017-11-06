@@ -20,9 +20,9 @@ The file system provides a simple way to handle operations on the file system. S
 
 ## Custom Implementations
 
-Custom implementations can be created by extending the StorageAbstract. These implementations must get registered in the file system and can be used afterwards as the pre-defined implementations.
+Custom implementations can be created by implementing the FileSystemInterface. These implementations must get registered in the file system and can be used afterwards as the pre-defined implementations.
 
 ```
-Storage::register('custom1', '\implementation\namespace');
-Storage::env('custom1')->list();
+FileSystem::register('custom1', '\implementation\namespace');
+FileSystem::env('custom1')->list();
 ```

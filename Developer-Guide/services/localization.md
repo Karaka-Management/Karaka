@@ -7,13 +7,13 @@ Most of the localization is stored inside the localization object which is part 
 Language specific text can be used through the `LocalizationManager`, either by directly calling the `getText()` function of the localization manager
 
 ```
-$this->l11nManager->getHtml({LANGUAGE}, {MODULE}, {THEME}, {TEXT})
+$this->l11nManager->getText({LANGUAGE}, {MODULE}, {THEME}, {TEXT})
 ```
 
 or indirectly by calling the `getText()` in the view context.
 
 ```
-$this->getHtml({TEXT})
+$this->getText({TEXT})
 ```
 
 The language that should be used for a response should always be depending on the requested language and therefore never be hard coded.

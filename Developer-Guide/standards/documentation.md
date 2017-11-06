@@ -12,7 +12,7 @@ A file documentation MUST be implemented in the following form:
 /**
  * File description
  *
- * PHP Version 7.1
+ * PHP Version 7.0
  *
  * @category   Category name
  * @package    Package name
@@ -69,7 +69,7 @@ A function/method documentation MUST be implemented in the following form:
  * @param variable_type $param1Name Parameter description
  * @param variable_type $param2Name Parameter description
  *
- * @return return_type Return description
+ * @return return_type
  *
  * @since  1.0.0
  * @author Your Author 2 <your.second@email.com>
@@ -113,7 +113,7 @@ The scss documentation is based on SassDoc, therefore only valid SassDoc comment
 // Optional example or more detailed description.
 // 
 // @since  1.0.0
-// @author Your Author <your.second@email.com>
+// @author Your Author 2 <your.second@email.com>
 ////
 ```
 

@@ -41,7 +41,7 @@ $this->router->add('foo/bar', function() {
 
 ## Route Parameters
 
-coming soon
+<coming soon>
 
 ## Reference
 
