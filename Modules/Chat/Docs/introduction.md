@@ -2,7 +2,7 @@
 
 The *Chat* module provides a chatting function between users.
 
-## Target Group
+# Target Group
 
 The target group for this module is everyone who would like to replace part of the email and phone communication with a quicker more interactive information exchange. This module could also be used for support purposes etc.
 
