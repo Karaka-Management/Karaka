@@ -1,6 +1,6 @@
 # Introduction
 
-The *Chat* module provides a chatting function between users.
+The **Chat** module provides a chatting function between users.
 
 # Target Group
 
