@@ -22,7 +22,7 @@ The file system provides a simple way to handle operations on the file system. S
 
 Custom implementations can be created by implementing the FileSystemInterface. These implementations must get registered in the file system and can be used afterwards as the pre-defined implementations.
 
-```
+```php
 FileSystem::register('custom1', '\implementation\namespace');
 FileSystem::env('custom1')->list();
 ```

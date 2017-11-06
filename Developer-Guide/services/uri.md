@@ -6,13 +6,13 @@ The `UriFactory` is used in order to build URIs. The factory generates the URIs 
 
 The raw uri string supports parameters that will be replaced with manual or default values. Parameters are always enclosed by `{}` and have a special prefix such as `#./?@$%`
 
-```
+```php
 $rawUri = 'http://www.yoururl.com/en/some/{/path}?foo=bar&id={@data}'
 ```
 
 These placeholders will be filled by values that are defined by the `setQuery()` function.
 
-```
+```php
 UriFactory::setQuery('/path', 'thing');
 UriFactory::setQuery('@data', 1);
 UriFactory::build($rawUri) // http://www.yoururl.com/en/some/thing?foo=bar&id=1
@@ -51,7 +51,7 @@ While it's also possible to define parameters at the frontend and make use of th
 
 Sometimes a parameter shouldn't be globally defined but is necessary to parse for a specific uri, in that case it's possible to pass an array or object of parameter definitions to the build function where the key is the parameter key and the value is the parameter value it should replace.
 
-```
+```js
 jsOMS.Uri.UriFactory.build('yoururl.com/en/some/{/path}?id={@data}', {'@data': 1});
 ```
 

@@ -8,7 +8,7 @@ The php documentation is based on PhpDocumentor, therefore only valid PhpDocumen
 
 A file documentation MUST be implemented in the following form:
 
-```
+```php
 /**
  * File description
  *
@@ -16,8 +16,6 @@ A file documentation MUST be implemented in the following form:
  *
  * @category   Category name
  * @package    Package name
- * @author     Your Author 1 <your@email.com>
- * @author     Your Author 2 <your.second@email.com>
  * @copyright  Orange Management
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -29,14 +27,12 @@ A file documentation MUST be implemented in the following form:
 
 A class documentation MUST be implemented in the following form:
 
-```
+```php
 /**
  * Class description.
  *
  * @category   Category name
  * @package    Package name
- * @author     Your Author 1 <your@email.com>
- * @author     Your Author 2 <your.second@email.com>
  * @license    OMS License 1.0
  * @link       http://your.url.com
  * @since      1.0.0
@@ -47,7 +43,7 @@ A class documentation MUST be implemented in the following form:
 
 A member variable documentation MUST be implemented in the following form:
 
-```
+```php
 /**
  * Member variable description.
  *
@@ -60,7 +56,7 @@ A member variable documentation MUST be implemented in the following form:
 
 A function/method documentation MUST be implemented in the following form:
 
-```
+```php
 /**
  * Function/method description.
  *
@@ -72,7 +68,6 @@ A function/method documentation MUST be implemented in the following form:
  * @return return_type
  *
  * @since  1.0.0
- * @author Your Author 2 <your.second@email.com>
  */
 ```
 
@@ -82,7 +77,7 @@ Variable documentation is not mandatory and can be omitted. However it's recomme
 
 Example:
 
-```
+```php
 /** @var TestObject[] $myArray */
 ```
 
@@ -106,15 +101,14 @@ The scss documentation is based on SassDoc, therefore only valid SassDoc comment
 
 ### File
 
-```
-////
-// Documentation
-// 
-// Optional example or more detailed description.
-// 
-// @since  1.0.0
-// @author Your Author 2 <your.second@email.com>
-////
+```js
+/**
+ * Documentation
+ * 
+ * Optional example or more detailed description.
+ * 
+ * @since  1.0.0
+ */
 ```
 
 ### Class

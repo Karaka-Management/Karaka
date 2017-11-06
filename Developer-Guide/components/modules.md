@@ -55,7 +55,7 @@ are almost stand-alone without the possibility to get extended.
 
 In contrast to the install file for other moduels this file has to follow more strict standards. The following example shows you the bare minimum requirements of a installation file:
 
-```
+```php
 <?php
 namespace Modules\Navigation\Admin;
 
@@ -81,7 +81,7 @@ class Installer extends InstallerAbstract
 
 If your application doesn't need to implement any database tables for itself the switch statement can be omitted. From the directory structur at the beginning we can however see that some modules accept information form other modules. The following example shows how the navigation module is accepting information during the installation of other modules:
 
-```
+```php
 public static function installExternal(Pool $dbPool, array $data)
 {
     /* What do you want to do with the data provided by $data? */
@@ -90,7 +90,7 @@ public static function installExternal(Pool $dbPool, array $data)
 
 Other modules have to create a Navigation.php file inside the install directory with the following method:
 
-```
+```php
 public static function install(string $path, Pool $dbPool)
 {
     $navData = json_decode(file_get_contents(__DIR__ . '/Navigation.install.json'), true);
@@ -116,7 +116,7 @@ The navigation module is a good example of passing navigation links during insta
 
 In the routes directory all application routes are stored. These routing files get used during the installation process of every module and are stored in an application specific routing file. The first directory level contains the directories of the application type `Web`, `Socket` and `Console`. Inside these directories the routing files for the applications are stored by the name of the application e.g. `Backend.php`. The routing files themselves look like this:
 
-```
+```php
 <?php
 
 use phpOMS\Router\RouteVerb;
@@ -176,7 +176,7 @@ A language file should have the following naming convention:
 
 The content of the language file is straight forward:
 
-```
+```php
 <?php return [ 
     '{UniqueModuleName}' => [
         'StringID' => 'Your localized string',
@@ -197,7 +197,7 @@ All other language files are optional and usually are only required by other mod
 
 The `info.json` file contains general module information used during installation as well for identification and display in the module database. 
 
-```
+```json
 {
     "name": {
         "id": {UniqueModuleId_INT},
@@ -260,7 +260,7 @@ The name category contains the names used for internel as well as external ident
 
 The version is automatically incremented by Orange Management. The version might be used by other modules in order to require a specific version of a module. Versions must follow the following format:
 
-```
+```js
 major.minor.build = 2.512.19857
 ```
 
@@ -296,7 +296,7 @@ The `load` category contains all the files (controllers, language files) that ne
 
 The `pid` (page identifier) is a sha1 hash of the uri where the `file` is supposed to be loaded. The pid needs to be defined in the following matter (e.g. http://127.0.0.1/en/app/path/sub&some=thing):
 
-```
+```php
 sha1('apppath');
 ```
 

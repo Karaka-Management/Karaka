@@ -18,7 +18,7 @@ In the template you can simply use `$this->getText({TEXT_ID})` for localized tex
 
 Templates can be set with the `setTemplate()` method. It is important to note that templates MUST have the file ending `.tpl.php`. Other file endings are not supported.
 
-```
+```php
 $view->setTemplate('/Modules/Test/Theme/Backend/template_file');
 ```
 

@@ -8,7 +8,7 @@ This project only supports scss and css. All css files need to be provided with 
 
 This project uses font-awesome for its icons, the following example allows for stacked icons e.g. creating new/undread email notifications:
 
-```
+```html
 <i class="fa fa-lg infoIcon fa-envelope">
     <span class="badge">333</span>
 </i>

@@ -16,7 +16,7 @@ Both logging implementations provide the following logging functions for the dif
 
 All functions take at least two parameters where one is the message and the other one is the optional context that should be injected into the message. 
 
-```
+```php
 $log->error(FileLogger::MSG_FULL, ['message' => 'Log me!']);
 ```
 
@@ -24,7 +24,7 @@ $log->error(FileLogger::MSG_FULL, ['message' => 'Log me!']);
 
 The file logging should only be used for database and application problems. The file logging is part of the framework and is always available. The file logger implements the singleton pattern and can be aquired by calling the `getInstance()` function.
 
-```
+```php
 $log = FileLogger::getInstance('logging/path', false);
 ```
 
@@ -38,6 +38,6 @@ The database logging is recommended for activity logs and abstract high level is
 
 On the client side a logger is also implemented providing the same functions as described above. The only difference is that this logger can remote log messages. Logging messages will get forwarded to the server which will log these messages with the file logger.
 
-```
+```js
 let log = jsOMS.Log.Logger.getInstance(true, false, true);
 ```

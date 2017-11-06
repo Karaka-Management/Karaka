@@ -8,7 +8,7 @@ By default only stylesheets, javascript and layout images as well as module imag
 
 Example usage for 30 days caching:
 
-```
+```php
 $resposne->setHeader('Cache-Control', 'Cache-Control: max-age=2592000');
 ```
 
@@ -16,6 +16,6 @@ In order to trigger a re-cache of stylesheets or javascript files make sure to u
 
 Example usage:
 
-```
+```php
 $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Media/Controller.js?v=' . self::MODULE_VERSION);
 ```

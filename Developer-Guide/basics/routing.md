@@ -9,14 +9,14 @@ Routes are defined as RegEx. It is recommended to match the desired route as clo
 
 Resolving a route can be done by providing a request to the router
 
-```
-$this->router->route(new Request());
+```php
+$router->route(new Request());
 ```
 
 or a route
 
-```
-$this->router->route('foo/bar', RouteVerb::GET);
+```php
+$router->route('foo/bar', RouteVerb::GET);
 ```
 
 The result is an array of either string references or closures.
@@ -25,8 +25,8 @@ The result is an array of either string references or closures.
 
 For routes it's possible to define a `\Closure` which will get returned upon using the specified route.
 
-```
-$this->router->add('foo/bar', function() { 
+```php
+$router->add('foo/bar', function() { 
 	return 'Hellow World';
 });
 ```

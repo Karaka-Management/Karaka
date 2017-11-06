@@ -33,7 +33,7 @@ In the files directory all files are stored.
 
 The `package.json` file contains information of the package.
 
-```
+```json
 ```
 
 ### Other

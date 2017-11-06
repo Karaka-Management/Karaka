@@ -38,7 +38,7 @@ Method names MUST be declared in camelCase().
 
 Php code embedded into template files SHOULD use the alternative syntax for control structures in order to improve the readability:
 
-```
+```php
 if($a === 5) : ?>
     <p>This is html</p>
 <?php endif; ?>

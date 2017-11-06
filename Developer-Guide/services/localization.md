@@ -6,13 +6,13 @@ Most of the localization is stored inside the localization object which is part 
 
 Language specific text can be used through the `LocalizationManager`, either by directly calling the `getText()` function of the localization manager
 
-```
-$this->l11nManager->getText({LANGUAGE}, {MODULE}, {THEME}, {TEXT})
+```php
+$l11nManager->getText({LANGUAGE}, {MODULE}, {THEME}, {TEXT})
 ```
 
 or indirectly by calling the `getText()` in the view context.
 
-```
+```php
 $this->getText({TEXT})
 ```
 
@@ -52,7 +52,7 @@ The currency code of the localization object is the 3 character ISO4217 code. Th
 
 The currency symbol can be placed either in front or at the end of a value. The `Money` class provides a function called `getCurrency()` which returns a localized representation by specifying the thousands and decimal separator as well as the currency symbol and its position.
 
-```
+```php
 $money->getCurrency(2, ',', '.', '$', 0);
 ```
 

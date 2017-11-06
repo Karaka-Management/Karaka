@@ -18,7 +18,7 @@ The `Money` class follows the builder pattern. The provided operations are addit
 
 ## Example
 
-```
+```php
 $money = new Money(1234567, ',', '.', '$', 0);
 $money->add(1.0)->sub(10000)->mult('-1.0')->div(new Money(-1.0));
 echo $money->getCurrency(); // $123.46
