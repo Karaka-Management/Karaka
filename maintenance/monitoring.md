@@ -2,7 +2,7 @@
 
 ## Internal
 
-The application provides activity monitoring through error logging as well as activity logging. 
+The application provides activity monitoring through error logging as well as audit trails. 
 
 ### Error Logging
 
