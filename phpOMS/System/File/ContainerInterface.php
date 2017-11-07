@@ -66,7 +66,7 @@ interface ContainerInterface
      *
      * @param string $path Path of the resource
      *
-     * @return int Permissions (e.g. 0644);
+     * @return int Permissions (e.g. 0755);
      *
      * @since  1.0.0
      */
@@ -315,7 +315,7 @@ interface ContainerInterface
     /**
      * Get the permissions id of the resource.
      *
-     * @return int Permissions (e.g. 0644);
+     * @return int Permissions (e.g. 0755);
      *
      * @since  1.0.0
      */

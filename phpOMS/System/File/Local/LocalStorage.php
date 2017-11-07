@@ -95,7 +95,7 @@ class LocalStorage extends StorageAbstract
      */
     public static function create(string $path) : bool
     {
-        return stripos($path, '.') === false ? Directory::create($path, 0644, true) : File::create($path);
+        return stripos($path, '.') === false ? Directory::create($path, 0755, true) : File::create($path);
     }
 
     /**

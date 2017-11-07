@@ -309,7 +309,7 @@ class Directory extends FileAbstract implements DirectoryInterface
         }
 
         if (!file_exists($to)) {
-            self::create($to, 0644, true);
+            self::create($to, 0755, true);
         } elseif ($overwrite && file_exists($to)) {
             self::delete($to);
         } else {
@@ -346,7 +346,7 @@ class Directory extends FileAbstract implements DirectoryInterface
         }
 
         if (!self::exists(self::parent($to))) {
-            self::create(self::parent($to), 0644, true);
+            self::create(self::parent($to), 0755, true);
         }
 
         rename($from, $to);
@@ -391,7 +391,7 @@ class Directory extends FileAbstract implements DirectoryInterface
     /**
      * {@inheritdoc}
      */
-    public static function create(string $path, int $permission = 0644, bool $recursive = false) : bool
+    public static function create(string $path, int $permission = 0755, bool $recursive = false) : bool
     {
         if (!file_exists($path)) {
             if (!$recursive && !file_exists(self::parent($path))) {

@@ -20,7 +20,7 @@ Make sure you have a database installed such as `MySQL` or `Postgresql` and the 
 
 The required php version is 7.1. Install php through your package manager, this may require you to add one additional repository to your package manager. Google for `How to install php 7.1 on XYZ`
 
-Modules for php that may be required depending on your use case are:
+Extensions for php that may be required depending on your use case are:
 
 * Memcache
 * Sqlite
@@ -28,6 +28,8 @@ Modules for php that may be required depending on your use case are:
 * Curl
 * Imap
 * bcmath
+* zip
+* mbstring
 
 Some of these modules are already provided and only need to be activated in your `php.ini` file.
 

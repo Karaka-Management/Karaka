@@ -57,7 +57,7 @@ class File extends FileAbstract implements FileInterface
             || (!$exists && ($mode & ContentPutMode::CREATE) === ContentPutMode::CREATE)
         ) {
             if (!Directory::exists(dirname($path))) {
-                Directory::create(dirname($path), 0644, true);
+                Directory::create(dirname($path), 0755, true);
             }
 
             $stream = fopen('data://temp,' . $content, 'r');
@@ -271,7 +271,7 @@ class File extends FileAbstract implements FileInterface
 
         if ($overwrite || !self::exists($to)) {
             if (!Directory::exists(dirname($to))) {
-                Directory::create(dirname($to), 0644, true);
+                Directory::create(dirname($to), 0755, true);
             }
 
             return ftp_rename($con, $from, $to);

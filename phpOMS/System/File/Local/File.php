@@ -80,7 +80,7 @@ class File extends FileAbstract implements FileInterface
                 file_put_contents($path, $content . file_get_contents($path));
             } else {
                 if (!Directory::exists(dirname($path))) {
-                    Directory::create(dirname($path), 0644, true);
+                    Directory::create(dirname($path), 0755, true);
                 }
 
                 file_put_contents($path, $content);
@@ -265,7 +265,7 @@ class File extends FileAbstract implements FileInterface
 
         if ($overwrite || !file_exists($to)) {
             if (!Directory::exists(dirname($to))) {
-                Directory::create(dirname($to), 0644, true);
+                Directory::create(dirname($to), 0755, true);
             }
 
             if ($overwrite && file_exists($to)) {
@@ -291,7 +291,7 @@ class File extends FileAbstract implements FileInterface
 
         if ($overwrite || !file_exists($to)) {
             if (!Directory::exists(dirname($to))) {
-                Directory::create(dirname($to), 0644, true);
+                Directory::create(dirname($to), 0755, true);
             }
 
             if ($overwrite && file_exists($to)) {
@@ -359,7 +359,7 @@ class File extends FileAbstract implements FileInterface
     {
         if (!file_exists($path)) {
             if (!Directory::exists(dirname($path))) {
-                Directory::create(dirname($path), 0644, true);
+                Directory::create(dirname($path), 0755, true);
             }
 
             if (!is_writable(dirname($path))) {

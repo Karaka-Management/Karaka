@@ -91,7 +91,7 @@ abstract class FileAbstract implements ContainerInterface
      * @var int
      * @since 1.0.0
      */
-    protected $permission = 0644;
+    protected $permission = 0755;
 
     /**
      * Constructor.

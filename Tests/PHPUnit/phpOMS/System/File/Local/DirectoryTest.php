@@ -29,7 +29,7 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
         self::assertTrue(Directory::exists($dirPath));
         self::assertFalse(Directory::create($dirPath));
         self::assertFalse(Directory::create(__DIR__ . '/test/sub/path'));
-        self::assertTrue(Directory::create(__DIR__ . '/test/sub/path', 0644, true));
+        self::assertTrue(Directory::create(__DIR__ . '/test/sub/path', 0755, true));
         self::assertTrue(Directory::exists(__DIR__ . '/test/sub/path'));
 
         self::assertEquals('test', Directory::name($dirPath));

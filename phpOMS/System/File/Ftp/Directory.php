@@ -133,7 +133,7 @@ class Directory extends FileAbstract implements DirectoryInterface
     /**
      * {@inheritdoc}
      */
-    public static function create(string $path, string $permission = '0644', bool $recursive = false) : bool
+    public static function create(string $path, string $permission = '0755', bool $recursive = false) : bool
     {
 
     }
