@@ -129,8 +129,6 @@ class EventMapper extends DataMapperAbstract
         try {
             $objId = parent::create($obj, $relations);
         } catch (\Exception $e) {
-            var_dump($e->getMessage());
-
             return false;
         }
 

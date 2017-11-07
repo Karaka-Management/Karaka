@@ -141,8 +141,6 @@ class TaskMapper extends DataMapperAbstract
                 return $objId;
             }
         } catch (\Exception $e) {
-            var_dump($e->getMessage());
-
             return false;
         }
 
@@ -165,8 +163,6 @@ class TaskMapper extends DataMapperAbstract
 
             $count = $sth->fetchAll()[0][0] ?? 0;
         } catch (\Exception $e) {
-            var_dump($e->getMessage());
-
             return false;
         }
 

@@ -110,8 +110,6 @@ class ProfileMapper extends DataMapperAbstract
                 return $objId;
             }
         } catch (\Exception $e) {
-            var_dump($e->getMessage());
-
             return false;
         }
 

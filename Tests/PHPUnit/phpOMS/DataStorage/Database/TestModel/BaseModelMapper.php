@@ -88,9 +88,6 @@ class BaseModelMapper extends DataMapperAbstract
                 return $objId;
             }
         } catch (\Exception $e) {
-            var_dump($e->getMessage());
-            var_dump($e->getFile() . ' - ' . $e->getLine());
-
             return false;
         }
 
