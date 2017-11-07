@@ -49,7 +49,7 @@ class DomTest extends \PHPUnit\Framework\TestCase
 
     public function testSetGet()
     {
-        $obj = new Dom('message', DomAction::WARNING);
+        $obj = new Dom('message');
         $obj->setDelay(3);
         $obj->setAction(DomAction::SHOW);
         $obj->setContent('msg');
