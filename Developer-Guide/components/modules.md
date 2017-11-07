@@ -297,10 +297,10 @@ The `load` category contains all the files (controllers, language files) that ne
 The `pid` (page identifier) is the request path. The pid needs to be defined in the following matter (e.g. http://127.0.0.1/en/app/path/sub&some=thing):
 
 ```json
-'/app/path/sub'
+'/app/path'
 ```
 
-The result of the example hash would result in loading all specified files for requests containing '/app/path'. This also includes requests to any subdirectories.
+The result of the example would result in loading all specified resources for requests containing '/app/path'. This also includes requests to any subdirectories.
 
 #### Type
 
