@@ -1,3 +1,5 @@
+* text=false
+
 # Force the following filetypes to have unix eols, so Windows does not break them
 *.php text eol=lf
 *.js text eol=lf
