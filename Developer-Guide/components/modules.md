@@ -222,7 +222,7 @@ The `info.json` file contains general module information used during installatio
     "load": [
         {
             "pid": [
-                "{SHA1_Uri_hash}"
+                "{Request_path}"
             ],
             "type": 4,
             "for": "Content",
@@ -231,7 +231,7 @@ The `info.json` file contains general module information used during installatio
         },
         {
             "pid": [
-                "{SHA1_Uri_hash}"
+                "{Request_path}"
             ],
             "type": 5,
             "from": "{UniqueModuleId_STR}",
@@ -240,7 +240,7 @@ The `info.json` file contains general module information used during installatio
         },
         {
             "pid": [
-                "{SHA1_Uri_hash}"
+                "{Request_path}"
             ],
             "type": 5,
             "for": "Content",
@@ -294,10 +294,10 @@ The `load` category contains all the files (controllers, language files) that ne
 
 #### PID
 
-The `pid` (page identifier) is a sha1 hash of the uri where the `file` is supposed to be loaded. The pid needs to be defined in the following matter (e.g. http://127.0.0.1/en/app/path/sub&some=thing):
+The `pid` (page identifier) is the request path. The pid needs to be defined in the following matter (e.g. http://127.0.0.1/en/app/path/sub&some=thing):
 
-```php
-sha1('apppath');
+```json
+'/app/path/sub'
 ```
 
 The result of the example hash would result in loading all specified files for requests containing '/app/path'. This also includes requests to any subdirectories.
