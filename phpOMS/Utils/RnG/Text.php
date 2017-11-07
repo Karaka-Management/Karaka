@@ -144,7 +144,7 @@ class Text
                     },
                     $punctuation
                 )
-            ) + ['.' => 0, '!' => 0, '?' => '?'];
+            ) + ['.' => 0, '!' => 0, '?' => 0];
 
         $this->sentences = $punctuation_count['.'] + $punctuation_count['!'] + $punctuation_count['?'];
 
