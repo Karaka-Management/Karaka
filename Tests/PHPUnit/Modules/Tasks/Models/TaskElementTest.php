@@ -30,7 +30,7 @@ class TaskElementTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(0, $task->getId());
         self::assertEquals(0, $task->getCreatedBy());
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $task->getCreatedAt()->format('Y-m-d'));
-        self::assertEquals((new \DateTime('now'))->modify('+1 day'), $task->getDue());
+        self::assertEquals((new \DateTime('now'))->modify('+1 day')->format('Y-m-d'), $task->getDue()->format('Y-m-d'));
         self::assertEquals(TaskStatus::OPEN, $task->getStatus());
         self::assertEquals('', $task->getDescription());
         self::assertEquals(0, $task->getForwarded());
