@@ -55,7 +55,7 @@ class KanbanCardMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($card->getStatus(), $cardR->getStatus());
         self::assertEquals($card->getType(), $cardR->getType());
         self::assertEquals($card->getCreatedBy(), $cardR->getCreatedBy()->getId());
-        self::assertEquals($card->getCreatedAt(), $cardR->getCreatedAt());
+        self::assertEquals($card->getCreatedAt()->format('Y-m-d'), $cardR->getCreatedAt()->format('Y-m-d'));
         self::assertTrue($cardR->getLabels()[1]->getId() === 2 || $cardR->getLabels()[1]->getId() === 1);
         self::assertEquals($card->getRef(), $cardR->getRef());
     }

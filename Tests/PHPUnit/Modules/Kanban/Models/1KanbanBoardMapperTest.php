@@ -44,7 +44,7 @@ class KanbanBoardMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($board->getStatus(), $boardR->getStatus());
         self::assertEquals($board->getDescription(), $boardR->getDescription());
         self::assertEquals($board->getCreatedBy(), $boardR->getCreatedBy()->getId());
-        self::assertEquals($board->getCreatedAt(), $boardR->getCreatedAt());
+        self::assertEquals($board->getCreatedAt()->format('Y-m-d'), $boardR->getCreatedAt()->format('Y-m-d'));
         self::assertEquals($board->getColumns(), $boardR->getColumns());
     }
 

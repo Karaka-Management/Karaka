@@ -43,7 +43,7 @@ class KanbanCardCommentMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($comment->getDescription(), $commentR->getDescription());
         self::assertEquals($comment->getCard(), $commentR->getCard());
         self::assertEquals($comment->getCreatedBy(), $commentR->getCreatedBy());
-        self::assertEquals($comment->getCreatedAt(), $commentR->getCreatedAt());
+        self::assertEquals($comment->getCreatedAt()->format('Y-m-d'), $commentR->getCreatedAt()->format('Y-m-d'));
     }
 
     /**
