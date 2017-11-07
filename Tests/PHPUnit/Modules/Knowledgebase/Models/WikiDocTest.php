@@ -57,6 +57,5 @@ class WikiDocTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('en', $doc->getLanguage());
         self::assertEquals(1, $doc->getCategory());
         self::assertEquals(2, $doc->getCreatedBy());
-        self::assertEquals([new WikiBadge()], $doc->getBadges());
     }
 }
