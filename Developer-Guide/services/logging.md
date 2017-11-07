@@ -30,10 +30,6 @@ $log = FileLogger::getInstance('logging/path', false);
 
 Once initialized these two parameters are no longer required. The file logger will create a log file in the provided directory in the format `{Y-m-d}.log`.
 
-## Database Logging
-
-The database logging is recommended for activity logs and abstract high level issues that are not related to the application itself. The database logging is part of the monitoring module which is a core module and should be always installed.
-
 ## Client Side Logging
 
 On the client side a logger is also implemented providing the same functions as described above. The only difference is that this logger can remote log messages. Logging messages will get forwarded to the server which will log these messages with the file logger.
