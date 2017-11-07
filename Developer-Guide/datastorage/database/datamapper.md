@@ -73,7 +73,7 @@ protected static $hasMany = [
 
 The `mapper` contains the class name of the mapper responsible for the many models that belong to this model. The `table` contains the name of the table where the relations are defined (this can be the same table as the source model or a relation table). If a model is only in relation with one other model this relation can be defined in the same table as the model and this `table` field can be `null`. The `dst` field contains the name of field where the primary key of the destination is defined. The `src` field is only required for models which have a relation table. This field contains the name of the field where the primary key of the source model is defined.
 
-A one to many relation would look like the following:
+A many to one or one to one relation would look like the following:
 
 ```php
 protected static $hasMany = [
@@ -99,13 +99,28 @@ protected static $hasMany = [
 ];
 ```
 
+### Owns one
+
+It's possible to also define a relation in the source module itself. This can be acomplished by using the `$ownsOne` variable. In this case the model itself has to specify a field where the primary key of the source model is defined.
+
+```php
+protected static $ownsOne = [
+    'model_var_name_4' => [
+        'mapper' => OwnsOneMapper::class,
+        'src'    => 'relation_dest_name',
+    ],
+];
+```
+
+The `mapper` field contains the class name of the mapper of the source model. The `src` field contains the database field name where the primary key is stored that is used for the realation.
+
 ### Has one
 
-It's possible to also define a relation in the destination module itself. This can be acomplished by using the `$hasOne` variable. In this case the model itself has to specify a field where the primary key of the source model is defined.
+It's possible to also define a relation in the destination module (similar to the owns one relation except that the relation is defined in the key is defined in the other model). This can be acomplished by using the `$hasOne` variable. In this case the model itself has to specify a field where the primary key of the source model is defined.
 
 ```php
 protected static $hasOne = [
-    'model_var_name_4' => [
+    'model_var_name_5' => [
         'mapper' => HasOneMapper::class,
         'src'    => 'relation_source_name',
     ],
@@ -116,11 +131,11 @@ The `mapper` field contains the class name of the mapper of the source model. Th
 
 ### Belongs to
 
-The reverse of a has one/has many is a belongs to. This allows to also load models that a specific model belongs to. This can be acomplished by using the `$belongsTo` variable. In this case the model itself has to specify a field where the primary key of the source model is defined.
+The reverse of a has one is a belongs to. This allows to also load models that a specific model belongs to. This can be acomplished by using the `$belongsTo` variable. In this case the model itself has to specify a field where the primary key of the source model is defined.
 
 ```php
 protected static $belongsTo = [
-    'model_var_name_5' => [
+    'model_var_name_6' => [
         'mapper' => BelongsToMapper::class,
         'dest'   => 'relation_destination_name',
     ],
