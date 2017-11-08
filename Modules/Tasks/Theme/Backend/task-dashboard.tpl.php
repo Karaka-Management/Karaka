@@ -32,7 +32,7 @@ echo $this->getData('nav')->render(); ?>
                 <tfoot>
                 <tbody>
                 <?php $c = 0; foreach ($tasks as $key => $task) : $c++;
-                $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/task/single?{?}&id=' . $task->getId());
+                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/task/single?{?}&id=' . $task->getId());
                 $color = 'darkred';
                 if ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::DONE) { $color = 'green'; }
                 elseif ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $color = 'darkblue'; }

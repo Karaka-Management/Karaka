@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td colspan="5"><?= $footerView->render(); ?>
                 <tbody>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++;
-                $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/checklist/single?{?}&id=' . $value->getId()); ?>
+                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/checklist/single?{?}&id=' . $value->getId()); ?>
                 <tr>
                     <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                     <td data-label="<?= $this->getHtml('Status') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>

@@ -22,7 +22,7 @@ echo $this->getData('nav')->render(); ?>
             <header><h1><?= $this->getHtml('Task') ?></h1></header>
 
             <div class="inner">
-                <form id="fTask" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/task?{?}&csrf={$CSRF}'); ?>">
+                <form id="fTask" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/task?{?}&csrf={$CSRF}'); ?>">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td colspan="2"><label for="iReceiver"><?= $this->getHtml('To') ?></label>

@@ -25,7 +25,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Account'); ?></h1></header>
             <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/account'); ?>" method="post">
+                <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iId"><?= $this->getHtml('ID', 0, 0); ?></label>
@@ -70,7 +70,7 @@ echo $this->getData('nav')->render(); ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
             <tbody>
                 <?php $c = 0; $groups = $account->getGroups(); foreach ($groups as $key => $value) : $c++; 
-                $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
+                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
@@ -83,7 +83,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Groups'); ?></h1></header>
             <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/group'); ?>" method="post">
+                <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iGroup"><?= $this->getHtml('Name'); ?></label>
@@ -133,7 +133,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Permissions'); ?></h1></header>
             <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/group'); ?>" method="post">
+                <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iGroup"><?= $this->getHtml('Name'); ?></label>

@@ -38,7 +38,7 @@ $accounts = $this->getData('accounts');
                     <td colspan="3"><?= $footerView->render(); ?>
                 <tbody>
                 <?php $count = 0; foreach ($accounts as $key => $account) : $count++;
-                $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/profile/single?{?}&id=' . $account->getAccount()->getId()); ?>
+                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/profile/single?{?}&id=' . $account->getAccount()->getId()); ?>
                     <tr data-href="<?= $url; ?>">
                         <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($account->getAccount()->getId()); ?></a>
                         <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($account->getAccount()->getName3() . ' ' . $account->getAccount()->getName2() . ' ' . $account->getAccount()->getName1()); ?></a>

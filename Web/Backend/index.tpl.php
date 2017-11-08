@@ -25,14 +25,15 @@ $dispatch = $this->getData('dispatch') ?? [];
 <!DOCTYPE HTML>
 <html lang="<?= $this->printHtml($this->response->getHeader()->getL11n()->getLanguage()); ?>">
 <head>
-    <link rel="manifest" href="<?= \phpOMS\Uri\UriFactory::build('{/base}/Web/Backend/manifest.json'); ?>">
     <?= $head->getMeta()->render(); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#2f2f2f">
     <meta name="msapplication-navbutton-color" content="#2f2f2f">
     <meta name="apple-mobile-web-app-status-bar-style" content="#2f2f2f">
-    <link rel="shortcut icon" href="<?= \phpOMS\Uri\UriFactory::build('{/base}/Web/Backend/img/favicon.ico'); ?>" type="image/x-icon">
+    <base href="<?= \phpOMS\Uri\UriFactory::build('{/base}'); ?>">
+    <link rel="manifest" href="<?= \phpOMS\Uri\UriFactory::build('/Web/Backend/manifest.json'); ?>">
+    <link rel="shortcut icon" href="<?= \phpOMS\Uri\UriFactory::build('/Web/Backend/img/favicon.ico'); ?>" type="image/x-icon">
     <title><?= $this->printHtml($head->getTitle()); ?></title>
     <?= $head->renderAssets(); ?>
     <style><?= $head->renderStyle(); ?></style>
@@ -58,7 +59,7 @@ $dispatch = $this->getData('dispatch') ?? [];
             <input type="submit" value="<?= $this->getHtml('Search', 0, 0); ?>">
         </span>
         <span class="vC" id="u-box">
-            <a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/profile/single?{?}&id=' . $this->request->getHeader()->getAccount()); ?>">
+            <a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/profile/single?{?}&id=' . $this->request->getHeader()->getAccount()); ?>">
                 <span><?= $this->printHtml($this->profile->getAccount()->getName1()); ?></span>
                 <img alt="<?= $this->getHtml('AccountImage', 0, 0); ?>" data-lazyload="<?= $this->getProfileImage(); ?>">
             </a>

@@ -106,8 +106,8 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'Modules/Media/Models/Upload.js');
-        $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'Modules/Media/Controller.js');
+        $head->addAsset(AssetType::JSLATE, '/Modules/Media/Models/Upload.js');
+        $head->addAsset(AssetType::JSLATE, '/Modules/Media/Controller.js');
     }
 
     /**

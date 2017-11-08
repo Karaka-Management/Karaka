@@ -5,7 +5,7 @@
         "type": 1,
         "subtype": 1,
         "name": "Chat",
-        "uri": "{/base}/{/lang}/backend/chat/dashboard?{?}",
+        "uri": "/{/lang}/backend/chat/dashboard?{?}",
         "target": "self",
         "icon": "fa fa-comment",
         "order": 1,

@@ -113,7 +113,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/Kanban/Theme/Backend/css/styles.css');
+        $head->addAsset(AssetType::CSS, '/Modules/Kanban/Theme/Backend/css/styles.css');
     }
 
     /**

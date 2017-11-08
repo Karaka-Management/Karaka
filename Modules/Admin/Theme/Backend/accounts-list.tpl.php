@@ -42,7 +42,7 @@ echo $this->getData('nav')->render();
                 <tr><td colspan="5"><?= $footerView->render(); ?>
                         <tbody>
                         <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : $c++;
-                        $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/account/settings?{?}&id=' . $value->getId()); 
+                        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/account/settings?{?}&id=' . $value->getId()); 
                         $color = 'darkred';
                         if ($value->getStatus() === \phpOMS\Account\AccountStatus::ACTIVE) { $color = 'green'; }
                         elseif ($value->getStatus() === \phpOMS\Account\AccountStatus::INACTIVE) { $color = 'darkblue'; }

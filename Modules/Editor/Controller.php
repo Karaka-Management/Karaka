@@ -104,8 +104,8 @@ class Controller extends ModuleAbstract implements WebInterface
     public function setUpEditorEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'Modules/Editor/Models/Editor.js');
-        $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'Modules/Editor/Controller.js');
+        $head->addAsset(AssetType::JSLATE, '/Modules/Editor/Models/Editor.js');
+        $head->addAsset(AssetType::JSLATE, '/Modules/Editor/Controller.js');
     }
 
     /**

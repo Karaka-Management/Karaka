@@ -32,7 +32,7 @@ echo $this->getData('nav')->render();
             <header><h1><span itemprop="familyName"><?= $this->printHtml($account->getAccount()->getName3()); ?></span>, <span itemprop="givenName"><?= $this->printHtml($account->getAccount()->getName1()); ?></span></h1></header>
             <div class="inner">
                 <!-- @formatter:off -->
-                    <span class="rf"><img class="m-profile rf" alt="<?= $this->getHtml('ProfileImage'); ?>" data-lazyload="<?= $account->getImage() instanceof \Modules\Media\Models\NullMedia ? \phpOMS\Uri\UriFactory::build('{/base}/Web/Backend/img/user_default_' . mt_rand(1, 6) .'.png') : \phpOMS\Uri\UriFactory::build('{/base}/' . $account->getImage()->getPath()); ?>">
+                    <span class="rf"><img class="m-profile rf" alt="<?= $this->getHtml('ProfileImage'); ?>" data-lazyload="<?= $account->getImage() instanceof \Modules\Media\Models\NullMedia ? \phpOMS\Uri\UriFactory::build('/Web/Backend/img/user_default_' . mt_rand(1, 6) .'.png') : \phpOMS\Uri\UriFactory::build('/' . $account->getImage()->getPath()); ?>">
                     </span>
                         <table class="list">
                             <tr>

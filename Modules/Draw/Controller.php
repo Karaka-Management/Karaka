@@ -107,9 +107,9 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'Modules/Draw/Controller.js');
-        $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'Modules/Draw/Models/DrawType.enum.js');
-        $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'Modules/Draw/Models/Editor.js');
+        $head->addAsset(AssetType::JSLATE, '/Modules/Draw/Controller.js');
+        $head->addAsset(AssetType::JSLATE, '/Modules/Draw/Models/DrawType.enum.js');
+        $head->addAsset(AssetType::JSLATE, '/Modules/Draw/Models/Editor.js');
     }
 
     /**

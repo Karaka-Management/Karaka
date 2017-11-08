@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
                         <header><h1><?= $this->getHtml('Unit') ?></h1></header>
 
                         <div class="inner">
-                            <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
+                            <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><?= $this->getHtml('Name') ?></label><td><?= $this->printHtml($unit->getName()); ?>
@@ -112,7 +112,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td colspan="5">
                                     <tbody>
                                     <?php $c = 0; foreach ($risks as $key => $value) : $c++;
-                                    $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/cause/single?{?}&id=' . $value->getId()); ?>
+                                    $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/riskmanagement/cause/single?{?}&id=' . $value->getId()); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
@@ -143,7 +143,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td colspan="3">
                                     <tbody>
                                     <?php $c = 0; foreach ($departments as $key => $value) : $c++;
-                                    $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/department/single?{?}&id=' . $value->getId()); ?>
+                                    $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/riskmanagement/department/single?{?}&id=' . $value->getId()); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getDepartment()->getName()); ?></a>
@@ -171,7 +171,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td colspan="3">
                                     <tbody>
                                     <?php $c = 0; foreach ($categories as $key => $value) : $c++;
-                                    $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/category/single?{?}&id=' . $value->getId()); ?>
+                                    $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/riskmanagement/category/single?{?}&id=' . $value->getId()); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
@@ -199,7 +199,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td colspan="3">
                                     <tbody>
                                     <?php $c = 0; foreach ($projects as $key => $value) : $c++;
-                                    $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/project/single?{?}&id=' . $value->getId()); ?>
+                                    $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/riskmanagement/project/single?{?}&id=' . $value->getId()); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getProject()->getName()); ?></a>
@@ -227,7 +227,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td colspan="3">
                                     <tbody>
                                     <?php $c = 0; foreach ($processes as $key => $value) : $c++;
-                                    $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/process/single?{?}&id=' . $value->getId()); ?>
+                                    $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/riskmanagement/process/single?{?}&id=' . $value->getId()); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
@@ -256,7 +256,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td colspan="3">
                                     <tbody>
                                     <?php $c = 0; foreach ($causes as $key => $value) : $c++;
-                                    $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/cause/single?{?}&id=' . $value->getId()); ?>
+                                    $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/riskmanagement/cause/single?{?}&id=' . $value->getId()); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
@@ -287,7 +287,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td colspan="4">
                                     <tbody>
                                     <?php $c = 0; foreach ($solutions as $key => $value) : $c++;
-                                    $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/solution/single?{?}&id=' . $value->getId()); ?>
+                                    $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/riskmanagement/solution/single?{?}&id=' . $value->getId()); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>

@@ -19,7 +19,7 @@
                 "type": 2,
                 "subtype": 1,
                 "name": "Analysis",
-                "uri": "{/base}/{/lang}/backend/purchase/analysis?{?}",
+                "uri": "/{/lang}/backend/purchase/analysis?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 15,

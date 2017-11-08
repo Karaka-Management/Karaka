@@ -21,7 +21,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Upload') ?></h1></header>
             <div class="inner">
-                <form method="POST" id="media-uploader" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/media'); ?>">
+                <form method="POST" id="media-uploader" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/media'); ?>">
                     <table class="layout wf-100">
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                         <tr><td><input type="text" id="iName" name="name" placeholder="&#xf040;">

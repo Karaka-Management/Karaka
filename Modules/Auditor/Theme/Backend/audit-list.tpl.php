@@ -38,7 +38,7 @@ echo $this->getData('nav')->render(); ?>
                     <td colspan="9">
                 <tbody>
                 <?php $count = 0; foreach ($audits as $key => $audit) : $count++;
-                $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/audit/single?{?}&id=' . $audit->getId()); ?>
+                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/audit/single?{?}&id=' . $audit->getId()); ?>
                     <tr data-href="<?= $url; ?>">
                         <td>
                 <?php endforeach; ?>

@@ -28,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td colspan="3">
                         <tbody>
                         <?php $c = 0; foreach ($causes as $key => $value) : $c++;
-                        $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/cause/single?{?}&id=' . $value->getId()); ?>
+                        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/riskmanagement/cause/single?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>

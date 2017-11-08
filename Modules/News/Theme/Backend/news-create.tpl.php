@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12 col-md-3">
         <section class="box wf-100">
             <div class="inner">
-                <form id="docForm" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/news?{?}&csrf={$CSRF}'); ?>">
+                <form id="docForm" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/news?{?}&csrf={$CSRF}'); ?>">
                     <table class="layout wf-100">
                         <tr><td colspan="2"><label for="publish"><?= $this->getHtml('Status'); ?></label>
                         <tr><td colspan="2"><select name="status">

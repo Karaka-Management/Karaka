@@ -98,7 +98,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function setUpCommentEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Editor/Controller.js');
+        $head->addAsset(AssetType::JS, '/Modules/Editor/Controller.js');
     }
 
     /**

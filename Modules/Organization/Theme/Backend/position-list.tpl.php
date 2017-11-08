@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td colspan="3"><?= $footerView->render(); ?>
                         <tbody>
                         <?php $count = 0; foreach ($listElements as $key => $value) : $count++;
-                        $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/organization/position/profile?{?}&id=' . $value->getId()); ?>
+                        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/organization/position/profile?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
                     <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                     <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>

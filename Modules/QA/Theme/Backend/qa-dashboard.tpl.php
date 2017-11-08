@@ -12,7 +12,7 @@ echo $this->getData('nav')->render(); ?>
                         <span class="score<?= $this->printHtml($question->hasAccepted() ? ' done' : ''); ?>"><?= $this->printHtml(count($question->getAnswers())); ?></span>
                     </div>
                     <div class="title col-xs-11">
-                        <a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/qa/question?{?}&id=' . $question->getId()); ?>"><?= $this->printHtml($question->getName()); ?></a>
+                        <a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/qa/question?{?}&id=' . $question->getId()); ?>"><?= $this->printHtml($question->getName()); ?></a>
                     </div>
                 </div>
                 <div class="tags">

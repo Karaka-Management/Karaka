@@ -97,12 +97,12 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'cssOMS/chart/chart.css');
-        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'cssOMS/chart/chart_line.css');
-        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'cssOMS/chart/chart_area.css');
-        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'jsOMS/Chart/Chart.js');
-        $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'jsOMS/Chart/LineChart.js');
-        $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'jsOMS/Chart/ColumnChart.js');
+        $head->addAsset(AssetType::CSS, '/cssOMS/chart/chart.css');
+        $head->addAsset(AssetType::CSS, '/cssOMS/chart/chart_line.css');
+        $head->addAsset(AssetType::CSS, '/cssOMS/chart/chart_area.css');
+        $head->addAsset(AssetType::JS, '/jsOMS/Chart/Chart.js');
+        $head->addAsset(AssetType::JSLATE, '/jsOMS/Chart/LineChart.js');
+        $head->addAsset(AssetType::JSLATE, '/jsOMS/Chart/ColumnChart.js');
     }
 
     /**

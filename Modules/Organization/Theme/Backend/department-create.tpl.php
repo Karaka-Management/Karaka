@@ -22,7 +22,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Department') ?></h1></header>
             <div class="inner">
-                <form id="fDepartmentCreate" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/base}{/rootPath}{/lang}/api/organization/department'); ?>">
+                <form id="fDepartmentCreate" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/rootPath}{/lang}/api/organization/department'); ?>">
                     <table class="layout wf-100">
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                         <tr><td><input type="text" name="name" id="iName" placeholder="&#xf040; R&D" required>

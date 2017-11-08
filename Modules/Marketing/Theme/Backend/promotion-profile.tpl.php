@@ -21,7 +21,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->printHtml($promotion->getName()); ?></h1></header>
             <div class="inner">
-                <form id="fProject" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/marketing/promotion?{?}&csrf={$CSRF}'); ?>">
+                <form id="fProject" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/marketing/promotion?{?}&csrf={$CSRF}'); ?>">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td colspan="2"><label for="iName"><?= $this->getHtml('Name') ?></label>

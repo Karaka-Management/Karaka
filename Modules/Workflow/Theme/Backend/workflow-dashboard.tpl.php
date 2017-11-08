@@ -32,7 +32,7 @@ echo $this->getData('nav')->render(); ?>
                 <tfoot>
                 <tbody>
                 <?php $c = 0; foreach ($workflows as $key => $workflow) : $c++;
-                $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/task/single?{?}&id=' . $workflow->getId());
+                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/task/single?{?}&id=' . $workflow->getId());
                 $color = 'darkred';
                 if ($workflow->getStatus() === \Modules\Workflow\Models\WorkflowStatus::DONE) { $color = 'green'; }
                 elseif ($workflow->getStatus() === \Modules\Workflow\Models\WorkflowStatus::OPEN) { $color = 'darkblue'; }

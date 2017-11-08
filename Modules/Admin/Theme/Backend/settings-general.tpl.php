@@ -47,7 +47,7 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Settings'); ?></h1></header>
                         <div class="inner">
-                            <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/settings/general'); ?>" method="post">
+                            <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/settings/general'); ?>" method="post">
                                 <table class="layout wf-100">
                                     <tbody>
                                         <tr><td><label for="iOname"><?= $this->getHtml('OrganizationName'); ?></label>
@@ -69,7 +69,7 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Localization'); ?></h1></header>
                         <div class="inner">
-                            <form id="fLocalization" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/settings/localization'); ?>" method="post">
+                            <form id="fLocalization" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/settings/localization'); ?>" method="post">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td colspan="2"><label for="iCountries"><?= $this->getHtml('Country'); ?></label>

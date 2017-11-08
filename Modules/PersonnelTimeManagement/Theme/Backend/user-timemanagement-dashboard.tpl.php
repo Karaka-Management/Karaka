@@ -29,7 +29,7 @@ echo $this->getData('nav')->render();
         <tr><td colspan="4"><?= $footerView->render(); ?>
         <tbody>
         <?php $c = 0; foreach ($employees as $key => $value) : $c++;
-            $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
+            $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
             <tr>
                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getNewestHistory()->getPosition()); ?></a>

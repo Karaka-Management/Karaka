@@ -108,7 +108,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function setUpBackend(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/Knowledgebase/Theme/Backend/styles.css');
+        $head->addAsset(AssetType::CSS, '/Modules/Knowledgebase/Theme/Backend/styles.css');
     }
 
     /**

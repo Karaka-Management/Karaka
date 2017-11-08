@@ -19,7 +19,7 @@
                 "type": 2,
                 "subtype": 1,
                 "name": "Dashboard",
-                "uri": "{/base}/{/lang}/backend?{?}",
+                "uri": "/{/lang}/backend?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 1,

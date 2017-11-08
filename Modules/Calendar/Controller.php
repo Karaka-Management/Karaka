@@ -114,7 +114,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/Calendar/Theme/Backend/css/styles.css');
+        $head->addAsset(AssetType::CSS, '/Modules/Calendar/Theme/Backend/css/styles.css');
 
         $view->setTemplate('/Modules/Calendar/Theme/Backend/calendar-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001201001, $request, $response));
@@ -143,7 +143,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/Calendar/Theme/Backend/css/styles.css');
+        $head->addAsset(AssetType::CSS, '/Modules/Calendar/Theme/Backend/css/styles.css');
 
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Calendar/Theme/Backend/dashboard-calendar');

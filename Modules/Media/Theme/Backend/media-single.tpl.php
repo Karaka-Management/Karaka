@@ -63,7 +63,7 @@ echo $this->getData('nav')->render();
                     <td><?= $this->getHtml('Created') ?>
                 <tbody>
                     <?php if (!is_dir($media->getPath())) : foreach ($media as $key => $value) :
-                        $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/media/single?{?}&id=' . $value->getId()); 
+                        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $value->getId()); 
 
                         $icon = '';
                         $extensionType = \phpOMS\System\File\FileUtils::getExtensionType($value->getExtension());
@@ -102,7 +102,7 @@ echo $this->getData('nav')->render();
                     <?php endforeach; else : $path = is_dir($media->getPath() . $this->request->getData('sub')) && phpOMS\Utils\StringUtils::startsWith(str_replace('\\', '/', realpath($media->getPath() . $this->request->getData('sub'))), $media->getPath()) ? $media->getPath() . $this->request->getData('sub') : $media->getPath(); ?>
                         <?php $list = \phpOMS\System\File\Local\Directory::list($path); 
                             foreach ($list as $key => $value) : 
-                                $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/media/single?{?}&id=' . $media->getId() . '&sub=' . substr($value, strlen($media->getPath()))); 
+                                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $media->getId() . '&sub=' . substr($value, strlen($media->getPath()))); 
                                 $icon = '';
                                 $extensionType = \phpOMS\System\File\FileUtils::getExtensionType(!is_dir($value) ? \phpOMS\System\File\Local\File::extension($value) : 'collection');
         

@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
                     <td colspan="5"><?= $footerView->render(); ?>
                 <tbody>
                 <?php $count = 0; foreach ($events as $key => $value) : $count++; 
-                $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/eventmanagement/profile?{?}&id=' . $value->getId());?>
+                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/eventmanagement/profile?{?}&id=' . $value->getId());?>
                 <tr data-href="<?= $url; ?>">
                     <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
                     <td data-label="<?= $this->getHtml('Start') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getStart()->format('Y-m-d')); ?></a>

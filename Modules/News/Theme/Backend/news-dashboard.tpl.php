@@ -33,7 +33,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Date') ?>
                 <tbody>
                 <?php $count = 0; foreach ($newsList as $key => $news) : $count++;
-                $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/news/article?{?}&id=' . $news->getId());
+                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/news/article?{?}&id=' . $news->getId());
                 $color = 'darkred';
                 if ($news->getType() === \Modules\News\Models\NewsType::ARTICLE) { $color = 'green'; }
                 elseif ($news->getType() === \Modules\News\Models\NewsType::HEADLINE) { $color = 'purple'; }

@@ -168,12 +168,11 @@ class Application
         $response->getHeader()->set('content-language', $response->getHeader()->getL11n()->getLanguage(), true);
 
         /* Create html head */
-        $baseUri = $request->getUri()->getBase();
-        $this->initResponseHead($head, $request, $response, $baseUri);
+        $this->initResponseHead($head, $request, $response);
 
         /* Handle not logged in */
         if ($account->getId() < 1) {
-            $this->createLoggedOutResponse($response, $head, $baseUri, $pageView);
+            $this->createLoggedOutResponse($response, $head, $pageView);
 
             return;
         }
@@ -303,118 +302,117 @@ class Application
      * @param Head $head Head to fill
      * @param Request $request Request
      * @param Response $response Response
-     * @param string $baseUri Base uri for asset path
      *
      * @return void
      *
      * @since  1.0.0
      */
-    private function initResponseHead(Head $head, Request $request, Response $response, string $baseUri)
+    private function initResponseHead(Head $head, Request $request, Response $response)
     {
         /* Load assets */
-        $head->addAsset(AssetType::CSS, $baseUri . 'Resources/fontawesome/css/font-awesome.min.css');
-        $head->addAsset(AssetType::CSS, $baseUri . 'cssOMS/styles.css');
-        //$head->addAsset(AssetType::CSS, $baseUri . 'cssOMS/debug.css');
+        $head->addAsset(AssetType::CSS, '/Resources/fontawesome/css/font-awesome.min.css');
+        $head->addAsset(AssetType::CSS, '/cssOMS/styles.css');
+        //$head->addAsset(AssetType::CSS, '/cssOMS/debug.css');
         /* @todo: this should be loaded in one file for releases. right now this is done for easier debugging purposes */
         // Framework
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Utils/oLib.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Asset/AssetManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Autoloader.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UnhandledException.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Account/AccountType.enum.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Account/AccountManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Uri/Http.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Uri/UriFactory.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/DataStorage/CacheManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/DataStorage/CookieJar.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/DataStorage/LocalStorage.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/DataStorage/StorageManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Event/EventManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Message/Request/RequestData.enum.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Message/Request/BrowserType.enum.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Message/Request/OSType.enum.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Message/Request/RequestMethod.enum.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Message/Request/RequestType.enum.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Message/Request/Request.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/ActionManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Message/Response/ResponseType.enum.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Message/Response/ResponseResultType.enum.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Message/Response/ResponseManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Message/Response/Response.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Message/Notification/App/AppNotification.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Message/Notification/Browser/BrowserNotification.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Message/Notification/NotificationType.enum.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Message/Notification/NotificationManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Message/Notification/NotificationMessage.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Module/ModuleFactory.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Module/ModuleManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Dispatcher/Dispatcher.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Log/Logger.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Log/LogLevel.enum.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/Component/Form.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/Input/InputManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/Input/Keyboard/KeyboardManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/Input/Mouse/ClickType.enum.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/Input/Mouse/EventType.enum.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/Input/Mouse/MouseManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/Input/Touch/TouchManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/Input/Voice/VoiceManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/Input/Voice/ReadManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/Input/Voice/SpeechManager.js');
-        //$head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/Element/Button.js');
-        //$head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/Element/Select.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/Component/Table.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/Component/Tab.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/Loader.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/DragNDrop.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/GeneralUI.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/UI/UIManager.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Views/FormView.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Utils/oLib.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Asset/AssetManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Autoloader.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UnhandledException.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Account/AccountType.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Account/AccountManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Uri/Http.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Uri/UriFactory.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/DataStorage/CacheManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/DataStorage/CookieJar.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/DataStorage/LocalStorage.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/DataStorage/StorageManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Event/EventManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/RequestData.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/BrowserType.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/OSType.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/RequestMethod.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/RequestType.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/Request.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/ActionManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/ResponseType.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/ResponseResultType.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/ResponseManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/Response.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/App/AppNotification.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/Browser/BrowserNotification.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationType.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationMessage.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Module/ModuleFactory.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Module/ModuleManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Dispatcher/Dispatcher.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Log/Logger.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Log/LogLevel.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Component/Form.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/InputManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Keyboard/KeyboardManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Mouse/ClickType.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Mouse/EventType.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Mouse/MouseManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Touch/TouchManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Voice/VoiceManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Voice/ReadManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Voice/SpeechManager.js');
+        //$head->addAsset(AssetType::JS, '/jsOMS/UI/Element/Button.js');
+        //$head->addAsset(AssetType::JS, '/jsOMS/UI/Element/Select.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Component/Table.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Component/Tab.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Loader.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/DragNDrop.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/GeneralUI.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/UIManager.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Views/FormView.js');
         
         // Models
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Message/DomActionType.enum.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Message/DomAction.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Message/FormValidation.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Message/NotifyType.enum.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Message/Notify.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Message/Redirect.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Message/Reload.js');
+        $head->addAsset(AssetType::JS, '/Model/Message/DomActionType.enum.js');
+        $head->addAsset(AssetType::JS, '/Model/Message/DomAction.js');
+        $head->addAsset(AssetType::JS, '/Model/Message/FormValidation.js');
+        $head->addAsset(AssetType::JS, '/Model/Message/NotifyType.enum.js');
+        $head->addAsset(AssetType::JS, '/Model/Message/Notify.js');
+        $head->addAsset(AssetType::JS, '/Model/Message/Redirect.js');
+        $head->addAsset(AssetType::JS, '/Model/Message/Reload.js');
         
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Action/Message/Request.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Action/Dom/Popup.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Action/Dom/Remove.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Action/Dom/Show.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Action/Dom/Hide.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Action/Dom/Focus.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Action/Dom/Datalist/Clear.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Action/Dom/Datalist/Append.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Action/Dom/Table/Clear.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Action/Dom/Table/Append.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Action/Utils/Timer.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Action/Validate/Keypress.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Action/Dom/SetValue.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Action/Dom/RemoveValue.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Model/Action/Dom/GetValue.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Message/Request.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Popup.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Remove.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Show.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Hide.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Focus.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Datalist/Clear.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Datalist/Append.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Table/Clear.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Table/Append.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Utils/Timer.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Validate/Keypress.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Dom/SetValue.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Dom/RemoveValue.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Dom/GetValue.js');
         
-        $head->addAsset(AssetType::JS, $baseUri . 'Web/Backend/js/config.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Web/Backend/js/global/ActionEvents.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Web/Backend/js/global/KeyboardEvents.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Web/Backend/js/global/MouseEvents.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Web/Backend/js/global/ResponseEvents.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Web/Backend/js/global/TouchEvents.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'Web/Backend/js/global/VoiceEvents.js');
+        $head->addAsset(AssetType::JS, '/Web/Backend/js/config.js');
+        $head->addAsset(AssetType::JS, '/Web/Backend/js/global/ActionEvents.js');
+        $head->addAsset(AssetType::JS, '/Web/Backend/js/global/KeyboardEvents.js');
+        $head->addAsset(AssetType::JS, '/Web/Backend/js/global/MouseEvents.js');
+        $head->addAsset(AssetType::JS, '/Web/Backend/js/global/ResponseEvents.js');
+        $head->addAsset(AssetType::JS, '/Web/Backend/js/global/TouchEvents.js');
+        $head->addAsset(AssetType::JS, '/Web/Backend/js/global/VoiceEvents.js');
         
-        $head->addAsset(AssetType::JS, $baseUri . 'Web/Backend/ServiceWorker.js');
-        $head->addAsset(AssetType::JSLATE, $baseUri . 'Web/Backend/js/backend.js');
+        $head->addAsset(AssetType::JS, '/Web/Backend/ServiceWorker.js');
+        $head->addAsset(AssetType::JSLATE, '/Web/Backend/js/backend.js');
 
-        $head->addAsset(AssetType::JSLATE, $baseUri . 'Modules/Navigation/Controller.js');
-        $head->addAsset(AssetType::JSLATE, $baseUri . 'Modules/Navigation/Models/Navigation.js');
+        $head->addAsset(AssetType::JSLATE, '/Modules/Navigation/Controller.js');
+        $head->addAsset(AssetType::JSLATE, '/Modules/Navigation/Models/Navigation.js');
 
         $head->setScript('core', $script = 'const RootPath = "' . $request->getUri()->getRootPath() . '", assetManager = new jsOMS.Asset.AssetManager();');
         $response->getHeader()->set('content-security-policy', 'script-src \'self\' \'sha256-' . base64_encode(hash('sha256', $script, true)) . '\'; child-src \'self\'', true);
 
-        $head->addAsset(AssetType::CSS, $baseUri . 'Web/Backend/css/backend.css');
-        $head->addAsset(AssetType::JS, $baseUri . 'Resources/d3/d3.min.js');
+        $head->addAsset(AssetType::CSS, '/Web/Backend/css/backend.css');
+        $head->addAsset(AssetType::JS, '/Resources/d3/d3.min.js');
         $head->setStyle('core', preg_replace('!\s+!', ' ', file_get_contents(__DIR__ . '/css/backend-small.css')));
 
         $head->setTitle('Orange Management Backend');
@@ -425,14 +423,13 @@ class Application
      *
      * @param Response $response Response
      * @param Head $head Head to fill
-     * @param string $baseUri Base uri for asset path
      * @param View $pageView View
      *
      * @return void
      *
      * @since  1.0.0
      */
-    private function createLoggedOutResponse(Response $response, Head $head, string $baseUri, View $pageView) 
+    private function createLoggedOutResponse(Response $response, Head $head, View $pageView) 
     {
         $pageView->setTemplate('/Web/Backend/login');
     }
