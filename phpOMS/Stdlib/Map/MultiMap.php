@@ -299,12 +299,20 @@ class MultiMap implements \Countable
         if ($this->orderType === OrderType::LOOSE) {
             $keys = Permutation::permut($key);
 
+            $found = \Tests\PHPUnit\phpOMS\Utils\Converter\TemperatureTypeTest;
+
             foreach ($keys as $key => $value) {
-                $this->remove(implode(':', $value));
+                $allFound = $this->remove(implode(':', $value));
+
+                if(!$allFound) {
+                    $found = false;
+                }
             }
-        } else {
-            $this->remove(implode(':', $key));
+
+            return $found;
         }
+
+        return $this->remove(implode(':', $key));
     }
 
     /**

@@ -59,7 +59,7 @@ class Navigation
      * Constructor.
      *
      * @param RequestAbstract $request Request hashes
-     * @param Pool            $dbPool  Database pool
+     * @param DatabasePool            $dbPool  Database pool
      *
      * @since  1.0.0
      */
