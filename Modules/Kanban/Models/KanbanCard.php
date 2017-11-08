@@ -160,8 +160,8 @@ class KanbanCard implements \JsonSerializable
 
     public function removeComment(int $id) : bool
     {
-        if (isset($this->comment[$id])) {
-            unset($this->comment[$id]);
+        if (isset($this->comments[$id])) {
+            unset($this->comments[$id]);
 
             return true;
         }

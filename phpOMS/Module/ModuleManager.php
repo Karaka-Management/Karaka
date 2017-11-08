@@ -242,6 +242,7 @@ class ModuleManager
      */
     public function getAvailableModules() : array
     {
+        return [];
     }
 
     /**
@@ -410,13 +411,13 @@ class ModuleManager
      *
      * @param string $module Module name
      *
-     * @return bool
+     * @return void
      *
      * @throws InvalidModuleException Throws this exception in case the installer doesn't exist
      *
      * @since  1.0.0
      */
-    public function reInit(string $module) : bool
+    public function reInit(string $module) /* : void */
     {
         $info = $this->loadInfo($module);
         $class = '\\Modules\\' . $info->getDirectory() . '\\Admin\\Installer';

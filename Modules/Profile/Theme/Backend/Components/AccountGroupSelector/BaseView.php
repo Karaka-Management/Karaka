@@ -47,7 +47,7 @@ class BaseView extends View
     public function render(...$data) : string
     {
         $this->id = $data[0];
-        $this->required = $data[1] ?? false;
+        $this->isRequired = $data[1] ?? false;
         $this->getData('popup')->setId($this->id);
         return parent::render();
     }

@@ -50,7 +50,7 @@ class Navigation
     /**
      * Database pool.
      *
-     * @var Pool
+     * @var DatabasePool
      * @since 1.0.0
      */
     private $dbPool = null;

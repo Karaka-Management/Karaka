@@ -31,7 +31,6 @@ class WikiBadge implements \JsonSerializable
 
     public function __construct()
     {
-        $this->createdAt = new \DateTime('now');
     }
 
     public function getId() : int

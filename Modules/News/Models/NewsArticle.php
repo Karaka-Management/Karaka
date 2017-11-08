@@ -121,7 +121,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Badge.
      *
-     * @var bool
+     * @var array
      * @since 1.0.0
      */
     private $badges = [];

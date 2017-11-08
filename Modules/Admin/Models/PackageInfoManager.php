@@ -201,9 +201,9 @@ class PackageInfoManager
      *
      * @since  1.0.0
      */
-    public function getVersion() : array
+    public function getVersion() : string
     {
-        return $this->info['version'] ?? [];
+        return $this->info['version'] ?? '';
     }
     
     /**

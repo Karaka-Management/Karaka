@@ -117,26 +117,6 @@ class Promotion
         return false;
     }
 
-    public function getProgress() : int
-    {
-        return $this->progress;
-    }
-
-    public function setProgress(int $progress) /* : void */
-    {
-        $this->progress = $progres;
-    }
-
-    public function getProgressType() : int
-    {
-        return $this->progressType;
-    }
-
-    public function setProgressType(int $type) /* : void */
-    {
-        $this->progressType = $type;
-    }
-
     public function getTask(int $id) : Task
     {
         return $this->tasks[$id] ?? new Task();

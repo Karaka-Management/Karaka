@@ -290,24 +290,20 @@ class MultiMap implements \Countable
      *
      * @param mixed $key Key used to identify value
      *
-     * @return bool
+     * @return void
      *
      * @since  1.0.0
      */
-    private function removeMultiple($key) : bool
+    private function removeMultiple($key) /* : void */
     {
         if ($this->orderType === OrderType::LOOSE) {
             $keys = Permutation::permut($key);
 
-            $removed = false;
-
             foreach ($keys as $key => $value) {
-                $removed |= $this->remove(implode(':', $value));
+                $this->remove(implode(':', $value));
             }
-
-            return $removed;
         } else {
-            return $this->remove(implode(':', $key));
+            $this->remove(implode(':', $key));
         }
     }
 

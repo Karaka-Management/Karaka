@@ -139,7 +139,7 @@ class TaskMapper extends DataMapperAbstract
 
             $count = $sth->fetchAll()[0][0] ?? 0;
         } catch (\Exception $e) {
-            return false;
+            return -1;
         }
 
         return $count;

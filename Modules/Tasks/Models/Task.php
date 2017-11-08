@@ -71,7 +71,7 @@ class Task implements \JsonSerializable
     /**
      * Type.
      *
-     * @var TaskType
+     * @var int
      * @since 1.0.0
      */
     protected $type = TaskType::SINGLE;
@@ -79,11 +79,17 @@ class Task implements \JsonSerializable
     /**
      * Status.
      *
-     * @var TaskStatus
+     * @var int
      * @since 1.0.0
      */
     protected $status = TaskStatus::OPEN;
 
+    /**
+     * Task can be closed by user.
+     *
+     * @var bool
+     * @since 1.0.0
+     */
     protected $isClosable = true;
 
     /**
