@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
                 elseif ($news->getType() === \Modules\News\Models\NewsType::LINK) { $color = 'yellow'; }
                 ?>
                 <tr data-href="<?= $url; ?>">
-                    <td data-label=""><a href="<?= $url; ?>"><?= $news->isFeatured() ? '<i class="fa fa-star favorite"></i>' : ''; ?></a>
+                    <td><a href="<?= $url; ?>"><?= $news->isFeatured() ? '<i class="fa fa-star favorite"></i>' : ''; ?></a>
                     <td data-label="<?= $this->getHtml('Type') ?>"><a href="<?= $url; ?>"><span class="tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('TYPE' . $news->getType()) ?></span></a>
                     <td data-label="<?= $this->getHtml('Title') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($news->getTitle()); ?></a>
                     <td data-label="<?= $this->getHtml('Author') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($news->getCreatedBy()->getName1()); ?></a>

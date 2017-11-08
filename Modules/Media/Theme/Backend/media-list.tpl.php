@@ -71,12 +71,12 @@ echo $this->getData('nav')->render(); ?>
                         }
                         ?>
                         <tr data-href="<?= $url; ?>">
-                            <td><a href="<?= $url; ?>"><i class="fa fa-<?= $this->printHtml($icon); ?>"></i></a>
-                            <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
-                            <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getExtension()); ?></a>
-                            <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getSize()); ?></a>
-                            <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedBy()->getName1()); ?></a>
-                            <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedAt()->format('Y-m-d H:i:s')); ?></a>
+                            <td data-label="<?= $this->getHtml('Type') ?>"><a href="<?= $url; ?>"><i class="fa fa-<?= $this->printHtml($icon); ?>"></i></a>
+                            <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
+                            <td data-label="<?= $this->getHtml('Extension') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getExtension()); ?></a>
+                            <td data-label="<?= $this->getHtml('Size') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getSize()); ?></a>
+                            <td data-label="<?= $this->getHtml('Creator') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedBy()->getName1()); ?></a>
+                            <td data-label="<?= $this->getHtml('Created') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedAt()->format('Y-m-d H:i:s')); ?></a>
                         <?php endforeach; ?>
                         <?php if ($count === 0) : ?>
                 <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

@@ -43,10 +43,10 @@ echo $this->getData('nav')->render(); ?>
                 <?php $c = 0; foreach ($departments as $key => $value) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/hr/department/single?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
-                    <td>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getParent()->getName()); ?></a>
+                    <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+                    <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
+                    <td data-label="<?= $this->getHtml('Employees') ?>">
+                    <td data-label="<?= $this->getHtml('Parent') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getParent()->getName()); ?></a>
                         <?php endforeach; ?>
                         <?php if ($c === 0) : ?>
                 <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

@@ -40,9 +40,9 @@ echo $this->getData('nav')->render(); ?>
                 <?php $count = 0; foreach ($images as $key => $value) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/draw/single?{?}&id=' . $value->getId()); ?>
                     <tr>
-                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getMedia()->getName()); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getMedia()->getCreatedBy()); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getMedia()->getCreatedAt()->format('Y-m-d')); ?></a>
+                        <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getMedia()->getName()); ?></a>
+                        <td data-label="<?= $this->getHtml('Creator') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getMedia()->getCreatedBy()); ?></a>
+                        <td data-label="<?= $this->getHtml('Created') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getMedia()->getCreatedAt()->format('Y-m-d')); ?></a>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
                 <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

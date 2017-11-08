@@ -4,6 +4,7 @@
     @include box-sizing(border-box);
     display: inline-block;
     margin-top: 0.3rem;
+    overflow-x: auto;
     
     .inner {
         @include box-sizing(border-box);

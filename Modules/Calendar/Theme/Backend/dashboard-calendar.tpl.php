@@ -12,6 +12,6 @@
  * @link       http://website.orange-management.de
  */
 ?>
-<div id="calendar-dashboard" class="ol-xs-12 col-md-6" draggable="true">
+<div id="calendar-dashboard" class="col-xs-12 col-md-6" draggable="true">
     <?= $this->getData('calendar')->render($this->getData('cal')); ?>
 </div>

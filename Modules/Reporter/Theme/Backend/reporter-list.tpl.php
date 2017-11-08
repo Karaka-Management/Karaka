@@ -48,10 +48,10 @@ echo $this->getData('nav')->render(); ?>
                         <?php foreach ($templates as $key => $template) :
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/reporter/report/view?{?}&id=' . $template->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($template->getId()); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($template->getName()); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($template->getCreatedBy()->getName1()); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($template->getCreatedAt()->format('Y-m-d')); ?></a>
+                    <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($template->getId()); ?></a>
+                    <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($template->getName()); ?></a>
+                    <td data-label="<?= $this->getHtml('Creator') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($template->getCreatedBy()->getName1()); ?></a>
+                    <td data-label="<?= $this->getHtml('Updated') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($template->getCreatedAt()->format('Y-m-d')); ?></a>
                         <?php endforeach; ?>
             </table>
         </div>

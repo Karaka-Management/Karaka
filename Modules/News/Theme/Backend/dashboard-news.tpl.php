@@ -25,7 +25,7 @@ $newsList = $this->getData('news');
             <tr>
                 <td>
                 <td><?= $this->getHtml('Type', 'News') ?>
-                <td class="wf-100"><?= $this->getHtml('Title', 'News') ?>
+                <td><?= $this->getHtml('Title', 'News') ?>
             <tbody>
             <?php $count = 0; foreach ($newsList as $key => $news) : $count++;
             $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/news/article?{?}&id=' . $news->getId());

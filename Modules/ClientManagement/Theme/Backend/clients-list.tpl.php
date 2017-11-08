@@ -81,14 +81,14 @@ echo $this->getData('nav')->render(); ?>
                 <?php $count = 0; foreach ($clients as $key => $value) : $count++; 
                  $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/sales/client/profile?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getNumber()); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getProfile()->getAccount()->getName1()); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getProfile()->getAccount()->getName2()); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getProfile()->getAccount()->getName3()); ?></a>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
+                    <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getNumber()); ?></a>
+                    <td data-label="<?= $this->getHtml('Name1') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getProfile()->getAccount()->getName1()); ?></a>
+                    <td data-label="<?= $this->getHtml('Name2') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getProfile()->getAccount()->getName2()); ?></a>
+                    <td data-label="<?= $this->getHtml('Name3') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getProfile()->getAccount()->getName3()); ?></a>
+                    <td data-label="<?= $this->getHtml('City') ?>">
+                    <td data-label="<?= $this->getHtml('Zip') ?>">
+                    <td data-label="<?= $this->getHtml('Address') ?>">
+                    <td data-label="<?= $this->getHtml('Country') ?>">
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
                 <tr><td colspan="8" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

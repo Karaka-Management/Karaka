@@ -42,10 +42,11 @@ echo $this->getData('nav')->render(); ?>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/checklist/single?{?}&id=' . $value->getId()); ?>
                 <tr>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getParent()); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getUnit()); ?></a>
+                    <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+                    <td data-label="<?= $this->getHtml('Status') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
+                    <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getParent()); ?></a>
+                    <td data-label="<?= $this->getHtml('Creator') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getUnit()); ?></a>
+                    <td data-label="<?= $this->getHtml('Created') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getUnit()); ?></a>
                         <?php endforeach; ?>
                         <?php if ($c === 0) : ?>
                 <tr>

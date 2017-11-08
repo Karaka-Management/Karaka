@@ -38,9 +38,9 @@ echo $this->getData('nav')->render(); ?>
                 <?php $count = 0; foreach ($list as $key => $value) : $count++; 
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/projectmanagement/profile?{?}&id=' . $value->getId());?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getStart()->format('Y-m-d')); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getEnd()->format('Y-m-d')); ?></a>
+                    <td data-label="<?= $this->getHtml('Title') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
+                    <td data-label="<?= $this->getHtml('Start') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getStart()->format('Y-m-d')); ?></a>
+                    <td data-label="<?= $this->getHtml('Due') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getEnd()->format('Y-m-d')); ?></a>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
                 <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

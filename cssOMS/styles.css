@@ -4529,7 +4529,8 @@ main {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   display: inline-block;
-  margin-top: 0.3rem; }
+  margin-top: 0.3rem;
+  overflow-x: auto; }
   .box .inner {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -4706,7 +4707,8 @@ table.table {
   box-sizing: border-box;
   width: 100%;
   font-size: 0.9em;
-  display: table; }
+  max-width: 100%;
+  overflow: hidden; }
   table.table caption {
     background: #fff;
     border-right: 1px solid #b7b7b7;
@@ -4733,8 +4735,6 @@ table.table {
       background: #fff; }
     table.table tbody tr:hover {
       background: #f0f0f0; }
-  table.table tbody a {
-    display: block; }
   table.table tbody tr:last-child td {
     border-bottom: 1px solid #b7b7b7; }
   table.table thead {
@@ -4766,14 +4766,18 @@ table.list td {
 
 @media screen and (max-width: 600px) {
   table.table {
-    border: 0;
-    width: 100%; }
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    border: 0; }
     table.table thead {
       display: none; }
     table.table tbody tr {
       height: auto;
       display: block;
       margin-bottom: .625em; }
+      table.table tbody tr td:last-child {
+        border-bottom: 1px solid #b7b7b7; }
       table.table tbody tr:last-child td {
         border-bottom: none; }
         table.table tbody tr:last-child td:last-child {
@@ -4786,16 +4790,17 @@ table.list td {
       text-align: right;
       position: relative;
       height: 2rem;
-      line-height: 2rem; }
+      line-height: 2rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 100%; }
       table.table tbody td:before {
         content: attr(data-label);
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        margin-left: 20px;
-        font-weight: bold;
-        display: inline-block; } }
+        float: left;
+        margin-right: 10px;
+        font-weight: bold; }
+    table.table tfoot {
+      display: none; } }
 .nobreak {
   white-space: nowrap; }
 

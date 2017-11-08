@@ -49,11 +49,11 @@ echo $this->getData('nav')->render();
                         elseif ($value->getStatus() === \phpOMS\Account\AccountStatus::TIMEOUT) { $color = 'purple'; }
                         elseif ($value->getStatus() === phpOMS\Account\AccountStatus::BANNED) { $color = 'red'; } ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
-                    <td><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->getHtml('Status'. $value->getStatus()); ?></span></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName1()); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getLastActive()->format('Y-m-d H:i:s')); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedAt()->format('Y-m-d H:i:s')); ?></a>
+                    <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+                    <td data-label="<?= $this->getHtml('Status') ?>"><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->getHtml('Status'. $value->getStatus()); ?></span></a>
+                    <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getName1()); ?></a>
+                    <td data-label="<?= $this->getHtml('Activity') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getLastActive()->format('Y-m-d H:i:s')); ?></a>
+                    <td data-label="<?= $this->getHtml('Created') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedAt()->format('Y-m-d H:i:s')); ?></a>
                         <?php endforeach; ?>
                         <?php if ($c === 0) : ?>
                         <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

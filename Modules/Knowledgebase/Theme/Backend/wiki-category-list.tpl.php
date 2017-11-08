@@ -35,8 +35,8 @@ echo $this->getData('nav')->render();
                         <?php $c = 0; foreach ($categories as $key => $value) : $c++;
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/account/settings?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
+                    <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+                    <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
                         <?php endforeach; ?>
                         <?php if ($c === 0) : ?>
                         <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

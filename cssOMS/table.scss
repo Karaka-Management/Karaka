@@ -45,7 +45,8 @@ table.table {
     @include box-sizing(border-box);
     width: 100%;
     font-size: 0.9em;
-    display: table;
+    max-width: 100%;
+    overflow: hidden;
 
     caption {
         background: #fff;
@@ -89,10 +90,6 @@ table.table {
             &:hover {
                 background: #f0f0f0;
             }
-        }
-
-        a {
-            display: block;
         }
 
         tr:last-child td {
@@ -150,8 +147,10 @@ table.list {
 
 @media screen and (max-width: 600px) {
     table.table {
-        border: 0;
+        display: table;
+        table-layout: fixed;
         width: 100%;
+        border: 0;
 
         thead {
             display: none;
@@ -162,6 +161,10 @@ table.list {
                 height: auto;
                 display: block;
                 margin-bottom: .625em;
+
+                td:last-child {
+                    border-bottom: 1px solid $content-border-color;
+                }
 
                 &:last-child td {
                     border-bottom: none;
@@ -181,18 +184,23 @@ table.list {
                 position: relative;
                 height: 2rem;
                 line-height: 2rem;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                max-width: 100%;
 
                 &:before {
                     content: attr(data-label);
-                    position: absolute;
-                    left: 0;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    margin-left: 20px;
+                    float: left;
+                    margin-right: 10px;
                     font-weight: bold;
-                    display: inline-block;
                 }
             }
+        }
+
+        tfoot {
+            // if not hidden colspan will cause problems and reduce width based on cospan value
+            // 1/cospan_val
+            display: none;
         }
     }
 }

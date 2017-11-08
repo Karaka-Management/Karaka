@@ -35,6 +35,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td><?= $this->getHtml('ID', 0, 0); ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
+                    <td><?= $this->getHtml('Unit') ?>
                     <td><?= $this->getHtml('Position') ?>
                     <td><?= $this->getHtml('Department') ?>
                     <td><?= $this->getHtml('Status') ?>
@@ -44,11 +45,12 @@ echo $this->getData('nav')->render(); ?>
                 <?php $c = 0; foreach ($employees as $key => $value) : $c++;
                     $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/hr/staff/profile?{?}&id=' . $value->getId()); ?>
                     <tr data-href="<?= $url; ?>">
-                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getAccount()->getName1()); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getUnit()->getName()); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getDepartment()->getName()); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getPosition()->getName()); ?></a>
+                        <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+                        <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getAccount()->getName1()); ?></a>
+                        <td data-label="<?= $this->getHtml('Unit') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getUnit()->getName()); ?></a>
+                        <td data-label="<?= $this->getHtml('Department') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getDepartment()->getName()); ?></a>
+                        <td data-label="<?= $this->getHtml('Position') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getPosition()->getName()); ?></a>
+                        <td data-label="<?= $this->getHtml('Status') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getPosition()->getName()); ?></a>
                 <?php endforeach; ?>
                 <?php if ($c === 0) : ?>
                     <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

@@ -45,10 +45,10 @@ $footerView->setResults(count($modules));
                         <?php $count = 0; foreach ($modules as $key => $module) : $count++;
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/module/settings?{?}&id=' . $module['name']['internal']); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($module['name']['internal']); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($module['name']['external']); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($module['version']); ?></a>
-                    <td><a href="<?= $url; ?>"><?php if (in_array($module['name']['internal'], $active))
+                    <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($module['name']['id']); ?></a>
+                    <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($module['name']['external']); ?></a>
+                    <td data-label="<?= $this->getHtml('Version') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($module['version']); ?></a>
+                    <td data-label="<?= $this->getHtml('Status') ?>"><a href="<?= $url; ?>"><?php if (in_array($module['name']['internal'], $active))
                             echo strtolower($this->getHtml('Active'));
                         elseif (in_array($module['name']['internal'], $installed))
                             echo strtolower($this->getHtml('Inactive'));
