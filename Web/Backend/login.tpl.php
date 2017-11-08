@@ -28,8 +28,9 @@ $head = $this->getData('head');
         html, body {
             height: 100%;
             font-family: arial, serif;
-            background: #2F2F2F;
+            background: #232323;
             color: #fff;
+            text-align: center;
         }
 
         form label {
@@ -37,77 +38,61 @@ $head = $this->getData('head');
             text-shadow: none;
         }
 
-        .floater {
-            float: left;
-            width: 100%;
+        #login {
+            text-align: left;
         }
 
-        #parent {
-            display: table;
-            position: static;
-            clear: left;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        #child {
-            display: table-cell;
-            vertical-align: middle;
-            width: 100%;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
+        #login-container {
             font-size: 1.0em;
             padding: 20px;
-            background: #232323;
-            box-shadow: 0 0 5px 1px rgba(0,0,0,0.75);
-        }
-
-        #inner {
             text-align: left;
             margin: 0 auto;
             display: inline-block;
         }
 
-        #title {
+        #login-form {
+            padding: 30px 0 0 50px;
+        }
+
+        #login-logo {
             text-align: center;
-            font-size: 10em;
-            padding-bottom: 20px;
         }
 
         h1 {
             margin-bottom: 30px;
         }
 
-        #bg-animation {
-            background: none;
-            border: none;
-            position: absolute;
+        table.layout {
+            width: 100%;
+        }
+
+        @media screen and (max-width: 600px) {
+            .floatLeft {
+                float: none;
+            }
+
+            #login-form {
+                padding: 30px 0 0 0;
+            }
         }
     </style>
 </head>
 <body>
-<canvas id="bg-animation"></canvas>
-<div class="floater"></div>
-<div id="parent">
-    <div id="child">
-        <div id="inner">
-            <header><h1>Orange Management</h1></header>
-            <div class="floatLeft">
-                <img alt="Logo" src="<?= \phpOMS\Uri\UriFactory::build('{/base}/Web/Backend/img/logo.png'); ?>" width="200">
-            </div>
-            <div class="floatLeft" style="padding: 30px 0 0 50px">
-                <form id="login" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/login?{?}&csrf={$CSRF}'); ?>">
-                    <table class="layout">
-                        <tr><td><label for="iName"><?= $this->getHtml('Username', 0, 0); ?></label>
-                        <tr><td><input id="iName" type="text" name="user" value="admin">
-                        <tr><td><label for="iPassword"><?= $this->getHtml('Password', 0, 0); ?></label>
-                        <tr><td><input id="iPassword" type="password" name="pass" value="orange">
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Login', 0, 0); ?>">
-                    </table>
-                </form>
-            </div>
-        </div>
+<div id="login-container">
+    <header><h1>Orange Management</h1></header>
+    <div id="login-logo" class="floatLeft">
+        <img alt="Logo" src="<?= \phpOMS\Uri\UriFactory::build('{/base}/Web/Backend/img/logo.png'); ?>" width="200">
+    </div>
+    <div id="login-form" class="floatLeft">
+        <form id="login" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/login?{?}&csrf={$CSRF}'); ?>">
+            <table class="layout">
+                <tr><td><label for="iName"><?= $this->getHtml('Username', 0, 0); ?></label>
+                <tr><td><input id="iName" type="text" name="user" value="admin">
+                <tr><td><label for="iPassword"><?= $this->getHtml('Password', 0, 0); ?></label>
+                <tr><td><input id="iPassword" type="password" name="pass" value="orange">
+                <tr><td><input type="submit" value="<?= $this->getHtml('Login', 0, 0); ?>">
+            </table>
+        </form>
     </div>
 </div>
 <?= $head->renderAssetsLate(); ?>

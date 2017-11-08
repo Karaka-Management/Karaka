@@ -434,11 +434,6 @@ class Application
      */
     private function createLoggedOutResponse(Response $response, Head $head, string $baseUri, View $pageView) 
     {
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Animation/Animation.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Animation/Canvas/Particle.js');
-        $head->addAsset(AssetType::JS, $baseUri . 'jsOMS/Animation/Canvas/ParticleAnimation.js');
-        $head->addAsset(AssetType::JSLATE, $baseUri . 'Web/Backend/js/login.js');
-
         $pageView->setTemplate('/Web/Backend/login');
     }
 
