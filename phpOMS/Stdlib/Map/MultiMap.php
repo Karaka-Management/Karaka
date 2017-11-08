@@ -301,7 +301,7 @@ class MultiMap implements \Countable
         }
 
         $keys = Permutation::permut($key);
-        $found = \Tests\PHPUnit\phpOMS\Utils\Converter\TemperatureTypeTest;
+        $found = true;
 
         foreach ($keys as $key => $value) {
             $allFound = $this->remove(implode(':', $value));
