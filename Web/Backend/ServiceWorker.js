@@ -8,9 +8,11 @@
  */
 const CACHE_VERSION = 'static-v1';
 
+/** global: self */
 self.addEventListener('install', event =>
 {
     event.waitUntil(
+        /** global: caches */
         caches.open(CACHE_VERSION).then(cache => cache.addAll([
             '/en/E404', // todo: this should be /en/404 but since it's header is 404 it cannot get cached
             //'/en/backend' // todo: doesn't work with login since the login page will be cached instead of the backend
@@ -21,6 +23,7 @@ self.addEventListener('install', event =>
 
 self.addEventListener('fetch', event =>
 {
+    /** global: URL */
     const url = new URL(event.request.url);
 
     event.respondWith(

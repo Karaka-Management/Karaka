@@ -24,6 +24,7 @@
         this.voiceManager    = new jsOMS.UI.Input.Voice.VoiceManager(this);
         this.notifyManager   = new jsOMS.Message.Notification.NotificationManager();
         this.request         = new jsOMS.Uri.Http(window.location.href);
+        /** global: RootPath */
         this.request.setRootPath(RootPath);
 
         this.setResponseMessages();
@@ -44,6 +45,7 @@
     {
         const self = this;
 
+        /** global: navigator */
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/Web/Backend/ServiceWorker.js', {scope: this.request.getBase()}).catch(function (e)
             {
@@ -54,6 +56,7 @@
 
     jsOMS.Application.prototype.setResponseMessages = function ()
     {
+        /** global: RESPONSE_EVENTS */
         for(let key in RESPONSE_EVENTS) {
             if(RESPONSE_EVENTS.hasOwnProperty(key)) {
                 this.responseManager.add(key, RESPONSE_EVENTS[key]);
@@ -63,6 +66,7 @@
 
     jsOMS.Application.prototype.setActions = function ()
     {
+        /** global: ACTION_EVENTS */
         for(let key in ACTION_EVENTS) {
             if(ACTION_EVENTS.hasOwnProperty(key)) {
                 this.uiManager.getActionManager().add(key, ACTION_EVENTS[key]);
@@ -72,6 +76,7 @@
 
     jsOMS.Application.prototype.setKeyboardActions = function ()
     {
+        /** global: KEYBOARD_EVENTS */
         let length = KEYBOARD_EVENTS.length;
 
         for(let i = 0; i < length; i++) {
@@ -85,6 +90,7 @@
 
     jsOMS.Application.prototype.setMouseActions = function ()
     {
+        /** global: MOUSE_EVENTS */
         let length = MOUSE_EVENTS.length;
         
         for(let i = 0; i < length; i++) {
@@ -100,6 +106,7 @@
 
     jsOMS.Application.prototype.setVoiceActions = function ()
     {
+        /** global: VOICE_EVENTS */
         for(let key in VOICE_EVENTS) {
             if(VOICE_EVENTS.hasOwnProperty(key)) {
                 this.voiceManager.add(key, VOICE_EVENTS[key]);
@@ -115,5 +122,6 @@ jsOMS.ready(function ()
 {
     "use strict";
 
+    /** global: jsOMS */
     window.omsApp = new jsOMS.Application();
 });

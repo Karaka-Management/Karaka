@@ -8,6 +8,7 @@ const hideAction = function (action, callback)
         return;
     }
 
+    /** global: jsOMS */
     jsOMS.addClass(hide, 'vh');
 
     callback();

@@ -7,6 +7,7 @@
  */
 const domAction = function (data)
 {
+	/** global: jsOMS */
     setTimeout(function ()
     {
         switch(data.type) {

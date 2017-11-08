@@ -23,6 +23,7 @@ const domSetValue = function (action, callback, element)
         start++;
 
         path = dataPath.substring(start, end);
+        /** global: jsOMS */
         tempDataValue = jsOMS.getArray(path, action.data, '/');
 
         replaceText = '{' + path + '}';
@@ -32,6 +33,7 @@ const domSetValue = function (action, callback, element)
     const fill = action.base === 'self' ? (action.selector === '' ? [element] : element.querySelectorAll(action.selector)) : document.querySelectorAll(action.selector);
 
     for(let i in fill) {
+        /** global: HTMLElement */
         if(!fill.hasOwnProperty(i) || !(fill[i] instanceof HTMLElement)) {
             continue;
         }

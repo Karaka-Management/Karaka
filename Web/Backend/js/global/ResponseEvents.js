@@ -1,3 +1,4 @@
+/** global: jsOMS */
 const RESPONSE_EVENTS = {
     'notify': notifyMessage,
     'validation': formValidationMessage,

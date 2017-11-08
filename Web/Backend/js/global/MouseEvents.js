@@ -1,3 +1,4 @@
+/** global: jsOMS */
 const MOUSE_EVENTS = [
     {
         'element': 'nav-side', 

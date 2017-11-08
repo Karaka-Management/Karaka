@@ -3,16 +3,18 @@
  *
  * @param {Object} action Action data
  * @param {function} callback Callback
+ * @param {Object} element Action element
  *
  * @since 1.0.0
  */
-const popupButtonAction = function (action, callback)
+const popupButtonAction = function (action, callback, element)
 {
     "use strict";
 
     const popup = action.base === 'self' ? (action.selector === '' ? [element] : element.querySelectorAll(action.selector)) : document.querySelectorAll(action.selector);
 
     for(let i in popup) {
+        /** global: HTMLElement */
         if(!popup.hasOwnProperty(i) || !popup[i] || !(popup[i] instanceof HTMLElement)) {
             continue;
         }

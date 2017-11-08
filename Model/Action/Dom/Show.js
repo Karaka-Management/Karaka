@@ -8,6 +8,7 @@ const showAction = function (action, callback)
         return;
     }
 
+    /** global: jsOMS */
     jsOMS.removeClass(show, 'vh');
 
     callback();

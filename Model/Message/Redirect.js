@@ -9,6 +9,7 @@ const redirectMessage = function (data)
 {
     setTimeout(function ()
     {
+        /** global: jsOMS */
         window.location = jsOMS.Uri.UriFactory.build(data.uri);
     }, parseInt(data.delay));
 };

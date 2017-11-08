@@ -1,3 +1,4 @@
+/** global: jsOMS */
 const KEYBOARD_EVENTS = [
     {
         'element': 'body', 

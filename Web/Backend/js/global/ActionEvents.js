@@ -1,3 +1,4 @@
+/** global: jsOMS */
 const ACTION_EVENTS = {
     'redirect': redirectMessage,
     'dom': domAction,
