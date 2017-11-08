@@ -83,9 +83,11 @@ class Reload implements \Serializable, ArrayableInterface, \JsonSerializable
         return $this->__toString();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function unserialize($raw) 
     {
-        return '';
     }
 
     /**

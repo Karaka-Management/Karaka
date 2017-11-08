@@ -140,9 +140,11 @@ class Dom implements \Serializable, ArrayableInterface
         return $this->toArray();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function unserialize($raw) 
     {
-        return '';
     }
 
     /**

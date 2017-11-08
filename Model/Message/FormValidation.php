@@ -80,9 +80,11 @@ class FormValidation implements \Serializable, ArrayableInterface, \JsonSerializ
         return $this->toArray();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function unserialize($raw)
     {
-        return '';
     }
 
     /**

@@ -127,9 +127,11 @@ class Redirect implements \Serializable, ArrayableInterface, \JsonSerializable
         return $this->toArray();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function unserialize($raw) 
     {
-        return '';
     }
 
     /**
