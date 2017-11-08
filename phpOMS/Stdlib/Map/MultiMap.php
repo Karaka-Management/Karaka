@@ -296,23 +296,22 @@ class MultiMap implements \Countable
      */
     private function removeMultiple($key) /* : void */
     {
-        if ($this->orderType === OrderType::LOOSE) {
-            $keys = Permutation::permut($key);
-
-            $found = \Tests\PHPUnit\phpOMS\Utils\Converter\TemperatureTypeTest;
-
-            foreach ($keys as $key => $value) {
-                $allFound = $this->remove(implode(':', $value));
-
-                if(!$allFound) {
-                    $found = false;
-                }
-            }
-
-            return $found;
+        if ($this->orderType !== OrderType::LOOSE) {
+            return $this->remove(implode(':', $key));
         }
 
-        return $this->remove(implode(':', $key));
+        $keys = Permutation::permut($key);
+        $found = \Tests\PHPUnit\phpOMS\Utils\Converter\TemperatureTypeTest;
+
+        foreach ($keys as $key => $value) {
+            $allFound = $this->remove(implode(':', $value));
+
+            if(!$allFound) {
+                $found = false;
+            }
+        }
+
+        return $found;
     }
 
     /**
