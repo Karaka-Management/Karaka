@@ -93,30 +93,4 @@ class KanbanBoardMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'kanban_board_id';
-
-    /**
-     * Create object.
-     *
-     * @param mixed $obj       Object
-     * @param int   $relations Behavior for relations creation
-     *
-     * @return mixed
-     *
-     * @since  1.0.0
-     */
-    public static function create($obj, int $relations = RelationType::ALL)
-    {
-        try {
-            $objId = parent::create($obj, $relations);
-
-            if ($objId === null || !is_scalar($objId)) {
-                return $objId;
-            }
-        } catch (\Exception $e) {
-            return false;
-        }
-
-        return $objId;
-    }
-
 }

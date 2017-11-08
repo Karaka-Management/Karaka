@@ -54,20 +54,4 @@ class AccountPermissionMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'account_permission_id';
-
-    /**
-     * Get object.
-     *
-     * @param mixed $primaryKey Key
-     * @param int   $relations  Load relations
-     * @param mixed $fill       Object to fill
-     *
-     * @return Group
-     *
-     * @since  1.0.0
-     */
-    public static function get($primaryKey, int $relations = RelationType::ALL, $fill = null)
-    {
-        return parent::get($primaryKey, $relations, $fill);
-    }
 }

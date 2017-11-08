@@ -97,25 +97,4 @@ class TaskElementMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'task_element_id';
-
-    /**
-     * Create object.
-     *
-     * @param mixed $obj       Object
-     * @param int   $relations Behavior for relations creation
-     *
-     * @return mixed
-     *
-     * @since  1.0.0
-     */
-    public static function create($obj, int $relations = RelationType::ALL)
-    {
-        try {
-            $objId = parent::create($obj, $relations);
-        } catch (\Exception $e) {
-            return false;
-        }
-
-        return $objId;
-    }
 }

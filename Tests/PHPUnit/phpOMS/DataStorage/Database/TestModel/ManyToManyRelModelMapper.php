@@ -38,20 +38,4 @@ class ManyToManyRelModelMapper extends DataMapperAbstract
     protected static $table = 'test_has_many_rel';
 
     protected static $primaryField = 'test_has_many_rel_id';
-
-    public static function create($obj, int $relations = RelationType::ALL)
-    {
-        try {
-            $objId = parent::create($obj, $relations);
-
-            if ($objId === null || !is_scalar($objId)) {
-                return $objId;
-            }
-        } catch (\Exception $e) {
-            return false;
-        }
-
-        return $objId;
-    }
-
 }

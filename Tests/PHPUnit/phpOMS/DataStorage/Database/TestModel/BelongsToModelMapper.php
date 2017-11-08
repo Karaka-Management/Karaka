@@ -38,20 +38,4 @@ class BelongsToModelMapper extends DataMapperAbstract
     protected static $table = 'test_belongs_to_one';
 
     protected static $primaryField = 'test_belongs_to_one_id';
-
-    public static function create($obj, int $relations = RelationType::ALL)
-    {
-        try {
-            $objId = parent::create($obj, $relations);
-
-            if ($objId === null || !is_scalar($objId)) {
-                return $objId;
-            }
-        } catch (\Exception $e) {
-            return false;
-        }
-
-        return $objId;
-    }
-
 }
