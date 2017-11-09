@@ -384,7 +384,6 @@ class Controller extends ModuleAbstract implements WebInterface
         
         $column = new KanbanColumn();
         $column->setName($request->getData('title'));
-        $column->setDescription($request->getData('plain'));
         $column->setOrder((int) $request->getData('order'));
 
         return $column;
@@ -395,7 +394,6 @@ class Controller extends ModuleAbstract implements WebInterface
         $val = [];
         if (
             ($val['title'] = empty($request->getData('title')))
-            || ($val['plain'] = empty($request->getData('plain')))
             || ($val['order'] = empty($request->getData('order')))
         ) {
             return $val;
