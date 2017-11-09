@@ -306,7 +306,6 @@ class Controller extends ModuleAbstract implements WebInterface
         $doc->setName($request->getData('title'));
         $doc->setDoc($request->getData('plain'));
         $doc->setCategory((int) $request->getData('category'));
-        $doc->setBadges((array) $request->getData('badges'));
         $doc->setStatus((int) $request->getData('status'));
 
         return $doc;
@@ -319,7 +318,6 @@ class Controller extends ModuleAbstract implements WebInterface
             ($val['title'] = empty($request->getData('title')))
             || ($val['plain'] = empty($request->getData('plain')))
             || ($val['category'] = empty($request->getData('category')))
-            || ($val['badges'] = empty($request->getData('badges')))
             || ($val['status'] = (
                 $request->getData('status') !== null
                 && !WikiStatus::isValidValue(strtolower($request->getData('status')))
