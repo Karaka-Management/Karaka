@@ -386,7 +386,6 @@ class Controller extends ModuleAbstract implements WebInterface
         $column->setName($request->getData('title'));
         $column->setDescription($request->getData('plain'));
         $column->setOrder((int) $request->getData('order'));
-        $column->setStatus((int) $request->getData('status'));
 
         return $column;
     }
@@ -398,10 +397,6 @@ class Controller extends ModuleAbstract implements WebInterface
             ($val['title'] = empty($request->getData('title')))
             || ($val['plain'] = empty($request->getData('plain')))
             || ($val['order'] = empty($request->getData('order')))
-            || ($val['status'] = (
-                $request->getData('status') !== null
-                && !CardStatus::isValidValue(strtolower($request->getData('status')))
-            ))
         ) {
             return $val;
         }
