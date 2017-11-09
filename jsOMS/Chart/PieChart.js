@@ -8,6 +8,7 @@
 
         // Setting default chart values
         this.chart.margin = {top: 5, right: 0, bottom: 0, left: 0};
+        /** global: d3 */
         this.chart.color  = d3.scale.category10();
         this.chart.dataSettings.style.strokewidth = 1;
         this.chart.dataSettings.style.padding = 3;

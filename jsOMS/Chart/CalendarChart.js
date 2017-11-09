@@ -8,6 +8,7 @@
 
         // Setting default chart values
         this.chart.margin = {top: 5, right: 0, bottom: 0, left: 0};
+        /** global: d3 */
         this.chart.color  = d3.scale.quantize()
             .domain([-.05, .05])
             .range(d3.range(11).map(function(d) { return "q" + d + "-11"; }));
