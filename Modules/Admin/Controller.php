@@ -455,7 +455,6 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $account = AccountMapper::get($request->getData('id'));
         $account->setName($request->getData('name'));
-        $account->setDescription($request->getData('desc'));
 
         $status = AccountMapper::update($account);
 
