@@ -112,7 +112,7 @@ class Navigation
      * Get instance.
      *
      * @param RequestAbstract $request Request hashes
-     * @param Pool            $dbPool  Database pool
+     * @param DatabasePool            $dbPool  Database pool
      *
      * @return \Modules\Navigation\Models\Navigation
      *

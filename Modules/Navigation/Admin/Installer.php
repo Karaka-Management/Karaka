@@ -64,7 +64,7 @@ class Installer extends InstallerAbstract
     /**
      * Install data from providing modules.
      *
-     * @param Pool  $dbPool Database pool
+     * @param DatabasePool  $dbPool Database pool
      * @param array $data   Module info
      *
      * @return void
@@ -87,7 +87,7 @@ class Installer extends InstallerAbstract
     /**
      * Install navigation element.
      *
-     * @param Pool  $dbPool Database instance
+     * @param DatabasePool  $dbPool Database instance
      * @param array $data   Link info
      * @param int  $parent Parent element (default is 0 for none)
      *
