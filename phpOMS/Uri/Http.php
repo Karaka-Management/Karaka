@@ -193,11 +193,7 @@ class Http implements UriInterface
     }
 
     /**
-     * Get root path.
-     *
-     * @return string
-     *
-     * @since  1.0.0
+     * {@inheritdoc}
      */
     public function getRootPath() : string
     {
@@ -238,11 +234,7 @@ class Http implements UriInterface
     }
 
     /**
-     * Get password.
-     *
-     * @return string
-     *
-     * @since  1.0.0
+     * {@inheritdoc}
      */
     public function getPass() : string
     {
@@ -349,11 +341,7 @@ class Http implements UriInterface
     }
 
     /**
-     * Get user.
-     *
-     * @return string
-     *
-     * @since  1.0.0
+     * {@inheritdoc}
      */
     public function getUser() : string
     {

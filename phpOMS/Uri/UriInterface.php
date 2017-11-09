@@ -93,6 +93,15 @@ interface UriInterface
     public function getPath() : string;
 
     /**
+     * Get root path.
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getRootPath() : string;
+
+    /**
      * Get path element.
      *
      * @param int $pos Position of the path
