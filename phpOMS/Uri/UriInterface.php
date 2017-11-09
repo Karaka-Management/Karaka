@@ -93,6 +93,24 @@ interface UriInterface
     public function getPath() : string;
 
     /**
+     * Get user.
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getUser() : string;
+
+    /**
+     * Get password.
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getPass() : string;
+
+    /**
      * Get root path.
      *
      * @return string
@@ -131,6 +149,15 @@ interface UriInterface
      * @since  1.0.0
      */
     public function getQuery(string $key = null) : string;
+
+    /**
+     * Get query array.
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     */
+    public function getQueryArray() : array;
 
     /**
      * Get fragment.
