@@ -194,6 +194,7 @@ class MeasureOfDispersion
      */
     public static function getIQR(array $x) : float
     {
+        return 0.0;
     }
 
     /**
