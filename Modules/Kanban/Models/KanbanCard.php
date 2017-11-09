@@ -179,6 +179,11 @@ class KanbanCard implements \JsonSerializable
         $this->media[] = $media;
     }
 
+    public function setLabels(array $labels) /* : void */
+    {
+        $this->labels = $labels;
+    }
+
     public function getLabels() : array
     {
         return $this->labels;
