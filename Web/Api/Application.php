@@ -68,6 +68,14 @@ class Application
     private $app = null;
 
     /**
+     * Temp config.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    private $config = [];
+
+    /**
      * Constructor.
      *
      * @param WebApplication $app    WebApplication
