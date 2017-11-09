@@ -15,7 +15,7 @@ declare(strict_types = 1);
 
 namespace Modules\RiskManagement\Models;
 
-use Modules\Organization\Models\NullDepartment;
+use Modules\Organization\Models\NullDepartment as NullOrgDepartment;
 
 /**
  * Risk Management class.
@@ -47,7 +47,7 @@ class Department
 
     public function getDepartment()
     {
-        return $this->department ?? new NullDepartment();
+        return $this->department ?? new NullOrgDepartment();
     }
 
     public function setDepartment($department)
