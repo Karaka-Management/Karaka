@@ -306,7 +306,7 @@ class MultiMap implements \Countable
         foreach ($keys as $key => $value) {
             $allFound = $this->remove(implode(':', $value));
 
-            if(!$allFound) {
+            if (!$allFound) {
                 $found = false;
             }
         }
