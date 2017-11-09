@@ -112,6 +112,7 @@
             self = this;
 
         if(img !== null && typeof img !== 'undefined' && img.length > 0) {
+            /** global: Image */
             let imgObj = new Image();
 
             imgObj.addEventListener('load', function() {
