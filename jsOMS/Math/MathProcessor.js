@@ -43,8 +43,8 @@
             '^': {precedence: 4, order: 1},
             '/': {precedence: 3, order: -1},
             '*': {precedence: 3, order: -1},
-            '+': {precedence: 3, order: -1},
-            '-': {precedence: 3, order: -1},
+            '+': {precedence: 2, order: -1},
+            '-': {precedence: 2, order: -1},
         };
         let output = [];
 
