@@ -30,7 +30,7 @@ class Invoice implements \JsonSerializable
     /**
      * Number ID.
      *
-     * @var int
+     * @var string
      * @since 1.0.0
      */
     private $number = '';

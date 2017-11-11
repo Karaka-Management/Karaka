@@ -355,7 +355,7 @@ class FileCache implements CacheInterface
         }
 
         if ($expire >= 0) {
-            $created     = Directory::created($name)->getTimestamp();
+            $created     = Directory::created(File::sanitize($key, self::SANITIZE))->getTimestamp();
             $now         = time();
             $raw         = file_get_contents($path);
             $expireStart = strpos($raw, self::DELIM);
