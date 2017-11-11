@@ -64,7 +64,7 @@ class Builder extends BuilderAbstract
     /**
      * Into.
      *
-     * @var array
+     * @var string|\Closure
      * @since 1.0.0
      */
     public $into = null;
@@ -144,7 +144,7 @@ class Builder extends BuilderAbstract
     /**
      * Limit.
      *
-     * @var int
+     * @var int|\Closure
      * @since 1.0.0
      */
     public $limit = null;
@@ -152,7 +152,7 @@ class Builder extends BuilderAbstract
     /**
      * Offset.
      *
-     * @var int
+     * @var int|\Closure
      * @since 1.0.0
      */
     public $offset = null;
@@ -471,7 +471,7 @@ class Builder extends BuilderAbstract
     /**
      * Where.
      *
-     * @param string|array|\Closure $columns  Columns
+     * @param Where|string|\Closure|array $columns  Columns
      * @param string|array          $operator Operator
      * @param mixed                 $values   Values
      * @param string|array          $boolean  Boolean condition
@@ -553,7 +553,7 @@ class Builder extends BuilderAbstract
     /**
      * Where and sub condition.
      *
-     * @param Where $where Where sub condition
+     * @param Where|string|\Closure|array $where Where sub condition
      * @param mixed $operator Operator
      * @param mixed $values Values
      *
@@ -569,7 +569,7 @@ class Builder extends BuilderAbstract
     /**
      * Where or sub condition.
      *
-     * @param Where $where Where sub condition
+     * @param Where|string|\Closure|array $where Where sub condition
      * @param mixed $operator Operator
      * @param mixed $values Values
      *
@@ -585,7 +585,7 @@ class Builder extends BuilderAbstract
     /**
      * Where in.
      *
-     * @param string|array|\Closure $column  Column
+     * @param Where|string|\Closure|array $column  Column
      * @param mixed                 $values  Values
      * @param string                $boolean Boolean condition
      *
@@ -603,7 +603,7 @@ class Builder extends BuilderAbstract
     /**
      * Where null.
      *
-     * @param string|array|\Closure $column  Column
+     * @param Where|string|\Closure|array $column  Column
      * @param string                $boolean Boolean condition
      *
      * @return Builder
@@ -620,7 +620,7 @@ class Builder extends BuilderAbstract
     /**
      * Where not null.
      *
-     * @param string|array|\Closure $column  Column
+     * @param Where|string|\Closure|array $column  Column
      * @param string                $boolean Boolean condition
      *
      * @return Builder
