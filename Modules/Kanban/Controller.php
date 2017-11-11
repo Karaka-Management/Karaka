@@ -195,8 +195,10 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
+        $accountId = $request->getHeader()->getAccount();
+
         if (!$this->app->accountManager->get($accountId)->hasPermission(
-                PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::BOARD, $board->getId())
+                PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::BOARD)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);

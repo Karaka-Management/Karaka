@@ -234,7 +234,7 @@ class Repository
         }
 
         if (isset($source)) {
-            return stripos($haystack, '//') ? $this->cloneRemote($source) : $this->cloneFrom($source);
+            return stripos($source, '//') !== false ? $this->cloneRemote($source) : $this->cloneFrom($source);
         }
 
         return $this->run('init');

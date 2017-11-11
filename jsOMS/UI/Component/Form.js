@@ -230,8 +230,6 @@
                     'Request: ' + JSON.stringify(form.getData()) + '\n' +
                     'Response: ' + xhr.response
                 );
-
-                return false;
             }
         });
 

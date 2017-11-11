@@ -41,6 +41,7 @@ class Basic
     public static function freaquency(array $values) : array
     {
         $freaquency = [];
+        $sum = 1;
 
         if (!($isArray = is_array(reset($values)))) {
             $sum = array_sum($values);

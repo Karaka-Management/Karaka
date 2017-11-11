@@ -314,6 +314,8 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiReporterSingle(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        $view = new View($this->app, $request, $response);
+        
         $template  = TemplateMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
 

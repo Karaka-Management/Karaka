@@ -358,7 +358,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $mardkownParser = new Markdown();
 
-        $badge = new NewsArticle();
+        $badge = new Badge();
         $badge->setTitle($request->getData('title') ?? '');
 
         return $badge;

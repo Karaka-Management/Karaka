@@ -141,20 +141,4 @@ class AccountMapper extends DataMapperAbstract
             return LoginReturnType::FAILURE;
         }
     }
-
-    /**
-     * Get object.
-     *
-     * @param mixed $primaryKey Key
-     * @param int   $relations  Load relations
-     * @param mixed $fill       Object to fill
-     *
-     * @return Account|array
-     *
-     * @since  1.0.0
-     */
-    public static function get($primaryKey, int $relations = RelationType::ALL, $fill = null)
-    {
-        return parent::get($primaryKey, $relations, $fill);
-    }
 }

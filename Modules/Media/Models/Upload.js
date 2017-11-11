@@ -95,8 +95,6 @@
             } catch (e) {
                 jsOMS.Log.Logger.instance.error(e);
                 jsOMS.Log.Logger.instance.error('Invalid media upload response: ' + xhr.response);
-
-                return false;
             }
         });
 

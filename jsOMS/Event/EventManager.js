@@ -129,6 +129,8 @@
                 this.reset(group);
             }
         }
+
+        return true;
     };
 
     /**
