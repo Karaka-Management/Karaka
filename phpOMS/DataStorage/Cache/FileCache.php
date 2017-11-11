@@ -289,7 +289,7 @@ class FileCache implements CacheInterface
         }
 
         $raw  = File::get($path);
-        $type = $raw[0];
+        $type = (int) $raw[0];
 
         $expireStart = strpos($raw, self::DELIM);
         $expireEnd   = strpos($raw, self::DELIM, $expireStart + 1);
@@ -301,10 +301,10 @@ class FileCache implements CacheInterface
             return null;
         }
 
-        return $this->parseValue($raw, $expireEnd);
+        return $this->parseValue($type, $raw, $expireEnd);
     }
 
-    private function parseValue(string $raw, int $expireEnd) 
+    private function parseValue(int $type, string $raw, int $expireEnd) 
     {
         $value = null;
 
