@@ -33,6 +33,6 @@ class AccountPermission extends PermissionAbstract
 
     public function getAccount() : int
     {
-        return $account;
+        return $this->account;
     }
 }

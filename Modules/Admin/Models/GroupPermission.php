@@ -33,6 +33,6 @@ class GroupPermission extends PermissionAbstract
 
     public function getGroup() : int
     {
-        return $group;
+        return $this->group;
     }
 }

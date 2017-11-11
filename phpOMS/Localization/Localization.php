@@ -364,4 +364,92 @@ class Localization
     {
         $this->temperature = $temperature;
     }
+
+    /**
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getSpeed() : string
+    {
+        return $this->speed;
+    }
+
+    /**
+     * @param string $speed
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function setSpeed(string $speed) /* : void */
+    {
+        $this->speed = $speed;
+    }
+
+    /**
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getLength() : string
+    {
+        return $this->length;
+    }
+
+    /**
+     * @param string $length
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function setLength(string $length) /* : void */
+    {
+        $this->length = $length;
+    }
+
+    /**
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getArea() : string
+    {
+        return $this->area;
+    }
+
+    /**
+     * @param string $area
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function setArea(string $area) /* : void */
+    {
+        $this->area = $area;
+    }
+
+    /**
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getVolume() : string
+    {
+        return $this->volume;
+    }
+
+    /**
+     * @param string $volume
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function setVolume(string $volume) /* : void */
+    {
+        $this->volume = $volume;
+    }
 }
