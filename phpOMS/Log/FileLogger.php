@@ -524,7 +524,7 @@ class FileLogger implements LoggerInterface
         $logs = [];
         $id   = 0;
 
-        if (file_exists($this->path)) {
+        if (!file_exists($this->path)) {
             return $logs;
         }
 
@@ -571,7 +571,7 @@ class FileLogger implements LoggerInterface
         $log     = [];
         $current = 0;
 
-        if (file_exists($this->path)) {
+        if (!file_exists($this->path)) {
             return $log;
         }
 
