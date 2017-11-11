@@ -472,13 +472,8 @@ class ModuleManager
 
             return true;
         } catch (PathException $e) {
-            // todo: handle module doesn't exist or files are missing
-            //echo $e->getMessage();
-
             return false;
         } catch (\Exception $e) {
-            //echo $e->getMessage();
-
             return false;
         }
     }

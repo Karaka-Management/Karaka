@@ -165,14 +165,7 @@ class File extends FileAbstract implements FileInterface
      */
     public static function created(string $path) : \DateTime
     {
-        if (!file_exists($path)) {
-            throw new PathException($path);
-        }
-
-        $created = new \DateTime();
-        $created->setTimestamp(filemtime($path));
-
-        return $created;
+        return $this->createFileTime($path, filemtime($path));
     }
 
     /**
@@ -180,14 +173,19 @@ class File extends FileAbstract implements FileInterface
      */
     public static function changed(string $path) : \DateTime
     {
+        return $this->createFileTime($path, filectime($path));
+    }
+
+    private static function createFileTime(string $path, int $time)
+    {
         if (!file_exists($path)) {
             throw new PathException($path);
         }
 
-        $changed = new \DateTime();
-        $changed->setTimestamp(filectime($path));
+        $fileTime = new \DateTime();
+        $fileTime->setTimestamp($time);
 
-        return $changed;
+        return $fileTime;
     }
 
     /**
@@ -285,25 +283,13 @@ class File extends FileAbstract implements FileInterface
      */
     public static function move(string $from, string $to, bool $overwrite = false) : bool
     {
-        if (!is_file($from)) {
-            throw new PathException($from);
+        $result = self::copy($from, $to, $overwrite);
+
+        if(!$result) {
+            return false;
         }
 
-        if ($overwrite || !file_exists($to)) {
-            if (!Directory::exists(dirname($to))) {
-                Directory::create(dirname($to), 0755, true);
-            }
-
-            if ($overwrite && file_exists($to)) {
-                unlink($to);
-            }
-
-            rename($from, $to);
-
-            return true;
-        }
-
-        return false;
+        return self::delete($from);
     }
 
     /**

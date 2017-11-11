@@ -453,23 +453,25 @@ class FileLogger implements LoggerInterface
     {
         $levels = [];
 
-        if (file_exists($this->path)) {
-            $this->fp = fopen($this->path, 'r');
-            fseek($this->fp, 0);
+        if (!file_exists($this->path)) {
+            return $levels;
+        }
 
-            while (($line = fgetcsv($this->fp, 0, ';')) !== false) {
-                $line[1] = trim($line[1]);
+        $this->fp = fopen($this->path, 'r');
+        fseek($this->fp, 0);
 
-                if (!isset($levels[$line[1]])) {
-                    $levels[$line[1]] = 0;
-                }
+        while (($line = fgetcsv($this->fp, 0, ';')) !== false) {
+            $line[1] = trim($line[1]);
 
-                $levels[$line[1]]++;
+            if (!isset($levels[$line[1]])) {
+                $levels[$line[1]] = 0;
             }
 
-            fseek($this->fp, 0, SEEK_END);
-            fclose($this->fp);
+            $levels[$line[1]]++;
         }
+
+        fseek($this->fp, 0, SEEK_END);
+        fclose($this->fp);
 
         return $levels;
     }
@@ -485,24 +487,26 @@ class FileLogger implements LoggerInterface
     {
         $connection = [];
 
-        if (file_exists($this->path)) {
-            $this->fp = fopen($this->path, 'r');
-            fseek($this->fp, 0);
+        if (!file_exists($this->path)) {
+            return 0;
+        }
 
-            while (($line = fgetcsv($this->fp, 0, ';')) !== false) {
-                $line[2] = trim($line[2]);
+        $this->fp = fopen($this->path, 'r');
+        fseek($this->fp, 0);
 
-                if (!isset($connection[$line[2]])) {
-                    $connection[$line[2]] = 0;
-                }
+        while (($line = fgetcsv($this->fp, 0, ';')) !== false) {
+            $line[2] = trim($line[2]);
 
-                $connection[$line[2]]++;
+            if (!isset($connection[$line[2]])) {
+                $connection[$line[2]] = 0;
             }
 
-            fseek($this->fp, 0, SEEK_END);
-            fclose($this->fp);
-            asort($connection);
+            $connection[$line[2]]++;
         }
+
+        fseek($this->fp, 0, SEEK_END);
+        fclose($this->fp);
+        asort($connection);
 
         return array_slice($connection, 0, $limit);
     }
@@ -521,35 +525,36 @@ class FileLogger implements LoggerInterface
         $id   = 0;
 
         if (file_exists($this->path)) {
-            $this->fp = fopen($this->path, 'r');
-            fseek($this->fp, 0);
+            return $logs;
+        }
 
-            while (($line = fgetcsv($this->fp, 0, ';')) !== false) {
-                $id++;
+        $this->fp = fopen($this->path, 'r');
+        fseek($this->fp, 0);
 
-                if ($offset > 0) {
-                    $offset--;
-                    continue;
-                }
+        while (($line = fgetcsv($this->fp, 0, ';')) !== false) {
+            $id++;
 
-                if ($limit <= 0) {
-
-                    reset($logs);
-                    unset($logs[key($logs)]);
-                }
-
-                foreach ($line as &$value) {
-                    $value = trim($value);
-                }
-
-                $logs[$id] = $line;
-                $limit--;
-                ksort($logs);
+            if ($offset > 0) {
+                $offset--;
+                continue;
             }
 
-            fseek($this->fp, 0, SEEK_END);
-            fclose($this->fp);
+            if ($limit <= 0) {
+                reset($logs);
+                unset($logs[key($logs)]);
+            }
+
+            foreach ($line as &$value) {
+                $value = trim($value);
+            }
+
+            $logs[$id] = $line;
+            $limit--;
+            ksort($logs);
         }
+
+        fseek($this->fp, 0, SEEK_END);
+        fclose($this->fp);
 
         return $logs;
     }
@@ -567,33 +572,34 @@ class FileLogger implements LoggerInterface
         $current = 0;
 
         if (file_exists($this->path)) {
-            $this->fp = fopen($this->path, 'r');
-            fseek($this->fp, 0);
+            return $log;
+        }
 
-            while (($line = fgetcsv($this->fp, 0, ';')) !== false && $current <= $id) {
-                $current++;
+        $this->fp = fopen($this->path, 'r');
+        fseek($this->fp, 0);
 
-                if ($current < $id) {
-                    continue;
-                }
+        while (($line = fgetcsv($this->fp, 0, ';')) !== false && $current <= $id) {
+            $current++;
 
-                $log['datetime']  = trim($line[0] ?? '');
-                $log['level']     = trim($line[1] ?? '');
-                $log['ip']        = trim($line[2] ?? '');
-                $log['line']      = trim($line[3] ?? '');
-                $log['version']   = trim($line[4] ?? '');
-                $log['os']        = trim($line[5] ?? '');
-                $log['path']      = trim($line[6] ?? '');
-                $log['message']   = trim($line[7] ?? '');
-                $log['file']      = trim($line[8] ?? '');
-                $log['backtrace'] = trim($line[9] ?? '');
-
-                break;
+            if ($current < $id) {
+                continue;
             }
 
-            fseek($this->fp, 0, SEEK_END);
-            fclose($this->fp);
+            $log['datetime']  = trim($line[0] ?? '');
+            $log['level']     = trim($line[1] ?? '');
+            $log['ip']        = trim($line[2] ?? '');
+            $log['line']      = trim($line[3] ?? '');
+            $log['version']   = trim($line[4] ?? '');
+            $log['os']        = trim($line[5] ?? '');
+            $log['path']      = trim($line[6] ?? '');
+            $log['message']   = trim($line[7] ?? '');
+            $log['file']      = trim($line[8] ?? '');
+            $log['backtrace'] = trim($line[9] ?? '');
+            break;
         }
+
+        fseek($this->fp, 0, SEEK_END);
+        fclose($this->fp);
 
         return $log;
     }

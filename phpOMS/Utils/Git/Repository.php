@@ -220,23 +220,24 @@ class Repository
      * Create repository
      *
      * @param string $source Create repository from source (optional, can be remote)
-     * @param bool   $bare   Bare repository
+     * 
+     * @return string
      *
      * @throws \Exception
      *
      * @since  1.0.0
      */
-    public function create(string $source = null, bool $bare = false)
+    public function create(string $source = null)
     {
         if (!is_dir($this->path) || file_exists($this->path . '/.git')) {
             throw new \Exception('Already repository');
         }
 
         if (isset($source)) {
-            $this->clone($source);
-        } else {
-            $this->init($bare);
+            return stripos($haystack, '//') ? $this->cloneRemote($source) : $this->cloneFrom($source);
         }
+
+        return $this->run('init');
     }
 
     /**
@@ -264,11 +265,7 @@ class Repository
      */
     public function add($files = '*') : string
     {
-        if (is_array($files)) {
-            $files = '"' . implode('" "', $files) . '"';
-        } elseif (!is_string($files)) {
-            throw new \Exception('Wrong type');
-        }
+        $files = $this->parseFileList($files);
 
         return implode("\n", $this->run('add ' . $files . ' -v'));
     }
@@ -281,19 +278,33 @@ class Repository
      *
      * @return string
      *
-     * @throws \InvalidArgumentException
-     *
      * @since  1.0.0
      */
     public function rm($files = '*', bool $cached = false) : string
     {
+        $files = $this->parseFileList($files);
+
+        return implode("\n", $this->run('rm ' . ($cached ? '--cached ' : '') . $files));
+    }
+
+    /**
+     * Remove file(s) from repository
+     *
+     * @param string|array $files  Files to remove
+     *
+     * @throws \InvalidArgumentException
+     *
+     * @since  1.0.0
+     */
+    private function parseFileList($files) : string 
+    {
         if (is_array($files)) {
-            $files = '"' . implode('" "', $files) . '"';
+            return '"' . implode('" "', $files) . '"';
         } elseif (!is_string($files)) {
             throw new \InvalidArgumentException('Wrong type for $files.');
         }
 
-        return implode("\n", $this->run('rm ' . ($cached ? '--cached ' : '') . $files));
+        return $files;
     }
 
     /**
@@ -734,6 +745,14 @@ class Repository
      */
     public function getAdditionsRemovalsByContributor(Author $author, \DateTime $start = null, \DateTime $end = null) : array
     {
+        if(!isset($start)) {
+            $start = new \DateTime('1900-01-01');
+        }
+
+        if(!isset($end)) {
+            $end = new \DateTime('now');
+        }
+
         $addremove = ['added' => 0, 'removed' => 0];
         $lines     = $this->run('log --author=' . escapeshellarg($author->getName()) . ' --since="' . $start->format('Y-m-d') . '" --before="' . $end->format('Y-m-d') . '" --pretty=tformat: --numstat');
 
@@ -756,7 +775,7 @@ class Repository
      */
     public function getRemote() : string
     {
-        return $this->run('config --get remote.origin.url');
+        return implode("\n", $this->run('config --get remote.origin.url'));
     }
 
     /**

@@ -163,8 +163,7 @@ class FileCache implements CacheInterface
             return false;
         }
 
-        $path = File::sanitize($key, self::SANITIZE);
-        $path = $this->cachePath . '/' . trim($path, '/') . '.cache';
+        $path = $this->getPath($key);
 
         if (!File::exists($path)) {
             File::put($path, $this->build($value, $expire));
@@ -276,8 +275,7 @@ class FileCache implements CacheInterface
             return null;
         }
 
-        $name = File::sanitize($key, self::SANITIZE);
-        $path = $this->cachePath . '/' . trim($name, '/') . '.cache';
+        $path = $this->getPath($key);
 
         if (!File::exists($path)) {
             return null;
@@ -303,6 +301,11 @@ class FileCache implements CacheInterface
             return null;
         }
 
+        return $this->parseValue($raw, $expireEnd);
+    }
+
+    private function parseValue(string $raw, int $expireEnd) 
+    {
         $value = null;
 
         switch ($type) {
@@ -343,8 +346,7 @@ class FileCache implements CacheInterface
             return false;
         }
 
-        $name = File::sanitize($key, self::SANITIZE);
-        $path = $this->cachePath . '/' . trim($name, '/') . '.cache';
+        $path = $this->getPath($key);
 
         if ($expire < 0 && File::exists($path)) {
             File::delete($path);
@@ -406,8 +408,7 @@ class FileCache implements CacheInterface
             return false;
         }
 
-        $name = File::sanitize($key, self::SANITIZE);
-        $path = $this->cachePath . '/' . trim($path, '/') . '.cache';
+        $path = $this->getPath($key);
 
         if (File::exists($path)) {
             File::put($path, $this->build($value, $expire));
@@ -416,5 +417,11 @@ class FileCache implements CacheInterface
         }
 
         return false;
+    }
+
+    private function getPath($key) : string
+    {
+        $path = File::sanitize($key, self::SANITIZE);
+        return $this->cachePath . '/' . trim($path, '/') . '.cache';
     }
 }
