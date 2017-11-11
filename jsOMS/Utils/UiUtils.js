@@ -65,7 +65,7 @@
     jsOMS.removeClass = function (ele, cls)
     {
         if (jsOMS.hasClass(ele, cls)) {
-            var reg       = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+            const reg       = new RegExp('(\\s|^)' + cls + '(\\s|$)');
             ele.className = ele.className.replace(reg, '');
         }
     };
@@ -193,9 +193,9 @@
      */
     jsOMS.getByClass = function (ele, cls)
     {
-        var length = ele.childNodes.length;
+        const length = ele.childNodes.length;
 
-        for (var i = 0; i < length; i++) {
+        for (let i = 0; i < length; i++) {
             if (jsOMS.hasClass(ele.childNodes[i], cls)) {
                 return ele.childNodes[i];
             }

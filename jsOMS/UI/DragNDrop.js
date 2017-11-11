@@ -51,7 +51,7 @@
             const elements = document.querySelectorAll('[draggable]'),
                 length = !elements ? 0 : elements.length;
 
-            for (var i = 0; i < length; i++) {
+            for (let i = 0; i < length; i++) {
                 if (typeof elements[i].getAttribute('id') !== 'undefined' && elements[i].getAttribute('id') !== null) {
                     this.bindElement(elements[i].getAttribute('id'));
                 }

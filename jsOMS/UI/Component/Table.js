@@ -43,7 +43,7 @@
             const tables = document.getElementsByTagName('table'),
                 length = !tables ? 0 : tables.length;
 
-            for (var i = 0; i < length; i++) {
+            for (let i = 0; i < length; i++) {
                 this.bindElement(tables[i]);
             }
         }

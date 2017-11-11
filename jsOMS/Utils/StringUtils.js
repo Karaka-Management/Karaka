@@ -120,10 +120,10 @@
      */
     jsOMS.hash = function (str)
     {
-        var res = 0,
-            len = str.length;
+        let res = 0
+        const len = str.length;
 
-        for (var i = 0; i < len; i++) {
+        for (let i = 0; i < len; i++) {
             res = res * 31 + str.charCodeAt(i);
         }
 

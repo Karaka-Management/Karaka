@@ -28,9 +28,9 @@
 
     jsOMS.Modules.Models.Editor.Editor.prototype.getSelectedText = function()
     {
-        var text            = '';
-        var activeEl        = document.activeElement;
-        var activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+        let text            = '';
+        const activeEl        = document.activeElement;
+        const activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
 
         if (
             (activeElTagName === 'textarea' || activeElTagName === 'input') &&

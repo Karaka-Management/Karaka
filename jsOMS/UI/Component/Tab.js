@@ -40,10 +40,10 @@
                 this.bindElement();
             }
         } else {
-            var tabs = document.querySelectorAll('.tabview'),
+            const tabs = document.querySelectorAll('.tabview'),
                 length = !tabs ? 0 : tabs.length;
 
-            for (var i = 0; i < length; i++) {
+            for (let i = 0; i < length; i++) {
                 this.bindElement(tabs[i]);
             }
         }
