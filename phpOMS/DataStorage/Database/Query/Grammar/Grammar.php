@@ -114,27 +114,10 @@ class Grammar extends GrammarAbstract
     protected function compileComponents(BuilderAbstract $query) : array
     {
         $sql = [];
+        $components = $this->getComponents($query->getType());
 
-        switch ($query->getType()) {
-            case QueryType::SELECT:
-                $components = $this->selectComponents;
-                break;
-            case QueryType::INSERT:
-                $components = $this->insertComponents;
-                break;
-            case QueryType::UPDATE:
-                $components = $this->updateComponents;
-                break;
-            case QueryType::DELETE:
-                $components = $this->deleteComponents;
-                break;
-            case QueryType::RANDOM:
-                $components = $this->selectComponents;
-                break;
-            case QueryType::RAW:
-                return [$query->raw];
-            default:
-                throw new \InvalidArgumentException('Unknown query type.');
+        if($query->getType() === QueryType::RAW) {
+            return $components;
         }
 
         /* Loop all possible query components and if they exist compile them. */
@@ -145,6 +128,26 @@ class Grammar extends GrammarAbstract
         }
 
         return $sql;
+    }
+
+    private function getComponents(int $type) : array
+    {
+        switch ($type) {
+            case QueryType::SELECT:
+                return $components = $this->selectComponents;
+            case QueryType::INSERT:
+                return $components = $this->insertComponents;
+            case QueryType::UPDATE:
+                return $components = $this->updateComponents;
+            case QueryType::DELETE:
+                return $components = $this->deleteComponents;
+            case QueryType::RANDOM:
+                return $components = $this->selectComponents;
+            case QueryType::RAW:
+                return [$query->raw];
+            default:
+                throw new \InvalidArgumentException('Unknown query type.');
+        }
     }
 
     /**
