@@ -94,7 +94,6 @@
      */
     jsOMS.Auth.Auth.prototype.loginResult = function (xhr)
     {
-        console.log(xhr);
         location.reload();
     };
 }(window.jsOMS = window.jsOMS || {}));

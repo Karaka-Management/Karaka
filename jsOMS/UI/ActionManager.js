@@ -92,8 +92,6 @@
 
             if(hasSelector) {
                 this.app.eventManager.attach(e.id + 'childList', function(data) {
-                    console.log(data);
-
                     const length = data.addedNodes.length;
 
                     for(let j = 0; j < length; j++) {
@@ -105,9 +103,7 @@
                 });
             }
 
-            this.app.eventManager.attach(e.id + 'attributes', function(data) {
-                console.log(data);
-            });
+            this.app.eventManager.attach(e.id + 'attributes', function(data) {});
 
             this.app.uiManager.getDOMObserver().observe(e, observeConfig);
         }

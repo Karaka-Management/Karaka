@@ -43,8 +43,6 @@
 
         this.initCanvas();
 
-        console.log(this.canvasContainer);
-
         this.app.eventManager.attach(this.canvasContainer.id, function(evt) {
             self.canvasStyle = window.getComputedStyle(self.canvas, null);
             self.canvasContainerStyle = window.getComputedStyle(self.canvasContainer, null);

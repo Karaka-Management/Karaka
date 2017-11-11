@@ -76,10 +76,7 @@
         this.recognition.onresult = function(event) {
             let result = jsOMS.trim(event.results[event.resultIndex][0].transcript);
 
-            console.log('.' + result + '.');
-
             if(self.commands.hasOwnProperty(result)) {
-                console.log('found');
                 self.commands[result]();
             }
         };

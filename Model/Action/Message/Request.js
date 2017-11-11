@@ -12,9 +12,8 @@ const requestAction = function (action, callback, element)
     "use strict";
     
     const request = new jsOMS.Message.Request.Request(action.uri, action.method, action.request_type);
-    console.log(request);
+    
     request.setSuccess(function(xhr) {
-        console.log(xhr.responseText);
         callback(JSON.parse(xhr.responseText));
     });
 

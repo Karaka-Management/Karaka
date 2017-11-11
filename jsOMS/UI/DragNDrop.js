@@ -71,8 +71,6 @@
         const element = document.getElementById(id),
             self = this;
 
-        console.log(id);
-
         if(!element) {
             return;
         }
@@ -82,38 +80,29 @@
                 self.dragging = this;
                 e.dataTransfer.effectAllowed = 'move';
                 e.dataTransfer.setData('text/html', this.innerHTML);
-
-                console.log(self.dragging);
             }
-
-            console.log('drag start');
         }, false);
 
         element.addEventListener('dragenter', function(e) {
             // todo: highlight
-            console.log('drag enter');
         }, false);
 
         element.addEventListener('dragover', function(e) {
             e.preventDefault();
             
             e.dataTransfer.dropEffect = 'move';
-            
-            console.log('drag over');
         }, false);
 
         element.addEventListener('dragleave', function(e) {
             e.preventDefault();
 
             // todo: don't highlight
-            console.log('drag leave');
         }, false);
 
         element.addEventListener('dragend', function(e) {
             e.preventDefault();
 
             // todo: reset all changes
-            console.log('drag end');
         }, false);
 
         //element.addEventListener('drag', function(e) {});
@@ -130,7 +119,6 @@
 
             // todo: add to now destination
             // todo: remove from old destination
-            console.log('drag drop');
 
             self.dragging = null;
         }, false);

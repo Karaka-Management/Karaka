@@ -30,7 +30,7 @@
         // todo: create log;
         this.result[0] = function ()
         {
-            console.log('invalid response');
+            //console.log('invalid response');
         };
 
         /** global: XMLHttpRequest */
@@ -363,7 +363,6 @@
                     break;
                 default:
                     // todo: create handler for error returns
-                    console.log(self.xhr);
             }
         };
 

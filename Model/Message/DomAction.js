@@ -12,10 +12,8 @@ const domAction = function (data)
     {
         switch(data.type) {
         	case jsOMS.EnumDomActionType.SHOW: 
-        		console.log('show');
         		break;
         	case jsOMS.EnumDomActionType.HIDE: 
-        		console.log('hide');
         		break;
         }
     }, parseInt(data.delay));

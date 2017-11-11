@@ -119,7 +119,6 @@
 
                 for (let k = 0; k < responseLength; k++) {
                     tempResponse = response.getByIndex(k);
-                    console.log(tempResponse);
 
                     let option = null,
                         data   = tempResponse.getData(),
