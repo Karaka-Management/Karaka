@@ -145,7 +145,8 @@
 
         this.chart.drawGrid(svg, xGrid, yGrid);
         
-        let dataPoint, dataPointEnter,
+        let dataPoint = null, 
+            dataPointEnter = null,
             temp       = this.drawData(svg, x, y, dataPointEnter, dataPoint);
         dataPointEnter = temp[0];
         dataPoint      = temp[1];

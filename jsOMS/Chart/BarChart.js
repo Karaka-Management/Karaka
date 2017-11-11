@@ -111,10 +111,13 @@
 
         this.chart.drawGrid(svg, xGrid, yGrid);
 
-        let dataPoint, dataPointEnter,
+        let dataPoint = null, 
+            dataPointEnter = null,
             temp       = this.drawData(svg, x, y, dataPointEnter, dataPoint);
+
         dataPointEnter = temp[0];
         dataPoint      = temp[1];
+        
         this.chart.drawMarker(svg, x, y, dataPointEnter, dataPoint);
         this.chart.drawLegend(svg, dataPointEnter, dataPoint);
         this.chart.drawText(svg);

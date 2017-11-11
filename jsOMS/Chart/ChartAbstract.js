@@ -315,6 +315,8 @@
         }
 
         if (this.dataSettings.info.visible && this.dataSettings.marker.visible) {
+            temp = dataPointEnter.append('g').attr('class', 'dots');
+
             let div = this.chartSelect.append("div").attr("class", "charttooltip").style("opacity", 0);
             div.html(self.axis.x.label.text + ': ' + 100 + "<br/>" + self.axis.y.label.text + ': ' + 100);
 

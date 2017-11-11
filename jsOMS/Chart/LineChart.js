@@ -127,6 +127,8 @@
             {
                 return y(d.y);
             });
+        } else {
+            return;
         }
 
         zoom = d3.behavior.zoom().x(x).scaleExtent([1, 2]).on('zoom', function ()
@@ -190,10 +192,13 @@
         //svg.selectAll('.x.axis').transition().duration(500).call(xAxis1);
         //svg.selectAll('.y.axis').transition().duration(500).call(yAxis1);
 
-        let dataPoint, dataPointEnter,
+        let dataPoint = null, 
+            dataPointEnter = null,
             temp       = this.drawData(svg, line, dataPointEnter, dataPoint);
+
         dataPointEnter = temp[0];
         dataPoint      = temp[1];
+
         this.chart.drawMarker(svg, x, y, dataPointEnter, dataPoint);
         this.chart.drawLegend(svg, dataPointEnter, dataPoint);
         this.chart.drawText(svg);

@@ -33,7 +33,8 @@
                 + (this.chart.margin.left) + ","
                 + (this.chart.margin.top) + ")");
 
-        let dataPoint, dataPointEnter,
+        let dataPoint = null, 
+            dataPointEnter = null,
             temp       = this.drawData(svg, dataPointEnter, dataPoint);
         dataPointEnter = temp[0];
         dataPoint      = temp[1];

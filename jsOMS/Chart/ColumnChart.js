@@ -111,7 +111,8 @@
 
         this.chart.drawGrid(svg, xGrid, yGrid);
 
-        let dataPoint, dataPointEnter,
+        let dataPoint = null, 
+            dataPointEnter = null,
             temp       = this.drawData(svg, x, y, dataPointEnter, dataPoint);
         dataPointEnter = temp[0];
         dataPoint      = temp[1];
@@ -206,6 +207,7 @@
     {
         y.domain([yMin, yMax]);
 
+        // todo: n is undefined !!!!
         rect.transition()
             .duration(500)
             .delay(function (d, i)
