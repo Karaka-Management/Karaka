@@ -465,7 +465,7 @@
 				if (this.materials !== null) {
 					material = this.materials.create(sourceMaterial.name);
 
-					if (isLine && material && ! (material instanceof THREE.LineBasicMaterial)) {
+					if (isLine && material && !(material instanceof THREE.LineBasicMaterial)) {
 
 						let materialLine = new THREE.LineBasicMaterial();
 						materialLine.copy(material);
@@ -473,8 +473,8 @@
 					}
 				}
 
-				if (! material) {
-					material = (! isLine ? new THREE.MeshPhongMaterial() : new THREE.LineBasicMaterial());
+				if (!material) {
+					material = (!isLine ? new THREE.MeshPhongMaterial() : new THREE.LineBasicMaterial());
 					material.name = sourceMaterial.name;
 				}
 
@@ -492,9 +492,9 @@
 				}
 
 				let multiMaterial = new THREE.MultiMaterial(createdMaterials);
-				mesh = (! isLine ? new THREE.Mesh(buffergeometry, multiMaterial) : new THREE.LineSegments(buffergeometry, multiMaterial));
+				mesh = (!isLine ? new THREE.Mesh(buffergeometry, multiMaterial) : new THREE.LineSegments(buffergeometry, multiMaterial));
 			} else {
-				mesh = (! isLine ? new THREE.Mesh(buffergeometry, createdMaterials[0]) : new THREE.LineSegments(buffergeometry, createdMaterials[0]));
+				mesh = (!isLine ? new THREE.Mesh(buffergeometry, createdMaterials[0]) : new THREE.LineSegments(buffergeometry, createdMaterials[0]));
 			}
 
 			mesh.name = object.name;
