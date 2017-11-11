@@ -114,12 +114,13 @@ class Grammar extends GrammarAbstract
     protected function compileComponents(BuilderAbstract $query) : array
     {
         $sql = [];
-        $components = $this->getComponents($query->getType());
 
         if($query->getType() === QueryType::RAW) {
-            return $components;
+            return [$query->raw];
         }
 
+        $components = $this->getComponents($query->getType());
+        
         /* Loop all possible query components and if they exist compile them. */
         foreach ($components as $component) {
             if (isset($query->{$component}) && !empty($query->{$component})) {
@@ -143,8 +144,6 @@ class Grammar extends GrammarAbstract
                 return $components = $this->deleteComponents;
             case QueryType::RANDOM:
                 return $components = $this->selectComponents;
-            case QueryType::RAW:
-                return [$query->raw];
             default:
                 throw new \InvalidArgumentException('Unknown query type.');
         }
