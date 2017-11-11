@@ -14,6 +14,7 @@
     jsOMS.Autoloader.defineNamespace('jsOMS.ThreeD.Loader.ObjLoader');
 
     jsOMS.ThreeD.Loader.ObjLoader = function(manager) {
+		/** global: THREE */
         this.manager = (manager !== undefined) ? manager : THREE.DefaultLoadingManager;
         this.materials = null;
         this.regexp = {
