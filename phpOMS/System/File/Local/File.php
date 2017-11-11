@@ -165,7 +165,7 @@ class File extends FileAbstract implements FileInterface
      */
     public static function created(string $path) : \DateTime
     {
-        return $this->createFileTime($path, filemtime($path));
+        return self::createFileTime($path, filemtime($path));
     }
 
     /**
@@ -173,7 +173,7 @@ class File extends FileAbstract implements FileInterface
      */
     public static function changed(string $path) : \DateTime
     {
-        return $this->createFileTime($path, filectime($path));
+        return self::createFileTime($path, filectime($path));
     }
 
     private static function createFileTime(string $path, int $time)
