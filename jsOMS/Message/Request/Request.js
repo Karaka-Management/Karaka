@@ -65,6 +65,8 @@
         } else if ((isChrome || isOpera) && !!window.CSS) {
             return jsOMS.Message.Request.BrowserType.BLINK;
         }
+
+        return jsOMS.Message.Request.BrowserType.UNKNOWN;
     };
 
     /**
