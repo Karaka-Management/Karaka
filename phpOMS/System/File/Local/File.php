@@ -165,6 +165,10 @@ class File extends FileAbstract implements FileInterface
      */
     public static function created(string $path) : \DateTime
     {
+        if (!file_exists($path)) {
+            throw new PathException($path);
+        }
+
         return self::createFileTime($path, filemtime($path));
     }
 
@@ -173,15 +177,15 @@ class File extends FileAbstract implements FileInterface
      */
     public static function changed(string $path) : \DateTime
     {
+        if (!file_exists($path)) {
+            throw new PathException($path);
+        }
+
         return self::createFileTime($path, filectime($path));
     }
 
     private static function createFileTime(string $path, int $time)
     {
-        if (!file_exists($path)) {
-            throw new PathException($path);
-        }
-
         $fileTime = new \DateTime();
         $fileTime->setTimestamp($time);
 
