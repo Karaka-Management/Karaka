@@ -2,6 +2,7 @@ describe('UriFactoryTest', function ()
 {
     "use strict";
 
+    /** global: jsOMS */
     beforeEach(function ()
     {
     });

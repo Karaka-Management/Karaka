@@ -2,6 +2,7 @@ describe('HttpTest', function ()
 {
     "use strict";
 
+    /** global: jsOMS */
     beforeEach(function ()
     {
     });

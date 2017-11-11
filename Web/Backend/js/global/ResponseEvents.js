@@ -1,7 +1,7 @@
 /** global: jsOMS */
 const RESPONSE_EVENTS = {
-    'notify': notifyMessage,
-    'validation': formValidationMessage,
-    'redirect': redirectMessage,
-    'reload': reloadMessage
+    'notify': notifyMessage, /** global: notifyMessage */
+    'validation': formValidationMessage, /** global: formValidationMessage */
+    'redirect': redirectMessage, /** global: redirectMessage */
+    'reload': reloadMessage /** global: reloadMessage */
 };

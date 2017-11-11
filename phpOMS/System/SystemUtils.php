@@ -49,6 +49,7 @@ class SystemUtils
         $mem = 0;
 
         if (stristr(PHP_OS, 'WIN')) {
+            $mem = null;
             exec('wmic memorychip get capacity', $mem);
             
             /** @var array $mem */
@@ -107,6 +108,7 @@ class SystemUtils
         $cpuusage = 0;
 
         if (stristr(PHP_OS, 'WIN') !== false) {
+            $cpuusage = null;
             exec('wmic cpu get LoadPercentage', $cpuusage);
             $cpuusage = $cpuusage[1];
         } elseif (stristr(PHP_OS, 'LINUX') !== false) {
