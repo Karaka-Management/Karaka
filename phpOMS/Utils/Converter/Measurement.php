@@ -945,7 +945,7 @@ class Measurement
      *
      * @since  1.0.0
      */
-    private static function normalizeSpeed(float $value, string $from) : from
+    private static function normalizeSpeed(float $value, string $from) : float
     {
         switch ($from) {
             case SpeedType::KILOMETERS_PER_HOUR:
