@@ -11,6 +11,7 @@ const requestAction = function (action, callback, element)
 {
     "use strict";
     
+    /** global: jsOMS */
     const request = new jsOMS.Message.Request.Request(action.uri, action.method, action.request_type);
     
     request.setSuccess(function(xhr) {

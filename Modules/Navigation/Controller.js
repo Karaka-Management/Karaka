@@ -21,6 +21,8 @@
     jsOMS.Modules.Navigation = function ()
     {
         this.navigation = {};
+        /** global: jsOMS */
+        /** global: localStorage */
         this.rawNavData = JSON.parse(localStorage.getItem(jsOMS.Modules.Navigation.MODULE_NAME));
         this.rawNavData = this.rawNavData !== null ? this.rawNavData : {};
     };

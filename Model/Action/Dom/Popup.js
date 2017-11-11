@@ -36,7 +36,7 @@ const popupButtonAction = function (action, callback, element)
 
         document.body.insertBefore(clone, document.body.firstChild);
 
-        const e = document.getElementById(popup[i].id.substr(0, popup[i].id.length - 4));
+        let e = document.getElementById(popup[i].id.substr(0, popup[i].id.length - 4));
 
         if(!e) {
             continue;

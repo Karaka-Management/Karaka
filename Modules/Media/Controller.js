@@ -34,6 +34,7 @@
                 // Inject media upload into form view
                 this.app.uiManager.getFormManager().get(form.id).injectSubmit(function (e, requestId, requestGroup)
                 {
+                    /** global: jsOMS */
                     let fileFields = e.querySelectorAll('input[type=file]'),
                         uploader   = new jsOMS.Modules.Models.Media.Upload(self.app.responseManager);
 

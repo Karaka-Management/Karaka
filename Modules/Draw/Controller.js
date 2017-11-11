@@ -12,6 +12,7 @@
         let temp = null;
 
         if (typeof id !== 'undefined') {
+            /** global: jsOMS */
             temp = new jsOMS.Modules.Draw.Editor(document.getElementById(id));
             temp.bind();
 

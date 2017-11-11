@@ -63,7 +63,7 @@ class Calendar
     /**
      * Current date of the calendar.
      *
-     * @var SmartDateTime
+     * @var \Datetime
      * @since 1.0.0
      */
     private $date = null;

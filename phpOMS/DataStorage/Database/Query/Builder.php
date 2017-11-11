@@ -144,7 +144,7 @@ class Builder extends BuilderAbstract
     /**
      * Limit.
      *
-     * @var int|\Closure
+     * @var int
      * @since 1.0.0
      */
     public $limit = null;
@@ -152,7 +152,7 @@ class Builder extends BuilderAbstract
     /**
      * Offset.
      *
-     * @var int|\Closure
+     * @var int
      * @since 1.0.0
      */
     public $offset = null;
@@ -720,7 +720,7 @@ class Builder extends BuilderAbstract
     /**
      * Offset.
      *
-     * @param int|\Closure $offset Offset
+     * @param int $offset Offset
      *
      * @return Builder
      *
@@ -736,7 +736,7 @@ class Builder extends BuilderAbstract
     /**
      * Limit.
      *
-     * @param int|\Closure $limit Limit
+     * @param int $limit Limit
      *
      * @return Builder
      *
@@ -750,7 +750,7 @@ class Builder extends BuilderAbstract
     }
 
     /**
-     * Limit.
+     * Union.
      *
      * @param string|\phpOMS\DataStorage\Database\Query\Builder $query Query
      *

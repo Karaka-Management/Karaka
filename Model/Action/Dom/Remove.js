@@ -12,6 +12,7 @@ const removeButtonAction = function (action, callback, element)
     "use strict";
 
     const e = action.base === 'self' ? (action.selector === '' ? [element] : element.querySelectorAll(action.selector)) : document.querySelectorAll(action.selector);
+    const dim = document.getElementById('dim');
 
     for(let i in e) {
         /** global: HTMLElement */
@@ -26,8 +27,6 @@ const removeButtonAction = function (action, callback, element)
         setTimeout(function ()
         {
             e[i].parentElement.removeChild(e[i]);
-
-            const dim = document.getElementById('dim');
 
             if(dim) {
                 document.getElementById('dim').classList.add('vh');
