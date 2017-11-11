@@ -483,12 +483,12 @@ class FileLogger implements LoggerInterface
      *
      * @return array
      */
-    public function getHighestPerpetrator(int $limit = 10)
+    public function getHighestPerpetrator(int $limit = 10) : array
     {
         $connection = [];
 
         if (!file_exists($this->path)) {
-            return 0;
+            return $connection;
         }
 
         $this->fp = fopen($this->path, 'r');
