@@ -31,7 +31,7 @@
      *
      * @param {int|string} key Option key
      * @param {boolean|int|float|string|Array} value Option value
-     * @param {boolean} [overwrite=true] Overwrite value
+     * @param {boolean} [overwrite] Overwrite value
      *
      * @return {boolean}
      *

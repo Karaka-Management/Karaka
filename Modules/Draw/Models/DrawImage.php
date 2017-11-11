@@ -95,7 +95,7 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @return string
+     * @return mixed
      *
      * @since  1.0.0
      */
@@ -105,9 +105,7 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param string $media
-     *
-     * @return mixed
+     * @param mixed $media
      *
      * @since  1.0.0
      */

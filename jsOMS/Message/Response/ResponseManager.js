@@ -32,7 +32,7 @@
      *
      * @param {string} key Response key
      * @param {requestCallback} message Callback for message
-     * @param {string} [request=any] Request id in order to only handle a specific request
+     * @param {string} [request] Request id in order to only handle a specific request
      *
      * @method
      *

@@ -56,7 +56,7 @@ class Dom implements \Serializable, ArrayableInterface
     /**
      * Dom action.
      *
-     * @var DomAction
+     * @var int
      * @since 1.0.0
      */
     private $action = DomAction::MODIFY;
