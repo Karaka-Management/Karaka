@@ -98,7 +98,7 @@ class Invoice implements \JsonSerializable
     /**
      * Person refering for this order.
      *
-     * @var \DateTime
+     * @var int
      * @since 1.0.0
      */
     private $referer = 0;
@@ -385,14 +385,14 @@ class Invoice implements \JsonSerializable
         return $this->insurance;
     }
 
-    public function setFreight(Money $freigth) /* : void */
+    public function setFreight(Money $freight) /* : void */
     {
         $this->freight = $freight;
     }
 
-    public function getFreigth() : Money
+    public function getFreight() : Money
     {
-        return $this->freigth;
+        return $this->freight;
     }
 
     public function getNet() : Money

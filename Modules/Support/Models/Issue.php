@@ -25,6 +25,13 @@ namespace Modules\Support;
  */
 class Issue
 {
+    /**
+     * Id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    private $id = 0;
 
     /**
      * Name.

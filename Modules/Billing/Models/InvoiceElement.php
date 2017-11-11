@@ -55,7 +55,7 @@ class InvoiceElement implements \JsonSerializable
 
     private $totalPriceNet = null;
 
-    private $taxP = 0;
+    private $taxP = null;
 
     private $taxR = null;
 
