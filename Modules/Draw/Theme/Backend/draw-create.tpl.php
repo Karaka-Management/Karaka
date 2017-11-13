@@ -22,7 +22,10 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <div class="inner">
                 <form id="drawForm" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/draw?{?}&csrf={$CSRF}'); ?>" method="POST">
-                    <input type="text" id="iTitle" name="title" class="wf-100"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                    <div class="ipt-wrap">
+                        <div class="ipt-first"><input type="text" id="iTitle" name="title" class="wf-100"></div>
+                        <div class="ipt-second"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>"></div>
+                    </div>
                 </form>
             </div>
         </section>

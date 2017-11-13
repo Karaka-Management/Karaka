@@ -107,7 +107,7 @@ echo $this->getData('nav')->render(); ?>
                     <td>Type
                     <td>Ele.
                     <td>Comp.
-                    <td>Perm.
+                    <td class="wf-100">Perm.
             <tbody>
                 <?php $c = 0; foreach ($permissions as $key => $value) : $c++; $permission = $value->getPermission(); ?>
                 <tr>

@@ -45,4 +45,10 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
+    '^.*/backend/wiki/doc/list.*$' => [
+        [
+            'dest' => '\Modules\Knowledgebase\Controller:viewKnowledgebaseDocList',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
 ];

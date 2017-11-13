@@ -45,4 +45,19 @@ form {
             padding: 3px 5px 3px 5px;
         }
     }
+
+    .ipt-wrap {
+        display: table;
+        box-sizing: border-box;
+
+        .ipt-first {
+            width: 100%;
+            display: table-cell;
+        }
+
+        .ipt-second {
+            padding-left: 5px;
+            display: table-cell;
+        }
+    }
 }

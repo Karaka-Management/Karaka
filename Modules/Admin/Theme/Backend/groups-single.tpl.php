@@ -49,12 +49,12 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-xs-12 col-md-4">
-        <table class="box table red">
+        <table class="box table red wf-100">
             <caption><?= $this->getHtml('Parents') ?></caption>
             <thead>
                 <tr>
                     <td><?= $this->getHtml('ID', 0, 0); ?>
-                    <td>Name
+                    <td class="wf-100">Name
             <tbody>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++; ?>
                 <tr>
@@ -82,7 +82,7 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-xs-12 col-md-4">
-        <table class="box table red">
+        <table class="box table red wf-100">
             <caption><?= $this->getHtml('Permissions') ?></caption>
             <thead>
                 <tr>
@@ -93,7 +93,7 @@ echo $this->getData('nav')->render(); ?>
                     <td>Type
                     <td>Ele.
                     <td>Comp.
-                    <td>Perm.
+                    <td class="wf-100">Perm.
             <tbody>
                 <?php $c = 0; foreach ($permissions as $key => $value) : $c++; $permission = $value->getPermission(); ?>
                 <tr>

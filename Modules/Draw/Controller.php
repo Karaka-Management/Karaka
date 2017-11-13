@@ -139,7 +139,6 @@ class Controller extends ModuleAbstract implements WebInterface
 
         return $view;
     }
-
     
     /**
      * @param RequestAbstract  $request  Request

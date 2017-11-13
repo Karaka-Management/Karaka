@@ -3494,6 +3494,15 @@ form .list {
   form .list td {
     white-space: nowrap;
     padding: 3px 5px 3px 5px; }
+form .ipt-wrap {
+  display: table;
+  box-sizing: border-box; }
+  form .ipt-wrap .ipt-first {
+    width: 100%;
+    display: table-cell; }
+  form .ipt-wrap .ipt-second {
+    padding-left: 5px;
+    display: table-cell; }
 
 .infoIcon {
   width: .9rem;

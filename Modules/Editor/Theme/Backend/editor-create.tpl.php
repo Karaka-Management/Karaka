@@ -22,8 +22,10 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <div class="inner">
                 <form id="fEditor" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/editor?{?}&csrf={$CSRF}'); ?>">
-                    <input name="title" type="text" class="wf-100">
-                    <input type="submit" value="<?= $this->getHtml('Save') ?>">
+                    <div class="ipt-wrap">
+                        <div class="ipt-first"><input name="title" type="text" class="wf-100"></div>
+                        <div class="ipt-second"><input type="submit" value="<?= $this->getHtml('Save') ?>"></div>
+                    </div>
                 </form>
             </div>
         </section>
