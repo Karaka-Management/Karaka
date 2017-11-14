@@ -32,7 +32,9 @@
             <exclude>
                 <directory suffix="tpl.php">../../*</directory>
                 <directory suffix="lang.php">../../*</directory>
-                <directory suffix=".php">../../Modules/Media/Files/*</directory>
+                <directory suffix=".php">../../Modules/**/Admin/Routes*</directory>
+                <directory suffix=".php">../../Modules/**/Admin/Install*</directory>
+                <directory suffix=".php">../../Modules/Media/Files*</directory>
             </exclude>
         </whitelist>
     </filter>

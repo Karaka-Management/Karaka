@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1510687274">
-  <project timestamp="1510687274">
+<coverage generated="1510688409">
+  <project timestamp="1510688409">
     <package name="Model\Message">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Model/Message/Dom.php">
         <class name="Dom" namespace="Model\Message" fullPackage="Model" category="Modules" package="Model">
@@ -227,31 +227,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Accounting\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Accounting/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Accounting\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Accounting/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="102" ncloc="102" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Accounting/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Accounting/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Accounting">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Accounting/Controller.php">
         <class name="Controller" namespace="Modules\Accounting" fullPackage="Framework" category="Modules" package="Framework">
@@ -671,31 +646,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\AccountsPayable\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AccountsPayable/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\AccountsPayable\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AccountsPayable/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="60" ncloc="60" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AccountsPayable/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AccountsPayable/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\AccountsPayable">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AccountsPayable/Controller.php">
         <class name="Controller" namespace="Modules\AccountsPayable" fullPackage="Modules" category="Modules" package="Modules">
@@ -761,31 +711,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\AccountsReceivable\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AccountsReceivable/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\AccountsReceivable\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AccountsReceivable/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="72" ncloc="72" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AccountsReceivable/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AccountsReceivable/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\AccountsReceivable">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AccountsReceivable/Controller.php">
         <class name="Controller" namespace="Modules\AccountsReceivable" fullPackage="Modules" category="Modules" package="Modules">
@@ -832,18 +757,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Address/Admin/Routes/Web/Backend.php">
-      <line num="3" type="stmt" count="1"/>
-      <metrics loc="3" ncloc="3" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Address/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Address/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Address">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Address/Controller.php">
         <class name="Controller" namespace="Modules\Address" fullPackage="Modules" category="Modules" package="Modules">
@@ -975,35 +888,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Admin\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Admin/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Admin\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Admin/Admin/Routes/Web/Api.php">
-      <line num="16" type="stmt" count="1"/>
-      <metrics loc="70" ncloc="68" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Admin/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="60" ncloc="60" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Admin/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Admin/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Admin">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Admin/Controller.php">
         <class name="Controller" namespace="Modules\Admin" fullPackage="Modules" category="Modules" package="Modules">
@@ -1340,31 +1224,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\AreaManager\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AreaManager/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\AreaManager\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="31" type="stmt" count="0"/>
-        <line num="33" type="stmt" count="0"/>
-        <line num="35" type="stmt" count="0"/>
-        <line num="36" type="stmt" count="0"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AreaManager/Admin/Routes/Web/Backend.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="3" ncloc="3" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="1" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AreaManager/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AreaManager/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\AreaManager">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AreaManager/Controller.php">
         <class name="Controller" namespace="Modules\AreaManager" fullPackage="Modules" category="Modules" package="Modules">
@@ -1431,31 +1290,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Arrival\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Arrival/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Arrival\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Arrival/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="18" ncloc="18" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Arrival/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Arrival/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Arrival">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Arrival/Controller.php">
         <class name="Controller" namespace="Modules\Arrival" fullPackage="Modules" category="Modules" package="Modules">
@@ -1505,31 +1339,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\AssetManagement\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AssetManagement/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\AssetManagement\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AssetManagement/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AssetManagement/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AssetManagement/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\AssetManagement">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/AssetManagement/Controller.php">
         <class name="Controller" namespace="Modules\AssetManagement" fullPackage="Modules" category="Modules" package="Modules">
@@ -1587,35 +1396,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Auditor\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Auditor/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Auditor\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Auditor/Admin/Routes/Web/Api.php">
-      <line num="6" type="stmt" count="1"/>
-      <metrics loc="6" ncloc="6" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Auditor/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="42" ncloc="42" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Auditor/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Auditor/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Auditor">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Auditor/Controller.php">
         <class name="Controller" namespace="Modules\Auditor" fullPackage="Auditor" category="Modules" package="Auditor">
@@ -1724,31 +1504,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Balance\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Balance/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Balance\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Balance/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Balance/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Balance/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Balance">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Balance/Controller.php">
         <class name="Controller" namespace="Modules\Balance" fullPackage="Modules" category="Modules" package="Modules">
@@ -1789,31 +1544,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\BankAccounting\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/BankAccounting/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\BankAccounting\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="31" type="stmt" count="0"/>
-        <line num="33" type="stmt" count="0"/>
-        <line num="35" type="stmt" count="0"/>
-        <line num="36" type="stmt" count="0"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/BankAccounting/Admin/Routes/Web/Backend.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="3" ncloc="3" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="1" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/BankAccounting/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/BankAccounting/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Billing\Admin">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Billing/Admin/Activate.php">
         <class name="Activate" namespace="Modules\Billing\Admin" fullPackage="Modules" category="Modules" package="Modules">
@@ -1874,31 +1604,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Billing\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Billing/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Billing\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Billing/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="30" ncloc="30" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Billing/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Billing/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Billing">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Billing/Controller.php">
         <class name="Controller" namespace="Modules\Billing" fullPackage="Modules" category="Modules" package="Modules">
@@ -2269,31 +1974,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\BudgetManagement\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/BudgetManagement/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\BudgetManagement\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/BudgetManagement/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/BudgetManagement/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/BudgetManagement/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\BudgetManagement">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/BudgetManagement/Controller.php">
         <class name="Controller" namespace="Modules\BudgetManagement" fullPackage="Modules" category="Modules" package="Modules">
@@ -2334,31 +2014,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\BusinessExpenses\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/BusinessExpenses/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\BusinessExpenses\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="31" type="stmt" count="0"/>
-        <line num="33" type="stmt" count="0"/>
-        <line num="35" type="stmt" count="0"/>
-        <line num="36" type="stmt" count="0"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/BusinessExpenses/Admin/Routes/Web/Backend.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="3" ncloc="3" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="1" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/BusinessExpenses/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/BusinessExpenses/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Calendar\Admin">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Calendar/Admin/Activate.php">
         <class name="Activate" namespace="Modules\Calendar\Admin" fullPackage="Modules" category="Modules" package="Modules">
@@ -2439,31 +2094,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Calendar\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Calendar/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Calendar\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Calendar/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Calendar/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Calendar/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Calendar">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Calendar/Controller.php">
         <class name="Controller" namespace="Modules\Calendar" fullPackage="Modules" category="Modules" package="Modules">
@@ -2832,31 +2462,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Chart\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Chart/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Chart\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Chart/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="28" ncloc="28" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Chart/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Chart/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Chart">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Chart/Controller.php">
         <class name="Controller" namespace="Modules\Chart" fullPackage="Chart" category="Modules" package="Chart">
@@ -2923,31 +2528,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Chat\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Chat/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Chat\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Chat/Admin/Routes/Web/Backend.php">
-      <line num="3" type="stmt" count="1"/>
-      <metrics loc="3" ncloc="3" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Chat/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Chat/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Chat">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Chat/Controller.php">
         <class name="Controller" namespace="Modules\Chat" fullPackage="Modules" category="Modules" package="Modules">
@@ -3054,31 +2634,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Checklist\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Checklist/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Checklist\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Checklist/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="30" ncloc="30" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Checklist/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Checklist/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Checklist">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Checklist/Controller.php">
         <class name="Controller" namespace="Modules\Checklist" fullPackage="Checklist" category="Modules" package="Checklist">
@@ -3165,31 +2720,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\ClientManagement\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ClientManagement/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\ClientManagement\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ClientManagement/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="30" ncloc="30" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ClientManagement/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ClientManagement/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\ClientManagement">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ClientManagement/Controller.php">
         <class name="Controller" namespace="Modules\ClientManagement" fullPackage="Modules" category="Modules" package="Modules">
@@ -3321,18 +2851,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Comments/Admin/Routes/Web/Api.php">
-      <line num="6" type="stmt" count="1"/>
-      <metrics loc="6" ncloc="6" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Comments/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Comments/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Comments">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Comments/Controller.php">
         <class name="Controller" namespace="Modules\Comments" fullPackage="Editor" category="Modules" package="Editor">
@@ -3460,18 +2978,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Contact/Admin/Routes/Web/Backend.php">
-      <line num="3" type="stmt" count="1"/>
-      <metrics loc="3" ncloc="3" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Contact/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Contact/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Contact">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Contact/Controller.php">
         <class name="Controller" namespace="Modules\Contact" fullPackage="Modules" category="Modules" package="Modules">
@@ -3521,31 +3027,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Controlling\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Controlling/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Controlling\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Controlling/Admin/Routes/Web/Backend.php">
-      <line num="3" type="stmt" count="1"/>
-      <metrics loc="3" ncloc="3" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Controlling/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Controlling/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Controlling">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Controlling/Controller.php">
         <class name="Controller" namespace="Modules\Controlling" fullPackage="Modules" category="Modules" package="Modules">
@@ -3603,31 +3084,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\CostCenterAccounting\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/CostCenterAccounting/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\CostCenterAccounting\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/CostCenterAccounting/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="24" ncloc="24" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/CostCenterAccounting/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/CostCenterAccounting/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\CostCenterAccounting">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/CostCenterAccounting/Controller.php">
         <class name="Controller" namespace="Modules\CostCenterAccounting" fullPackage="Framework" category="Modules" package="Framework">
@@ -3685,31 +3141,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\CostObjectAccounting\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/CostObjectAccounting/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\CostObjectAccounting\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/CostObjectAccounting/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="24" ncloc="24" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/CostObjectAccounting/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/CostObjectAccounting/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\CostObjectAccounting">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/CostObjectAccounting/Controller.php">
         <class name="Controller" namespace="Modules\CostObjectAccounting" fullPackage="Framework" category="Modules" package="Framework">
@@ -3759,31 +3190,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\CreditManagement\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/CreditManagement/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\CreditManagement\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/CreditManagement/Admin/Routes/Web/Backend.php">
-      <line num="3" type="stmt" count="1"/>
-      <metrics loc="3" ncloc="3" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/CreditManagement/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/CreditManagement/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\CreditManagement">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/CreditManagement/Controller.php">
         <class name="Controller" namespace="Modules\CreditManagement" fullPackage="Modules" category="Modules" package="Modules">
@@ -3842,31 +3248,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Dashboard\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Dashboard/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Dashboard\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Dashboard/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Dashboard/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Dashboard/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Dashboard">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Dashboard/Controller.php">
         <class name="Controller" namespace="Modules\Dashboard" fullPackage="Modules" category="Modules" package="Modules">
@@ -3916,31 +3297,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Database\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Database/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Database\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Database/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="30" ncloc="30" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Database/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Database/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Database">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Database/Controller.php">
         <class name="Controller" namespace="Modules\Database" fullPackage="Database" category="Modules" package="Database">
@@ -4007,35 +3363,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Draw\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Draw/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Draw\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Draw/Admin/Routes/Web/Api.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Draw/Admin/Routes/Web/Backend.php">
-      <line num="15" type="stmt" count="1"/>
-      <metrics loc="32" ncloc="32" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Draw/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Draw/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Draw">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Draw/Controller.php">
         <class name="Controller" namespace="Modules\Draw" fullPackage="Draw" category="Modules" package="Draw">
@@ -4193,35 +3520,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Editor\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Editor/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Editor\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Editor/Admin/Routes/Web/Api.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Editor/Admin/Routes/Web/Backend.php">
-      <line num="15" type="stmt" count="1"/>
-      <metrics loc="28" ncloc="28" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Editor/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Editor/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Editor">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Editor/Controller.php">
         <class name="Controller" namespace="Modules\Editor" fullPackage="Editor" category="Modules" package="Editor">
@@ -4402,31 +3700,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\EventManagement\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/EventManagement/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\EventManagement\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/EventManagement/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="24" ncloc="24" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/EventManagement/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/EventManagement/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\EventManagement">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/EventManagement/Controller.php">
         <class name="Controller" namespace="Modules\EventManagement" fullPackage="Modules" category="Modules" package="Modules">
@@ -4597,31 +3870,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Help\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Help/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Help\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Help/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="30" ncloc="30" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Help/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Help/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Help">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Help/Controller.php">
         <class name="Controller" namespace="Modules\Help" fullPackage="Modules" category="Modules" package="Modules">
@@ -4712,31 +3960,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\HumanResourceManagement\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/HumanResourceManagement/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\HumanResourceManagement\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/HumanResourceManagement/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="30" ncloc="30" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/HumanResourceManagement/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/HumanResourceManagement/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\HumanResourceManagement">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/HumanResourceManagement/Controller.php">
         <class name="Controller" namespace="Modules\HumanResourceManagement" fullPackage="Modules" category="Modules" package="Modules">
@@ -4864,31 +4087,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\HumanResourceTimeRecording\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/HumanResourceTimeRecording/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\HumanResourceTimeRecording\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="31" type="stmt" count="0"/>
-        <line num="33" type="stmt" count="0"/>
-        <line num="35" type="stmt" count="0"/>
-        <line num="36" type="stmt" count="0"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/HumanResourceTimeRecording/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="0"/>
-      <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="1" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/HumanResourceTimeRecording/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/HumanResourceTimeRecording/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\HumanResourceTimeRecording">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/HumanResourceTimeRecording/Controller.php">
         <class name="Controller" namespace="Modules\HumanResourceTimeRecording" fullPackage="Database" category="Modules" package="Database">
@@ -4973,31 +4171,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\ItemManagement\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ItemManagement/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\ItemManagement\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ItemManagement/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="42" ncloc="42" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ItemManagement/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ItemManagement/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\ItemManagement">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ItemManagement/Controller.php">
         <class name="Controller" namespace="Modules\ItemManagement" fullPackage="Modules" category="Modules" package="Modules">
@@ -5130,35 +4303,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Job\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Job/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Job\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Job/Admin/Routes/Web/Api.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Job/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="24" ncloc="24" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Job/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Job/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Job">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Job/Controller.php">
         <class name="Controller" namespace="Modules\Job" fullPackage="Modules" category="Modules" package="Modules">
@@ -5294,23 +4438,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Kanban\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Kanban/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Kanban\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Kanban/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="42" ncloc="42" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
     <package name="Modules\Kanban">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Kanban/Controller.php">
         <class name="Controller" namespace="Modules\Kanban" fullPackage="Modules" category="Modules" package="Modules">
@@ -5812,23 +4939,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Knowledgebase\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Knowledgebase/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Knowledgebase\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Knowledgebase/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="54" ncloc="54" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
     <package name="Modules\Knowledgebase">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Knowledgebase/Controller.php">
         <class name="Controller" namespace="Modules\Knowledgebase" fullPackage="Modules" category="Modules" package="Modules">
@@ -6107,31 +5217,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Marketing\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Marketing/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Marketing\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Marketing/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="42" ncloc="42" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Marketing/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Marketing/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Marketing">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Marketing/Controller.php">
         <class name="Controller" namespace="Modules\Marketing" fullPackage="Modules" category="Modules" package="Modules">
@@ -6303,35 +5388,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Media\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Media/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Media\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Media/Admin/Routes/Web/Api.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="24" ncloc="24" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Media/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="28" ncloc="28" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Media/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Media/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Media">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Media/Controller.php">
         <class name="Controller" namespace="Modules\Media" fullPackage="Modules" category="Modules" package="Modules">
@@ -6742,31 +5798,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Messages\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Messages/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Messages\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Messages/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="54" ncloc="54" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Messages/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Messages/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Messages">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Messages/Controller.php">
         <class name="Controller" namespace="Modules\Messages" fullPackage="Modules" category="Messages" package="Modules">
@@ -6813,31 +5844,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Monitoring\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Monitoring/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Monitoring\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Monitoring/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="24" ncloc="24" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Monitoring/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Monitoring/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Monitoring">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Monitoring/Controller.php">
         <class name="Controller" namespace="Modules\Monitoring" fullPackage="Modules" category="Modules" package="Modules">
@@ -6904,31 +5910,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\MyPrivate\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/MyPrivate/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\MyPrivate\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/MyPrivate/Admin/Routes/Web/Backend.php">
-      <line num="3" type="stmt" count="1"/>
-      <metrics loc="3" ncloc="3" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/MyPrivate/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/MyPrivate/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\MyPrivate">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/MyPrivate/Controller.php">
         <class name="Controller" namespace="Modules\MyPrivate" fullPackage="Modules" category="Modules" package="Modules">
@@ -7016,18 +5997,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Navigation/Admin/Routes/Web/Backend.php">
-      <line num="3" type="stmt" count="1"/>
-      <metrics loc="3" ncloc="3" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Navigation/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Navigation/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Navigation">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Navigation/Controller.php">
         <class name="Controller" namespace="Modules\Navigation" fullPackage="Modules" category="Modules" package="Modules">
@@ -7197,35 +6166,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\News\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/News/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\News\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/News/Admin/Routes/Web/Api.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/News/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="34" ncloc="34" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/News/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/News/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\News">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/News/Controller.php">
         <class name="Controller" namespace="Modules\News" fullPackage="Modules" category="Modules" package="Modules">
@@ -7547,35 +6487,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Organization\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Organization/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Organization\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="32" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="34" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <line num="38" type="stmt" count="2"/>
-        <line num="39" type="stmt" count="2"/>
-        <metrics loc="40" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Organization/Admin/Routes/Web/Api.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="24" ncloc="24" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Organization/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="60" ncloc="60" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Organization/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Organization/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Organization">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Organization/Controller.php">
         <class name="Controller" namespace="Modules\Organization" fullPackage="Modules" category="Modules" package="Modules">
@@ -7852,31 +6763,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\PL\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/PL/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\PL\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/PL/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/PL/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/PL/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\PL">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/PL/Controller.php">
         <class name="Controller" namespace="Modules\PL" fullPackage="Modules" category="Modules" package="Modules">
@@ -7934,18 +6820,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/PaymentInformation/Admin/Routes/Web/Backend.php">
-      <line num="3" type="stmt" count="1"/>
-      <metrics loc="3" ncloc="3" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/PaymentInformation/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/PaymentInformation/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\PersonnelTimeManagement\Admin">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/PersonnelTimeManagement/Admin/Activate.php">
         <class name="Activate" namespace="Modules\PersonnelTimeManagement\Admin" fullPackage="Modules" category="Modules" package="Modules">
@@ -7987,31 +6861,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\PersonnelTimeManagement\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/PersonnelTimeManagement/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\PersonnelTimeManagement\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/PersonnelTimeManagement/Admin/Routes/Web/Backend.php">
-      <line num="3" type="stmt" count="1"/>
-      <metrics loc="3" ncloc="3" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/PersonnelTimeManagement/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/PersonnelTimeManagement/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\PersonnelTimeManagement">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/PersonnelTimeManagement/Controller.php">
         <class name="Controller" namespace="Modules\PersonnelTimeManagement" fullPackage="Modules" category="Modules" package="Modules">
@@ -8134,31 +6983,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Production\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Production/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Production\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Production/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="30" ncloc="30" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Production/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Production/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Production">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Production/Controller.php">
         <class name="Controller" namespace="Modules\Production" fullPackage="Modules" category="Modules" package="Modules">
@@ -8266,31 +7090,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Profile\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Profile/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Profile\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Profile/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="24" ncloc="24" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Profile/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Profile/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Profile">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Profile/Controller.php">
         <class name="Controller" namespace="Modules\Profile" fullPackage="Modules" category="Modules" package="Modules">
@@ -8473,31 +7272,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\ProjectManagement\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ProjectManagement/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\ProjectManagement\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ProjectManagement/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="24" ncloc="24" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ProjectManagement/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ProjectManagement/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\ProjectManagement">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ProjectManagement/Controller.php">
         <class name="Controller" namespace="Modules\ProjectManagement" fullPackage="Modules" category="Modules" package="Modules">
@@ -8672,31 +7446,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Purchase\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Purchase/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Purchase\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Purchase/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="42" ncloc="42" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Purchase/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Purchase/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Purchase">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Purchase/Controller.php">
         <class name="Controller" namespace="Modules\Purchase" fullPackage="Modules" category="Modules" package="Modules">
@@ -8797,23 +7546,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\QA\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/QA/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\QA\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/QA/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="42" ncloc="42" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
     <package name="Modules\QA">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/QA/Controller.php">
         <class name="Controller" namespace="Modules\QA" fullPackage="Modules" category="Modules" package="Modules">
@@ -9166,35 +7898,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Reporter\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Reporter/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Reporter\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Reporter/Admin/Routes/Web/Api.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="24" ncloc="24" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Reporter/Admin/Routes/Web/Backend.php">
-      <line num="15" type="stmt" count="1"/>
-      <metrics loc="38" ncloc="38" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Reporter/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Reporter/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Reporter">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Reporter/Controller.php">
         <class name="Controller" namespace="Modules\Reporter" fullPackage="Modules" category="Modules" package="Modules">
@@ -9514,31 +8217,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\ResearchDevelopment\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ResearchDevelopment/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\ResearchDevelopment\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ResearchDevelopment/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="18" ncloc="18" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ResearchDevelopment/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ResearchDevelopment/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\ResearchDevelopment">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/ResearchDevelopment/Controller.php">
         <class name="Controller" namespace="Modules\ResearchDevelopment" fullPackage="Modules" category="Modules" package="Modules">
@@ -9691,31 +8369,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\RiskManagement\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/RiskManagement/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\RiskManagement\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/RiskManagement/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="120" ncloc="120" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/RiskManagement/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/RiskManagement/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\RiskManagement">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/RiskManagement/Controller.php">
         <class name="Controller" namespace="Modules\RiskManagement" fullPackage="Modules" category="Modules" package="Modules">
@@ -10189,31 +8842,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Sales\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Sales/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Sales\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Sales/Admin/Routes/Web/Backend.php">
-      <line num="3" type="stmt" count="1"/>
-      <metrics loc="3" ncloc="3" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Sales/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Sales/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Sales">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Sales/Controller.php">
         <class name="Controller" namespace="Modules\Sales" fullPackage="Modules" category="Modules" package="Modules">
@@ -10258,31 +8886,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\SalesAnalysis\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/SalesAnalysis/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\SalesAnalysis\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="31" type="stmt" count="0"/>
-        <line num="33" type="stmt" count="0"/>
-        <line num="35" type="stmt" count="0"/>
-        <line num="36" type="stmt" count="0"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/SalesAnalysis/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="0"/>
-      <metrics loc="19" ncloc="19" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="1" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/SalesAnalysis/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/SalesAnalysis/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\SalesAnalysis">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/SalesAnalysis/Controller.php">
         <class name="Controller" namespace="Modules\SalesAnalysis" fullPackage="Modules" category="Modules" package="Modules">
@@ -10332,31 +8935,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Shipping\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Shipping/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Shipping\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Shipping/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="18" ncloc="18" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Shipping/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Shipping/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Shipping">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Shipping/Controller.php">
         <class name="Controller" namespace="Modules\Shipping" fullPackage="Modules" category="Modules" package="Modules">
@@ -10406,31 +8984,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\StockTaking\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/StockTaking/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\StockTaking\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/StockTaking/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/StockTaking/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/StockTaking/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\StockTaking">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/StockTaking/Controller.php">
         <class name="Controller" namespace="Modules\StockTaking" fullPackage="Modules" category="Modules" package="Modules">
@@ -10517,31 +9070,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\SupplierManagement\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/SupplierManagement/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\SupplierManagement\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/SupplierManagement/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="30" ncloc="30" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/SupplierManagement/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/SupplierManagement/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\SupplierManagement">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/SupplierManagement/Controller.php">
         <class name="Controller" namespace="Modules\SupplierManagement" fullPackage="Modules" category="Modules" package="Modules">
@@ -10669,31 +9197,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Support\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Support/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Support\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Support/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="42" ncloc="42" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Support/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Support/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Support">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Support/Controller.php">
         <class name="Controller" namespace="Modules\Support" fullPackage="Modules" category="Modules" package="Modules">
@@ -10860,31 +9363,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Surveys\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Surveys/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Surveys\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Surveys/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="24" ncloc="24" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Surveys/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Surveys/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Surveys">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Surveys/Controller.php">
         <class name="Controller" namespace="Modules\Surveys" fullPackage="Modules" category="Modules" package="Modules">
@@ -11144,35 +9622,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Tasks\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Tasks/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Tasks\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Tasks/Admin/Routes/Web/Api.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="18" ncloc="18" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Tasks/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="30" ncloc="30" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Tasks/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Tasks/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Tasks">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Tasks/Controller.php">
         <class name="Controller" namespace="Modules\Tasks" fullPackage="Modules" category="Modules" package="Modules">
@@ -11551,31 +10000,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Tools\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Tools/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Tools\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="31" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Tools/Admin/Routes/Web/Backend.php">
-      <line num="3" type="stmt" count="1"/>
-      <metrics loc="3" ncloc="3" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Tools/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Tools/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Tools">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Tools/Controller.php">
         <class name="Controller" namespace="Modules\Tools" fullPackage="Modules" category="Modules" package="Modules">
@@ -11699,31 +10123,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\WarehouseManagement\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/WarehouseManagement/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\WarehouseManagement\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/WarehouseManagement/Admin/Routes/Web/Backend.php">
-      <line num="3" type="stmt" count="1"/>
-      <metrics loc="3" ncloc="3" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/WarehouseManagement/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/WarehouseManagement/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\WarehouseManagement">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/WarehouseManagement/Controller.php">
         <class name="Controller" namespace="Modules\WarehouseManagement" fullPackage="Modules" category="Modules" package="Modules">
@@ -12123,31 +10522,6 @@
         <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
-    <package name="Modules\Workflow\Admin\Install">
-      <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Workflow/Admin/Install/Navigation.php">
-        <class name="Navigation" namespace="Modules\Workflow\Admin\Install" fullPackage="Modules" category="Modules" package="Modules">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-        </class>
-        <line num="29" type="method" name="install" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="31" type="stmt" count="1"/>
-        <line num="33" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <metrics loc="37" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
-      </file>
-    </package>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Workflow/Admin/Routes/Web/Backend.php">
-      <line num="11" type="stmt" count="1"/>
-      <metrics loc="36" ncloc="36" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="1" coveredelements="1"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Workflow/Admin/Routes/console.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Workflow/Admin/Routes/socket.php">
-      <line num="3" type="stmt" count="0"/>
-      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <package name="Modules\Workflow">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Modules/Workflow/Controller.php">
         <class name="Controller" namespace="Modules\Workflow" fullPackage="Modules" category="Modules" package="Modules">
@@ -25246,12 +23620,12 @@
         <line num="238" type="stmt" count="24"/>
         <line num="239" type="stmt" count="24"/>
         <line num="241" type="stmt" count="24"/>
-        <line num="242" type="stmt" count="18"/>
-        <line num="243" type="stmt" count="18"/>
-        <line num="245" type="stmt" count="18"/>
-        <line num="247" type="stmt" count="18"/>
-        <line num="248" type="stmt" count="10"/>
-        <line num="249" type="stmt" count="10"/>
+        <line num="242" type="stmt" count="17"/>
+        <line num="243" type="stmt" count="17"/>
+        <line num="245" type="stmt" count="17"/>
+        <line num="247" type="stmt" count="17"/>
+        <line num="248" type="stmt" count="13"/>
+        <line num="249" type="stmt" count="13"/>
         <line num="253" type="stmt" count="24"/>
         <line num="256" type="stmt" count="24"/>
         <line num="258" type="stmt" count="24"/>
@@ -25259,8 +23633,8 @@
         <line num="260" type="stmt" count="24"/>
         <line num="263" type="stmt" count="24"/>
         <line num="265" type="stmt" count="24"/>
-        <line num="266" type="stmt" count="23"/>
-        <line num="267" type="stmt" count="23"/>
+        <line num="266" type="stmt" count="24"/>
+        <line num="267" type="stmt" count="24"/>
         <line num="270" type="stmt" count="24"/>
         <line num="273" type="stmt" count="24"/>
         <line num="285" type="method" name="generateParagraph" visibility="private" complexity="4" crap="20" count="0"/>
@@ -26055,6 +24429,6 @@
         <metrics loc="261" ncloc="129" classes="1" methods="11" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="31" elements="55" coveredelements="36"/>
       </file>
     </package>
-    <metrics files="1419" loc="120068" ncloc="57950" classes="544" methods="3780" coveredmethods="1716" conditionals="0" coveredconditionals="0" statements="13780" coveredstatements="8052" elements="17560" coveredelements="9768"/>
+    <metrics files="1152" loc="115519" ncloc="54770" classes="482" methods="3718" coveredmethods="1659" conditionals="0" coveredconditionals="0" statements="13455" coveredstatements="7752" elements="17173" coveredelements="9411"/>
   </project>
 </coverage>
