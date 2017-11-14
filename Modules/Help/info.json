@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1007800000,
+        "internal": "Help",
+        "external": "Backend Help"
+    },
+    "category": "General",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The backend help module.",
+    "directory": "Help",
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/help"
+            ],
+            "type": 4,
+            "for": "Content",
+            "from": "Help",
+            "file": "Help"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Help",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

@@ -78,7 +78,7 @@ class Markdown
     {
     }
 
-    public function parse(string $raw) : string
+    public static function parse(string $raw) : string
     {
         /*$raw   = $this->cleanup($raw);
         $lines = explode("\n", $raw);
@@ -88,7 +88,7 @@ class Markdown
         return $raw;
     }
 
-    private function cleanup(string $raw) : string
+    private static function cleanup(string $raw) : string
     {
         $raw = str_replace(["\r\n", "\r", "\t"], ["\n", "\n", '    '], $raw);
         $raw = trim($raw);
@@ -97,7 +97,7 @@ class Markdown
         return $raw;
     }
 
-    private function parseLines(array $lines) : string
+    private static function parseLines(array $lines) : string
     {
         $block = array_keys(self::$blockTypes);
         $inline = array_keys(self::$inlineTypes);
@@ -111,7 +111,7 @@ class Markdown
         return '';
     }
 
-    private function countIndention(string $line) : int
+    private static function countIndention(string $line) : int
     {
         $indent = 0;
         while (isset($line[$indent]) && $line[$indent] === ' ') {

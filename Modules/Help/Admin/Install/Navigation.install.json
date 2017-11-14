@@ -1,0 +1,63 @@
+[
+    {
+        "id": 1007801001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 0,
+        "name": "Help",
+        "uri": null,
+        "target": "self",
+        "icon": "fa fa-question-circle",
+        "order": 0,
+        "from": "Help",
+        "permission": null,
+        "parent": 0,
+        "children": [
+            {
+                "id": 1007802001,
+                "pid": "/backend",
+                "type": 2,
+                "subtype": 1,
+                "name": "General",
+                "uri": "/{/lang}/backend/help/general?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "Help",
+                "permission": null,
+                "parent": 1007801001,
+                "children": []
+            },
+            {
+                "id": 1007803001,
+                "pid": "/backend",
+                "type": 2,
+                "subtype": 1,
+                "name": "Modules",
+                "uri": "/{/lang}/backend/help/module/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 10,
+                "from": "Help",
+                "permission": null,
+                "parent": 1007801001,
+                "children": []
+            },
+            {
+                "id": 1007804001,
+                "pid": "/backend",
+                "type": 2,
+                "subtype": 1,
+                "name": "Developer",
+                "uri": "/{/lang}/backend/help/developer?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 15,
+                "from": "Help",
+                "permission": null,
+                "parent": 1007801001,
+                "children": []
+            }
+        ]
+    }
+]
