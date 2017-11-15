@@ -24,7 +24,7 @@ class C25Test extends \PHPUnit\Framework\TestCase
     public function testImage()
     {
         $path = __DIR__ . '/c25.png';
-        if(file_exists($path)) {
+        if (file_exists($path)) {
             unlink($path);
         }
 

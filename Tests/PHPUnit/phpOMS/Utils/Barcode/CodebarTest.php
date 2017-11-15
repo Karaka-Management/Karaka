@@ -24,7 +24,7 @@ class CodebarTest extends \PHPUnit\Framework\TestCase
     public function testImage()
     {
         $path = __DIR__ . '/codebar.png';
-        if(file_exists($path)) {
+        if (file_exists($path)) {
             unlink($path);
         }
 

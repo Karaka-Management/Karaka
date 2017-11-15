@@ -388,7 +388,7 @@ class Polygon implements D2ShapeInterface
 
         $count = count($this->coord);
 
-        for($i = 0; $i < $count - 1; $i++) {
+        for ($i = 0; $i < $count - 1; $i++) {
             $mult = ($this->coord[$i]['x'] * $this->coord[$i + 1]['y'] - $this->coord[$i + 1]['x'] * $this->coord[$i]['y']);
             $this->barycenter['x'] += ($this->coord[$i]['x'] + $this->coord[$i + 1]['x']) * $mult;
             $this->barycenter['y'] += ($this->coord[$i]['y'] + $this->coord[$i + 1]['y']) * $mult;

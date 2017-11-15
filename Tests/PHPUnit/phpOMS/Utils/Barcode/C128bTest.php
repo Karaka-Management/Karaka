@@ -24,7 +24,7 @@ class C128bTest extends \PHPUnit\Framework\TestCase
     public function testImage()
     {
         $path = __DIR__ . '/c128b.png';
-        if(file_exists($path)) {
+        if (file_exists($path)) {
             unlink($path);
         }
 

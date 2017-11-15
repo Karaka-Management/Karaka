@@ -115,7 +115,7 @@ class Grammar extends GrammarAbstract
     {
         $sql = [];
 
-        if($query->getType() === QueryType::RAW) {
+        if ($query->getType() === QueryType::RAW) {
             return [$query->raw];
         }
 

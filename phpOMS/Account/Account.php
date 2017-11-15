@@ -564,7 +564,7 @@ class Account implements ArrayableInterface, \JsonSerializable
     {
         $this->password = \password_hash($password, \PASSWORD_DEFAULT);
 
-        if($this->password === false) {
+        if ($this->password === false) {
             throw new \Exception();
         }
     }

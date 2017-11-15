@@ -289,7 +289,7 @@ class File extends FileAbstract implements FileInterface
     {
         $result = self::copy($from, $to, $overwrite);
 
-        if(!$result) {
+        if (!$result) {
             return false;
         }
 

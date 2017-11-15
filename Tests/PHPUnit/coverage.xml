@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1510767062">
-  <project timestamp="1510767062">
+<coverage generated="1510782157">
+  <project timestamp="1510782157">
     <package name="Model\Message">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Model/Message/Dom.php">
         <class name="Dom" namespace="Model\Message" fullPackage="Model" category="Modules" package="Model">
@@ -14736,102 +14736,110 @@
       </file>
       <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Math/Geometry/Shape/D2/Polygon.php">
         <class name="Polygon" namespace="phpOMS\Math\Geometry\Shape\D2" fullPackage="phpOMS" category="Framework" package="phpOMS">
-          <metrics complexity="41" methods="19" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="74" coveredstatements="0" elements="93" coveredelements="0"/>
+          <metrics complexity="42" methods="20" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="81" coveredstatements="54" elements="101" coveredelements="63"/>
         </class>
-        <line num="116" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="118" type="stmt" count="0"/>
+        <line num="116" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
+        <line num="118" type="stmt" count="4"/>
         <line num="129" type="method" name="pointInPolygon" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="131" type="stmt" count="0"/>
-        <line num="145" type="method" name="isPointInPolygon" visibility="public" complexity="17" crap="306" count="0"/>
-        <line num="147" type="stmt" count="0"/>
-        <line num="150" type="stmt" count="0"/>
+        <line num="145" type="method" name="isPointInPolygon" visibility="public" complexity="17" crap="19.00" count="1"/>
+        <line num="147" type="stmt" count="1"/>
+        <line num="150" type="stmt" count="1"/>
         <line num="151" type="stmt" count="0"/>
-        <line num="155" type="stmt" count="0"/>
+        <line num="155" type="stmt" count="1"/>
         <line num="156" type="stmt" count="0"/>
-        <line num="160" type="stmt" count="0"/>
-        <line num="161" type="stmt" count="0"/>
-        <line num="164" type="stmt" count="0"/>
-        <line num="165" type="stmt" count="0"/>
-        <line num="166" type="stmt" count="0"/>
-        <line num="168" type="stmt" count="0"/>
+        <line num="160" type="stmt" count="1"/>
+        <line num="161" type="stmt" count="1"/>
+        <line num="164" type="stmt" count="1"/>
+        <line num="165" type="stmt" count="1"/>
+        <line num="166" type="stmt" count="1"/>
+        <line num="168" type="stmt" count="1"/>
         <line num="169" type="stmt" count="0"/>
-        <line num="172" type="stmt" count="0"/>
-        <line num="173" type="stmt" count="0"/>
-        <line num="175" type="stmt" count="0"/>
+        <line num="172" type="stmt" count="1"/>
+        <line num="173" type="stmt" count="1"/>
+        <line num="175" type="stmt" count="1"/>
         <line num="176" type="stmt" count="0"/>
-        <line num="179" type="stmt" count="0"/>
-        <line num="180" type="stmt" count="0"/>
-        <line num="185" type="stmt" count="0"/>
-        <line num="186" type="stmt" count="0"/>
-        <line num="189" type="stmt" count="0"/>
+        <line num="179" type="stmt" count="1"/>
+        <line num="180" type="stmt" count="1"/>
+        <line num="185" type="stmt" count="1"/>
+        <line num="186" type="stmt" count="1"/>
+        <line num="189" type="stmt" count="1"/>
         <line num="201" type="method" name="onVertex" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="203" type="stmt" count="0"/>
-        <line num="216" type="method" name="isOnVertex" visibility="private" complexity="4" crap="20" count="0"/>
-        <line num="218" type="stmt" count="0"/>
-        <line num="219" type="stmt" count="0"/>
-        <line num="220" type="stmt" count="0"/>
-        <line num="224" type="stmt" count="0"/>
-        <line num="236" type="method" name="setCoordinates" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="238" type="stmt" count="0"/>
-        <line num="239" type="stmt" count="0"/>
+        <line num="216" type="method" name="isOnVertex" visibility="private" complexity="4" crap="4" count="1"/>
+        <line num="218" type="stmt" count="1"/>
+        <line num="219" type="stmt" count="1"/>
+        <line num="220" type="stmt" count="1"/>
+        <line num="224" type="stmt" count="1"/>
+        <line num="236" type="method" name="setCoordinates" visibility="public" complexity="1" crap="1" count="4"/>
+        <line num="238" type="stmt" count="4"/>
+        <line num="239" type="stmt" count="4"/>
         <line num="252" type="method" name="setCoordinate" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="254" type="stmt" count="0"/>
         <line num="255" type="stmt" count="0"/>
-        <line num="260" type="method" name="getInteriorAngleSum" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="262" type="stmt" count="0"/>
-        <line num="264" type="stmt" count="0"/>
-        <line num="270" type="method" name="getExteriorAngleSum" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="272" type="stmt" count="0"/>
+        <line num="260" type="method" name="getInteriorAngleSum" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="262" type="stmt" count="1"/>
+        <line num="264" type="stmt" count="1"/>
+        <line num="270" type="method" name="getExteriorAngleSum" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="272" type="stmt" count="1"/>
         <line num="278" type="method" name="getInteriorAngleSumFormula" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="280" type="stmt" count="0"/>
         <line num="286" type="method" name="getExteriorAngleSumFormula" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="288" type="stmt" count="0"/>
-        <line num="294" type="method" name="getSurface" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="296" type="stmt" count="0"/>
-        <line num="297" type="stmt" count="0"/>
-        <line num="299" type="stmt" count="0"/>
-        <line num="300" type="stmt" count="0"/>
-        <line num="303" type="stmt" count="0"/>
-        <line num="304" type="stmt" count="0"/>
-        <line num="306" type="stmt" count="0"/>
-        <line num="312" type="method" name="setSurface" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="314" type="stmt" count="0"/>
-        <line num="316" type="stmt" count="0"/>
-        <line num="317" type="stmt" count="0"/>
-        <line num="322" type="method" name="reset" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="324" type="stmt" count="0"/>
-        <line num="325" type="stmt" count="0"/>
-        <line num="326" type="stmt" count="0"/>
-        <line num="327" type="stmt" count="0"/>
-        <line num="328" type="stmt" count="0"/>
-        <line num="329" type="stmt" count="0"/>
+        <line num="294" type="method" name="getSurface" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="296" type="stmt" count="1"/>
+        <line num="299" type="method" name="getSignedSurface" visibility="private" complexity="2" crap="2" count="2"/>
+        <line num="301" type="stmt" count="2"/>
+        <line num="302" type="stmt" count="2"/>
+        <line num="304" type="stmt" count="2"/>
+        <line num="305" type="stmt" count="2"/>
+        <line num="308" type="stmt" count="2"/>
+        <line num="310" type="stmt" count="2"/>
+        <line num="312" type="stmt" count="2"/>
+        <line num="318" type="method" name="setSurface" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="320" type="stmt" count="0"/>
+        <line num="322" type="stmt" count="0"/>
+        <line num="323" type="stmt" count="0"/>
+        <line num="328" type="method" name="reset" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="330" type="stmt" count="0"/>
         <line num="331" type="stmt" count="0"/>
         <line num="332" type="stmt" count="0"/>
-        <line num="337" type="method" name="getSurfaceFormula" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="339" type="stmt" count="0"/>
-        <line num="345" type="method" name="getPerimeter" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="347" type="stmt" count="0"/>
-        <line num="348" type="stmt" count="0"/>
-        <line num="350" type="stmt" count="0"/>
-        <line num="351" type="stmt" count="0"/>
-        <line num="354" type="stmt" count="0"/>
-        <line num="360" type="method" name="setPerimeter" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="362" type="stmt" count="0"/>
-        <line num="364" type="stmt" count="0"/>
-        <line num="365" type="stmt" count="0"/>
-        <line num="370" type="method" name="getPerimeterFormula" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="372" type="stmt" count="0"/>
-        <line num="378" type="method" name="getBarycenter" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="380" type="stmt" count="0"/>
-        <line num="381" type="stmt" count="0"/>
-        <line num="383" type="stmt" count="0"/>
-        <line num="385" type="stmt" count="0"/>
-        <line num="386" type="stmt" count="0"/>
-        <line num="387" type="stmt" count="0"/>
-        <line num="388" type="stmt" count="0"/>
-        <line num="391" type="stmt" count="0"/>
-        <metrics loc="393" ncloc="192" classes="1" methods="19" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="74" coveredstatements="0" elements="93" coveredelements="0"/>
+        <line num="333" type="stmt" count="0"/>
+        <line num="334" type="stmt" count="0"/>
+        <line num="335" type="stmt" count="0"/>
+        <line num="336" type="stmt" count="0"/>
+        <line num="337" type="stmt" count="0"/>
+        <line num="338" type="stmt" count="0"/>
+        <line num="343" type="method" name="getSurfaceFormula" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="345" type="stmt" count="0"/>
+        <line num="351" type="method" name="getPerimeter" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="353" type="stmt" count="1"/>
+        <line num="354" type="stmt" count="1"/>
+        <line num="356" type="stmt" count="1"/>
+        <line num="357" type="stmt" count="1"/>
+        <line num="360" type="stmt" count="1"/>
+        <line num="366" type="method" name="setPerimeter" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="368" type="stmt" count="0"/>
+        <line num="370" type="stmt" count="0"/>
+        <line num="371" type="stmt" count="0"/>
+        <line num="376" type="method" name="getPerimeterFormula" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="378" type="stmt" count="0"/>
+        <line num="384" type="method" name="getBarycenter" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="386" type="stmt" count="1"/>
+        <line num="387" type="stmt" count="1"/>
+        <line num="389" type="stmt" count="1"/>
+        <line num="391" type="stmt" count="1"/>
+        <line num="392" type="stmt" count="1"/>
+        <line num="393" type="stmt" count="1"/>
+        <line num="394" type="stmt" count="1"/>
+        <line num="397" type="stmt" count="1"/>
+        <line num="398" type="stmt" count="1"/>
+        <line num="399" type="stmt" count="1"/>
+        <line num="401" type="stmt" count="1"/>
+        <line num="403" type="stmt" count="1"/>
+        <line num="404" type="stmt" count="1"/>
+        <line num="406" type="stmt" count="1"/>
+        <metrics loc="408" ncloc="207" classes="1" methods="20" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="81" coveredstatements="54" elements="101" coveredelements="63"/>
       </file>
       <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Math/Geometry/Shape/D2/Quadrilateral.php">
         <class name="Quadrilateral" namespace="phpOMS\Math\Geometry\Shape\D2">
@@ -20758,7 +20766,7 @@
       </file>
       <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Utils/Barcode/C128Abstract.php">
         <class name="C128Abstract" namespace="phpOMS\Utils\Barcode" fullPackage="Framework" category="Log" package="Framework">
-          <metrics complexity="23" methods="11" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="67" coveredstatements="52" elements="78" coveredelements="56"/>
+          <metrics complexity="23" methods="13" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="67" coveredstatements="52" elements="80" coveredelements="57"/>
         </class>
         <line num="135" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="6"/>
         <line num="137" type="stmt" count="6"/>
@@ -20811,34 +20819,36 @@
         <line num="282" type="stmt" count="2"/>
         <line num="285" type="stmt" count="2"/>
         <line num="287" type="stmt" count="2"/>
-        <line num="300" type="method" name="createImage" visibility="protected" complexity="9" crap="9.12" count="6"/>
+        <line num="299" type="method" name="createImage" visibility="protected" complexity="5" crap="5.01" count="6"/>
+        <line num="301" type="stmt" count="6"/>
         <line num="302" type="stmt" count="6"/>
         <line num="303" type="stmt" count="6"/>
+        <line num="304" type="stmt" count="6"/>
+        <line num="305" type="stmt" count="6"/>
         <line num="306" type="stmt" count="6"/>
         <line num="307" type="stmt" count="6"/>
-        <line num="308" type="stmt" count="6"/>
-        <line num="310" type="stmt" count="0"/>
-        <line num="311" type="stmt" count="0"/>
-        <line num="314" type="stmt" count="6"/>
-        <line num="315" type="stmt" count="6"/>
-        <line num="316" type="stmt" count="6"/>
-        <line num="317" type="stmt" count="6"/>
+        <line num="309" type="stmt" count="6"/>
+        <line num="310" type="stmt" count="6"/>
+        <line num="312" type="stmt" count="6"/>
+        <line num="313" type="stmt" count="6"/>
+        <line num="315" type="stmt" count="0"/>
         <line num="318" type="stmt" count="6"/>
-        <line num="319" type="stmt" count="6"/>
         <line num="321" type="stmt" count="6"/>
-        <line num="322" type="stmt" count="6"/>
-        <line num="324" type="stmt" count="6"/>
-        <line num="325" type="stmt" count="6"/>
-        <line num="327" type="stmt" count="0"/>
-        <line num="330" type="stmt" count="6"/>
-        <line num="333" type="stmt" count="6"/>
-        <line num="334" type="stmt" count="3"/>
-        <line num="335" type="stmt" count="3"/>
-        <line num="336" type="stmt" count="3"/>
-        <line num="337" type="stmt" count="3"/>
-        <line num="338" type="stmt" count="3"/>
-        <line num="343" type="stmt" count="6"/>
-        <metrics loc="345" ncloc="158" classes="1" methods="11" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="67" coveredstatements="52" elements="78" coveredelements="56"/>
+        <line num="324" type="method" name="calculateCodeLength" visibility="private" complexity="2" crap="2" count="6"/>
+        <line num="326" type="stmt" count="6"/>
+        <line num="327" type="stmt" count="6"/>
+        <line num="328" type="stmt" count="6"/>
+        <line num="331" type="stmt" count="6"/>
+        <line num="334" type="method" name="calculateDimensions" visibility="private" complexity="2" crap="2.06" count="6"/>
+        <line num="336" type="stmt" count="6"/>
+        <line num="337" type="stmt" count="6"/>
+        <line num="339" type="stmt" count="6"/>
+        <line num="340" type="stmt" count="6"/>
+        <line num="341" type="stmt" count="6"/>
+        <line num="343" type="stmt" count="0"/>
+        <line num="344" type="stmt" count="0"/>
+        <line num="347" type="stmt" count="6"/>
+        <metrics loc="349" ncloc="163" classes="1" methods="13" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="67" coveredstatements="52" elements="80" coveredelements="57"/>
       </file>
       <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Utils/Barcode/C128a.php">
         <class name="C128a" namespace="phpOMS\Utils\Barcode" fullPackage="Framework" category="Log" package="Framework">
@@ -23602,22 +23612,22 @@
         <line num="238" type="stmt" count="24"/>
         <line num="239" type="stmt" count="24"/>
         <line num="241" type="stmt" count="24"/>
-        <line num="242" type="stmt" count="18"/>
-        <line num="243" type="stmt" count="18"/>
-        <line num="245" type="stmt" count="18"/>
-        <line num="247" type="stmt" count="18"/>
-        <line num="248" type="stmt" count="9"/>
-        <line num="249" type="stmt" count="9"/>
+        <line num="242" type="stmt" count="17"/>
+        <line num="243" type="stmt" count="17"/>
+        <line num="245" type="stmt" count="17"/>
+        <line num="247" type="stmt" count="17"/>
+        <line num="248" type="stmt" count="10"/>
+        <line num="249" type="stmt" count="10"/>
         <line num="253" type="stmt" count="24"/>
         <line num="256" type="stmt" count="24"/>
         <line num="258" type="stmt" count="24"/>
         <line num="259" type="stmt" count="24"/>
         <line num="260" type="stmt" count="24"/>
-        <line num="263" type="stmt" count="24"/>
-        <line num="265" type="stmt" count="24"/>
-        <line num="266" type="stmt" count="21"/>
-        <line num="267" type="stmt" count="21"/>
-        <line num="270" type="stmt" count="22"/>
+        <line num="263" type="stmt" count="23"/>
+        <line num="265" type="stmt" count="23"/>
+        <line num="266" type="stmt" count="20"/>
+        <line num="267" type="stmt" count="20"/>
+        <line num="270" type="stmt" count="23"/>
         <line num="273" type="stmt" count="24"/>
         <line num="285" type="method" name="generateParagraph" visibility="private" complexity="4" crap="20" count="0"/>
         <line num="287" type="stmt" count="0"/>
@@ -24411,6 +24421,6 @@
         <metrics loc="261" ncloc="129" classes="1" methods="11" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="31" elements="55" coveredelements="36"/>
       </file>
     </package>
-    <metrics files="1150" loc="114793" ncloc="54264" classes="545" methods="3727" coveredmethods="1747" conditionals="0" coveredconditionals="0" statements="13444" coveredstatements="8096" elements="17171" coveredelements="9843"/>
+    <metrics files="1150" loc="114812" ncloc="54284" classes="545" methods="3730" coveredmethods="1757" conditionals="0" coveredconditionals="0" statements="13451" coveredstatements="8150" elements="17181" coveredelements="9907"/>
   </project>
 </coverage>

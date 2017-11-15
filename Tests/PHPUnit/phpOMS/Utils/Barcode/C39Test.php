@@ -24,7 +24,7 @@ class C39Test extends \PHPUnit\Framework\TestCase
     public function testImage()
     {
         $path = __DIR__ . '/c39.png';
-        if(file_exists($path)) {
+        if (file_exists($path)) {
             unlink($path);
         }
 

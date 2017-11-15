@@ -745,11 +745,11 @@ class Repository
      */
     public function getAdditionsRemovalsByContributor(Author $author, \DateTime $start = null, \DateTime $end = null) : array
     {
-        if(!isset($start)) {
+        if (!isset($start)) {
             $start = new \DateTime('1900-01-01');
         }
 
-        if(!isset($end)) {
+        if (!isset($end)) {
             $end = new \DateTime('now');
         }
 
