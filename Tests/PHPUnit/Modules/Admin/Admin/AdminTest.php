@@ -30,6 +30,20 @@ use phpOMS\Dispatcher\Dispatcher;
 
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    public function testIntegration()
+    {
+        $app = new class extends ApplicationAbstract {};
+        $app->dbPool = $GLOBALS['dbpool'];
+
+        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
+
+        $moduleManager->deactivate('Admin');
+        self::assertFalse($moduleManager->isActive('Admin'));
+
+        $moduleManager->activate('Admin');
+        self::assertTrue($moduleManager->isActive('Admin'));
+    }
+
     public function testRequestLoads()
     {
         $app = new class extends ApplicationAbstract {};

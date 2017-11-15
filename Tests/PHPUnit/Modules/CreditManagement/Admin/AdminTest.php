@@ -38,5 +38,11 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
         $moduleManager->install('CreditManagement');
+
+        $moduleManager->deactivate('CreditManagement');
+        self::assertFalse($moduleManager->isActive('CreditManagement'));
+
+        $moduleManager->activate('CreditManagement');
+        self::assertTrue($moduleManager->isActive('CreditManagement'));
     }
 }

@@ -42,6 +42,12 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
         $moduleManager->install('Checklist');
+
+        $moduleManager->deactivate('Checklist');
+        self::assertFalse($moduleManager->isActive('Checklist'));
+
+        $moduleManager->activate('Checklist');
+        self::assertTrue($moduleManager->isActive('Checklist'));
     }
 
     public function testRequestLoads()

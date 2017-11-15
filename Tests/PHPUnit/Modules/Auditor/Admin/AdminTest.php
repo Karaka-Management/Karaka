@@ -42,6 +42,12 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
         $moduleManager->install('Auditor');
+
+        $moduleManager->deactivate('Auditor');
+        self::assertFalse($moduleManager->isActive('Auditor'));
+
+        $moduleManager->activate('Auditor');
+        self::assertTrue($moduleManager->isActive('Auditor'));
     }
 
     public function testRequestLoads()

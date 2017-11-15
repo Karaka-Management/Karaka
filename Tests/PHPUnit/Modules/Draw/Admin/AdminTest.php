@@ -42,6 +42,12 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
         $moduleManager->install('Draw');
+
+        $moduleManager->deactivate('Draw');
+        self::assertFalse($moduleManager->isActive('Draw'));
+
+        $moduleManager->activate('Draw');
+        self::assertTrue($moduleManager->isActive('Draw'));
     }
 
     public function testRequestLoads()

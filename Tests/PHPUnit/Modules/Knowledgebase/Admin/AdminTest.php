@@ -42,6 +42,12 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
         $moduleManager->install('Knowledgebase');
+
+        $moduleManager->deactivate('Knowledgebase');
+        self::assertFalse($moduleManager->isActive('Knowledgebase'));
+
+        $moduleManager->activate('Knowledgebase');
+        self::assertTrue($moduleManager->isActive('Knowledgebase'));
     }
 
     public function testRequestLoads()

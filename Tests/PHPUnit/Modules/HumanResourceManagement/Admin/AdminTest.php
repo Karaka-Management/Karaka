@@ -38,5 +38,11 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
         $moduleManager->install('HumanResourceManagement');
+
+        $moduleManager->deactivate('HumanResourceManagement');
+        self::assertFalse($moduleManager->isActive('HumanResourceManagement'));
+
+        $moduleManager->activate('HumanResourceManagement');
+        self::assertTrue($moduleManager->isActive('HumanResourceManagement'));
     }
 }

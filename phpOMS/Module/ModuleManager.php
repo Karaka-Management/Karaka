@@ -183,14 +183,16 @@ class ModuleManager
 
     /**
      * Get all installed modules that are active (not just on this uri).
+     * 
+     * @param bool $useCache Use Cache or load new
      *
      * @return array
      *
      * @since  1.0.0
      */
-    public function getActiveModules() : array
+    public function getActiveModules(bool $useCache = true) : array
     {
-        if ($this->active === null) {
+        if ($this->active === null || !$useCache) {
             switch ($this->app->dbPool->get('select')->getType()) {
                 case DatabaseType::MYSQL:
                     $sth = $this->app->dbPool->get('select')->con->prepare('SELECT `module_path` FROM `' . $this->app->dbPool->get('select')->prefix . 'module` WHERE `module_active` = 1');
@@ -201,6 +203,11 @@ class ModuleManager
         }
 
         return $this->active;
+    }
+
+    public function isActive(string $module) : bool
+    {
+        return in_array($module, $this->getActiveModules(false));
     }
 
     /**
@@ -246,50 +253,17 @@ class ModuleManager
     }
 
     /**
-     * Deactivate module.
-     *
-     * @param string $module Module name
-     *
-     * @return bool
-     *
-     * @since  1.0.0
-     */
-    public function deactivate(string $module) : bool
-    {
-        $installed = $this->getInstalledModules();
-
-        if (isset($installed[$module])) {
-            return false;
-        }
-
-        try {
-            $info = $this->loadInfo($module);
-
-            $this->deactivateModule($info);
-
-            return true;
-        } catch (PathException $e) {
-            // todo: handle module doesn't exist or files are missing
-            //echo $e->getMessage();
-
-            return false;
-        } catch (\Exception $e) {
-            //echo $e->getMessage();
-
-            return false;
-        }
-    }
-
-    /**
      * Get all installed modules.
+     * 
+     * @param bool $useCache Use Cache
      *
      * @return array
      *
      * @since  1.0.0
      */
-    public function getInstalledModules() : array
+    public function getInstalledModules(bool $useCache = true) : array
     {
-        if ($this->installed === null) {
+        if ($this->installed === null || !$useCache) {
             switch ($this->app->dbPool->get('select')->getType()) {
                 case DatabaseType::MYSQL:
                     $sth = $this->app->dbPool->get('select')->con->prepare('SELECT `module_id`,`module_theme`,`module_version` FROM `' . $this->app->dbPool->get('select')->prefix . 'module`');
@@ -328,6 +302,41 @@ class ModuleManager
     /**
      * Deactivate module.
      *
+     * @param string $module Module name
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
+    public function deactivate(string $module) : bool
+    {
+        $installed = $this->getInstalledModules(false);
+
+        if (!isset($installed[$module])) {
+            return false;
+        }
+
+        try {
+            $info = $this->loadInfo($module);
+
+            $this->deactivateModule($info);
+
+            return true;
+        } catch (PathException $e) {
+            // todo: handle module doesn't exist or files are missing
+            //echo $e->getMessage();
+
+            return false;
+        } catch (\Exception $e) {
+            //echo $e->getMessage();
+
+            return false;
+        }
+    }
+
+    /**
+     * Deactivate module.
+     *
      * @param InfoManager $info Module info
      *
      * @return void
@@ -359,9 +368,9 @@ class ModuleManager
      */
     public function activate(string $module) : bool
     {
-        $installed = $this->getInstalledModules();
+        $installed = $this->getInstalledModules(false);
 
-        if (isset($installed[$module])) {
+        if (!isset($installed[$module])) {
             return false;
         }
 
@@ -441,7 +450,7 @@ class ModuleManager
      */
     public function install(string $module) : bool
     {
-        $installed = $this->getInstalledModules();
+        $installed = $this->getInstalledModules(false);
 
         if (isset($installed[$module])) {
             return false;

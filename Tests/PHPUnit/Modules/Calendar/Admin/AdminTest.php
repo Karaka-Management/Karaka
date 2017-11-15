@@ -42,6 +42,12 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
         $moduleManager->install('Calendar');
+
+        $moduleManager->deactivate('Calendar');
+        self::assertFalse($moduleManager->isActive('Calendar'));
+
+        $moduleManager->activate('Calendar');
+        self::assertTrue($moduleManager->isActive('Calendar'));
     }
 
     public function testRequestLoads()

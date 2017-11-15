@@ -42,6 +42,12 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
         $moduleManager->install('Kanban');
+
+        $moduleManager->deactivate('Kanban');
+        self::assertFalse($moduleManager->isActive('Kanban'));
+
+        $moduleManager->activate('Kanban');
+        self::assertTrue($moduleManager->isActive('Kanban'));
     }
 
     public function testRequestLoads()

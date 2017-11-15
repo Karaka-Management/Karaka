@@ -50,6 +50,12 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
         $moduleManager->install('Media');
+
+        $moduleManager->deactivate('Media');
+        self::assertFalse($moduleManager->isActive('Media'));
+
+        $moduleManager->activate('Media');
+        self::assertTrue($moduleManager->isActive('Media'));
     }
 
     public function testRequestLoads()

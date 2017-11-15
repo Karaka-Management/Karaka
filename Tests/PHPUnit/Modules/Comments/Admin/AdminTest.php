@@ -38,5 +38,11 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
         $moduleManager->install('Comments');
+
+        $moduleManager->deactivate('Comments');
+        self::assertFalse($moduleManager->isActive('Comments'));
+
+        $moduleManager->activate('Comments');
+        self::assertTrue($moduleManager->isActive('Comments'));
     }
 }

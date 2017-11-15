@@ -38,5 +38,11 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
         $moduleManager->install('Balance');
+
+        $moduleManager->deactivate('Balance');
+        self::assertFalse($moduleManager->isActive('Balance'));
+
+        $moduleManager->activate('Balance');
+        self::assertTrue($moduleManager->isActive('Balance'));
     }
 }

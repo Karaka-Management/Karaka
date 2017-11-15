@@ -38,5 +38,11 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
         $moduleManager->install('Workflow');
+
+        $moduleManager->deactivate('Workflow');
+        self::assertFalse($moduleManager->isActive('Workflow'));
+
+        $moduleManager->activate('Workflow');
+        self::assertTrue($moduleManager->isActive('Workflow'));
     }
 }
