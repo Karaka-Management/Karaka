@@ -29,10 +29,7 @@ class C39Test extends \PHPUnit\Framework\TestCase
         }
 
         $img = new C39('ABCDEFG0123+-', 150, 50);
-        $res = $img->get();
-
-        imagepng($res, $path);
-        imagedestroy($res);
+        $img->saveToPngFile($path);
 
         self::assertTrue(file_exists($path));
     }

@@ -29,10 +29,7 @@ class C25Test extends \PHPUnit\Framework\TestCase
         }
 
         $img = new C25('1234567890', 150, 50);
-        $res = $img->get();
-
-        imagepng($res, $path);
-        imagedestroy($res);
+        $img->saveToPngFile($path);
 
         self::assertTrue(file_exists($path));
     }

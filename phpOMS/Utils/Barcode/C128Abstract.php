@@ -228,6 +228,40 @@ abstract class C128Abstract
     }
 
     /**
+     * Save to file
+     *
+     * @param string $file File path/name
+     * 
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function saveToPngFile(string $file) /* : void */
+    {
+        $res = $this->get();
+
+        imagepng($res, $file);
+        imagedestroy($res);
+    }
+
+    /**
+     * Save to file
+     *
+     * @param string $file File path/name
+     * 
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function saveToJpgFile(string $file) /* : void */
+    {
+        $res = $this->get();
+
+        imagejpeg($res, $file);
+        imagedestroy($res);
+    }
+
+    /**
      * Generate weighted code string
      *
      * @return string

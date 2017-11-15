@@ -29,10 +29,7 @@ class C128cTest extends \PHPUnit\Framework\TestCase
         }
 
         $img = new C128c('412163', 200, 50);
-        $res = $img->get();
-
-        imagepng($res, $path);
-        imagedestroy($res);
+        $img->saveToPngFile($path);
 
         self::assertTrue(file_exists($path));
     }
