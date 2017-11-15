@@ -17,7 +17,7 @@ namespace phpOMS\Model\Html;
 
 use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
-
+use phpOMS\Localization\ISO639x1Enum;
 
 /**
  * Head class.
@@ -39,7 +39,7 @@ class Head implements RenderableInterface
      * @var string
      * @since 1.0.0
      */
-    private $language = '';
+    private $language = ISO639x1Enum::_EN;
 
     /**
      * Page title.
@@ -167,6 +167,18 @@ class Head implements RenderableInterface
     }
 
     /**
+     * Get page language.
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getLanguage() : string
+    {
+        return $this->language;
+    }
+
+    /**
      * Get the evaluated contents of the object.
      *
      * @return string
@@ -176,11 +188,9 @@ class Head implements RenderableInterface
     public function render() : string
     {
         $head = '';
-        if ($this->hasContent) {
-            $head .= $this->meta->render();
-            $head .= $this->renderStyle();
-            $head .= $this->renderScript();
-        }
+        $head .= $this->meta->render();
+        $head .= $this->renderStyle();
+        $head .= $this->renderScript();
 
         return $head;
     }

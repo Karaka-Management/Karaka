@@ -21,8 +21,13 @@ use phpOMS\Model\Html\Meta;
 
 class MetaTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testDefault()
     {
-        self::markTestIncomplete();
+        $meta = new Meta();
+        self::assertEquals('', $meta->getDescription());
+        self::assertEquals('', $meta->getCharset());
+        self::assertEquals('', $meta->getAuthor());
+        self::assertEquals([], $meta->getKeywords());
+        self::assertEquals('<meta name="generator" content="Orange Management">', $meta->render());
     }
 }

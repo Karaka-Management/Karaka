@@ -224,7 +224,7 @@ abstract class C128Abstract
     {
         $codeString = static::$CODE_START . $this->generateCodeString() . static::$CODE_END;
 
-        return $this->createImage($codeString, 20);
+        return $this->createImage($codeString);
     }
 
     /**
@@ -291,55 +291,59 @@ abstract class C128Abstract
      * Create barcode image
      *
      * @param string $codeString Code string to render
-     * @param int    $codeLength Barcode length (based on $codeString)
      *
      * @return mixed
      *
      * @since  1.0.0
      */
-    protected function createImage(string $codeString, int $codeLength = 20)
+    protected function createImage(string $codeString)
     {
-        for ($i = 1; $i <= strlen($codeString); $i++) {
-            $codeLength = $codeLength + (int) (substr($codeString, ($i - 1), 1));
-        }
-
-        if ($this->orientation === OrientationType::HORIZONTAL) {
-            $imgWidth  = max($codeLength, $this->dimension['width']);
-            $imgHeight = $this->dimension['height'];
-        } else {
-            $imgWidth  = $this->dimension['width'];
-            $imgHeight = max($codeLength, $this->dimension['height']);
-        }
-
-        $image    = imagecreate($imgWidth, $imgHeight);
-        $black    = imagecolorallocate($image, 0, 0, 0);
-        $white    = imagecolorallocate($image, 255, 255, 255);
-        $location = 0;
-        $length   = strlen($codeString);
+        $dimensions = $this->calculateDimensions($codeString);
+        $image      = imagecreate($dimensions['width'], $dimensions['height']);
+        $black      = imagecolorallocate($image, 0, 0, 0);
+        $white      = imagecolorallocate($image, 255, 255, 255);
+        $location   = 0;
+        $length     = strlen($codeString);
         imagefill($image, 0, 0, $white);
 
         for ($position = 1; $position <= $length; $position++) {
             $cur_size = $location + (int) (substr($codeString, ($position - 1), 1));
 
             if ($this->orientation === OrientationType::HORIZONTAL) {
-                imagefilledrectangle($image, $location + $this->margin, 0 + $this->margin, $cur_size + $this->margin, $imgHeight - $this->margin, ($position % 2 == 0 ? $white : $black));
+                imagefilledrectangle($image, $location + $this->margin, 0 + $this->margin, $cur_size + $this->margin, $dimensions['height'] - $this->margin, ($position % 2 == 0 ? $white : $black));
             } else {
-                imagefilledrectangle($image, 0 + $this->margin, $location + $this->margin, $imgWidth - $this->margin, $cur_size + $this->margin, ($position % 2 == 0 ? $white : $black));
+                imagefilledrectangle($image, 0 + $this->margin, $location + $this->margin, $dimensions['width'] - $this->margin, $cur_size + $this->margin, ($position % 2 == 0 ? $white : $black));
             }
 
             $location = $cur_size;
         }
 
-        if($location + $this->margin < $this->dimension['width']) {
-            if ($this->orientation === OrientationType::HORIZONTAL) {
-                $image = imagecrop($image, [
-                    'x' => 0, 'y' => 0, 
-                    'width' => $location + $this->margin * 2, 
-                    'height' => $this->dimension['height']]
-                );
-            }
+        return $image;
+    }
+
+    private function calculateCodeLength(string $codeString) : int
+    {
+        $codeLength = 0;
+        for ($i = 1; $i <= strlen($codeString); $i++) {
+            $codeLength = $codeLength + (int) (substr($codeString, ($i - 1), 1));
         }
 
-        return $image;
+        return $codeLength;
+    }
+
+    private function calculateDimensions(string $codeString) : array
+    {
+        $codeLength = $this->calculateCodeLength($codeString);
+        $dimensions = ['width' => 0, 'height' => 0];
+
+        if ($this->orientation === OrientationType::HORIZONTAL) {
+            $dimensions['width']  = $codeLength + $this->margin * 2;
+            $dimensions['height'] = $this->dimension['height'];
+        } else {
+            $dimensions['width']  = $this->dimension['width'];
+            $dimensions['height'] = $codeLength + $this->margin;
+        }
+
+        return $dimensions;
     }
 }
