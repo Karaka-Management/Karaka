@@ -80,22 +80,6 @@ class C128a extends C128Abstract
     protected static $CODE_END = '2331112';
 
     /**
-     * Constructor
-     *
-     * @param string $content     Content to encrypt
-     * @param int    $size        Barcode height
-     * @param int    $orientation Orientation of the barcode
-     *
-     * @todo   : add mirror parameter
-     *
-     * @since  1.0.0
-     */
-    public function __construct(string $content = '', int $size = 20, int $orientation = OrientationType::HORIZONTAL)
-    {
-        parent::__construct(strtoupper($content), $size, $orientation);
-    }
-
-    /**
      * Set content to encrypt
      *
      * @param string $content Content to encrypt

@@ -64,16 +64,17 @@ class C39 extends C128Abstract
      * Constructor
      *
      * @param string $content     Content to encrypt
-     * @param int    $size        Barcode height
+     * @param int    $width        Barcode width
+     * @param int    $height        Barcode height
      * @param int    $orientation Orientation of the barcode
      *
      * @todo   : add mirror parameter
      *
      * @since  1.0.0
      */
-    public function __construct(string $content = '', int $size = 20, int $orientation = OrientationType::HORIZONTAL)
+    public function __construct(string $content = '', int $width = 100, int $height = 20, int $orientation = OrientationType::HORIZONTAL)
     {
-        parent::__construct(strtoupper($content), $size, $orientation);
+        parent::__construct($content, $width, $height, $orientation);
     }
 
     /**

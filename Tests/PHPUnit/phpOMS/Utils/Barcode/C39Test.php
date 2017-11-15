@@ -21,8 +21,19 @@ use phpOMS\Utils\Barcode\C39;
 
 class C39Test extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testImage()
     {
-        self::markTestIncomplete();
+        $path = __DIR__ . '/c39.png';
+        if(file_exists($path)) {
+            unlink($path);
+        }
+
+        $img = new C39('ABCDEFG0123+-', 150, 50);
+        $res = $img->get();
+
+        imagepng($res, $path);
+        imagedestroy($res);
+
+        self::assertTrue(file_exists($path));
     }
 }

@@ -21,8 +21,19 @@ use phpOMS\Utils\Barcode\C128a;
 
 class C128aTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testImage()
     {
-        self::markTestIncomplete();
+        $path = __DIR__ . '/c128a.png';
+        if(file_exists($path)) {
+            unlink($path);
+        }
+
+        $img = new C128a('ABCDEFG0123()+-', 200, 50);
+        $res = $img->get();
+
+        imagepng($res, $path);
+        imagedestroy($res);
+
+        self::assertTrue(file_exists($path));
     }
 }

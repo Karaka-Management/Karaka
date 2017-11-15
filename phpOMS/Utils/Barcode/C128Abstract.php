@@ -79,6 +79,16 @@ abstract class C128Abstract
     protected $dimension = ['width' => 0, 'height' => 0];
 
     /**
+     * Barcode dimension.
+     *
+     * @todo  : Implement!
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    protected $margin = 10;
+
+    /**
      * Content to encrypt.
      *
      * @var string|int
@@ -93,14 +103,6 @@ abstract class C128Abstract
      * @since 1.0.0
      */
     protected $showText = true;
-
-    /**
-     * Margin for barcode (padding).
-     *
-     * @var int[]
-     * @since 1.0.0
-     */
-    protected $margin = ['top' => 0, 'right' => 4, 'bottom' => 0, 'left' => 4];
 
     /**
      * Background color.
@@ -130,7 +132,7 @@ abstract class C128Abstract
      *
      * @since  1.0.0
      */
-    public function __construct(string $content = '', int $width = 20, int $height = 20, int $orientation = OrientationType::HORIZONTAL)
+    public function __construct(string $content = '', int $width = 100, int $height = 20, int $orientation = OrientationType::HORIZONTAL)
     {
         $this->content = $content;
         $this->setDimension($width, $height);
@@ -157,6 +159,18 @@ abstract class C128Abstract
 
         $this->dimension['width']  = $width;
         $this->dimension['height'] = $height;
+    }
+
+    /**
+     * Set barcode margins
+     *
+     * @param int $margin  Barcode margin
+     *
+     * @since  1.0.0
+     */
+    public function setMargin(int $margin) /* : void */
+    {
+        $this->margin = $margin;
     }
 
     /**
@@ -235,7 +249,6 @@ abstract class C128Abstract
         }
 
         $codeString .= static::$CODEARRAY[$keys[($checksum - (intval($checksum / 103) * 103))]];
-        $codeString = static::$CODE_START . $codeString . static::$CODE_END;
 
         return $codeString;
     }
@@ -275,12 +288,22 @@ abstract class C128Abstract
             $cur_size = $location + (int) (substr($codeString, ($position - 1), 1));
 
             if ($this->orientation === OrientationType::HORIZONTAL) {
-                imagefilledrectangle($image, $location, 0, $cur_size, $imgHeight, ($position % 2 == 0 ? $white : $black));
+                imagefilledrectangle($image, $location + $this->margin, 0 + $this->margin, $cur_size + $this->margin, $imgHeight - $this->margin, ($position % 2 == 0 ? $white : $black));
             } else {
-                imagefilledrectangle($image, 0, $location, $imgWidth, $cur_size, ($position % 2 == 0 ? $white : $black));
+                imagefilledrectangle($image, 0 + $this->margin, $location + $this->margin, $imgWidth - $this->margin, $cur_size + $this->margin, ($position % 2 == 0 ? $white : $black));
             }
 
             $location = $cur_size;
+        }
+
+        if($location + $this->margin < $this->dimension['width']) {
+            if ($this->orientation === OrientationType::HORIZONTAL) {
+                $image = imagecrop($image, [
+                    'x' => 0, 'y' => 0, 
+                    'width' => $location + $this->margin * 2, 
+                    'height' => $this->dimension['height']]
+                );
+            }
         }
 
         return $image;

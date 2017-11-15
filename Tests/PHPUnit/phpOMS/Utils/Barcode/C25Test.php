@@ -21,8 +21,19 @@ use phpOMS\Utils\Barcode\C25;
 
 class C25Test extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testImage()
     {
-        self::markTestIncomplete();
+        $path = __DIR__ . '/c25.png';
+        if(file_exists($path)) {
+            unlink($path);
+        }
+
+        $img = new C25('1234567890', 150, 50);
+        $res = $img->get();
+
+        imagepng($res, $path);
+        imagedestroy($res);
+
+        self::assertTrue(file_exists($path));
     }
 }

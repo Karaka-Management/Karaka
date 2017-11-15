@@ -21,8 +21,19 @@ use phpOMS\Utils\Barcode\Codebar;
 
 class CodebarTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testImage()
     {
-        self::markTestIncomplete();
+        $path = __DIR__ . '/codebar.png';
+        if(file_exists($path)) {
+            unlink($path);
+        }
+
+        $img = new Codebar('412163', 200, 50);
+        $res = $img->get();
+
+        imagepng($res, $path);
+        imagedestroy($res);
+
+        self::assertTrue(file_exists($path));
     }
 }
