@@ -30,7 +30,7 @@ use phpOMS\Dispatcher\Dispatcher;
 
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
-    public function testIntegration()
+    public function testModuleIntegration()
     {
         $app = new class extends ApplicationAbstract {};
         $app->dbPool = $GLOBALS['dbpool'];
