@@ -151,7 +151,7 @@ class QRDecomposition
         return $this->matrix;
     }
 
-    public function solve(Matrix $B) 
+    public function solve(Matrix $B) : Matrix
     {
         if ($B->getRowDimension() !== $this->m) {
         }
@@ -189,6 +189,6 @@ class QRDecomposition
         $matrix = new Matrix();
         $matrix->setArray($X);
 
-        return $matrix->getMatrix(0, $this->n - 1, 0, $nx);
+        return $matrix;
     }
 }
