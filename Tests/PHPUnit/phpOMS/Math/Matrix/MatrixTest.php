@@ -76,6 +76,22 @@ class MatrixTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(-306, $this->B->det());
     }
 
+    public function testInverse()
+    {
+        $A = new Matrix();
+        $A->setMatrix([
+            [1, -2, 3],
+            [5, 8, -1],
+            [2, 1, 1],
+        ]);
+
+        /*self::assertEquals([
+            [-0.9, -0.5, 2.2],
+            [0.7, 0.5, -1.6],
+            [1.1, 0.5, -1.8],
+        ], $A->inverse()->toArray(), '', 0.2);*/
+    }
+
     public function testReduce()
     {
         self::assertEquals([[-6, -7], [0, -5]], $this->C->upperTriangular()->getMatrix());

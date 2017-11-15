@@ -33,8 +33,10 @@ class Vector extends Matrix
      *
      * @since  1.0.0
      */
-    public function __construct(int $m)
+    public function __construct(int $m = 1)
     {
         parent::__construct($m);
     }
+
+    // todo: maybe overwrite setMatrix since only one column (is only a visual improvement)
 }

@@ -40,40 +40,41 @@ class LUDecomposition
         $LUrowi = $LUcolj = [];
 
         for ($j = 0; $j < $this->n; ++$j) {
-            // Make a copy of the j-th column to localize references.
             for ($i = 0; $i < $this->m; ++$i) {
                 $LUcolj[$i] = &$this->LU[$i][$j];
             }
-            // Apply previous transformations.
+
             for ($i = 0; $i < $this->m; ++$i) {
                 $LUrowi = $this->LU[$i];
-                // Most of the time is spent in the following dot product.
                 $kmax = min($i, $j);
                 $s = 0.0;
+
                 for ($k = 0; $k < $kmax; ++$k) {
                     $s += $LUrowi[$k] * $LUcolj[$k];
                 }
                 $LUrowi[$j] = $LUcolj[$i] -= $s;
             }
-            // Find pivot and exchange if necessary.
+
             $p = $j;
             for ($i = $j + 1; $i < $this->m; ++$i) {
                 if (abs($LUcolj[$i]) > abs($LUcolj[$p])) {
                     $p = $i;
                 }
             }
+
             if ($p != $j) {
                 for ($k = 0; $k < $this->n; ++$k) {
                     $t = $this->LU[$p][$k];
                     $this->LU[$p][$k] = $this->LU[$j][$k];
                     $this->LU[$j][$k] = $t;
                 }
+
                 $k = $this->piv[$p];
                 $this->piv[$p] = $this->piv[$j];
                 $this->piv[$j] = $k;
                 $this->pivSign = $this->pivSign * -1;
             }
-            // Compute multipliers.
+
             if (($j < $this->m) && ($this->LU[$j][$j] != 0.0)) {
                 for ($i = $j + 1; $i < $this->m; ++$i) {
                     $this->LU[$i][$j] /= $this->LU[$j][$j];
@@ -82,7 +83,7 @@ class LUDecomposition
         }
     }
 
-    public function getL()
+    public function getL() : Matrix
     {
         $L = [[]];
 
@@ -104,7 +105,7 @@ class LUDecomposition
         return $matrix;
     }
 
-    public function getU()
+    public function getU() : Matrix
     {
         $U = [[]];
 
@@ -150,21 +151,25 @@ class LUDecomposition
         return $d;
     }
 
-    public function solve(Matrix $B)
+    public function solve(Matrix $B) : Matrix
     {
         if ($B->getM() !== $this->m) {
+            throw new \Exception();
         }
 
         if (!$this->isNonsingular()) {
+            throw new \Exception();
         }
 
-        $nx = $B->getM();
-        $X  = $B->getMatrix($this->piv, 0, $nx - 1);
+        $n = $B->getN();
+        $X  = $B->getMatrix($this->piv, 0, $n - 1);
+        // todo: fix get extract
+        
 
         // Solve L*Y = B(piv,:)
         for ($k = 0; $k < $this->n; ++$k) {
             for ($i = $k + 1; $i < $this->n; ++$i) {
-                for ($j = 0; $j < $nx; ++$j) {
+                for ($j = 0; $j < $n; ++$j) {
                     $X[$i][$j] -= $X[$k][$j] * $this->LU[$i][$k];
                 }
             }
@@ -172,16 +177,19 @@ class LUDecomposition
 
         // Solve U*X = Y;
         for ($k = $this->n - 1; $k >= 0; --$k) {
-            for ($j = 0; $j < $nx; ++$j) {
+            for ($j = 0; $j < $n; ++$j) {
                 $X[$k][$j] /= $this->LU[$k][$k];
             }
             for ($i = 0; $i < $k; ++$i) {
-                for ($j = 0; $j < $nx; ++$j) {
+                for ($j = 0; $j < $n; ++$j) {
                     $X[$i][$j] -= $X[$k][$j] * $this->LU[$i][$k];
                 }
             }
         }
 
-        return $X;
+        $solution = new Matrix();
+        $solution->setMatrix($X);
+
+        return $solution;
     }
 }

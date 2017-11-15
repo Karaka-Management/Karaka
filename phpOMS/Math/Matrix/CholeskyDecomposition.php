@@ -21,8 +21,12 @@ class CholeskyDecomposition
 
     private $m = 0;
 
+    /**
+     * Is symmetric positive definite
+     */
     private $isSpd = true;
 
+    // see http://www.aip.de/groups/soe/local/numres/bookfpdf/f2-9.pdf
     public function __construct(Matrix $M)
     {
         $this->L = $M->toArray();
@@ -33,14 +37,15 @@ class CholeskyDecomposition
                 for ($sum = $this->L[$i][$j], $k = $i - 1; $k >= 0; --$k) {
                     $sum -= $this->L[$i][$k] * $this->L[$j][$k];
                 }
-                if ($i == $j) {
+
+                if ($i === $j) {
                     if ($sum >= 0) {
                         $this->L[$i][$i] = sqrt($sum);
                     } else {
                         $this->isSpd = false;
                     }
                 } else {
-                    if ($this->L[$i][$i] != 0) {
+                    if ($this->L[$i][$i] !== 0) {
                         $this->L[$j][$i] = $sum / $this->L[$i][$i];
                     }
                 }
@@ -52,12 +57,12 @@ class CholeskyDecomposition
         }
     }
 
-    public function isSpd()
+    public function isSpd() : bool
     {
         return $this->isSpd;
     }
 
-    public function getL()
+    public function getL() : Matrix
     {
         $matrix = new Matrix();
         $matrix->setMatrix($this->L);
@@ -65,41 +70,44 @@ class CholeskyDecomposition
         return $matrix;
     }
 
-    public function solve(Matrix $B) 
+    public function solve(Matrix $B) : Matrix
     {
         if ($B->getM() !== $this->m) {
-            // invalid dimension
+            throw new \Exception();
         }
 
         if (!$this->isSpd) {
-            // is not positive definite
+            throw new \Exception();
         }
 
-        $X  = $B->toArray();
-        $nx = $B->getN();
+        $X = $B->toArray();
+        $n = $B->getN();
 
-        for ($k = 0; $k < $this->m; ++$k) {
-            for ($i = $k + 1; $i < $this->m; ++$i) {
-                for ($j = 0; $j < $nx; ++$j) {
-                    $X[$i][$j] -= $X[$k][$j] * $this->L[$i][$k];
+        // Solve L*Y = B;
+        for ($k = 0; $k < $this->m; $k++) {
+	        for ($j = 0; $j < $n; $j++) {
+	            for ($i = 0; $i < $k ; $i++) {
+	                $X[$k][$j] -= $X[$i][$j] * $this->L[$k][$i];
                 }
-            }
-            for ($j = 0; $j < $nx; ++$j) {
-                $X[$k][$j] /= $this->L[$k][$k];
-            }
-        }
-
-        for ($k = $this->m - 1; $k >= 0; --$k) {
-            for ($j = 0; $j < $nx; ++$j) {
-                $X[$k][$j] /= $this->L[$k][$k];
-            }
-            for ($i = 0; $i < $k; ++$i) {
-                for ($j = 0; $j < $nx; ++$j) {
-                    $X[$i][$j] -= $X[$k][$j] * $this->L[$k][$i];
+               
+	            $X[$k][$j] /= $this->L[$k][$k];
+	        }
+	    }
+    
+        // Solve L'*X = Y;
+	    for ($k = $this->m - 1; $k >= 0; $k--) {
+	        for ($j = 0; $j < $n; $j++) {
+	            for ($i = $k + 1; $i < $this->m ; $i++) {
+	                $X[$k][$j] -= $X[$i][$j] * $this->L[$i][$k];
                 }
-            }
-        }
+               
+	            $X[$k][$j] /= $this->L[$k][$k];
+	        }
+	    }
 
-        return new Matrix($X, $this->m, $nx);
+        $solution = new Matrix();
+        $solution->setMatrix($X);
+
+        return $solution;
     }
 }

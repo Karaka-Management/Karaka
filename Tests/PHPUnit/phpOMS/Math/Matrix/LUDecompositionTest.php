@@ -18,31 +18,36 @@ namespace Tests\PHPUnit\phpOMS\Math\Matrix;
 require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
 
 use phpOMS\Math\Matrix\Matrix;
+use phpOMS\Math\Matrix\Vector;
 use phpOMS\Math\Matrix\LUDecomposition;
 
 class LUDecompositionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDecomposition()
     {
-        $this->B = new Matrix();
-        $this->B->setMatrix([
-            [1, 2, 3],
-            [4, 5, 6],
-            [7, 8, 9],
+        $B = new Matrix();
+        $B->setMatrix([
+            [25, 15, -5],
+            [15, 17, 0],
+            [-5, 0, 11],
         ]);
 
-        $lu = new LUDecomposition($this->B);
+        $lu = new LUDecomposition($B);
         
-/*        self::assertEquals([
+        self::assertEquals([
             [1, 0, 0],
-            [4, 1, 0],
-            [7, 2, 1],
+            [0.6, 1, 0],
+            [-0.2, 0.375, 1],
         ], $lu->getL()->toArray(), '', 0.2);
         
         self::assertEquals([
-            [1, 2, 3],
-            [0, -3, -6],
-            [0, 0, 0],
-        ], $lu->getU()->toArray(), '', 0.2);*/
+            [25, 15, -5],
+            [0, 8, 3],
+            [0, 0, 8.875],
+        ], $lu->getU()->toArray(), '', 0.2);
+
+        $vec = new Vector();
+        $vec->setMatrix([[40], [49], [28]]);
+        self::assertEquals([[1], [2], [3]], $lu->solve($vec)->toArray(), '', 0.2);
     }
 }
