@@ -128,7 +128,7 @@ class Polygon implements D2ShapeInterface
      */
     public function pointInPolygon(array $point) : int
     {
-        return self::isPointInPolygon($point, $this->coord);
+        return self::isPointInPolygon($point, $this->coord[] = $this->coord[0]);
     }
 
     /**
@@ -137,7 +137,7 @@ class Polygon implements D2ShapeInterface
      * @param array $point Point location
      * @param array $polygon Polygon definition
      *
-     * @return int
+     * @return int -1 inside polygon 0 on vertice 1 outside
      * 
      * @link http://erich.realtimerendering.com/ptinpoly/
      * @since  1.0.0
@@ -182,7 +182,7 @@ class Polygon implements D2ShapeInterface
             }
         }
 
-        if ($countIntersect % 2 != 0) {
+        if ($countIntersect % 2 !== 0) {
             return -1;
         }
 
@@ -293,17 +293,23 @@ class Polygon implements D2ShapeInterface
      */
     public function getSurface() : float
     {
-        $this->surface = 0.0;
-        $count         = count($this->coord);
+        return abs($this->getSignedSurface());
+    }
 
-        for ($i = 0; $i < $count - 2; $i++) {
-            $this->surface += $this->coord[$i]['x'] * $this->coord[$i + 1]['y'] - $this->coord[$i + 1]['x'] * $this->coord[$i]['y'];
+    private function getSignedSurface() : float
+    {
+        $count = count($this->coord);
+        $surface = 0;
+
+        for ($i = 0; $i < $count - 1; $i++) {
+            $surface += $this->coord[$i]['x'] * $this->coord[$i + 1]['y'] - $this->coord[$i + 1]['x'] * $this->coord[$i]['y'];
         }
 
-        $this->surface /= 2;
-        $this->surface = abs($this->surface);
+        $surface += $this->coord[$count - 1]['x'] * $this->coord[0]['y'] - $this->coord[0]['x'] * $this->coord[$count - 1]['y'];
 
-        return $this->surface;
+        $surface /= 2;
+
+        return $surface;
     }
 
     /**
@@ -347,7 +353,7 @@ class Polygon implements D2ShapeInterface
         $count           = count($this->coord);
         $this->perimeter = sqrt(($this->coord[0]['x'] - $this->coord[$count - 1]['x']) ** 2 + ($this->coord[0]['y'] - $this->coord[$count - 1]['y']) ** 2);
 
-        for ($i = 0; $i < $count - 2; $i++) {
+        for ($i = 0; $i < $count - 1; $i++) {
             $this->perimeter += sqrt(($this->coord[$i + 1]['x'] - $this->coord[$i]['x']) ** 2 + ($this->coord[$i + 1]['y'] - $this->coord[$i]['y']) ** 2);
         }
 
@@ -382,11 +388,20 @@ class Polygon implements D2ShapeInterface
 
         $count = count($this->coord);
 
-        for ($i = 0; $i < $count - 2; $i++) {
+        for($i = 0; $i < $count - 1; $i++) {
             $mult = ($this->coord[$i]['x'] * $this->coord[$i + 1]['y'] - $this->coord[$i + 1]['x'] * $this->coord[$i]['y']);
             $this->barycenter['x'] += ($this->coord[$i]['x'] + $this->coord[$i + 1]['x']) * $mult;
             $this->barycenter['y'] += ($this->coord[$i]['y'] + $this->coord[$i + 1]['y']) * $mult;
         }
+
+        $mult = ($this->coord[$count - 1]['x'] * $this->coord[0]['y'] - $this->coord[0]['x'] * $this->coord[$count - 1]['y']);
+        $this->barycenter['x'] += ($this->coord[$count - 1]['x'] + $this->coord[0]['x']) * $mult;
+        $this->barycenter['y'] += ($this->coord[$count - 1]['y'] + $this->coord[0]['y']) * $mult;
+
+        $surface = $this->getSignedSurface();
+
+        $this->barycenter['x'] = 1 / (6 * $surface) * $this->barycenter['x'];
+        $this->barycenter['y'] = 1 / (6 * $surface) * $this->barycenter['y'];
 
         return $this->barycenter;
     }
