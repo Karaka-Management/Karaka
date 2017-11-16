@@ -16,7 +16,6 @@ namespace Modules\Media\Models;
 
 use phpOMS\System\File\Local\Directory;
 
-
 /**
  * Upload.
  *
@@ -25,6 +24,7 @@ use phpOMS\System\File\Local\Directory;
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
+ * @codeCoverageIgnore
  */
 class UploadFile
 {
