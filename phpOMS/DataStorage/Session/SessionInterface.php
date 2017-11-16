@@ -91,4 +91,12 @@ interface SessionInterface
      */
     public function setSID($sid) /* : void */;
 
+    /**
+     * Lock session from further adjustments.
+     * 
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function lock() /* : void */;
 }

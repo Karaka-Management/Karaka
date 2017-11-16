@@ -147,11 +147,9 @@ class HttpSession implements SessionInterface
     }
 
     /**
-     * Lock session from further adjustments.
-     *
-     * @since  1.0.0
+     * {@inheritdoc}
      */
-    public function lock()
+    public function lock() /* : void */
     {
         self::$isLocked = true;
     }
