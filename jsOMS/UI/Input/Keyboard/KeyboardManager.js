@@ -87,6 +87,7 @@
         const actions   = this.elements[element],
             length    = actions.length,
             keyLength = this.down.length;
+
         let match     = false;
 
         for (let i = 0; i < length; i++) {
@@ -95,9 +96,9 @@
                     match = false;
 
                     break;
-                } else {
-                    match = true;
-                }
+                } 
+                
+                match = true;
             }
 
             if (match) {
