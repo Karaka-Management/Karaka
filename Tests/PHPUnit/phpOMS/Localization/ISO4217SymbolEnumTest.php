@@ -21,8 +21,9 @@ use phpOMS\Localization\ISO4217SymbolEnum;
 
 class ISO4217SymbolEnumTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testEnum()
     {
-        self::markTestIncomplete();
+        $enum = ISO4217SymbolEnum::getConstants();
+        self::assertEquals(109, count($enum));
     }
 }

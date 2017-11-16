@@ -21,8 +21,11 @@ use phpOMS\Math\Matrix\Vector;
 
 class VectorTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testDefault()
     {
-        self::markTestIncomplete();
+        self::assertInstanceOf('\phpOMS\Math\Matrix\Vector', new Vector());
+
+        $vec = new Vector(5);
+        self::assertEquals(5, count($vec->toArray()));
     }
 }

@@ -29,7 +29,7 @@ class TestUtils
     /**
      * Set private object member
      *
-     * @param object $obj Object to modify
+     * @param object||string $obj Object to modify
      * @param string $name Member name to modify
      * @param mixed $value Value to set
      *
@@ -39,7 +39,7 @@ class TestUtils
      */
     public static function setMember(/* object */ $obj, string $name, $value) : bool
     {
-        $reflectionClass = new \ReflectionClass(get_class($obj));
+        $reflectionClass = new \ReflectionClass(is_string($obj) ? $obj : get_class($obj));
         
         if (!$reflectionClass->hasProperty($name)) {
             return false;
@@ -63,16 +63,16 @@ class TestUtils
     /**
      * Get private object member
      *
-     * @param object $obj Object to read
+     * @param object||string $obj Object to read
      * @param string $name Member name to read
      *
      * @return mixed Returns the member variable value
      *
      * @since  1.0.0
      */
-    public static function getMember(/* object */ $obj, string $name) 
+    public static function getMember($obj, string $name) 
     {
-        $reflectionClass = new \ReflectionClass(get_class($obj));
+        $reflectionClass = new \ReflectionClass(is_string($obj) ? $obj : get_class($obj));
         
         if (!$reflectionClass->hasProperty($name)) {
             return null;

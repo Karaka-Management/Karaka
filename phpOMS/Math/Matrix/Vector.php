@@ -37,6 +37,4 @@ class Vector extends Matrix
     {
         parent::__construct($m);
     }
-
-    // todo: maybe overwrite setMatrix since only one column (is only a visual improvement)
 }

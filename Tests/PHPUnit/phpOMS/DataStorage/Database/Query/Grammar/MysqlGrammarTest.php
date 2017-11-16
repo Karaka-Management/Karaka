@@ -18,11 +18,13 @@ namespace Tests\PHPUnit\phpOMS\DataStorage\Database\Query\Grammar;
 require_once __DIR__ . '/../../../../../../../phpOMS/Autoloader.php';
 
 use phpOMS\DataStorage\Database\Query\Grammar\MysqlGrammar;
+use phpOMS\Utils\TestUtils;
 
 class MysqlGrammarTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testDefault()
     {
-        self::markTestIncomplete();
+        self::assertInstanceOf('\phpOMS\DataStorage\Database\Query\Grammar\Grammar', new MysqlGrammar());
+        self::assertEquals('`', TestUtils::getMember(new MysqlGrammar(), 'systemIdentifier'));
     }
 }

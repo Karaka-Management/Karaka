@@ -21,9 +21,9 @@ use phpOMS\DataStorage\Database\Query\Grammar\MicrosoftGrammar;
 
 class MicrosoftGrammarTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testDefault()
     {
-        self::markTestIncomplete();
+        self::assertInstanceOf('\phpOMS\DataStorage\Database\Query\Grammar\Grammar', new MicrosoftGrammar());
     }
 }
 
