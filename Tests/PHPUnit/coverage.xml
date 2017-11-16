@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1510832597">
-  <project timestamp="1510832597">
+<coverage generated="1510837663">
+  <project timestamp="1510837663">
     <package name="Model\Message">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Model/Message/Dom.php">
         <class name="Dom" namespace="Model\Message" fullPackage="Model" category="Modules" package="Model">
@@ -15157,12 +15157,12 @@
         <class name="Matrix" namespace="phpOMS\Math\Matrix" fullPackage="phpOMS" category="Framework" package="phpOMS">
           <metrics complexity="87" methods="36" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="195" coveredstatements="109" elements="231" coveredelements="128"/>
         </class>
-        <line num="71" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="10"/>
-        <line num="73" type="stmt" count="10"/>
-        <line num="74" type="stmt" count="10"/>
-        <line num="76" type="stmt" count="10"/>
-        <line num="77" type="stmt" count="10"/>
-        <line num="79" type="stmt" count="10"/>
+        <line num="71" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="11"/>
+        <line num="73" type="stmt" count="11"/>
+        <line num="74" type="stmt" count="11"/>
+        <line num="76" type="stmt" count="11"/>
+        <line num="77" type="stmt" count="11"/>
+        <line num="79" type="stmt" count="11"/>
         <line num="92" type="method" name="set" visibility="public" complexity="2" crap="2.06" count="1"/>
         <line num="94" type="stmt" count="1"/>
         <line num="95" type="stmt" count="0"/>
@@ -15178,8 +15178,8 @@
         <line num="134" type="stmt" count="0"/>
         <line num="144" type="method" name="getMatrix" visibility="public" complexity="1" crap="1" count="9"/>
         <line num="146" type="stmt" count="9"/>
-        <line num="156" type="method" name="toArray" visibility="public" complexity="1" crap="1" count="6"/>
-        <line num="158" type="stmt" count="6"/>
+        <line num="156" type="method" name="toArray" visibility="public" complexity="1" crap="1" count="7"/>
+        <line num="158" type="stmt" count="7"/>
         <line num="168" type="method" name="rank" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="170" type="stmt" count="0"/>
         <line num="184" type="method" name="setMatrix" visibility="public" complexity="1" crap="1" count="10"/>
@@ -15495,10 +15495,10 @@
         <class name="Vector" namespace="phpOMS\Math\Matrix" fullPackage="phpOMS" category="Framework" package="phpOMS">
           <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
         </class>
-        <line num="36" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="38" type="stmt" count="2"/>
-        <line num="39" type="stmt" count="2"/>
-        <metrics loc="41" ncloc="11" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
+        <line num="36" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="38" type="stmt" count="3"/>
+        <line num="39" type="stmt" count="3"/>
+        <metrics loc="39" ncloc="11" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
       </file>
     </package>
     <package name="phpOMS\Math\Matrix\Exception">
@@ -15585,12 +15585,6 @@
         <line num="160" type="stmt" count="1"/>
         <line num="163" type="stmt" count="1"/>
         <metrics loc="164" ncloc="88" classes="1" methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="38" coveredstatements="37" elements="43" coveredelements="41"/>
-      </file>
-      <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Math/Number/Irrational.php">
-        <class name="Irrational" namespace="phpOMS\Math\Number">
-          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-        </class>
-        <metrics loc="20" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
       <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Math/Number/Natural.php">
         <class name="Natural" namespace="phpOMS\Math\Number" fullPackage="phpOMS" category="Framework" package="phpOMS">
@@ -15689,18 +15683,6 @@
         <line num="167" type="stmt" count="2"/>
         <line num="170" type="stmt" count="2"/>
         <metrics loc="171" ncloc="104" classes="1" methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="43" elements="49" coveredelements="47"/>
-      </file>
-      <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Math/Number/Rational.php">
-        <class name="Rational" namespace="phpOMS\Math\Number">
-          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-        </class>
-        <metrics loc="20" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-      </file>
-      <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Math/Number/Real.php">
-        <class name="Real" namespace="phpOMS\Math\Number">
-          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-        </class>
-        <metrics loc="20" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
     <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Math/Number/OperationInterface.php">
@@ -18472,9 +18454,9 @@
         <line num="43" type="method" name="isValidValue" visibility="public" complexity="1" crap="1" count="50"/>
         <line num="45" type="stmt" count="50"/>
         <line num="47" type="stmt" count="50"/>
-        <line num="57" type="method" name="getConstants" visibility="public" complexity="1" crap="1" count="129"/>
-        <line num="59" type="stmt" count="129"/>
-        <line num="61" type="stmt" count="129"/>
+        <line num="57" type="method" name="getConstants" visibility="public" complexity="1" crap="1" count="130"/>
+        <line num="59" type="stmt" count="130"/>
+        <line num="61" type="stmt" count="130"/>
         <line num="71" type="method" name="getRandom" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="73" type="stmt" count="1"/>
         <line num="74" type="stmt" count="1"/>
@@ -20698,9 +20680,9 @@
       </file>
       <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Utils/TestUtils.php">
         <class name="TestUtils" namespace="phpOMS\Utils" fullPackage="phpOMS" category="Framework" package="phpOMS">
-          <metrics complexity="8" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="20" elements="22" coveredelements="22"/>
+          <metrics complexity="10" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="20" elements="22" coveredelements="22"/>
         </class>
-        <line num="40" type="method" name="setMember" visibility="public" complexity="4" crap="4" count="3"/>
+        <line num="40" type="method" name="setMember" visibility="public" complexity="5" crap="5" count="3"/>
         <line num="42" type="stmt" count="3"/>
         <line num="44" type="stmt" count="3"/>
         <line num="45" type="stmt" count="1"/>
@@ -20711,18 +20693,18 @@
         <line num="56" type="stmt" count="3"/>
         <line num="57" type="stmt" count="3"/>
         <line num="60" type="stmt" count="3"/>
-        <line num="73" type="method" name="getMember" visibility="public" complexity="4" crap="4" count="24"/>
-        <line num="75" type="stmt" count="24"/>
-        <line num="77" type="stmt" count="24"/>
+        <line num="73" type="method" name="getMember" visibility="public" complexity="5" crap="5" count="26"/>
+        <line num="75" type="stmt" count="26"/>
+        <line num="77" type="stmt" count="26"/>
         <line num="78" type="stmt" count="1"/>
-        <line num="81" type="stmt" count="24"/>
-        <line num="83" type="stmt" count="24"/>
-        <line num="84" type="stmt" count="24"/>
-        <line num="87" type="stmt" count="24"/>
-        <line num="89" type="stmt" count="24"/>
-        <line num="90" type="stmt" count="24"/>
-        <line num="93" type="stmt" count="24"/>
-        <metrics loc="95" ncloc="49" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="20" elements="22" coveredelements="22"/>
+        <line num="81" type="stmt" count="26"/>
+        <line num="83" type="stmt" count="26"/>
+        <line num="84" type="stmt" count="25"/>
+        <line num="87" type="stmt" count="26"/>
+        <line num="89" type="stmt" count="26"/>
+        <line num="90" type="stmt" count="25"/>
+        <line num="93" type="stmt" count="26"/>
+        <metrics loc="95" ncloc="50" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="20" elements="22" coveredelements="22"/>
       </file>
     </package>
     <package name="phpOMS\Utils\Barcode">
@@ -23580,10 +23562,10 @@
         <line num="238" type="stmt" count="24"/>
         <line num="239" type="stmt" count="24"/>
         <line num="241" type="stmt" count="24"/>
-        <line num="242" type="stmt" count="18"/>
-        <line num="243" type="stmt" count="18"/>
-        <line num="245" type="stmt" count="18"/>
-        <line num="247" type="stmt" count="18"/>
+        <line num="242" type="stmt" count="19"/>
+        <line num="243" type="stmt" count="19"/>
+        <line num="245" type="stmt" count="19"/>
+        <line num="247" type="stmt" count="19"/>
         <line num="248" type="stmt" count="10"/>
         <line num="249" type="stmt" count="10"/>
         <line num="253" type="stmt" count="24"/>
@@ -23593,9 +23575,9 @@
         <line num="260" type="stmt" count="24"/>
         <line num="263" type="stmt" count="24"/>
         <line num="265" type="stmt" count="24"/>
-        <line num="266" type="stmt" count="23"/>
-        <line num="267" type="stmt" count="23"/>
-        <line num="270" type="stmt" count="21"/>
+        <line num="266" type="stmt" count="21"/>
+        <line num="267" type="stmt" count="21"/>
+        <line num="270" type="stmt" count="23"/>
         <line num="273" type="stmt" count="24"/>
         <line num="285" type="method" name="generateParagraph" visibility="private" complexity="4" crap="20" count="0"/>
         <line num="287" type="stmt" count="0"/>
@@ -24389,6 +24371,6 @@
         <metrics loc="261" ncloc="129" classes="1" methods="11" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="31" elements="55" coveredelements="36"/>
       </file>
     </package>
-    <metrics files="1150" loc="114619" ncloc="54213" classes="545" methods="3720" coveredmethods="1778" conditionals="0" coveredconditionals="0" statements="13429" coveredstatements="8192" elements="17149" coveredelements="9970"/>
+    <metrics files="1147" loc="114557" ncloc="54190" classes="545" methods="3720" coveredmethods="1778" conditionals="0" coveredconditionals="0" statements="13429" coveredstatements="8192" elements="17149" coveredelements="9970"/>
   </project>
 </coverage>

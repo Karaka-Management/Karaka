@@ -218,13 +218,13 @@ class Polygon implements D2ShapeInterface
     public function getPerimeter() : float
     {
         $count           = count($this->coord);
-        $this->perimeter = sqrt(($this->coord[0]['x'] - $this->coord[$count - 1]['x']) ** 2 + ($this->coord[0]['y'] - $this->coord[$count - 1]['y']) ** 2);
+        $perimeter = sqrt(($this->coord[0]['x'] - $this->coord[$count - 1]['x']) ** 2 + ($this->coord[0]['y'] - $this->coord[$count - 1]['y']) ** 2);
 
         for ($i = 0; $i < $count - 1; $i++) {
-            $this->perimeter += sqrt(($this->coord[$i + 1]['x'] - $this->coord[$i]['x']) ** 2 + ($this->coord[$i + 1]['y'] - $this->coord[$i]['y']) ** 2);
+            $perimeter += sqrt(($this->coord[$i + 1]['x'] - $this->coord[$i]['x']) ** 2 + ($this->coord[$i + 1]['y'] - $this->coord[$i]['y']) ** 2);
         }
 
-        return $this->perimeter;
+        return $perimeter;
     }
 
     /**
@@ -236,26 +236,26 @@ class Polygon implements D2ShapeInterface
      */
     public function getBarycenter() : array
     {
-        $this->barycenter['x'] = 0;
-        $this->barycenter['y'] = 0;
+        $barycenter['x'] = 0;
+        $barycenter['y'] = 0;
 
         $count = count($this->coord);
 
         for ($i = 0; $i < $count - 1; $i++) {
             $mult = ($this->coord[$i]['x'] * $this->coord[$i + 1]['y'] - $this->coord[$i + 1]['x'] * $this->coord[$i]['y']);
-            $this->barycenter['x'] += ($this->coord[$i]['x'] + $this->coord[$i + 1]['x']) * $mult;
-            $this->barycenter['y'] += ($this->coord[$i]['y'] + $this->coord[$i + 1]['y']) * $mult;
+            $barycenter['x'] += ($this->coord[$i]['x'] + $this->coord[$i + 1]['x']) * $mult;
+            $barycenter['y'] += ($this->coord[$i]['y'] + $this->coord[$i + 1]['y']) * $mult;
         }
 
         $mult = ($this->coord[$count - 1]['x'] * $this->coord[0]['y'] - $this->coord[0]['x'] * $this->coord[$count - 1]['y']);
-        $this->barycenter['x'] += ($this->coord[$count - 1]['x'] + $this->coord[0]['x']) * $mult;
-        $this->barycenter['y'] += ($this->coord[$count - 1]['y'] + $this->coord[0]['y']) * $mult;
+        $barycenter['x'] += ($this->coord[$count - 1]['x'] + $this->coord[0]['x']) * $mult;
+        $barycenter['y'] += ($this->coord[$count - 1]['y'] + $this->coord[0]['y']) * $mult;
 
         $surface = $this->getSignedSurface();
 
-        $this->barycenter['x'] = 1 / (6 * $surface) * $this->barycenter['x'];
-        $this->barycenter['y'] = 1 / (6 * $surface) * $this->barycenter['y'];
+        $barycenter['x'] = 1 / (6 * $surface) * $barycenter['x'];
+        $barycenter['y'] = 1 / (6 * $surface) * $barycenter['y'];
 
-        return $this->barycenter;
+        return $barycenter;
     }
 }
