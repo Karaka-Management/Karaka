@@ -197,7 +197,7 @@ class Matrix implements \ArrayAccess, \Iterator
      *
      * @return Matrix
      *
-     * @throws \Exception
+     * @throws \InvalidArgumentException
      *
      * @since  1.0.0
      */
@@ -209,7 +209,7 @@ class Matrix implements \ArrayAccess, \Iterator
             return $this->add(-$value);
         }
 
-        throw new \Exception('Type');
+        throw new \InvalidArgumentException('Type');
     }
 
     /**
@@ -219,7 +219,7 @@ class Matrix implements \ArrayAccess, \Iterator
      *
      * @return Matrix
      *
-     * @throws \Exception
+     * @throws \InvalidArgumentException
      *
      * @since  1.0.0
      */
@@ -231,7 +231,7 @@ class Matrix implements \ArrayAccess, \Iterator
             return $this->addScalar($value);
         }
 
-        throw new \Exception();
+        throw new \InvalidArgumentException();
     }
 
     /**
@@ -324,7 +324,7 @@ class Matrix implements \ArrayAccess, \Iterator
      *
      * @return Matrix
      *
-     * @throws \Exception
+     * @throws \InvalidArgumentException
      *
      * @since  1.0.0
      */
@@ -336,7 +336,7 @@ class Matrix implements \ArrayAccess, \Iterator
             return $this->multScalar($value);
         }
 
-        throw new \Exception('Type');
+        throw new \InvalidArgumentException('Type');
     }
 
     /**

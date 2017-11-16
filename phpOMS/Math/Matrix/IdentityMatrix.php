@@ -33,7 +33,7 @@ class IdentityMatrix extends Matrix
      *
      * @since  1.0.0
      */
-    public function __constrcut(int $n)
+    public function __construct(int $n)
     {
         $this->n = $n;
         $this->m = $n;

@@ -21,8 +21,18 @@ use phpOMS\Math\Matrix\IdentityMatrix;
 
 class IdentityMatrixTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testIdentity()
     {
-        self::markTestIncomplete();
+        $id = new IdentityMatrix(5);
+        self::assertEquals(
+            [
+                [1, 0, 0, 0, 0],
+                [0, 1, 0, 0, 0],
+                [0, 0, 1, 0, 0],
+                [0, 0, 0, 1, 0],
+                [0, 0, 0, 0, 1],
+            ],
+            $id->toArray()
+        );
     }
 }

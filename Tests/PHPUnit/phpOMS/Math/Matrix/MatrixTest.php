@@ -58,10 +58,17 @@ class MatrixTest extends \PHPUnit\Framework\TestCase
 
     public function testAddSub()
     {
-        self::assertEquals([[2, -3], [-4, -5]], $this->C->add(2)->getMatrix());
-        self::assertEquals([[0, -10], [-12, -14]], $this->C->add((new Matrix(2, 2))->setMatrix([[0, -5], [-6, -7]]))->getMatrix());
+        $A = new Matrix();
+        $A->setMatrix([[1, 2], [3, 4]]);
 
-        self::assertEquals([[-2, -7], [-8, -9]], $this->C->sub(2)->getMatrix());
+        self::assertEquals([[1-2, 2-2], [3-2, 4-2]], $A->sub(2)->toArray());
+        self::assertEquals([[1+2, 2+2], [3+2, 4+2]], $A->add(2)->toArray());
+
+        $B = new Matrix();
+        $B->setMatrix([[1, 2], [3, 4]]);
+
+        self::assertEquals([[1-1, 2-2], [3-3, 4-4]], $A->sub($B)->toArray());
+        self::assertEquals([[1+1, 2+2], [3+3, 4+4]], $A->add($B)->toArray());
     }
 
     public function testDet()
@@ -97,5 +104,169 @@ class MatrixTest extends \PHPUnit\Framework\TestCase
         self::assertEquals([[-6, -7], [0, -5]], $this->C->upperTriangular()->getMatrix());
         //self::assertEquals([], $this->C->lowerTriangular()->getMatrix());
         //self::assertEquals([], $this->C->diagonalize()->getMatrix());
+    }
+
+    public function testGetSet()
+    {
+        $id = new Matrix();
+        $id->setMatrix([
+            [1, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0],
+            [0, 0, 1, 0, 0],
+            [0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 1],
+        ]);
+
+        self::assertEquals(1, $id->get(1, 1));
+        self::assertEquals(0, $id->get(1, 2));
+
+        $id->set(1, 2, 4);
+        self::assertEquals(4, $id->get(1, 2));
+        self::assertEquals(
+            [
+                [1, 0, 0, 0, 0],
+                [0, 1, 4, 0, 0],
+                [0, 0, 1, 0, 0],
+                [0, 0, 0, 1, 0],
+                [0, 0, 0, 0, 1],
+            ],
+            $id->toArray()
+        );
+    }
+
+    public function testArrayAccess()
+    {
+        $A = new Matrix();
+        $A->setMatrix([
+            [0, 1, 2, 3],
+            [4, 5, 6, 7],
+            [8, 9, 10, 11],
+            [12, 13, 14, 15],
+        ]);
+
+        foreach ($A as $key => $value) {
+            self::assertEquals($key, $value);
+        }
+
+        self::assertEquals(5, $A[5]);
+
+        $A[5] = 6;
+        self::assertEquals(6, $A[5]);
+
+        self::assertTrue(isset($A[6]));
+        self::assertFalse(isset($A[17]));
+
+        unset($A[6]);
+        self::assertFalse(isset($A[6]));
+    }
+
+    /**
+     * @expectedException \phpOMS\Math\Matrix\Exception\InvalidDimensionException
+     */
+    public function invalidSetIndexException()
+    {
+        $id = new Matrix();
+        $id->setMatrix([
+            [1, 0],
+            [0, 1],
+        ]);
+        $id->set(99, 99, 99);
+    }
+
+    /**
+     * @expectedException \phpOMS\Math\Matrix\Exception\InvalidDimensionException
+     */
+    public function invalidGetIndexException()
+    {
+        $id = new Matrix();
+        $id->setMatrix([
+            [1, 0],
+            [0, 1],
+        ]);
+        $id->get(99, 99);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function invalidSub()
+    {
+        $id = new Matrix();
+        $id->setMatrix([
+            [1, 0],
+            [0, 1],
+        ]);
+
+        $id->sub([]);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function invalidAdd()
+    {
+        $id = new Matrix();
+        $id->setMatrix([
+            [1, 0],
+            [0, 1],
+        ]);
+
+        $id->add([]);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function invalidMult()
+    {
+        $id = new Matrix();
+        $id->setMatrix([
+            [1, 0],
+            [0, 1],
+        ]);
+
+        $id->mult([]);
+    }
+
+    /**
+     * @expectedException \phpOMS\Math\Matrix\Exception\InvalidDimensionException
+     */
+    public function invalidDimensionAdd()
+    {
+        $A = new Matrix();
+        $A->setMatrix([[1, 2], [3, 4]]);
+
+        $B = new Matrix();
+        $B->setMatrix([[1, 2], [3, 4], [5, 6]]);
+
+        $A->add($B);
+    }
+
+    /**
+     * @expectedException \phpOMS\Math\Matrix\Exception\InvalidDimensionException
+     */
+    public function invalidDimensionSub()
+    {
+        $A = new Matrix();
+        $A->setMatrix([[1, 2], [3, 4]]);
+
+        $B = new Matrix();
+        $B->setMatrix([[1, 2], [3, 4], [5, 6]]);
+
+        $A->sub($B);
+    }
+
+    /**
+     * @expectedException \phpOMS\Math\Matrix\Exception\InvalidDimensionException
+     */
+    public function invalidDimensionMult()
+    {
+        $A = new Matrix();
+        $A->setMatrix([[1, 2], [3, 4]]);
+
+        $B = new Matrix();
+        $B->setMatrix([[1, 2], [3, 4], [5, 6]]);
+
+        $A->mult($B);
     }
 }
