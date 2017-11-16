@@ -28,6 +28,7 @@ It is possible to simply use the current uri and simply append parameters if you
 
 Some default parameters can be used for easier use.
 
+* /base = base uri (e.g. http://www.yoururl.com/basepath)
 * /scheme = current scheme (e.g. http)
 * /host = current host (e.g. www.yoururl.com)
 * /lang = current language (e.g. en)

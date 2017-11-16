@@ -4,7 +4,28 @@ Requests can be either incoming requests such as http requests on the server sid
 
 ## Http Requests
 
+A http request in its' most basic form only consists of a uri.
+
+```php
+$request = new Request(new Http('http://your_request.com/url?to=call'));
+```
+
 ## Rest Requests
+
+With the rest implementation it's possible to make http requests and read the response.
+
+```php
+$request = new Request(new Http('http://your_request.com/url?to=call'));
+$result = Rest::request($request);
+```
+
+The result contains the raw response text. By defining the request method it's also possible to make other requests such as `PUT` requests.
+
+```php
+$request = new Request(new Http('http://your_request.com/url?to=call'));
+$request->setMethod(RequestMethod::PUT);
+$result = Rest::request($request);
+```
 
 ## Socket Requests
 

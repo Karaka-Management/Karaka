@@ -123,17 +123,7 @@ These are just a few examples but it is very important to make sure, that these 
 Example usage:
 
 ```php
-if(($pathNew = realpath($path)) === false || strpos($pathNew, self::MODULE_PATH) === false) {
-    throw new PathException($path);
-}
-```
-
-The example throws an exception if the path either doesn't exist or is trying to access a path that doesn't contain the path defined in `self::MODULE_PATH`. Another validation could be:
-
-```php
 if(($pathNew = realpath($path)) === false) {
     throw new PathException($path);
 }
 ```
-
-This example now is not only checking if the path exists and if it contains a path element, it also makes sure that the path is inside the application root path. 

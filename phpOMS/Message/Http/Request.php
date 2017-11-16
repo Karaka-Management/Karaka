@@ -76,6 +76,7 @@ class Request extends RequestAbstract
     {
         $this->header = new Header();
         $this->header->setL11n($l11n ?? new Localization());
+        $this->setMethod(RequestMethod::GET);
 
         $this->uri    = $uri;
         $this->source = RequestSource::WEB;
@@ -100,11 +101,10 @@ class Request extends RequestAbstract
             $this->initCurrentRequest();
             $this->lock();
             $this->cleanupGlobals();
+            $this->setupUriBuilder();
         }
 
         $this->data = array_change_key_case($this->data, CASE_LOWER);
-
-        $this->setupUriBuilder();
     }
 
     /**
