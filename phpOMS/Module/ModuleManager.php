@@ -543,7 +543,7 @@ class ModuleManager
         if (file_exists($this->modulePath . '/' . $from . '/Admin/Install/' . $for . '.php')) {
             $class = '\\Modules\\' . $from . '\\Admin\\Install\\' . $for;
             /** @var $class InstallerAbstract */
-            $class::install($this->modulePath, $this->app->dbPool, null);
+            $class::install($this->modulePath, $this->app->dbPool, $this->loadInfo($from));
         }
     }
 
