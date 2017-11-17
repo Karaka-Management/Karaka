@@ -17,12 +17,12 @@ namespace Tests\PHPUnit\phpOMS\Utils\TaskSchedule;
 
 require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
 
-use phpOMS\Utils\TaskSchedule\Schedule;
+use phpOMS\Utils\TaskSchedule\SchedulerAbstract;
 
-class ScheduleTest extends \PHPUnit\Framework\TestCase
+class SchedulerAbstractTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault()
     {
-        self::assertInstanceOf('\phpOMS\Utils\TaskSchedule\TaskAbstract', new Schedule());
+        self::assertEquals('', SchedulerAbstract::getBin());
     }
 }

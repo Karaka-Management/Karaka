@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1510923964">
-  <project timestamp="1510923964">
+<coverage generated="1510925635">
+  <project timestamp="1510925635">
     <package name="Model\Message">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Model/Message/Dom.php">
         <class name="Dom" namespace="Model\Message" fullPackage="Model" category="Modules" package="Model">
@@ -20011,11 +20011,11 @@
         <class name="OperatingSystem" namespace="phpOMS\System" fullPackage="phpOMS" category="Framework" package="phpOMS">
           <metrics complexity="4" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="3" elements="8" coveredelements="3"/>
         </class>
-        <line num="36" type="method" name="getSystem" visibility="public" complexity="4" crap="6.99" count="1"/>
-        <line num="38" type="stmt" count="1"/>
+        <line num="36" type="method" name="getSystem" visibility="public" complexity="4" crap="6.99" count="3"/>
+        <line num="38" type="stmt" count="3"/>
         <line num="39" type="stmt" count="0"/>
-        <line num="40" type="stmt" count="1"/>
-        <line num="41" type="stmt" count="1"/>
+        <line num="40" type="stmt" count="3"/>
+        <line num="41" type="stmt" count="3"/>
         <line num="42" type="stmt" count="0"/>
         <line num="43" type="stmt" count="0"/>
         <line num="46" type="stmt" count="0"/>
@@ -23456,12 +23456,12 @@
         <line num="238" type="stmt" count="24"/>
         <line num="239" type="stmt" count="24"/>
         <line num="241" type="stmt" count="24"/>
-        <line num="242" type="stmt" count="18"/>
-        <line num="243" type="stmt" count="18"/>
-        <line num="245" type="stmt" count="18"/>
-        <line num="247" type="stmt" count="18"/>
-        <line num="248" type="stmt" count="10"/>
-        <line num="249" type="stmt" count="10"/>
+        <line num="242" type="stmt" count="19"/>
+        <line num="243" type="stmt" count="19"/>
+        <line num="245" type="stmt" count="19"/>
+        <line num="247" type="stmt" count="19"/>
+        <line num="248" type="stmt" count="12"/>
+        <line num="249" type="stmt" count="12"/>
         <line num="253" type="stmt" count="24"/>
         <line num="256" type="stmt" count="24"/>
         <line num="258" type="stmt" count="24"/>
@@ -23506,47 +23506,9 @@
     <package name="phpOMS\Utils\TaskSchedule">
       <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Utils/TaskSchedule/Cron.php">
         <class name="Cron" namespace="phpOMS\Utils\TaskSchedule" fullPackage="phpOMS" category="Framework" package="phpOMS">
-          <metrics complexity="18" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="0" elements="38" coveredelements="0"/>
+          <metrics complexity="18" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
         </class>
-        <line num="41" type="method" name="run" visibility="private" complexity="3" crap="12" count="0"/>
-        <line num="43" type="stmt" count="0"/>
-        <line num="45" type="stmt" count="0"/>
-        <line num="47" type="stmt" count="0"/>
-        <line num="51" type="stmt" count="0"/>
-        <line num="52" type="stmt" count="0"/>
-        <line num="53" type="stmt" count="0"/>
-        <line num="55" type="stmt" count="0"/>
-        <line num="56" type="stmt" count="0"/>
-        <line num="59" type="stmt" count="0"/>
-        <line num="61" type="stmt" count="0"/>
-        <line num="62" type="stmt" count="0"/>
-        <line num="65" type="stmt" count="0"/>
-        <line num="77" type="method" name="normalize" visibility="private" complexity="1" crap="2" count="0"/>
-        <line num="79" type="stmt" count="0"/>
-        <line num="85" type="method" name="getAll" visibility="public" complexity="4" crap="20" count="0"/>
-        <line num="87" type="stmt" count="0"/>
-        <line num="88" type="stmt" count="0"/>
-        <line num="90" type="stmt" count="0"/>
-        <line num="91" type="stmt" count="0"/>
-        <line num="92" type="stmt" count="0"/>
-        <line num="93" type="stmt" count="0"/>
-        <line num="97" type="stmt" count="0"/>
-        <line num="103" type="method" name="getAllByName" visibility="public" complexity="10" crap="110" count="0"/>
-        <line num="105" type="stmt" count="0"/>
-        <line num="106" type="stmt" count="0"/>
-        <line num="108" type="stmt" count="0"/>
-        <line num="109" type="stmt" count="0"/>
-        <line num="110" type="stmt" count="0"/>
-        <line num="111" type="stmt" count="0"/>
-        <line num="113" type="stmt" count="0"/>
-        <line num="114" type="stmt" count="0"/>
-        <line num="118" type="stmt" count="0"/>
-        <line num="119" type="stmt" count="0"/>
-        <line num="120" type="stmt" count="0"/>
-        <line num="122" type="stmt" count="0"/>
-        <line num="123" type="stmt" count="0"/>
-        <line num="128" type="stmt" count="0"/>
-        <metrics loc="130" ncloc="83" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="0" elements="38" coveredelements="0"/>
+        <metrics loc="131" ncloc="83" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
       <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Utils/TaskSchedule/CronJob.php">
         <class name="CronJob" namespace="phpOMS\Utils\TaskSchedule" fullPackage="phpOMS" category="Framework" package="phpOMS">
@@ -23732,104 +23694,92 @@
       </file>
       <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Utils/TaskSchedule/SchedulerAbstract.php">
         <class name="SchedulerAbstract" namespace="phpOMS\Utils\TaskSchedule" fullPackage="phpOMS" category="Framework" package="phpOMS">
-          <metrics complexity="6" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="18" coveredelements="0"/>
+          <metrics complexity="6" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
         </class>
-        <line num="53" type="method" name="getBin" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="55" type="stmt" count="0"/>
-        <line num="67" type="method" name="setBin" visibility="public" complexity="2" crap="6" count="0"/>
         <line num="69" type="stmt" count="0"/>
         <line num="70" type="stmt" count="0"/>
         <line num="73" type="stmt" count="0"/>
         <line num="74" type="stmt" count="0"/>
-        <line num="83" type="method" name="test" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="85" type="stmt" count="0"/>
-        <line num="86" type="stmt" count="0"/>
-        <line num="88" type="stmt" count="0"/>
-        <line num="89" type="stmt" count="0"/>
-        <line num="91" type="stmt" count="0"/>
-        <line num="92" type="stmt" count="0"/>
-        <line num="95" type="stmt" count="0"/>
-        <line num="107" type="method" name="create" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="109" type="stmt" count="0"/>
         <line num="110" type="stmt" count="0"/>
-        <metrics loc="111" ncloc="44" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="18" coveredelements="0"/>
+        <line num="111" type="stmt" count="0"/>
+        <metrics loc="106" ncloc="43" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="5" coveredelements="0"/>
       </file>
       <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Utils/TaskSchedule/SchedulerFactory.php">
         <class name="SchedulerFactory" namespace="phpOMS\Utils\TaskSchedule" fullPackage="phpOMS" category="Framework" package="phpOMS">
-          <metrics complexity="3" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="7" coveredelements="0"/>
+          <metrics complexity="3" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="3" elements="7" coveredelements="3"/>
         </class>
-        <line num="41" type="method" name="create" visibility="public" complexity="3" crap="12" count="0"/>
-        <line num="43" type="stmt" count="0"/>
-        <line num="44" type="stmt" count="0"/>
-        <line num="45" type="stmt" count="0"/>
+        <line num="41" type="method" name="create" visibility="public" complexity="3" crap="4.12" count="1"/>
+        <line num="43" type="stmt" count="1"/>
+        <line num="44" type="stmt" count="1"/>
+        <line num="45" type="stmt" count="1"/>
         <line num="46" type="stmt" count="0"/>
         <line num="47" type="stmt" count="0"/>
         <line num="49" type="stmt" count="0"/>
-        <metrics loc="51" ncloc="21" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="7" coveredelements="0"/>
+        <metrics loc="51" ncloc="21" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="3" elements="7" coveredelements="3"/>
       </file>
       <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Utils/TaskSchedule/TaskAbstract.php">
         <class name="TaskAbstract" namespace="phpOMS\Utils\TaskSchedule" fullPackage="phpOMS" category="Framework" package="phpOMS">
-          <metrics complexity="16" methods="15" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="0" elements="39" coveredelements="0"/>
+          <metrics complexity="15" methods="14" coveredmethods="14" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="24" elements="38" coveredelements="38"/>
         </class>
-        <line num="96" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="97" type="stmt" count="0"/>
-        <line num="98" type="stmt" count="0"/>
-        <line num="99" type="stmt" count="0"/>
-        <line num="108" type="method" name="getId" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="110" type="stmt" count="0"/>
-        <line num="120" type="method" name="getCommand" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="122" type="stmt" count="0"/>
-        <line num="134" type="method" name="setCommand" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="136" type="stmt" count="0"/>
-        <line num="137" type="stmt" count="0"/>
-        <line num="146" type="method" name="getRun" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="148" type="stmt" count="0"/>
-        <line num="160" type="method" name="setRun" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="162" type="stmt" count="0"/>
-        <line num="163" type="stmt" count="0"/>
-        <line num="172" type="method" name="getStatus" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="174" type="stmt" count="0"/>
-        <line num="186" type="method" name="setStatus" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="188" type="stmt" count="0"/>
-        <line num="189" type="stmt" count="0"/>
-        <line num="198" type="method" name="getNextRunTime" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="200" type="stmt" count="0"/>
-        <line num="212" type="method" name="setNextRunTime" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="214" type="stmt" count="0"/>
-        <line num="215" type="stmt" count="0"/>
-        <line num="224" type="method" name="getLastRuntime" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="226" type="stmt" count="0"/>
-        <line num="238" type="method" name="setLastRuntime" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="240" type="stmt" count="0"/>
-        <line num="241" type="stmt" count="0"/>
-        <line num="250" type="method" name="getComment" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="252" type="stmt" count="0"/>
-        <line num="264" type="method" name="setComment" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="266" type="stmt" count="0"/>
-        <line num="267" type="stmt" count="0"/>
-        <line num="276" type="method" name="addResult" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="278" type="stmt" count="0"/>
-        <line num="279" type="stmt" count="0"/>
-        <metrics loc="291" ncloc="92" classes="1" methods="15" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="0" elements="39" coveredelements="0"/>
+        <line num="96" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="97" type="stmt" count="3"/>
+        <line num="98" type="stmt" count="3"/>
+        <line num="100" type="stmt" count="3"/>
+        <line num="101" type="stmt" count="3"/>
+        <line num="102" type="stmt" count="3"/>
+        <line num="111" type="method" name="getId" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="113" type="stmt" count="1"/>
+        <line num="123" type="method" name="getCommand" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="125" type="stmt" count="2"/>
+        <line num="137" type="method" name="setCommand" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="139" type="stmt" count="1"/>
+        <line num="140" type="stmt" count="1"/>
+        <line num="149" type="method" name="getRun" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="151" type="stmt" count="2"/>
+        <line num="163" type="method" name="setRun" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="165" type="stmt" count="1"/>
+        <line num="166" type="stmt" count="1"/>
+        <line num="175" type="method" name="getStatus" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="177" type="stmt" count="2"/>
+        <line num="189" type="method" name="setStatus" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="191" type="stmt" count="1"/>
+        <line num="192" type="stmt" count="1"/>
+        <line num="201" type="method" name="getNextRunTime" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="203" type="stmt" count="2"/>
+        <line num="215" type="method" name="setNextRunTime" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="217" type="stmt" count="1"/>
+        <line num="218" type="stmt" count="1"/>
+        <line num="227" type="method" name="getLastRuntime" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="229" type="stmt" count="2"/>
+        <line num="241" type="method" name="setLastRuntime" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="243" type="stmt" count="1"/>
+        <line num="244" type="stmt" count="1"/>
+        <line num="253" type="method" name="getComment" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="255" type="stmt" count="2"/>
+        <line num="267" type="method" name="setComment" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="269" type="stmt" count="1"/>
+        <line num="270" type="stmt" count="1"/>
+        <metrics loc="282" ncloc="90" classes="1" methods="14" coveredmethods="14" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="24" elements="38" coveredelements="38"/>
       </file>
       <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Utils/TaskSchedule/TaskFactory.php">
         <class name="TaskFactory" namespace="phpOMS\Utils\TaskSchedule" fullPackage="phpOMS" category="Framework" package="phpOMS">
-          <metrics complexity="3" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="7" coveredelements="0"/>
+          <metrics complexity="3" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="3" elements="7" coveredelements="3"/>
         </class>
-        <line num="44" type="method" name="create" visibility="public" complexity="3" crap="12" count="0"/>
-        <line num="46" type="stmt" count="0"/>
-        <line num="47" type="stmt" count="0"/>
-        <line num="48" type="stmt" count="0"/>
+        <line num="44" type="method" name="create" visibility="public" complexity="3" crap="4.12" count="1"/>
+        <line num="46" type="stmt" count="1"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="48" type="stmt" count="1"/>
         <line num="49" type="stmt" count="0"/>
         <line num="50" type="stmt" count="0"/>
         <line num="52" type="stmt" count="0"/>
-        <metrics loc="54" ncloc="21" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="7" coveredelements="0"/>
+        <metrics loc="54" ncloc="21" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="3" elements="7" coveredelements="3"/>
       </file>
       <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Utils/TaskSchedule/TaskScheduler.php">
         <class name="TaskScheduler" namespace="phpOMS\Utils\TaskSchedule" fullPackage="phpOMS" category="Framework" package="phpOMS">
           <metrics complexity="11" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
         </class>
-        <metrics loc="128" ncloc="81" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        <metrics loc="129" ncloc="81" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
     <package name="phpOMS\Validation\Barcode">
@@ -24234,6 +24184,6 @@
         <metrics loc="261" ncloc="129" classes="1" methods="11" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="31" elements="55" coveredelements="36"/>
       </file>
     </package>
-    <metrics files="1146" loc="114360" ncloc="54127" classes="542" methods="3692" coveredmethods="1777" conditionals="0" coveredconditionals="0" statements="13326" coveredstatements="8192" elements="17018" coveredelements="9969"/>
+    <metrics files="1146" loc="114348" ncloc="54124" classes="540" methods="3683" coveredmethods="1791" conditionals="0" coveredconditionals="0" statements="13283" coveredstatements="8222" elements="16966" coveredelements="10013"/>
   </project>
 </coverage>

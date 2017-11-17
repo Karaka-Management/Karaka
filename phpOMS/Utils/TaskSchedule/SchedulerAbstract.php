@@ -24,16 +24,10 @@ use phpOMS\System\File\PathException;
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
+ * @codeCoverageIgnore
  */
 abstract class SchedulerAbstract
 {
-    /**
-     * Tasks.
-     *
-     * @var TaskAbstract[]
-     * @since 1.0.0
-     */
-    protected $tasks = [];
 
     /**
      * Bin path.
