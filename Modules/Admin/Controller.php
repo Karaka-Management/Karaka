@@ -363,25 +363,25 @@ class Controller extends ModuleAbstract implements WebInterface
     private function createGroupFromRequest(RequestAbstract $request) : Group
     {
         $group = new Group();
-        $group->setName($request->getData('name') ?? '');
+        $group->setName((string) ($request->getData('name') ?? ''));
         $group->setStatus((int) $request->getData('status'));
-        $group->setDescription($request->getData('description') ?? '');
+        $group->setDescription((string) ($request->getData('description') ?? ''));
 
         return $group;
     }
 
     public function apiGroupDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $status = GroupMapper::delete($request->getData('id'));
+        $status = GroupMapper::delete((int) ($request->getData('id')));
 
         $response->set('group', $status);
     }
 
     public function apiGroupUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $group = GroupMapper::get($request->getData('id'));
-        $group->setName($request->getData('name'));
-        $group->setDescription($request->getData('desc'));
+        $group = GroupMapper::get((int) ($request->getData('id')));
+        $group->setName((string) ($request->getData('name')));
+        $group->setDescription((string) ($request->getData('desc')));
 
         $status = GroupMapper::update($group);
 
@@ -397,7 +397,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiAccountFind(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set('account', array_values(AccountMapper::find($request->getData('search') ?? '')));
+        $response->set('account', array_values(AccountMapper::find((string) ($request->getData('search') ?? ''))));
     }
 
     private function validateAccountCreate(RequestAbstract $request) : array
@@ -432,29 +432,29 @@ class Controller extends ModuleAbstract implements WebInterface
     private function createAccountFromRequest(RequestAbstract $request) : Account
     {
         $account = new Account();
-        $account->setStatus($request->getData('status'));
-        $account->setType($request->getData('type'));
-        $account->setName($request->getData('name'));
-        $account->setName1($request->getData('name1'));
-        $account->setName2($request->getData('name2'));
-        $account->setName3($request->getData('name3'));
-        $account->setEmail($request->getData('email'));
-        $account->generatePassword($request->getData('password'));
+        $account->setStatus((int) ($request->getData('status')));
+        $account->setType((int) ($request->getData('type')));
+        $account->setName((string) ($request->getData('name')));
+        $account->setName1((string) ($request->getData('name1')));
+        $account->setName2((string) ($request->getData('name2')));
+        $account->setName3((string) ($request->getData('name3')));
+        $account->setEmail((string) ($request->getData('email')));
+        $account->generatePassword((string) ($request->getData('password')));
 
         return $account;
     }
 
     public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $status = AccountMapper::delete($request->getData('id'));
+        $status = AccountMapper::delete((int) ($request->getData('id')));
 
         $response->set('account', $status);
     }
 
     public function apiAccountUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $account = AccountMapper::get($request->getData('id'));
-        $account->setName($request->getData('name'));
+        $account = AccountMapper::get((int) ($request->getData('id')));
+        $account->setName((string) ($request->getData('name')));
 
         $status = AccountMapper::update($account);
 

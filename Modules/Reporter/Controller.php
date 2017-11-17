@@ -394,14 +394,14 @@ class Controller extends ModuleAbstract implements WebInterface
 
     private function createMediaCollectionFromRequest(RequestAbstract $request) : int
     {
-        $files = json_decode($request->getData('files'));
+        $files = json_decode((string) $request->getData('files'));
         // TODO: make sure this user has permissions for provided files
 
         /* Create collection */
         $mediaCollection = new Collection();
-        $mediaCollection->setName($request->getData('name') ?? 'Empty');
-        $mediaCollection->setDescription($request->getData('description') ?? '');
-        $mediaCollection->setCreatedBy($request->getHeader()->getAccount());
+        $mediaCollection->setName((string) ($request->getData('name') ?? 'Empty'));
+        $mediaCollection->setDescription((string) ($request->getData('description') ?? ''));
+        $mediaCollection->setCreatedBy((int) $request->getHeader()->getAccount());
         $mediaCollection->setCreatedAt(new \DateTime('NOW'));
         $mediaCollection->setSources($files);
 
@@ -456,7 +456,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function createReportFromRequest(RequestAbstract $request, int $collection) : Template
     {
         $reporterReport = new Report();
-        $reporterReport->setTitle($request->getData('name'));
+        $reporterReport->setTitle((string) ($request->getData('name')));
         $reporterReport->setSource((int) $collectionId);
         $reporterReport->setTemplate((int) $request->getData('template'));
         $reporterReport->setCreatedBy($request->getHeader()->getAccount());
@@ -467,7 +467,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     private function handleTemplateDatabaseFromRequest(RequestAbstract $request) /* : void */
     {
-        $files = json_decode($request->getData('files'));
+        $files = json_decode((string) ($request->getData('files')));
         
         // TODO: make sure user has permission for files
         // TODO: make sure user has permission for template

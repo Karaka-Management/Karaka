@@ -2449,8 +2449,8 @@ class DataMapperAbstract implements DataMapperInterface
     public static function getByRequest(RequestAbstract $request)
     {
         if (!is_null($request->getData('id'))) {
-            $result = static::get($request->getData('id'));
-        } elseif (!is_null($filter = $request->getData('filter'))) {
+            $result = static::get((int) $request->getData('id'));
+        } elseif (!is_null($filter = ((string) $request->getData('filter')))) {
             $filter = strtolower($filter);
 
             if ($filter === 'all') {
@@ -2460,8 +2460,8 @@ class DataMapperAbstract implements DataMapperInterface
                 $result = static::get(json_decode($list, true));
             } else {
                 $limit = (int) ($request->getData('limit') ?? 1);
-                $from  = !is_null($request->getData('from')) ? new \DateTime($request->getData('from')) : null;
-                $to    = !is_null($request->getData('to')) ? new \DateTime($request->getData('to')) : null;
+                $from  = !is_null($request->getData('from')) ? new \DateTime((string) $request->getData('from')) : null;
+                $to    = !is_null($request->getData('to')) ? new \DateTime((string) $request->getData('to')) : null;
 
                 $query = static::getQuery();
                 $query->limit($limit);

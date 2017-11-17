@@ -299,13 +299,13 @@ class Controller extends ModuleAbstract implements WebInterface
         $mardkownParser = new Markdown();
 
         $newsArticle = new NewsArticle();
-        $newsArticle->setCreatedBy($request->getHeader()->getAccount());
+        $newsArticle->setCreatedBy((int) $request->getHeader()->getAccount());
         $newsArticle->setCreatedAt(new \DateTime('now'));
         $newsArticle->setPublish(new \DateTime($request->getData('publish') ?? false));
-        $newsArticle->setTitle($request->getData('title') ?? '');
-        $newsArticle->setPlain($request->getData('plain') ?? '');
+        $newsArticle->setTitle((string) ($request->getData('title') ?? ''));
+        $newsArticle->setPlain((string) ($request->getData('plain') ?? ''));
         $newsArticle->setContent($mardkownParser->parse($request->getData('plain') ?? ''));
-        $newsArticle->setLanguage(strtolower($request->getData('lang') ?? $request->getHeader()->getL11n()->getLanguage()));
+        $newsArticle->setLanguage((string) (strtolower($request->getData('lang') ?? $request->getHeader()->getL11n()->getLanguage())));
         $newsArticle->setType((int) ($request->getData('type') ?? 1));
         $newsArticle->setStatus((int) ($request->getData('status') ?? 1));
         $newsArticle->setFeatured((bool) ($request->getData('featured') ?? true));
@@ -359,7 +359,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $mardkownParser = new Markdown();
 
         $badge = new Badge();
-        $badge->setTitle($request->getData('title') ?? '');
+        $badge->setTitle((string) ($request->getData('title') ?? ''));
 
         return $badge;
     }

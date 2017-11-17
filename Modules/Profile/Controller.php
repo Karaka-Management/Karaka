@@ -149,7 +149,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $calendarView->setTemplate('/Modules/Calendar/Theme/Backend/Components/Calendar/mini');
         $view->addData('calendar', $calendarView);
 
-        $view->setData('account', ProfileMapper::getFor($request->getData('id'), 'account'));
+        $view->setData('account', ProfileMapper::getFor((int) $request->getData('id'), 'account'));
 
         return $view;
     }

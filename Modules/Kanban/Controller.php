@@ -270,8 +270,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $mardkownParser = new Markdown();
         
         $card = new KanbanCard();
-        $card->setName($request->getData('title'));
-        $card->setDescription($request->getData('plain'));
+        $card->setName((string) ($request->getData('title')));
+        $card->setDescription((string) ($request->getData('plain')));
         $card->setColumn((int) $request->getData('column'));
         $card->setOrder((int) $request->getData('order'));
         $card->setRef((int) $request->getData('ref'));
@@ -333,8 +333,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $mardkownParser = new Markdown();
         
         $board = new KanbanBoard();
-        $board->setName($request->getData('title'));
-        $board->setDescription($request->getData('plain'));
+        $board->setName((string) $request->getData('title'));
+        $board->setDescription((string) $request->getData('plain'));
         $board->setOrder((int) $request->getData('order'));
         $board->setStatus((int) $request->getData('status'));
 
@@ -385,7 +385,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $mardkownParser = new Markdown();
         
         $column = new KanbanColumn();
-        $column->setName($request->getData('title'));
+        $column->setName((string) $request->getData('title'));
         $column->setOrder((int) $request->getData('order'));
 
         return $column;

@@ -120,7 +120,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001201001, $request, $response));
 
         $calendar = CalendarMapper::get(1);
-        $calendar->setDate(new SmartDateTime($request->getData('date') ?? 'now'));
+        $calendar->setDate(new SmartDateTime((string) ($request->getData('date') ?? 'now')));
         $view->addData('calendar', $calendar);
 
         $calendarEventPopup = new \Modules\Calendar\Theme\Backend\Components\Event\BaseView($this->app, $request, $response);
@@ -153,7 +153,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('calendar', $calendarView);
 
         $calendar = CalendarMapper::get(1);
-        $calendar->setDate(new SmartDateTime($request->getData('date') ?? 'now'));
+        $calendar->setDate(new SmartDateTime((string) ($request->getData('date') ?? 'now')));
         $view->addData('cal', $calendar);
 
         return $view;

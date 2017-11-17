@@ -154,7 +154,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        $draw      = DrawImageMapper::get($request->getData('id'));
+        $draw      = DrawImageMapper::get((int) ($request->getData('id')));
         $accountId = $request->getHeader()->getAccount();
 
         if ($draw->getCreatedBy()->getId() !== $accountId

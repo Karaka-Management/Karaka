@@ -227,9 +227,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $mardkownParser = new Markdown();
         
         $question = new QAQuestion();
-        $question->setName($request->getData('title'));
-        $question->setQuestion($request->getData('plain'));
-        $question->setLanguage($request->getData('language'));
+        $question->setName((string) $request->getData('title'));
+        $question->setQuestion((string) $request->getData('plain'));
+        $question->setLanguage((string) $request->getData('language'));
         $question->setCategory((int) $request->getData('category'));
         $question->setStatus((int) $request->getData('status'));
         $question->setBadges((array) $request->getData('badges'));
@@ -275,8 +275,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $mardkownParser = new Markdown();
         
         $answer = new QAAnswer();
-        $answer->setName($request->getData('title'));
-        $answer->setQuestion($request->getData('plain'));
+        $answer->setName((string) $request->getData('title'));
+        $answer->setQuestion((string) $request->getData('plain'));
         $answer->setQuestion((int) $request->getData('question'));
         $answer->setStatus((int) $request->getData('status'));
 
@@ -319,7 +319,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $mardkownParser = new Markdown();
         
         $category = new QACategory();
-        $category->setName($request->getData('title'));
+        $category->setName((string) $request->getData('title'));
         $category->setParent((int) $request->getData('parent'));
 
         return $category;
@@ -356,7 +356,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $mardkownParser = new Markdown();
         
         $badge = new QABadge();
-        $badge->setName($request->getData('title'));
+        $badge->setName((string) $request->getData('title'));
 
         return $badge;
     }

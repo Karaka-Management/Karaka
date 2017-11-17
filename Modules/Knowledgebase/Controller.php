@@ -333,8 +333,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $mardkownParser = new Markdown();
         
         $doc = new WikiDoc();
-        $doc->setName($request->getData('title'));
-        $doc->setDoc($request->getData('plain'));
+        $doc->setName((string) $request->getData('title'));
+        $doc->setDoc((string) $request->getData('plain'));
         $doc->setCategory((int) $request->getData('category'));
         $doc->setStatus((int) $request->getData('status'));
 
@@ -377,7 +377,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $mardkownParser = new Markdown();
         
         $category = new WikiCategory();
-        $category->setName($request->getData('title'));
+        $category->setName((string) $request->getData('title'));
         $category->setParent((int) $request->getData('parent'));
 
         return $category;
@@ -414,7 +414,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $mardkownParser = new Markdown();
         
         $badge = new WikiBadge();
-        $badge->setName($request->getData('title'));
+        $badge->setName((string) $request->getData('title'));
 
         return $badge;
     }

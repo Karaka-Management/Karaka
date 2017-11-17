@@ -302,8 +302,8 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $unit = new Unit();
-        $unit->setName($request->getData('name'));
-        $unit->setDescription($request->getData('description') ?? '');
+        $unit->setName((string) $request->getData('name'));
+        $unit->setDescription((string) ($request->getData('description') ?? ''));
         $unit->setStatus((int) $request->getData('status'));
 
         UnitMapper::create($unit);
@@ -340,9 +340,9 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $position = new Position();
-        $position->setName($request->getData('name'));
+        $position->setName((string) ($request->getData('name')));
         $position->setStatus((int) $request->getData('status'));
-        $position->setDescription($request->getData('description') ?? '');
+        $position->setDescription((string) ($request->getData('description') ?? ''));
 
         PositionMapper::create($position);
 
@@ -377,9 +377,9 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $department = new Department();
-        $department->setName($request->getData('name'));
+        $department->setName((string) $request->getData('name'));
         $department->setStatus((int) $request->getData('status'));
-        $department->setDescription($request->getData('description') ?? '');
+        $department->setDescription((string) ($request->getData('description') ?? ''));
 
         DepartmentMapper::create($department);
 

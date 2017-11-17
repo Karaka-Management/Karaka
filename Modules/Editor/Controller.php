@@ -240,9 +240,9 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $doc = new EditorDoc();
-        $doc->setTitle($request->getData('title') ?? '');
-        $doc->setPlain($request->getData('plain') ?? '');
-        $doc->setContent($request->getData('plain') ?? '');
+        $doc->setTitle((string) ($request->getData('title') ?? ''));
+        $doc->setPlain((string) ($request->getData('plain') ?? ''));
+        $doc->setContent((string) ($request->getData('plain') ?? ''));
         $doc->setCreatedAt(new \DateTime('now'));
         $doc->setCreatedBy($request->getHeader()->getAccount());
         

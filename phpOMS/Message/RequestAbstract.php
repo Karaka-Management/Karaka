@@ -200,7 +200,13 @@ abstract class RequestAbstract implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Get data.
+     *
+     * @param mixed $key Data key
+     * 
+     * @return mixed
+     *
+     * @since  1.0.0
      */
     public function getData($key = null)
     {
