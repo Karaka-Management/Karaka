@@ -32,7 +32,6 @@ class NullCache implements CacheInterface
      */
     public function set($key, $value, int $expire = -1) /* : void */
     {
-        // TODO: Implement set() method.
     }
 
     /**
@@ -40,7 +39,7 @@ class NullCache implements CacheInterface
      */
     public function add($key, $value, int $expire = -1) : bool
     {
-        // TODO: Implement add() method.
+        return true;
     }
 
     /**
@@ -48,7 +47,7 @@ class NullCache implements CacheInterface
      */
     public function get($key, int $expire = -1)
     {
-        // TODO: Implement get() method.
+        return null;
     }
 
     /**
@@ -56,7 +55,7 @@ class NullCache implements CacheInterface
      */
     public function delete($key, int $expire = -1) : bool
     {
-        // TODO: Implement delete() method.
+        return true;
     }
 
     /**
@@ -64,8 +63,6 @@ class NullCache implements CacheInterface
      */
     public function flush(int $expire = 0) : bool
     {
-        // TODO: Implement flush() method.
-
         return true;
     }
 
@@ -74,8 +71,6 @@ class NullCache implements CacheInterface
      */
     public function flushAll() : bool
     {
-        // TODO: Implement flush() method.
-
         return true;
     }
 
@@ -84,7 +79,7 @@ class NullCache implements CacheInterface
      */
     public function replace($key, $value, int $expire = -1) : bool
     {
-        // TODO: Implement replace() method.
+        return true;
     }
 
     /**
@@ -92,7 +87,7 @@ class NullCache implements CacheInterface
      */
     public function stats() : array
     {
-        // TODO: Implement stats() method.
+        return [];
     }
 
     /**
@@ -100,7 +95,7 @@ class NullCache implements CacheInterface
      */
     public function getThreshold() : int
     {
-        // TODO: Implement getThreshold() method.
+        return 0;
     }
 
     /**
@@ -108,6 +103,5 @@ class NullCache implements CacheInterface
      */
     public function setStatus(int $status) /* : void */
     {
-        // TODO: Implement setStatus() method.
     }
 }
