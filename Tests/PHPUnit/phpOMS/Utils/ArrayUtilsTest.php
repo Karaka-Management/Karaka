@@ -29,6 +29,11 @@ class ArrayUtilsTest extends \PHPUnit\Framework\TestCase
                 'ab' => [
                     'aba',
                     'ab0',
+                    [
+                        3,
+                        'c',
+                    ],
+                    4,
                 ],
             ],
             2 => '2a',
@@ -40,6 +45,10 @@ class ArrayUtilsTest extends \PHPUnit\Framework\TestCase
         $actual = ArrayUtils::setArray('a/ab', $actual, 'abb', '/');
         $actual = ArrayUtils::setArray('2', $actual, '2a', '/');
         $actual = ArrayUtils::setArray('a/ab/1', $actual, 'ab0', '/', true);
+        $actual = ArrayUtils::setArray('a/ab', $actual, [3, 4], '/');
+        $actual = ArrayUtils::setArray('a/ab/2', $actual, 'c', '/');
+
+        var_dump($actual);
 
         self::assertEquals($expected, $actual);
         self::assertEquals('ab0', ArrayUtils::getArray('a/ab/1', $expected));

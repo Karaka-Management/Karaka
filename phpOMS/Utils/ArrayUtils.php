@@ -100,7 +100,7 @@ class ArrayUtils
         } elseif (is_array($current) && !is_array($value)) {
             $current[] = $value;
         } elseif (is_array($current) && is_array($value)) {
-            $current += $value;
+            $current = array_merge($current, $value);
         } elseif (is_scalar($current) && $current !== null) {
             $current = [$current, $value];
         } else {
