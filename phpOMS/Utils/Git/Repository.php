@@ -71,7 +71,6 @@ class Repository
     public function __construct(string $path)
     {
         $this->setPath($path);
-        $this->branch = $this->getActiveBranch();
     }
 
     /**
@@ -115,15 +114,11 @@ class Repository
      */
     public function getActiveBranch() : Branch
     {
-        if (!isset($this->branch)) {
-            $branches = $this->getBranches();
-            $active   = preg_grep('/^\*/', $branches);
-            reset($active);
+        $branches = $this->getBranches();
+        $active   = preg_grep('/^\*/', $branches);
+        reset($active);
 
-            $this->branch = new Branch(current($active));
-        }
-
-        return $this->branch;
+        return new Branch(current($active));
     }
 
     /**

@@ -67,6 +67,6 @@ class Branch
      */
     public function setName(string $name) /* : void */
     {
-        $this->name = escapeshellarg($name);
+        $this->name = $name;
     }
 }

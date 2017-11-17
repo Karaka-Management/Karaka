@@ -51,7 +51,7 @@ class Tag
      */
     public function __construct(string $name = '')
     {
-        $this->name = escapeshellarg($name);
+        $this->name = $name;
     }
 
     /**
@@ -75,7 +75,7 @@ class Tag
      */
     public function setMessage(string $message) /* : void */
     {
-        $this->message = escapeshellarg($message);
+        $this->message = $message;
     }
 
     /**

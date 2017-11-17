@@ -21,8 +21,19 @@ use phpOMS\Utils\Git\Tag;
 
 class TagTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testDefault()
     {
-        self::markTestIncomplete();
+        $tag = new Tag();
+        self::assertEquals('', $tag->getMessage());
+        self::assertEquals('', $tag->getName());
+    }
+
+    public function testGetSet()
+    {
+        $tag = new Tag('test');
+        self::assertEquals('test', $tag->getName());
+
+        $tag->setMessage('msg');
+        self::assertEquals('msg', $tag->getMessage());
     }
 }

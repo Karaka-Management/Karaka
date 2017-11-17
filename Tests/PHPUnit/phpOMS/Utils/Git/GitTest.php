@@ -21,8 +21,8 @@ use phpOMS\Utils\Git\Git;
 
 class GitTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testDefault()
     {
-        self::markTestIncomplete();
+        self::assertEquals('/usr/bin/git', Git::getBin());
     }
 }

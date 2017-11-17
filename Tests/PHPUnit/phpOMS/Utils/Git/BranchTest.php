@@ -21,8 +21,15 @@ use phpOMS\Utils\Git\Branch;
 
 class BranchTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testDefault()
     {
-        self::markTestIncomplete();
+        $branch = new Branch();
+        self::assertEquals('', $branch->getName());
+    }
+
+    public function testGetSet()
+    {
+        $branch = new Branch('test');
+        self::assertEquals('test', $branch->getName());
     }
 }

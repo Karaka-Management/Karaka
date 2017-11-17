@@ -18,11 +18,23 @@ namespace Tests\PHPUnit\phpOMS\Utils\Git;
 require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
 
 use phpOMS\Utils\Git\Commit;
+use phpOMS\Utils\Git\Author;
+use phpOMS\Utils\Git\Branch;
+use phpOMS\Utils\Git\Tag;
+use phpOMS\Utils\Git\Repository;
 
 class CommitTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testDefault()
     {
-        self::markTestIncomplete();
+        $commit = new Commit();
+        self::assertEquals('', $commit->getId());
+        self::assertEquals('', $commit->getMessage());
+        self::assertEquals([], $commit->getFiles());
+        self::assertInstanceOf('\phpOMS\Utils\Git\Author', $commit->getAuthor());
+        self::assertInstanceOf('\phpOMS\Utils\Git\Branch', $commit->getBranch());
+        self::assertInstanceOf('\phpOMS\Utils\Git\Tag', $commit->getTag());
+        self::assertInstanceOf('\phpOMS\Utils\Git\Repository', $commit->getRepository());
+        self::assertInstanceOf('\DateTime', $commit->getDate());
     }
 }

@@ -48,8 +48,6 @@ class ArrayUtilsTest extends \PHPUnit\Framework\TestCase
         $actual = ArrayUtils::setArray('a/ab', $actual, [3, 4], '/');
         $actual = ArrayUtils::setArray('a/ab/2', $actual, 'c', '/');
 
-        var_dump($actual);
-
         self::assertEquals($expected, $actual);
         self::assertEquals('ab0', ArrayUtils::getArray('a/ab/1', $expected));
     }

@@ -21,8 +21,29 @@ use phpOMS\Utils\Git\Author;
 
 class AuthorTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testDefault()
     {
-        self::markTestIncomplete();
+        $author = new Author();
+        self::assertEquals('', $author->getName());
+        self::assertEquals('', $author->getEmail());
+        self::assertEquals(0, $author->getCommitCount());
+        self::assertEquals(0, $author->getAdditionCount());
+        self::assertEquals(0, $author->getRemovalCount());
+    }
+
+    public function testGetSet()
+    {
+        $author = new Author('test', 'email');
+        self::assertEquals('test', $author->getName());
+        self::assertEquals('email', $author->getEmail());
+
+        $author->setCommitCount(1);
+        self::assertEquals(1, $author->getCommitCount());
+
+        $author->setAdditionCount(2);
+        self::assertEquals(2, $author->getAdditionCount());
+
+        $author->setRemovalCount(3);
+        self::assertEquals(3, $author->getRemovalCount());
     }
 }

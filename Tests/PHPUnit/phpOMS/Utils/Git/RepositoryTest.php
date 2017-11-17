@@ -21,8 +21,10 @@ use phpOMS\Utils\Git\Repository;
 
 class RepositoryTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testDefault()
     {
-        self::markTestIncomplete();
+        $repo = new Repository(realpath(__DIR__ . '/../../../../../'));
+        self::assertEquals('Orange-Management', $repo->getName());
+        self::assertEquals(str_replace('\\', '/', realpath(__DIR__ . '/../../../../../.git')), str_replace('\\', '/', $repo->getDirectoryPath()));
     }
 }
