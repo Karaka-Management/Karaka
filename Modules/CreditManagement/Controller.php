@@ -79,30 +79,4 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     protected static $dependencies = [
     ];
-
-    /**
-     * {@inheritdoc}
-     */
-    public function call(RequestAbstract $request, ResponseAbstract $response, $data = null)
-    {
-        switch ($request->getPath(1)) {
-            case RequestDestination::BACKEND:
-                $this->showContentBackend($request, $response);
-                break;
-        }
-    }
-
-    /**
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    public function showContentBackend($request, $response)
-    {
-        switch ($request->getPath(3)) {
-        }
-    }
 }
