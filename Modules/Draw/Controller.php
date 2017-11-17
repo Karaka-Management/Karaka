@@ -248,7 +248,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         // todo: implement limit since this could get exploited
         do {
-            $filename = sha1($request->getData('image') . $rnd);
+            $filename = sha1(((string) $request->getData('image')) . $rnd);
             $filename .= '.' . $extension;
 
             $rnd      = mt_rand();
@@ -256,12 +256,12 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $fullPath = __DIR__ . '/../../' . $path . '/' . $filename;
 
-        $this->createLocalFile($fullPath, $request->getData('image'));
+        $this->createLocalFile($fullPath, (string) $request->getData('image'));
 
         $status = [
             'path' => $path,
             'filename' => $filename,
-            'name' => $request->getData('title'),
+            'name' => (string) $request->getData('title'),
             'size' => File::size($fullPath),
             'extension' => $extension,
             'status' => UploadStatus::OK,

@@ -336,7 +336,12 @@ class Controller extends ModuleAbstract implements WebInterface
                 $response->getHeader()->set('Content-Type', MimeType::M_CONF, true);
                 break;
             case 'xlsx':
-                $response->getHeader()->set('Content-disposition', 'attachment; filename="' . $request->getData('id') . '.' . $request->getData('type') . '"', true);
+                $response->getHeader()->set(
+                    'Content-disposition', 'attachment; filename="' 
+                    . ((string) $request->getData('id')) . '.' 
+                    . ((string) $request->getData('type')) 
+                    . '"'
+                , true);
                 $response->getHeader()->set('Content-Type', MimeType::M_XLSX, true);
 
                 $response->getHeader()->set('Content-Type', MimeType::M_XLSX, true);
@@ -351,7 +356,12 @@ class Controller extends ModuleAbstract implements WebInterface
         if ($request->getData('download') !== null) {
             $response->getHeader()->set('Content-Type', MimeType::M_BIN, true);
             $response->getHeader()->set('Content-Transfer-Encoding', 'Binary', true);
-            $response->getHeader()->set('Content-disposition', 'attachment; filename="' . $request->getData('id') . '.' . $request->getData('type') . '"', true);
+            $response->getHeader()->set(
+                'Content-disposition', 'attachment; filename="' 
+                . ((string) $request->getData('id')) . '.' 
+                . ((string) $request->getData('type'))
+                . '"'
+            , true);
         }
 
         /** @var array $reportLanguage */
@@ -360,7 +370,12 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $exportView = new View($this->app, $request, $response);
         $exportView->addData('lang', $reportLanguage[$this->app->accountManager->get($request->getHeader()->getAccount())->getL11n()->getLanguage()]);
-        $exportView->setTemplate('/Modules/Reporter/Templates/' . $request->getData('id') . '/' . $request->getData('id') . '.' . $request->getData('type'));
+        $exportView->setTemplate(
+            '/Modules/Reporter/Templates/' 
+            . ((string) $request->getData('id')) . '/' 
+            . ((string) $request->getData('id')) . '.' 
+            . ((string) $request->getData('type'))
+        );
         $response->set('export', $exportView->render());
     }
 
@@ -402,7 +417,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $mediaCollection->setName((string) ($request->getData('name') ?? 'Empty'));
         $mediaCollection->setDescription((string) ($request->getData('description') ?? ''));
         $mediaCollection->setCreatedBy($request->getHeader()->getAccount());
-        $mediaCollection->setCreatedAt(new \DateTime('NOW'));
+        $mediaCollection->setCreatedAt(new \DateTime('now'));
         $mediaCollection->setSources($files);
 
         return CollectionMapper::create($mediaCollection);
