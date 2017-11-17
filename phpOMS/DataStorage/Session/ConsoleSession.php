@@ -93,4 +93,11 @@ class ConsoleSession implements SessionInterface
     {
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function lock()
+    {
+    }
+
 }

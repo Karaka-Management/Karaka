@@ -18,11 +18,13 @@ namespace Tests\PHPUnit\phpOMS\Utils\TaskSchedule;
 require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
 
 use phpOMS\Utils\TaskSchedule\SchedulerFactory;
+use phpOMS\Utils\TaskSchedule\TaskScheduler;
+use phpOMS\Utils\TaskSchedule\Cron;
 
 class SchedulerFactoryTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testFactory()
     {
-        self::markTestIncomplete();
+        self::assertTrue((SchedulerFactory::create('') instanceof Cron) || (SchedulerFactory::create('') instanceof TaskScheduler));
     }
 }

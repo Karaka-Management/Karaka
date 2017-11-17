@@ -93,4 +93,11 @@ class SocketSession implements SessionInterface
     {
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function lock()
+    {
+    }
+
 }

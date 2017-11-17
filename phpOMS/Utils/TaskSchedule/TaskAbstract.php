@@ -85,9 +85,20 @@ abstract class TaskAbstract
      */
     protected $comment = '';
 
+    /**
+     * Constructor
+     * 
+     * @param string $name Id/name of the task (on linux the same as the executable script)
+     * @param string $cmd Command to create the task
+     *
+     * @since  1.0.0
+     */
     public function __construct(string $name, string $cmd = '') {
         $this->id = $name;
         $this->command = $cmd;
+
+        $this->lastRunTime = new \DateTime('1900-01-01');
+        $this->nextRunTime = new \DateTime('1900-01-01');
     }
 
     /**
@@ -256,18 +267,6 @@ abstract class TaskAbstract
     public function setComment(string $comment) /* : void */
     {
         $this->comment = $comment;
-    }
-
-    /**
-     * Get comment.
-     *
-     * @return string
-     *
-     * @since  1.0.0
-     */
-    public function addResult(string $result)
-    {
-        $this->results[] = $result;
     }
 
     /**

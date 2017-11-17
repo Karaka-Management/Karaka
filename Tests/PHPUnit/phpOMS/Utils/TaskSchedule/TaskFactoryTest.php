@@ -18,11 +18,13 @@ namespace Tests\PHPUnit\phpOMS\Utils\TaskSchedule;
 require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
 
 use phpOMS\Utils\TaskSchedule\TaskFactory;
+use phpOMS\Utils\TaskSchedule\Schedule;
+use phpOMS\Utils\TaskSchedule\CronJob;
 
 class TaskFactoryTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPlaceholder()
+    public function testFactory()
     {
-        self::markTestIncomplete();
+        self::assertTrue((TaskFactory::create('') instanceof CronJob) || (TaskFactory::create('') instanceof Schedule));
     }
 }

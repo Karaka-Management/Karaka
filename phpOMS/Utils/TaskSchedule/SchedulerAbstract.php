@@ -79,6 +79,7 @@ abstract class SchedulerAbstract
      * @return bool
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public static function test() : bool
     {
