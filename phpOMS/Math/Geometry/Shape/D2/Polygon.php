@@ -236,9 +236,7 @@ class Polygon implements D2ShapeInterface
      */
     public function getBarycenter() : array
     {
-        $barycenter['x'] = 0;
-        $barycenter['y'] = 0;
-
+        $barycenter = ['x' => 0, 'y' => 0];
         $count = count($this->coord);
 
         for ($i = 0; $i < $count - 1; $i++) {
