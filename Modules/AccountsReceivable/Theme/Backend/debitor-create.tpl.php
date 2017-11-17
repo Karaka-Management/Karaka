@@ -17,7 +17,7 @@ echo $this->getData('nav')->render(); ?>
     <header><h1><?= $this->getHtml('AccountsReceivable'); ?></h1></header>
     <div class="inner">
         <form>
-            <table class="layout w-100">
+            <table class="layout wf-100">
                 <tr><td><label for="iStatus"><?= $this->getHtml('Status'); ?></label>
                 <tr><td><select id="iStatus" name="status">
                             <option>

@@ -117,10 +117,13 @@ echo $this->getData('nav')->render(); ?>
                                 </select>
                         <tr><td><label for="iReceiver"><?= $this->getHtml('To') ?></label>
                         <tr><td><input type="text" id="iReceiver" name="forward" value="<?= $this->printHtml($this->request->getHeader()->getAccount()); ?>" placeholder="&#xf007; Guest">
-                        <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media') ?></label>
-                        <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getHtml('Select') ?></button>
-                        <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload') ?></label>
-                        <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
+                        <tr><td><label for="iMedia"><?= $this->getHtml('Media') ?></label>
+                        <tr><td><div class="ipt-wrap">
+                                <div class="ipt-first"><input type="text" id="iMedia" placeholder="&#xf15b; File"></div>
+                                <div class="ipt-second"><button><?= $this->getHtml('Select') ?></button></div>
+                            </div>
+                        <tr><td><label for="iUpload"><?= $this->getHtml('Upload') ?></label>
+                        <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type">
                         <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>"><input type="hidden" name="task" value="<?= $this->printHtml($this->request->getData('id')); ?>"><input type="hidden" name="type" value="1">
                     </table>
                 </form>

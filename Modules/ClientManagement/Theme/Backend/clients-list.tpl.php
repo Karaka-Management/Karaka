@@ -26,7 +26,7 @@ echo $this->getData('nav')->render(); ?>
     <header><h1><?= $this->getHtml('Client'); ?></h1></header>
     <div class="inner floatLeft wf-100">
         <form class="wf-33 floatLeft">
-            <table class="layout w-100">
+            <table class="layout wf-100">
                 <tr><td><label for="iName1"><?= $this->getHtml('Name1') ?></label>
                 <tr><td><input type="text" id="iName1" disabled>
                 <tr><td><label for="iName2"><?= $this->getHtml('Name2') ?></label>
@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
             </table>
         </form>
         <form class="wf-33 floatLeft">
-            <table class="layout w-100">
+            <table class="layout wf-100">
                 <tr><td><label for="iAddress"><?= $this->getHtml('Address') ?></label>
                 <tr><td><input type="text" id="iAddress" disabled>
                 <tr><td><label for="iZip"><?= $this->getHtml('Zip') ?></label>
@@ -46,7 +46,7 @@ echo $this->getData('nav')->render(); ?>
             </table>
         </form>
         <form class="wf-33 floatLeft">
-            <table class="layout w-100">
+            <table class="layout wf-100">
                 <tr><td><label for="iPhone"><?= $this->getHtml('Phone') ?></label>
                 <tr><td><input type="text" id="iPhone" disabled>
                 <tr><td><label for="iFax"><?= $this->getHtml('Fax') ?></label>

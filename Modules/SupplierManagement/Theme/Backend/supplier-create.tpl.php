@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                 <header><h1><?= $this->getHtml('Supplier'); ?></h1></header>
                 <div class="inner">
                     <form>
-                        <table class="layout w-100">
+                        <table class="layout wf-100">
                             <tr><td><label for="iId"><?= $this->getHtml('ID', 0, 0); ?></label>
                             <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" id="iId" min="1" name="id" required></span>
                             <tr><td><label for="iName1"><?= $this->getHtml('Name1') ?></label>
@@ -56,7 +56,7 @@ echo $this->getData('nav')->render(); ?>
                 <header><h1><?= $this->getHtml('Contact'); ?></h1></header>
                 <div class="inner">
                     <form>
-                        <table class="layout w-100">
+                        <table class="layout wf-100">
                             <tr><td><label for="iCType"><?= $this->getHtml('Type') ?></label>
                             <tr><td><select id="iCType" name="actype">
                                         <option><?= $this->getHtml('Email') ?>
@@ -87,7 +87,7 @@ echo $this->getData('nav')->render(); ?>
                 <header><h1><?= $this->getHtml('Address'); ?></h1></header>
                 <div class="inner">
                     <form>
-                        <table class="layout w-100">
+                        <table class="layout wf-100">
                             <tr><td><label for="iAType"><?= $this->getHtml('Type') ?></label>
                             <tr><td><select id="iAType" name="atype">
                                         <option><?= $this->getHtml('Default') ?>
@@ -115,7 +115,7 @@ echo $this->getData('nav')->render(); ?>
                 <header><h1><?= $this->getHtml('PaymentTerm'); ?></h1></header>
                 <div class="inner">
                     <form>
-                        <table class="layout w-100">
+                        <table class="layout wf-100">
                             <tr><td><label for="iSource"><?= $this->getHtml('ID'); ?></label>
                             <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder=""></span>
                             <tr><td><label for="iSegment"><?= $this->getHtml('Segment'); ?></label>
@@ -143,7 +143,7 @@ echo $this->getData('nav')->render(); ?>
                 <header><h1><?= $this->getHtml('Payment'); ?></h1></header>
                 <div class="inner">
                     <form>
-                        <table class="layout w-100">
+                        <table class="layout wf-100">
                             <tr><td><label for="iACType"><?= $this->getHtml('Type') ?></label>
                             <tr><td><select id="iACType" name="actype">
                                         <option><?= $this->getHtml('Wire') ?>

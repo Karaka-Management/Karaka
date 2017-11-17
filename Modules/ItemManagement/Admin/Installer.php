@@ -67,9 +67,9 @@ class Installer extends InstallerAbstract
                 $dbPool->get()->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'itemmgmt_segmentation_l11n` (
                             `itemmgmt_segmentation_l11n_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `itemmgmt_segmentation_no` varchar(30) DEFAULT NULL,
-                            `itemmgmt_segmentation_name` varchar(30) DEFAULT NULL,
-                            `itemmgmt_segmentation_language` varchar(30) DEFAULT NULL,
+                            `itemmgmt_segmentation_l11n_no` varchar(30) DEFAULT NULL,
+                            `itemmgmt_segmentation_l11n_name` varchar(255) DEFAULT NULL,
+                            `itemmgmt_segmentation_l11n_language` varchar(3) DEFAULT NULL,
                             PRIMARY KEY (`itemmgmt_segmentation_l11n_id`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
@@ -99,6 +99,7 @@ class Installer extends InstallerAbstract
                             `itemmgmt_item_l11n_name2` varchar(30) DEFAULT NULL,
                             `itemmgmt_item_l11n_name3` varchar(30) DEFAULT NULL,
                             `itemmgmt_item_l11n_desc` text DEFAULT NULL,
+                            `itemmgmt_item_l11n_note` text DEFAULT NULL,
                             `itemmgmt_item_l11n_item` text DEFAULT NULL,
                             PRIMARY KEY (`itemmgmt_item_l11n_id`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
@@ -119,13 +120,13 @@ class Installer extends InstallerAbstract
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'itemmgmt_sales_price` (
                             `itemmgmt_sales_price_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemmgmt_sales_price_customer` int(11) DEFAULT NULL,
-                `itemmgmt_sales_price_group` int(11) DEFAULT NULL,
+                            `itemmgmt_sales_price_group` int(11) DEFAULT NULL,
                             `itemmgmt_sales_price_amount` varchar(50) DEFAULT NULL,
                             `itemmgmt_sales_price_price` int(11) DEFAULT NULL,
                             `itemmgmt_sales_price_bonus` int(11) DEFAULT NULL,
                             `itemmgmt_sales_price_discountp` int(11) DEFAULT NULL,
                             `itemmgmt_sales_price_discount` int(11) DEFAULT NULL,
-                `itemmgmt_sales_price_item` int(11) DEFAULT NULL,
+                            `itemmgmt_sales_price_item` int(11) DEFAULT NULL,
                             PRIMARY KEY (`itemmgmt_sales_price_id`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
