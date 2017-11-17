@@ -137,7 +137,7 @@ class Interval implements \Serializable
      */
     private function parseMinute(string $minute) : array
     {
-
+        return [$minute];
     }
 
     /**
@@ -151,7 +151,7 @@ class Interval implements \Serializable
      */
     private function parseHour(string $hour) : array
     {
-
+        return [$hour];
     }
 
     /**
@@ -165,7 +165,7 @@ class Interval implements \Serializable
      */
     private function parseDayOfMonth(string $dayOfMonth) : array
     {
-
+        return [$dayOfMonth];
     }
 
     /**
@@ -179,7 +179,7 @@ class Interval implements \Serializable
      */
     private function parseMonth(string $month) : array
     {
-
+        return [$month];
     }
 
     /**
@@ -193,7 +193,7 @@ class Interval implements \Serializable
      */
     private function parseDayOfWeek(string $dayOfWeek) : array
     {
-
+        return [$dayOfWeek];
     }
 
     /**
@@ -207,7 +207,7 @@ class Interval implements \Serializable
      */
     private function parseYear(string $year) : array
     {
-
+        return [$year];
     }
 
     /**

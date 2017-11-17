@@ -33,10 +33,10 @@ echo $this->getData('nav')->render(); ?>
                 <tbody>
                 <?php $c = 0; foreach ($jobs as $key => $job) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/job/single?{?}&id=' . $job->getId()); ?>
-                <tr>
+                <tr data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($job->getStatus()); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml(!empty($job->getLastRunTime()) ? $job->getLastRunTime()->format('Y-m-d') : ''); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml(!empty($job->getNextRunTime()) ? $job->getNextRunTime()->format('Y-m-d') : ''); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml(!empty($job->getLastRunTime()) ? $job->getLastRunTime()->format('Y-m-d H:i:s') : ''); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml(!empty($job->getNextRunTime()) ? $job->getNextRunTime()->format('Y-m-d H:i:s') : ''); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml(trim($job->getId())); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($job->getRun()); ?></a>
                         <?php endforeach; if ($c == 0) : ?>

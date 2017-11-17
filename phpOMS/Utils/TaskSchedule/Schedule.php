@@ -15,6 +15,9 @@ declare(strict_types = 1);
 
 namespace phpOMS\Utils\TaskSchedule;
 
+use phpOMS\Validation\Base\DateTime;
+
+
 /**
  * Schedule class.
  *
@@ -24,43 +27,29 @@ namespace phpOMS\Utils\TaskSchedule;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Schedule extends TaskAbstract implements \Serializable
+class Schedule extends TaskAbstract
 {
     /**
-     * Constructor.
-     *
-     * @param string $name Schedule name
-     * @param string $cmd  Command to execute
-     *
-     * @since  1.0.0
+     * {@inheritdoc}
      */
-    public function __construct(string $name, string $cmd = '')
+    public static function createWith(array $jobData) : TaskAbstract
     {
-        parent::__construct($name, $cmd);
-    }
+            $job = new self($jobData[1], '');
 
-    /**
-     * String representation of object
-     * @link  http://php.net/manual/en/serializable.serialize.php
-     * @return string the string representation of the object or null
-     * @since 5.1.0
-     */
-    public function serialize()
-    {
-        // TODO: Implement serialize() method.
-    }
+            $job->setRun($jobData[8]);
+            $job->setStatus($jobData[3]);
 
-    /**
-     * Constructs the object
-     * @link  http://php.net/manual/en/serializable.unserialize.php
-     * @param string $serialized <p>
-     *                           The string representation of the object.
-     *                           </p>
-     * @return void
-     * @since 5.1.0
-     */
-    public function unserialize($serialized)
-    {
-        // TODO: Implement unserialize() method.
+            if (DateTime::isValid($jobData[2])) { 
+                $job->setNextRunTime(new \DateTime($jobData[2]));
+            }
+
+            if (DateTime::isValid($jobData[5])) { 
+                $job->setLastRuntime(new \DateTime($jobData[5]));
+            }
+            
+            $job->setComment($jobData[10]);
+            $job->addResult($jobData[6]);
+
+            return $job;
     }
 }

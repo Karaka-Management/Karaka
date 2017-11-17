@@ -96,85 +96,16 @@ abstract class SchedulerAbstract
     }
 
     /**
-     * Add task
-     *
-     * @param TaskAbstract $task Task to add
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    public function add(TaskAbstract $task) /* : void */
-    {
-        $this->tasks[$task->getId()] = $task;
-    }
-
-    /**
-     * Remove task
-     *
-     * @param mixed $id Task id
-     *
-     * @return bool
-     *
-     * @since  1.0.0
-     */
-    public function remove(string $id) : bool
-    {
-        if (isset($this->tasks[$id])) {
-            unset($this->tasks[$id]);
-
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * Get task
-     *
-     * @param mixed $id Task id
-     *
-     * @return TaskAbstract|null
-     *
-     * @since  1.0.0
-     */
-    public function get(string $id)
-    {
-        return $this->tasks[$id] ?? null;
-    }
-
-    /**
-     * Get all tasks
-     *
-     * @return TaskAbstract[]
-     *
-     * @since  1.0.0
-     */
-    public function getAll() : array
-    {
-        return $this->tasks;
-    }
-
-    /**
-     * Set task
-     *
-     * @param TaskAbstract $task Task to edit
+     * Create task
+     * 
+     * @param TaskAbstract
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function set(TaskAbstract $task) /* : void */
+    public function create(TaskAbstract $task) /* : void */
     {
-        $this->tasks[$task->getId()] = $task;
+        $this->run($task->getCommand());
     }
-
-    /**
-     * Save tasks
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    abstract public function save() /* : void */;
 }

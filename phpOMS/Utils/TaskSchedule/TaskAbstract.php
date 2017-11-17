@@ -50,21 +50,40 @@ abstract class TaskAbstract
      */
     protected $run = '';
 
+    /**
+     * Status of the task
+     *
+     * @var string
+     * @since 1.0.0
+     */
     protected $status = '';
 
+    /**
+     * Next runtime
+     *
+     * @var \DateTime
+     * @since 1.0.0
+     */
     protected $nextRunTime = null;
 
+    /**
+     * Last runtime
+     *
+     * @var \DateTime
+     * @since 1.0.0
+     */
     protected $lastRunTime = null;
 
-    protected $start = null;
-
-    protected $end = null;
-
+    /**
+     * Comment
+     * 
+     * @param string $name Name of the task
+     * @param string $cmd Command/script to run
+     *
+     * @var string
+     * @since 1.0.0
+     */
     protected $comment = '';
-
-    protected $results = [];
-
-    protected $author = '';
 
     public function __construct(string $name, string $cmd = '') {
         $this->id = $name;
@@ -84,7 +103,7 @@ abstract class TaskAbstract
     }
 
     /**
-     * Get command.
+     * Get command to create the task
      *
      * @return string
      *
@@ -96,7 +115,7 @@ abstract class TaskAbstract
     }
 
     /**
-     * Set command.
+     * Set command to create the task
      *
      * @param string $command Command
      *
@@ -110,7 +129,7 @@ abstract class TaskAbstract
     }
 
     /**
-     * Get run.
+     * Get command/script to run
      *
      * @return string
      *
@@ -122,7 +141,7 @@ abstract class TaskAbstract
     }
 
     /**
-     * Set run.
+     * Set script to run
      *
      * @param string $run Command/script to run
      *
@@ -214,84 +233,6 @@ abstract class TaskAbstract
     }
 
     /**
-     * Get start.
-     *
-     * @return \DateTime
-     *
-     * @since  1.0.0
-     */
-    public function getStart()
-    {
-        return $this->start;
-    }
-
-    /**
-     * Set start.
-     *
-     * @param \DateTime $start Start
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    public function setStart(\DateTime $start) /* : void */
-    {
-        $this->start = $start;
-    }
-
-    /**
-     * Get end.
-     *
-     * @return \DateTime
-     *
-     * @since  1.0.0
-     */
-    public function getEnd()
-    {
-        return $this->end;
-    }
-
-    /**
-     * Set end.
-     *
-     * @param \DateTime $end End
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    public function setEnd(\DateTime $end) /* : void */
-    {
-        $this->end = $end;
-    }
-
-    /**
-     * Get author.
-     *
-     * @return string
-     *
-     * @since  1.0.0
-     */
-    public function getAuthor() : string
-    {
-        return $this->author;
-    }
-
-    /**
-     * Set author.
-     *
-     * @param string $author Author
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    public function setAuthor(string $author) /* : void */
-    {
-        $this->author = $author;
-    }
-
-    /**
      * Get comment.
      *
      * @return string
@@ -328,4 +269,15 @@ abstract class TaskAbstract
     {
         $this->results[] = $result;
     }
+
+    /**
+     * Create task based on job data
+     * 
+     * @param array $jobData Raw job data
+     * 
+     * @return TaskAbstract
+     * 
+     * @since 1.0.0
+     */
+    abstract public static function createWith(array $jobData) : TaskAbstract;
 }

@@ -15,6 +15,9 @@ declare(strict_types = 1);
 
 namespace phpOMS\Utils\TaskSchedule;
 
+use phpOMS\Validation\Base\DateTime;
+
+
 /**
  * CronJob class.
  *
@@ -24,83 +27,17 @@ namespace phpOMS\Utils\TaskSchedule;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class CronJob extends TaskAbstract implements \Serializable
+class CronJob extends TaskAbstract
 {
-
     /**
-     * Constructor.
-     *
-     * @param Interval $interval Interval
-     * @param string   $cmd      Command to execute
-     *
-     * @since  1.0.0
+     * {@inheritdoc}
      */
-    public function __construct(Interval $interval = null, $cmd = '')
+    public static function createWith(array $jobData) : TaskAbstract
     {
-        if (!isset($interval)) {
-            $this->interval = new Interval();
-        } else {
-            $this->interval = $interval;
-        }
+            $job = new self($jobData[5], '');
 
-        $this->command = $cmd;
-    }
+            $job->setRun($jobData[5]);
 
-    /**
-     * Serialize cronjob.
-     *
-     * @return string
-     *
-     * @since  1.0.0
-     */
-    public function serialize()
-    {
-        $minute     = $this->printValue($this->interval->getMinute());
-        $hour       = $this->printValue($this->interval->getHour());
-        $dayOfMonth = $this->printValue($this->interval->getDayOfMonth());
-        $month      = $this->printValue($this->interval->getMonth());
-        $dayOfWeek  = $this->printValue($this->interval->getDayOfWeek());
-
-        return $minute . ' ' . $hour . ' ' . $dayOfMonth . ' ' . $month . ' ' . $dayOfWeek . ' ' . $this->command;
-    }
-
-    /**
-     * Print value.
-     *
-     * @param array $value Element to serialize
-     *
-     * @return string
-     *
-     * @since  1.0.0
-     */
-    private function printValue(array $value) : string
-    {
-        if (($count = count($value['dayOfWeek'])) > 0) {
-            $parsed = implode(',', $value['dayOfWeek']);
-        } elseif ($value['start'] !== 0 && $value['end']) {
-            $parsed = $value['start'] . '-' . $value['end'];
-            $count  = 2;
-        } else {
-            $parsed = '*';
-            $count  = 1;
-        }
-
-        if ($count === 0 && $value['step'] !== 0) {
-            $parsed .= '/' . $value['step'];
-        }
-
-        return $parsed;
-    }
-
-    /**
-     * Unserialize cronjob.
-     *
-     * @param string $serialized To unserialize
-     *
-     * @since  1.0.0
-     */
-    public function unserialize($serialized)
-    {
-        // TODO: Implement unserialize() method.
+            return $job;
     }
 }

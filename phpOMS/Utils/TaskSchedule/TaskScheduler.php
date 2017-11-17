@@ -29,14 +29,6 @@ use phpOMS\Validation\Base\DateTime;
 class TaskScheduler extends SchedulerAbstract
 {
     /**
-     * {@inheritdoc}
-     */
-    public function save() /* : void */
-    {
-
-    }
-
-    /**
      * Run command
      *
      * @param string $cmd Command to run
@@ -89,46 +81,6 @@ class TaskScheduler extends SchedulerAbstract
     }
 
     /**
-     * Parse a list of jobs
-     *
-     * @param array $jobData Csv data containing the job information
-     *
-     * @return TaskAbstract Parsed job
-     *
-     * @since  1.0.0
-     */
-    private function parseJobList(array $jobData) : TaskAbstract
-    {
-            $job = TaskFactory::create($jobData[1], '');
-
-            $job->setRun($jobData[8]);
-            $job->setStatus($jobData[3]);
-
-            if (DateTime::isValid($jobData[2])) { 
-                $job->setNextRunTime(new \DateTime($jobData[2]));
-            }
-
-            if (DateTime::isValid($jobData[5])) { 
-                $job->setLastRuntime(new \DateTime($jobData[5]));
-            }
-            
-            $job->setAuthor($jobData[7]);
-            $job->setComment($jobData[10]);
-
-            if (DateTime::isValid($jobData[20])) { 
-                $job->setStart(new \DateTime($jobData[20]));
-            }
-
-            if (DateTime::isValid($jobData[21])) { 
-                $job->setEnd(new \DateTime($jobData[21]));
-            }
-
-            $job->addResult($jobData[6]);
-
-            return $job;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function getAll() : array
@@ -138,26 +90,10 @@ class TaskScheduler extends SchedulerAbstract
 
         $jobs = [];
         foreach ($lines as $line) {
-            $jobs[] = $this->parseJobList(str_getcsv($line));
+            $jobs[] = Schedule::createWith(str_getcsv($line));
         }
         
         return $jobs;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function get(string $id)
-    {
-        // todo: implement
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getByName(string $name) : Schedule
-    {
-        // todo: implement
     }
 
     /**
@@ -171,31 +107,22 @@ class TaskScheduler extends SchedulerAbstract
 
             $jobs = [];
             foreach ($lines as $line) {
-                $jobs[] = $this->parseJobList(str_getcsv($line));
+                $jobs[] = Schedule::createWith(str_getcsv($line));
             }
         } else {
             $lines = explode("\n", $this->normalize($this->run('/query /v /fo CSV')));
-            $jobs = [];
-            
             unset($lines[0]);
 
+            $jobs = [];
             foreach ($lines as $key => $line) {
                 $line = str_getcsv($line);
 
-                if (strpos($line[1], $name) !== false) {
-                    $jobs[] = $this->parseJobList($line);
+                if (stripos($line[1], $name) !== false) {
+                    $jobs[] = Schedule::createWith($line);
                 }
             }
         }
 
         return $jobs;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function create(Schedule $task)
-    {
-        // todo: implement
     }
 }
