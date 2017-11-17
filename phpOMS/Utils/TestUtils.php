@@ -29,7 +29,7 @@ class TestUtils
     /**
      * Set private object member
      *
-     * @param object||string $obj Object to modify
+     * @param object|string $obj Object to modify
      * @param string $name Member name to modify
      * @param mixed $value Value to set
      *
@@ -63,7 +63,7 @@ class TestUtils
     /**
      * Get private object member
      *
-     * @param object||string $obj Object to read
+     * @param object|string $obj Object to read
      * @param string $name Member name to read
      *
      * @return mixed Returns the member variable value
