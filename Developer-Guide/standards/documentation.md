@@ -103,18 +103,52 @@ The scss documentation is based on SassDoc, therefore only valid SassDoc comment
 
 ```js
 /**
- * Documentation
- * 
- * Optional example or more detailed description.
- * 
- * @since  1.0.0
+ * File description
+ *
+ * @category   Category name
+ * @package    Package name
+ * @copyright  Orange Management
+ * @license    OMS License 1.0
+ * @version    1.0.0
+ * @link       http://your.url.com
  */
 ```
 
 ### Class
 
+A class documentation MUST be implemented in the following form:
+
+```js
+/**
+ * Class description.
+ *
+ * @category   Category name
+ * @package    Package name
+ * @license    OMS License 1.0
+ * @link       http://your.url.com
+ * @since      1.0.0
+ */
+```
+
 #### Member
 
 #### Function/Method
+
+A function/method documentation MUST be implemented in the following form:
+
+```js
+/**
+ * Function/method description.
+ *
+ * Optional example or more detailed description.
+ *
+ * @param {variable_type} param1Name Parameter description
+ * @param {variable_type} [optionalPara] Parameter description
+ *
+ * @return {return_type}
+ *
+ * @since  1.0.0
+ */
+```
 
 ### Variable

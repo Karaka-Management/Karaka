@@ -6,7 +6,17 @@ Installing the application as a developer can be achived by following one of the
 
 * PHP >= 7.1
 * PDO PHP Extension
-* Mbstring PHP Extension
+
+### Recommended Extensions
+
+* Memcache
+* Sqlite
+* Socket
+* Curl
+* Imap
+* bcmath
+* zip
+* mbstring
 
 ## Linux Shell Script
 
@@ -24,7 +34,7 @@ This is the prefered way to install the application since this also installs all
 
 ### Annotation
 
-The database user and password can't be changed right now since the install config relies on the same data. Future releases will make use of a new user that will get set up by the install script as well. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit.phar ...` with `phpdbg -qrr phpunit.phar ...`.
+During this process the database automatically gets dropped (if existing) and re-created. The database user and password can't be changed right now since the install config relies on the same data. Future releases will make use of a new user that will get set up by the install script as well. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit.phar ...` with `phpdbg -qrr phpunit.phar ...`.
 
 ## FTP Web Install
 
@@ -45,4 +55,4 @@ This only installs an application without any dev tools that may be required by 
 
 ### Annotation
 
-Re-installing the application this way requires you to drop and re-create the database.
+During this process the database automatically gets dropped (if existing) and re-created.

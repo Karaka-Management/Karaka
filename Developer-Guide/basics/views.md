@@ -12,7 +12,9 @@ In case the response header is set to JSON the view will automatically get parse
 
 The base view class contains the request as well as the response objects hence it also contains the request/response localization. One of the most important methods is the `getText()` method. This private method allows for module and theme specific translations of defined language elements. 
 
-In the template you can simply use `$this->getText({TEXT_ID})` for localized text. All other localization elements can be accessed in a similar way e.g. `$this->l11n->getTemperature()`
+In the template you can simply use `$this->getText({TEXT_ID})` for localized text. All other localization elements can be accessed in a similar way e.g. `$this->l11n->getTemperature()`.
+
+In html templates it's recommended to use `$this->getHtml({TEXT_ID})` as this will savely escape defined strings for html output. In case you would like to escape none pre-defined language strings use `$this->printHtml('string to escape')`.
 
 ## Templates
 

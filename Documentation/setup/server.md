@@ -20,6 +20,12 @@ Make sure you have a database installed such as `MySQL` or `Postgresql` and the 
 
 The required php version is 7.1. Install php through your package manager, this may require you to add one additional repository to your package manager. Google for `How to install php 7.1 on XYZ`
 
+#### Required Extensions
+
+* PDO PHP Extension
+
+#### Recommended Extensions
+
 Extensions for php that may be required depending on your use case are:
 
 * Memcache

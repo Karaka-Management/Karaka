@@ -53,6 +53,7 @@ Possible types are:
 * string
 * bool
 * float
+* \DateTime
 * serializable (will call `serialize()`)
 * json (will call `jsonSerialize()`)
 
