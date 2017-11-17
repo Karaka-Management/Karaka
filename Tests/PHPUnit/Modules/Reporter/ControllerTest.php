@@ -69,7 +69,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
      */
     public function testCreateTemplate()
     {
-        $media = ModuleFactory::getInstance('Media', $this->app);;
+        $media = ModuleFactory::getInstance('Media', $this->app);
 
         $status = [
             [
@@ -141,7 +141,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
      */
     public function testCreateReport()
     {
-        $media = ModuleFactory::getInstance('Media', $this->app);;
+        $media = ModuleFactory::getInstance('Media', $this->app);
 
         $status = [
             [

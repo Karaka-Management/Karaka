@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1510934921">
-  <project timestamp="1510934921">
+<coverage generated="1510936487">
+  <project timestamp="1510936487">
     <package name="Model\Message">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Model/Message/Dom.php">
         <class name="Dom" namespace="Model\Message" fullPackage="Model" category="Modules" package="Model">
@@ -23443,8 +23443,8 @@
         <line num="243" type="stmt" count="18"/>
         <line num="245" type="stmt" count="18"/>
         <line num="247" type="stmt" count="18"/>
-        <line num="248" type="stmt" count="9"/>
-        <line num="249" type="stmt" count="9"/>
+        <line num="248" type="stmt" count="11"/>
+        <line num="249" type="stmt" count="11"/>
         <line num="253" type="stmt" count="24"/>
         <line num="256" type="stmt" count="24"/>
         <line num="258" type="stmt" count="24"/>
@@ -23452,9 +23452,9 @@
         <line num="260" type="stmt" count="24"/>
         <line num="263" type="stmt" count="23"/>
         <line num="265" type="stmt" count="23"/>
-        <line num="266" type="stmt" count="22"/>
-        <line num="267" type="stmt" count="22"/>
-        <line num="270" type="stmt" count="22"/>
+        <line num="266" type="stmt" count="21"/>
+        <line num="267" type="stmt" count="21"/>
+        <line num="270" type="stmt" count="21"/>
         <line num="273" type="stmt" count="24"/>
         <line num="285" type="method" name="generateParagraph" visibility="private" complexity="4" crap="20" count="0"/>
         <line num="287" type="stmt" count="0"/>
