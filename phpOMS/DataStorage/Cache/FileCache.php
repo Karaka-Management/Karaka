@@ -143,15 +143,13 @@ class FileCache implements CacheInterface
     public function set($key, $value, int $expire = -1) /* : void */
     {
         if ($this->status !== CacheStatus::ACTIVE) {
-            return false;
+            return;
         }
 
         // todo: allow $key to contain / as char and create subdirectory if necessary. This is important for cleaner caching.
         $path = File::sanitize($key, self::SANITIZE);
 
         File::put($this->cachePath . '/' . trim($path, '/') . '.cache', $this->build($value, $expire));
-
-        return false;
     }
 
     /**
