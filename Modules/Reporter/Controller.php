@@ -401,7 +401,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $mediaCollection = new Collection();
         $mediaCollection->setName((string) ($request->getData('name') ?? 'Empty'));
         $mediaCollection->setDescription((string) ($request->getData('description') ?? ''));
-        $mediaCollection->setCreatedBy((int) $request->getHeader()->getAccount());
+        $mediaCollection->setCreatedBy($request->getHeader()->getAccount());
         $mediaCollection->setCreatedAt(new \DateTime('NOW'));
         $mediaCollection->setSources($files);
 

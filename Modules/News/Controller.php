@@ -299,7 +299,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $mardkownParser = new Markdown();
 
         $newsArticle = new NewsArticle();
-        $newsArticle->setCreatedBy((int) $request->getHeader()->getAccount());
+        $newsArticle->setCreatedBy($request->getHeader()->getAccount());
         $newsArticle->setCreatedAt(new \DateTime('now'));
         $newsArticle->setPublish(new \DateTime($request->getData('publish') ?? false));
         $newsArticle->setTitle((string) ($request->getData('title') ?? ''));

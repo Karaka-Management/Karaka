@@ -366,7 +366,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $element = new TaskElement();
         $element->setForwarded((int) ($request->getData('forward') ?? $request->getHeader()->getAccount()));
         $element->setCreatedAt(new \DateTime('now'));
-        $element->setCreatedBy((int) $request->getHeader()->getAccount());
+        $element->setCreatedBy($request->getHeader()->getAccount());
         $element->setDue(new \DateTime((string) ($request->getData('due') ?? 'now')));
         $element->setStatus((int) ($request->getData('status')));
         $element->setTask((int) ($request->getData('task')));
