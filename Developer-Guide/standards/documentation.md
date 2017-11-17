@@ -87,20 +87,6 @@ The javascript documentation is based on JsDoc, therefore only valid JsDoc comme
 
 ### File
 
-### Class
-
-#### Member
-
-#### Function/Method
-
-### Variable
-
-## Scss
-
-The scss documentation is based on SassDoc, therefore only valid SassDoc comments are valid for all scss files.
-
-### File
-
 ```js
 /**
  * File description
