@@ -433,7 +433,7 @@ class Builder extends BuilderAbstract
     /**
      * From.
      *
-     * @param array $tables Tables
+     * @param string|array $tables Tables
      *
      * @return Builder
      *

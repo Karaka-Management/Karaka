@@ -248,7 +248,7 @@ class Controller extends ModuleAbstract implements WebInterface
             || ($val['plain'] = empty($request->getData('plain')))
             || ($val['lang'] = (
                 $request->getData('lang') !== null
-                && !ISO639Enum::isValidValue(strtolower($request->getData('lang')))
+                && !ISO639Enum::isValidValue(strtolower((string) $request->getData('lang')))
             ))
             || ($val['type'] = (
                 $request->getData('type') === null
@@ -305,7 +305,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $newsArticle->setTitle((string) ($request->getData('title') ?? ''));
         $newsArticle->setPlain((string) ($request->getData('plain') ?? ''));
         $newsArticle->setContent($mardkownParser->parse($request->getData('plain') ?? ''));
-        $newsArticle->setLanguage((string) (strtolower($request->getData('lang') ?? $request->getHeader()->getL11n()->getLanguage())));
+        $newsArticle->setLanguage(strtolower((string) ($request->getData('lang') ?? $request->getHeader()->getL11n()->getLanguage())));
         $newsArticle->setType((int) ($request->getData('type') ?? 1));
         $newsArticle->setStatus((int) ($request->getData('status') ?? 1));
         $newsArticle->setFeatured((bool) ($request->getData('featured') ?? true));

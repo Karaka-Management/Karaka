@@ -248,7 +248,7 @@ class Controller extends ModuleAbstract implements WebInterface
             || ($val['badges'] = empty($request->getData('badges')))
             || ($val['status'] = (
                 $request->getData('status') !== null
-                && !QAQuestionStatus::isValidValue(strtolower($request->getData('status')))
+                && !QAQuestionStatus::isValidValue((int) $request->getData('status'))
             ))
         ) {
             return $val;
@@ -292,7 +292,7 @@ class Controller extends ModuleAbstract implements WebInterface
             || ($val['question'] = empty($request->getData('question')))
             || ($val['status'] = (
                 $request->getData('status') !== null
-                && !QAAnswerStatus::isValidValue(strtolower($request->getData('status')))
+                && !QAAnswerStatus::isValidValue((int) $request->getData('status'))
             ))
         ) {
             return $val;

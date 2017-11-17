@@ -161,17 +161,17 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiCommentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        if (!empty($val = $this->validateEditorCreate($request))) {
-            $response->set('editor_create', new FormValidation($val));
+        if (!empty($val = $this->validateCommentCreate($request))) {
+            $response->set('comment_create', new FormValidation($val));
 
             return;
         }
 
-        $editorArticle = new Editor();
+        $comment = new Comment();
         
-        EditorMapper::create($editorArticle);
+        CommentMapper::create($comment);
 
-        $response->set('editor', $editorArticle->jsonSerialize());
+        $response->set('comment', $comment->jsonSerialize());
     }
 
 }

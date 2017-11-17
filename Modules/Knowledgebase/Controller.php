@@ -350,7 +350,7 @@ class Controller extends ModuleAbstract implements WebInterface
             || ($val['category'] = empty($request->getData('category')))
             || ($val['status'] = (
                 $request->getData('status') !== null
-                && !WikiStatus::isValidValue(strtolower($request->getData('status')))
+                && !WikiStatus::isValidValue((int) $request->getData('status'))
             ))
         ) {
             return $val;

@@ -294,7 +294,7 @@ class Controller extends ModuleAbstract implements WebInterface
             || ($val['labels'] = empty($request->getData('labels')))
             || ($val['status'] = (
                 $request->getData('status') !== null
-                && !CardStatus::isValidValue(strtolower($request->getData('status')))
+                && !CardStatus::isValidValue((int) $request->getData('status'))
             ))
             || ($val['type'] = (
                 $request->getData('type') === null
@@ -350,7 +350,7 @@ class Controller extends ModuleAbstract implements WebInterface
             || ($val['order'] = empty($request->getData('order')))
             || ($val['status'] = (
                 $request->getData('status') !== null
-                && !CardStatus::isValidValue(strtolower($request->getData('status')))
+                && !CardStatus::isValidValue((int) $request->getData('status'))
             ))
         ) {
             return $val;
