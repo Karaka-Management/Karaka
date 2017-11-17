@@ -23,6 +23,6 @@ class ScheduleTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault()
     {
-        self::assertInstanceOf('\phpOMS\Utils\TaskSchedule\TaskAbstract', new Schedule());
+        self::assertInstanceOf('\phpOMS\Utils\TaskSchedule\TaskAbstract', new Schedule(''));
     }
 }

@@ -21,7 +21,7 @@ require_once __DIR__ . '/../../../../phpOMS/Autoloader.php';
 
 class ArrayUtilsTest extends \PHPUnit\Framework\TestCase
 {
-    public function testArraySet()
+    public function testArrayGetSet()
     {
         $expected = [
             'a' => [
@@ -42,6 +42,7 @@ class ArrayUtilsTest extends \PHPUnit\Framework\TestCase
         $actual = ArrayUtils::setArray('a/ab/1', $actual, 'ab0', '/', true);
 
         self::assertEquals($expected, $actual);
+        self::assertEquals('ab0', ArrayUtils::getArray('a/ab/1', $expected));
     }
 
     public function testArrayInRecursive()

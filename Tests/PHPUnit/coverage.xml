@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1510925635">
-  <project timestamp="1510925635">
+<coverage generated="1510926519">
+  <project timestamp="1510926519">
     <package name="Model\Message">
       <file name="C:\Users\coyle\Desktop\Orange-Management/Model/Message/Dom.php">
         <class name="Dom" namespace="Model\Message" fullPackage="Model" category="Modules" package="Model">
@@ -23456,22 +23456,22 @@
         <line num="238" type="stmt" count="24"/>
         <line num="239" type="stmt" count="24"/>
         <line num="241" type="stmt" count="24"/>
-        <line num="242" type="stmt" count="19"/>
-        <line num="243" type="stmt" count="19"/>
-        <line num="245" type="stmt" count="19"/>
-        <line num="247" type="stmt" count="19"/>
-        <line num="248" type="stmt" count="12"/>
-        <line num="249" type="stmt" count="12"/>
+        <line num="242" type="stmt" count="17"/>
+        <line num="243" type="stmt" count="17"/>
+        <line num="245" type="stmt" count="17"/>
+        <line num="247" type="stmt" count="17"/>
+        <line num="248" type="stmt" count="10"/>
+        <line num="249" type="stmt" count="10"/>
         <line num="253" type="stmt" count="24"/>
         <line num="256" type="stmt" count="24"/>
         <line num="258" type="stmt" count="24"/>
         <line num="259" type="stmt" count="24"/>
         <line num="260" type="stmt" count="24"/>
-        <line num="263" type="stmt" count="24"/>
-        <line num="265" type="stmt" count="24"/>
+        <line num="263" type="stmt" count="23"/>
+        <line num="265" type="stmt" count="23"/>
         <line num="266" type="stmt" count="21"/>
         <line num="267" type="stmt" count="21"/>
-        <line num="270" type="stmt" count="23"/>
+        <line num="270" type="stmt" count="21"/>
         <line num="273" type="stmt" count="24"/>
         <line num="285" type="method" name="generateParagraph" visibility="private" complexity="4" crap="20" count="0"/>
         <line num="287" type="stmt" count="0"/>
@@ -23696,14 +23696,7 @@
         <class name="SchedulerAbstract" namespace="phpOMS\Utils\TaskSchedule" fullPackage="phpOMS" category="Framework" package="phpOMS">
           <metrics complexity="6" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
         </class>
-        <line num="55" type="stmt" count="0"/>
-        <line num="69" type="stmt" count="0"/>
-        <line num="70" type="stmt" count="0"/>
-        <line num="73" type="stmt" count="0"/>
-        <line num="74" type="stmt" count="0"/>
-        <line num="110" type="stmt" count="0"/>
-        <line num="111" type="stmt" count="0"/>
-        <metrics loc="106" ncloc="43" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="5" coveredelements="0"/>
+        <metrics loc="106" ncloc="43" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
       <file name="C:\Users\coyle\Desktop\Orange-Management/phpOMS/Utils/TaskSchedule/SchedulerFactory.php">
         <class name="SchedulerFactory" namespace="phpOMS\Utils\TaskSchedule" fullPackage="phpOMS" category="Framework" package="phpOMS">
@@ -23722,12 +23715,12 @@
         <class name="TaskAbstract" namespace="phpOMS\Utils\TaskSchedule" fullPackage="phpOMS" category="Framework" package="phpOMS">
           <metrics complexity="15" methods="14" coveredmethods="14" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="24" elements="38" coveredelements="38"/>
         </class>
-        <line num="96" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
-        <line num="97" type="stmt" count="3"/>
-        <line num="98" type="stmt" count="3"/>
-        <line num="100" type="stmt" count="3"/>
-        <line num="101" type="stmt" count="3"/>
-        <line num="102" type="stmt" count="3"/>
+        <line num="96" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="5"/>
+        <line num="97" type="stmt" count="5"/>
+        <line num="98" type="stmt" count="5"/>
+        <line num="100" type="stmt" count="5"/>
+        <line num="101" type="stmt" count="5"/>
+        <line num="102" type="stmt" count="5"/>
         <line num="111" type="method" name="getId" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="113" type="stmt" count="1"/>
         <line num="123" type="method" name="getCommand" visibility="public" complexity="1" crap="1" count="2"/>
@@ -24184,6 +24177,6 @@
         <metrics loc="261" ncloc="129" classes="1" methods="11" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="31" elements="55" coveredelements="36"/>
       </file>
     </package>
-    <metrics files="1146" loc="114348" ncloc="54124" classes="540" methods="3683" coveredmethods="1791" conditionals="0" coveredconditionals="0" statements="13283" coveredstatements="8222" elements="16966" coveredelements="10013"/>
+    <metrics files="1146" loc="114348" ncloc="54124" classes="540" methods="3683" coveredmethods="1791" conditionals="0" coveredconditionals="0" statements="13278" coveredstatements="8222" elements="16961" coveredelements="10013"/>
   </project>
 </coverage>
