@@ -131,6 +131,12 @@ article {
 .wf-100 {
   width: 100%; }
 
+.wf-80 {
+  width: 80%; }
+
+.wf-20 {
+  width: 20%; }
+
 .wf-50 {
   width: 50%; }
 
@@ -4182,7 +4188,7 @@ ul.h-list li {
   user-select: none;
   width: 175px;
   position: fixed;
-  top: 75px;
+  top: 79px;
   right: 0;
   bottom: 0;
   left: 0;
