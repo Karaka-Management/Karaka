@@ -6,18 +6,15 @@ Code inspections are very important in order to maintain the same code quality t
 
 Tools used for the code inspection are:
 
-* PhpMessDetector
+* PhpLoc
 * PhpMetrics
-* PhpDepend
-* PhpCS
-* PhpCPD
+* PDepend
 * PhpUnit (see tests)
 * Jasmine (see tests)
 * Custom scripts/tools
 
 These tools are all installed by running the `setup.sh` script from the Build repository.
 
-## Configurations
+## External Tools
 
-### PhpMessDetector
-
+As external tool scrutinizer is used to automate code inspection and provide insight on issues, bugs, best practices etc.
