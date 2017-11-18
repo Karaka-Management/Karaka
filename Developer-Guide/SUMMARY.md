@@ -1,5 +1,6 @@
 # Summary
 * [Introduction](README.md)
+* [Application Structure](application/structure.md)
 
 ## Setup
 * [Installation](setup/installation.md)
