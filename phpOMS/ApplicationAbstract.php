@@ -30,6 +30,7 @@ namespace phpOMS;
  * @property \Model\CoreSettings appSettings
  * @property \phpOMS\Event\EventManager eventManager
  * @property \phpOMS\Account\AccountManager accountManager
+ * @property \phpOMS\Log\FileLogger logger
  *
  * @category   Framework
  * @package    Framework
