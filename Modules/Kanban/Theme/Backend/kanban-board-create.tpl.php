@@ -1,2 +1,2 @@
 <?php
-echo $this->getData('nav')->render(); ?>
+echo $this->getData('nav')->render();

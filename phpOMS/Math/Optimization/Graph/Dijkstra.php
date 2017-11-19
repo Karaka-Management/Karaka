@@ -14,6 +14,8 @@
 declare(strict_types = 1);
 namespace phpOMS\Math\Optimization\Graph;
 
+use phpOMS\Stdlib\Graph\Graph;
+
 class Dijkstra
 {
     public static function dijkstra(Graph $graph, $source, $target)

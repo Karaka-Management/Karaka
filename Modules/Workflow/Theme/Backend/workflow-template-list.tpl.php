@@ -16,5 +16,5 @@
  * @var \Modules\Tasks\Models\Task[] $tasks
  */
 $tasks = $this->getData('tasks');
-echo $this->getData('nav')->render(); ?>
+echo $this->getData('nav')->render(); 
 

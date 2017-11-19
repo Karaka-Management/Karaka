@@ -45,7 +45,7 @@ class Collection extends Media implements \Iterator
      */
     public function __construct()
     {
-        $this->createdAt = new \DateTime();
+        parent::__construct();
     }
 
     /**

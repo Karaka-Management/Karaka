@@ -14,4 +14,4 @@
 /**
  * @var \phpOMS\Views\View $this
  */
-echo $this->getData('nav')->render(); ?>
+echo $this->getData('nav')->render(); 

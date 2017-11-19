@@ -12,4 +12,4 @@
  * @link       http://website.orange-management.de
  */
 $solution = $this->getData('solution');
-echo $this->getData('nav')->render(); ?>
+echo $this->getData('nav')->render(); 

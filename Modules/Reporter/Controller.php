@@ -306,7 +306,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return void
      *
      * @api
      *
@@ -314,8 +314,6 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiReporterSingle(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $view = new View($this->app, $request, $response);
-        
         $template  = TemplateMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
 
@@ -323,9 +321,7 @@ class Controller extends ModuleAbstract implements WebInterface
             && !$this->app->accountManager->get($accountId)->hasPermission(
             PermissionType::READ, $this->app->orgId, null, self::MODULE_ID, PermissionState::REPORT, $template->getId())
         ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
         }
 
         switch ($request->getData('type')) {

@@ -280,9 +280,9 @@ class MultiMap implements \Countable
     {
         if ($this->keyType === KeyType::MULTIPLE && is_array($key)) {
             return $this->removeMultiple($key);
-        } else {
-            return $this->removeSingle($key);
         }
+
+        return $this->removeSingle($key);
     }
 
     /**
@@ -290,11 +290,11 @@ class MultiMap implements \Countable
      *
      * @param mixed $key Key used to identify value
      *
-     * @return void
+     * @return bool
      *
      * @since  1.0.0
      */
-    private function removeMultiple($key) /* : void */
+    private function removeMultiple($key) : bool
     {
         if ($this->orderType !== OrderType::LOOSE) {
             return $this->remove(implode(':', $key));

@@ -92,7 +92,7 @@
                 || document.body.clientWidth;
 
             // todo: still buggy maybe always set true if < 800 and only call this if if >= 800
-            e.nextElementSibling.checked = width < 800 ? true : false;
+            e.nextElementSibling.checked = width < 800;
         }
 
         e.scrollTop  = this.navigation[e.id].getScrollPosition().y;

@@ -27,10 +27,9 @@ use phpOMS\Utils\IO\ExchangeInterface;
  */
 abstract class PersonalAccountAbstract extends AccountAbstract implements ExchangeInterface
 {
-    protected $id = 0;
-
-    public function __construct()
+    public function __construct(int $id)
     {
+        parent::__construct($id);
     }
 
     public function getBalance()

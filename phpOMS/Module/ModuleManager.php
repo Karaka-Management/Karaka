@@ -19,6 +19,7 @@ use phpOMS\ApplicationAbstract;
 use phpOMS\Autoloader;
 use phpOMS\DataStorage\Database\DatabaseType;
 use phpOMS\Message\Http\Request;
+use phpOMS\Message\RequestAbstract;
 use phpOMS\System\File\PathException;
 use phpOMS\Module\Exception\InvalidModuleException;
 
@@ -109,13 +110,13 @@ class ModuleManager
     /**
      * Get language files.
      *
-     * @param Request $request Request
+     * @param RequestAbstract $request Request
      *
      * @return array
      *
      * @since  1.0.0
      */
-    public function getLanguageFiles(Request $request) : array
+    public function getLanguageFiles(RequestAbstract $request) : array
     {
         $files = $this->getUriLoad($request);
 
@@ -132,13 +133,13 @@ class ModuleManager
     /**
      * Get modules that run on this page.
      *
-     * @param Request $request Request
+     * @param RequestAbstract $request Request
      *
      * @return array
      *
      * @since  1.0.0
      */
-    public function getUriLoad(Request $request) : array
+    public function getUriLoad(RequestAbstract $request) : array
     {
         if (!isset($this->uriLoad)) {
             switch ($this->app->dbPool->get('select')->getType()) {

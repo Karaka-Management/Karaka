@@ -15,6 +15,9 @@ declare(strict_types = 1);
 namespace phpOMS\Utils\Crawler;
 
 use phpOMs\DataStorage\Database\Query\Builder as DatabaseQueryBuilder;
+use phpOMS\Localization\Localization;
+use phpOMS\Message\Http\Rest;
+use phpOMS\Uri\Http;
 
 /**
  * Array utils.

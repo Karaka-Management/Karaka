@@ -54,5 +54,3 @@ echo $this->getData('nav')->render(); ?>
         </form>
     </div>
 </section>
-
-<?php include ROOT_PATH . '/Modules/Profile/Theme/Backend/acc-grp-popup.tpl.php'; ?>

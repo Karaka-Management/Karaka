@@ -32,7 +32,6 @@ class LZW implements CompressionInterface
      */
     public function compress(string $source) : string
     {
-        $wc         = '';
         $w          = '';
         $dictionary = [];
         $result     = [];

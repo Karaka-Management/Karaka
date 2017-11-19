@@ -347,7 +347,7 @@ class DataMapperAbstract implements DataMapperInterface
         self::extend(__CLASS__);
 
         if ($obj === null ||
-            (is_object($obj) && strpos($className = get_class($obj), '\Null') !== false)
+            (strpos($className = get_class($obj), '\Null') !== false && is_object($obj))
         ) {
             return null;
         }

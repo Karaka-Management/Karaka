@@ -34,6 +34,14 @@ use phpOMS\System\File\Local\Directory as DirectoryLocal;
 class Directory extends FileAbstract implements DirectoryInterface
 {
     /**
+     * Directory nodes (files and directories).
+     *
+     * @var FileAbstract[]
+     * @since 1.0.0
+     */
+    private $nodes = [];
+
+    /**
      * {@inheritdoc}
      */
     public static function size(string $dir, bool $recursive = true) : int

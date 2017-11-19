@@ -61,6 +61,14 @@ abstract class BuilderAbstract
     protected $prefix = '';
 
     /**
+     * Raw.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    public $raw = '';
+
+    /**
      * Set prefix.
      *
      * @param string $prefix Prefix

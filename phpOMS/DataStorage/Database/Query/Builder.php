@@ -182,14 +182,6 @@ class Builder extends BuilderAbstract
     public $lock = false;
 
     /**
-     * Raw query.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    public $raw = '';
-
-    /**
      * Comparison OPERATORS.
      *
      * @var string[]
