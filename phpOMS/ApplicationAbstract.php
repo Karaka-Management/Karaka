@@ -18,6 +18,19 @@ namespace phpOMS;
 /**
  * Application class.
  *
+ * @property mixed orgId
+ * @property string appName
+ * @property \phpOMS\DataStorage\Database\DatabasePool dbPool
+ * @property \phpOMS\Localization\L11nManager l11nManager
+ * @property \phpOMS\Router\Router router
+ * @property \phpOMS\DataStorage\Session\SessionInterface sessionManager
+ * @property \phpOMS\Module\ModuleManager moduleManager
+ * @property \phpOMS\Dispatcher\Dispatcher dispatcher
+ * @property \phpOMS\DataStorage\Cache\CachePool cachePool
+ * @property \Model\CoreSettings appSettings
+ * @property \phpOMS\Event\EventManager eventManager
+ * @property \phpOMS\Account\AccountManager accountManager
+ *
  * @category   Framework
  * @package    Framework
  * @license    OMS License 1.0
