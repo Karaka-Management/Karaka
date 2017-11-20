@@ -45,137 +45,9 @@ class LocalStorage extends StorageAbstract
         return self::$instance;
     }
 
-    private static function getClassType(string $path) : string
+    protected static function getClassType(string $path) : string
     {
         return is_dir($path) || (!is_file($path) && stripos($path, '.') === false) ? Directory::class : File::class;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function created(string $path) : \DateTime
-    {
-        return self::getClassType($path)::created($path);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function changed(string $path) : \DateTime
-    {
-        return self::getClassType($path)::changed($path);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function owner(string $path) : int
-    {
-        return self::getClassType($path)::owner($path);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function permission(string $path) : int
-    {
-        return self::getClassType($path)::permission($path);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function parent(string $path) : string
-    {
-        return self::getClassType($path)::parent($path);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function create(string $path) : bool
-    {
-        return stripos($path, '.') === false ? Directory::create($path, 0755, true) : File::create($path);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function delete(string $path) : bool
-    {
-        return self::getClassType($path)::delete($path);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function copy(string $from, string $to, bool $overwrite = false) : bool
-    {
-        return self::getClassType($from)::copy($from, $to, $overwrite);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function move(string $from, string $to, bool $overwrite = false) : bool
-    {
-        return self::getClassType($from)::move($from, $to, $overwrite);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function size(string $path, bool $recursive = true) : int
-    {
-        return self::getClassType($path)::size($path, $recursive);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function exists(string $path) : bool
-    {
-        return self::getClassType($path)::exists($path);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function name(string $path) : string
-    {
-        return self::getClassType($path)::name($path);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function basename(string $path) : string
-    {
-        return self::getClassType($path)::basename($path);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function dirname(string $path) : string
-    {
-        return self::getClassType($path)::dirname($path);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function dirpath(string $path) : string
-    {
-        return self::getClassType($path)::dirpath($path);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function count(string $path, bool $recursive = true, array $ignore = []) : int
-    {
-        return self::getClassType($path)::count($path, $recursive, $ignore);
     }
 
     /**
@@ -217,9 +89,9 @@ class LocalStorage extends StorageAbstract
     /**
      * {@inheritdoc}
      */
-    public static function sanitize(string $path, string $replace = '') : string
+    public static function create(string $path) : bool
     {
-        return self::getClassType($path)::sanitize($path, $replace);
+        return stripos($path, '.') === false ? Directory::create($path, 0755, true) : File::create($path);
     }
 
     /**

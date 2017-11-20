@@ -30,6 +30,7 @@ use phpOMS\System\File\Local\Directory as DirectoryLocal;
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
+ * @codeCoverageIgnore
  */
 class Directory extends FileAbstract implements DirectoryInterface
 {

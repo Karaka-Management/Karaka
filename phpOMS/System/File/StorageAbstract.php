@@ -72,27 +72,42 @@ abstract class StorageAbstract
     /**
      * {@inheritdoc}
      */
-    abstract public static function created(string $path) : \DateTime;
+    public static function created(string $path) : \DateTime
+    {
+        return static::getClassType($path)::created($path);
+    }
 
     /**
      * {@inheritdoc}
      */
-    abstract public static function changed(string $path) : \DateTime;
+    public static function changed(string $path) : \DateTime
+    {
+        return static::getClassType($path)::changed($path);
+    }
 
     /**
      * {@inheritdoc}
      */
-    abstract public static function owner(string $path) : int;
+    public static function owner(string $path) : int
+    {
+        return static::getClassType($path)::owner($path);
+    }
 
     /**
      * {@inheritdoc}
      */
-    abstract public static function permission(string $path) : int;
+    public static function permission(string $path) : int
+    {
+        return static::getClassType($path)::permission($path);
+    }
 
     /**
      * {@inheritdoc}
      */
-    abstract public static function parent(string $path) : string;
+    public static function parent(string $path) : string
+    {
+        return static::getClassType($path)::parent($path);
+    }
 
     /**
      * {@inheritdoc}
@@ -102,57 +117,95 @@ abstract class StorageAbstract
     /**
      * {@inheritdoc}
      */
-    abstract public static function delete(string $path) : bool;
+    public static function delete(string $path) : bool
+    {
+        return static::getClassType($path)::delete($path);
+    }
 
     /**
      * {@inheritdoc}
      */
-    abstract public static function copy(string $from, string $to, bool $overwrite = false) : bool;
+    public static function copy(string $from, string $to, bool $overwrite = false) : bool
+    {
+        return static::getClassType($from)::copy($from, $to, $overwrite);
+    }
 
     /**
      * {@inheritdoc}
      */
-    abstract public static function move(string $from, string $to, bool $overwrite = false) : bool;
+    public static function move(string $from, string $to, bool $overwrite = false) : bool
+    {
+        return static::getClassType($from)::move($from, $to, $overwrite);
+    }
 
     /**
      * {@inheritdoc}
      */
-    abstract public static function size(string $path, bool $recursive = true) : int;
+    public static function size(string $path, bool $recursive = true) : int
+    {
+        return static::getClassType($path)::size($path, $recursive);
+    }
 
     /**
      * {@inheritdoc}
      */
-    abstract public static function exists(string $path) : bool;
+    public static function exists(string $path) : bool
+    {
+        return static::getClassType($path)::exists($path);
+    }
 
     /**
      * {@inheritdoc}
      */
-    abstract public static function name(string $path) : string;
+    public static function name(string $path) : string
+    {
+        return static::getClassType($path)::name($path);
+    }
 
     /**
      * {@inheritdoc}
      */
-    abstract public static function basename(string $path) : string;
+    public static function basename(string $path) : string
+    {
+        return static::getClassType($path)::basename($path);
+    }
 
     /**
      * {@inheritdoc}
      */
-    abstract public static function dirname(string $path) : string;
+    public static function dirname(string $path) : string
+    {
+        return static::getClassType($path)::dirname($path);
+    }
 
     /**
      * {@inheritdoc}
      */
-    abstract public static function dirpath(string $path) : string;
+    public static function dirpath(string $path) : string
+    {
+        return static::getClassType($path)::dirpath($path);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function count(string $path, bool $recursive = true, array $ignore = []) : int
+    {
+        return static::getClassType($path)::count($path, $recursive, $ignore);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function sanitize(string $path, string $replace = '') : string
+    {
+        return static::getClassType($path)::sanitize($path, $replace);
+    }
 
     /**
      * {@inheritdoc}
      */
     abstract public static function list(string $path, string $filter = '*') : array;
-
-    /**
-     * {@inheritdoc}
-     */
-    abstract public static function count(string $path, bool $recursive = true, array $ignore = []) : int;
 
     /**
      * {@inheritdoc}
@@ -163,11 +216,6 @@ abstract class StorageAbstract
      * {@inheritdoc}
      */
     abstract public static function get(string $path) : string;
-
-    /**
-     * {@inheritdoc}
-     */
-    abstract public static function sanitize(string $path, string $replace = '') : string;
 
     /**
      * {@inheritdoc}
