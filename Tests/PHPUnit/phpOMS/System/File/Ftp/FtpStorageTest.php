@@ -27,7 +27,7 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
 
     public function testFile()
     {
-        if(!self::TEST) {
+        if (!self::TEST) {
             return;
         }
 
@@ -92,7 +92,7 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
 
     public function testDirectory()
     {
-        if(!self::TEST) {
+        if (!self::TEST) {
             return;
         }
 
@@ -124,7 +124,7 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
 
     public function testDirectoryMove()
     {
-        if(!self::TEST) {
+        if (!self::TEST) {
             return;
         }
 
@@ -149,8 +149,8 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidPutPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         FtpStorage::put(__DIR__, 'Test');
@@ -161,8 +161,8 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidGetPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         FtpStorage::get(__DIR__);
@@ -173,8 +173,8 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidListPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         FtpStorage::list(__DIR__ . '/FtpStorageTest.php');
@@ -185,8 +185,8 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidSetPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         FtpStorage::set(__DIR__, 'Test');
@@ -197,8 +197,8 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidAppendPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         FtpStorage::append(__DIR__, 'Test');
@@ -209,8 +209,8 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidPrependPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         FtpStorage::prepend(__DIR__, 'Test');
@@ -221,8 +221,8 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidExtensionPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         FtpStorage::extension(__DIR__);

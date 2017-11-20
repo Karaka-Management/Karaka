@@ -27,7 +27,7 @@ class FileTest extends \PHPUnit\Framework\TestCase
 
     public function testStatic()
     {
-        if(!self::TEST) {
+        if (!self::TEST) {
             return;
         }
 
@@ -95,8 +95,8 @@ class FileTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidGetPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         File::get(__DIR__ . '/invalid.txt');
@@ -107,8 +107,8 @@ class FileTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidCopyPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         File::copy(__DIR__ . '/invalid.txt', __DIR__ . '/invalid2.txt');
@@ -119,8 +119,8 @@ class FileTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidMovePath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         File::move(__DIR__ . '/invalid.txt', __DIR__ . '/invalid2.txt');
@@ -131,8 +131,8 @@ class FileTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidCreatedPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         File::created(__DIR__ . '/invalid.txt');
@@ -143,8 +143,8 @@ class FileTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidChangedPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         File::changed(__DIR__ . '/invalid.txt');
@@ -155,8 +155,8 @@ class FileTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidSizePath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         File::size(__DIR__ . '/invalid.txt');
@@ -167,8 +167,8 @@ class FileTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidPermissionPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         File::permission(__DIR__ . '/invalid.txt');
@@ -179,8 +179,8 @@ class FileTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidOwnerPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         File::owner(__DIR__ . '/invalid.txt');

@@ -26,7 +26,7 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
 
     public function testStatic()
     {
-        if(!self::TEST) {
+        if (!self::TEST) {
             return;
         }
 
@@ -59,7 +59,7 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
 
     public function testStaticMove()
     {
-        if(!self::TEST) {
+        if (!self::TEST) {
             return;
         }
 
@@ -86,8 +86,8 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidListPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         Directory::list(__DIR__ . '/invalid.txt');
@@ -98,8 +98,8 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidCopyPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         Directory::copy(__DIR__ . '/invalid', __DIR__ . '/invalid2');
@@ -110,8 +110,8 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidMovePath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         Directory::move(__DIR__ . '/invalid', __DIR__ . '/invalid2');
@@ -122,8 +122,8 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidCreatedPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         Directory::created(__DIR__ . '/invalid');
@@ -134,8 +134,8 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidChangedPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         Directory::changed(__DIR__ . '/invalid');
@@ -146,8 +146,8 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidSizePath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         Directory::size(__DIR__ . '/invalid');
@@ -158,8 +158,8 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidPermissionPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         Directory::permission(__DIR__ . '/invalid');
@@ -170,8 +170,8 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidOwnerPath()
     {
-        if(!self::TEST) {
-            return;
+        if (!self::TEST) {
+            throw new PathException('');
         }
 
         Directory::owner(__DIR__ . '/invalid');
