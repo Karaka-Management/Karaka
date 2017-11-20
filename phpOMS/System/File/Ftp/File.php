@@ -19,7 +19,6 @@ use phpOMS\System\File\ContainerInterface;
 use phpOMS\System\File\ContentPutMode;
 use phpOMS\System\File\FileInterface;
 use phpOMS\System\File\PathException;
-use phpOMS\System\File\Local\File as FileLocal;
 use phpOMS\System\File\Local\FileAbstract;
 use phpOMS\System\File\Local\Directory as LocalDirectory;
 use phpOMS\System\File\Local\File as LocalFile;
@@ -279,7 +278,7 @@ class File extends FileAbstract implements FileInterface
      */
     public static function dirname(string $path) : string
     {
-        return FileLocal::dirname($path);
+        return LocalFile::dirname($path);
     }
 
     /**
@@ -293,7 +292,7 @@ class File extends FileAbstract implements FileInterface
      */
     public static function dirpath(string $path) : string
     {
-        return FileLocal::dirpath($path);
+        return LocalFile::dirpath($path);
     }
 
     /**
@@ -370,7 +369,7 @@ class File extends FileAbstract implements FileInterface
      */
     public static function name(string $path) : string
     {
-        return FileLocal::name($path);
+        return LocalFile::name($path);
     }
 
     /**
@@ -378,7 +377,7 @@ class File extends FileAbstract implements FileInterface
      */
     public static function basename(string $path) : string
     {
-        return FileLocal::basename($path);
+        return LocalFile::basename($path);
     }
 
     /**
@@ -386,7 +385,7 @@ class File extends FileAbstract implements FileInterface
      */
     public static function extension(string $path) : string
     {
-        return FileLocal::extension($path);
+        return LocalFile::extension($path);
     }
 
     /**

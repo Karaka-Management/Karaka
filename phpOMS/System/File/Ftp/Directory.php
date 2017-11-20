@@ -19,6 +19,8 @@ use phpOMS\System\File\ContainerInterface;
 use phpOMS\System\File\DirectoryInterface;
 use phpOMS\System\File\Local\FileAbstract;
 use phpOMS\System\File\Local\Directory as DirectoryLocal;
+use phpOMS\System\File\Local\File as LocalFile;
+use phpOMS\Uri\Http;
 
 /**
  * Filesystem class.
@@ -34,6 +36,37 @@ use phpOMS\System\File\Local\Directory as DirectoryLocal;
  */
 class Directory extends FileAbstract implements DirectoryInterface
 {
+    public static function ftpConnect(Http $http)
+    {
+        $con = ftp_connect($http->getBase() . $http->getPath(), $http->getPort());
+
+        ftp_login($con, $http->getUser(), $http->getPass());
+        ftp_chdir($con, $http->getPath()); // todo: is this required ?
+
+        return $con;
+    }
+
+    public static function ftpExists($con, string $path)
+    {
+        $list = ftp_nlist($con, LocalFile::parent($path));
+
+        return in_array(LocalFile::name($path), $list);
+    }
+
+    public static function ftpCreate($con, string $path, int $permission, bool $recursive)
+    {
+        $parts = explode('/', $path);
+        ftp_chdir($con, '/' . $parts[0]);
+
+        foreach ($parts as $part) {
+            if (self::ftpExists($con, $part)) {
+                ftp_mkdir($con, $part);
+                ftp_chdir($con, $part);
+                ftp_chmod($con, $permission, $part);
+            }
+        }
+    }
+
     /**
      * Directory nodes (files and directories).
      *
