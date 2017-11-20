@@ -24,6 +24,7 @@ use phpOMS\System\File\PathException;
 class FileTest extends \PHPUnit\Framework\TestCase
 {
     const TEST = false;
+    const BASE = 'ftp://user:password@localhost';
 
     public function testStatic()
     {
@@ -31,7 +32,7 @@ class FileTest extends \PHPUnit\Framework\TestCase
             return;
         }
 
-        $testFile = __DIR__ . '/test.txt';
+        $testFile = self::BASE . '/test.txt';
         self::assertFalse(File::put($testFile, 'test', ContentPutMode::REPLACE));
         self::assertFalse(File::exists($testFile));
         self::assertTrue(File::put($testFile, 'test', ContentPutMode::CREATE));
@@ -51,8 +52,8 @@ class FileTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('txt', File::extension($testFile));
         self::assertEquals('test', File::name($testFile));
         self::assertEquals('test.txt', File::basename($testFile));
-        self::assertEquals(basename(realpath(__DIR__)), File::dirname($testFile));
-        self::assertEquals(realpath(__DIR__), File::dirpath($testFile));
+        self::assertEquals(basename(realpath(self::BASE)), File::dirname($testFile));
+        self::assertEquals(realpath(self::BASE), File::dirpath($testFile));
         self::assertEquals(1, File::count($testFile));
 
         $now = new \DateTime('now');
@@ -62,14 +63,14 @@ class FileTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, File::size($testFile));
         self::assertGreaterThan(0, File::permission($testFile));
 
-        $newPath = __DIR__ . '/sub/path/testing.txt';
+        $newPath = self::BASE . '/sub/path/testing.txt';
         self::assertTrue(File::copy($testFile, $newPath));
         self::assertTrue(File::exists($newPath));
         self::assertFalse(File::copy($testFile, $newPath));
         self::assertTrue(File::copy($testFile, $newPath, true));
         self::assertEquals('test5test3test4', File::get($newPath));
 
-        $newPath2 = __DIR__ . '/sub/path/testing2.txt';
+        $newPath2 = self::BASE . '/sub/path/testing2.txt';
         self::assertTrue(File::move($testFile, $newPath2));
         self::assertTrue(File::exists($newPath2));
         self::assertFalse(File::exists($testFile));
@@ -80,8 +81,8 @@ class FileTest extends \PHPUnit\Framework\TestCase
         self::assertFalse(File::delete($newPath2));
 
         unlink($newPath);
-        rmdir(__DIR__ . '/sub/path/');
-        rmdir(__DIR__ . '/sub/');
+        rmdir(self::BASE . '/sub/path/');
+        rmdir(self::BASE . '/sub/');
 
         self::assertTrue(File::create($testFile));
         self::assertFalse(File::create($testFile));
@@ -99,7 +100,7 @@ class FileTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        File::get(__DIR__ . '/invalid.txt');
+        File::get(self::BASE . '/invalid.txt');
     }
 
     /**
@@ -111,7 +112,7 @@ class FileTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        File::copy(__DIR__ . '/invalid.txt', __DIR__ . '/invalid2.txt');
+        File::copy(self::BASE . '/invalid.txt', self::BASE . '/invalid2.txt');
     }
 
     /**
@@ -123,7 +124,7 @@ class FileTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        File::move(__DIR__ . '/invalid.txt', __DIR__ . '/invalid2.txt');
+        File::move(self::BASE . '/invalid.txt', self::BASE . '/invalid2.txt');
     }
 
     /**
@@ -135,7 +136,7 @@ class FileTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        File::created(__DIR__ . '/invalid.txt');
+        File::created(self::BASE . '/invalid.txt');
     }
 
     /**
@@ -147,7 +148,7 @@ class FileTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        File::changed(__DIR__ . '/invalid.txt');
+        File::changed(self::BASE . '/invalid.txt');
     }
 
     /**
@@ -159,7 +160,7 @@ class FileTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        File::size(__DIR__ . '/invalid.txt');
+        File::size(self::BASE . '/invalid.txt');
     }
 
     /**
@@ -171,7 +172,7 @@ class FileTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        File::permission(__DIR__ . '/invalid.txt');
+        File::permission(self::BASE . '/invalid.txt');
     }
 
     /**
@@ -183,7 +184,7 @@ class FileTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        File::owner(__DIR__ . '/invalid.txt');
+        File::owner(self::BASE . '/invalid.txt');
     }
 }
 

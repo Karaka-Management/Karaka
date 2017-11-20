@@ -23,6 +23,7 @@ use phpOMS\System\File\PathException;
 class DirectoryTest extends \PHPUnit\Framework\TestCase
 {
     const TEST = false;
+    const BASE = 'ftp://user:password@localhost';
 
     public function testStatic()
     {
@@ -30,13 +31,13 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
             return;
         }
 
-        $dirPath = __DIR__ . '/test';
+        $dirPath = self::BASE . '/test';
         self::assertTrue(Directory::create($dirPath));
         self::assertTrue(Directory::exists($dirPath));
         self::assertFalse(Directory::create($dirPath));
-        self::assertFalse(Directory::create(__DIR__ . '/test/sub/path'));
-        self::assertTrue(Directory::create(__DIR__ . '/test/sub/path', 0755, true));
-        self::assertTrue(Directory::exists(__DIR__ . '/test/sub/path'));
+        self::assertFalse(Directory::create(self::BASE . '/test/sub/path'));
+        self::assertTrue(Directory::create(self::BASE . '/test/sub/path', 0755, true));
+        self::assertTrue(Directory::exists(self::BASE . '/test/sub/path'));
 
         self::assertEquals('test', Directory::name($dirPath));
         self::assertEquals('test', Directory::basename($dirPath));
@@ -51,7 +52,7 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
         self::assertTrue(Directory::delete($dirPath));
         self::assertFalse(Directory::exists($dirPath));
 
-        $dirTestPath = __DIR__ . '/dirtest';
+        $dirTestPath = self::BASE . '/dirtest';
         self::assertGreaterThan(0, Directory::size($dirTestPath));
         self::assertGreaterThan(Directory::size($dirTestPath, false), Directory::size($dirTestPath));
         self::assertGreaterThan(0, Directory::permission($dirTestPath));
@@ -63,15 +64,15 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
             return;
         }
 
-        $dirTestPath = __DIR__ . '/dirtest';
+        $dirTestPath = self::BASE . '/dirtest';
 
-        self::assertTrue(Directory::copy($dirTestPath, __DIR__ . '/newdirtest'));
-        self::assertTrue(file_exists(__DIR__ . '/newdirtest/sub/path/test3.txt'));
+        self::assertTrue(Directory::copy($dirTestPath, self::BASE . '/newdirtest'));
+        self::assertTrue(file_exists(self::BASE . '/newdirtest/sub/path/test3.txt'));
 
         self::assertTrue(Directory::delete($dirTestPath));
         self::assertFalse(Directory::exists($dirTestPath));
 
-        self::assertTrue(Directory::move(__DIR__ . '/newdirtest', $dirTestPath));
+        self::assertTrue(Directory::move(self::BASE . '/newdirtest', $dirTestPath));
         self::assertTrue(file_exists($dirTestPath . '/sub/path/test3.txt'));
 
         self::assertEquals(4, Directory::count($dirTestPath));
@@ -90,7 +91,7 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        Directory::list(__DIR__ . '/invalid.txt');
+        Directory::list(self::BASE . '/invalid.txt');
     }
 
     /**
@@ -102,7 +103,7 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        Directory::copy(__DIR__ . '/invalid', __DIR__ . '/invalid2');
+        Directory::copy(self::BASE . '/invalid', self::BASE . '/invalid2');
     }
 
     /**
@@ -114,7 +115,7 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        Directory::move(__DIR__ . '/invalid', __DIR__ . '/invalid2');
+        Directory::move(self::BASE . '/invalid', self::BASE . '/invalid2');
     }
 
     /**
@@ -126,7 +127,7 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        Directory::created(__DIR__ . '/invalid');
+        Directory::created(self::BASE . '/invalid');
     }
 
     /**
@@ -138,7 +139,7 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        Directory::changed(__DIR__ . '/invalid');
+        Directory::changed(self::BASE . '/invalid');
     }
 
     /**
@@ -150,7 +151,7 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        Directory::size(__DIR__ . '/invalid');
+        Directory::size(self::BASE . '/invalid');
     }
 
     /**
@@ -162,7 +163,7 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        Directory::permission(__DIR__ . '/invalid');
+        Directory::permission(self::BASE . '/invalid');
     }
 
     /**
@@ -174,7 +175,7 @@ class DirectoryTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        Directory::owner(__DIR__ . '/invalid');
+        Directory::owner(self::BASE . '/invalid');
     }
 }
 

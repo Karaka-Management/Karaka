@@ -102,7 +102,7 @@ class File extends FileAbstract implements FileInterface
     /**
      * {@inheritdoc}
      */
-    public static function get(string $path) : /* ? */string
+    public static function get(string $path) : string
     {
         $temp = fopen('php://temp', 'r+');
         $http = new Http($path);
@@ -116,7 +116,7 @@ class File extends FileAbstract implements FileInterface
 
         fclose($temp);
 
-        return $content ?? null;
+        return $content;
     }
 
     /**
@@ -227,7 +227,7 @@ class File extends FileAbstract implements FileInterface
 
         fclose($con);
 
-        return $owner;
+        return (int) $owner;
     }
 
     /**

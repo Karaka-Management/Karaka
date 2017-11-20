@@ -24,6 +24,7 @@ use phpOMS\System\File\PathException;
 class FtpStorageTest extends \PHPUnit\Framework\TestCase
 {
     const TEST = false;
+    const BASE = 'ftp://user:password@localhost';
 
     public function testFile()
     {
@@ -31,7 +32,7 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
             return;
         }
 
-        $testFile = __DIR__ . '/test.txt';
+        $testFile = self::BASE . '/test.txt';
         self::assertFalse(FtpStorage::put($testFile, 'test', ContentPutMode::REPLACE));
         self::assertFalse(FtpStorage::exists($testFile));
         self::assertTrue(FtpStorage::put($testFile, 'test', ContentPutMode::CREATE));
@@ -51,8 +52,8 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('txt', FtpStorage::extension($testFile));
         self::assertEquals('test', FtpStorage::name($testFile));
         self::assertEquals('test.txt', FtpStorage::basename($testFile));
-        self::assertEquals(basename(realpath(__DIR__)), FtpStorage::dirname($testFile));
-        self::assertEquals(realpath(__DIR__), FtpStorage::dirpath($testFile));
+        self::assertEquals(basename(realpath(self::BASE)), FtpStorage::dirname($testFile));
+        self::assertEquals(realpath(self::BASE), FtpStorage::dirpath($testFile));
         self::assertEquals(1, FtpStorage::count($testFile));
 
         $now = new \DateTime('now');
@@ -62,14 +63,14 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, FtpStorage::size($testFile));
         self::assertGreaterThan(0, FtpStorage::permission($testFile));
 
-        $newPath = __DIR__ . '/sub/path/testing.txt';
+        $newPath = self::BASE . '/sub/path/testing.txt';
         self::assertTrue(FtpStorage::copy($testFile, $newPath));
         self::assertTrue(FtpStorage::exists($newPath));
         self::assertFalse(FtpStorage::copy($testFile, $newPath));
         self::assertTrue(FtpStorage::copy($testFile, $newPath, true));
         self::assertEquals('test5test3test4', FtpStorage::get($newPath));
 
-        $newPath2 = __DIR__ . '/sub/path/testing2.txt';
+        $newPath2 = self::BASE . '/sub/path/testing2.txt';
         self::assertTrue(FtpStorage::move($testFile, $newPath2));
         self::assertTrue(FtpStorage::exists($newPath2));
         self::assertFalse(FtpStorage::exists($testFile));
@@ -80,8 +81,8 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
         self::assertFalse(FtpStorage::delete($newPath2));
 
         unlink($newPath);
-        rmdir(__DIR__ . '/sub/path/');
-        rmdir(__DIR__ . '/sub/');
+        rmdir(self::BASE . '/sub/path/');
+        rmdir(self::BASE . '/sub/');
 
         self::assertTrue(FtpStorage::create($testFile));
         self::assertFalse(FtpStorage::create($testFile));
@@ -96,12 +97,12 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
             return;
         }
 
-        $dirPath = __DIR__ . '/test';
+        $dirPath = self::BASE . '/test';
         self::assertTrue(FtpStorage::create($dirPath));
         self::assertTrue(FtpStorage::exists($dirPath));
         self::assertFalse(FtpStorage::create($dirPath));
-        self::assertTrue(FtpStorage::create(__DIR__ . '/test/sub/path'));
-        self::assertTrue(FtpStorage::exists(__DIR__ . '/test/sub/path'));
+        self::assertTrue(FtpStorage::create(self::BASE . '/test/sub/path'));
+        self::assertTrue(FtpStorage::exists(self::BASE . '/test/sub/path'));
 
         self::assertEquals('test', FtpStorage::name($dirPath));
         self::assertEquals('test', FtpStorage::basename($dirPath));
@@ -116,7 +117,7 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
         self::assertTrue(FtpStorage::delete($dirPath));
         self::assertFalse(FtpStorage::exists($dirPath));
 
-        $dirTestPath = __DIR__ . '/dirtest';
+        $dirTestPath = self::BASE . '/dirtest';
         self::assertGreaterThan(0, FtpStorage::size($dirTestPath));
         self::assertGreaterThan(FtpStorage::size($dirTestPath, false), FtpStorage::size($dirTestPath));
         self::assertGreaterThan(0, FtpStorage::permission($dirTestPath));
@@ -128,14 +129,14 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
             return;
         }
 
-        $dirTestPath = __DIR__ . '/dirtest';
-        self::assertTrue(FtpStorage::copy($dirTestPath, __DIR__ . '/newdirtest'));
-        self::assertTrue(file_exists(__DIR__ . '/newdirtest/sub/path/test3.txt'));
+        $dirTestPath = self::BASE . '/dirtest';
+        self::assertTrue(FtpStorage::copy($dirTestPath, self::BASE . '/newdirtest'));
+        self::assertTrue(file_exists(self::BASE . '/newdirtest/sub/path/test3.txt'));
 
         self::assertTrue(FtpStorage::delete($dirTestPath));
         self::assertFalse(FtpStorage::exists($dirTestPath));
 
-        self::assertTrue(FtpStorage::move(__DIR__ . '/newdirtest', $dirTestPath));
+        self::assertTrue(FtpStorage::move(self::BASE . '/newdirtest', $dirTestPath));
         self::assertTrue(file_exists($dirTestPath . '/sub/path/test3.txt'));
 
         self::assertEquals(4, FtpStorage::count($dirTestPath));
@@ -153,7 +154,7 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        FtpStorage::put(__DIR__, 'Test');
+        FtpStorage::put(self::BASE, 'Test');
     }
 
     /**
@@ -165,7 +166,7 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        FtpStorage::get(__DIR__);
+        FtpStorage::get(self::BASE);
     }
 
     /**
@@ -177,7 +178,7 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        FtpStorage::list(__DIR__ . '/FtpStorageTest.php');
+        FtpStorage::list(self::BASE . '/FtpStorageTest.php');
     }
 
     /**
@@ -189,7 +190,7 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        FtpStorage::set(__DIR__, 'Test');
+        FtpStorage::set(self::BASE, 'Test');
     }
 
     /**
@@ -201,7 +202,7 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        FtpStorage::append(__DIR__, 'Test');
+        FtpStorage::append(self::BASE, 'Test');
     }
 
     /**
@@ -213,7 +214,7 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        FtpStorage::prepend(__DIR__, 'Test');
+        FtpStorage::prepend(self::BASE, 'Test');
     }
 
     /**
@@ -225,7 +226,7 @@ class FtpStorageTest extends \PHPUnit\Framework\TestCase
             throw new PathException('');
         }
 
-        FtpStorage::extension(__DIR__);
+        FtpStorage::extension(self::BASE);
     }
 }
 
