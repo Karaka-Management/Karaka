@@ -34,6 +34,10 @@ This project uses font-awesome for its icons, the following example allows for s
 </i>
 ```
 
+## Colors
+
+Coloring can be added to many elements such as icons, sections etc. Available colors are `lightgreen`, `green`, `darkgreen`, `lightblue`, `blue`, `darkblue`, `lightred`, `red`, `darkred`, `lightyellow`, `yellow`, `lightorange`, `orange`, `white`, `lightgrey`, `grey`, `black`, `lightpurple`, `purple`, `darkpurple`, `lightteal`, `teal`, `darkteal`, `lightpink`, `pink`.
+
 ## Form Elements
 
 ### Input with button
@@ -59,6 +63,25 @@ The following snippet creates a dictionary button (e.g. for opening a popup wind
 ```
 
 ## Section
+
+A section is a container for information that can and should be grouped together.
+
+```html
+<section class="box wf-100">
+    <h1>Title</h1>
+    <div class="inner">
+        ...
+    </div>
+</section>
+```
+
+Additional coloring of sections can be achieved by adding a coloring class.
+
+```html
+<section class="box green">
+    ...
+</section>
+```
 
 ## Tabs
 
