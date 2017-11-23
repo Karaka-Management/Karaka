@@ -85,6 +85,32 @@ Additional coloring of sections can be achieved by adding a coloring class.
 
 ## Tabs
 
+Tabs are a useful tool in order to display more information on one page.
+
+```html
+<div class="tabular-2">
+    <ul class="tab-links">
+        <li><label for="tab-1">Tab Title 1</label>
+        <li><label for="tab-2">Tab Title 2</label>
+        <li><label for="tab-*">...</label>
+    </ul>
+    <div class="tab-content">
+        <input type="radio" id="tab-1" name="tabular-2" checked>
+        <div class="tab">
+            ... Tab content ...
+        </div>
+        <input type="radio" id="tab-2" name="tabular-2" checked>
+        <div class="tab">
+            ... Tab content ...
+        </div>
+        <input type="radio" id="tab-*" name="tabular-2" checked>
+        <div class="tab">
+            ... Tab content ...
+        </div>
+    </div>
+</div>
+```
+
 ## Tables
 
 ## Lists
