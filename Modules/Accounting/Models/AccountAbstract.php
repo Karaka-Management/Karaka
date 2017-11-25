@@ -24,7 +24,7 @@ namespace Modules\Accounting\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-abstract class AccountAbstract implements AccountInterface
+abstract class AccountAbstract
 {
 
     /**
@@ -43,7 +43,9 @@ abstract class AccountAbstract implements AccountInterface
      */
     protected $type = null;
 
-    protected $parent = null;
+    protected $positiveParent = null;
+    
+    protected $negativeParent = null;
 
     /**
      * Entry list.
@@ -51,7 +53,7 @@ abstract class AccountAbstract implements AccountInterface
      * @var \Modules\Accounting\Models\EntryInterface[]
      * @since 1.0.0
      */
-    protected $entryList = 0;
+    protected $entryList = [];
 
     /**
      * Constructor.
@@ -60,9 +62,14 @@ abstract class AccountAbstract implements AccountInterface
      *
      * @since  1.0.0
      */
-    public function __construct($id)
+    public function __construct(int $id = 0)
     {
         $this->id = $id;
+    }
+
+    public function getId() : int
+    {
+        return $this->id;
     }
 
     /**
@@ -91,5 +98,25 @@ abstract class AccountAbstract implements AccountInterface
      */
     public function getEntriesByDate($start, $end, $dateType = TimeRangeType::RECEIPT_DATE)
     {
+    }
+
+    public function getPositiveParent() 
+    {
+        return $this->positiveParent;
+    }
+
+    public function setPositiveParent($parent)
+    {
+        $this->positiveParent = $parent;
+    }
+
+    public function getNegativeParent()
+    {
+        return $this->negativeParent;
+    }
+
+    public function setNegativeParent($parent)
+    {
+        $this->negativeParent = $parent;
     }
 }

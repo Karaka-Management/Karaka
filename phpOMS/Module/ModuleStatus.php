@@ -12,26 +12,21 @@
  * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
-namespace Modules\Accounting\Models;
+namespace phpOMS\Module;
+
+use phpOMS\Stdlib\Base\Enum;
 
 /**
- * Creditor class.
+ * Module status enum.
  *
- * @category   Module
- * @package    Accounting
+ * @category   phpOMS
+ * @package    Module
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Creditor
+abstract class ModuleStatus extends Enum
 {
-
-    /**
-     * Constructor.
-     *
-     * @since  1.0.0
-     */
-    public function __construct()
-    {
-    }
+    /* public */ const ACTIVE = 1;
+    /* public */ const INACTIVE = 2;
 }

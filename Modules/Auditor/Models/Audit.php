@@ -22,7 +22,7 @@ class Audit
 
     private $subtype = 0;
 
-    private $module = null;
+    private $module = 0;
 
     private $ref = '';
 

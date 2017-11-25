@@ -14,8 +14,6 @@
 declare(strict_types = 1);
 namespace Modules\Accounting\Models;
 
-use phpOMS\Utils\IO\ExchangeInterface;
-
 /**
  * Posting interface.
  *
@@ -25,6 +23,6 @@ use phpOMS\Utils\IO\ExchangeInterface;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-interface PostingInterface extends ExchangeInterface
+interface PostingInterface
 {
 }

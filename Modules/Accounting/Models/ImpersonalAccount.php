@@ -25,7 +25,7 @@ use phpOMS\Utils\IO\ExchangeInterface;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-abstract class ImpersonalAccount implements ExchangeInterface
+class ImpersonalAccount
 {
 
     /**
@@ -37,59 +37,4 @@ abstract class ImpersonalAccount implements ExchangeInterface
     {
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function exportJson($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importJson($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportCsv($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importCsv($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportExcel($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importExcel($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportPdf($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importPdf($path)
-    {
-    }
 }

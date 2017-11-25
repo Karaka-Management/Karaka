@@ -14,8 +14,6 @@
 declare(strict_types = 1);
 namespace Modules\Accounting\Models;
 
-use phpOMS\Utils\IO\ExchangeInterface;
-
 /**
  * IncomeStatement class.
  *
@@ -25,7 +23,7 @@ use phpOMS\Utils\IO\ExchangeInterface;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-abstract class IncomeStatement implements ExchangeInterface
+class IncomeStatement
 {
     private $id = 0;
 
@@ -34,62 +32,6 @@ abstract class IncomeStatement implements ExchangeInterface
     private $incomeStatement = [];
 
     public function __construct()
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportJson($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importJson($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportCsv($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importCsv($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportExcel($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importExcel($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportPdf($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importPdf($path)
     {
     }
 }

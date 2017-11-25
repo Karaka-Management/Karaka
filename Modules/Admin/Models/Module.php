@@ -14,6 +14,8 @@
 declare(strict_types = 1);
 namespace Modules\Admin\Models;
 
+use phpOMS\Module\ModuleStatus;
+
 /**
  * Account group class.
  *
@@ -56,7 +58,7 @@ class Module
      * @var int
      * @since 1.0.0
      */
-    protected $status = GroupStatus::INACTIVE;
+    protected $status = ModuleStatus::INACTIVE;
 
     /**
      * Created at.

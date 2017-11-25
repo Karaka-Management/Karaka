@@ -14,8 +14,6 @@
 declare(strict_types = 1);
 namespace Modules\Accounting\Models;
 
-
-
 /**
  * Posting abstract class.
  *

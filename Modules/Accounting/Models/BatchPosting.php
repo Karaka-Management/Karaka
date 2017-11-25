@@ -14,8 +14,6 @@
 declare(strict_types = 1);
 namespace Modules\Accounting\Models;
 
-use phpOMS\Utils\IO\ExchangeInterface;
-
 /**
  * BatchPosting class.
  *
@@ -25,7 +23,7 @@ use phpOMS\Utils\IO\ExchangeInterface;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class BatchPosting implements ExchangeInterface, \Countable
+class BatchPosting implements \Countable
 {
 
     /**
@@ -42,7 +40,7 @@ class BatchPosting implements ExchangeInterface, \Countable
      * @var int
      * @since 1.0.0
      */
-    private $creator = null;
+    private $creator = 0;
 
     /**
      * Created.
@@ -58,7 +56,7 @@ class BatchPosting implements ExchangeInterface, \Countable
      * @var string
      * @since 1.0.0
      */
-    private $description = null;
+    private $description = '';
 
     /**
      * Postings.
@@ -75,6 +73,7 @@ class BatchPosting implements ExchangeInterface, \Countable
      */
     public function __construct()
     {
+        $this->created = new \DateTime('now');
     }
 
     /**
@@ -90,27 +89,13 @@ class BatchPosting implements ExchangeInterface, \Countable
     }
 
     /**
-     * Set id.
-     *
-     * @param int $id Batch ID
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
      * Get description.
      *
      * @return string
      *
      * @since  1.0.0
      */
-    public function getDescription()
+    public function getDescription() : string
     {
         return $this->description;
     }
@@ -124,8 +109,9 @@ class BatchPosting implements ExchangeInterface, \Countable
      *
      * @since  1.0.0
      */
-    public function setDescription($desc)
+    public function setDescription(string $desc)
     {
+        $this->description = $desc;
     }
 
     /**
@@ -135,23 +121,9 @@ class BatchPosting implements ExchangeInterface, \Countable
      *
      * @since  1.0.0
      */
-    public function getCreated()
+    public function getCreatedAt() : \DateTime
     {
         return $this->created;
-    }
-
-    /**
-     * Set creator.
-     *
-     * @param \Datetime $created Created
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
     }
 
     /**
@@ -230,59 +202,4 @@ class BatchPosting implements ExchangeInterface, \Countable
         return count($this->postings);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function exportJson($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importJson($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportCsv($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importCsv($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportExcel($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importExcel($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportPdf($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importPdf($path)
-    {
-    }
 }

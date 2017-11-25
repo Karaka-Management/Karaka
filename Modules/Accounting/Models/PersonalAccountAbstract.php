@@ -14,8 +14,6 @@
 declare(strict_types = 1);
 namespace Modules\Accounting\Models;
 
-use phpOMS\Utils\IO\ExchangeInterface;
-
 /**
  * ImpersonalAccount class.
  *
@@ -25,7 +23,7 @@ use phpOMS\Utils\IO\ExchangeInterface;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-abstract class PersonalAccountAbstract extends AccountAbstract implements ExchangeInterface
+abstract class PersonalAccountAbstract extends AccountAbstract
 {
     public function __construct(int $id)
     {
@@ -48,59 +46,4 @@ abstract class PersonalAccountAbstract extends AccountAbstract implements Exchan
     {
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function exportJson($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importJson($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportCsv($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importCsv($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportExcel($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importExcel($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportPdf($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importPdf($path)
-    {
-    }
 }

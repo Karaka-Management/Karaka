@@ -25,7 +25,7 @@ use phpOMS\Utils\IO\ExchangeInterface;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-abstract class Balance implements ExchangeInterface
+class Balance
 {
 
     /**
@@ -37,29 +37,12 @@ abstract class Balance implements ExchangeInterface
     private $id = 0;
 
     /**
-     * Date of the balance.
-     *
-     * @var \Datetime
-     * @since 1.0.0
-     */
-    private $date = null;
-
-    /**
      * Balance data.
      *
      * @var array
      * @since 1.0.0
      */
-    private $balance = [
-        'credit' => [
-            'capital'     => [],
-            'circulating' => [],
-        ],
-        'debit'  => [
-            'equity' => [],
-            'debt'   => [],
-        ],
-    ];
+    private $balance = [];
 
     /**
      * Constructor.
@@ -78,73 +61,5 @@ abstract class Balance implements ExchangeInterface
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @param int $id
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportJson($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importJson($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportCsv($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importCsv($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportExcel($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importExcel($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exportPdf($path)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function importPdf($path)
-    {
     }
 }
