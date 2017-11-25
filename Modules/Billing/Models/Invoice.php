@@ -12,7 +12,11 @@
  * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
+
 namespace Modules\Billing\Models;
+
+use phpOMS\Localization\ISO4217CharEnum;
+use phpOMS\Localization\Money;
 
 /**
  * Invoice class.
@@ -41,7 +45,7 @@ class Invoice implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $type = InvoiceType::Bill;
+    private $type = InvoiceType::BILL;
 
     /**
      * Invoice status.
@@ -49,7 +53,7 @@ class Invoice implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $status = InvoiceStatus::DONE;
+    private $status = InvoiceStatus::DRAFT;
 
     /**
      * Invoice created at.
@@ -103,7 +107,7 @@ class Invoice implements \JsonSerializable
      */
     private $referer = 0;
 
-    private $refererName = 0;
+    private $refererName = '';
 
     private $taxId = '';
 
@@ -146,13 +150,12 @@ class Invoice implements \JsonSerializable
 
     public function __construct()
     {
-        $insurance = new Money();
-        $freight = new Money();
-        $net = new Money();
-        $gross = new Money();
+        $this->insurance = new Money();
+        $this->freight = new Money();
+        $this->net = new Money();
+        $this->gross = new Money();
 
         $this->createdAt = new \DateTime();
-        $this->send = new \DateTime();
     }
 
     public function getId() : int
@@ -185,7 +188,7 @@ class Invoice implements \JsonSerializable
         return $this->status;
     }
 
-    public function setSatus(int $status) /* : void */
+    public function setStatus(int $status) /* : void */
     {
         $this->status = $status;
     }
@@ -200,7 +203,7 @@ class Invoice implements \JsonSerializable
         $this->send = $send;
     }
 
-    public function getSend() : \DateTime
+    public function getSend()
     {
         return $this->send;
     }

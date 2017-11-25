@@ -29,5 +29,7 @@ abstract class InvoiceStatus extends Enum
 {
     /* public */ const ACTIVE = 1;
     /* public */ const ARCHIVED  = 2;
-    /* public */ const DELETED   = 3;
+    /* public */ const DELETED   = 4;
+    /* public */ const DONE   = 8;
+    /* public */ const DRAFT   = 16;
 }

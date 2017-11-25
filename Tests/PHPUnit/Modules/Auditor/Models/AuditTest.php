@@ -13,7 +13,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Admin\Models;
+namespace Tests\PHPUnit\Modules\Auditor\Models;
 
 use Modules\Auditor\Models\Audit;
 
