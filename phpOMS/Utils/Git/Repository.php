@@ -26,6 +26,7 @@ use phpOMS\Utils\StringUtils;
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
+ * @codeCoverageIgnore
  */
 class Repository
 {

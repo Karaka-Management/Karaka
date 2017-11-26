@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1511626838">
-  <project timestamp="1511626838">
+<coverage generated="1511697016">
+  <project timestamp="1511697016">
     <package name="Model\Message">
       <file name="C:\Users\coyle\Desktop\Repositories\Orange-Management/Model/Message/Dom.php">
         <class name="Dom" namespace="Model\Message" fullPackage="Model" category="Modules" package="Model">
@@ -21877,250 +21877,9 @@
       </file>
       <file name="C:\Users\coyle\Desktop\Repositories\Orange-Management/phpOMS/Utils/Git/Repository.php">
         <class name="Repository" namespace="phpOMS\Utils\Git" fullPackage="phpOMS" category="Framework" package="phpOMS">
-          <metrics complexity="101" methods="38" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="203" coveredstatements="16" elements="241" coveredelements="19"/>
+          <metrics complexity="101" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
         </class>
-        <line num="71" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="73" type="stmt" count="2"/>
-        <line num="74" type="stmt" count="2"/>
-        <line num="85" type="method" name="setPath" visibility="private" complexity="7" crap="10.54" count="2"/>
-        <line num="87" type="stmt" count="2"/>
-        <line num="88" type="stmt" count="0"/>
-        <line num="91" type="stmt" count="2"/>
-        <line num="93" type="stmt" count="2"/>
-        <line num="94" type="stmt" count="0"/>
-        <line num="97" type="stmt" count="2"/>
-        <line num="98" type="stmt" count="1"/>
-        <line num="99" type="stmt" count="1"/>
-        <line num="100" type="stmt" count="0"/>
-        <line num="102" type="stmt" count="0"/>
-        <line num="103" type="stmt" count="0"/>
-        <line num="106" type="stmt" count="2"/>
-        <line num="115" type="method" name="getActiveBranch" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="117" type="stmt" count="0"/>
-        <line num="118" type="stmt" count="0"/>
-        <line num="119" type="stmt" count="0"/>
-        <line num="121" type="stmt" count="0"/>
-        <line num="131" type="method" name="getBranches" visibility="public" complexity="3" crap="12" count="0"/>
-        <line num="133" type="stmt" count="0"/>
-        <line num="134" type="stmt" count="0"/>
-        <line num="136" type="stmt" count="0"/>
-        <line num="137" type="stmt" count="0"/>
-        <line num="139" type="stmt" count="0"/>
-        <line num="140" type="stmt" count="0"/>
-        <line num="144" type="stmt" count="0"/>
-        <line num="158" type="method" name="run" visibility="private" complexity="4" crap="20" count="0"/>
-        <line num="160" type="stmt" count="0"/>
-        <line num="161" type="stmt" count="0"/>
-        <line num="163" type="stmt" count="0"/>
-        <line num="166" type="stmt" count="0"/>
-        <line num="168" type="stmt" count="0"/>
-        <line num="172" type="stmt" count="0"/>
-        <line num="173" type="stmt" count="0"/>
-        <line num="174" type="stmt" count="0"/>
-        <line num="176" type="stmt" count="0"/>
-        <line num="177" type="stmt" count="0"/>
-        <line num="180" type="stmt" count="0"/>
-        <line num="182" type="stmt" count="0"/>
-        <line num="183" type="stmt" count="0"/>
-        <line num="186" type="stmt" count="0"/>
-        <line num="198" type="method" name="parseLines" visibility="private" complexity="3" crap="12" count="0"/>
-        <line num="200" type="stmt" count="0"/>
-        <line num="201" type="stmt" count="0"/>
-        <line num="203" type="stmt" count="0"/>
-        <line num="204" type="stmt" count="0"/>
-        <line num="206" type="stmt" count="0"/>
-        <line num="207" type="stmt" count="0"/>
-        <line num="211" type="stmt" count="0"/>
-        <line num="225" type="method" name="create" visibility="public" complexity="5" crap="30" count="0"/>
-        <line num="227" type="stmt" count="0"/>
-        <line num="228" type="stmt" count="0"/>
-        <line num="231" type="stmt" count="0"/>
-        <line num="232" type="stmt" count="0"/>
-        <line num="235" type="stmt" count="0"/>
-        <line num="245" type="method" name="status" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="247" type="stmt" count="0"/>
-        <line num="261" type="method" name="add" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="263" type="stmt" count="0"/>
-        <line num="265" type="stmt" count="0"/>
-        <line num="278" type="method" name="rm" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="280" type="stmt" count="0"/>
-        <line num="282" type="stmt" count="0"/>
-        <line num="294" type="method" name="parseFileList" visibility="private" complexity="3" crap="12" count="0"/>
-        <line num="296" type="stmt" count="0"/>
-        <line num="297" type="stmt" count="0"/>
-        <line num="298" type="stmt" count="0"/>
-        <line num="299" type="stmt" count="0"/>
-        <line num="302" type="stmt" count="0"/>
-        <line num="315" type="method" name="commit" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="317" type="stmt" count="0"/>
-        <line num="331" type="method" name="cloneTo" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="333" type="stmt" count="0"/>
-        <line num="334" type="stmt" count="0"/>
-        <line num="337" type="stmt" count="0"/>
-        <line num="351" type="method" name="cloneFrom" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="353" type="stmt" count="0"/>
-        <line num="354" type="stmt" count="0"/>
-        <line num="359" type="stmt" count="0"/>
-        <line num="371" type="method" name="cloneRemote" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="375" type="stmt" count="0"/>
-        <line num="388" type="method" name="clean" visibility="public" complexity="3" crap="12" count="0"/>
-        <line num="390" type="stmt" count="0"/>
-        <line num="403" type="method" name="createBranch" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="405" type="stmt" count="0"/>
-        <line num="415" type="method" name="getName" visibility="public" complexity="3" crap="3" count="1"/>
-        <line num="417" type="stmt" count="1"/>
-        <line num="418" type="stmt" count="1"/>
-        <line num="419" type="stmt" count="1"/>
-        <line num="420" type="stmt" count="1"/>
-        <line num="421" type="stmt" count="1"/>
-        <line num="424" type="stmt" count="1"/>
-        <line num="434" type="method" name="getDirectoryPath" visibility="public" complexity="2" crap="2" count="1"/>
-        <line num="436" type="stmt" count="1"/>
-        <line num="446" type="method" name="getBranchesRemote" visibility="public" complexity="3" crap="12" count="0"/>
-        <line num="448" type="stmt" count="0"/>
-        <line num="449" type="stmt" count="0"/>
-        <line num="451" type="stmt" count="0"/>
-        <line num="452" type="stmt" count="0"/>
-        <line num="454" type="stmt" count="0"/>
-        <line num="455" type="stmt" count="0"/>
-        <line num="459" type="stmt" count="0"/>
-        <line num="471" type="method" name="checkout" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="473" type="stmt" count="0"/>
-        <line num="474" type="stmt" count="0"/>
-        <line num="476" type="stmt" count="0"/>
-        <line num="488" type="method" name="merge" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="490" type="stmt" count="0"/>
-        <line num="500" type="method" name="fetch" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="502" type="stmt" count="0"/>
-        <line num="514" type="method" name="createTag" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="516" type="stmt" count="0"/>
-        <line num="528" type="method" name="getTags" visibility="public" complexity="3" crap="12" count="0"/>
-        <line num="530" type="stmt" count="0"/>
-        <line num="531" type="stmt" count="0"/>
-        <line num="532" type="stmt" count="0"/>
-        <line num="534" type="stmt" count="0"/>
-        <line num="535" type="stmt" count="0"/>
-        <line num="538" type="stmt" count="0"/>
-        <line num="551" type="method" name="push" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="553" type="stmt" count="0"/>
-        <line num="555" type="stmt" count="0"/>
-        <line num="568" type="method" name="pull" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="570" type="stmt" count="0"/>
-        <line num="572" type="stmt" count="0"/>
-        <line num="584" type="method" name="setDescription" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="586" type="stmt" count="0"/>
-        <line num="587" type="stmt" count="0"/>
-        <line num="596" type="method" name="getDescription" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="598" type="stmt" count="0"/>
-        <line num="610" type="method" name="countFiles" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="612" type="stmt" count="0"/>
-        <line num="614" type="stmt" count="0"/>
-        <line num="628" type="method" name="getLOC" visibility="public" complexity="8" crap="72" count="0"/>
-        <line num="630" type="stmt" count="0"/>
-        <line num="631" type="stmt" count="0"/>
-        <line num="633" type="stmt" count="0"/>
-        <line num="634" type="stmt" count="0"/>
-        <line num="635" type="stmt" count="0"/>
-        <line num="638" type="stmt" count="0"/>
-        <line num="639" type="stmt" count="0"/>
-        <line num="642" type="stmt" count="0"/>
-        <line num="644" type="stmt" count="0"/>
-        <line num="645" type="stmt" count="0"/>
-        <line num="648" type="stmt" count="0"/>
-        <line num="649" type="stmt" count="0"/>
-        <line num="650" type="stmt" count="0"/>
-        <line num="653" type="stmt" count="0"/>
-        <line num="656" type="stmt" count="0"/>
-        <line num="669" type="method" name="getContributors" visibility="public" complexity="4" crap="20" count="0"/>
-        <line num="671" type="stmt" count="0"/>
-        <line num="672" type="stmt" count="0"/>
-        <line num="675" type="stmt" count="0"/>
-        <line num="676" type="stmt" count="0"/>
-        <line num="679" type="stmt" count="0"/>
-        <line num="680" type="stmt" count="0"/>
-        <line num="682" type="stmt" count="0"/>
-        <line num="683" type="stmt" count="0"/>
-        <line num="685" type="stmt" count="0"/>
-        <line num="686" type="stmt" count="0"/>
-        <line num="688" type="stmt" count="0"/>
-        <line num="689" type="stmt" count="0"/>
-        <line num="690" type="stmt" count="0"/>
-        <line num="692" type="stmt" count="0"/>
-        <line num="695" type="stmt" count="0"/>
-        <line num="708" type="method" name="getCommitsCount" visibility="public" complexity="4" crap="20" count="0"/>
-        <line num="710" type="stmt" count="0"/>
-        <line num="711" type="stmt" count="0"/>
-        <line num="714" type="stmt" count="0"/>
-        <line num="715" type="stmt" count="0"/>
-        <line num="718" type="stmt" count="0"/>
-        <line num="719" type="stmt" count="0"/>
-        <line num="721" type="stmt" count="0"/>
-        <line num="722" type="stmt" count="0"/>
-        <line num="724" type="stmt" count="0"/>
-        <line num="727" type="stmt" count="0"/>
-        <line num="741" type="method" name="getAdditionsRemovalsByContributor" visibility="public" complexity="4" crap="20" count="0"/>
-        <line num="743" type="stmt" count="0"/>
-        <line num="744" type="stmt" count="0"/>
-        <line num="747" type="stmt" count="0"/>
-        <line num="748" type="stmt" count="0"/>
-        <line num="751" type="stmt" count="0"/>
-        <line num="752" type="stmt" count="0"/>
-        <line num="754" type="stmt" count="0"/>
-        <line num="755" type="stmt" count="0"/>
-        <line num="757" type="stmt" count="0"/>
-        <line num="758" type="stmt" count="0"/>
-        <line num="761" type="stmt" count="0"/>
-        <line num="771" type="method" name="getRemote" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="773" type="stmt" count="0"/>
-        <line num="787" type="method" name="getCommitsBy" visibility="public" complexity="7" crap="56" count="0"/>
-        <line num="789" type="stmt" count="0"/>
-        <line num="790" type="stmt" count="0"/>
-        <line num="793" type="stmt" count="0"/>
-        <line num="794" type="stmt" count="0"/>
-        <line num="797" type="stmt" count="0"/>
-        <line num="798" type="stmt" count="0"/>
-        <line num="800" type="stmt" count="0"/>
-        <line num="803" type="stmt" count="0"/>
-        <line num="804" type="stmt" count="0"/>
-        <line num="805" type="stmt" count="0"/>
-        <line num="807" type="stmt" count="0"/>
-        <line num="808" type="stmt" count="0"/>
-        <line num="810" type="stmt" count="0"/>
-        <line num="811" type="stmt" count="0"/>
-        <line num="812" type="stmt" count="0"/>
-        <line num="816" type="stmt" count="0"/>
-        <line num="830" type="method" name="getCommit" visibility="public" complexity="6" crap="42" count="0"/>
-        <line num="832" type="stmt" count="0"/>
-        <line num="833" type="stmt" count="0"/>
-        <line num="835" type="stmt" count="0"/>
-        <line num="837" type="stmt" count="0"/>
-        <line num="840" type="stmt" count="0"/>
-        <line num="842" type="stmt" count="0"/>
-        <line num="843" type="stmt" count="0"/>
-        <line num="846" type="stmt" count="0"/>
-        <line num="847" type="stmt" count="0"/>
-        <line num="851" type="stmt" count="0"/>
-        <line num="852" type="stmt" count="0"/>
-        <line num="853" type="stmt" count="0"/>
-        <line num="855" type="stmt" count="0"/>
-        <line num="856" type="stmt" count="0"/>
-        <line num="857" type="stmt" count="0"/>
-        <line num="858" type="stmt" count="0"/>
-        <line num="859" type="stmt" count="0"/>
-        <line num="860" type="stmt" count="0"/>
-        <line num="861" type="stmt" count="0"/>
-        <line num="863" type="stmt" count="0"/>
-        <line num="864" type="stmt" count="0"/>
-        <line num="867" type="stmt" count="0"/>
-        <line num="881" type="method" name="getNewest" visibility="public" complexity="4" crap="20" count="0"/>
-        <line num="883" type="stmt" count="0"/>
-        <line num="885" type="stmt" count="0"/>
-        <line num="887" type="stmt" count="0"/>
-        <line num="890" type="stmt" count="0"/>
-        <line num="892" type="stmt" count="0"/>
-        <line num="893" type="stmt" count="0"/>
-        <line num="896" type="stmt" count="0"/>
-        <metrics loc="898" ncloc="489" classes="1" methods="38" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="203" coveredstatements="16" elements="241" coveredelements="19"/>
+        <metrics loc="899" ncloc="489" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
       <file name="C:\Users\coyle\Desktop\Repositories\Orange-Management/phpOMS/Utils/Git/Tag.php">
         <class name="Tag" namespace="phpOMS\Utils\Git" fullPackage="phpOMS" category="Framework" package="phpOMS">
@@ -22784,18 +22543,18 @@
         <line num="243" type="stmt" count="18"/>
         <line num="245" type="stmt" count="18"/>
         <line num="247" type="stmt" count="18"/>
-        <line num="248" type="stmt" count="9"/>
-        <line num="249" type="stmt" count="9"/>
+        <line num="248" type="stmt" count="10"/>
+        <line num="249" type="stmt" count="10"/>
         <line num="253" type="stmt" count="24"/>
         <line num="256" type="stmt" count="24"/>
         <line num="258" type="stmt" count="24"/>
         <line num="259" type="stmt" count="24"/>
         <line num="260" type="stmt" count="24"/>
-        <line num="263" type="stmt" count="23"/>
-        <line num="265" type="stmt" count="23"/>
-        <line num="266" type="stmt" count="21"/>
-        <line num="267" type="stmt" count="21"/>
-        <line num="270" type="stmt" count="22"/>
+        <line num="263" type="stmt" count="24"/>
+        <line num="265" type="stmt" count="24"/>
+        <line num="266" type="stmt" count="20"/>
+        <line num="267" type="stmt" count="20"/>
+        <line num="270" type="stmt" count="24"/>
         <line num="273" type="stmt" count="24"/>
         <line num="285" type="method" name="generateParagraph" visibility="private" complexity="4" crap="20" count="0"/>
         <line num="287" type="stmt" count="0"/>
@@ -23501,6 +23260,6 @@
         <metrics loc="261" ncloc="129" classes="1" methods="11" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="31" elements="55" coveredelements="36"/>
       </file>
     </package>
-    <metrics files="1142" loc="112500" ncloc="53373" classes="528" methods="3424" coveredmethods="1933" conditionals="0" coveredconditionals="0" statements="12884" coveredstatements="8441" elements="16308" coveredelements="10374"/>
+    <metrics files="1142" loc="112501" ncloc="53373" classes="527" methods="3386" coveredmethods="1930" conditionals="0" coveredconditionals="0" statements="12681" coveredstatements="8425" elements="16067" coveredelements="10355"/>
   </project>
 </coverage>
