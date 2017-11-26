@@ -34,4 +34,24 @@ class StockBondsTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(100 / 50, StockBonds::getPriceEarningsRatio(100, 50));
         self::assertEquals(100 / 50, StockBonds::getPriceToSalesRatio(100, 50));
     }
+
+    public function testBondEquivalentYield()
+    {
+        self::assertEquals(0.40556, StockBonds::getBondEquivalentYield(100, 90, 100), '', 0.01);
+    }
+
+    public function testExpectedReturnCAPM()
+    {
+        self::assertEquals(7, StockBonds::getExpectedReturnCAPM(3, 2, 5), '', 0.01);
+    }
+
+    public function testCapitalGainsYield()
+    {
+        self::assertEquals(0.1, StockBonds::getCapitalGainsYield(100, 110), '', 0.01);   
+    }
+
+    public function testDilutedEarningsPerShare()
+    {
+        self::assertEquals(9.09, StockBonds::getDilutedEarningsPerShare(1000, 100, 10), '', 0.1);
+    }
 }
