@@ -30,6 +30,7 @@ use phpOMS\Account\AccountManager;
 use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Utils\TestUtils;
 use Modules\Admin\Models\AccountPermission;
+use phpOMS\Account\PermissionType;
 
 require_once __DIR__ . '/../../../../phpOMS/Autoloader.php';
 require_once __DIR__ . '/../../../../config.php';
@@ -47,12 +48,22 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->app->dbPool = $GLOBALS['dbpool'];
         $this->app->orgId = 1;
+        $this->app->appName = 'backend';
         $this->app->accountManager = new AccountManager($GLOBALS['session']);
 
         $account = new Account();
+        TestUtils::setMember($account, 'id', 1);
+
         $permission = new AccountPermission();
         $permission->setUnit(1);
         $permission->setApp('backend');
+        $permission->setPermission(
+            PermissionType::READ
+            | PermissionType::CREATE
+            | PermissionType::MODIFY
+            | PermissionType::DELETE
+            | PermissionType::PERMISSION
+        );
 
         $account->addPermission($permission);
 
@@ -132,8 +143,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $response = new Response(new Localization());
         $this->module->apiTemplateCreate($request, $response);
 
-        $request->createRequestHashs(0);
-        self::assertEquals(null, $response->get(0));
+        self::assertEquals('Test template', $response->get('')['name']);
+        self::assertGreaterThan(0, $response->get('')['id']);
     }
 
     /**

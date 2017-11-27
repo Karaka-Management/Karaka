@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1511697016">
-  <project timestamp="1511697016">
+<coverage generated="1511722604">
+  <project timestamp="1511722604">
     <package name="Model\Message">
       <file name="C:\Users\coyle\Desktop\Repositories\Orange-Management/Model/Message/Dom.php">
         <class name="Dom" namespace="Model\Message" fullPackage="Model" category="Modules" package="Model">
@@ -10850,20 +10850,20 @@
       </file>
       <file name="C:\Users\coyle\Desktop\Repositories\Orange-Management/phpOMS/Business/Finance/StockBonds.php">
         <class name="StockBonds" namespace="phpOMS\Business\Finance" fullPackage="phpOMS" category="Framework" package="phpOMS">
-          <metrics complexity="23" methods="22" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="10" elements="47" coveredelements="20"/>
+          <metrics complexity="23" methods="22" coveredmethods="14" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="14" elements="47" coveredelements="28"/>
         </class>
-        <line num="40" type="method" name="getBondEquivalentYield" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="42" type="stmt" count="0"/>
+        <line num="40" type="method" name="getBondEquivalentYield" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="42" type="stmt" count="1"/>
         <line num="55" type="method" name="getBookValuePerShare" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="57" type="stmt" count="1"/>
-        <line num="71" type="method" name="getExpectedReturnCAPM" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="73" type="stmt" count="0"/>
-        <line num="86" type="method" name="getCapitalGainsYield" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="88" type="stmt" count="0"/>
+        <line num="71" type="method" name="getExpectedReturnCAPM" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="73" type="stmt" count="1"/>
+        <line num="86" type="method" name="getCapitalGainsYield" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="88" type="stmt" count="1"/>
         <line num="101" type="method" name="getCurrentYield" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="103" type="stmt" count="1"/>
-        <line num="117" type="method" name="getDilutedEarningsPerShare" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="119" type="stmt" count="0"/>
+        <line num="117" type="method" name="getDilutedEarningsPerShare" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="119" type="stmt" count="1"/>
         <line num="132" type="method" name="getDividendPayoutRatio" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="134" type="stmt" count="1"/>
         <line num="147" type="method" name="getDividendYield" visibility="public" complexity="1" crap="1" count="1"/>
@@ -10899,7 +10899,7 @@
         <line num="355" type="stmt" count="0"/>
         <line num="369" type="method" name="getZeroCouponBondEffectiveYield" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="371" type="stmt" count="0"/>
-        <metrics loc="374" ncloc="124" classes="1" methods="22" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="10" elements="47" coveredelements="20"/>
+        <metrics loc="374" ncloc="124" classes="1" methods="22" coveredmethods="14" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="14" elements="47" coveredelements="28"/>
       </file>
     </package>
     <package name="phpOMS\Business\Finance\Forecasting">
@@ -22539,10 +22539,10 @@
         <line num="238" type="stmt" count="24"/>
         <line num="239" type="stmt" count="24"/>
         <line num="241" type="stmt" count="24"/>
-        <line num="242" type="stmt" count="18"/>
-        <line num="243" type="stmt" count="18"/>
-        <line num="245" type="stmt" count="18"/>
-        <line num="247" type="stmt" count="18"/>
+        <line num="242" type="stmt" count="19"/>
+        <line num="243" type="stmt" count="19"/>
+        <line num="245" type="stmt" count="19"/>
+        <line num="247" type="stmt" count="19"/>
         <line num="248" type="stmt" count="10"/>
         <line num="249" type="stmt" count="10"/>
         <line num="253" type="stmt" count="24"/>
@@ -22550,11 +22550,11 @@
         <line num="258" type="stmt" count="24"/>
         <line num="259" type="stmt" count="24"/>
         <line num="260" type="stmt" count="24"/>
-        <line num="263" type="stmt" count="24"/>
-        <line num="265" type="stmt" count="24"/>
-        <line num="266" type="stmt" count="20"/>
-        <line num="267" type="stmt" count="20"/>
-        <line num="270" type="stmt" count="24"/>
+        <line num="263" type="stmt" count="23"/>
+        <line num="265" type="stmt" count="23"/>
+        <line num="266" type="stmt" count="21"/>
+        <line num="267" type="stmt" count="21"/>
+        <line num="270" type="stmt" count="22"/>
         <line num="273" type="stmt" count="24"/>
         <line num="285" type="method" name="generateParagraph" visibility="private" complexity="4" crap="20" count="0"/>
         <line num="287" type="stmt" count="0"/>
@@ -23260,6 +23260,6 @@
         <metrics loc="261" ncloc="129" classes="1" methods="11" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="31" elements="55" coveredelements="36"/>
       </file>
     </package>
-    <metrics files="1142" loc="112501" ncloc="53373" classes="527" methods="3386" coveredmethods="1930" conditionals="0" coveredconditionals="0" statements="12681" coveredstatements="8425" elements="16067" coveredelements="10355"/>
+    <metrics files="1142" loc="112501" ncloc="53373" classes="527" methods="3386" coveredmethods="1934" conditionals="0" coveredconditionals="0" statements="12681" coveredstatements="8429" elements="16067" coveredelements="10363"/>
   </project>
 </coverage>

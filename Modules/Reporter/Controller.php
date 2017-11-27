@@ -400,11 +400,15 @@ class Controller extends ModuleAbstract implements WebInterface
         $template     = $this->createTemplateFromRequest($request, $collectionId);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->__toString(), $template);
+        $response->set($request->__toString(), $template->jsonSerialize());
     }
 
     private function createMediaCollectionFromRequest(RequestAbstract $request) : int
     {
+        if ($request->getData('files') === null) {
+            return -1;
+        }
+        
         $files = json_decode((string) $request->getData('files'));
         // TODO: make sure this user has permissions for provided files
 
@@ -416,24 +420,30 @@ class Controller extends ModuleAbstract implements WebInterface
         $mediaCollection->setCreatedAt(new \DateTime('now'));
         $mediaCollection->setSources($files);
 
-        return CollectionMapper::create($mediaCollection);
+        return (int) CollectionMapper::create($mediaCollection);
     }
 
-    private function createTemplateFromRequest(RequestAbstract $request, int $collection) : Template
+    private function createTemplateFromRequest(RequestAbstract $request, int $collectionId) : Template
     {
         $expected = $request->getData('expected');
 
         $reporterTemplate = new Template();
         $reporterTemplate->setName($request->getData('name') ?? 'Empty');
         $reporterTemplate->setDescription($request->getData('description') ?? '');
-        $reporterTemplate->setSource((int) $collectionId);
+        
+        if ($collectionId > 0) {
+            $reporterTemplate->setSource((int) $collectionId);
+        }
+
         $reporterTemplate->setStandalone((bool) $request->getData('standalone') ?? false);
         $reporterTemplate->setExpected(!empty($expected) ? json_decode($expected, true) : []);
         $reporterTemplate->setCreatedBy($request->getHeader()->getAccount());
         $reporterTemplate->setCreatedAt(new \DateTime('NOW'));
         $reporterTemplate->setDatatype((int) ($request->getData('datatype') ?? TemplateDataType::OTHER));
 
-        return TemplateMapper::create($reporterTemplate);
+        TemplateMapper::create($reporterTemplate);
+
+        return $reporterTemplate;
     }
 
     /**
@@ -459,12 +469,14 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $this->handleTemplateDatabaseFromRequest($request);
         $collectionId = $this->createMediaCollectionFromRequest($request);
-        $reportId     = $this->createReportFromRequest($request, $collectionId);
+        $report = $this->createReportFromRequest($request, $response, $collectionId);
 
-        $response->set($request->__toString(), new Redirect($request->getUri()->getBase() . $request->getHeader()->getL11n()->getLanguage() . '/backend/reporter/list'));
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
+        $response->set($request->__toString(), $report);
+
     }
 
-    private function createReportFromRequest(RequestAbstract $request, int $collection) : Template
+    private function createReportFromRequest(RequestAbstract $request, ResponseAbstract $response, int $collectionId) : Report
     {
         $reporterReport = new Report();
         $reporterReport->setTitle((string) ($request->getData('name')));
@@ -473,7 +485,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $reporterReport->setCreatedBy($request->getHeader()->getAccount());
         $reporterReport->setCreatedAt(new \DateTime('NOW'));
 
-        return ReportMapper::create($reporterReport);
+        ReportMapper::create($reporterReport);
+
+        return $reporterReport;
     }
 
     private function handleTemplateDatabaseFromRequest(RequestAbstract $request) /* : void */

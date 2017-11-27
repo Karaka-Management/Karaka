@@ -23,7 +23,7 @@ namespace Modules\Reporter\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Template
+class Template implements \JsonSerializable
 {
 
     /**
@@ -105,23 +105,6 @@ class Template
      * @since 1.0.0
      */
     private $expected = [];
-
-    /**
-     * Permissions.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    private $permissions = [
-        'r' => ['groups' => [],
-                'users'  => [],],
-        'w' => ['groups' => [],
-                'users'  => [],],
-        'p' => ['groups' => [],
-                'users'  => [],],
-        'd' => ['groups' => [],
-                'users'  => [],],
-    ];
 
     /**
      * Constructor
@@ -350,5 +333,24 @@ class Template
     public function isStandalone() : bool
     {
         return $this->isStandalone;
+    }
+
+    public function toArray() : array
+    {
+        return [
+            'id' => $this->id,
+            'createdBy' => $this->createdBy,
+            'createdAt' => $this->createdAt->format('Y-m-d H:i:s'),
+            'name' => $this->name,
+            'description' => $this->description,
+            'status' => $this->status,
+            'datatype' => $this->datatype,
+            'standalone' => $this->isStandalone,
+        ];
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->toArray();
     }
 }
