@@ -419,7 +419,7 @@ class File extends FileAbstract implements FileInterface
      */
     public function getParent() : ContainerInterface
     {
-        // TODO: Implement getParent() method.
+        return new Directory(self::parent($this->path));
     }
 
     /**
@@ -427,7 +427,7 @@ class File extends FileAbstract implements FileInterface
      */
     public function copyNode(string $to, bool $overwrite = false) : bool
     {
-        // TODO: Implement copyNode() method.
+        return self::copy($this->path, $to, $overwrite);
     }
 
     /**
@@ -435,7 +435,7 @@ class File extends FileAbstract implements FileInterface
      */
     public function moveNode(string $to, bool $overwrite = false) : bool
     {
-        // TODO: Implement moveNode() method.
+        return self::move($this->path, $to, $overwrite);
     }
 
     /**
@@ -443,7 +443,7 @@ class File extends FileAbstract implements FileInterface
      */
     public function deleteNode() : bool
     {
-        // TODO: Implement deleteNode() method.
+        return self::delete($this->path);
     }
 
     /**
@@ -451,7 +451,7 @@ class File extends FileAbstract implements FileInterface
      */
     public function putContent(string $content, int $mode = ContentPutMode::APPEND | ContentPutMode::CREATE) : bool
     {
-        // TODO: Implement putContent() method.
+        return self::put($this->path, $content, $mode);
     }
 
     /**

@@ -534,7 +534,7 @@ class Directory extends FileAbstract implements DirectoryInterface
      */
     public function getParent() : ContainerInterface
     {
-        // TODO: Implement getParent() method.
+        return new self(self::parent($this->path));
     }
 
     /**
@@ -542,7 +542,7 @@ class Directory extends FileAbstract implements DirectoryInterface
      */
     public function copyNode(string $to, bool $overwrite = false) : bool
     {
-        // TODO: Implement copyNode() method.
+        return self::copy($this->path, $to, $overwrite);
     }
 
     /**
@@ -550,7 +550,7 @@ class Directory extends FileAbstract implements DirectoryInterface
      */
     public function moveNode(string $to, bool $overwrite = false) : bool
     {
-        // TODO: Implement moveNode() method.
+        return self::move($this->path, $to, $overwrite);
     }
 
     /**
@@ -558,17 +558,13 @@ class Directory extends FileAbstract implements DirectoryInterface
      */
     public function deleteNode() : bool
     {
-        // TODO: Implement deleteNode() method.
+        return self::delete($this->path);
+
+        // todo: remove from node list
     }
 
     /**
-     * Offset to retrieve
-     * @link  http://php.net/manual/en/arrayaccess.offsetget.php
-     * @param mixed $offset <p>
-     *                      The offset to retrieve.
-     *                      </p>
-     * @return mixed Can return all value types.
-     * @since 5.0.0
+     * {@inheritdoc}
      */
     public function offsetGet($offset)
     {
