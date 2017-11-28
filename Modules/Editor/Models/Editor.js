@@ -20,7 +20,6 @@
 
         for(let i = 0; i < length; i++) {
             editorButtons[i].addEventListener('click', function(event) {
-                console.log('button clicked');
                 // todo: identify button by class and then call function for this class.
             });
         }
