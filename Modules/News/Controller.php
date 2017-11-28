@@ -23,7 +23,7 @@ use Modules\News\Models\NewsType;
 use Modules\News\Models\PermissionState;
 use phpOMS\Account\Account;
 use phpOMS\Account\PermissionType;
-use phpOMS\Localization\ISO639Enum;
+use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -248,7 +248,7 @@ class Controller extends ModuleAbstract implements WebInterface
             || ($val['plain'] = empty($request->getData('plain')))
             || ($val['lang'] = (
                 $request->getData('lang') !== null
-                && !ISO639Enum::isValidValue(strtolower((string) $request->getData('lang')))
+                && !ISO639x1Enum::isValidValue(strtolower((string) $request->getData('lang')))
             ))
             || ($val['type'] = (
                 $request->getData('type') === null
@@ -291,7 +291,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $newsArticle = $this->createNewsArticleFromRequest($request);
 
         NewsArticleMapper::create($newsArticle);
-        $response->set('news', $newsArticle->jsonSerialize());
+        $response->set($request->__toString(), $newsArticle->jsonSerialize());
     }
 
     private function createNewsArticleFromRequest(RequestAbstract $request) : NewsArticle
