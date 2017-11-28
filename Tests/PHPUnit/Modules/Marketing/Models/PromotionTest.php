@@ -54,9 +54,6 @@ class PromotionTest extends \PHPUnit\Framework\TestCase
         $promotion->setDescription('Description');
         self::assertEquals('Description', $promotion->getDescription());
 
-        $promotion->setCreatedAt($date = new \DateTime('2000-05-05'));
-        self::assertEquals($date->format('Y-m-d'), $promotion->getCreatedAt()->format('Y-m-d'));
-
         $promotion->setStart($date = new \DateTime('2000-05-05'));
         self::assertEquals($date->format('Y-m-d'), $promotion->getStart()->format('Y-m-d'));
 

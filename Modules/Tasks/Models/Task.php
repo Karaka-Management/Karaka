@@ -217,16 +217,6 @@ class Task implements \JsonSerializable
     }
 
     /**
-     * @param \DateTime $created
-     *
-     * @since  1.0.0
-     */
-    public function setCreatedAt(\DateTime $created)
-    {
-        $this->createdAt = $created;
-    }
-
-    /**
      * @return \DateTime
      *
      * @since  1.0.0

@@ -42,9 +42,6 @@ class CalendarTest extends \PHPUnit\Framework\TestCase
     {
         $calendar = new Calendar();
 
-        $calendar->setCreatedAt($date = new \DateTime('2000-05-05'));
-        self::assertEquals($date->format('Y-m-d'), $calendar->getCreatedAt()->format('Y-m-d'));
-        
         $calendar->setDate($date = new \DateTime('2000-05-05'));
         self::assertEquals($date->format('Y-m-d'), $calendar->getDate()->format('Y-m-d'));
 

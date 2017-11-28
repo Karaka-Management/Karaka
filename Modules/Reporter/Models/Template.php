@@ -113,6 +113,7 @@ class Template implements \JsonSerializable
      */
     public function __construct()
     {
+        $this->createdAt = new \DateTime('now');
     }
 
     /**
@@ -201,18 +202,6 @@ class Template implements \JsonSerializable
     public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
-    }
-
-    /**
-     * @param \DateTime $createdAt Creation date
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    public function setCreatedAt(\DateTime $createdAt)
-    {
-        $this->createdAt = $createdAt;
     }
 
     /**

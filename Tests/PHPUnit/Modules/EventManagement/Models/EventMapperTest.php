@@ -65,7 +65,6 @@ class EventMapperTest extends \PHPUnit\Framework\TestCase
         $event->setProgressType(ProgressType::TASKS);
 
         $media = new Media();
-        $media->setCreatedAt($data = new \DateTime('now'));
         $media->setCreatedBy(1);
         $media->setDescription('desc');
         $media->setPath('some/path');

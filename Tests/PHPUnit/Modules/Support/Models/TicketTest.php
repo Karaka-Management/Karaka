@@ -43,9 +43,6 @@ class TicketTest extends \PHPUnit\Framework\TestCase
         $ticket->getTask()->setCreatedBy(1);
         self::assertEquals(1, $ticket->getTask()->getCreatedBy());
 
-        $ticket->getTask()->setCreatedAt($date = new \DateTime('2000-05-05'));
-        self::assertEquals($date->format('Y-m-d'), $ticket->getTask()->getCreatedAt()->format('Y-m-d'));
-
         $ticket->getTask()->setTitle('Ticket');
         self::assertEquals('Ticket', $ticket->getTask()->getTitle());
 

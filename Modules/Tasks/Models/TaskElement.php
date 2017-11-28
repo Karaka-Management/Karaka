@@ -122,18 +122,6 @@ class TaskElement implements \JsonSerializable
     }
 
     /**
-     * @param \DateTime $created
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    public function setCreatedAt(\DateTime $created)
-    {
-        $this->createdAt = $created;
-    }
-
-    /**
      * @return mixed
      *
      * @since  1.0.0

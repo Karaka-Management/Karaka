@@ -219,17 +219,6 @@ class Promotion
     }
 
     /**
-     * @param \DateTime $createdAt Calendar created at
-     *
-     * @since  1.0.0
-     */
-    public function setCreatedAt(\DateTime $createdAt)
-    {
-        $this->createdAt = $createdAt;
-        $this->calendar->setCreatedAt($createdAt);
-    }
-
-    /**
      * @return int
      *
      * @since  1.0.0

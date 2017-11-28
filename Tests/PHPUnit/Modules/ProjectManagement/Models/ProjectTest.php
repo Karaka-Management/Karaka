@@ -57,9 +57,6 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
         $project->setDescription('Description');
         self::assertEquals('Description', $project->getDescription());
 
-        $project->setCreatedAt($date = new \DateTime('2000-05-05'));
-        self::assertEquals($date->format('Y-m-d'), $project->getCreatedAt()->format('Y-m-d'));
-
         $project->setStart($date = new \DateTime('2000-05-05'));
         self::assertEquals($date->format('Y-m-d'), $project->getStart()->format('Y-m-d'));
 

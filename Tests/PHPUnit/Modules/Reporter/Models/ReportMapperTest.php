@@ -37,7 +37,6 @@ class ReportMapperTest extends \PHPUnit\Framework\TestCase
         $template = new Template();
         
         $template->setCreatedBy(1);
-        $template->setCreatedAt($date = new \DateTime('2000-05-05'));
         $template->setName('Report Template');
         $template->setStatus(ReporterStatus::ACTIVE);
         $template->setDescription('Description');
@@ -107,7 +106,6 @@ class ReportMapperTest extends \PHPUnit\Framework\TestCase
         $report = new Report();
 
         $report->setCreatedBy(1);
-        $report->setCreatedAt($date = new \DateTime('2000-05-05'));
         $report->setTitle('Title');
         $report->setStatus(ReporterStatus::ACTIVE);
         $report->setDescription('Description');
@@ -172,7 +170,7 @@ class ReportMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($id, $report->getId());
 
         $reportR = ReportMapper::get($report->getId());
-        self::assertEquals($date->format('Y-m-d'), $reportR->getCreatedAt()->format('Y-m-d'));
+        self::assertEquals($report->getCreatedAt()->format('Y-m-d'), $reportR->getCreatedAt()->format('Y-m-d'));
         self::assertEquals($report->getCreatedBy(), $reportR->getCreatedBy()->getId());
         self::assertEquals($report->getDescription(), $reportR->getDescription());
         self::assertEquals($report->getTitle(), $reportR->getTitle());

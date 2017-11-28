@@ -39,7 +39,6 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
 
         $task->setCreatedBy(1);
         $task->getSchedule()->setCreatedBy(1);
-        $task->setCreatedAt(new \DateTime('2000-05-05'));
         $task->setStart(new \DateTime('2005-05-05'));
         $task->setTitle('Task Test');
         $task->setStatus(TaskStatus::DONE);
@@ -55,7 +54,6 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
         $task->addElement($taskElement1);
 
         $media = new Media();
-        $media->setCreatedAt($data = new \DateTime('now'));
         $media->setCreatedBy(1);
         $media->setDescription('desc');
         $media->setPath('some/path');
@@ -70,7 +68,6 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
         $task->addElement($taskElement2);
 
         $media = new Media();
-        $media->setCreatedAt($data = new \DateTime('now'));
         $media->setCreatedBy(1);
         $media->setDescription('desc');
         $media->setPath('some/path');
@@ -130,7 +127,6 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
 
             $task->setCreatedBy(1);
             $task->getSchedule()->setCreatedBy(1);
-            $task->setCreatedAt(new \DateTime('2000-05-05'));
             $task->setStart(new \DateTime('2005-05-05'));
             $task->setTitle($text->generateText(mt_rand(1, 5)));
             $task->setStatus($status);
@@ -166,7 +162,6 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
 
             $task->setCreatedBy(1);
             $task->getSchedule()->setCreatedBy(1);
-            $task->setCreatedAt(new \DateTime('2000-05-05'));
             $task->setTitle($text->generateText(mt_rand(1, 5)));
             $task->setStatus($status);
             $task->setClosable($status);
@@ -202,7 +197,6 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
 
             $task->setCreatedBy(2);
             $task->getSchedule()->setCreatedBy(2);
-            $task->setCreatedAt(new \DateTime('2000-05-05'));
             $task->setTitle($text->generateText(mt_rand(1, 5)));
             $task->setStatus($status);
             $task->setClosable(true);

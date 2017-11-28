@@ -44,9 +44,6 @@ class TaskElementTest extends \PHPUnit\Framework\TestCase
         $task->setCreatedBy(1);
         self::assertEquals(1, $task->getCreatedBy());
 
-        $task->setCreatedAt($date = new \DateTime('2000-05-05'));
-        self::assertEquals($date->format('Y-m-d'), $task->getCreatedAt()->format('Y-m-d'));
-
         $task->setDue($date = new \DateTime('2000-05-07'));
         self::assertEquals($date->format('Y-m-d'), $task->getDue()->format('Y-m-d'));
 

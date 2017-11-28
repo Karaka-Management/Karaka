@@ -36,7 +36,6 @@ class TemplateMapperTest extends \PHPUnit\Framework\TestCase
         $template = new Template();
 
         $template->setCreatedBy(1);
-        $template->setCreatedAt($date = new \DateTime('2000-05-05'));
         $template->setName('Title');
         $template->setStatus(ReporterStatus::ACTIVE);
         $template->setDescription('Description');
@@ -103,7 +102,7 @@ class TemplateMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($id, $template->getId());
 
         $templateR = TemplateMapper::get($template->getId());
-        self::assertEquals($date->format('Y-m-d'), $templateR->getCreatedAt()->format('Y-m-d'));
+        self::assertEquals($template->getCreatedAt()->format('Y-m-d'), $templateR->getCreatedAt()->format('Y-m-d'));
         self::assertEquals($template->getCreatedBy(), $templateR->getCreatedBy()->getId());
         self::assertEquals($template->getDescription(), $templateR->getDescription());
         self::assertEquals($template->getName(), $templateR->getName());

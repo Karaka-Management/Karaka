@@ -39,7 +39,6 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
         $ticket->getTask()->setCreatedBy(1);
         $ticket->getTask()->getSchedule()->setCreatedBy(1);
-        $ticket->getTask()->setCreatedAt(new \DateTime('2000-05-05'));
         $ticket->getTask()->setTitle('Ticket Title');
         $ticket->getTask()->setStatus(TaskStatus::DONE);
         $ticket->getTask()->setType(TaskType::HIDDEN);
@@ -98,7 +97,6 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
             $ticket->getTask()->setCreatedBy(1);
             $ticket->getTask()->getSchedule()->setCreatedBy(1);
-            $ticket->getTask()->setCreatedAt(new \DateTime('2000-05-05'));
             $ticket->getTask()->setTitle($text->generateText(mt_rand(1, 5)));
             $ticket->getTask()->setStatus($status);
             $ticket->getTask()->setType(TaskType::HIDDEN);
@@ -134,7 +132,6 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
             $ticket->getTask()->setCreatedBy(1);
             $ticket->getTask()->getSchedule()->setCreatedBy(1);
-            $ticket->getTask()->setCreatedAt(new \DateTime('2000-05-05'));
             $ticket->getTask()->setTitle($text->generateText(mt_rand(1, 5)));
             $ticket->getTask()->setStatus($status);
             $ticket->getTask()->setType(TaskType::HIDDEN);
@@ -170,7 +167,6 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
             $ticket->getTask()->setCreatedBy(2);
             $ticket->getTask()->getSchedule()->setCreatedBy(2);
-            $ticket->getTask()->setCreatedAt(new \DateTime('2000-05-05'));
             $ticket->getTask()->setTitle($text->generateText(mt_rand(1, 5)));
             $ticket->getTask()->setStatus($status);
             $ticket->getTask()->setType(TaskType::HIDDEN);

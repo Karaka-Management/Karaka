@@ -36,7 +36,6 @@ class PromotionMapperTest extends \PHPUnit\Framework\TestCase
 
         $promotion->setName('Promotionname');
         $promotion->setDescription('Description');
-        $promotion->setCreatedAt(new \DateTime('2000-05-05'));
         $promotion->setCreatedBy(1);
         $promotion->setStart(new \DateTime('2000-05-05'));
         $promotion->setEnd(new \DateTime('2005-05-05'));
@@ -60,7 +59,6 @@ class PromotionMapperTest extends \PHPUnit\Framework\TestCase
         $promotion->addTask($task2);
 
         $media = new Media();
-        $media->setCreatedAt($data = new \DateTime('now'));
         $media->setCreatedBy(1);
         $media->setDescription('desc');
         $media->setPath('some/path');
@@ -110,7 +108,6 @@ class PromotionMapperTest extends \PHPUnit\Framework\TestCase
 
             $promotion->setName($text->generateText(mt_rand(3, 7)));
             $promotion->setDescription($text->generateText(mt_rand(20, 100)));
-            $promotion->setCreatedAt(new \DateTime('2000-05-05'));
             $promotion->setCreatedBy(1);
             $promotion->setStart(new \DateTime('2000-05-05'));
             $promotion->setEnd(new \DateTime('2005-05-05'));

@@ -280,18 +280,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param \DateTime $createdAt
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    public function setCreatedAt(\DateTime $createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
      * @return string
      *
      * @since  1.0.0

@@ -417,7 +417,6 @@ class Controller extends ModuleAbstract implements WebInterface
         $mediaCollection->setName((string) ($request->getData('name') ?? 'Empty'));
         $mediaCollection->setDescription((string) ($request->getData('description') ?? ''));
         $mediaCollection->setCreatedBy($request->getHeader()->getAccount());
-        $mediaCollection->setCreatedAt(new \DateTime('now'));
         $mediaCollection->setSources($files);
 
         return (int) CollectionMapper::create($mediaCollection);
@@ -438,7 +437,6 @@ class Controller extends ModuleAbstract implements WebInterface
         $reporterTemplate->setStandalone((bool) $request->getData('standalone') ?? false);
         $reporterTemplate->setExpected(!empty($expected) ? json_decode($expected, true) : []);
         $reporterTemplate->setCreatedBy($request->getHeader()->getAccount());
-        $reporterTemplate->setCreatedAt(new \DateTime('NOW'));
         $reporterTemplate->setDatatype((int) ($request->getData('datatype') ?? TemplateDataType::OTHER));
 
         TemplateMapper::create($reporterTemplate);
@@ -483,7 +481,6 @@ class Controller extends ModuleAbstract implements WebInterface
         $reporterReport->setSource((int) $collectionId);
         $reporterReport->setTemplate((int) $request->getData('template'));
         $reporterReport->setCreatedBy($request->getHeader()->getAccount());
-        $reporterReport->setCreatedAt(new \DateTime('NOW'));
 
         ReportMapper::create($reporterReport);
 

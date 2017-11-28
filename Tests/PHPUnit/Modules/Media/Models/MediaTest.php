@@ -45,9 +45,6 @@ class MediaTest extends \PHPUnit\Framework\TestCase
         $media->setCreatedBy(1);
         self::assertEquals(1, $media->getCreatedBy());
 
-        $media->setCreatedAt($date = new \DateTime('2000-05-05'));
-        self::assertEquals($date->format('Y-m-d'), $media->getCreatedAt()->format('Y-m-d'));
-
         $media->setExtension('pdf');
         self::assertEquals('pdf', $media->getExtension());
 

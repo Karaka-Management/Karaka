@@ -206,16 +206,6 @@ class Calendar
     }
 
     /**
-     * @param \DateTime $createdAt Calendar created at
-     *
-     * @since  1.0.0
-     */
-    public function setCreatedAt(\DateTime $createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
      * Get current date
      *
      * @return \DateTime

@@ -38,7 +38,6 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 
         $project->setName('Projectname');
         $project->setDescription('Description');
-        $project->setCreatedAt(new \DateTime('2000-05-05'));
         $project->setCreatedBy(1);
         $project->setStart(new \DateTime('2000-05-05'));
         $project->setEnd(new \DateTime('2005-05-05'));
@@ -65,7 +64,6 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
         $project->setProgressType(ProgressType::TASKS);
 
         $media = new Media();
-        $media->setCreatedAt($data = new \DateTime('now'));
         $media->setCreatedBy(1);
         $media->setDescription('desc');
         $media->setPath('some/path');
@@ -117,7 +115,6 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 
             $project->setName($text->generateText(mt_rand(3, 7)));
             $project->setDescription($text->generateText(mt_rand(20, 100)));
-            $project->setCreatedAt(new \DateTime('2000-05-05'));
             $project->setCreatedBy(1);
             $project->setStart(new \DateTime('2000-05-05'));
             $project->setEnd(new \DateTime('2005-05-05'));

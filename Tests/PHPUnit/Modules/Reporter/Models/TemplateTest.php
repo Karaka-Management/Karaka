@@ -47,9 +47,6 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
         $template->setCreatedBy(1);
         self::assertEquals(1, $template->getCreatedBy());
 
-        $template->setCreatedAt($date = new \DateTime('2000-05-05'));
-        self::assertEquals($date->format('Y-m-d'), $template->getCreatedAt()->format('Y-m-d'));
-
         $template->setName('Title');
         self::assertEquals('Title', $template->getName());
 

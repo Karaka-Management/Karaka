@@ -53,9 +53,6 @@ class EditorDocTest extends \PHPUnit\Framework\TestCase
         $doc->setPath('/some/path');
         self::assertEquals('/some/path', $doc->getPath());
 
-        $doc->setCreatedAt($data = new \DateTime('2001-05-05'));
-        self::assertEquals($data, $doc->getCreatedAt());
-
         $arr = [
             'id' => 0,
             'title' => $doc->getTitle(),

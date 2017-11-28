@@ -64,8 +64,6 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
         $news->addBadge(new Badge());
         self::assertEquals([new Badge()], $news->getBadges());
 
-        $news->setCreatedAt($data = new \DateTime('2001-05-05'));
-        self::assertEquals($data, $news->getCreatedAt());
 
         $news->setPublish($data = new \DateTime('2001-05-07'));
         self::assertEquals($data, $news->getPublish());

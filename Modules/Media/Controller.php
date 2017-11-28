@@ -283,7 +283,6 @@ class Controller extends ModuleAbstract implements WebInterface
             $media->setName($status['name']);
             $media->setSize($status['size']);
             $media->setCreatedBy($account);
-            $media->setCreatedAt(new \DateTime('NOW'));
             $media->setExtension($status['extension']);
 
             MediaMapper::create($media);

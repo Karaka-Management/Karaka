@@ -31,7 +31,6 @@ class CalendarMapperTest extends \PHPUnit\Framework\TestCase
     {
         $calendar = new Calendar();
 
-        $calendar->setCreatedAt($date = new \DateTime('2000-05-05'));
         $calendar->setName('Title');
         $calendar->setDescription('Description');
 

@@ -29,7 +29,6 @@ class MediaMapperTest extends \PHPUnit\Framework\TestCase
     public function testCRUD()
     {
         $media = new Media();
-        $media->setCreatedAt($data = new \DateTime('now'));
         $media->setCreatedBy(1);
         $media->setDescription('desc');
         $media->setPath('some/path');
@@ -42,7 +41,7 @@ class MediaMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($id, $media->getId());
 
         $mediaR = MediaMapper::get($media->getId());
-        self::assertEquals($data->format('Y-m-d'), $mediaR->getCreatedAt()->format('Y-m-d'));
+        self::assertEquals($media->getCreatedAt()->format('Y-m-d'), $mediaR->getCreatedAt()->format('Y-m-d'));
         self::assertEquals($media->getCreatedBy(), $mediaR->getCreatedBy()->getId());
         self::assertEquals($media->getDescription(), $mediaR->getDescription());
         self::assertEquals($media->getPath(), $mediaR->getPath());
@@ -55,7 +54,6 @@ class MediaMapperTest extends \PHPUnit\Framework\TestCase
     public function testAbsolute()
     {
         $media = new Media();
-        $media->setCreatedAt($data = new \DateTime('now'));
         $media->setCreatedBy(1);
         $media->setDescription('desc');
         $media->setPath('https://avatars0.githubusercontent.com/u/16034994');
@@ -69,7 +67,7 @@ class MediaMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($id, $media->getId());
 
         $mediaR = MediaMapper::get($media->getId());
-        self::assertEquals($data->format('Y-m-d'), $mediaR->getCreatedAt()->format('Y-m-d'));
+        self::assertEquals($media->getCreatedAt()->format('Y-m-d'), $mediaR->getCreatedAt()->format('Y-m-d'));
         self::assertEquals($media->getCreatedBy(), $mediaR->getCreatedBy()->getId());
         self::assertEquals($media->getDescription(), $mediaR->getDescription());
         self::assertEquals($media->getPath(), $mediaR->getPath());
@@ -82,7 +80,6 @@ class MediaMapperTest extends \PHPUnit\Framework\TestCase
     public function testDirectoryMapping()
     {
         $media = new Media();
-        $media->setCreatedAt($data = new \DateTime('now'));
         $media->setCreatedBy(1);
         $media->setDescription('desc');
         $media->setPath(realpath(__DIR__ . '/../../../../../'));
@@ -96,7 +93,7 @@ class MediaMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($id, $media->getId());
 
         $mediaR = MediaMapper::get($media->getId());
-        self::assertEquals($data->format('Y-m-d'), $mediaR->getCreatedAt()->format('Y-m-d'));
+        self::assertEquals($media->getCreatedAt()->format('Y-m-d'), $mediaR->getCreatedAt()->format('Y-m-d'));
         self::assertEquals($media->getCreatedBy(), $mediaR->getCreatedBy()->getId());
         self::assertEquals($media->getDescription(), $mediaR->getDescription());
         self::assertEquals($media->getPath(), $mediaR->getPath());

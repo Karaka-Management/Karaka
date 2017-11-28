@@ -47,9 +47,6 @@ class EventTest extends \PHPUnit\Framework\TestCase
         $event->setName('Name');
         self::assertEquals('Name', $event->getName());
 
-        $event->setCreatedAt($date = new \DateTime('2000-05-05'));
-        self::assertEquals($date->format('Y-m-d'), $event->getCreatedAt()->format('Y-m-d'));
-
         $event->setDescription('Description');
         self::assertEquals('Description', $event->getDescription());
 

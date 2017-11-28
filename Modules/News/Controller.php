@@ -300,7 +300,6 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $newsArticle = new NewsArticle();
         $newsArticle->setCreatedBy($request->getHeader()->getAccount());
-        $newsArticle->setCreatedAt(new \DateTime('now'));
         $newsArticle->setPublish(new \DateTime((string) ($request->getData('publish') ?? 'now')));
         $newsArticle->setTitle((string) ($request->getData('title') ?? ''));
         $newsArticle->setPlain((string) ($request->getData('plain') ?? ''));

@@ -255,16 +255,6 @@ class Event
     }
 
     /**
-     * @param \DateTime $createdAt Event created at
-     *
-     * @since  1.0.0
-     */
-    public function setCreatedAt(\DateTime $createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
      * @return int
      *
      * @since  1.0.0

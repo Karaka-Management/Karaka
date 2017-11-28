@@ -38,7 +38,6 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         $news->setCreatedBy(1);
         $news->setTitle($text->generateText(mt_rand(3, 7)));
         $news->setContent($text->generateText(mt_rand(100, 300)));
-        $news->setCreatedAt(new \DateTime('2001-05-05'));
         $news->setPublish(new \DateTime('2001-05-07'));
         $news->setFeatured(true);
         $news->setLanguage(ISO639x1Enum::_DE);
@@ -74,7 +73,6 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         $news->setCreatedBy(2);
         $news->setTitle($text->generateText(mt_rand(3, 7)));
         $news->setContent($text->generateText(mt_rand(10, 300)));
-        $news->setCreatedAt(new \DateTime('2001-05-05'));
         $news->setPublish(new \DateTime('2001-05-07'));
         $news->setFeatured(false);
         $news->setLanguage(ISO639x1Enum::_DE);
@@ -87,7 +85,6 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         $news->setCreatedBy(2);
         $news->setTitle($text->generateText(mt_rand(3, 7)));
         $news->setContent($text->generateText(mt_rand(10, 300)));
-        $news->setCreatedAt(new \DateTime('2001-05-05'));
         $news->setPublish(new \DateTime('2001-05-07'));
         $news->setFeatured(false);
         $news->setLanguage(ISO639x1Enum::_DE);
@@ -102,7 +99,6 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         $news->setCreatedBy(1);
         $news->setTitle($text->generateText(mt_rand(3, 7)));
         $news->setContent($text->generateText(mt_rand(10, 300)));
-        $news->setCreatedAt(new \DateTime('2001-05-05'));
         $news->setPublish(new \DateTime('2001-05-07'));
         $news->setFeatured(false);
         $news->setLanguage(ISO639x1Enum::_DE);
@@ -115,7 +111,6 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         $news->setCreatedBy(1);
         $news->setTitle($text->generateText(mt_rand(3, 7)));
         $news->setContent($text->generateText(mt_rand(10, 300)));
-        $news->setCreatedAt(new \DateTime('2001-05-05'));
         $news->setPublish(new \DateTime('2001-05-07'));
         $news->setFeatured(false);
         $news->setLanguage(ISO639x1Enum::_DE);
@@ -128,7 +123,6 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         $news->setCreatedBy(1);
         $news->setTitle($text->generateText(mt_rand(3, 7)));
         $news->setContent($text->generateText(mt_rand(10, 300)));
-        $news->setCreatedAt(new \DateTime('2001-05-05'));
         $news->setPublish(new \DateTime('2001-05-07'));
         $news->setFeatured(false);
         $news->setLanguage(ISO639x1Enum::_DE);
@@ -143,7 +137,6 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         $news->setCreatedBy(1);
         $news->setTitle($text->generateText(mt_rand(3, 7)));
         $news->setContent($text->generateText(mt_rand(10, 300)));
-        $news->setCreatedAt(new \DateTime('2001-05-05'));
         $news->setPublish(new \DateTime('2001-05-07'));
         $news->setFeatured(true);
         $news->setLanguage(ISO639x1Enum::_EN);
@@ -161,7 +154,6 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         $news->setCreatedBy(1);
         $news->setTitle($text->generateText(mt_rand(3, 7)));
         $news->setContent($text->generateText(mt_rand(10, 300)));
-        $news->setCreatedAt(new \DateTime('2001-05-05'));
         $news->setPublish($publishDate);
         $news->setFeatured(false);
         $news->setLanguage(ISO639x1Enum::_DE);

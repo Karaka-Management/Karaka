@@ -239,19 +239,6 @@ class Media
     }
 
     /**
-     * @param \DateTime $createdAt Creation date
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     * @deprecated
-     */
-    public function setCreatedAt(\DateTime $createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
      * @param string $extension Extension
      *
      * @return void

@@ -35,7 +35,6 @@ class EditorDocMapperTest extends \PHPUnit\Framework\TestCase
         $doc->setCreatedBy(1);
         $doc->setTitle('Title');
         $doc->setContent('Content');
-        $doc->setCreatedAt(new \DateTime('2001-05-05'));
         $doc->setPath('/some/test/path');
 
         $id = EditorDocMapper::create($doc);
@@ -64,7 +63,6 @@ class EditorDocMapperTest extends \PHPUnit\Framework\TestCase
             $doc->setCreatedBy(mt_rand(1, 2));
             $doc->setTitle($text->generateText(mt_rand(3, 7)));
             $doc->setContent($text->generateText(mt_rand(20, 500)));
-            $doc->setCreatedAt(new \DateTime('2001-05-05'));
             $doc->setPath('/some/test/path');
 
             $id = EditorDocMapper::create($doc);

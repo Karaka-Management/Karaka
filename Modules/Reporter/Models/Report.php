@@ -91,29 +91,13 @@ class Report
     private $source = 0;
 
     /**
-     * Permissions.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    private $permissions = [
-        'r' => ['groups' => [],
-                'users'  => [],],
-        'w' => ['groups' => [],
-                'users'  => [],],
-        'p' => ['groups' => [],
-                'users'  => [],],
-        'd' => ['groups' => [],
-                'users'  => [],],
-    ];
-
-    /**
      * Constructor.
      *
      * @since  1.0.0
      */
     public function __construct()
     {
+        $this->createdAt = new \DateTime('now');
     }
 
     /**
@@ -200,18 +184,6 @@ class Report
     public function getCreatedAt() : \DateTime
     {
         return $this->createdAt ?? new \DateTime('now');
-    }
-
-    /**
-     * @param \DateTime $created Created at
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    public function setCreatedAt(\DateTime $created)
-    {
-        $this->createdAt = $created;
     }
 
     /**

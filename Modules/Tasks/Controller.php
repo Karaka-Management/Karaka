@@ -298,14 +298,12 @@ class Controller extends ModuleAbstract implements WebInterface
         $task->setTitle((string) ($request->getData('title') ?? ''));
         $task->setDescription((string) ($request->getData('description') ?? ''));
         $task->setCreatedBy($request->getHeader()->getAccount());
-        $task->setCreatedAt(new \DateTime('now'));
         $task->setDue(new \DateTime((string) ($request->getData('due') ?? 'now')));
         $task->setStatus(TaskStatus::OPEN);
         $task->setType(TaskType::SINGLE);
 
         $element = new TaskElement();
         $element->setForwarded((int) ($request->getData('forward') ?? $request->getHeader()->getAccount()));
-        $element->setCreatedAt($task->getCreatedAt());
         $element->setCreatedBy($task->getCreatedBy());
         $element->setDue($task->getDue());
         $element->setStatus(TaskStatus::OPEN);
@@ -365,7 +363,6 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $element = new TaskElement();
         $element->setForwarded((int) ($request->getData('forward') ?? $request->getHeader()->getAccount()));
-        $element->setCreatedAt(new \DateTime('now'));
         $element->setCreatedBy($request->getHeader()->getAccount());
         $element->setDue(new \DateTime((string) ($request->getData('due') ?? 'now')));
         $element->setStatus((int) ($request->getData('status')));

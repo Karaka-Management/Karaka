@@ -44,9 +44,6 @@ class ReportTest extends \PHPUnit\Framework\TestCase
         $report->setCreatedBy(1);
         self::assertEquals(1, $report->getCreatedBy());
 
-        $report->setCreatedAt($date = new \DateTime('2000-05-05'));
-        self::assertEquals($date->format('Y-m-d'), $report->getCreatedAt()->format('Y-m-d'));
-
         $report->setTitle('Title');
         self::assertEquals('Title', $report->getTitle());
 
