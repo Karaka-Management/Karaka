@@ -40,6 +40,16 @@ use phpOMS\Uri\Http;
  */
 class File extends FileAbstract implements FileInterface
 {
+    private $con = null;
+
+    private $uri = null;
+
+    public function __construct(string $path)
+    {
+        $this->uri = new Http($path);
+        $this->con = self::ftpConnect($this->uri);
+    }
+
     public static function ftpConnect(Http $http)
     {
         $con = ftp_connect($http->getBase() . $http->getPath(), $http->getPort());
@@ -399,7 +409,7 @@ class File extends FileAbstract implements FileInterface
      */
     public function getParent() : ContainerInterface
     {
-        // TODO: Implement getParent() method.
+        // todo adjust http link and self();
     }
 
     /**
@@ -411,7 +421,7 @@ class File extends FileAbstract implements FileInterface
      */
     public function createNode() : bool
     {
-        // TODO: Implement createNode() method.
+        return self::ftpCreate($this->con, $this->uri->getPath(), 0755, true);
     }
 
     /**
