@@ -25,6 +25,7 @@ use phpOMS\Localization\Localization;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Router\Router;
 use phpOMS\Router\RouteVerb;
+use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\Message\Http\RequestMethod;
 use phpOMS\Message\Http\RequestStatusCode;
@@ -183,6 +184,42 @@ class Application extends ApplicationAbstract
 
     public static function installRequest(Request $request, Response $response)
     {
+        if(!empty($valid = self::validateRequest($request))) {
+            return;
+        }
 
+        $db = self::setupDatabaseConnection($request);
+
+        self::installCore($request, $db);
+        self::installGroups($request, $db);
+        self::installUsers($request, $db);
+        self::installSettings($request, $db);
+    }
+
+    private static function validateRequest(Request $request) : array
+    {
+        $valid = [];
+
+        return [];
+    }
+
+    private static function setupDatabaseConnection(Request $request) : ConnectionAbstract
+    {
+    }
+
+    private static function installCore(Request $request, ConnectionAbstract $db)
+    {
+    }
+
+    private static function installGroups(Request $request, ConnectionAbstract $db)
+    {
+    }
+
+    private static function installUsers(Request $request, ConnectionAbstract $db)
+    {
+    }
+
+    private static function installSettings(Request $request, ConnectionAbstract $db)
+    {
     }
 }
