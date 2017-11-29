@@ -18,7 +18,7 @@
  * @package    phpOMS\Config
  * @since      1.0.0
  */
-$CONFIG = [
+return [
     'db'       => [
         'core' => [
             'masters' => [

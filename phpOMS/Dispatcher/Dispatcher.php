@@ -106,13 +106,13 @@ class Dispatcher
     {
         $views    = [];
         $dispatch = explode(':', $controller);
-        $this->getController($dispatch[0]);
 
         if (($c = count($dispatch)) === 3) {
             /* Handling static functions */
             $function           = $dispatch[0] . '::' . $dispatch[2];
             $views[$controller] = $function(...$data);
         } elseif ($c === 2) {
+            $this->getController($dispatch[0]);
             $views[$controller] = $this->controllers[$dispatch[0]]->{$dispatch[1]}(...$data);
         } else {
             throw new \UnexpectedValueException('Unexpected function.');
