@@ -28,18 +28,18 @@ section.box {
   box-shadow: 0px 1px 0px 0px #f1f1f1;
   border: 1px solid #b7b7b7;
   background: #fff; }
-  section.box section.box.orange {
+  section.box.orange {
     border-top: 3px solid #FBA026; }
-    section.box section.box.orange.red {
-      border-top: 3px solid #B8312F; }
-    section.box section.box.orange.green {
-      border-top: 3px solid #41A85F; }
-    section.box section.box.orange.blue {
-      border-top: 3px solid #2C82C9; }
-    section.box section.box.orange.purple {
-      border-top: 3px solid #553982; }
-    section.box section.box.orange.darkblue {
-      border-top: 3px solid #2969B0; }
+  section.box.red {
+    border-top: 3px solid #B8312F; }
+  section.box.green {
+    border-top: 3px solid #41A85F; }
+  section.box.blue {
+    border-top: 3px solid #2C82C9; }
+  section.box.purple {
+    border-top: 3px solid #553982; }
+  section.box.darkblue {
+    border-top: 3px solid #2969B0; }
 
 section header > h1 {
   margin: 10px 10px 0 10px;

@@ -407,7 +407,7 @@ class Application
         $head->addAsset(AssetType::JSLATE, '/Modules/Navigation/Models/Navigation.js');
 
         $head->setScript('core', $script = 'const RootPath = "' . $request->getUri()->getRootPath() . '", assetManager = new jsOMS.Asset.AssetManager();');
-        $response->getHeader()->set('content-security-policy', 'base-uri \'self\' script-src \'self\' \'sha256-' . base64_encode(hash('sha256', $script, true)) . '\'; child-src \'self\'', true);
+        $response->getHeader()->set('content-security-policy', 'base-uri \'self\'; script-src \'self\' \'sha256-' . base64_encode(hash('sha256', $script, true)) . '\'; child-src \'self\'', true);
 
         $head->addAsset(AssetType::CSS, '/Web/Backend/css/backend.css');
         $head->addAsset(AssetType::JS, '/Resources/d3/d3.min.js');
