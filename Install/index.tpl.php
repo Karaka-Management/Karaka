@@ -168,7 +168,7 @@
             <div>
                 <p>Please create a database this WebApp can use and configure every field.</p>
 
-                <form id="installForm" method="post" action="/install">
+                <form id="installForm" method="post" action="/">
                     <ul>
                         <li><label for="iDbHost">Address</label>
                         <li><input id="iDbHost" name="dbhost" type="text" value="127.0.0.1" required>
