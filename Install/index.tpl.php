@@ -263,7 +263,7 @@
 
                 <form>
                     <ul>
-                        <li><label for="iOrgName" >Organization Name</label>
+                        <li><label for="iOrgName">Organization Name</label>
                         <li><input id="iOrgName" name="orgname" type="text" value="Orange-Management" form="installForm" required>
                         <li><label for="iAdminName">Admin Login</label>
                         <li><input id="iAdminName" name="adminname" type="text" value="admin" form="installForm" required>
@@ -271,8 +271,6 @@
                         <li><input id="iAdminPassword" name="adminpassword" type="password" value="" form="installForm" required>
                         <li><label for="iAdminEmail">Admin Email</label>
                         <li><input id="iAdminEmail" name="adminemail" type="email" value="" form="installForm" required>
-                        <li><label for="iLogPath">Logfile Path</label>
-                        <li><input id="iLogPath" name="logpath" type="text" value="<?= realpath(__DIR__ . '/../Logs'); ?>" form="installForm" required>
                         <li><label for="iDomain">Top Level domain</label>
                         <li><input id="iDomain" name="domain" type="text" value="<?= $this->request->getUri()->getHost(); ?>" form="installForm" placeholder="demo.com" pattern="^((?!(www\.|http)).)*$" required>
                         <li><label for="iWebSubdir">Web Subdirectory</label>

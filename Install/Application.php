@@ -225,7 +225,6 @@ class Application extends ApplicationAbstract
             || ($valid['iAdminName'] = empty($request->getData('adminname')))
             || ($valid['iAdminPassword'] = empty($request->getData('adminpassword')))
             || ($valid['iAdminEmail'] = empty($request->getData('adminemail')))
-            || ($valid['iLogPath'] = empty($request->getData('logpath')))
             || ($valid['iDomain'] = empty($request->getData('domain')))
             || ($valid['iWebSubdir'] = empty($request->getData('websubdir')))
             || ($valid['iDefaultLang'] = empty($request->getData('defaultlang')))
