@@ -274,9 +274,9 @@
                         <li><label for="iLogPath">Logfile Path</label>
                         <li><input id="iLogPath" name="logpath" type="text" value="<?= realpath(__DIR__ . '/../Logs'); ?>" form="installForm" required>
                         <li><label for="iDomain">Top Level domain</label>
-                        <li><input id="iDomain" name="domain" type="text" value="" form="installForm" placeholder="demo.com" pattern="^((?!(www\.|http)).)*$" required>
+                        <li><input id="iDomain" name="domain" type="text" value="<?= $this->request->getUri()->getHost(); ?>" form="installForm" placeholder="demo.com" pattern="^((?!(www\.|http)).)*$" required>
                         <li><label for="iWebSubdir">Web Subdirectory</label>
-                        <li><input id="iWebSubdir" name="websubdir" type="text" value="/" form="installForm" required>
+                        <li><input id="iWebSubdir" name="websubdir" type="text" value="/<?= substr($this->request->getUri()->getPath(), stripos($this->request->getUri()->getPath(), 'Install/')+8); ?>" form="installForm" required>
                         <li><label for="iDefaultLang">Default Language</label>
                         <li><select id="iDefaultLang" name="defaultlang" form="installForm">
                                 <option value="en" selected>English
