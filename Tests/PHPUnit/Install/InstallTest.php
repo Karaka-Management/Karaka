@@ -29,31 +29,11 @@ class InstallTest extends \PHPUnit\Framework\TestCase
      */
     public function testInstall()
     {
-        // Getting all modules
-        $toInstall = [
-            'Admin',
-        ];
+        $response = new Response();
+        $request = new Request(new Http(''));
 
-        $instHOBJ = new Installer($GLOBALS['dbpool']);
+        $request->setData('', '');
 
-        $instHOBJ->cleanupPrevious();
-
-        $result = $instHOBJ->installCore();
-        self::assertTrue($result);
-
-        $result = $instHOBJ->installModules($toInstall);
-        self::assertTrue($result);
-
-        $result = $instHOBJ->installGroups();
-        self::assertTrue($result);
-
-        $result = $instHOBJ->installUsers();
-        self::assertTrue($result);
-
-        $result = $instHOBJ->installSettings();
-        self::assertTrue($result);
-
-        // todo: implement schema query builder so it's possible to check if table exists. maybe performing a unit test
-        // here on the schema is wrong after all and should be done only in the modules after the framework test
+        Application::installRequest($request, $response);
     }
 }

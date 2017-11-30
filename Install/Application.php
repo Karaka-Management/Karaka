@@ -291,6 +291,16 @@ class Application extends ApplicationAbstract
                 KEY `module_load_from` (`module_load_from`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
         )->execute();
+
+        $app = new class extends ApplicationAbstract
+        {
+        };
+        $app->dbPool = new DatabasePool();
+        $app->dbPool->set('select', $db);
+        $app->dbPool->set('schema', $db);
+
+        $moduleManager = new ModuleManager($app, __DIR__ . '/../Modules');
+        $moduleManager->install('Admin');
     }
 
     private static function installGroups(Request $request, ConnectionAbstract $db)
