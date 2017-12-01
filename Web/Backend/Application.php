@@ -267,7 +267,7 @@ class Application
 
         $groupPermissions = GroupPermissionMapper::getFor(array_keys($account->getGroups()), 'group');
         $account->addPermissions(is_array($groupPermissions) ? $groupPermissions : [$groupPermissions]);
-
+        
         $accountPermissions = AccountPermissionMapper::getFor($request->getHeader()->getAccount(), 'account');
         $account->addPermissions(is_array($accountPermissions) ? $accountPermissions : [$accountPermissions]);
 

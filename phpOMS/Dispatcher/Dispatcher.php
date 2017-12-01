@@ -107,6 +107,10 @@ class Dispatcher
         $views    = [];
         $dispatch = explode(':', $controller);
 
+        if (!file_exists($path = __DIR__ . '/../../' . str_replace('\\', '/', $dispatch[0]) . '.php')) {
+            throw new PathException($path);
+        }
+
         if (($c = count($dispatch)) === 3) {
             /* Handling static functions */
             $function           = $dispatch[0] . '::' . $dispatch[2];
@@ -170,10 +174,6 @@ class Dispatcher
     private function getController(string $controller) /* : object */
     {
         if (!isset($this->controllers[$controller])) {
-            if (!file_exists($path = __DIR__ . '/../../' . str_replace('\\', '/', $controller) . '.php')) {
-                throw new PathException($path);
-            }
-
             // If module controller use module manager for initialization
             if (strpos('\Modules\Controller', $controller) === 0) {
                 $split = explode('\\', $controller);

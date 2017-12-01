@@ -1494,7 +1494,7 @@ class DataMapperAbstract implements DataMapperInterface
                 }
 
                 $objects = $mapper::get($values);
-                $reflectionProperty->setValue($obj, !is_array($objects) ? [$objects] : $objects);
+                $reflectionProperty->setValue($obj, !is_array($objects) ? [$objects->getId() => $objects] : $objects);
 
                 if (!$accessible) {
                     $reflectionProperty->setAccessible(false);

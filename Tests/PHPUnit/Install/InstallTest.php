@@ -18,9 +18,13 @@ namespace Tests\PHPUnit\Install;
 require_once __DIR__ . '/../../../phpOMS/Autoloader.php';
 require_once __DIR__ . '/../../../config.php';
 
-use Install\Installer;
+use phpOMS\ApplicationAbstract;
+use Install\Application;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
+use phpOMS\Message\Http\Request;
+use phpOMS\Message\Http\Response;
+use phpOMS\Uri\Http;
 
 class InstallTest extends \PHPUnit\Framework\TestCase
 {
@@ -34,7 +38,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         $request = new Request(new Http(''));
 
         $request->setData('dbhost', $config['db']['core']['masters']['admin']['host']);
-        $request->setData('dbtype', $config['db']['core']['masters']['admin']['type']);
+        $request->setData('dbtype', $config['db']['core']['masters']['admin']['db']);
         $request->setData('dbport', $config['db']['core']['masters']['admin']['port']);
         $request->setData('dbprefix', $config['db']['core']['masters']['admin']['prefix']);
         $request->setData('dbname', $config['db']['core']['masters']['admin']['database']);

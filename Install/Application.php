@@ -29,6 +29,7 @@ use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Localization\Localization;
 use phpOMS\Localization\L11nManager;
 use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
+use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\DatabaseType;
 use phpOMS\DataStorage\Database\DatabasePool;
@@ -39,6 +40,7 @@ use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Views\View;
 use phpOMS\Account\GroupStatus;
 use phpOMS\Account\PermissionType;
+use phpOMS\Module\ModuleManager;
 
 /**
  * Application class.
@@ -235,7 +237,7 @@ class Application extends ApplicationAbstract
         return [];
     }
 
-    private static function hasPhpExtensiosn() : bool
+    private static function hasPhpExtensions() : bool
     {
         return extension_loaded('pdo')
             && extension_loaded('mbstring');
@@ -248,7 +250,7 @@ class Application extends ApplicationAbstract
 
     private static function setupDatabaseConnection(Request $request) : ConnectionAbstract
     {
-        return ConnectionFactory([
+        return ConnectionFactory::create([
             'db' => (string) $request->getData('dbtype'),
             'host' => (string) $request->getData('dbhost'),
             'port' => (string) $request->getData('dbport'),
@@ -261,8 +263,18 @@ class Application extends ApplicationAbstract
 
     private static function installConfigFile(Request $request)
     {
-        // todo edit config file
-        // todo edit htaccess file
+        self::editConfigFile($request);
+        self::editHtaccessFile($request);
+    }
+
+    private static function editConfigFile(Request $request)
+    {
+        $config = \file_get_contents(__DIR__ . '/../config.php');
+    }
+
+    private static function editHtaccessFile(Request $request)
+    {
+        $ht = \file_get_contents(__DIR__ . '/../.htaccess');
     }
 
     private static function installCore(Request $request, ConnectionAbstract $db)
@@ -295,8 +307,8 @@ class Application extends ApplicationAbstract
         {
         };
         $app->dbPool = new DatabasePool();
-        $app->dbPool->set('select', $db);
-        $app->dbPool->set('schema', $db);
+        $app->dbPool->add('select', $db);
+        $app->dbPool->add('schema', $db);
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../Modules');
         $moduleManager->install('Admin');
@@ -304,6 +316,8 @@ class Application extends ApplicationAbstract
 
     private static function installGroups(Request $request, ConnectionAbstract $db)
     {
+        $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
+        
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'group` (`group_id`, `group_name`, `group_desc`, `group_status`, `group_created`) VALUES
                 (1000000000, \'guest\', NULL, ' . GroupStatus::ACTIVE . ', \'' . $date->format('Y-m-d H:i:s') . '\'),

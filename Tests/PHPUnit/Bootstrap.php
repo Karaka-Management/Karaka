@@ -4,7 +4,7 @@ ini_set('memory_limit', '2048M');
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../config.php';
+$CONFIG = require_once __DIR__ . '/../../config.php';
 
 use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\DataStorage\Database\DatabasePool;
