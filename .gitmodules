@@ -1,4 +1,5 @@
 [submodule "Docs"]
+	path = Docs
 	url = https://github.com/Orange-Management/Docs.git
 [submodule "Modules"]
 	path = Modules
