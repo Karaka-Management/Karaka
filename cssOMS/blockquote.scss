@@ -1,9 +1,0 @@
-@import "_mixins", "_vars";
-
-blockquote {
-    border: 1px solid $content-borderlight-color;
-    background: #ffffff;
-    padding: 10px;
-    @include box-sizing(border-box);
-    @include border-radius(3px);
-}
