@@ -66,7 +66,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var int
      * @since 1.0.0
      */
-    /* public */ const MODULE_ID = 1007800000;
+    /* public */ const MODULE_ID = 1006800000;
 
     /**
      * Providing.
