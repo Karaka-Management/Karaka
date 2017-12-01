@@ -1,2 +1,41 @@
 [submodule "Docs"]
 	url = https://github.com/Orange-Management/Docs.git
+[submodule "Modules"]
+	path = Modules
+	url = https://github.com/Orange-Management/Modules.git
+[submodule "phpOMS"]
+	path = phpOMS
+	url = https://github.com/Orange-Management/phpOMS.git
+[submodule "jsOMS"]
+	path = jsOMS
+	url = https://github.com/Orange-Management/jsOMS.git
+[submodule "cssOMS"]
+	path = cssOMS
+	url = https://github.com/Orange-Management/cssOMS.git
+[submodule "Documentation"]
+	path = Documentation
+	url = https://github.com/Orange-Management/Documentation.git
+[submodule "Build"]
+	path = Build
+	url = https://github.com/Orange-Management/Build.git
+[submodule "Web"]
+	path = Web
+	url = https://github.com/Orange-Management/Web.git
+[submodule "Socket"]
+	path = Socket
+	url = https://github.com/Orange-Management/Socket.git
+[submodule "Console"]
+	path = Console
+	url = https://github.com/Orange-Management/Console.git
+[submodule "Tests"]
+	path = Tests
+	url = https://github.com/Orange-Management/Tests.git
+[submodule "Developer-Guide"]
+	path = Developer-Guide
+	url = https://github.com/Orange-Management/Developer-Guide.git
+[submodule "Model"]
+	path = Model
+	url = https://github.com/Orange-Management/Model.git
+[submodule "Resources"]
+	path = Resources
+	url = https://github.com/Orange-Management/Resources.git
