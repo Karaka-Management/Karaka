@@ -39,6 +39,8 @@ use phpOMS\Router\RouteVerb;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Views\View;
 use phpOMS\Account\GroupStatus;
+use phpOMS\Account\AccountStatus;
+use phpOMS\Account\AccountType;
 use phpOMS\Account\PermissionType;
 use phpOMS\Module\ModuleManager;
 
@@ -319,15 +321,15 @@ class Application extends ApplicationAbstract
         $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
         
         $db->con->prepare(
-            'INSERT INTO `' . $db->prefix . 'group` (`group_id`, `group_name`, `group_desc`, `group_status`, `group_created`) VALUES
-                (1000000000, \'guest\', NULL, ' . GroupStatus::ACTIVE . ', \'' . $date->format('Y-m-d H:i:s') . '\'),
-                (1000101000, \'user\', NULL, ' . GroupStatus::ACTIVE . ', \'' . $date->format('Y-m-d H:i:s') . '\'),
-                (1000102000, \'admin\', NULL, ' . GroupStatus::ACTIVE . ', \'' . $date->format('Y-m-d H:i:s') . '\');'
+            'INSERT INTO `' . $db->prefix . 'group` (`group_name`, `group_desc`, `group_status`, `group_created`) VALUES
+                (\'guest\', NULL, ' . GroupStatus::ACTIVE . ', \'' . $date->format('Y-m-d H:i:s') . '\'),
+                (\'user\', NULL, ' . GroupStatus::ACTIVE . ', \'' . $date->format('Y-m-d H:i:s') . '\'),
+                (\'admin\', NULL, ' . GroupStatus::ACTIVE . ', \'' . $date->format('Y-m-d H:i:s') . '\');'
         )->execute();
 
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'group_permission` (`group_permission_group`, `group_permission_unit`, `group_permission_app`, `group_permission_module`, `group_permission_from`, `group_permission_type`, `group_permission_element`, `group_permission_component`, `group_permission_permission`) VALUES
-                (1000102000, 1, \'backend\', NULL, NULL, NULL, NULL, NULL, ' . (PermissionType::READ | PermissionType::CREATE | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION) . ');'
+                (3, 1, \'backend\', NULL, NULL, NULL, NULL, NULL, ' . (PermissionType::READ | PermissionType::CREATE | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION) . ');'
         )->execute();
     }
 
@@ -342,12 +344,13 @@ class Application extends ApplicationAbstract
 
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'account` (`account_status`, `account_type`, `account_login`, `account_name1`, `account_name2`, `account_name3`, `account_password`, `account_email`, `account_tries`, `account_lactive`, `account_localization`, `account_created_at`) VALUES
-                (0, 0, \'' . ((string) $request->getData('adminname')) . '\', \'' . ((string) $request->getData('adminname')) . '\', \'\', \'\', \'' . password_hash((string) $request->getData('adminpassword'), PASSWORD_DEFAULT) . '\', \'' . ((string) $request->getData('adminemail')) . '\', 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\');'
+                (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', \'' . ((string) $request->getData('adminname')) . '\', \'' . ((string) $request->getData('adminname')) . '\', \'\', \'\', \'' . password_hash((string) $request->getData('adminpassword'), PASSWORD_DEFAULT) . '\', \'' . ((string) $request->getData('adminemail')) . '\', 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\'),
+                (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', \'guest\', \'Guest\', \'\', \'\', \'' . password_hash('guest', PASSWORD_DEFAULT) . '\', \'guest@email.com\', 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\');'
         )->execute();
 
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'account_group` (`account_group_group`, `account_group_account`) VALUES
-                (1000102000, 1);'
+                (3, 1);'
         )->execute();
     }
 
