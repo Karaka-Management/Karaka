@@ -198,6 +198,7 @@ class Application extends ApplicationAbstract
 
         $db = self::setupDatabaseConnection($request);
 
+        self::clearOld();
         self::installConfigFile($request);
         self::installCore($request, $db);
         self::installGroups($request, $db);
@@ -237,6 +238,12 @@ class Application extends ApplicationAbstract
         }
 
         return [];
+    }
+
+    private static function clearOld() /* : void */
+    {
+        file_put_contents(__DIR__ . '/../Web/Backend/Routes.php', '<?php return [];');
+        file_put_contents(__DIR__ . '/../Web/Api/Routes.php', '<?php return [];');
     }
 
     private static function hasPhpExtensions() : bool
