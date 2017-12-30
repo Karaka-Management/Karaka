@@ -40,3 +40,6 @@
 [submodule "Resources"]
 	path = Resources
 	url = https://github.com/Orange-Management/Resources.git
+[submodule "Demo"]
+	path = Demo
+	url = https://github.com/Orange-Management/Demo.git
