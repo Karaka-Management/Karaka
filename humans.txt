@@ -4,8 +4,8 @@ Site: http://website.orange-management.de
 Location: Frankfurt, Germany
 
 /* SITE */
-Last update: 2014/08/17
-Standards: PHP 7.1, HTML5, CSS3, JavaScrip
-Components: FontAwesome, D3.js, Three.js
-Software: Sublime, PHPStorm, Github, Grunt, Visual Studio Code
+Last update: 2018
+Standards: PHP 7.1, HTML5, CSS3, JavaScript
+Components: FontAwesome, D3.js, Three.js, PHPSpreadSheet, TCPDF
+Software: Sublime Text, PHPStorm, Github, Git, Visual Studio Code
 IDE: Sublime Text, PHPStorm, Visual Studio Code
