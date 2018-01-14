@@ -1,0 +1,93 @@
+@import "backend_vars";
+
+html, body {
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    font-family: arial, serif;
+    color: $d-font-color;
+    background: $d-cont-color;
+}
+
+#bar-s {
+    user-select: none;
+    height: 25px;
+    background: $d-base-color-o;
+    border-top: 3px solid #FBA026;
+    overflow: hidden;
+}
+
+#bar-b {
+    user-select: none;
+    height: 50px;
+    background: #fff;
+    border-bottom: 1px solid $d-border-cont;
+    display: table;
+    width: 100%;
+
+    > span {
+        padding-left: 5px;
+    }
+}
+
+#logo {
+    width: 1%;
+
+    a {
+        color: $d-base-color-o;
+    }
+
+    select {
+        font-size: 1.7em;
+    }
+}
+
+#s-bar {
+    input[type=text] {
+        width: 50%;
+    }
+}
+
+#ham-trigger {
+    width: 1%;
+}
+
+#out {
+    box-sizing: border-box;
+    position: absolute;
+    top: 79px;
+    bottom: 0;
+    width: 100%;
+}
+
+#snav, main {
+    overflow: auto;
+    height: 100%;
+}
+
+#t-nav {
+    font-size: 0.75em;
+    color: $d-nav-color;
+    float: right;
+    font-weight: bold;
+
+    a {
+        padding: 0 5px 0 5px;
+        line-height: 25px;
+    }
+
+    i {
+        margin-right: 5px;
+    }
+
+    li {
+        display: inline;
+    }
+}
+
+main {
+    position: relative;
+    box-sizing: border-box;
+}

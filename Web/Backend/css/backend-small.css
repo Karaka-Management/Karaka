@@ -1,0 +1,67 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  font-family: arial, serif;
+  color: #000;
+  background: #eaecf0; }
+
+#bar-s {
+  user-select: none;
+  height: 25px;
+  background: #2f2f2f;
+  border-top: 3px solid #FBA026;
+  overflow: hidden; }
+
+#bar-b {
+  user-select: none;
+  height: 50px;
+  background: #fff;
+  border-bottom: 1px solid #dadee2;
+  display: table;
+  width: 100%; }
+  #bar-b > span {
+    padding-left: 5px; }
+
+#logo {
+  width: 1%; }
+  #logo a {
+    color: #2f2f2f; }
+  #logo select {
+    font-size: 1.7em; }
+
+#s-bar input[type=text] {
+  width: 50%; }
+
+#ham-trigger {
+  width: 1%; }
+
+#out {
+  box-sizing: border-box;
+  position: absolute;
+  top: 79px;
+  bottom: 0px;
+  width: 100%; }
+
+#snav, main {
+  overflow: auto;
+  height: 100%; }
+
+#t-nav {
+  font-size: 0.75em;
+  color: #fff;
+  float: right;
+  font-weight: bold; }
+  #t-nav a {
+    padding: 0 5px 0 5px;
+    line-height: 25px; }
+  #t-nav i {
+    margin-right: 5px; }
+  #t-nav li {
+    display: inline; }
+
+main {
+  position: relative;
+  box-sizing: border-box; }
