@@ -1,3 +1,5 @@
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Orange-Management/Orange-Management/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/Orange-Management/Orange-Management/?branch=develop) [![Build Status](https://scrutinizer-ci.com/g/Orange-Management/Orange-Management/badges/build.png?b=develop)](https://scrutinizer-ci.com/g/Orange-Management/Orange-Management/build-status/develop) [![Maintainability](https://api.codeclimate.com/v1/badges/efee6ef6e671072c0477/maintainability)](https://codeclimate.com/github/Orange-Management/Orange-Management/maintainability)
+
 # General
 
 The Orange Management software is a modular web application for small to mid sized companies that need CRM, ERP, Intranet and/or CMS features. The Orange Management modules can be split into the following different categories:
