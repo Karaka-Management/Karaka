@@ -12,9 +12,9 @@
  */
 declare(strict_types = 1);
 
-namespace Tests\PHPUnit;
+namespace Install\tests;
 
-spl_autoload_register('\Tests\PHPUnit\Autoloader::default_autoloader');
+spl_autoload_register('\Install\tests\Autoloader::default_autoloader');
 
 /**
  * Autoloader class.

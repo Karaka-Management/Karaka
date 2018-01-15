@@ -12,10 +12,9 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Install;
+namespace Install\tests;
 
-
-require_once __DIR__ . '/../../../config.php';
+require_once __DIR__ . '/../../config.php';
 
 use phpOMS\ApplicationAbstract;
 use Install\Application;
@@ -32,7 +31,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
      */
     public function testInstall()
     {
-        $config = include __DIR__ . '/../../../config.php';
+        $config = include __DIR__ . '/../../config.php';
         $response = new Response();
         $request = new Request(new Http(''));
 
