@@ -45,6 +45,6 @@
         <log type="junit" target="../Build/log/test.xml"/>
         <log type="testdox-html" target="../Build/test/index.html"/>
         <log type="coverage-html" target="../Build/coverage" lowUpperBound="50" highLowerBound="75"/>
-        <log type="coverage-clover" target="../Tests/PHPUnit/coverage.xml" />
+        <log type="coverage-clover" target="../coverage.xml" />
     </logging>
 </phpunit>
