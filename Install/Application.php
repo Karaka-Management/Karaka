@@ -198,8 +198,8 @@ class Application extends ApplicationAbstract
 
         self::clearOld();
         self::installConfigFile($request);
-        self::installCore($request, $db);
-        self::installGroups($request, $db);
+        self::installCore($db);
+        self::installGroups($db);
         self::installUsers($request, $db);
         self::installSettings($request, $db);
     }
@@ -284,7 +284,14 @@ class Application extends ApplicationAbstract
         $ht = \file_get_contents(__DIR__ . '/../.htaccess');
     }
 
-    private static function installCore(Request $request, ConnectionAbstract $db)
+    private static function installCore(ConnectionAbstract $db)
+    {
+        self::createModuleTable($db);
+        self::createModuleLoadTable($db);
+        self::installAdminModule($db);
+    }
+
+    private static function createModuleTable(ConnectionAbstract $db)
     {
         $db->con->prepare(
             'CREATE TABLE if NOT EXISTS `' . $db->prefix . 'module` (
@@ -296,7 +303,10 @@ class Application extends ApplicationAbstract
                 PRIMARY KEY (`module_id`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;'
         )->execute();
+    }
 
+    private static function createModuleLoadTable(ConnectionAbstract $db)
+    {
         $db->con->prepare(
             'CREATE TABLE if NOT EXISTS `' . $db->prefix . 'module_load` (
                 `module_load_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -309,7 +319,10 @@ class Application extends ApplicationAbstract
                 KEY `module_load_from` (`module_load_from`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
         )->execute();
+    }
 
+    private static function installAdminModule(ConnectionAbstract $db)
+    {
         $app = new class extends ApplicationAbstract
         {
         };
@@ -321,7 +334,13 @@ class Application extends ApplicationAbstract
         $moduleManager->install('Admin');
     }
 
-    private static function installGroups(Request $request, ConnectionAbstract $db)
+    private static function installGroups(ConnectionAbstract $db)
+    {
+        self::installMainGroups($db);
+        self::installGroupPermissions($db);
+    }
+
+    private static function installMainGroups(ConnectionAbstract $db)
     {
         $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
         
@@ -331,7 +350,10 @@ class Application extends ApplicationAbstract
                 (\'user\', NULL, ' . GroupStatus::ACTIVE . ', \'' . $date->format('Y-m-d H:i:s') . '\'),
                 (\'admin\', NULL, ' . GroupStatus::ACTIVE . ', \'' . $date->format('Y-m-d H:i:s') . '\');'
         )->execute();
+    }
 
+    private static function installGroupPermissions(ConnectionAbstract $db)
+    {
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'group_permission` (`group_permission_group`, `group_permission_unit`, `group_permission_app`, `group_permission_module`, `group_permission_from`, `group_permission_type`, `group_permission_element`, `group_permission_component`, `group_permission_permission`) VALUES
                 (3, 1, \'backend\', NULL, NULL, NULL, NULL, NULL, ' . (PermissionType::READ | PermissionType::CREATE | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION) . ');'
@@ -345,12 +367,21 @@ class Application extends ApplicationAbstract
 
     private static function installUsers(Request $request, ConnectionAbstract $db)
     {
-        $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
+        self::installUserLocalization($db);
+        self::installMainUser($request, $db);
+    }
 
+    private static function installUserLocalization(ConnectionAbstract $db)
+    {
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'l11n` (`l11n_country`, `l11n_language`, `l11n_currency`, `l11n_number_thousand`, `l11n_number_decimal`, `l11n_angle`, `l11n_temperature`, `l11n_weight_very_light`, `l11n_weight_light`, `l11n_weight_medium`, `l11n_weight_heavy`, `l11n_weight_very_heavy`, `l11n_speed_very_slow`, `l11n_speed_slow`, `l11n_speed_medium`, `l11n_speed_fast`, `l11n_speed_very_fast`, `l11n_speed_sea`, `l11n_length_very_short`, `l11n_length_short`, `l11n_length_medium`, `l11n_length_long`, `l11n_length_very_long`, `l11n_length_sea`, `l11n_area_very_small`, `l11n_area_small`, `l11n_area_medium`, `l11n_area_large`, `l11n_area_very_large`, `l11n_volume_very_small`, `l11n_volume_small`, `l11n_volume_medium`, `l11n_volume_large`, `l11n_volume_very_large`, `l11n_volume_teaspoon`, `l11n_volume_tablespoon`, `l11n_volume_glass`) VALUES
                 (\'DE\', \'EN\', \'EUR\', \',\', \'.\', \'degree\', \'celsius\', \'mg\', \'g\', \'kg\', \'t\', \'t\', \'ms\', \'ms\', \'kph\', \'kph\', \'kph\', \'knot\', \'mm\', \'cm\', \'m\', \'km\', \'km\', \'mile\', \'mm\', \'cm\', \'m\', \'km\', \'km\', \'ml\', \'cl\', \'l\', \'l\', \'l\', \'metric teaspoon\', \'metric tablespoon\', \'metric glass\'), (\'DE\', \'EN\', \'EUR\', \',\', \'.\', \'degree\', \'celsius\', \'mg\', \'g\', \'kg\', \'t\', \'t\', \'ms\', \'ms\', \'kph\', \'kph\', \'kph\', \'knot\', \'mm\', \'cm\', \'m\', \'km\', \'km\', \'mile\', \'mm\', \'cm\', \'m\', \'km\', \'km\', \'ml\', \'cl\', \'l\', \'l\', \'l\', \'metric teaspoon\', \'metric tablespoon\', \'metric glass\');'
         )->execute();
+    }
+
+    private static function installMainUser(Request $request, ConnectionAbstract $db)
+    {
+        $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
 
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'account` (`account_status`, `account_type`, `account_login`, `account_name1`, `account_name2`, `account_name3`, `account_password`, `account_email`, `account_tries`, `account_lactive`, `account_localization`, `account_created_at`) VALUES
