@@ -30,7 +30,7 @@
                 <directory suffix="lang.php">../*</directory>
                 <directory suffix="Test.php">../*</directory>
                 <directory>../Demo/*</directory>
-                <directory suffix=".php">../**/tests/*</directory>
+                <directory>../Build/*</directory>
                 <directory suffix=".php">../Modules/**/Admin/Routes*</directory>
                 <directory suffix=".php">../Modules/**/Admin/Install*</directory>
                 <directory suffix=".php">../Modules/Media/Files*</directory>

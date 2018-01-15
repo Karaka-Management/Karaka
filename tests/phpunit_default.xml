@@ -6,7 +6,6 @@
         stopOnFailure="true"
         stopOnIncomplete="false"
         stopOnSkipped="false"
-        processIsolation = "false"
         beStrictAboutTestsThatDoNotTestAnything="false"
         >
     <testsuites>
@@ -24,17 +23,14 @@
         </testsuite>
     </testsuites>
     <filter>
-        <whitelist addUncoveredFilesFromWhitelist="true" processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">../phpOMS/*</directory>
-            <directory suffix=".php">../Modules/*</directory>
-            <directory suffix=".php">../Model/*</directory>
-            <directory suffix=".php">../Install/*</directory>
+        <whitelist addUncoveredFilesFromWhitelist="false" processUncoveredFilesFromWhitelist="false">
+            <directory suffix=".php">../*</directory>
             <exclude>
                 <directory suffix="tpl.php">../*</directory>
                 <directory suffix="lang.php">../*</directory>
                 <directory suffix="Test.php">../*</directory>
                 <directory>../Demo/*</directory>
-                <directory suffix=".php">../**/tests/*</directory>
+                <directory>../Build/*</directory>
                 <directory suffix=".php">../Modules/**/Admin/Routes*</directory>
                 <directory suffix=".php">../Modules/**/Admin/Install*</directory>
                 <directory suffix=".php">../Modules/Media/Files*</directory>
@@ -45,6 +41,6 @@
         <log type="junit" target="../Build/log/test.xml"/>
         <log type="testdox-html" target="../Build/test/index.html"/>
         <log type="coverage-html" target="../Build/coverage" lowUpperBound="50" highLowerBound="75"/>
-        <log type="coverage-clover" target="../coverage.xml" />
+        <log type="coverage-clover" target="coverage.xml" />
     </logging>
 </phpunit>
