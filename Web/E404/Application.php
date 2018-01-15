@@ -89,7 +89,7 @@ class Application
         /** @noinspection PhpIncludeInspection */
         $themeLanguage = include $path;
         $this->app->l11nManager->loadLanguage($response->getHeader()->getL11n()->getLanguage(), 0, $themeLanguage);
-        
+
         $response->set('Content', $pageView);
         $response->getHeader()->setStatusCode(RequestStatusCode::R_404);
     }

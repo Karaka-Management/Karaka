@@ -160,7 +160,7 @@ class Application
             $response->getHeader()->getL11n()->getLanguage(),
             __DIR__ . '/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php'
         );
-        
+
         $response->getHeader()->set('content-language', $response->getHeader()->getL11n()->getLanguage(), true);
 
         /* Create html head */
@@ -179,7 +179,7 @@ class Application
 
             return;
         }
-        
+
         $this->createDefaultPageView($request, $response, $pageView);
         $this->app->moduleManager->initRequestModules($request);
 
@@ -226,7 +226,7 @@ class Application
             __DIR__ . '/Error/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php'
         );
     }
-    
+
     /**
      * Load theme language from path
      *
@@ -265,7 +265,7 @@ class Application
 
         $groupPermissions = GroupPermissionMapper::getFor(array_keys($account->getGroups()), 'group');
         $account->addPermissions(is_array($groupPermissions) ? $groupPermissions : [$groupPermissions]);
-        
+
         $accountPermissions = AccountPermissionMapper::getFor($request->getHeader()->getAccount(), 'account');
         $account->addPermissions(is_array($accountPermissions) ? $accountPermissions : [$accountPermissions]);
 
@@ -365,7 +365,7 @@ class Application
         $head->addAsset(AssetType::JS, '/jsOMS/UI/UIManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Views/FormView.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Utils/Parser/Markdown.js');
-        
+
         // Models
         $head->addAsset(AssetType::JS, '/Model/Message/DomActionType.enum.js');
         $head->addAsset(AssetType::JS, '/Model/Message/DomAction.js');
@@ -374,7 +374,7 @@ class Application
         $head->addAsset(AssetType::JS, '/Model/Message/Notify.js');
         $head->addAsset(AssetType::JS, '/Model/Message/Redirect.js');
         $head->addAsset(AssetType::JS, '/Model/Message/Reload.js');
-        
+
         $head->addAsset(AssetType::JS, '/Model/Action/Message/Request.js');
         $head->addAsset(AssetType::JS, '/Model/Action/Dom/Popup.js');
         $head->addAsset(AssetType::JS, '/Model/Action/Dom/Remove.js');
@@ -390,7 +390,7 @@ class Application
         $head->addAsset(AssetType::JS, '/Model/Action/Dom/SetValue.js');
         $head->addAsset(AssetType::JS, '/Model/Action/Dom/RemoveValue.js');
         $head->addAsset(AssetType::JS, '/Model/Action/Dom/GetValue.js');
-        
+
         $head->addAsset(AssetType::JS, '/Web/Backend/js/config.js');
         $head->addAsset(AssetType::JS, '/Web/Backend/js/global/ActionEvents.js');
         $head->addAsset(AssetType::JS, '/Web/Backend/js/global/KeyboardEvents.js');
@@ -398,7 +398,7 @@ class Application
         $head->addAsset(AssetType::JS, '/Web/Backend/js/global/ResponseEvents.js');
         $head->addAsset(AssetType::JS, '/Web/Backend/js/global/TouchEvents.js');
         $head->addAsset(AssetType::JS, '/Web/Backend/js/global/VoiceEvents.js');
-        
+
         $head->addAsset(AssetType::JS, '/Web/Backend/ServiceWorker.js');
         $head->addAsset(AssetType::JSLATE, '/Web/Backend/js/backend.js');
 
@@ -431,7 +431,7 @@ class Application
      *
      * @since  1.0.0
      */
-    private function createLoggedOutResponse(Response $response, Head $head, View $pageView) 
+    private function createLoggedOutResponse(Response $response, Head $head, View $pageView)
     {
         $pageView->setTemplate('/Web/Backend/login');
     }
@@ -470,7 +470,7 @@ class Application
     {
         $navController = $this->app->moduleManager->get('Navigation');
         $navController->loadLanguage($request, $response);
-        
+
         return $navController->getView($request, $response);
     }
 }

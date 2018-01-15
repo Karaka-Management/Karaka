@@ -82,11 +82,11 @@ class WebApplication extends ApplicationAbstract
             }
 
             $response->getHeader()->push();
-            
+
             if ($this->sessionManager) {
                 $this->sessionManager->lock();
             }
-            
+
             echo $response->getBody();
         }
     }
