@@ -241,7 +241,7 @@ class Application
     {
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
 
-        $login = AccountMapper::login($request->getData('user') ?? '', $request->getData('pass') ?? '');
+        $login = AccountMapper::login((string) ($request->getData('user') ?? ''), (string) ($request->getData('pass') ?? ''));
 
         if ($login >= LoginReturnType::OK) {
             $this->app->sessionManager->set('UID', $login);
