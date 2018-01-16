@@ -47,8 +47,6 @@
 
     jsOMS.Application.prototype.setupServiceWorker = function ()
     {
-        const self = this;
-
         /** global: navigator */
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/Web/Backend/ServiceWorker.js', {scope: this.request.getBase()}).catch(function (e)
