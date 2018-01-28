@@ -71,5 +71,4 @@ class Autoloader
 
         return file_exists(__DIR__ . '/../' . $class . '.php');
     }
-
 }
