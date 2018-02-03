@@ -479,6 +479,7 @@ class Application
      */
     private function getNavigation(Request $request, Response $response) : View
     {
+        /** @var \Modules\Navigation\Controller $navController */
         $navController = $this->app->moduleManager->get('Navigation');
         $navController->loadLanguage($request, $response);
 
