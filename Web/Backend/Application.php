@@ -115,8 +115,8 @@ class Application
         }
 
         $this->app->l11nManager = new L11nManager();
-        $this->app->dbPool = new DatabasePool();
-        $this->app->router = new Router();
+        $this->app->dbPool      = new DatabasePool();
+        $this->app->router      = new Router();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
 
         $this->app->sessionManager = new HttpSession(36000);
@@ -153,7 +153,12 @@ class Application
         $options = $this->app->appSettings->get([1000000009, 1000000029]);
         $account = $this->loadAccount($request);
 
-        $response->getHeader()->getL11n()->setLanguage(!in_array($request->getHeader()->getL11n()->getLanguage(), $this->config['language']) ? $options[1000000029] : $request->getHeader()->getL11n()->getLanguage());
+        $response->getHeader()->getL11n()->setLanguage(
+            !in_array(
+                $request->getHeader()->getL11n()->getLanguage(), 
+                $this->config['language']
+            ) ? $options[1000000029] : $request->getHeader()->getL11n()->getLanguage()
+        );
         UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());
 
         $this->loadLanguageFromPath(
@@ -406,7 +411,13 @@ class Application
         $head->addAsset(AssetType::JSLATE, '/Modules/Navigation/Models/Navigation.js');
 
         $head->setScript('core', $script = 'const assetManager = new jsOMS.Asset.AssetManager();');
-        $response->getHeader()->set('content-security-policy', 'base-uri \'self\'; script-src \'self\' blob: \'sha256-' . base64_encode(hash('sha256', $script, true)) . '\'; child-src \'self\'', true);
+        $response->getHeader()->set(
+            'content-security-policy', 
+            'base-uri \'self\'; script-src \'self\' blob: \'sha256-' 
+            . base64_encode(hash('sha256', $script, true)) 
+            . '\'; child-src \'self\'', 
+            true
+        );
 
         $head->addAsset(AssetType::CSS, '/Web/Backend/css/backend.css');
 

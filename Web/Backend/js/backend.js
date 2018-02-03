@@ -6,8 +6,8 @@
     {
         jsOMS.Autoloader.initPreloaded();
 
-        this.logger          = jsOMS.Log.Logger.getInstance();
-        window.logger        = this.logger;
+        this.logger   = jsOMS.Log.Logger.getInstance();
+        window.logger = this.logger;
 
         this.cacheManager    = new jsOMS.DataStorage.CacheManager();
         this.cookieJar       = new jsOMS.DataStorage.CookieJar();

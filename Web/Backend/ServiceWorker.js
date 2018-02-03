@@ -9,8 +9,7 @@
 const CACHE_VERSION = 'static-v1';
 
 /** global: self */
-self.addEventListener('install', event =>
-{
+self.addEventListener('install', event => {
     event.waitUntil(
         /** global: caches */
         caches.open(CACHE_VERSION).then(cache => cache.addAll([
@@ -21,8 +20,7 @@ self.addEventListener('install', event =>
     );
 });
 
-self.addEventListener('fetch', event =>
-{
+self.addEventListener('fetch', event => {
     /** global: URL */
     const url = new URL(event.request.url);
 
@@ -38,18 +36,15 @@ self.addEventListener('fetch', event =>
     );
 });
 
-self.addEventListener('activate', event =>
-{
+self.addEventListener('activate', event => {
     const CURRENT_CACHES = [CACHE_VERSION];
 
     event.waitUntil(
-        caches.keys().then(cacheNames =>
-        {
+        caches.keys().then(cacheNames => {
             return CURRENT_CACHES.filter(cacheName => !CURRENT_CACHES.includes(cacheName));
         }).then(cachesToDelete => {
             return Promise.all(
-                cachesToDelete.map(cacheName =>
-                {
+                cachesToDelete.map(cacheName => {
                     return caches.delete(cacheName);
                 })
             );

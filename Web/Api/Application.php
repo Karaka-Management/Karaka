@@ -103,8 +103,8 @@ class Application
         $pageView = new View($this->app, $request, $response);
 
         $this->app->l11nManager = new L11nManager();
-        $this->app->dbPool = new DatabasePool();
-        $this->app->router = new Router();
+        $this->app->dbPool      = new DatabasePool();
+        $this->app->router      = new Router();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
 
         $this->app->sessionManager = new HttpSession(36000);

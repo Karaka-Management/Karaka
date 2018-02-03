@@ -50,15 +50,15 @@ class WebApplication extends ApplicationAbstract
         try {
             $this->setupHandlers();
 
-            $this->logger      = FileLogger::getInstance($config['log']['file']['path'], false);
-            $request           = $this->initRequest($config['page']['root'], $config['language'][0]);
-            $response          = $this->initResponse($request, $config['language']);
+            $this->logger = FileLogger::getInstance($config['log']['file']['path'], false);
+            $request      = $this->initRequest($config['page']['root'], $config['language'][0]);
+            $response     = $this->initResponse($request, $config['language']);
 
             UriFactory::setupUriBuilder($request->getUri());
 
             $applicationName = $this->getApplicationName($request->getUri()->getPathElement(1) ?? '');
-            $app = '\Web\\' . $applicationName . '\Application';
-            $sub = new $app($this, $config);
+            $app             = '\Web\\' . $applicationName . '\Application';
+            $sub             = new $app($this, $config);
         } catch (DatabaseException $e) {
             $this->logger->critical(FileLogger::MSG_FULL, [
                 'message' => $e->getMessage(),
@@ -157,7 +157,11 @@ class WebApplication extends ApplicationAbstract
             $response->getHeader()->set('strict-transport-security', 'max-age=31536000');
         }
 
-        $response->getHeader()->getL11n()->setLanguage(!in_array($request->getHeader()->getL11n()->getLanguage(), $languages) ? 'en' : $request->getHeader()->getL11n()->getLanguage());
+        $response->getHeader()->getL11n()->setLanguage(
+            !in_array(
+                $request->getHeader()->getL11n()->getLanguage(), $languages
+            ) ? 'en' : $request->getHeader()->getL11n()->getLanguage()
+        );
 
         return $response;
     }
