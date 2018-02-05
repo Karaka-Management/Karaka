@@ -20,7 +20,7 @@ $db->exec('DROP DATABASE IF EXISTS ' .  $CONFIG['db']['core']['masters']['admin'
 $db->exec('CREATE DATABASE IF NOT EXISTS ' .  $CONFIG['db']['core']['masters']['admin']['database']);
 $db = null;
 
-$httpSession = new HttpSession();
+$httpSession        = new HttpSession();
 $GLOBALS['session'] = $httpSession;
 
 $GLOBALS['dbpool'] = new DatabasePool();
