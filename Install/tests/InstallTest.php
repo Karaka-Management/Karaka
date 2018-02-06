@@ -49,7 +49,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         $request->setData('updatepassword', $config['db']['core']['masters']['admin']['password']);
         $request->setData('deleteuser', $config['db']['core']['masters']['admin']['login']);
         $request->setData('deletepassword', $config['db']['core']['masters']['admin']['password']);
-        
+
         $request->setData('orgname', 'Orange-Management');
         $request->setData('adminname', 'admin');
         $request->setData('adminpassword', 'orange');
