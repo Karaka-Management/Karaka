@@ -14,7 +14,7 @@ declare(strict_types = 1);
 
 namespace tests;
 
-spl_autoload_register('\tests\Autoloader::default_autoloader');
+spl_autoload_register('\tests\Autoloader::defaultAutoloader');
 
 /**
  * Autoloader class.
@@ -40,7 +40,7 @@ class Autoloader
      *
      * @since  1.0.0
      */
-    public static function default_autoloader(string $class) /* : void */
+    public static function defaultAutoloader(string $class) /* : void */
     {
         $class = ltrim($class, '\\');
         $class = str_replace(['_', '\\'], '/', $class);
