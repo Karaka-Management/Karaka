@@ -13,3 +13,4 @@ private.php
 private.sh
 *.lock
 .vscode
+*.log
