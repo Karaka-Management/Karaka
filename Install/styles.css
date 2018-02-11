@@ -16,7 +16,7 @@ main {
     transition: margin 700ms;
 }
 
-#logo {
+.logo {
     float: right;
 }
 
