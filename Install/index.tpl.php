@@ -29,7 +29,7 @@
 <main>
     <div id="page-1" class="page">
         <section>
-            <img src="img/logo.png" width="50" style="float: right;">
+            <img alt="Logo" src="img/logo.png" id="logo" width="50">
             <h1>Welcome</h1>
             <div>
                 <p>Orange Management is a WebApp written in PHP and JavaScript supporting various database 
@@ -54,7 +54,7 @@
     </div>
     <div id="page-2" class="page">
         <section>
-            <img src="img/logo.png" width="50" style="float: right;">
+            <img alt="Logo" src="img/logo.png" id="logo" width="50">
             <h1>License &amp; User Agreement</h1>
             <div>
                 <p>Upon clicking Agree you agree with the following license agreement.</p>
@@ -79,7 +79,7 @@
     </div>
     <div id="page-3" class="page">
         <section>
-            <img src="img/logo.png" width="50" style="float: right;">
+            <img alt="Logo" src="img/logo.png" id="logo" width="50">
             <h1>Pre-installation check</h1>
             <div>
                 <p>The following checks show if your environment supports the necessary requirements of the WebApp.</p>
@@ -163,7 +163,7 @@
     </div>
     <div id="page-4" class="page">
         <section>
-            <img src="img/logo.png" width="50" style="float: right;">
+            <img alt="Logo" src="img/logo.png" id="logo" width="50">
             <h1>Database</h1>
             <div>
                 <p>Please create a database this WebApp can use and configure every field.</p>
@@ -256,38 +256,35 @@
     </div>
     <div id="page-5" class="page">
         <section>
-            <img src="img/logo.png" width="50" style="float: right;">
+            <img alt="Logo" src="img/logo.png" id="logo" width="50">
             <h1>Configuration</h1>
             <div>
                 <p>The following configuration options are general WebApp settings.</p>
-
-                <form>
-                    <ul>
-                        <li><label for="iOrgName">Organization Name</label>
-                        <li><input id="iOrgName" name="orgname" type="text" value="Orange-Management" form="installForm" required>
-                        <li><label for="iAdminName">Admin Login</label>
-                        <li><input id="iAdminName" name="adminname" type="text" value="admin" form="installForm" required>
-                        <li><label for="iAdminPassword">Admin Password</label>
-                        <li><input id="iAdminPassword" name="adminpassword" type="password" value="" form="installForm" required>
-                        <li><label for="iAdminEmail">Admin Email</label>
-                        <li><input id="iAdminEmail" name="adminemail" type="email" value="" form="installForm" required>
-                        <li><label for="iDomain">Top Level domain</label>
-                        <li><input id="iDomain" name="domain" type="text" value="<?= $this->request->getUri()->getHost(); ?>" form="installForm" placeholder="demo.com" pattern="^((?!(www\.|http)).)*$" required>
-                        <li><label for="iWebSubdir">Web Subdirectory</label>
-                        <li><input id="iWebSubdir" name="websubdir" type="text" value="/<?= substr($this->request->getUri()->getPath(), stripos($this->request->getUri()->getPath(), 'Install/')+8); ?>" form="installForm" required>
-                        <li><label for="iDefaultLang">Default Language</label>
-                        <li><select id="iDefaultLang" name="defaultlang" form="installForm">
-                                <option value="en" selected>English
-                            </select>
-                    </ul>
-                </form>
+                <ul>
+                    <li><label for="iOrgName">Organization Name</label>
+                    <li><input id="iOrgName" name="orgname" type="text" value="Orange-Management" form="installForm" required>
+                    <li><label for="iAdminName">Admin Login</label>
+                    <li><input id="iAdminName" name="adminname" type="text" value="admin" form="installForm" required>
+                    <li><label for="iAdminPassword">Admin Password</label>
+                    <li><input id="iAdminPassword" name="adminpassword" type="password" value="" form="installForm" required>
+                    <li><label for="iAdminEmail">Admin Email</label>
+                    <li><input id="iAdminEmail" name="adminemail" type="email" value="" form="installForm" required>
+                    <li><label for="iDomain">Top Level domain</label>
+                    <li><input id="iDomain" name="domain" type="text" value="<?= $this->request->getUri()->getHost(); ?>" form="installForm" placeholder="demo.com" pattern="^((?!(www\.|http)).)*$" required>
+                    <li><label for="iWebSubdir">Web Subdirectory</label>
+                    <li><input id="iWebSubdir" name="websubdir" type="text" value="/<?= substr($this->request->getUri()->getPath(), stripos($this->request->getUri()->getPath(), 'Install/')+8); ?>" form="installForm" required>
+                    <li><label for="iDefaultLang">Default Language</label>
+                    <li><select id="iDefaultLang" name="defaultlang" form="installForm">
+                            <option value="en" selected>English
+                        </select>
+                </ul>
                 <p><button class="prev">Previous</button><button class="install" type="submit" form="installForm">Install</button></p>
             </div>
         </section>
     </div>
     <div id="page-6" class="page">
         <section>
-            <img src="img/logo.png" width="50" style="float: right;">
+            <img alt="Logo" src="img/logo.png" id="logo" width="50">
             <h1>Installation</h1>
             <div>
                 <p>Please wait until the installation finishes. You will be redirected to the backend 

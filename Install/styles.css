@@ -16,6 +16,10 @@ main {
     transition: margin 700ms;
 }
 
+#logo {
+    float: right;
+}
+
 .page {
     float: left;
     background: #2f2f2f;
