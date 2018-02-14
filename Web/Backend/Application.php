@@ -343,6 +343,7 @@ class Application
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/App/AppNotification.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/Browser/BrowserNotification.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationType.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationLevel.enum.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationMessage.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Module/ModuleFactory.js');
@@ -415,7 +416,7 @@ class Application
             'content-security-policy', 
             'base-uri \'self\'; script-src \'self\' blob: \'sha256-' 
             . base64_encode(hash('sha256', $script, true)) 
-            . '\'; child-src \'self\'', 
+            . '\'; worker-src \'self\'', 
             true
         );
 
