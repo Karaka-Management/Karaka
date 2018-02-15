@@ -11,7 +11,7 @@
  * @link       http://website.orange-management.de
  * todo: use prepared statements
  */
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Install;
 
