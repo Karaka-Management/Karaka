@@ -133,7 +133,22 @@
     "^.*/api/organization/position.*$" => [
     0 => [
     "dest" => "\Modules\Organization\Controller:apiPositionCreate",
+    "verb" => 2,
+]
+,
+    1 => [
+    "dest" => "\Modules\Organization\Controller:apiPositionGet",
+    "verb" => 1,
+]
+,
+    2 => [
+    "dest" => "\Modules\Organization\Controller:apiPositionSet",
     "verb" => 4,
+]
+,
+    3 => [
+    "dest" => "\Modules\Organization\Controller:apiPositionDelete",
+    "verb" => 8,
 ]
 ,
 ]
@@ -141,7 +156,22 @@
     "^.*/api/organization/department.*$" => [
     0 => [
     "dest" => "\Modules\Organization\Controller:apiDepartmentCreate",
+    "verb" => 2,
+]
+,
+    1 => [
+    "dest" => "\Modules\Organization\Controller:apiDepartmentGet",
+    "verb" => 1,
+]
+,
+    2 => [
+    "dest" => "\Modules\Organization\Controller:apiDepartmentSet",
     "verb" => 4,
+]
+,
+    3 => [
+    "dest" => "\Modules\Organization\Controller:apiDepartmentDelete",
+    "verb" => 8,
 ]
 ,
 ]
@@ -149,7 +179,22 @@
     "^.*/api/organization/unit.*$" => [
     0 => [
     "dest" => "\Modules\Organization\Controller:apiUnitCreate",
+    "verb" => 2,
+]
+,
+    1 => [
+    "dest" => "\Modules\Organization\Controller:apiUnitGet",
+    "verb" => 1,
+]
+,
+    2 => [
+    "dest" => "\Modules\Organization\Controller:apiUnitSet",
     "verb" => 4,
+]
+,
+    3 => [
+    "dest" => "\Modules\Organization\Controller:apiUnitDelete",
+    "verb" => 8,
 ]
 ,
 ]
