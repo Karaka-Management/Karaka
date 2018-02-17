@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Web\Error
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -26,7 +26,7 @@ use Web\WebApplication;
 /**
  * Application class.
  *
- * @package    Framework
+ * @package    Web\Error
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
@@ -74,7 +74,7 @@ class Application
      *
      * @since  1.0.0
      */
-    public function run(Request $request, Response $response)
+    public function run(Request $request, Response $response) /* : void */
     {
         $pageView = new View($this->app, $request, $response);
         $pageView->setTemplate('/Web/E404/index');

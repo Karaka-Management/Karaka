@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Web\Api
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -48,7 +48,7 @@ use Web\WebApplication;
 /**
  * Application class.
  *
- * @package    Framework
+ * @package    Web\Api
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
@@ -204,7 +204,7 @@ class Application
     /**
      * Handle batch requests
      *
-     * @param string $uris Uris to handle
+     * @param string   $uris     Uris to handle
      * @param Request  $request  Request
      * @param Response $response Response
      *
@@ -212,7 +212,7 @@ class Application
      *
      * @since  1.0.0
      */
-    private function handleBatchRequest(string $uris, Request $request, Response $response)
+    private function handleBatchRequest(string $uris, Request $request, Response $response) /* : void */
     {
         $request_r = clone $request;
         $uris      = json_decode($uris, true);
@@ -237,7 +237,7 @@ class Application
      *
      * @since  1.0.0
      */
-    private function handleLogin(Request $request, Response $response)
+    private function handleLogin(Request $request, Response $response) /* : void */
     {
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
 
@@ -262,7 +262,7 @@ class Application
      *
      * @since  1.0.0
      */
-    private function handleLogout(Request $request, Response $response)
+    private function handleLogout(Request $request, Response $response) /* : void */
     {
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
 

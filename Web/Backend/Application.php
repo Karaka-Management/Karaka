@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Web\Backend
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -49,7 +49,7 @@ use Web\WebApplication;
 /**
  * Application class.
  *
- * @package    Framework
+ * @package    Web\Backend
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
@@ -196,7 +196,7 @@ class Application
      * Create 406 response.
      *
      * @param Response $response Response
-     * @param View $pageView View
+     * @param View     $pageView View
      *
      * @return void
      *
@@ -216,7 +216,7 @@ class Application
      * Create 406 response.
      *
      * @param Response $response Response
-     * @param View $pageView View
+     * @param View     $pageView View
      *
      * @return void
      *
@@ -236,7 +236,7 @@ class Application
      * Load theme language from path
      *
      * @param string $language Language name
-     * @param string $path Language path
+     * @param string $path     Language path
      *
      * @return void
      *
@@ -281,7 +281,7 @@ class Application
      * Create 406 response.
      *
      * @param Response $response Response
-     * @param View $pageView View
+     * @param View     $pageView View
      *
      * @return void
      *
@@ -300,15 +300,15 @@ class Application
     /**
      * Initialize response head
      *
-     * @param Head $head Head to fill
-     * @param Request $request Request
+     * @param Head     $head     Head to fill
+     * @param Request  $request  Request
      * @param Response $response Response
      *
      * @return void
      *
      * @since  1.0.0
      */
-    private function initResponseHead(Head $head, Request $request, Response $response)
+    private function initResponseHead(Head $head, Request $request, Response $response) /* : void */
     {
         /* Load assets */
         $head->addAsset(AssetType::CSS, '/Resources/fontawesome/css/font-awesome.min.css');
@@ -436,14 +436,14 @@ class Application
      * Create logged out response
      *
      * @param Response $response Response
-     * @param Head $head Head to fill
-     * @param View $pageView View
+     * @param Head     $head     Head to fill
+     * @param View     $pageView View
      *
      * @return void
      *
      * @since  1.0.0
      */
-    private function createLoggedOutResponse(Response $response, Head $head, View $pageView)
+    private function createLoggedOutResponse(Response $response, Head $head, View $pageView) /* : void */
     {
         $pageView->setTemplate('/Web/Backend/login');
     }
@@ -451,15 +451,15 @@ class Application
     /**
      * Create default page view
      *
-     * @param Request $request Request
-     * @param Response $response Response
+     * @param Request     $request  Request
+     * @param Response    $response Response
      * @param BackendView $pageView View
      *
      * @return void
      *
      * @since  1.0.0
      */
-    private function createDefaultPageView(Request $request, Response $response, BackendView $pageView)
+    private function createDefaultPageView(Request $request, Response $response, BackendView $pageView) /* : void */
     {
         $pageView->setOrganizations(UnitMapper::getAll());
         $pageView->setProfile(ProfileMapper::getFor($request->getHeader()->getAccount(), 'account'));
@@ -471,7 +471,7 @@ class Application
     /**
      * Create navigation
      *
-     * @param Request $request Request
+     * @param Request  $request  Request
      * @param Response $response Response
      *
      * @return View

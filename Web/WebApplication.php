@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Web
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -30,7 +30,7 @@ use Web\Exception\UnexpectedApplicationException;
 /**
  * Application class.
  *
- * @package    Framework
+ * @package    Web
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
@@ -137,8 +137,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Initialize basic response
      *
-     * @param Request $request Client request
-     * @param array $languages Supported languages
+     * @param Request $request   Client request
+     * @param array   $languages Supported languages
      *
      * @return Response Initial client request
      *

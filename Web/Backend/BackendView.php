@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Web\Backend
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -22,7 +22,7 @@ use Modules\Profile\Models\Profile;
 /**
  * List view.
  *
- * @package    Framework
+ * @package    Web\Backend
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
