@@ -101,7 +101,17 @@
     "^.*/api/task(\?.*|$)" => [
     0 => [
     "dest" => "\Modules\Tasks\Controller:apiTaskCreate",
+    "verb" => 2,
+]
+,
+    1 => [
+    "dest" => "\Modules\Tasks\Controller:apiTaskSet",
     "verb" => 4,
+]
+,
+    2 => [
+    "dest" => "\Modules\Tasks\Controller:apiTaskGet",
+    "verb" => 1,
 ]
 ,
 ]
@@ -110,6 +120,16 @@
     0 => [
     "dest" => "\Modules\Tasks\Controller:apiTaskElementCreate",
     "verb" => 4,
+]
+,
+    1 => [
+    "dest" => "\Modules\Tasks\Controller:apiTaskElementSet",
+    "verb" => 4,
+]
+,
+    2 => [
+    "dest" => "\Modules\Tasks\Controller:apiTaskElementGet",
+    "verb" => 1,
 ]
 ,
 ]
@@ -210,7 +230,22 @@
     "^.*/api/news.*$" => [
     0 => [
     "dest" => "\Modules\News\Controller:apiNewsCreate",
+    "verb" => 2,
+]
+,
+    1 => [
+    "dest" => "\Modules\News\Controller:apiNewsUpdate",
     "verb" => 4,
+]
+,
+    2 => [
+    "dest" => "\Modules\News\Controller:apiNewsGet",
+    "verb" => 1,
+]
+,
+    3 => [
+    "dest" => "\Modules\News\Controller:apiNewsDelete",
+    "verb" => 8,
 ]
 ,
 ]
