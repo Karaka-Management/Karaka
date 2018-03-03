@@ -208,8 +208,7 @@ class Application extends ApplicationAbstract
     {
         $valid = [];
 
-        if (
-            ($valid['php_extensions'] = !self::hasPhpExtensions())
+        if (($valid['php_extensions'] = !self::hasPhpExtensions())
             || ($valid['iDbHost'] = empty($request->getData('dbhost')))
             || ($valid['iDbType'] = empty($request->getData('dbtype')))
             || ($valid['iDbPort'] = empty($request->getData('dbport')))

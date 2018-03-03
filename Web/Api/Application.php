@@ -171,7 +171,7 @@ class Application
             // this is sometimes getting called even on normal web views... maybe this is related to the service worker
             if (empty($dispatched)) {
                 $response->getHeader()->setStatusCode(RequestStatusCode::R_404);
-                $response->set($request->__toString(), '');
+                $response->set($request->getUri()->__toString(), '');
             }
 
             $pageView->addData('dispatch', $dispatched);
@@ -246,9 +246,9 @@ class Application
         if ($login >= LoginReturnType::OK) {
             $this->app->sessionManager->set('UID', $login);
             $this->app->sessionManager->save();
-            $response->set($request->__toString(), new Reload());
+            $response->set($request->getUri()->__toString(), new Reload());
         } else {
-            $response->set($request->__toString(), new Notify('Login failed due to wrong login information', NotifyType::INFO));
+            $response->set($request->getUri()->__toString(), new Notify('Login failed due to wrong login information', NotifyType::INFO));
         }
     }
 
@@ -269,6 +269,6 @@ class Application
         $this->app->sessionManager->remove('UID');
         $this->app->sessionManager->save();
 
-        $response->set($request->__toString(), new Redirect('http://www.google.de'));
+        $response->set($request->getUri()->__toString(), new Redirect('http://www.google.de'));
     }
 }

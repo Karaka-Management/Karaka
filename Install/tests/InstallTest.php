@@ -21,6 +21,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\Response;
+use phpOMS\Message\Http\RequestMethod;
 use phpOMS\Uri\Http;
 
 class InstallTest extends \PHPUnit\Framework\TestCase
@@ -30,9 +31,10 @@ class InstallTest extends \PHPUnit\Framework\TestCase
      */
     public function testInstall()
     {
-        $config = include __DIR__ . '/../../config.php';
+        $config   = include __DIR__ . '/../../config.php';
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
+        $request->setMethod(RequestMethod::POST);
 
         $request->setData('dbhost', $config['db']['core']['masters']['admin']['host']);
         $request->setData('dbtype', $config['db']['core']['masters']['admin']['db']);
