@@ -17,6 +17,6 @@ require_once __DIR__ . '/../phpOMS/Autoloader.php';
 $config = require_once __DIR__ . '/../config.php';
 //</editor-fold>
 
-$App = new \Install\Application($config);
+$App = new \Install\WebApplication($config);
 
 ob_end_flush();
