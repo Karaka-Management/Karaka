@@ -4,12 +4,11 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Install
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
  * @link       http://website.orange-management.de
- * todo: use prepared statements
  */
 declare(strict_types=1);
 
@@ -20,10 +19,8 @@ use phpOMS\ApplicationAbstract;
 use phpOMS\Autoloader;
 use phpOMS\Log\FileLogger;
 use phpOMS\Uri\UriFactory;
-use phpOMS\Message\Http\Request;
-use phpOMS\Message\Http\Response;
-use phpOMS\Message\Http\RequestMethod;
-use phpOMS\Message\Http\RequestStatusCode;
+use phpOMS\Message\Console\Request;
+use phpOMS\Message\Console\Response;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Localization\Localization;
 use phpOMS\Localization\L11nManager;
@@ -46,14 +43,13 @@ use phpOMS\Module\ModuleManager;
 /**
  * Application class.
  *
- * @package    Framework
+ * @package    Install
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Application extends ApplicationAbstract
+class ConsoleApplication extends ApplicationAbstract
 {
-
     /**
      * Constructor.
      *
@@ -77,7 +73,7 @@ class Application extends ApplicationAbstract
 
         echo $response->getBody();
     }
-
+    
     /**
      * Setup general handlers for the application.
      *
@@ -91,7 +87,7 @@ class Application extends ApplicationAbstract
         set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
         register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
     }
-
+    
     /**
      * Initialize current application request
      *
@@ -147,7 +143,7 @@ class Application extends ApplicationAbstract
 
         return $response;
     }
-
+    
     /**
      * Rendering backend.
      *
@@ -174,21 +170,13 @@ class Application extends ApplicationAbstract
 
         $this->dispatcher->dispatch($this->router->route($request), $request, $response);
     }
-
-    private function setupRoutes()
+    
+    public function loadSetupFile(string $path) : array
     {
-        $this->router->add('^.*', '\Install\Application::installView', RouteVerb::GET);
-        $this->router->add('^.*', '\Install\Application::installRequest', RouteVerb::PUT);
+        return [];
     }
-
-    public static function installView(Request $request, Response $response)
-    {
-        $view = new View(null, $request, $response);
-        $view->setTemplate('/Install/index');
-        $response->set('Content', $view);
-    }
-
-    public static function installRequest(Request $request, Response $response)
+    
+    public function installRequest(Request $request, Response $response)
     {
         if (!empty($valid = self::validateRequest($request))) {
             return;
@@ -203,8 +191,8 @@ class Application extends ApplicationAbstract
         self::installUsers($request, $db);
         self::installSettings($request, $db);
     }
-
-    private static function validateRequest(Request $request) : array
+    
+    private function validateRequest(Request $request) : array
     {
         $valid = [];
 
@@ -236,7 +224,7 @@ class Application extends ApplicationAbstract
 
         return [];
     }
-
+    
     private static function clearOld() /* : void */
     {
         file_put_contents(__DIR__ . '/../Web/Backend/Routes.php', '<?php return [];');
