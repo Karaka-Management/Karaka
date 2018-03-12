@@ -51,7 +51,7 @@ use phpOMS\Module\ModuleManager;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Application extends ApplicationAbstract
+class WebApplication extends ApplicationAbstract
 {
 
     /**
