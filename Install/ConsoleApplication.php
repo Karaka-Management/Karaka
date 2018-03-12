@@ -9,7 +9,6 @@
  * @license    OMS License 1.0
  * @version    1.0.0
  * @link       http://website.orange-management.de
- * todo: use prepared statements
  */
 declare(strict_types=1);
 
