@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    OrangeManagement
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
