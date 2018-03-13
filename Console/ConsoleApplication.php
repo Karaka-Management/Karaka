@@ -61,9 +61,9 @@ class ConsoleApplication extends ApplicationAbstract
         }
 
         $this->config = $config;
-
         $this->logger = FileLogger::getInstance($config['log']['file']['path'], false);
         $this->dbPool = new DatabasePool();
+
         $this->dbPool->create('core', $this->config['db']['core']['masters']['admin']);
         $this->dbPool->add('insert', $this->dbPool->get('core'));
         $this->dbPool->add('select', $this->dbPool->get('core'));
@@ -93,38 +93,7 @@ class ConsoleApplication extends ApplicationAbstract
 
         $commandManager->attach('-h', function ($para) {
             echo "\n" , 
-                'For a list of commands for a specific module type: -h --module_name' , "\033[0;31;47m some colored text \033[0m some white text \n\n\n" ,
-                str_pad('     --installed', 25, ' '), 'list of all installed modules' , "\n" ,
-                str_pad(' -i, --install', 25, ' '), 'installs the application based on predefined install settings' , "\n" ,
-                str_pad('', 25, ' '), 'example: -i /path/to/install.json' , "\n" ,
-                "\n";
-        }, null);
-
-        $commandManager->attach('--installed', function ($para) use($modules) {
-            $sorted = $modules;
-            $length = count($sorted);
-
-            sort($sorted);
-
-            for ($i = 0; $i < $length; $i += 4) {
-                echo str_pad($sorted[$i], 30, ' ');
-
-                if (isset($sorted[$i + 1])) {
-                    echo str_pad($sorted[$i + 1], 30, ' ');
-                }
-
-                if (isset($sorted[$i + 2])) {
-                    echo str_pad($sorted[$i + 2], 30, ' ');
-                }
-
-                if (isset($sorted[$i + 3])) {
-                    echo str_pad($sorted[$i + 3], 30, ' ');
-                }
-
-                echo "\n";
-            }
-
-            echo "\n";
+                'For a list of commands for a specific module type: ' , "\033[0;31m/help/{MODULE_NAME}\033[0m" , "\n\n";
         }, null);
 
         $commandManager->trigger($arg[1] ?? '', $arg);
