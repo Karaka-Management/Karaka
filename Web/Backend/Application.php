@@ -98,7 +98,7 @@ class Application
      *
      * @since  1.0.0
      */
-    public function run(Request $request, Response $response) /* : void */
+    public function run(Request $request, Response $response) : void
     {
         $this->app->orgId = (int) ($request->getData('u') ?? 1);
         $pageView         = new BackendView($this->app, $request, $response);
@@ -202,7 +202,7 @@ class Application
      *
      * @since  1.0.0
      */
-    private function create406Response(Response $response, View $pageView) /* : void */
+    private function create406Response(Response $response, View $pageView) : void
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_406);
         $pageView->setTemplate('/Web/Backend/Error/406');
@@ -222,7 +222,7 @@ class Application
      *
      * @since  1.0.0
      */
-    private function create503Response(Response $response, View $pageView) /* : void */
+    private function create503Response(Response $response, View $pageView) : void
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_503);
         $pageView->setTemplate('/Web/Backend/Error/503');
@@ -242,7 +242,7 @@ class Application
      *
      * @since  1.0.0
      */
-    private function loadLanguageFromPath(string $language, string $path) /* : void */
+    private function loadLanguageFromPath(string $language, string $path) : void
     {
         /* Load theme language */
         if (($absPath = realpath($path)) === false) {
@@ -287,7 +287,7 @@ class Application
      *
      * @since  1.0.0
      */
-    private function create403Response(Response $response, View $pageView) /* : void */
+    private function create403Response(Response $response, View $pageView) : void
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
         $pageView->setTemplate('/Web/Backend/Error/403');
@@ -308,7 +308,7 @@ class Application
      *
      * @since  1.0.0
      */
-    private function initResponseHead(Head $head, Request $request, Response $response) /* : void */
+    private function initResponseHead(Head $head, Request $request, Response $response) : void
     {
         /* Load assets */
         $head->addAsset(AssetType::CSS, '/Resources/fontawesome/css/font-awesome.min.css');
@@ -443,7 +443,7 @@ class Application
      *
      * @since  1.0.0
      */
-    private function createLoggedOutResponse(Response $response, Head $head, View $pageView) /* : void */
+    private function createLoggedOutResponse(Response $response, Head $head, View $pageView) : void
     {
         $pageView->setTemplate('/Web/Backend/login');
     }
@@ -459,7 +459,7 @@ class Application
      *
      * @since  1.0.0
      */
-    private function createDefaultPageView(Request $request, Response $response, BackendView $pageView) /* : void */
+    private function createDefaultPageView(Request $request, Response $response, BackendView $pageView) : void
     {
         $pageView->setOrganizations(UnitMapper::getAll());
         $pageView->setProfile(ProfileMapper::getFor($request->getHeader()->getAccount(), 'account'));

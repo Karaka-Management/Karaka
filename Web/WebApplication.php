@@ -98,7 +98,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private function setupHandlers() /* : void */
+    private function setupHandlers() : void
     {
         set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
         set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);

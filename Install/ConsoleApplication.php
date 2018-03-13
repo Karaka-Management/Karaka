@@ -81,7 +81,7 @@ class ConsoleApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private function setupHandlers() /* : void */
+    private function setupHandlers() : void
     {
         set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
         set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
@@ -154,7 +154,7 @@ class ConsoleApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private function run(Request $request, Response $response) /* : void */
+    private function run(Request $request, Response $response) : void
     {
         $this->dbPool = new DatabasePool();
         $this->dispatcher = new Dispatcher($this);
@@ -225,7 +225,7 @@ class ConsoleApplication extends ApplicationAbstract
         return [];
     }
     
-    private static function clearOld() /* : void */
+    private static function clearOld() : void
     {
         file_put_contents(__DIR__ . '/../Web/Backend/Routes.php', '<?php return [];');
         file_put_contents(__DIR__ . '/../Web/Api/Routes.php', '<?php return [];');

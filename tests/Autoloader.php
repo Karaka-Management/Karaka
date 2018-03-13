@@ -40,7 +40,7 @@ class Autoloader
      *
      * @since  1.0.0
      */
-    public static function defaultAutoloader(string $class) /* : void */
+    public static function defaultAutoloader(string $class) : void
     {
         $class = ltrim($class, '\\');
         $class = str_replace(['_', '\\'], '/', $class);

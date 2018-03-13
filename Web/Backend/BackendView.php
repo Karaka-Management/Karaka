@@ -62,7 +62,7 @@ class BackendView extends View
      *
      * @since  1.0.0
      */
-    public function setNavigation(View $nav) /* : void */
+    public function setNavigation(View $nav) : void
     {
         $this->nav = $nav;
     }
@@ -76,7 +76,7 @@ class BackendView extends View
      *
      * @since  1.0.0
      */
-    public function setProfile(Profile $profile) /* : void */
+    public function setProfile(Profile $profile) : void
     {
         $this->profile = $profile;
     }
@@ -106,7 +106,7 @@ class BackendView extends View
      *
      * @since  1.0.0
      */
-    public function setOrganizations(array $organizations) /* : void */
+    public function setOrganizations(array $organizations) : void
     {
         $this->organizations = $organizations;
     }

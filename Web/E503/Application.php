@@ -74,7 +74,7 @@ class Application
      *
      * @since  1.0.0
      */
-    public function run(Request $request, Response $response) /* : void */
+    public function run(Request $request, Response $response) : void
     {
         $pageView = new View($this->app, $request, $response);
         $pageView->setTemplate('/Web/E503/index');

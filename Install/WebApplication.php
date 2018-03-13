@@ -85,7 +85,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private function setupHandlers() /* : void */
+    private function setupHandlers() : void
     {
         set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
         set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
@@ -158,7 +158,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private function run(Request $request, Response $response) /* : void */
+    private function run(Request $request, Response $response) : void
     {
         $this->dbPool     = new DatabasePool();
         $this->dispatcher = new Dispatcher($this);
@@ -182,7 +182,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private function setupRoutes() /* : void */
+    private function setupRoutes() : void
     {
         $this->router->add('^.*', '\Install\Application::installView', RouteVerb::GET);
         $this->router->add('^.*', '\Install\Application::installRequest', RouteVerb::PUT);
@@ -198,7 +198,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    public static function installView(Request $request, Response $response) /* : void */
+    public static function installView(Request $request, Response $response) : void
     {
         $view = new View(null, $request, $response);
         $view->setTemplate('/Install/index');
@@ -215,7 +215,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    public static function installRequest(Request $request, Response $response) /* : void */
+    public static function installRequest(Request $request, Response $response) : void
     {
         if (!empty($valid = self::validateRequest($request))) {
             return;
@@ -280,7 +280,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function clearOld() /* : void */
+    private static function clearOld() : void
     {
         file_put_contents(__DIR__ . '/../Web/Backend/Routes.php', '<?php return [];');
         file_put_contents(__DIR__ . '/../Web/Api/Routes.php', '<?php return [];');
@@ -344,7 +344,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function installConfigFile(Request $request) /* : void */
+    private static function installConfigFile(Request $request) : void
     {
         self::editConfigFile($request);
         self::editHtaccessFile($request);
@@ -359,7 +359,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function editConfigFile(Request $request) /* : void */
+    private static function editConfigFile(Request $request) : void
     {
         $config = \file_get_contents(__DIR__ . '/../config.php');
     }
@@ -373,7 +373,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function editHtaccessFile(Request $request) /* : void */
+    private static function editHtaccessFile(Request $request) : void
     {
         $ht = \file_get_contents(__DIR__ . '/../.htaccess');
     }
@@ -387,7 +387,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function installCore(ConnectionAbstract $db) /* : void */
+    private static function installCore(ConnectionAbstract $db) : void
     {
         self::createModuleTable($db);
         self::createModuleLoadTable($db);
@@ -403,7 +403,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function createModuleTable(ConnectionAbstract $db) /* : void */
+    private static function createModuleTable(ConnectionAbstract $db) : void
     {
         $db->con->prepare(
             'CREATE TABLE if NOT EXISTS `' . $db->prefix . 'module` (
@@ -426,7 +426,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function createModuleLoadTable(ConnectionAbstract $db) /* : void */
+    private static function createModuleLoadTable(ConnectionAbstract $db) : void
     {
         $db->con->prepare(
             'CREATE TABLE if NOT EXISTS `' . $db->prefix . 'module_load` (
@@ -451,11 +451,11 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function installAdminModule(ConnectionAbstract $db) /* : void */
+    private static function installAdminModule(ConnectionAbstract $db) : void
     {
         $app         = new class extends ApplicationAbstract {};
         $app->dbPool = new DatabasePool();
-        
+
         $app->dbPool->add('select', $db);
         $app->dbPool->add('schema', $db);
 
@@ -472,7 +472,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function installGroups(ConnectionAbstract $db) /* : void */
+    private static function installGroups(ConnectionAbstract $db) : void
     {
         self::installMainGroups($db);
         self::installGroupPermissions($db);
@@ -487,7 +487,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function installMainGroups(ConnectionAbstract $db) /* : void */
+    private static function installMainGroups(ConnectionAbstract $db) : void
     {
         $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
         
@@ -508,7 +508,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function installGroupPermissions(ConnectionAbstract $db) /* : void */
+    private static function installGroupPermissions(ConnectionAbstract $db) : void
     {
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'group_permission` (`group_permission_group`, `group_permission_unit`, `group_permission_app`, `group_permission_module`, `group_permission_from`, `group_permission_type`, `group_permission_element`, `group_permission_component`, `group_permission_permission`) VALUES
@@ -531,7 +531,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function installUsers(Request $request, ConnectionAbstract $db) /* : void */
+    private static function installUsers(Request $request, ConnectionAbstract $db) : void
     {
         self::installUserLocalization($db);
         self::installMainUser($request, $db);
@@ -546,7 +546,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function installUserLocalization(ConnectionAbstract $db) /* : void */
+    private static function installUserLocalization(ConnectionAbstract $db) : void
     {
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'l11n` (`l11n_country`, `l11n_language`, `l11n_currency`, `l11n_number_thousand`, `l11n_number_decimal`, `l11n_angle`, `l11n_temperature`, `l11n_weight_very_light`, `l11n_weight_light`, `l11n_weight_medium`, `l11n_weight_heavy`, `l11n_weight_very_heavy`, `l11n_speed_very_slow`, `l11n_speed_slow`, `l11n_speed_medium`, `l11n_speed_fast`, `l11n_speed_very_fast`, `l11n_speed_sea`, `l11n_length_very_short`, `l11n_length_short`, `l11n_length_medium`, `l11n_length_long`, `l11n_length_very_long`, `l11n_length_sea`, `l11n_area_very_small`, `l11n_area_small`, `l11n_area_medium`, `l11n_area_large`, `l11n_area_very_large`, `l11n_volume_very_small`, `l11n_volume_small`, `l11n_volume_medium`, `l11n_volume_large`, `l11n_volume_very_large`, `l11n_volume_teaspoon`, `l11n_volume_tablespoon`, `l11n_volume_glass`) VALUES
@@ -564,7 +564,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function installMainUser(Request $request, ConnectionAbstract $db) /* : void */
+    private static function installMainUser(Request $request, ConnectionAbstract $db) : void
     {
         $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
 
@@ -590,7 +590,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function installSettings(Request $request, ConnectionAbstract $db) /* : void */
+    private static function installSettings(Request $request, ConnectionAbstract $db) : void
     {
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'settings` (`settings_id`, `settings_module`, `settings_name`, `settings_content`, `settings_group`) VALUES

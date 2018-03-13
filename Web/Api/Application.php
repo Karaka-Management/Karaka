@@ -97,7 +97,7 @@ class Application
      *
      * @since  1.0.0
      */
-    public function run(Request $request, Response $response) /* : void */
+    public function run(Request $request, Response $response) : void
     {
         $response->getHeader()->set('Content-Type', 'text/plain; charset=utf-8');
         $pageView = new View($this->app, $request, $response);
@@ -212,7 +212,7 @@ class Application
      *
      * @since  1.0.0
      */
-    private function handleBatchRequest(string $uris, Request $request, Response $response) /* : void */
+    private function handleBatchRequest(string $uris, Request $request, Response $response) : void
     {
         $request_r = clone $request;
         $uris      = json_decode($uris, true);
@@ -237,7 +237,7 @@ class Application
      *
      * @since  1.0.0
      */
-    private function handleLogin(Request $request, Response $response) /* : void */
+    private function handleLogin(Request $request, Response $response) : void
     {
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
 
@@ -262,7 +262,7 @@ class Application
      *
      * @since  1.0.0
      */
-    private function handleLogout(Request $request, Response $response) /* : void */
+    private function handleLogout(Request $request, Response $response) : void
     {
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
 
