@@ -36,6 +36,13 @@ use phpOMS\Router\Router;
  */
 class ConsoleApplication extends ApplicationAbstract
 {
+    /**
+     * Temp config.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    private $config = [];
 
     /**
      * Constructor.
