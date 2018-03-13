@@ -123,8 +123,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Initialize basic response
      *
-     * @param Request $request Client request
-     * @param array $languages Supported languages
+     * @param Request $request   Client request
+     * @param array   $languages Supported languages
      *
      * @return Response Initial client request
      *
@@ -160,9 +160,9 @@ class WebApplication extends ApplicationAbstract
      */
     private function run(Request $request, Response $response) /* : void */
     {
-        $this->dbPool = new DatabasePool();
+        $this->dbPool     = new DatabasePool();
         $this->dispatcher = new Dispatcher($this);
-        $this->router = new Router();
+        $this->router     = new Router();
 
         $this->setupRoutes();
 
@@ -175,20 +175,47 @@ class WebApplication extends ApplicationAbstract
         $this->dispatcher->dispatch($this->router->route($request), $request, $response);
     }
 
-    private function setupRoutes()
+    /**
+     * Setup routes for installer
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private function setupRoutes() /* : void */
     {
         $this->router->add('^.*', '\Install\Application::installView', RouteVerb::GET);
         $this->router->add('^.*', '\Install\Application::installRequest', RouteVerb::PUT);
     }
 
-    public static function installView(Request $request, Response $response)
+    /**
+     * Create install view
+     *
+     * @param Request  $request  Request
+     * @param Response $response Response
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public static function installView(Request $request, Response $response) /* : void */
     {
         $view = new View(null, $request, $response);
         $view->setTemplate('/Install/index');
         $response->set('Content', $view);
     }
 
-    public static function installRequest(Request $request, Response $response)
+    /**
+     * Handle install request.
+     *
+     * @param Request  $request  Request
+     * @param Response $response Response
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public static function installRequest(Request $request, Response $response) /* : void */
     {
         if (!empty($valid = self::validateRequest($request))) {
             return;
@@ -204,6 +231,15 @@ class WebApplication extends ApplicationAbstract
         self::installSettings($request, $db);
     }
 
+    /**
+     * Validate install request.
+     *
+     * @param Request $request Request
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     */
     private static function validateRequest(Request $request) : array
     {
         $valid = [];
@@ -237,23 +273,55 @@ class WebApplication extends ApplicationAbstract
         return [];
     }
 
+    /**
+     * Clear old install
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     private static function clearOld() /* : void */
     {
         file_put_contents(__DIR__ . '/../Web/Backend/Routes.php', '<?php return [];');
         file_put_contents(__DIR__ . '/../Web/Api/Routes.php', '<?php return [];');
     }
 
+    /**
+     * Check if has certain php extensions enabled
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
     private static function hasPhpExtensions() : bool
     {
         return extension_loaded('pdo')
             && extension_loaded('mbstring');
     }
 
+    /**
+     * Check if database connection is correct and working
+     * 
+     * @param Request $request Request
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
     private static function testDbConnection(Request $request) : bool
     {
         return true;
     }
 
+    /**
+     * Create database connection
+     * 
+     * @param Request $request Request
+     *
+     * @return ConnectionAbstract
+     *
+     * @since  1.0.0
+     */
     private static function setupDatabaseConnection(Request $request) : ConnectionAbstract
     {
         return ConnectionFactory::create([
@@ -267,30 +335,75 @@ class WebApplication extends ApplicationAbstract
         ]);
     }
 
-    private static function installConfigFile(Request $request)
+    /**
+     * Install/setup configuration
+     * 
+     * @param Request $request Request
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private static function installConfigFile(Request $request) /* : void */
     {
         self::editConfigFile($request);
         self::editHtaccessFile($request);
     }
 
-    private static function editConfigFile(Request $request)
+    /**
+     * Modify config file
+     * 
+     * @param Request $request Request
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private static function editConfigFile(Request $request) /* : void */
     {
         $config = \file_get_contents(__DIR__ . '/../config.php');
     }
 
-    private static function editHtaccessFile(Request $request)
+    /**
+     * Modify htaccess file
+     * 
+     * @param Request $request Request
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private static function editHtaccessFile(Request $request) /* : void */
     {
         $ht = \file_get_contents(__DIR__ . '/../.htaccess');
     }
 
-    private static function installCore(ConnectionAbstract $db)
+    /**
+     * Install core functionality
+     * 
+     * @param ConnectionAbstract $db Database connection
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private static function installCore(ConnectionAbstract $db) /* : void */
     {
         self::createModuleTable($db);
         self::createModuleLoadTable($db);
         self::installAdminModule($db);
     }
 
-    private static function createModuleTable(ConnectionAbstract $db)
+    /**
+     * Create module table
+     * 
+     * @param ConnectionAbstract $db Database connection
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private static function createModuleTable(ConnectionAbstract $db) /* : void */
     {
         $db->con->prepare(
             'CREATE TABLE if NOT EXISTS `' . $db->prefix . 'module` (
@@ -304,7 +417,16 @@ class WebApplication extends ApplicationAbstract
         )->execute();
     }
 
-    private static function createModuleLoadTable(ConnectionAbstract $db)
+    /**
+     * Create modules to load table
+     * 
+     * @param ConnectionAbstract $db Database connection
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private static function createModuleLoadTable(ConnectionAbstract $db) /* : void */
     {
         $db->con->prepare(
             'CREATE TABLE if NOT EXISTS `' . $db->prefix . 'module_load` (
@@ -320,12 +442,20 @@ class WebApplication extends ApplicationAbstract
         )->execute();
     }
 
-    private static function installAdminModule(ConnectionAbstract $db)
+    /**
+     * Install the admin module
+     * 
+     * @param ConnectionAbstract $db Database connection
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private static function installAdminModule(ConnectionAbstract $db) /* : void */
     {
-        $app = new class extends ApplicationAbstract
-        {
-        };
+        $app         = new class extends ApplicationAbstract {};
         $app->dbPool = new DatabasePool();
+        
         $app->dbPool->add('select', $db);
         $app->dbPool->add('schema', $db);
 
@@ -333,13 +463,31 @@ class WebApplication extends ApplicationAbstract
         $moduleManager->install('Admin');
     }
 
-    private static function installGroups(ConnectionAbstract $db)
+    /**
+     * Install basic groups
+     * 
+     * @param ConnectionAbstract $db Database connection
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private static function installGroups(ConnectionAbstract $db) /* : void */
     {
         self::installMainGroups($db);
         self::installGroupPermissions($db);
     }
 
-    private static function installMainGroups(ConnectionAbstract $db)
+    /**
+     * Create basic groups in db
+     * 
+     * @param ConnectionAbstract $db Database connection
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private static function installMainGroups(ConnectionAbstract $db) /* : void */
     {
         $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
         
@@ -351,7 +499,16 @@ class WebApplication extends ApplicationAbstract
         )->execute();
     }
 
-    private static function installGroupPermissions(ConnectionAbstract $db)
+    /**
+     * Set permissions of basic groups
+     * 
+     * @param ConnectionAbstract $db Database connection
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private static function installGroupPermissions(ConnectionAbstract $db) /* : void */
     {
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'group_permission` (`group_permission_group`, `group_permission_unit`, `group_permission_app`, `group_permission_module`, `group_permission_from`, `group_permission_type`, `group_permission_element`, `group_permission_component`, `group_permission_permission`) VALUES
@@ -364,13 +521,32 @@ class WebApplication extends ApplicationAbstract
         )->execute();
     }
 
-    private static function installUsers(Request $request, ConnectionAbstract $db)
+    /**
+     * Install users
+     * 
+     * @param Request            $request Request
+     * @param ConnectionAbstract $db      Database connection
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private static function installUsers(Request $request, ConnectionAbstract $db) /* : void */
     {
         self::installUserLocalization($db);
         self::installMainUser($request, $db);
     }
 
-    private static function installUserLocalization(ConnectionAbstract $db)
+    /**
+     * Setup global localization
+     * 
+     * @param ConnectionAbstract $db Database connection
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private static function installUserLocalization(ConnectionAbstract $db) /* : void */
     {
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'l11n` (`l11n_country`, `l11n_language`, `l11n_currency`, `l11n_number_thousand`, `l11n_number_decimal`, `l11n_angle`, `l11n_temperature`, `l11n_weight_very_light`, `l11n_weight_light`, `l11n_weight_medium`, `l11n_weight_heavy`, `l11n_weight_very_heavy`, `l11n_speed_very_slow`, `l11n_speed_slow`, `l11n_speed_medium`, `l11n_speed_fast`, `l11n_speed_very_fast`, `l11n_speed_sea`, `l11n_length_very_short`, `l11n_length_short`, `l11n_length_medium`, `l11n_length_long`, `l11n_length_very_long`, `l11n_length_sea`, `l11n_area_very_small`, `l11n_area_small`, `l11n_area_medium`, `l11n_area_large`, `l11n_area_very_large`, `l11n_volume_very_small`, `l11n_volume_small`, `l11n_volume_medium`, `l11n_volume_large`, `l11n_volume_very_large`, `l11n_volume_teaspoon`, `l11n_volume_tablespoon`, `l11n_volume_glass`) VALUES
@@ -378,7 +554,17 @@ class WebApplication extends ApplicationAbstract
         )->execute();
     }
 
-    private static function installMainUser(Request $request, ConnectionAbstract $db)
+    /**
+     * Setup root user in database
+     * 
+     * @param Request            $request Request
+     * @param ConnectionAbstract $db      Database connection
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private static function installMainUser(Request $request, ConnectionAbstract $db) /* : void */
     {
         $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
 
@@ -394,7 +580,17 @@ class WebApplication extends ApplicationAbstract
         )->execute();
     }
 
-    private static function installSettings(Request $request, ConnectionAbstract $db)
+    /**
+     * Setup basic settings
+     * 
+     * @param Request            $request Request
+     * @param ConnectionAbstract $db      Database connection
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private static function installSettings(Request $request, ConnectionAbstract $db) /* : void */
     {
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'settings` (`settings_id`, `settings_module`, `settings_name`, `settings_content`, `settings_group`) VALUES
