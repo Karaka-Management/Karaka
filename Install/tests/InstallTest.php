@@ -16,7 +16,7 @@ namespace Install\tests;
 require_once __DIR__ . '/../../config.php';
 
 use phpOMS\ApplicationAbstract;
-use Install\Application;
+use Install\WebApplication;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Message\Http\Request;
@@ -60,6 +60,6 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         $request->setData('websubdir', '/');
         $request->setData('defaultlang', 'en');
 
-        Application::installRequest($request, $response);
+        WebApplication::installRequest($request, $response);
     }
 }
