@@ -75,7 +75,7 @@ class WebApplication extends ApplicationAbstract
                 'line'    => 66]);
             $sub = new \Web\E500\Application($this, $config);
         } finally {
-            $sub->run($request, $response);
+            $sub->run($request ?? new Request(), $response ?? new Response());
 
             if ($this->sessionManager) {
                 $this->sessionManager->save();
