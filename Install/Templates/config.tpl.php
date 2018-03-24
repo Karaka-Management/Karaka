@@ -99,9 +99,6 @@ return [
         'en',
     ],
     'apis'     => [
-        'google' => [
-            'key' => 'AIzaSyCtO4kWuXsqFZgDKBKhmqlQTiDhA1qupCk',
-        ],
     ]
 ];
 

@@ -368,7 +368,25 @@ class WebApplication extends ApplicationAbstract
      */
     private static function editConfigFile(Request $request) : void
     {
-        $config = \file_get_contents(__DIR__ . '/../config.php');
+        $db     = $request->getData('dbtype');
+        $host   = $request->getData('dbhost');
+        $port   = (int) $request->getData('dbport');
+        $dbname = $request->getData('dbname');
+        $prefix = $request->getData('dbprefix');
+
+        $admin  = ['login' => $request->getData('schemauser'), 'password' => $request->getData('schmeapassword')];
+        $insert = ['login' => $request->getData('createuser'), 'password' => $request->getData('createpassword')];
+        $select = ['login' => $request->getData('selectuser'), 'password' => $request->getData('selectpassword')];
+        $update = ['login' => $request->getData('updateuser'), 'password' => $request->getData('updatepassword')];
+        $delete = ['login' => $request->getData('deleteuser'), 'password' => $request->getData('deletepassword')];
+        $schema = ['login' => $request->getData('schemauser'), 'password' => $request->getData('schmeapassword')];
+
+        $subdir = $request->getData('websubdir');
+        $tld    = $request->getData('domain');
+
+        $config = \file_get_contents(__DIR__ . '/Templates/config.tpl.php');
+
+        \file_put_contents(__DIR__ . '/../config.php', $config);
     }
 
     /**
@@ -382,7 +400,9 @@ class WebApplication extends ApplicationAbstract
      */
     private static function editHtaccessFile(Request $request) : void
     {
-        $ht = \file_get_contents(__DIR__ . '/../.htaccess');
+        $config = \file_get_contents(__DIR__ . '/Templates/htaccess.tpl.php');
+
+        \file_put_contents(__DIR__ . '/../.htaccess', $config);
     }
 
     /**
