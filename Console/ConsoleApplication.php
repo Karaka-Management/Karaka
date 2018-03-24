@@ -60,6 +60,8 @@ class ConsoleApplication extends ApplicationAbstract
             throw new \Exception();
         }
 
+        $this->setupHandlers();
+
         $this->config = $config;
         $this->logger = FileLogger::getInstance($config['log']['file']['path'], false);
         $this->dbPool = new DatabasePool();
@@ -97,5 +99,19 @@ class ConsoleApplication extends ApplicationAbstract
         }, null);
 
         $commandManager->trigger($arg[1] ?? '', $arg);
+    }
+
+    /**
+     * Setup general handlers for the application.
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private function setupHandlers() : void
+    {
+        set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
+        set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
+        register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
     }
 }
