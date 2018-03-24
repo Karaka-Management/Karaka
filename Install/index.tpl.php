@@ -297,8 +297,8 @@
 jsOMS.ready(function ()
 {
     /* navigation */
-    const nextButtons = Array.prototype.slice.call(document.getElementsByClassName('next')),
-        prevButtons = Array.prototype.slice.call(document.getElementsByClassName('prev')),
+    const nextButtons     = Array.prototype.slice.call(document.getElementsByClassName('next')),
+        prevButtons       = Array.prototype.slice.call(document.getElementsByClassName('prev')),
         nextButtonsLength = nextButtons.length;
         prevButtonsLength = prevButtons.length;
 
@@ -332,8 +332,8 @@ jsOMS.ready(function ()
 
     app.responseManager.add('redirect', redirectMessage);
 
-    const formManager = new jsOMS.UI.Component.Form(app);
-    const logger      = jsOMS.Log.Logger.getInstance();
+    const formManager = new jsOMS.UI.Component.Form(app),
+        logger        = jsOMS.Log.Logger.getInstance();
 
     window.logger = logger;
     formManager.bind('installForm');
