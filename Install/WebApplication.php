@@ -407,7 +407,7 @@ class WebApplication extends ApplicationAbstract
     {
         self::createModuleTable($db);
         self::createModuleLoadTable($db);
-        self::installAdminModule($db);
+        self::installCoreModules($db);
     }
 
     /**
@@ -459,7 +459,7 @@ class WebApplication extends ApplicationAbstract
     }
 
     /**
-     * Install the admin module
+     * Install the core modules
      * 
      * @param ConnectionAbstract $db Database connection
      *
@@ -467,7 +467,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function installAdminModule(ConnectionAbstract $db) : void
+    private static function installCoreModules(ConnectionAbstract $db) : void
     {
         $app         = new class extends ApplicationAbstract {};
         $app->dbPool = new DatabasePool();
@@ -476,7 +476,11 @@ class WebApplication extends ApplicationAbstract
         $app->dbPool->add('schema', $db);
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../Modules');
+
         $moduleManager->install('Admin');
+        $moduleManager->install('Organization');
+        $moduleManager->install('Profile');
+        $moduleManager->install('Navigation');
     }
 
     /**

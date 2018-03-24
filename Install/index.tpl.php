@@ -351,5 +351,8 @@ jsOMS.ready(function ()
 
         return valid;
     });
+    formManager.get('installForm').setSuccess(function(e) {
+        window.location.replace('http://' + document.getElementById('iDomain').value + document.getElementById('iWebSubdir').value + 'en/backend');
+    });
 });
 </script>
