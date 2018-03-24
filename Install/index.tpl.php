@@ -103,9 +103,9 @@
                             <th>Your Environment
                     <tbody>
                         <tr>
-                            <td class="<?= version_compare('7.0.0', PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>"><?= version_compare('7.0.0', PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= version_compare('7.2.0', PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>"><?= version_compare('7.2.0', PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>
                             <td>Critcal
-                            <td>PHP version >= 7.0.0
+                            <td>PHP version >= 7.2.0
                             <td><?= PHP_VERSION; ?>
                         <tr>
                             <td class="<?= extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>

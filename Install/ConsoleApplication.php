@@ -51,25 +51,37 @@ use phpOMS\Module\ModuleManager;
 class ConsoleApplication extends ApplicationAbstract
 {
     /**
+     * Temp config.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    private $config = [];
+
+    /**
      * Constructor.
      *
      * @param array $config Core config
+     * @param array $arg    Call argument
      *
      * @since  1.0.0
      */
-    public function __construct(array $config)
+    public function __construct(array $config, array $arg)
     {
+        if (PHP_SAPI !== 'cli') {
+            throw new \Exception();
+        }
+
         $this->setupHandlers();
 
         $this->logger = FileLogger::getInstance($config['log']['file']['path'], false);
         $this->config = $config;
-        $request      = $this->initRequest($config['page']['root'], $config['language'][0]);
-        $response     = $this->initResponse($request, $config['language']);
+        $request      = $this->initRequest($config['language'][0]);
+        $response     = $this->initResponse($request);
 
         UriFactory::setupUriBuilder($request->getUri());
 
         $this->run($request, $response);
-        $response->getHeader()->push();
 
         echo $response->getBody();
     }
@@ -91,14 +103,13 @@ class ConsoleApplication extends ApplicationAbstract
     /**
      * Initialize current application request
      *
-     * @param string $rootPath Web root path
      * @param string $language Fallback language
      *
      * @return Request Initial client request
      *
      * @since  1.0.0
      */
-    private function initRequest(string $rootPath, string $language) : Request
+    private function initRequest(string $language) : Request
     {
         $request     = Request::createFromSuperglobals();
         $subDirDepth = substr_count($rootPath, '/');
@@ -107,11 +118,8 @@ class ConsoleApplication extends ApplicationAbstract
         $request->getUri()->setRootPath($rootPath);
         UriFactory::setupUriBuilder($request->getUri());
 
-        $langCode = strtolower($request->getUri()->getPathElement(0));
-        $request->getHeader()->getL11n()->setLanguage(
-            empty($langCode) || !ISO639x1Enum::isValidValue($langCode) ? $language : $langCode
-        );
-        UriFactory::setQuery('/lang', $request->getHeader()->getL11n()->getLanguage());
+        $request->getHeader()->getL11n()->setLanguage($language);
+        UriFactory::setQuery('/lang', $language);
 
         return $request;
     }
@@ -120,32 +128,22 @@ class ConsoleApplication extends ApplicationAbstract
      * Initialize basic response
      *
      * @param Request $request Client request
-     * @param array $languages Supported languages
      *
      * @return Response Initial client request
      *
      * @since  1.0.0
      */
-    private function initResponse(Request $request, array $languages) : Response
+    private function initResponse(Request $request) : Response
     {
         $response = new Response(new Localization());
-        $response->getHeader()->set('content-type', 'text/html; charset=utf-8');
-        $response->getHeader()->set('x-xss-protection', '1; mode=block');
-        $response->getHeader()->set('x-content-type-options', 'nosniff');
-        $response->getHeader()->set('x-frame-options', 'SAMEORIGIN');
-        $response->getHeader()->set('referrer-policy', 'same-origin');
 
-        if ($request->isHttps()) {
-            $response->getHeader()->set('strict-transport-security', 'max-age=31536000');
-        }
-
-        $response->getHeader()->getL11n()->setLanguage(!in_array($request->getHeader()->getL11n()->getLanguage(), $languages) ? 'en' : $request->getHeader()->getL11n()->getLanguage());
+        $response->getHeader()->getL11n()->setLanguage($request->getHeader()->getL11n()->getLanguage());
 
         return $response;
     }
     
     /**
-     * Rendering backend.
+     * Rendering install.
      *
      * @param Request  $request  Request
      * @param Response $response Response
@@ -176,7 +174,7 @@ class ConsoleApplication extends ApplicationAbstract
         return [];
     }
     
-    public function installRequest(Request $request, Response $response)
+    public static function installRequest(Request $request, Response $response)
     {
         if (!empty($valid = self::validateRequest($request))) {
             return;
@@ -192,7 +190,7 @@ class ConsoleApplication extends ApplicationAbstract
         self::installSettings($request, $db);
     }
     
-    private function validateRequest(Request $request) : array
+    private static function validateRequest(Request $request) : array
     {
         $valid = [];
 

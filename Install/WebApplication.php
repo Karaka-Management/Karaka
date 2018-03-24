@@ -53,6 +53,13 @@ use phpOMS\Module\ModuleManager;
  */
 class WebApplication extends ApplicationAbstract
 {
+    /**
+     * Temp config.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    private $config = [];
 
     /**
      * Constructor.
@@ -184,8 +191,8 @@ class WebApplication extends ApplicationAbstract
      */
     private function setupRoutes() : void
     {
-        $this->router->add('^.*', '\Install\Application::installView', RouteVerb::GET);
-        $this->router->add('^.*', '\Install\Application::installRequest', RouteVerb::PUT);
+        $this->router->add('^.*', '\Install\WebApplication::installView', RouteVerb::GET);
+        $this->router->add('^.*', '\Install\WebApplication::installRequest', RouteVerb::PUT);
     }
 
     /**
