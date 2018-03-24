@@ -168,7 +168,7 @@
             <div>
                 <p>Please create a database this WebApp can use and configure every field.</p>
 
-                <form id="installForm" method="post" action="/">
+                <form id="installForm" method="put" action="<?= $this->request->getUri()->__toString(); ?>">
                     <ul>
                         <li><label for="iDbHost">Address</label>
                         <li><input id="iDbHost" name="dbhost" type="text" value="127.0.0.1" required>
@@ -201,9 +201,9 @@
 
                 <ul>
                     <li><label for="iSchemaUser">User</label>
-                    <li><input id="iSchemaUser" name="schemauser" type="text" value="" required>
+                    <li><input id="iSchemaUser" name="schemauser" type="text" form="installForm" required>
                     <li><label for="iSchemaPassword">Password</label>
-                    <li><input id="iSchemaPassword" name="schemapassword" type="password" value="" required>
+                    <li><input id="iSchemaPassword" name="schemapassword" type="password" form="installForm" required>
                 </ul>
 
                 <h3>Create</h3>
@@ -212,9 +212,9 @@
 
                 <ul>
                     <li><label for="iCreateUser">User</label>
-                    <li><input id="iCreateUser" name="createuser" type="text" value="" form="installForm" required>
+                    <li><input id="iCreateUser" name="createuser" type="text" form="installForm" required>
                     <li><label for="iCreatePassword">Password</label>
-                    <li><input id="iCreatePassword" name="createpassword" type="password" value="" form="installForm" required>
+                    <li><input id="iCreatePassword" name="createpassword" type="password" form="installForm" required>
                 </ul>
 
                 <h3>Select</h3>
@@ -223,9 +223,9 @@
 
                 <ul>
                     <li><label for="iSelectUser">User</label>
-                    <li><input id="iSelectUser" name="selectuser" type="text" value="" form="installForm" required>
+                    <li><input id="iSelectUser" name="selectuser" type="text" form="installForm" required>
                     <li><label for="iSelectPassword">Password</label>
-                    <li><input id="iSelectPassword" name="selectpassword" type="password" value="" form="installForm" required>
+                    <li><input id="iSelectPassword" name="selectpassword" type="password" form="installForm" required>
                 </ul>
 
                 <h3>Update</h3>
@@ -234,9 +234,9 @@
                 
                 <ul>
                     <li><label for="iUpdateUser">User</label>
-                    <li><input id="iUpdateUser" name="updateuser" type="text" value="" form="installForm" required>
+                    <li><input id="iUpdateUser" name="updateuser" type="text" form="installForm" required>
                     <li><label for="iUpdatePassword">Password</label>
-                    <li><input id="iUpdatePassword" name="updatepassword" type="password" value="" form="installForm" required>
+                    <li><input id="iUpdatePassword" name="updatepassword" type="password" form="installForm" required>
                 </ul>
 
                 <h3>Delete</h3>
@@ -245,9 +245,9 @@
 
                 <ul>
                     <li><label for="iDeleteUser">User</label>
-                    <li><input id="iDeleteUser" name="deleteuser" type="text" value="" form="installForm" required>
+                    <li><input id="iDeleteUser" name="deleteuser" type="text" form="installForm" required>
                     <li><label for="iDeletePassword">Password</label>
-                    <li><input id="iDeletePassword" name="deletepassword" type="password" value="" form="installForm" required>
+                    <li><input id="iDeletePassword" name="deletepassword" type="password" form="installForm" required>
                 </ul>
 
                 <p><button class="prev">Previous</button><button class="next">Next</button></p>
@@ -266,9 +266,9 @@
                     <li><label for="iAdminName">Admin Login</label>
                     <li><input id="iAdminName" name="adminname" type="text" value="admin" form="installForm" required>
                     <li><label for="iAdminPassword">Admin Password</label>
-                    <li><input id="iAdminPassword" name="adminpassword" type="password" value="" form="installForm" required>
+                    <li><input id="iAdminPassword" name="adminpassword" type="password" form="installForm" required>
                     <li><label for="iAdminEmail">Admin Email</label>
-                    <li><input id="iAdminEmail" name="adminemail" type="email" value="" form="installForm" required>
+                    <li><input id="iAdminEmail" name="adminemail" type="email" form="installForm" required>
                     <li><label for="iDomain">Top Level domain</label>
                     <li><input id="iDomain" name="domain" type="text" value="<?= $this->request->getUri()->getHost(); ?>" form="installForm" placeholder="demo.com" pattern="^((?!(www\.|http)).)*$" required>
                     <li><label for="iWebSubdir">Web Subdirectory</label>
@@ -333,9 +333,9 @@ jsOMS.ready(function ()
     app.responseManager.add('redirect', redirectMessage);
 
     const formManager = new jsOMS.UI.Component.Form(app);
-    const logger = jsOMS.Log.Logger.getInstance();
+    const logger      = jsOMS.Log.Logger.getInstance();
 
-    window.logger  = logger;
+    window.logger = logger;
     formManager.bind('installForm');
     formManager.get('installForm').injectSubmit(function(e) {
         const valid = e.isValid();

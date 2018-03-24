@@ -42,6 +42,7 @@ use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use phpOMS\Account\PermissionType;
 use phpOMS\Module\ModuleManager;
+use phpOMS\System\MimeType;
 
 /**
  * Application class.
@@ -54,14 +55,6 @@ use phpOMS\Module\ModuleManager;
 class WebApplication extends ApplicationAbstract
 {
     /**
-     * Temp config.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    private $config = [];
-
-    /**
      * Constructor.
      *
      * @param array $config Core config
@@ -73,7 +66,6 @@ class WebApplication extends ApplicationAbstract
         $this->setupHandlers();
 
         $this->logger = FileLogger::getInstance($config['log']['file']['path'], false);
-        $this->config = $config;
         $request      = $this->initRequest($config['page']['root'], $config['language'][0]);
         $response     = $this->initResponse($request, $config['language']);
 
@@ -167,15 +159,10 @@ class WebApplication extends ApplicationAbstract
      */
     private function run(Request $request, Response $response) : void
     {
-        $this->dbPool     = new DatabasePool();
         $this->dispatcher = new Dispatcher($this);
         $this->router     = new Router();
 
         $this->setupRoutes();
-
-        $this->dbPool->create('admin', $this->config['db']['core']['masters']['admin']);
-        DataMapperAbstract::setConnection($this->dbPool->get());
-
         $response->getHeader()->set('content-language', $response->getHeader()->getL11n()->getLanguage(), true);
         UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());
 
@@ -224,6 +211,8 @@ class WebApplication extends ApplicationAbstract
      */
     public static function installRequest(Request $request, Response $response) : void
     {
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
+
         if (!empty($valid = self::validateRequest($request))) {
             return;
         }
@@ -374,17 +363,17 @@ class WebApplication extends ApplicationAbstract
         $dbname = $request->getData('dbname');
         $prefix = $request->getData('dbprefix');
 
-        $admin  = ['login' => $request->getData('schemauser'), 'password' => $request->getData('schmeapassword')];
+        $admin  = ['login' => $request->getData('schemauser'), 'password' => $request->getData('schemapassword')];
         $insert = ['login' => $request->getData('createuser'), 'password' => $request->getData('createpassword')];
         $select = ['login' => $request->getData('selectuser'), 'password' => $request->getData('selectpassword')];
         $update = ['login' => $request->getData('updateuser'), 'password' => $request->getData('updatepassword')];
         $delete = ['login' => $request->getData('deleteuser'), 'password' => $request->getData('deletepassword')];
-        $schema = ['login' => $request->getData('schemauser'), 'password' => $request->getData('schmeapassword')];
+        $schema = ['login' => $request->getData('schemauser'), 'password' => $request->getData('schemapassword')];
 
         $subdir = $request->getData('websubdir');
         $tld    = $request->getData('domain');
 
-        $config = \file_get_contents(__DIR__ . '/Templates/config.tpl.php');
+        $config = include __DIR__ . '/Templates/config.tpl.php';
 
         \file_put_contents(__DIR__ . '/../config.php', $config);
     }
@@ -400,7 +389,7 @@ class WebApplication extends ApplicationAbstract
      */
     private static function editHtaccessFile(Request $request) : void
     {
-        $config = \file_get_contents(__DIR__ . '/Templates/htaccess.tpl.php');
+        $config = include __DIR__ . '/Templates/htaccess.tpl.php';
 
         \file_put_contents(__DIR__ . '/../.htaccess', $config);
     }
