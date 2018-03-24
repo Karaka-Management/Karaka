@@ -302,7 +302,7 @@ jsOMS.ready(function ()
         nextButtonsLength = nextButtons.length;
         prevButtonsLength = prevButtons.length;
 
-    for (let i = 0; i < nextButtonsLength; i++) {
+    for (let i = 0; i < nextButtonsLength; ++i) {
         nextButtons[i].addEventListener('click', function() {
             let index = nextButtons.indexOf(this);
 
