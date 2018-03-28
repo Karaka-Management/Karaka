@@ -15,6 +15,7 @@ const ACTION_EVENTS = {
     'dom.datalist.clear': datalistClear, /** global: datalistClear */
     'dom.datalist.append': datalistAppend, /** global: datalistAppend */
     'message.request': requestAction, /** global: requestAction */
+    'message.log': logAction, /** global: logAction */
     'utils.timer': timerAction, /** global: timerAction */
     'validate.keypress': validateKeypress /** global: validateKeypress */
 };

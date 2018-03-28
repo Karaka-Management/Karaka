@@ -382,6 +382,7 @@ class Application
         $head->addAsset(AssetType::JS, '/Model/Message/Reload.js');
 
         $head->addAsset(AssetType::JS, '/Model/Action/Message/Request.js');
+        $head->addAsset(AssetType::JS, '/Model/Action/Message/Log.js');
         $head->addAsset(AssetType::JS, '/Model/Action/Dom/Popup.js');
         $head->addAsset(AssetType::JS, '/Model/Action/Dom/Remove.js');
         $head->addAsset(AssetType::JS, '/Model/Action/Dom/Show.js');
