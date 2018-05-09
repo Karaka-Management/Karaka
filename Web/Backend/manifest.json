@@ -22,6 +22,9 @@
         "audio-capture" : {
             "description" : "Audio capture"
         },
+        "video-capture": {
+            "description": "Video capture"
+        },
         "speech-recognition" : {
             "description" : "Speech recognition"
         }
