@@ -52,7 +52,7 @@ use phpOMS\System\MimeType;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class WebApplication extends ApplicationAbstract
+final class WebApplication extends ApplicationAbstract
 {
     /**
      * Constructor.

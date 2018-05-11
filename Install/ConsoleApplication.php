@@ -48,7 +48,7 @@ use phpOMS\Module\ModuleManager;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class ConsoleApplication extends ApplicationAbstract
+final class ConsoleApplication extends ApplicationAbstract
 {
     /**
      * Temp config.
