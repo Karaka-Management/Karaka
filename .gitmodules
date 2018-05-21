@@ -31,6 +31,3 @@
 [submodule "Demo"]
 	path = Demo
 	url = https://github.com/Orange-Management/Demo.git
-[submodule "Interfaces"]
-	path = Interfaces
-	url = https://github.com/Orange-Management/Interfaces.git
