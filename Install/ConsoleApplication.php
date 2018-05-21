@@ -85,7 +85,7 @@ final class ConsoleApplication extends ApplicationAbstract
 
         echo $response->getBody();
     }
-    
+
     /**
      * Setup general handlers for the application.
      *
@@ -99,7 +99,7 @@ final class ConsoleApplication extends ApplicationAbstract
         set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
         register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
     }
-    
+
     /**
      * Initialize current application request
      *
@@ -141,7 +141,7 @@ final class ConsoleApplication extends ApplicationAbstract
 
         return $response;
     }
-    
+
     /**
      * Rendering install.
      *
@@ -168,12 +168,12 @@ final class ConsoleApplication extends ApplicationAbstract
 
         $this->dispatcher->dispatch($this->router->route($request), $request, $response);
     }
-    
+
     public function loadSetupFile(string $path) : array
     {
         return [];
     }
-    
+
     public static function installRequest(Request $request, Response $response)
     {
         if (!empty($valid = self::validateRequest($request))) {
@@ -189,7 +189,7 @@ final class ConsoleApplication extends ApplicationAbstract
         self::installUsers($request, $db);
         self::installSettings($request, $db);
     }
-    
+
     private static function validateRequest(Request $request) : array
     {
         $valid = [];
@@ -222,7 +222,7 @@ final class ConsoleApplication extends ApplicationAbstract
 
         return [];
     }
-    
+
     private static function clearOld() : void
     {
         file_put_contents(__DIR__ . '/../Web/Backend/Routes.php', '<?php return [];');
@@ -328,7 +328,7 @@ final class ConsoleApplication extends ApplicationAbstract
     private static function installMainGroups(ConnectionAbstract $db)
     {
         $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
-        
+
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'group` (`group_name`, `group_desc`, `group_status`, `group_created`) VALUES
                 (\'guest\', NULL, ' . GroupStatus::ACTIVE . ', \'' . $date->format('Y-m-d H:i:s') . '\'),

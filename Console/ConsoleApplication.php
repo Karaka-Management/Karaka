@@ -94,7 +94,7 @@ class ConsoleApplication extends ApplicationAbstract
         }, null);
 
         $commandManager->attach('-h', function ($para) {
-            echo "\n" , 
+            echo "\n" ,
                 'For a list of commands for a specific module type: ' , "\033[0;31m/help/{MODULE_NAME}\033[0m" , "\n\n";
         }, null);
 

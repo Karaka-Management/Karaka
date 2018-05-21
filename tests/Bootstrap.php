@@ -11,9 +11,9 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
 // Reset database
-$db = new \PDO($CONFIG['db']['core']['masters']['admin']['db'] . ':host=' . 
-    $CONFIG['db']['core']['masters']['admin']['host'], 
-    $CONFIG['db']['core']['masters']['admin']['login'], 
+$db = new \PDO($CONFIG['db']['core']['masters']['admin']['db'] . ':host=' .
+    $CONFIG['db']['core']['masters']['admin']['host'],
+    $CONFIG['db']['core']['masters']['admin']['login'],
     $CONFIG['db']['core']['masters']['admin']['password']
 );
 $db->exec('DROP DATABASE IF EXISTS ' .  $CONFIG['db']['core']['masters']['admin']['database']);

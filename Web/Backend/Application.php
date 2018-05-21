@@ -155,7 +155,7 @@ class Application
 
         $response->getHeader()->getL11n()->setLanguage(
             !in_array(
-                $request->getHeader()->getL11n()->getLanguage(), 
+                $request->getHeader()->getL11n()->getLanguage(),
                 $this->config['language']
             ) ? $options[1000000029] : $request->getHeader()->getL11n()->getLanguage()
         );
@@ -414,10 +414,10 @@ class Application
 
         $head->setScript('core', $script = 'const assetManager = new jsOMS.Asset.AssetManager();');
         $response->getHeader()->set(
-            'content-security-policy', 
-            'base-uri \'self\'; script-src \'self\' blob: \'sha256-' 
-            . base64_encode(hash('sha256', $script, true)) 
-            . '\'; worker-src \'self\'', 
+            'content-security-policy',
+            'base-uri \'self\'; script-src \'self\' blob: \'sha256-'
+            . base64_encode(hash('sha256', $script, true))
+            . '\'; worker-src \'self\'',
             true
         );
 

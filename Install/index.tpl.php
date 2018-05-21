@@ -3,27 +3,27 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="/../jsOMS/Utils/oLib.js"></script> 
-    <script src="/../jsOMS/Asset/AssetManager.js"></script> 
-    <script src="/../jsOMS/Autoloader.js"></script> 
-    <script src="/../jsOMS/Log/Logger.js"></script> 
-    <script src="/../jsOMS/Log/LogLevel.enum.js"></script> 
-    <script src="/../jsOMS/Uri/Http.js"></script> 
-    <script src="/../jsOMS/Uri/UriFactory.js"></script> 
-    <script src="/../jsOMS/Event/EventManager.js"></script> 
-    <script src="/../jsOMS/Message/Request/RequestData.enum.js"></script> 
-    <script src="/../jsOMS/Message/Request/BrowserType.enum.js"></script> 
-    <script src="/../jsOMS/Message/Request/OSType.enum.js"></script> 
-    <script src="/../jsOMS/Message/Request/RequestMethod.enum.js"></script> 
-    <script src="/../jsOMS/Message/Request/RequestType.enum.js"></script> 
+    <script src="/../jsOMS/Utils/oLib.js"></script>
+    <script src="/../jsOMS/Asset/AssetManager.js"></script>
+    <script src="/../jsOMS/Autoloader.js"></script>
+    <script src="/../jsOMS/Log/Logger.js"></script>
+    <script src="/../jsOMS/Log/LogLevel.enum.js"></script>
+    <script src="/../jsOMS/Uri/Http.js"></script>
+    <script src="/../jsOMS/Uri/UriFactory.js"></script>
+    <script src="/../jsOMS/Event/EventManager.js"></script>
+    <script src="/../jsOMS/Message/Request/RequestData.enum.js"></script>
+    <script src="/../jsOMS/Message/Request/BrowserType.enum.js"></script>
+    <script src="/../jsOMS/Message/Request/OSType.enum.js"></script>
+    <script src="/../jsOMS/Message/Request/RequestMethod.enum.js"></script>
+    <script src="/../jsOMS/Message/Request/RequestType.enum.js"></script>
     <script src="/../jsOMS/Message/Request/Request.js"></script>
-    <script src="/../jsOMS/Message/Response/ResponseType.enum.js"></script> 
-    <script src="/../jsOMS/Message/Response/ResponseResultType.enum.js"></script> 
-    <script src="/../jsOMS/Message/Response/ResponseManager.js"></script> 
-    <script src="/../jsOMS/Message/Response/Response.js"></script> 
-    <script src="/../jsOMS/UI/Component/Form.js"></script> 
-    <script src="/../jsOMS/Views/FormView.js"></script> 
-    <script src="/../Model/Message/Redirect.js"></script> 
+    <script src="/../jsOMS/Message/Response/ResponseType.enum.js"></script>
+    <script src="/../jsOMS/Message/Response/ResponseResultType.enum.js"></script>
+    <script src="/../jsOMS/Message/Response/ResponseManager.js"></script>
+    <script src="/../jsOMS/Message/Response/Response.js"></script>
+    <script src="/../jsOMS/UI/Component/Form.js"></script>
+    <script src="/../jsOMS/Views/FormView.js"></script>
+    <script src="/../Model/Message/Redirect.js"></script>
 </head>
 <body>
 <main>
@@ -32,22 +32,22 @@
             <img alt="Logo" src="img/logo.png" class="logo" width="50">
             <h1>Welcome</h1>
             <div>
-                <p>Orange Management is a WebApp written in PHP and JavaScript supporting various database 
-                and caching technologies. Many Modules/Extensions provide functionality for businesses, 
+                <p>Orange Management is a WebApp written in PHP and JavaScript supporting various database
+                and caching technologies. Many Modules/Extensions provide functionality for businesses,
                 education facilities, healthcare facilities and organizations in general.<p>
 
-                <p>In the following pages you'll be guided through the installation process for the WebApp. 
-                Most of the customization can be done after installation such as configuring localization, 
+                <p>In the following pages you'll be guided through the installation process for the WebApp.
+                Most of the customization can be done after installation such as configuring localization,
                 installing additional modules, creating organization etc.</p>
 
-                <p>In case you don't want to use this web installation tool you can also use the console 
-                installation tool. Just navigate in your shell to the install directory and then into 
+                <p>In case you don't want to use this web installation tool you can also use the console
+                installation tool. Just navigate in your shell to the install directory and then into
                 Console the subdirectory. There you simply run the install script and are good to go.</p>
 
-                <p>In case you encounter any problems during the installation process please feel free to 
-                ask for help on our website or contact our support email at 
+                <p>In case you encounter any problems during the installation process please feel free to
+                ask for help on our website or contact our support email at
                 <strong>test.email@orange-management.de</strong></p>
-                
+
                 <p><button class="next">Next</button></p>
             </div>
         </section>
@@ -83,13 +83,13 @@
             <h1>Pre-installation check</h1>
             <div>
                 <p>The following checks show if your environment supports the necessary requirements of the WebApp.</p>
-                
-                <p>Right next to the check status you can see the type of the requirement. Anything crictial will 
-                prevent you from installing the WebApp and must be fixed. Medium indicates that some important features 
-                are not available but the WebApp can be still installed. Optional means that only minor features are not 
+
+                <p>Right next to the check status you can see the type of the requirement. Anything crictial will
+                prevent you from installing the WebApp and must be fixed. Medium indicates that some important features
+                are not available but the WebApp can be still installed. Optional means that only minor features are not
                 available.</p>
 
-                <p>All non critical elements can be fixed after installation if you find yourself in need of one of the 
+                <p>All non critical elements can be fixed after installation if you find yourself in need of one of the
                 features. All critical elements must be fixed before you can continue with the installation.</p>
 
                 <p>For help please check our <a href="">Installation Guide</a>.</p>
@@ -189,14 +189,14 @@
 
                 <h2>Users</h2>
 
-                <p>This WebApp uses different database users for different tasks. This way permissions can be 
-                managed in a batter way which also helps to improve the security. You can use always the same 
-                user and give that user the necessary permissions, this however is not advised. Please make 
+                <p>This WebApp uses different database users for different tasks. This way permissions can be
+                managed in a batter way which also helps to improve the security. You can use always the same
+                user and give that user the necessary permissions, this however is not advised. Please make
                 sure every user only has the necessary permissions assigned.</p>
 
                 <h3>Schema</h3>
 
-                <p>The schema user is responsible for modifying the database structure and is only used during 
+                <p>The schema user is responsible for modifying the database structure and is only used during
                 the installation and potentially during updates if the database needs to be modified.</p>
 
                 <ul>
@@ -231,7 +231,7 @@
                 <h3>Update</h3>
 
                 <p>The update user is only used by the API for updating existing database entries.</p>
-                
+
                 <ul>
                     <li><label for="iUpdateUser">User</label>
                     <li><input id="iUpdateUser" name="updateuser" type="text" form="installForm" required>
@@ -287,7 +287,7 @@
             <img alt="Logo" src="img/logo.png" class="logo" width="50">
             <h1>Installation</h1>
             <div>
-                <p>Please wait until the installation finishes. You will be redirected to the backend 
+                <p>Please wait until the installation finishes. You will be redirected to the backend
                 afterwards.</p>
                 </div>
         </section>
@@ -307,7 +307,7 @@ jsOMS.ready(function ()
             let index = nextButtons.indexOf(this);
 
             document.getElementsByTagName('main')[0].setAttribute(
-                'style', 
+                'style',
                 'margin-left: ' + ((index + 1) * -100) + '%;'
             );
         });
@@ -318,7 +318,7 @@ jsOMS.ready(function ()
             let index = prevButtons.indexOf(this);
 
             document.getElementsByTagName('main')[0].setAttribute(
-                'style', 
+                'style',
                 'margin-left: ' + (index * -100) + '%;'
             );
         });
@@ -342,7 +342,7 @@ jsOMS.ready(function ()
 
         if (valid) {
             document.getElementsByTagName('main')[0].setAttribute(
-                'style', 
+                'style',
                 'margin-left: ' + (5 * -100) + '%;'
             );
         } else {

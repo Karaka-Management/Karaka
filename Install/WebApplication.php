@@ -297,7 +297,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Check if database connection is correct and working
-     * 
+     *
      * @param Request $request Request
      *
      * @return bool
@@ -311,7 +311,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Create database connection
-     * 
+     *
      * @param Request $request Request
      *
      * @return ConnectionAbstract
@@ -333,7 +333,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Install/setup configuration
-     * 
+     *
      * @param Request $request Request
      *
      * @return void
@@ -348,7 +348,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Modify config file
-     * 
+     *
      * @param Request $request Request
      *
      * @return void
@@ -380,7 +380,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Modify htaccess file
-     * 
+     *
      * @param Request $request Request
      *
      * @return void
@@ -396,7 +396,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Install core functionality
-     * 
+     *
      * @param ConnectionAbstract $db Database connection
      *
      * @return void
@@ -412,7 +412,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Create module table
-     * 
+     *
      * @param ConnectionAbstract $db Database connection
      *
      * @return void
@@ -435,7 +435,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Create modules to load table
-     * 
+     *
      * @param ConnectionAbstract $db Database connection
      *
      * @return void
@@ -460,7 +460,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Install the core modules
-     * 
+     *
      * @param ConnectionAbstract $db Database connection
      *
      * @return void
@@ -485,7 +485,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Install basic groups
-     * 
+     *
      * @param ConnectionAbstract $db Database connection
      *
      * @return void
@@ -500,7 +500,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Create basic groups in db
-     * 
+     *
      * @param ConnectionAbstract $db Database connection
      *
      * @return void
@@ -510,7 +510,7 @@ final class WebApplication extends ApplicationAbstract
     private static function installMainGroups(ConnectionAbstract $db) : void
     {
         $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
-        
+
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'group` (`group_name`, `group_desc`, `group_status`, `group_created`) VALUES
                 (\'guest\', NULL, ' . GroupStatus::ACTIVE . ', \'' . $date->format('Y-m-d H:i:s') . '\'),
@@ -521,7 +521,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Set permissions of basic groups
-     * 
+     *
      * @param ConnectionAbstract $db Database connection
      *
      * @return void
@@ -543,7 +543,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Install users
-     * 
+     *
      * @param Request            $request Request
      * @param ConnectionAbstract $db      Database connection
      *
@@ -559,7 +559,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Setup global localization
-     * 
+     *
      * @param ConnectionAbstract $db Database connection
      *
      * @return void
@@ -576,7 +576,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Setup root user in database
-     * 
+     *
      * @param Request            $request Request
      * @param ConnectionAbstract $db      Database connection
      *
@@ -602,7 +602,7 @@ final class WebApplication extends ApplicationAbstract
 
     /**
      * Setup basic settings
-     * 
+     *
      * @param Request            $request Request
      * @param ConnectionAbstract $db      Database connection
      *
