@@ -21,6 +21,8 @@ $db->exec('CREATE DATABASE IF NOT EXISTS ' .  $CONFIG['db']['core']['masters']['
 $db = null;
 
 $httpSession = new HttpSession();
+
+/** @var array<mixed> $GLOBALS */
 $GLOBALS['session'] = $httpSession;
 
 $GLOBALS['dbpool'] = new DatabasePool();

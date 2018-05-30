@@ -142,7 +142,7 @@ final class WebApplication extends ApplicationAbstract
             $response->getHeader()->set('strict-transport-security', 'max-age=31536000');
         }
 
-        $response->getHeader()->getL11n()->setLanguage(!in_array($request->getHeader()->getL11n()->getLanguage(), $languages) ? 'en' : $request->getHeader()->getL11n()->getLanguage());
+        $response->getHeader()->getL11n()->setLanguage(!\in_array($request->getHeader()->getL11n()->getLanguage(), $languages) ? 'en' : $request->getHeader()->getL11n()->getLanguage());
 
         return $response;
     }
@@ -232,7 +232,7 @@ final class WebApplication extends ApplicationAbstract
      *
      * @param Request $request Request
      *
-     * @return array
+     * @return array<string, bool>
      *
      * @since  1.0.0
      */
@@ -278,8 +278,8 @@ final class WebApplication extends ApplicationAbstract
      */
     private static function clearOld() : void
     {
-        file_put_contents(__DIR__ . '/../Web/Backend/Routes.php', '<?php return [];');
-        file_put_contents(__DIR__ . '/../Web/Api/Routes.php', '<?php return [];');
+        \file_put_contents(__DIR__ . '/../Web/Backend/Routes.php', '<?php return [];');
+        \file_put_contents(__DIR__ . '/../Web/Api/Routes.php', '<?php return [];');
     }
 
     /**

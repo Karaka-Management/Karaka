@@ -146,7 +146,7 @@ class Application
         $options = $this->app->appSettings->get([1000000009, 1000000029]);
         $account = $this->loadAccount($request);
 
-        $response->getHeader()->getL11n()->setLanguage(!in_array($request->getHeader()->getL11n()->getLanguage(), $this->config['language']) ? $options[1000000029] : $request->getHeader()->getL11n()->getLanguage());
+        $response->getHeader()->getL11n()->setLanguage(!\in_array($request->getHeader()->getL11n()->getLanguage(), $this->config['language']) ? $options[1000000029] : $request->getHeader()->getL11n()->getLanguage());
         UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());
         $response->getHeader()->set('content-language', $response->getHeader()->getL11n()->getLanguage(), true);
 
@@ -215,7 +215,7 @@ class Application
     private function handleBatchRequest(string $uris, Request $request, Response $response) : void
     {
         $request_r = clone $request;
-        $uris      = json_decode($uris, true);
+        $uris      = \json_decode($uris, true);
 
         foreach ($uris as $key => $uri) {
             //$request_r->init($uri);

@@ -158,7 +158,7 @@ class WebApplication extends ApplicationAbstract
         }
 
         $response->getHeader()->getL11n()->setLanguage(
-            !in_array(
+            !\in_array(
                 $request->getHeader()->getL11n()->getLanguage(), $languages
             ) ? 'en' : $request->getHeader()->getL11n()->getLanguage()
         );

@@ -42,10 +42,10 @@ class Autoloader
      */
     public static function default_autoloader(string $class) : void
     {
-        $class = ltrim($class, '\\');
-        $class = str_replace(['_', '\\'], '/', $class);
+        $class = \ltrim($class, '\\');
+        $class = \str_replace(['_', '\\'], '/', $class);
 
-        if (!file_exists($path = __DIR__ . '/../../' . $class . '.php')) {
+        if (!\file_exists($path = __DIR__ . '/../../' . $class . '.php')) {
             return;
         }
 
@@ -66,9 +66,9 @@ class Autoloader
      */
     public static function exists(string $class) : bool
     {
-        $class = ltrim($class, '\\');
-        $class = str_replace(['_', '\\'], '/', $class);
+        $class = \ltrim($class, '\\');
+        $class = \str_replace(['_', '\\'], '/', $class);
 
-        return file_exists(__DIR__ . '/../../' . $class . '.php');
+        return \file_exists(__DIR__ . '/../../' . $class . '.php');
     }
 }

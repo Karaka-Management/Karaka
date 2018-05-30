@@ -154,7 +154,7 @@ class Application
         $account = $this->loadAccount($request);
 
         $response->getHeader()->getL11n()->setLanguage(
-            !in_array(
+            !\in_array(
                 $request->getHeader()->getL11n()->getLanguage(),
                 $this->config['language']
             ) ? $options[1000000029] : $request->getHeader()->getL11n()->getLanguage()
@@ -428,7 +428,7 @@ class Application
         }
 
         $head->addAsset(AssetType::JS, '/Resources/d3/d3.min.js');
-        $head->setStyle('core', preg_replace('!\s+!', ' ', file_get_contents(__DIR__ . '/css/backend-small.css')));
+        $head->setStyle('core', preg_replace('!\s+!', ' ', \file_get_contents(__DIR__ . '/css/backend-small.css')));
 
         $head->setTitle('Orange Management Backend');
     }

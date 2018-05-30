@@ -1,4 +1,19 @@
 <?php
+/** 
+ * @var string $db     Database
+ * @var string $host   Host
+ * @var int    $port   Port
+ * @var array  $admin  Admin login data
+ * @var array  $insert Insert login data
+ * @var array  $select Select login data
+ * @var array  $update Update login data
+ * @var array  $delete Delete login data
+ * @var array  $schema Schema login data
+ * @var string $dbname Database name
+ * @var string $prefix Table prefix
+ * @var string $subdir Subdirectory path
+ * @var string $tld    Top level domain
+ */
 return <<<EOT
 <?php
 /**
