@@ -185,8 +185,8 @@ class Application
             return;
         }
 
-        $this->createDefaultPageView($request, $response, $pageView);
         $this->app->moduleManager->initRequestModules($request);
+        $this->createDefaultPageView($request, $response, $pageView);
 
         $dispatched = $this->app->dispatcher->dispatch($this->app->router->route($request), $request, $response);
         $pageView->addData('dispatch', $dispatched);
