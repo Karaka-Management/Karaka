@@ -408,6 +408,7 @@ class Application
 
         $head->addAsset(AssetType::JS, '/Web/Backend/ServiceWorker.js');
         $head->addAsset(AssetType::JSLATE, '/Web/Backend/js/backend.js');
+        $head->addAsset(AssetType::JSLATE, '/Web/Backend/js/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.js');
 
         $head->addAsset(AssetType::JSLATE, '/Modules/Navigation/Controller.js');
         $head->addAsset(AssetType::JSLATE, '/Modules/Navigation/Models/Navigation.js');
