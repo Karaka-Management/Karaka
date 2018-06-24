@@ -9,7 +9,7 @@
 
             this.logger   = jsOMS.Log.Logger.getInstance();
             window.logger = this.logger;
-            console.log();
+
             this.cacheManager    = new jsOMS.DataStorage.CacheManager();
             this.cookieJar       = new jsOMS.DataStorage.CookieJar();
             this.storageManager  = new jsOMS.DataStorage.StorageManager();
