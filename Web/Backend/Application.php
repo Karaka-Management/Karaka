@@ -320,7 +320,7 @@ class Application
         $head->addAsset(AssetType::JS, '/jsOMS/Asset/AssetManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Autoloader.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UnhandledException.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Account/AccountType.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Account/AccountType.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Account/AccountManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Uri/Http.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Uri/UriFactory.js');
@@ -329,11 +329,11 @@ class Application
         $head->addAsset(AssetType::JS, '/jsOMS/DataStorage/LocalStorage.js');
         $head->addAsset(AssetType::JS, '/jsOMS/DataStorage/StorageManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Event/EventManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/RequestData.enum.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/BrowserType.enum.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/OSType.enum.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/RequestMethod.enum.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/RequestType.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/RequestData.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/BrowserType.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/OSType.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/RequestMethod.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/RequestType.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/Request.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/ActionManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/ResponseType.enum.js');
@@ -350,7 +350,7 @@ class Application
         $head->addAsset(AssetType::JS, '/jsOMS/Module/ModuleManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Dispatcher/Dispatcher.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Log/Logger.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Log/LogLevel.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Log/LogLevel.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Component/Form.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/InputManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Keyboard/KeyboardManager.js');
