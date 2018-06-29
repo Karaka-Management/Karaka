@@ -11,7 +11,6 @@
             window.logger = this.logger;
 
             this.cacheManager    = new jsOMS.DataStorage.CacheManager();
-            this.cookieJar       = new jsOMS.DataStorage.CookieJar();
             this.storageManager  = new jsOMS.DataStorage.StorageManager();
             this.eventManager    = new jsOMS.Event.EventManager();
             this.responseManager = new jsOMS.Message.Response.ResponseManager();

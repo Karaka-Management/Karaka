@@ -325,25 +325,23 @@ class Application
         $head->addAsset(AssetType::JS, '/jsOMS/Uri/Http.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Uri/UriFactory.js');
         $head->addAsset(AssetType::JS, '/jsOMS/DataStorage/CacheManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/DataStorage/CookieJar.js');
         $head->addAsset(AssetType::JS, '/jsOMS/DataStorage/LocalStorage.js');
         $head->addAsset(AssetType::JS, '/jsOMS/DataStorage/StorageManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Event/EventManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/RequestData.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/BrowserType.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/OSType.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/RequestMethod.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/RequestType.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/Request.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/ActionManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/ResponseType.enum.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/ResponseResultType.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/ResponseType.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/ResponseResultType.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/ResponseManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/Response.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/App/AppNotification.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/Browser/BrowserNotification.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationType.enum.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationLevel.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationType.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationLevel.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationMessage.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Module/ModuleFactory.js');
@@ -354,8 +352,8 @@ class Application
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Component/Form.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/InputManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Keyboard/KeyboardManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Mouse/ClickType.enum.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Mouse/EventType.enum.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Mouse/ClickType.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Mouse/EventType.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Mouse/MouseManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Touch/TouchManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Voice/VoiceManager.js');
@@ -373,10 +371,10 @@ class Application
         $head->addAsset(AssetType::JS, '/jsOMS/Utils/Parser/Markdown.js');
 
         // Models
-        $head->addAsset(AssetType::JS, '/Model/Message/DomActionType.enum.js');
+        $head->addAsset(AssetType::JS, '/Model/Message/DomActionType.js');
         $head->addAsset(AssetType::JS, '/Model/Message/DomAction.js');
         $head->addAsset(AssetType::JS, '/Model/Message/FormValidation.js');
-        $head->addAsset(AssetType::JS, '/Model/Message/NotifyType.enum.js');
+        $head->addAsset(AssetType::JS, '/Model/Message/NotifyType.js');
         $head->addAsset(AssetType::JS, '/Model/Message/Notify.js');
         $head->addAsset(AssetType::JS, '/Model/Message/Redirect.js');
         $head->addAsset(AssetType::JS, '/Model/Message/Reload.js');
