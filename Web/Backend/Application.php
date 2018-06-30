@@ -335,7 +335,6 @@ class Application
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/Request.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/ActionManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/ResponseType.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/ResponseResultType.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/ResponseManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/Response.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/App/AppNotification.js');

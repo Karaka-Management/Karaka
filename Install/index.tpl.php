@@ -18,7 +18,6 @@
     <script src="/../jsOMS/Message/Request/RequestType.js"></script>
     <script src="/../jsOMS/Message/Request/Request.js"></script>
     <script src="/../jsOMS/Message/Response/ResponseType.js"></script>
-    <script src="/../jsOMS/Message/Response/ResponseResultType.js"></script>
     <script src="/../jsOMS/Message/Response/ResponseManager.js"></script>
     <script src="/../jsOMS/Message/Response/Response.js"></script>
     <script src="/../jsOMS/UI/Component/Form.js"></script>
