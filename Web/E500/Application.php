@@ -31,7 +31,7 @@ use Web\WebApplication;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Application
+final class Application
 {
     /**
      * WebApplication.
@@ -90,7 +90,7 @@ class Application
 
         /** @noinspection PhpIncludeInspection */
         $themeLanguage = include $path;
-        $this->app->l11nManager->loadLanguage($response->getHeader()->getL11n()->getLanguage(), 0, $themeLanguage);
+        $this->app->l11nManager->loadLanguage($response->getHeader()->getL11n()->getLanguage(), '0', $themeLanguage);
 
         $head    = new Head();
         $baseUri = $request->getUri()->getBase();

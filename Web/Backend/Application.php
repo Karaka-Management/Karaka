@@ -54,7 +54,7 @@ use Web\WebApplication;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Application
+final class Application
 {
     /**
      * WebApplication.
@@ -251,7 +251,7 @@ class Application
 
         /** @noinspection PhpIncludeInspection */
         $themeLanguage = include $absPath;
-        $this->app->l11nManager->loadLanguage($language, 0, $themeLanguage);
+        $this->app->l11nManager->loadLanguage($language, '0', $themeLanguage);
     }
 
     /**
@@ -414,7 +414,7 @@ class Application
         $response->getHeader()->set(
             'content-security-policy',
             'base-uri \'self\'; script-src \'self\' blob: \'sha256-'
-            . base64_encode(hash('sha256', $script, true))
+            . \base64_encode(hash('sha256', $script, true))
             . '\'; worker-src \'self\'',
             true
         );
@@ -426,8 +426,18 @@ class Application
         }
 
         $head->addAsset(AssetType::JS, '/Resources/d3/d3.min.js');
-        $head->setStyle('core', preg_replace('!\s+!', ' ', \file_get_contents(__DIR__ . '/css/backend-small.css')));
 
+        $css = \file_get_contents(__DIR__ . '/css/backend-small.css');
+        if ($css === false) {
+            $css = '';
+        }
+
+        $css = \preg_replace('!\s+!', ' ', $css);
+        /*if ($css === null) {
+            $css = '';
+        }*/
+
+        $head->setStyle('core', $css);
         $head->setTitle('Orange Management Backend');
     }
 

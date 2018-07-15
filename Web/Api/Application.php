@@ -23,6 +23,7 @@ use phpOMS\Views\View;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\Account;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Cache\CachePool;
 use phpOMS\Event\EventManager;
 use phpOMS\Uri\UriFactory;
@@ -53,7 +54,7 @@ use Web\WebApplication;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Application
+final class Application
 {
     /**
      * WebApplication.
