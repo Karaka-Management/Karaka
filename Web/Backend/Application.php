@@ -33,6 +33,7 @@ use phpOMS\System\File\PathException;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Cache\CachePool;
 use phpOMS\Event\EventManager;
 use phpOMS\DataStorage\Database\DatabasePool;
@@ -139,7 +140,9 @@ final class Application
             return;
         }
 
-        DataMapperAbstract::setConnection($this->app->dbPool->get());
+        /** @var ConnectionAbstract $con */
+        $con = $this->app->dbPool->get();
+        DataMapperAbstract::setConnection($con);
 
         $this->app->cachePool      = new CachePool();
         $this->app->appSettings    = new CoreSettings($this->app->dbPool->get());
