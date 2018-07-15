@@ -86,7 +86,7 @@ final class Application
         $this->app          = $app;
         $this->app->appName = 'Backend';
         $this->config       = $config;
-        UriFactory::setQuery('/app', strtolower($this->app->appName));
+        UriFactory::setQuery('/app', \strtolower($this->app->appName));
     }
 
     /**
@@ -145,7 +145,7 @@ final class Application
         DataMapperAbstract::setConnection($con);
 
         $this->app->cachePool      = new CachePool();
-        $this->app->appSettings    = new CoreSettings($this->app->dbPool->get());
+        $this->app->appSettings    = new CoreSettings($con);
         $this->app->eventManager   = new EventManager();
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
 
