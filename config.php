@@ -93,6 +93,9 @@ return [
             'port'  => 4310,
         ],
     ],
+    'app' => [
+        'path' => __DIR__,
+    ],
     'language' => [
         'en',
     ],

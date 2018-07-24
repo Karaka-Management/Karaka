@@ -21,10 +21,17 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Session\ConsoleSession;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
+use phpOMS\Localization\Localization;
+use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Localization\L11nManager;
+use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\Log\FileLogger;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\Router;
+use phpOMS\Message\Console\Request;
+use phpOMS\Message\Console\Response;
+use phpOMS\Uri\Argument;
+use phpOMS\Uri\UriFactory;
 
 /**
  * Application class.
@@ -47,38 +54,39 @@ class ConsoleApplication extends ApplicationAbstract
     /**
      * Constructor.
      *
-     * @param array $config Core config
      * @param array $arg    Call argument
+     * @param array $config Core config
      *
      * @throws \Exception
      *
      * @since  1.0.0
      */
-    public function __construct(array $config, array $arg)
+    public function __construct(array $arg, array $config)
     {
         if (PHP_SAPI !== 'cli') {
             throw new \Exception();
         }
 
-        $this->setupHandlers();
+        //$this->setupHandlers();
 
-        $this->config = $config;
-        $this->logger = FileLogger::getInstance($config['log']['file']['path'], false);
+        $this->appName = 'CLI';
+        $this->config  = $config;
+        $this->logger  = FileLogger::getInstance($config['log']['file']['path'], true);
+        $request       = $this->initRequest($arg, $config['app']['path'], $config['language'][0]);
+        $response      = $this->initResponse($request, $config['language']);
+
         $this->dbPool = new DatabasePool();
-
         $this->dbPool->create('core', $this->config['db']['core']['masters']['admin']);
-        $this->dbPool->add('insert', $this->dbPool->get('core'));
-        $this->dbPool->add('select', $this->dbPool->get('core'));
-        $this->dbPool->add('update', $this->dbPool->get('core'));
-        $this->dbPool->add('delete', $this->dbPool->get('core'));
-        $this->dbPool->add('schema', $this->dbPool->get('core'));
+
+        /** @var ConnectionAbstract $con */
+        $con = $this->dbPool->get();
 
         $this->l11nManager = new L11nManager();
         $this->router      = new Router();
         $this->router->importFromFile(__DIR__ . '/Routes.php');
 
         $this->cachePool      = new CachePool();
-        $this->appSettings    = new CoreSettings($this->dbPool->get());
+        $this->appSettings    = new CoreSettings($con);
         $this->eventManager   = new EventManager();
         $this->sessionManager = new ConsoleSession();
         $this->accountManager = new AccountManager($this->sessionManager);
@@ -90,7 +98,7 @@ class ConsoleApplication extends ApplicationAbstract
         $this->moduleManager->initModule($modules);
 
         $commandManager->attach('', function ($para) {
-            echo 'Useage: -h for help.';
+            echo "\n" , 'Useage: -h for help.', "\n\n";
         }, null);
 
         $commandManager->attach('-h', function ($para) {
@@ -110,8 +118,61 @@ class ConsoleApplication extends ApplicationAbstract
      */
     private function setupHandlers() : void
     {
-        set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
-        set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
-        register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
+        \set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
+        \set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
+        \register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
+        \mb_internal_encoding('UTF-8');
+    }
+
+    /**
+     * Initialize current application request
+     *
+     * @param array  $arg      Cli arguments
+     * @param string $rootPath Web root path
+     * @param string $language Fallback language
+     *
+     * @return Request Initial client request
+     *
+     * @since  1.0.0
+     */
+    private function initRequest(array $arg, string $rootPath, string $language) : Request
+    {
+        $request     = new Request(new Argument(\implode(' ', $arg)));
+        $subDirDepth = \substr_count($rootPath, '/');
+
+        $request->createRequestHashs($subDirDepth);
+        $request->getUri()->setRootPath($rootPath);
+        UriFactory::setupUriBuilder($request->getUri());
+
+        $langCode = \strtolower($request->getUri()->getPathElement(0));
+        $request->getHeader()->getL11n()->setLanguage(
+            empty($langCode) || !ISO639x1Enum::isValidValue($langCode) ? $language : $langCode
+        );
+        UriFactory::setQuery('/lang', $request->getHeader()->getL11n()->getLanguage());
+
+        return $request;
+    }
+
+    /**
+     * Initialize basic response
+     *
+     * @param Request $request   Client request
+     * @param array   $languages Supported languages
+     *
+     * @return Response Initial client request
+     *
+     * @since  1.0.0
+     */
+    private function initResponse(Request $request, array $languages) : Response
+    {
+        $response = new Response(new Localization());
+
+        $response->getHeader()->getL11n()->setLanguage(
+            !\in_array(
+                $request->getHeader()->getL11n()->getLanguage(), $languages
+            ) ? 'en' : $request->getHeader()->getL11n()->getLanguage()
+        );
+
+        return $response;
     }
 }

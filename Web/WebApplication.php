@@ -47,6 +47,10 @@ class WebApplication extends ApplicationAbstract
      */
     public function __construct(array $config)
     {
+        $response = null;
+        $request  = null;
+        $sub      = null;
+
         try {
             $this->setupHandlers();
 
@@ -75,15 +79,25 @@ class WebApplication extends ApplicationAbstract
                 'line'    => 66]);
             $sub = new \Web\E500\Application($this, $config);
         } finally {
-            $sub->run($request ?? new Request(), $response ?? new Response());
+            if ($sub === null) {
+                $sub = new \Web\E500\Application($this, $config);
+            }
 
-            if ($this->sessionManager) {
+            if ($response === null) {
+                $response = new Response();
+            }
+
+            $sub->run($request ?? new Request(), $response);
+
+            if ($this->sessionManager !== null) {
                 $this->sessionManager->save();
             }
 
-            $response->getHeader()->push();
+            /** @var \phpOMS\Message\Http\Header $header */
+            $header = $response->getHeader();
+            $header->push();
 
-            if ($this->sessionManager) {
+            if ($this->sessionManager !== null) {
                 $this->sessionManager->lock();
             }
 
@@ -100,10 +114,10 @@ class WebApplication extends ApplicationAbstract
      */
     private function setupHandlers() : void
     {
-        set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
-        set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
-        register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
-        mb_internal_encoding('UTF-8');
+        \set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
+        \set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
+        \register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
+        \mb_internal_encoding('UTF-8');
     }
 
     /**
@@ -119,13 +133,13 @@ class WebApplication extends ApplicationAbstract
     private function initRequest(string $rootPath, string $language) : Request
     {
         $request     = Request::createFromSuperglobals();
-        $subDirDepth = substr_count($rootPath, '/');
+        $subDirDepth = \substr_count($rootPath, '/');
 
         $request->createRequestHashs($subDirDepth);
         $request->getUri()->setRootPath($rootPath);
         UriFactory::setupUriBuilder($request->getUri());
 
-        $langCode = strtolower($request->getUri()->getPathElement(0));
+        $langCode = \strtolower($request->getUri()->getPathElement(0));
         $request->getHeader()->getL11n()->setLanguage(
             empty($langCode) || !ISO639x1Enum::isValidValue($langCode) ? $language : $langCode
         );
