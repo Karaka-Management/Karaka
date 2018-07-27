@@ -72,7 +72,10 @@ final class WebApplication extends ApplicationAbstract
         UriFactory::setupUriBuilder($request->getUri());
 
         $this->run($request, $response);
-        $response->getHeader()->push();
+        
+        /** @var \phpOMS\Message\Http\Header $header */
+        $header = $response->getHeader();
+        $header->push();
 
         echo $response->getBody();
     }
@@ -86,9 +89,10 @@ final class WebApplication extends ApplicationAbstract
      */
     private function setupHandlers() : void
     {
-        set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
-        set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
-        register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
+        \set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
+        \set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
+        \register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
+        \mb_internal_encoding('UTF-8');
     }
 
     /**
@@ -104,7 +108,7 @@ final class WebApplication extends ApplicationAbstract
     private function initRequest(string $rootPath, string $language) : Request
     {
         $request     = Request::createFromSuperglobals();
-        $subDirDepth = substr_count($rootPath, '/');
+        $subDirDepth = \substr_count($rootPath, '/');
 
         $request->createRequestHashs($subDirDepth);
         $request->getUri()->setRootPath($rootPath);
@@ -142,7 +146,9 @@ final class WebApplication extends ApplicationAbstract
             $response->getHeader()->set('strict-transport-security', 'max-age=31536000');
         }
 
-        $response->getHeader()->getL11n()->setLanguage(!\in_array($request->getHeader()->getL11n()->getLanguage(), $languages) ? 'en' : $request->getHeader()->getL11n()->getLanguage());
+        $response->getHeader()->getL11n()->setLanguage(
+            !\in_array($request->getHeader()->getL11n()->getLanguage(), $languages) ? 'en' : $request->getHeader()->getL11n()->getLanguage()
+        );
 
         return $response;
     }
@@ -280,6 +286,7 @@ final class WebApplication extends ApplicationAbstract
     {
         \file_put_contents(__DIR__ . '/../Web/Backend/Routes.php', '<?php return [];');
         \file_put_contents(__DIR__ . '/../Web/Api/Routes.php', '<?php return [];');
+        \file_put_contents(__DIR__ . '/../Console/Routes.php', '<?php return [];');
     }
 
     /**
@@ -291,8 +298,8 @@ final class WebApplication extends ApplicationAbstract
      */
     private static function hasPhpExtensions() : bool
     {
-        return extension_loaded('pdo')
-            && extension_loaded('mbstring');
+        return \extension_loaded('pdo')
+            && \extension_loaded('mbstring');
     }
 
     /**

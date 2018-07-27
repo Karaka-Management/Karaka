@@ -48,7 +48,6 @@ class WebApplication extends ApplicationAbstract
     public function __construct(array $config)
     {
         $response = null;
-        $request  = null;
         $sub      = null;
 
         try {

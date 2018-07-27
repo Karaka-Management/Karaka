@@ -86,15 +86,15 @@ return [
         'root'  => '/',
         'https' => false,
     ],
+    'app'      => [
+        'path' => __DIR__,
+    ],
     'socket'   => [
         'master' => [
             'host'  => '127.0.0.1',
             'limit' => 300,
             'port'  => 4310,
         ],
-    ],
-    'app' => [
-        'path' => __DIR__,
     ],
     'language' => [
         'en',

@@ -14,7 +14,6 @@ namespace Console;
 
 use Model\CoreSettings;
 use phpOMS\ApplicationAbstract;
-use phpOMS\Console\CommandManager;
 use phpOMS\Account\AccountManager;
 use phpOMS\DataStorage\Cache\CachePool;
 use phpOMS\DataStorage\Database\DatabasePool;
@@ -32,6 +31,9 @@ use phpOMS\Message\Console\Request;
 use phpOMS\Message\Console\Response;
 use phpOMS\Uri\Argument;
 use phpOMS\Uri\UriFactory;
+use phpOMS\Views\View;
+
+use Web\Exception\DatabaseException;
 
 /**
  * Application class.
@@ -63,50 +65,75 @@ class ConsoleApplication extends ApplicationAbstract
      */
     public function __construct(array $arg, array $config)
     {
-        if (PHP_SAPI !== 'cli') {
-            throw new \Exception();
-        }
-
-        //$this->setupHandlers();
-
         $this->appName = 'CLI';
         $this->config  = $config;
-        $this->logger  = FileLogger::getInstance($config['log']['file']['path'], true);
-        $request       = $this->initRequest($arg, $config['app']['path'], $config['language'][0]);
-        $response      = $this->initResponse($request, $config['language']);
+        $response      = null;
 
-        $this->dbPool = new DatabasePool();
-        $this->dbPool->create('core', $this->config['db']['core']['masters']['admin']);
+        try {
+            if (PHP_SAPI !== 'cli') {
+                throw new \Exception();
+            }
 
-        /** @var ConnectionAbstract $con */
-        $con = $this->dbPool->get();
+            //$this->setupHandlers();
 
-        $this->l11nManager = new L11nManager();
-        $this->router      = new Router();
-        $this->router->importFromFile(__DIR__ . '/Routes.php');
+            $this->logger = FileLogger::getInstance($config['log']['file']['path'], true);
+            $request      = $this->initRequest($arg, $config['app']['path'], $config['language'][0]);
+            $response     = $this->initResponse($request, $config['language']);
 
-        $this->cachePool      = new CachePool();
-        $this->appSettings    = new CoreSettings($con);
-        $this->eventManager   = new EventManager();
-        $this->sessionManager = new ConsoleSession();
-        $this->accountManager = new AccountManager($this->sessionManager);
-        $this->moduleManager  = new ModuleManager($this, __DIR__ . '/../../Modules');
-        $this->dispatcher     = new Dispatcher($this);
-        $commandManager       = new CommandManager();
+            $pageView = new View($this, $request, $response);
+            $pageView->setTemplate('/Console/index');
+            $response->set('Content', $pageView);
 
-        $modules = $this->moduleManager->getActiveModules();
-        $this->moduleManager->initModule($modules);
+            $this->dbPool = new DatabasePool();
+            $this->dbPool->create('core', $this->config['db']['core']['masters']['admin']);
+            $this->dbPool->create('insert', $this->config['db']['core']['masters']['insert']);
+            $this->dbPool->create('select', $this->config['db']['core']['masters']['select']);
+            $this->dbPool->create('update', $this->config['db']['core']['masters']['update']);
+            $this->dbPool->create('delete', $this->config['db']['core']['masters']['delete']);
+            $this->dbPool->create('schema', $this->config['db']['core']['masters']['schema']);
 
-        $commandManager->attach('', function ($para) {
-            echo "\n" , 'Useage: -h for help.', "\n\n";
-        }, null);
+            /** @var ConnectionAbstract $con */
+            $con = $this->dbPool->get();
 
-        $commandManager->attach('-h', function ($para) {
-            echo "\n" ,
-                'For a list of commands for a specific module type: ' , "\033[0;31m/help/{MODULE_NAME}\033[0m" , "\n\n";
-        }, null);
+            $this->l11nManager = new L11nManager();
+            $this->router      = new Router();
+            $this->router->importFromFile(__DIR__ . '/Routes.php');
 
-        $commandManager->trigger($arg[1] ?? '', $arg);
+            $this->cachePool      = new CachePool();
+            $this->appSettings    = new CoreSettings($con);
+            $this->eventManager   = new EventManager();
+            $this->sessionManager = new ConsoleSession();
+            $this->accountManager = new AccountManager($this->sessionManager);
+            $this->moduleManager  = new ModuleManager($this, __DIR__ . '/../../Modules');
+            $this->dispatcher     = new Dispatcher($this);
+
+            $modules = $this->moduleManager->getActiveModules();
+            $this->moduleManager->initModule($modules);
+
+            $routed     = $this->router->route($request);
+            $dispatched = $this->dispatcher->dispatch($routed, $request, $response);
+            $pageView->addData('dispatch', $dispatched);
+        } catch (DatabaseException $e) {
+            $this->logger->critical(FileLogger::MSG_FULL, [
+                'message' => $e->getMessage(),
+                'line'    => 62]);
+
+            $response = $response ?? new Response(new Localization());
+            $response->set('Content', 'Database error: ' . $e->getMessage());
+        } catch (\Throwable $e) {
+            $this->logger->critical(FileLogger::MSG_FULL, [
+                'message' => $e->getMessage(),
+                'line'    => 66]);
+
+            $response = $response ?? new Response(new Localization());
+            $response->set('Content', 'Critical error: ' . $e->getMessage());
+        } finally {
+            if ($response === null) {
+                $response = new Response();
+            }
+
+            echo $response->getBody();
+        }
     }
 
     /**
@@ -137,7 +164,7 @@ class ConsoleApplication extends ApplicationAbstract
      */
     private function initRequest(array $arg, string $rootPath, string $language) : Request
     {
-        $request     = new Request(new Argument(\implode(' ', $arg)));
+        $request     = new Request(new Argument($arg[1] ?? ''));
         $subDirDepth = \substr_count($rootPath, '/');
 
         $request->createRequestHashs($subDirDepth);
