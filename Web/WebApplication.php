@@ -192,7 +192,7 @@ class WebApplication extends ApplicationAbstract
      */
     private function getApplicationName(string $request) : string
     {
-        $applicationName = ucfirst(strtolower($request));
+        $applicationName = \ucfirst(\strtolower($request));
         $applicationName = empty($applicationName) ? 'E500' : $applicationName;
 
         if (Autoloader::exists('\Web\\' . $applicationName . '\Application') === false) {

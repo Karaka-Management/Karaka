@@ -72,7 +72,7 @@ final class WebApplication extends ApplicationAbstract
         UriFactory::setupUriBuilder($request->getUri());
 
         $this->run($request, $response);
-        
+
         /** @var \phpOMS\Message\Http\Header $header */
         $header = $response->getHeader();
         $header->push();
@@ -114,7 +114,7 @@ final class WebApplication extends ApplicationAbstract
         $request->getUri()->setRootPath($rootPath);
         UriFactory::setupUriBuilder($request->getUri());
 
-        $langCode = strtolower($request->getUri()->getPathElement(0));
+        $langCode = \strtolower($request->getUri()->getPathElement(0));
         $request->getHeader()->getL11n()->setLanguage(
             empty($langCode) || !ISO639x1Enum::isValidValue($langCode) ? $language : $langCode
         );
@@ -597,8 +597,8 @@ final class WebApplication extends ApplicationAbstract
 
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'account` (`account_status`, `account_type`, `account_login`, `account_name1`, `account_name2`, `account_name3`, `account_password`, `account_email`, `account_tries`, `account_lactive`, `account_localization`, `account_created_at`) VALUES
-                (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', \'' . ((string) $request->getData('adminname')) . '\', \'' . ((string) $request->getData('adminname')) . '\', \'\', \'\', \'' . password_hash((string) $request->getData('adminpassword'), PASSWORD_DEFAULT) . '\', \'' . ((string) $request->getData('adminemail')) . '\', 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\'),
-                (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', \'guest\', \'Guest\', \'\', \'\', \'' . password_hash('guest', PASSWORD_DEFAULT) . '\', \'guest@email.com\', 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\');'
+                (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', \'' . ((string) $request->getData('adminname')) . '\', \'' . ((string) $request->getData('adminname')) . '\', \'\', \'\', \'' . \password_hash((string) $request->getData('adminpassword'), PASSWORD_DEFAULT) . '\', \'' . ((string) $request->getData('adminemail')) . '\', 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\'),
+                (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', \'guest\', \'Guest\', \'\', \'\', \'' . \password_hash('guest', PASSWORD_DEFAULT) . '\', \'guest@email.com\', 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\');'
         )->execute();
 
         $db->con->prepare(
