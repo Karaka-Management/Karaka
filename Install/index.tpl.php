@@ -11,7 +11,6 @@
     <script src="/../jsOMS/Uri/Http.js"></script>
     <script src="/../jsOMS/Uri/UriFactory.js"></script>
     <script src="/../jsOMS/Event/EventManager.js"></script>
-    <script src="/../jsOMS/Message/Request/RequestData.js"></script>
     <script src="/../jsOMS/Message/Request/BrowserType.js"></script>
     <script src="/../jsOMS/Message/Request/OSType.js"></script>
     <script src="/../jsOMS/Message/Request/RequestMethod.js"></script>
@@ -91,7 +90,7 @@
                 <p>All non critical elements can be fixed after installation if you find yourself in need of one of the
                 features. All critical elements must be fixed before you can continue with the installation.</p>
 
-                <p>For help please check our <a href="">Installation Guide</a>.</p>
+                <p>For help please check our <a href="website.orange-management.de">Installation Guide</a>.</p>
                 <?php $isOK = version_compare('7.0.0', PHP_VERSION) < 1 && extension_loaded('pdo'); ?>
                 <table>
                     <thead>
@@ -167,7 +166,7 @@
             <div>
                 <p>Please create a database this WebApp can use and configure every field.</p>
 
-                <form id="installForm" method="put" action="<?= $this->request->getUri()->__toString(); ?>">
+                <form id="installForm" name="installForm" method="put" action="<?= $this->request->getUri()->__toString(); ?>">
                     <ul>
                         <li><label for="iDbHost">Address</label>
                         <li><input id="iDbHost" name="dbhost" type="text" value="127.0.0.1" required>
