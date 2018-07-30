@@ -57,6 +57,10 @@ AddType application/vnd.ms-fontobject .eot
     RewriteCond %{REQUEST_FILENAME}.gz -f
     RewriteRule ^(.*)$ $1.gz [QSA,L]
 
+    RewriteCond %{HTTP_HOST} !^www.*$ [L]
+    RewriteCond %{HTTP_HOST} ^(.*)\.$tld
+    RewriteRule ^([a-zA-Z]{2})\/(.*)$ $fullTLD/$1/%1/$2 [QSA]
+
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ /?{QUERY_STRING} [QSA]

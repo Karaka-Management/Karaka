@@ -398,6 +398,9 @@ final class WebApplication extends ApplicationAbstract
     {
         $config = include __DIR__ . '/Templates/htaccess.tpl.php';
 
+        $fullTLD = $request->getData('domain');
+        $tld     = \str_replace(['.', 'http://', 'https://'], ['\.', '', ''], $request->getData('domain') ?? '');
+
         \file_put_contents(__DIR__ . '/../.htaccess', $config);
     }
 
