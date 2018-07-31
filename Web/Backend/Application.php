@@ -33,6 +33,7 @@ use phpOMS\System\File\PathException;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Cache\CachePool;
 use phpOMS\Event\EventManager;
@@ -268,13 +269,13 @@ final class Application
      */
     private function loadAccount(Request $request) : Account
     {
-        $this->app->accountManager->add(AccountMapper::get($request->getHeader()->getAccount()));
+        $this->app->accountManager->add(AccountMapper::get($request->getHeader()->getAccount(), RelationType::ALL, null, 2));
         $account = $this->app->accountManager->get($request->getHeader()->getAccount());
 
-        $groupPermissions = GroupPermissionMapper::getFor(array_keys($account->getGroups()), 'group');
+        $groupPermissions = GroupPermissionMapper::getFor(array_keys($account->getGroups()), 'group', RelationType::ALL, null, 2);
         $account->addPermissions(is_array($groupPermissions) ? $groupPermissions : [$groupPermissions]);
 
-        $accountPermissions = AccountPermissionMapper::getFor($request->getHeader()->getAccount(), 'account');
+        $accountPermissions = AccountPermissionMapper::getFor($request->getHeader()->getAccount(), 'account', RelationType::ALL, null, 2);
         $account->addPermissions(is_array($accountPermissions) ? $accountPermissions : [$accountPermissions]);
 
         return $account;
