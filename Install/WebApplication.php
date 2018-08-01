@@ -396,10 +396,10 @@ final class WebApplication extends ApplicationAbstract
      */
     private static function editHtaccessFile(Request $request) : void
     {
-        $config = include __DIR__ . '/Templates/htaccess.tpl.php';
-
         $fullTLD = $request->getData('domain');
         $tld     = \str_replace(['.', 'http://', 'https://'], ['\.', '', ''], $request->getData('domain') ?? '');
+
+        $config = include __DIR__ . '/Templates/htaccess.tpl.php';
 
         \file_put_contents(__DIR__ . '/../.htaccess', $config);
     }
