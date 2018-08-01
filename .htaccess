@@ -54,7 +54,6 @@ AddType application/vnd.ms-fontobject .eot
     RewriteCond %{REQUEST_FILENAME} \.(js|css)$
     RewriteCond %{REQUEST_FILENAME}.gz -f
     RewriteRule ^(.*)$ $1.gz [QSA,L]
-
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ /?{QUERY_STRING} [QSA]

@@ -1,5 +1,5 @@
 <?php
-return <<<EOT
+$htaccess = <<<EOT
 # BEGIN Gzip Compression
 <ifmodule mod_rewrite.c>
      AddEncoding gzip .gz
@@ -57,10 +57,18 @@ AddType application/vnd.ms-fontobject .eot
     RewriteCond %{REQUEST_FILENAME}.gz -f
     RewriteRule ^(.*)$ $1.gz [QSA,L]
 
+EOT;
+
+if (\stripos($fullTLD, '127.0.0.1') === false) {
+$htaccess .= <<<EOT
     RewriteCond %{HTTP_HOST} !^www.*$ [L]
     RewriteCond %{HTTP_HOST} ^(.*)\.$tld
     RewriteRule ^([a-zA-Z]{2})\/(.*)$ $fullTLD/$1/%1/$2 [QSA]
+    
+EOT;
+}
 
+$htaccess .= <<<EOT
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ /?{QUERY_STRING} [QSA]
@@ -103,3 +111,5 @@ php_value memory_limit 128M
 php_value max_input_time 30
 php_value max_execution_time 30
 EOT;
+
+return $htaccess;
