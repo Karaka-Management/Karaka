@@ -1,0 +1,16 @@
+language: php
+php:
+    - '7.2'
+    - nightly
+services:
+    - mysql
+before_script:
+    - pecl install ast
+    - composer install
+    - git clone -b develop https://github.com/Orange-Management/Build.git
+    - chmod -R 755 Build/Hooks
+script:
+    - vendor/bin/phpunit --version && vendor/bin/phpunit --configuration tests/phpunit_no_coverage.xml
+    - ./Build/Hooks/travis.sh
+notifications:
+    email: false

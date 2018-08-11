@@ -64,7 +64,7 @@ $htaccess .= <<<EOT
     RewriteCond %{HTTP_HOST} !^www.*$ [L]
     RewriteCond %{HTTP_HOST} ^(.*)\.$tld
     RewriteRule ^([a-zA-Z]{2})\/(.*)$ $fullTLD/$1/%1/$2 [QSA]
-    
+
 EOT;
 }
 
@@ -97,11 +97,11 @@ AddHandler cgi-script .pl .py .jsp .asp .shtml .sh .cgi
 #    header always set x-frame-options "SAMEORIGIN"
 #</ifmodule>
 
-<FilesMatch "ServiceWorker.js$">
-    <ifmodule mod_headers.c>
+<ifmodule mod_headers.c>
+    <FilesMatch "ServiceWorker.js$">
         Header set Service-Worker-Allowed "/"
-    </ifmodule>
-</FilesMatch>
+    </FilesMatch>
+</ifmodule>
 
 # Php config
 # This should be removed from here and adjusted in the php.ini file
