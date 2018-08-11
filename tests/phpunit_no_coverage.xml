@@ -23,14 +23,22 @@
         </testsuite>
     </testsuites>
     <filter>
-        <whitelist addUncoveredFilesFromWhitelist="false" processUncoveredFilesFromWhitelist="false">
-            <directory suffix=".php">../*</directory>
+        <whitelist addUncoveredFilesFromWhitelist="true" processUncoveredFilesFromWhitelist="false">
+            <directory suffix=".php">../phpOMS/*</directory>
+            <directory suffix=".php">../Model/*</directory>
+            <directory suffix=".php">../Web/*</directory>
+            <directory suffix=".php">../Install/*</directory>
+            <directory suffix=".php">../Modules/*</directory>
+            <directory suffix=".php">../Socket/*</directory>
+            <directory suffix=".php">../Console/*</directory>
             <exclude>
                 <directory suffix="tpl.php">../*</directory>
                 <directory suffix="lang.php">../*</directory>
                 <directory suffix="Test.php">../*</directory>
+                <directory>*/tests/*</directory>
                 <directory>../Demo/*</directory>
                 <directory>../Build/*</directory>
+                <directory>*Test.php</directory>
                 <directory suffix=".php">../Modules/**/Admin/Routes*</directory>
                 <directory suffix=".php">../Modules/**/Admin/Install*</directory>
                 <directory suffix=".php">../Modules/Media/Files*</directory>

@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  * @var string $db     Database
  * @var string $host   Host
  * @var int    $port   Port
@@ -102,6 +102,9 @@ return [
     'page'     => [
         'root'  => '$subdir',
         'https' => false,
+    ],
+    'app'      => [
+        'path' => __DIR__,
     ],
     'socket'   => [
         'master' => [

@@ -86,6 +86,9 @@ return [
         'root'  => '/',
         'https' => false,
     ],
+    'app'      => [
+        'path' => __DIR__,
+    ],
     'socket'   => [
         'master' => [
             'host'  => '127.0.0.1',
