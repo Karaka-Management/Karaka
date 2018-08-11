@@ -19,7 +19,7 @@ return [
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '3306', /* db host port */
                     'login'    => 'root', /* db login name */
-                    'password' => '123456', /* db login password */
+                    'password' => '', /* db login password */
                     'database' => 'oms', /* db name */
                     'prefix'   => 'oms_', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
@@ -29,7 +29,7 @@ return [
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '3306', /* db host port */
                     'login'    => 'root', /* db login name */
-                    'password' => '123456', /* db login password */
+                    'password' => '', /* db login password */
                     'database' => 'oms', /* db name */
                     'prefix'   => 'oms_', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
@@ -39,7 +39,7 @@ return [
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '3306', /* db host port */
                     'login'    => 'root', /* db login name */
-                    'password' => '123456', /* db login password */
+                    'password' => '', /* db login password */
                     'database' => 'oms', /* db name */
                     'prefix'   => 'oms_', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
@@ -49,7 +49,7 @@ return [
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '3306', /* db host port */
                     'login'    => 'root', /* db login name */
-                    'password' => '123456', /* db login password */
+                    'password' => '', /* db login password */
                     'database' => 'oms', /* db name */
                     'prefix'   => 'oms_', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
@@ -59,7 +59,7 @@ return [
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '3306', /* db host port */
                     'login'    => 'root', /* db login name */
-                    'password' => '123456', /* db login password */
+                    'password' => '', /* db login password */
                     'database' => 'oms', /* db name */
                     'prefix'   => 'oms_', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
@@ -69,7 +69,7 @@ return [
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '3306', /* db host port */
                     'login'    => 'root', /* db login name */
-                    'password' => '123456', /* db login password */
+                    'password' => '', /* db login password */
                     'database' => 'oms', /* db name */
                     'prefix'   => 'oms_', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
