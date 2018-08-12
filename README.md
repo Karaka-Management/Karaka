@@ -1,4 +1,4 @@
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Orange-Management/Orange-Management/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/Orange-Management/Orange-Management/?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/efee6ef6e671072c0477/maintainability)](https://codeclimate.com/github/Orange-Management/Orange-Management/maintainability) [![Code Coverage](https://scrutinizer-ci.com/g/Orange-Management/Orange-Management/badges/coverage.png?b=develop)](https://scrutinizer-ci.com/g/Orange-Management/Orange-Management/?branch=develop) [![Build Status](https://scrutinizer-ci.com/g/Orange-Management/Orange-Management/badges/build.png?b=develop)](https://scrutinizer-ci.com/g/Orange-Management/Orange-Management/build-status/develop)
+[![Build Status](https://travis-ci.org/Orange-Management/Orange-Management.svg?branch=develop)](https://travis-ci.org/Orange-Management/Orange-Management)
 
 # General
 
