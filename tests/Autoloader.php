@@ -24,15 +24,50 @@ spl_autoload_register('\tests\Autoloader::defaultAutoloader');
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Autoloader
+final class Autoloader
 {
+    /**
+     * Base paths for autoloading
+     *
+     * @var string[]
+     * @since 1.0.0
+     */
+    private static $paths = [
+        __DIR__ . '/../',
+        __DIR__ . '/../../',
+    ];
+
+    /**
+     * Constructor.
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    private function __construct()
+    {
+
+    }
+
+    /**
+     * Add base path for autoloading
+     *
+     * @param string $path Absolute base path with / at the end
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public static function addPath(string $path) : void
+    {
+        self::$paths[] = $path;
+    }
 
     /**
      * Loading classes by namespace + class name.
      *
      * @param string $class Class path
      *
-     * @example Autoloader::default_autoloader('\Tests\PHPUnit\Autoloader') // void
+     * @example Autoloader::defaultAutoloader('\phpOMS\Autoloader') // void
      *
      * @return void
      *
@@ -45,12 +80,13 @@ class Autoloader
         $class = \ltrim($class, '\\');
         $class = \str_replace(['_', '\\'], '/', $class);
 
-        if (!\file_exists($path = __DIR__ . '/../' . $class . '.php')) {
-            return;
-        }
+        foreach (self::$paths as $path) {
+            if (file_exists($file = $path . $class . '.php')) {
+                include_once $file;
 
-        /** @noinspection PhpIncludeInspection */
-        include_once $path;
+                return;
+            }
+        }
     }
 
     /**
@@ -58,7 +94,7 @@ class Autoloader
      *
      * @param string $class Class path
      *
-     * @example Autoloader::exists('\Tests\PHPUnit\Autoloader') // true
+     * @example Autoloader::exists('\phpOMS\Autoloader') // true
      *
      * @return bool
      *
@@ -69,6 +105,12 @@ class Autoloader
         $class = \ltrim($class, '\\');
         $class = \str_replace(['_', '\\'], '/', $class);
 
-        return \file_exists(__DIR__ . '/../' . $class . '.php');
+        foreach (self::$paths as $path) {
+            if (file_exists($file = $path . $class . '.php')) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

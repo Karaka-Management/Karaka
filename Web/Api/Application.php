@@ -169,7 +169,17 @@ final class Application
 
             $this->app->moduleManager->initRequestModules($request);
 
-            $dispatched = $this->app->dispatcher->dispatch($this->app->router->route($request), $request, $response);
+            $dispatched = $this->app->dispatcher->dispatch(
+                $this->app->router->route(
+                    $request->getUri()->getRoute(),
+                    $request->getRouteVerb(),
+                    $this->app->appName,
+                    $this->app->orgId,
+                    $account
+                ),
+                $request, 
+                $response
+            );
 
             // todo: maybe better check if this and response is empty?!
             // this is sometimes getting called even on normal web views... maybe this is related to the service worker

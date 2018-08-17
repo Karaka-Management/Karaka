@@ -43,6 +43,7 @@ use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Localization\L11nManager;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\Router;
+use phpOMS\Router\RouteVerb;
 
 use Model\CoreSettings;
 
@@ -118,8 +119,20 @@ final class Application
 
         $this->app->l11nManager = new L11nManager();
         $this->app->dbPool      = new DatabasePool();
-        $this->app->router      = new Router();
+
+        $this->app->router = new Router();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
+        $this->app->router->add(
+            '/backend/e403', 
+            function() {
+                $view = new View($this->app, $request, $response);
+                $view->setTemplate('/Web/Backend/Error/403_inline');
+                $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+
+                return $view;
+            }, 
+            RouteVerb::GET
+        );
 
         $this->app->sessionManager = new HttpSession(36000);
         $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../Modules');
@@ -192,7 +205,17 @@ final class Application
         $this->app->moduleManager->initRequestModules($request);
         $this->createDefaultPageView($request, $response, $pageView);
 
-        $dispatched = $this->app->dispatcher->dispatch($this->app->router->route($request), $request, $response);
+        $dispatched = $this->app->dispatcher->dispatch(
+            $this->app->router->route(
+                $request->getUri()->getRoute(),
+                $request->getRouteVerb(),
+                $this->app->appName,
+                $this->app->orgId,
+                $account
+            ), 
+            $request, 
+            $response
+        );
         $pageView->addData('dispatch', $dispatched);
     }
 
