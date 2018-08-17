@@ -177,7 +177,7 @@ final class Application
                     $this->app->orgId,
                     $account
                 ),
-                $request, 
+                $request,
                 $response
             );
 
