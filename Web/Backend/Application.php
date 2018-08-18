@@ -20,6 +20,7 @@ use Modules\Profile\Models\ProfileMapper;
 
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\Account;
+use phpOMS\Account\NullAccount;
 use phpOMS\Account\PermissionType;
 use phpOMS\Asset\AssetType;
 use phpOMS\Auth\Auth;
@@ -170,12 +171,10 @@ final class Application
         $options = $this->app->appSettings->get([1000000009, 1000000029]);
         $account = $this->loadAccount($request);
 
-        $response->getHeader()->getL11n()->setLanguage(
-            !\in_array(
-                $request->getHeader()->getL11n()->getLanguage(),
-                $this->config['language']
-            ) ? $options[1000000029] : $request->getHeader()->getL11n()->getLanguage()
-        );
+        if (!$account instanceof NullAccount) {
+            $response->getHeader()->setL11n($account->getL11n());
+        }
+
         UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());
 
         $this->loadLanguageFromPath(

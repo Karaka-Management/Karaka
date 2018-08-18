@@ -22,6 +22,7 @@ use phpOMS\System\MimeType;
 use phpOMS\Views\View;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\Account;
+use phpOMS\Account\NullAccount;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
@@ -127,7 +128,9 @@ final class Application
         }
 
         /* Checking csrf token, if a csrf token is required at all has to be decided in the controller */
-        if ($request->getData('CSRF') !== null && $this->app->sessionManager->get('CSRF') !== $request->getData('CSRF')) {
+        if ($request->getData('CSRF') !== null
+            && $this->app->sessionManager->get('CSRF') !== $request->getData('CSRF')
+        ) {
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
 
             return;
@@ -150,7 +153,10 @@ final class Application
         $options = $this->app->appSettings->get([1000000009, 1000000029]);
         $account = $this->loadAccount($request);
 
-        $response->getHeader()->getL11n()->setLanguage(!\in_array($request->getHeader()->getL11n()->getLanguage(), $this->config['language']) ? $options[1000000029] : $request->getHeader()->getL11n()->getLanguage());
+        if (!$account instanceof NullAccount) {
+            $response->getHeader()->setL11n($account->getL11n());
+        }
+
         UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());
         $response->getHeader()->set('content-language', $response->getHeader()->getL11n()->getLanguage(), true);
 
@@ -161,7 +167,9 @@ final class Application
                 $this->handleLogin($request, $response);
 
                 return;
-            } elseif ($request->getUri()->getPathElement(2) === 'logout' && $request->getData('csrf') === $this->app->sessionManager->get('CSRF')) {
+            } elseif ($request->getUri()->getPathElement(2) === 'logout'
+                && $request->getData('csrf') === $this->app->sessionManager->get('CSRF')
+            ) {
                 $this->handleLogout($request, $response);
 
                 return;

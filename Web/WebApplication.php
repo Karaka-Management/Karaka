@@ -139,7 +139,7 @@ class WebApplication extends ApplicationAbstract
         UriFactory::setupUriBuilder($request->getUri());
 
         $langCode = \strtolower($request->getUri()->getPathElement(0));
-        $request->getHeader()->getL11n()->setLanguage(
+        $request->getHeader()->getL11n()->loadFromLanguage(
             empty($langCode) || !ISO639x1Enum::isValidValue($langCode) ? $language : $langCode
         );
         UriFactory::setQuery('/lang', $request->getHeader()->getL11n()->getLanguage());
@@ -170,10 +170,10 @@ class WebApplication extends ApplicationAbstract
             $response->getHeader()->set('strict-transport-security', 'max-age=31536000');
         }
 
-        $response->getHeader()->getL11n()->setLanguage(
+        $response->getHeader()->getL11n()->loadFromLanguage(
             !\in_array(
                 $request->getHeader()->getL11n()->getLanguage(), $languages
-            ) ? 'en' : $request->getHeader()->getL11n()->getLanguage()
+            ) ? $languages[0] : $request->getHeader()->getL11n()->getLanguage()
         );
 
         return $response;
