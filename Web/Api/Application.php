@@ -163,7 +163,7 @@ final class Application
         if (!empty($uris = $request->getUri()->getQuery('r'))) {
             $this->handleBatchRequest($uris, $request, $response);
         } else {
-            if ($request->getUri()->getPathElement(2) === 'login' && $account->getId() < 1) {
+            if ($request->getUri()->getPathElement(2) === 'login') {
                 $this->handleLogin($request, $response);
 
                 return;
