@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    TBD
+ * @package    Install\tests
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -19,7 +19,7 @@ spl_autoload_register('\Install\tests\Autoloader::default_autoloader');
 /**
  * Autoloader class.
  *
- * @package    Framework
+ * @package    Install\tests
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0

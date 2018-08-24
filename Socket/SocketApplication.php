@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    TBD
+ * @package    Socket
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -31,7 +31,7 @@ use phpOMS\Socket\SocketType;
 /**
  * Controller class.
  *
- * @package    Framework
+ * @package    Socket
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
