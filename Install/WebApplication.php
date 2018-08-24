@@ -172,7 +172,14 @@ final class WebApplication extends ApplicationAbstract
         $response->getHeader()->set('content-language', $response->getHeader()->getL11n()->getLanguage(), true);
         UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());
 
-        $this->dispatcher->dispatch($this->router->route($request), $request, $response);
+        $dispatched = $this->dispatcher->dispatch(
+            $this->router->route(
+                $request->getUri()->getRoute(),
+                $request->getRouteVerb()
+            ),
+            $request,
+            $response
+        );
     }
 
     /**
@@ -624,14 +631,13 @@ final class WebApplication extends ApplicationAbstract
     {
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'settings` (`settings_id`, `settings_module`, `settings_name`, `settings_content`, `settings_group`) VALUES
-                (1000000001, NULL, \'username_length_max\', \'20\', NULL),
-                (1000000002, NULL, \'username_length_min\', \'5\', NULL),
-                (1000000003, NULL, \'password_length_max\', \'50\', NULL),
-                (1000000004, NULL, \'password_length_min\', \'5\', NULL),
+                (1000000001, NULL, \'pass_pattern\', \'\', NULL),
+                (1000000002, NULL, \'login_timeout\', \'3\', NULL),
+                (1000000003, NULL, \'pass_interval\', \'90\', NULL),
+                (1000000004, NULL, \'pass_history\', \'3\', NULL),
                 (1000000005, NULL, \'login_tries\', \'3\', NULL),
-                (1000000006, NULL, \'pass_special\', \'1\', NULL),
-                (1000000007, NULL, \'pass_upper\', \'0\', NULL),
-                (1000000008, NULL, \'pass_numeric\', \'1\', NULL),
+                (1000000006, NULL, \'log\', \'1\', NULL),
+                (1000000007, NULL, \'log_path\', \'\', NULL),
                 (1000000009, NULL, \'oname\', \'Orange Management\', NULL),
                 (1000000010, NULL, \'theme\', \'oms-slim\', NULL),
                 (1000000011, NULL, \'theme_path\', \'/oms-slim\', NULL),
@@ -645,14 +651,42 @@ final class WebApplication extends ApplicationAbstract
                 (1000000019, NULL, \'country\', \'DE\', NULL),
                 (1000000020, NULL, \'language\', \'en\', NULL),
                 (1000000021, NULL, \'timezone\', \'Europe/Berlin\', NULL),
-                (1000000022, NULL, \'timeformat\', \'DD.MM.YYYY hh:mm:ss\', NULL),
+                (1000000022, NULL, \'temperature\', \'celsius\', NULL),
                 (1000000023, NULL, \'currency\', \'USD\', NULL),
-                (1000000024, NULL, \'pass_lower\', \'1\', NULL),
                 (1000000025, NULL, \'mail_admin\', \'mail@admin.com\', NULL),
                 (1000000026, NULL, \'login_name\', \'1\', NULL),
                 (1000000027, NULL, \'decimal_point\', \'.\', NULL),
                 (1000000028, NULL, \'thousands_sep\', \',\', NULL),
-                (1000000029, NULL, \'server_language\', \'en\', NULL)'
+                (1000001001, NULL, \'weight_very_light\', \',\', NULL),
+                (1000001002, NULL, \'weight_light\', \',\', NULL),
+                (1000001003, NULL, \'weight_medium\', \',\', NULL),
+                (1000001004, NULL, \'weight_heavy\', \',\', NULL),
+                (1000001005, NULL, \'weight_very_heavy\', \',\', NULL),
+                (1000002001, NULL, \'speed_very_slow\', \',\', NULL),
+                (1000002002, NULL, \'speed_slow\', \',\', NULL),
+                (1000002003, NULL, \'speed_medium\', \',\', NULL),
+                (1000002004, NULL, \'speed_fast\', \',\', NULL),
+                (1000002005, NULL, \'speed_very_fast\', \',\', NULL),
+                (1000002006, NULL, \'speed_sea\', \',\', NULL),
+                (1000003001, NULL, \'length_very_short\', \',\', NULL),
+                (1000003002, NULL, \'length_short\', \',\', NULL),
+                (1000003003, NULL, \'length_medium\', \',\', NULL),
+                (1000003004, NULL, \'length_fast\', \',\', NULL),
+                (1000003005, NULL, \'length_very_fast\', \',\', NULL),
+                (1000003006, NULL, \'length_sea\', \',\', NULL),
+                (1000004001, NULL, \'area_very_small\', \',\', NULL),
+                (1000004002, NULL, \'area_small\', \',\', NULL),
+                (1000004003, NULL, \'area_medium\', \',\', NULL),
+                (1000004004, NULL, \'area_large\', \',\', NULL),
+                (1000004005, NULL, \'area_very_large\', \',\', NULL),
+                (1000005001, NULL, \'volume_very_small\', \',\', NULL),
+                (1000005002, NULL, \'volume_small\', \',\', NULL),
+                (1000005003, NULL, \'volume_medium\', \',\', NULL),
+                (1000005004, NULL, \'volume_large\', \',\', NULL),
+                (1000005005, NULL, \'volume_very_large\', \',\', NULL),
+                (1000005006, NULL, \'volume_teaspoon\', \',\', NULL),
+                (1000005007, NULL, \'volume_tablespoon\', \',\', NULL),
+                (1000005008, NULL, \'volume_glass\', \',\', NULL)'
         )->execute();
     }
 }
