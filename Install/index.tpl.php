@@ -111,11 +111,6 @@
                             <td>PDO database extension for PHP
                             <td><?= extension_loaded('pdo') ? 'Available' : 'Not installed'; ?>
                         <tr>
-                            <td class="<?= extension_loaded('smtp') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('smtp') ? 'OK' : 'FAILED'; ?>
-                            <td>Medium
-                            <td>SMTP extension for PHP
-                            <td><?= extension_loaded('smtp') ? 'Available' : 'Not installed'; ?>
-                        <tr>
                             <td class="<?= extension_loaded('imap') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('imap') ? 'OK' : 'FAILED'; ?>
                             <td>Medium
                             <td>IMAP extension for PHP
