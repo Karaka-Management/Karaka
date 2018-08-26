@@ -148,7 +148,7 @@
                 </table>
 
                 <p><strong>Tip:</strong> Many PHP extension just need to be activated in your php.ini file located
-                at <?= php_ini_loaded_file(); ?>. Reload the installtion in your browser after making any adjustments.</p>
+                at <?= php_ini_loaded_file(); ?>. Reload the installation in your browser after making any adjustments.</p>
 
                 <p><button class="prev">Previous</button><button class="next"<?= !$isOK ? ' disabled' : ''?>>Next</button></p>
             </div>
@@ -196,7 +196,7 @@
                     <li><label for="iSchemaUser">User</label>
                     <li><input id="iSchemaUser" name="schemauser" type="text" form="installForm" required>
                     <li><label for="iSchemaPassword">Password</label>
-                    <li><input id="iSchemaPassword" name="schemapassword" type="password" form="installForm" required>
+                    <li><input id="iSchemaPassword" name="schemapassword" type="password" form="installForm">
                 </ul>
 
                 <h3>Create</h3>
@@ -207,7 +207,7 @@
                     <li><label for="iCreateUser">User</label>
                     <li><input id="iCreateUser" name="createuser" type="text" form="installForm" required>
                     <li><label for="iCreatePassword">Password</label>
-                    <li><input id="iCreatePassword" name="createpassword" type="password" form="installForm" required>
+                    <li><input id="iCreatePassword" name="createpassword" type="password" form="installForm">
                 </ul>
 
                 <h3>Select</h3>
@@ -218,7 +218,7 @@
                     <li><label for="iSelectUser">User</label>
                     <li><input id="iSelectUser" name="selectuser" type="text" form="installForm" required>
                     <li><label for="iSelectPassword">Password</label>
-                    <li><input id="iSelectPassword" name="selectpassword" type="password" form="installForm" required>
+                    <li><input id="iSelectPassword" name="selectpassword" type="password" form="installForm">
                 </ul>
 
                 <h3>Update</h3>
@@ -229,7 +229,7 @@
                     <li><label for="iUpdateUser">User</label>
                     <li><input id="iUpdateUser" name="updateuser" type="text" form="installForm" required>
                     <li><label for="iUpdatePassword">Password</label>
-                    <li><input id="iUpdatePassword" name="updatepassword" type="password" form="installForm" required>
+                    <li><input id="iUpdatePassword" name="updatepassword" type="password" form="installForm">
                 </ul>
 
                 <h3>Delete</h3>
@@ -240,7 +240,7 @@
                     <li><label for="iDeleteUser">User</label>
                     <li><input id="iDeleteUser" name="deleteuser" type="text" form="installForm" required>
                     <li><label for="iDeletePassword">Password</label>
-                    <li><input id="iDeletePassword" name="deletepassword" type="password" form="installForm" required>
+                    <li><input id="iDeletePassword" name="deletepassword" type="password" form="installForm">
                 </ul>
 
                 <p><button class="prev">Previous</button><button class="next">Next</button></p>
