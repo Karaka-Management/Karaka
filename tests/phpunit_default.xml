@@ -2,8 +2,8 @@
 <phpunit
         bootstrap="Bootstrap.php"
         colors="true"
-        stopOnError="true"
-        stopOnFailure="true"
+        stopOnError="false"
+        stopOnFailure="false"
         stopOnIncomplete="false"
         stopOnSkipped="false"
         beStrictAboutTestsThatDoNotTestAnything="false"
