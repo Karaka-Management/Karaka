@@ -32,13 +32,10 @@
             <directory suffix=".php">../Socket/*</directory>
             <directory suffix=".php">../Console/*</directory>
             <exclude>
+                <directory>../*/tests*</directory>
                 <directory suffix="tpl.php">../*</directory>
                 <directory suffix="lang.php">../*</directory>
                 <directory suffix="Test.php">../*</directory>
-                <directory>*/tests/*</directory>
-                <directory>../Demo/*</directory>
-                <directory>../Build/*</directory>
-                <directory>*Test.php</directory>
                 <directory suffix=".php">../Modules/**/Admin/Routes*</directory>
                 <directory suffix=".php">../Modules/**/Admin/Install*</directory>
                 <directory suffix=".php">../Modules/Media/Files*</directory>
