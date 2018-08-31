@@ -40,7 +40,7 @@ $dispatch = $this->getData('dispatch') ?? [];
 </head>
 <body>
 <div class="vh" id="dim"></div>
-<div id="h">
+<header>
     <div id="bar-s"><?= $top ?></div>
     <div id="bar-b">
         <span class="vC" id="ham-trigger">
@@ -64,7 +64,7 @@ $dispatch = $this->getData('dispatch') ?? [];
             </a>
         </span>
     </div>
-</div>
+</header>
 <div id="out">
     <?= $side; ?>
     <input type="checkbox" id="nav-trigger" class="nav-trigger"<?= !$this->request->isMobile() ? ' checked' : ''; ?>>

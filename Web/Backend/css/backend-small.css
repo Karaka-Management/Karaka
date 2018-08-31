@@ -6,7 +6,9 @@ html, body {
   overflow: hidden;
   font-family: arial, serif;
   color: #000;
-  background: #eaecf0; }
+  background: #eaecf0;
+  display: flex;
+  flex-flow: column; }
 
 #bar-s {
   user-select: none;
@@ -40,10 +42,9 @@ html, body {
 
 #out {
   box-sizing: border-box;
-  position: absolute;
-  top: 79px;
-  bottom: 0px;
-  width: 100%; }
+  width: 100%;
+  flex: 1;
+  overflow: auto; }
 
 #snav, main {
   overflow: auto;
@@ -65,3 +66,5 @@ html, body {
 main {
   position: relative;
   box-sizing: border-box; }
+
+/*# sourceMappingURL=backend-small.css.map */

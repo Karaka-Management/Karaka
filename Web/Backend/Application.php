@@ -124,14 +124,14 @@ final class Application
         $this->app->router = new Router();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
         $this->app->router->add(
-            '/backend/e403', 
+            '/backend/e403',
             function() {
                 $view = new View($this->app, $request, $response);
                 $view->setTemplate('/Web/Backend/Error/403_inline');
                 $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
 
                 return $view;
-            }, 
+            },
             RouteVerb::GET
         );
 
@@ -211,8 +211,8 @@ final class Application
                 $this->app->appName,
                 $this->app->orgId,
                 $account
-            ), 
-            $request, 
+            ),
+            $request,
             $response
         );
         $pageView->addData('dispatch', $dispatched);

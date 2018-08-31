@@ -9,6 +9,8 @@ html, body {
     font-family: arial, serif;
     color: $d-font-color;
     background: $d-cont-color;
+    display: flex;
+    flex-flow: column;
 }
 
 #bar-s {
@@ -56,10 +58,9 @@ html, body {
 
 #out {
     box-sizing: border-box;
-    position: absolute;
-    top: 79px;
-    bottom: 0;
     width: 100%;
+    flex: 1;
+    overflow: auto;
 }
 
 #snav, main {
