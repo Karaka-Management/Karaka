@@ -606,13 +606,19 @@ final class WebApplication extends ApplicationAbstract
 
         $stmt = $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'account` (`account_status`, `account_type`, `account_login`, `account_name1`, `account_name2`, `account_name3`, `account_password`, `account_email`, `account_tries`, `account_lactive`, `account_localization`, `account_created_at`) VALUES
-                (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', :adminname, :adminname, \'\', \'\', :adminpassword, :adminemail, 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\'),
+                (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', :adminlogin, :adminname, \'\', \'\', :adminpassword, :adminemail, 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\'),
                 (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', \'guest\', \'Guest\', \'\', \'\', \'' . \password_hash('guest', PASSWORD_DEFAULT) . '\', \'guest@email.com\', 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\');'
         );
 
-        $db->con->bindParam(':adminname', (string) $request->getData('adminname'));
-        $db->con->bindParam(':adminpassword', \password_hash((string) $request->getData('adminpassword'), PASSWORD_DEFAULT));
-        $db->con->bindParam(':adminemail', (string) $request->getData('adminemail'));
+        $adminlogin    = (string) $request->getData('adminname');
+        $adminname     = $adminlogin;
+        $adminpassword = \password_hash((string) $request->getData('adminpassword'), PASSWORD_DEFAULT);
+        $adminemail    = (string) $request->getData('adminemail');
+
+        $stmt->bindParam(':adminlogin', $adminlogin);
+        $stmt->bindParam(':adminname', $adminname);
+        $stmt->bindParam(':adminpassword', $adminpassword);
+        $stmt->bindParam(':adminemail', $adminemail);
 
         $stmt->execute();
 

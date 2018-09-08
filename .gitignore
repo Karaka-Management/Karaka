@@ -16,3 +16,4 @@ private.sh
 *.log
 Web/**/*/Routes.php
 .directory
+build
