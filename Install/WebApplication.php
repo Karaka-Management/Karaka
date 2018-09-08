@@ -9,7 +9,6 @@
  * @license    OMS License 1.0
  * @version    1.0.0
  * @link       http://website.orange-management.de
- * todo: use prepared statements
  */
 declare(strict_types=1);
 
@@ -605,11 +604,17 @@ final class WebApplication extends ApplicationAbstract
     {
         $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
 
-        $db->con->prepare(
+        $stmt = $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'account` (`account_status`, `account_type`, `account_login`, `account_name1`, `account_name2`, `account_name3`, `account_password`, `account_email`, `account_tries`, `account_lactive`, `account_localization`, `account_created_at`) VALUES
-                (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', \'' . ((string) $request->getData('adminname')) . '\', \'' . ((string) $request->getData('adminname')) . '\', \'\', \'\', \'' . \password_hash((string) $request->getData('adminpassword'), PASSWORD_DEFAULT) . '\', \'' . ((string) $request->getData('adminemail')) . '\', 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\'),
+                (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', :adminname, :adminname, \'\', \'\', :adminpassword, :adminemail, 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\'),
                 (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', \'guest\', \'Guest\', \'\', \'\', \'' . \password_hash('guest', PASSWORD_DEFAULT) . '\', \'guest@email.com\', 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\');'
-        )->execute();
+        );
+
+        $db->con->bindParam(':adminname', (string) $request->getData('adminname'));
+        $db->con->bindParam(':adminpassword', \password_hash((string) $request->getData('adminpassword'), PASSWORD_DEFAULT));
+        $db->con->bindParam(':adminemail', (string) $request->getData('adminemail'));
+
+        $stmt->execute();
 
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'account_group` (`account_group_group`, `account_group_account`) VALUES
