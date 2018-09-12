@@ -126,6 +126,16 @@
                             <td>FTP extension for PHP
                             <td><?= extension_loaded('ftp') ? 'Available' : 'Not installed'; ?>
                         <tr>
+                            <td class="<?= extension_loaded('dom') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('dom') ? 'OK' : 'FAILED'; ?>
+                            <td>Medium
+                            <td>Dom extension for PHP
+                            <td><?= extension_loaded('dom') ? 'Available' : 'Not installed'; ?>
+                        <tr>
+                            <td class="<?= extension_loaded('xml') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('xml') ? 'OK' : 'FAILED'; ?>
+                            <td>Medium
+                            <td>Xml extension for PHP
+                            <td><?= extension_loaded('xml') ? 'Available' : 'Not installed'; ?>
+                        <tr>
                             <td class="<?= extension_loaded('bcmath') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('bcmath') ? 'OK' : 'FAILED'; ?>
                             <td>Medium
                             <td>BCMath extension for PHP
@@ -133,7 +143,7 @@
                         <tr>
                             <td class="<?= extension_loaded('mbstring') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('mbstring') ? 'OK' : 'FAILED'; ?>
                             <td>Optional
-                            <td>Multibyte extension for PHP for international characters (e.g. chinese, russian)
+                            <td>Multibyte extension (mbstring) for PHP for international characters (e.g. chinese, russian)
                             <td><?= extension_loaded('mbstring') ? 'Available' : 'Not installed'; ?>
                         <tr>
                             <td class="<?= extension_loaded('zip') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('zip') ? 'OK' : 'FAILED'; ?>
@@ -145,6 +155,11 @@
                             <td>Optional
                             <td>Zlib extension for PHP
                             <td><?= extension_loaded('zlib') ? 'Available' : 'Not installed'; ?>
+                        <tr>
+                            <td class="<?= extension_loaded('gd') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('gd') ? 'OK' : 'FAILED'; ?>
+                            <td>Optional
+                            <td>Gd extension for PHP
+                            <td><?= extension_loaded('gd') ? 'Available' : 'Not installed'; ?>
                 </table>
 
                 <p><strong>Tip:</strong> Many PHP extension just need to be activated in your php.ini file located
