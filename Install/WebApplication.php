@@ -606,8 +606,7 @@ final class WebApplication extends ApplicationAbstract
 
         $stmt = $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'account` (`account_status`, `account_type`, `account_login`, `account_name1`, `account_name2`, `account_name3`, `account_password`, `account_email`, `account_tries`, `account_lactive`, `account_localization`, `account_created_at`) VALUES
-                (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', :adminlogin, :adminname, \'\', \'\', :adminpassword, :adminemail, 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\'),
-                (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', \'guest\', \'Guest\', \'\', \'\', \'' . \password_hash('guest', PASSWORD_DEFAULT) . '\', \'guest@email.com\', 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\');'
+                (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', :adminlogin, :adminname, \'\', \'\', :adminpassword, :adminemail, 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\');'
         );
 
         $adminlogin    = (string) $request->getData('adminname');
