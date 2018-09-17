@@ -87,7 +87,7 @@ final class Application
         $this->app          = $app;
         $this->app->appName = 'Api';
         $this->config       = $config;
-        UriFactory::setQuery('/app', strtolower($this->app->appName));
+        UriFactory::setQuery('/app', \strtolower($this->app->appName));
     }
 
     /**
@@ -214,11 +214,11 @@ final class Application
         $this->app->accountManager->add(AccountMapper::get($request->getHeader()->getAccount(), RelationType::ALL, null, 2));
         $account = $this->app->accountManager->get($request->getHeader()->getAccount());
 
-        $groupPermissions = GroupPermissionMapper::getFor(array_keys($account->getGroups()), 'group', RelationType::ALL, null, 2);
-        $account->addPermissions(is_array($groupPermissions) ? $groupPermissions : [$groupPermissions]);
+        $groupPermissions = GroupPermissionMapper::getFor(\array_keys($account->getGroups()), 'group', RelationType::ALL, null, 2);
+        $account->addPermissions(\is_array($groupPermissions) ? $groupPermissions : [$groupPermissions]);
 
         $accountPermissions = AccountPermissionMapper::getFor($request->getHeader()->getAccount(), 'account', RelationType::ALL, null, 2);
-        $account->addPermissions(is_array($accountPermissions) ? $accountPermissions : [$accountPermissions]);
+        $account->addPermissions(\is_array($accountPermissions) ? $accountPermissions : [$accountPermissions]);
 
         return $account;
     }
