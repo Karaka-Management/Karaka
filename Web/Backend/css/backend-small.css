@@ -32,7 +32,7 @@ html, body {
   #logo a {
     color: #2f2f2f; }
   #logo select {
-    font-size: 1.7em; }
+    font-size: 1rem; }
 
 #s-bar input[type=text] {
   width: 50%; }
