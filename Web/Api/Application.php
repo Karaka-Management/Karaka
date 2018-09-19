@@ -105,7 +105,7 @@ final class Application
         $response->getHeader()->set('Content-Type', 'text/plain; charset=utf-8');
         $pageView = new View($this->app, $request, $response);
 
-        $this->app->l11nManager = new L11nManager();
+        $this->app->l11nManager = new L11nManager($this->app->appName);
         $this->app->dbPool      = new DatabasePool();
         $this->app->router      = new Router();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');

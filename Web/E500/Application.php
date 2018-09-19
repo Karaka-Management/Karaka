@@ -86,7 +86,7 @@ final class Application
             throw new PathException($oldPath);
         }
 
-        $this->app->l11nManager = new L11nManager();
+        $this->app->l11nManager = new L11nManager($this->app->appName);
 
         /** @noinspection PhpIncludeInspection */
         $themeLanguage = include $path;

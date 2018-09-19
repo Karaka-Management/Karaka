@@ -118,7 +118,7 @@ final class Application
             return;
         }
 
-        $this->app->l11nManager = new L11nManager();
+        $this->app->l11nManager = new L11nManager($this->app->appName);
         $this->app->dbPool      = new DatabasePool();
 
         $this->app->router = new Router();
