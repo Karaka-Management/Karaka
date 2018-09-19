@@ -95,7 +95,7 @@ class ConsoleApplication extends ApplicationAbstract
             /** @var ConnectionAbstract $con */
             $con = $this->dbPool->get();
 
-            $this->l11nManager = new L11nManager();
+            $this->l11nManager = new L11nManager($this->appName);
             $this->router      = new Router();
             $this->router->importFromFile(__DIR__ . '/Routes.php');
 
