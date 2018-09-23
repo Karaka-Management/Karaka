@@ -83,8 +83,8 @@
 
             for(let i = 0; i < length; i++) {
                 this.inputManager.getKeyboardManager().add(
-                    KEYBOARD_EVENTS[i]['element'], 
-                    KEYBOARD_EVENTS[i]['keys'], 
+                    KEYBOARD_EVENTS[i]['element'],
+                    KEYBOARD_EVENTS[i]['keys'],
                     KEYBOARD_EVENTS[i]['callback']
                 );
             }
@@ -94,12 +94,12 @@
         {
             /** global: MOUSE_EVENTS */
             let length = MOUSE_EVENTS.length;
-            
+
             for(let i = 0; i < length; i++) {
                 this.inputManager.getMouseManager().add(
-                    MOUSE_EVENTS[i]['element'], 
-                    MOUSE_EVENTS[i]['type'], 
-                    MOUSE_EVENTS[i]['button'], 
+                    MOUSE_EVENTS[i]['element'],
+                    MOUSE_EVENTS[i]['type'],
+                    MOUSE_EVENTS[i]['button'],
                     MOUSE_EVENTS[i]['callback'],
                     MOUSE_EVENTS[i]['exact']
                 );
