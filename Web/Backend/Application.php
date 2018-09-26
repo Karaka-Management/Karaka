@@ -57,6 +57,7 @@ use Web\WebApplication;
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
+ * @codeCoverageIgnore
  */
 final class Application
 {
@@ -125,7 +126,7 @@ final class Application
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
         $this->app->router->add(
             '/backend/e403',
-            function() {
+            function() use ($request, $response) {
                 $view = new View($this->app, $request, $response);
                 $view->setTemplate('/Web/Backend/Error/403_inline');
                 $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
