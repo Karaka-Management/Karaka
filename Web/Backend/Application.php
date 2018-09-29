@@ -376,6 +376,7 @@ final class Application
         $head->addAsset(AssetType::JS, '/jsOMS/Log/Logger.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Log/LogLevel.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Component/Form.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Component/Table.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/InputManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Keyboard/KeyboardManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Mouse/ClickType.js');
@@ -394,6 +395,7 @@ final class Application
         $head->addAsset(AssetType::JS, '/jsOMS/UI/GeneralUI.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/UIManager.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Views/FormView.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Views/TableView.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Utils/Parser/Markdown.js');
 
         // Models
