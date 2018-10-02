@@ -61,6 +61,7 @@ class BackendView extends View
      * @return void
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function setNavigation(View $nav) : void
     {
@@ -75,6 +76,7 @@ class BackendView extends View
      * @return void
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function setProfile(Profile $profile) : void
     {
@@ -90,7 +92,7 @@ class BackendView extends View
      */
     public function getProfileImage() : string
     {
-        if ($this->profile->getImage()->getPath() === '') {
+        if ($this->profile === null || $this->profile->getImage()->getPath() === '') {
             return UriFactory::build('/Web/Backend/img/user_default_' . mt_rand(1, 6) . '.png');
         }
 
@@ -105,6 +107,7 @@ class BackendView extends View
      * @return void
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function setOrganizations(array $organizations) : void
     {

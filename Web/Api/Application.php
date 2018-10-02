@@ -40,10 +40,10 @@ use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\AccountPermissionMapper;
 use Modules\Admin\Models\GroupPermissionMapper;
 
-use Model\Message\Notify;
-use Model\Message\NotifyType;
-use Model\Message\Redirect;
-use Model\Message\Reload;
+use phpOMS\Model\Message\Notify;
+use phpOMS\Model\Message\NotifyType;
+use phpOMS\Model\Message\Redirect;
+use phpOMS\Model\Message\Reload;
 use Model\CoreSettings;
 
 use Web\WebApplication;

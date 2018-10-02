@@ -22,9 +22,6 @@
 [submodule "Developer-Guide"]
 	path = Developer-Guide
 	url = https://github.com/Orange-Management/Developer-Guide.git
-[submodule "Model"]
-	path = Model
-	url = https://github.com/Orange-Management/Model.git
 [submodule "Resources"]
 	path = Resources
 	url = https://github.com/Orange-Management/Resources.git

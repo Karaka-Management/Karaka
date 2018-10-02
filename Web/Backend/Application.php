@@ -399,30 +399,30 @@ final class Application
         $head->addAsset(AssetType::JS, '/jsOMS/Utils/Parser/Markdown.js');
 
         // Models
-        $head->addAsset(AssetType::JS, '/Model/Message/DomActionType.js');
-        $head->addAsset(AssetType::JS, '/Model/Message/DomAction.js');
-        $head->addAsset(AssetType::JS, '/Model/Message/FormValidation.js');
-        $head->addAsset(AssetType::JS, '/Model/Message/NotifyType.js');
-        $head->addAsset(AssetType::JS, '/Model/Message/Notify.js');
-        $head->addAsset(AssetType::JS, '/Model/Message/Redirect.js');
-        $head->addAsset(AssetType::JS, '/Model/Message/Reload.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Message/DomActionType.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Message/DomAction.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Message/FormValidation.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Message/NotifyType.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Message/Notify.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Message/Redirect.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Message/Reload.js');
 
-        $head->addAsset(AssetType::JS, '/Model/Action/Message/Request.js');
-        $head->addAsset(AssetType::JS, '/Model/Action/Message/Log.js');
-        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Popup.js');
-        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Remove.js');
-        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Show.js');
-        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Hide.js');
-        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Focus.js');
-        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Datalist/Clear.js');
-        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Datalist/Append.js');
-        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Table/Clear.js');
-        $head->addAsset(AssetType::JS, '/Model/Action/Dom/Table/Append.js');
-        $head->addAsset(AssetType::JS, '/Model/Action/Utils/Timer.js');
-        $head->addAsset(AssetType::JS, '/Model/Action/Validate/Keypress.js');
-        $head->addAsset(AssetType::JS, '/Model/Action/Dom/SetValue.js');
-        $head->addAsset(AssetType::JS, '/Model/Action/Dom/RemoveValue.js');
-        $head->addAsset(AssetType::JS, '/Model/Action/Dom/GetValue.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Message/Request.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Message/Log.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Popup.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Remove.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Show.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Hide.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Focus.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Datalist/Clear.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Datalist/Append.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Table/Clear.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Table/Append.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Utils/Timer.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Validate/Keypress.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/SetValue.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/RemoveValue.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/GetValue.js');
 
         $head->addAsset(AssetType::JS, '/Web/Backend/js/config.js');
         $head->addAsset(AssetType::JS, '/Web/Backend/js/global/ActionEvents.js');

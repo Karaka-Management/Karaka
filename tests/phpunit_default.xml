@@ -18,8 +18,8 @@
         <testsuite name="Modules">
             <directory>../Modules*</directory>
         </testsuite>
-        <testsuite name="Model">
-            <directory>../Model*</directory>
+        <testsuite name="App">
+            <directory>../tests*</directory>
         </testsuite>
     </testsuites>
     <filter>
