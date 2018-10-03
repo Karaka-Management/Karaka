@@ -485,10 +485,14 @@ final class WebApplication extends ApplicationAbstract
      */
     private static function installCoreModules(ConnectionAbstract $db) : void
     {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
+        $app         = new class extends ApplicationAbstract {
+            protected $appName = 'Api';
+        };
         $app->dbPool = new DatabasePool();
 
         $app->dbPool->add('select', $db);
+        $app->dbPool->add('insert', $db);
+        $app->dbPool->add('update', $db);
         $app->dbPool->add('schema', $db);
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../Modules');
