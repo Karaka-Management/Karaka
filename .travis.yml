@@ -10,10 +10,8 @@ before_script:
     - pecl install ast
     - composer install
     - chmod -R 755 Build/Hooks
-    - echo "extension=redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/redis.ini
     - phpenmod redis
     - pecl install memcached
-    - echo "extension=memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/memcached.ini
     - phpenmod memcached
 addons:
     code_climate:
