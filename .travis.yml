@@ -6,11 +6,13 @@ services:
     - mysql
     - redis
     - memcached
+before_install:
+    - apt-get update
+    - apt-get install -qq libmemcached-dev
 before_script:
     - pecl install ast
     - composer install
     - chmod -R 755 Build/Hooks
-    - apt-get install -qq --no-install-recommends libmemcached-dev
     - printf "\n" | pecl install memcached
 addons:
     code_climate:
