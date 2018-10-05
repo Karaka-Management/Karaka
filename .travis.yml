@@ -10,6 +10,7 @@ before_script:
     - pecl install ast
     - composer install
     - chmod -R 755 Build/Hooks
+    - apt-get install memcached libmemcached-dev libmemcached-tools
     - printf "\n" | pecl install memcached
 addons:
     code_climate:
