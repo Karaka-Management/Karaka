@@ -10,9 +10,7 @@ before_script:
     - pecl install ast
     - composer install
     - chmod -R 755 Build/Hooks
-    - phpenmod redis
     - pecl install memcached
-    - phpenmod memcached
 addons:
     code_climate:
         repo_token:
