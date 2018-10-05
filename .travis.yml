@@ -4,6 +4,8 @@ php:
     - nightly
 services:
     - mysql
+    - redis
+    - memcached
 before_script:
     - pecl install ast
     - composer install
