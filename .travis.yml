@@ -10,7 +10,12 @@ before_script:
     - pecl install ast
     - composer install
     - chmod -R 755 Build/Hooks
+    - printf "\n" | pecl install memcached
 addons:
+    addons:
+        apt:
+            packages:
+                - libmemcached-dev
     code_climate:
         repo_token:
             secure: "uK8dU20CqjOEuZ2S3qtNXvqzbESX0bCkedSGxFP1gVzez029Qm38ThWZ6uo8UWrSieIyOrW38pycrhwA9CZwQHpQwV0/DsYuLcuDAiXQOvG+H6Z/RBdxtgPjSoWGTw5CBPIlHzsasgq0yvZnuh0o602l+BsnSV1MnlbkM6chD+l9yiUaugYZj4i64rfWDL+v3AbjuffxVExe+rvFsVicvDO7oH4DFBGm4ZwbSNu6GHGVlnxyC1Olnox7TxGdTfVtIeQcAkOrefmWynKhqdlcH8dCIM1VGTGDPSwv+HhldMXHo9rjJwA3JfhBr2gMHpV9q4kMSivAyFSSnnn2m8dOKXukeSByRDwfubA9PbuxeYNY3d0graMWLieV1imJ3q068mJRuIou/yQDQb42FmMtrU2OZm3YF3Op5IJVK9IWCjenhjVPhy7JTjCbYxQxseEn58wYVpLYBpwEteiqH9G/jvRWui3CKZ1Ofw7Zm7Pg22qMXv3clUPMqkQchaImp83EO7YH8MLurfEnswy/KRxi59rn6oJr4OIRHV0hzKuJ8tKp1ZVCoGaLX5hGMS6jTc1l/rILF+8INXhJwa8feKeK0JprS8VsktmtXzsqfrP3s+bw//a3fZCpyc002qIlClX4Km/iVbC9UCv+QrneBWbnXGL0XLDXmTaoSoGxVtNDLz4="
