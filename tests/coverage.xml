@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1538764853">
-  <project timestamp="1538764853">
+<coverage generated="1538830237">
+  <project timestamp="1538830237">
     <package name="Modules\Accounting\Admin">
       <file name="/home/spl1nes/Orange-Management/Modules/Accounting/Admin/Installer.php">
         <class name="Modules\Accounting\Admin\Installer" namespace="Modules\Accounting\Admin" fullPackage="Modules" package="Modules">
@@ -6432,8 +6432,8 @@
         <line num="114" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="30"/>
         <line num="116" type="stmt" count="30"/>
         <line num="117" type="stmt" count="30"/>
-        <line num="124" type="method" name="getId" visibility="public" complexity="1" crap="1" count="16"/>
-        <line num="126" type="stmt" count="16"/>
+        <line num="124" type="method" name="getId" visibility="public" complexity="1" crap="1" count="15"/>
+        <line num="126" type="stmt" count="15"/>
         <line num="134" type="method" name="isAbsolute" visibility="public" complexity="1" crap="1" count="5"/>
         <line num="136" type="stmt" count="5"/>
         <line num="144" type="method" name="setAbsolute" visibility="public" complexity="1" crap="1" count="3"/>
@@ -11798,11 +11798,11 @@
         <class name="Modules\Tasks\Models\TaskElement" namespace="Modules\Tasks\Models" fullPackage="Modules" package="Modules">
           <metrics complexity="24" methods="21" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="34" elements="64" coveredelements="53"/>
         </class>
-        <line num="115" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="15"/>
-        <line num="117" type="stmt" count="15"/>
-        <line num="118" type="stmt" count="15"/>
-        <line num="119" type="stmt" count="15"/>
-        <line num="120" type="stmt" count="15"/>
+        <line num="115" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="16"/>
+        <line num="117" type="stmt" count="16"/>
+        <line num="118" type="stmt" count="16"/>
+        <line num="119" type="stmt" count="16"/>
+        <line num="120" type="stmt" count="16"/>
         <line num="127" type="method" name="getCreatedAt" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="129" type="stmt" count="1"/>
         <line num="137" type="method" name="getCreatedBy" visibility="public" complexity="1" crap="1" count="2"/>
@@ -11837,8 +11837,8 @@
         <line num="284" type="method" name="setForwarded" visibility="public" complexity="1" crap="1" count="10"/>
         <line num="286" type="stmt" count="10"/>
         <line num="287" type="stmt" count="10"/>
-        <line num="296" type="method" name="getId" visibility="public" complexity="1" crap="1" count="3"/>
-        <line num="298" type="stmt" count="3"/>
+        <line num="296" type="method" name="getId" visibility="public" complexity="1" crap="1" count="4"/>
+        <line num="298" type="stmt" count="4"/>
         <line num="308" type="method" name="getStatus" visibility="public" complexity="1" crap="1" count="2"/>
         <line num="310" type="stmt" count="2"/>
         <line num="324" type="method" name="setStatus" visibility="public" complexity="2" crap="2" count="7"/>
@@ -14267,15 +14267,15 @@
         <line num="508" type="stmt" count="0"/>
         <line num="511" type="stmt" count="3"/>
         <line num="513" type="stmt" count="3"/>
-        <line num="526" type="method" name="getObjectId" visibility="private" complexity="3" crap="3" count="108"/>
-        <line num="528" type="stmt" count="108"/>
-        <line num="529" type="stmt" count="108"/>
-        <line num="531" type="stmt" count="108"/>
-        <line num="532" type="stmt" count="104"/>
-        <line num="535" type="stmt" count="108"/>
-        <line num="537" type="stmt" count="108"/>
-        <line num="538" type="stmt" count="104"/>
-        <line num="541" type="stmt" count="108"/>
+        <line num="526" type="method" name="getObjectId" visibility="private" complexity="3" crap="3" count="107"/>
+        <line num="528" type="stmt" count="107"/>
+        <line num="529" type="stmt" count="107"/>
+        <line num="531" type="stmt" count="107"/>
+        <line num="532" type="stmt" count="103"/>
+        <line num="535" type="stmt" count="107"/>
+        <line num="537" type="stmt" count="107"/>
+        <line num="538" type="stmt" count="103"/>
+        <line num="541" type="stmt" count="107"/>
         <line num="555" type="method" name="setObjectId" visibility="private" complexity="3" crap="3" count="94"/>
         <line num="557" type="stmt" count="94"/>
         <line num="559" type="stmt" count="94"/>
@@ -14843,15 +14843,15 @@
         <line num="2088" type="stmt" count="83"/>
         <line num="2090" type="stmt" count="83"/>
         <line num="2091" type="stmt" count="83"/>
-        <line num="2092" type="stmt" count="30"/>
-        <line num="2093" type="stmt" count="30"/>
-        <line num="2096" type="stmt" count="63"/>
+        <line num="2092" type="stmt" count="29"/>
+        <line num="2093" type="stmt" count="29"/>
+        <line num="2096" type="stmt" count="64"/>
         <line num="2097" type="stmt" count="0"/>
         <line num="2098" type="stmt" count="0"/>
-        <line num="2101" type="stmt" count="63"/>
-        <line num="2103" type="stmt" count="63"/>
+        <line num="2101" type="stmt" count="64"/>
+        <line num="2103" type="stmt" count="64"/>
         <line num="2104" type="stmt" count="0"/>
-        <line num="2107" type="stmt" count="63"/>
+        <line num="2107" type="stmt" count="64"/>
         <line num="2110" type="stmt" count="83"/>
         <line num="2111" type="stmt" count="83"/>
         <line num="2113" type="stmt" count="83"/>
@@ -14859,7 +14859,7 @@
         <line num="2116" type="stmt" count="9"/>
         <line num="2117" type="stmt" count="83"/>
         <line num="2118" type="stmt" count="83"/>
-        <line num="2121" type="stmt" count="19"/>
+        <line num="2121" type="stmt" count="18"/>
         <line num="2131" type="method" name="getNullModelObj" visibility="private" complexity="1" crap="1" count="9"/>
         <line num="2133" type="stmt" count="9"/>
         <line num="2134" type="stmt" count="9"/>
@@ -14986,14 +14986,14 @@
         <line num="2459" type="stmt" count="0"/>
         <line num="2473" type="method" name="fillRelations" visibility="public" complexity="10" crap="10.02" count="84"/>
         <line num="2475" type="stmt" count="84"/>
-        <line num="2476" type="stmt" count="23"/>
+        <line num="2476" type="stmt" count="22"/>
         <line num="2479" type="stmt" count="84"/>
         <line num="2480" type="stmt" count="0"/>
         <line num="2483" type="stmt" count="84"/>
         <line num="2484" type="stmt" count="84"/>
         <line num="2485" type="stmt" count="84"/>
         <line num="2487" type="stmt" count="84"/>
-        <line num="2488" type="stmt" count="25"/>
+        <line num="2488" type="stmt" count="26"/>
         <line num="2491" type="stmt" count="70"/>
         <line num="2493" type="stmt" count="70"/>
         <line num="2494" type="stmt" count="42"/>
@@ -15020,13 +15020,13 @@
         <line num="2546" type="stmt" count="2"/>
         <line num="2547" type="stmt" count="2"/>
         <line num="2550" type="stmt" count="2"/>
-        <line num="2561" type="method" name="getRaw" visibility="public" complexity="2" crap="2" count="64"/>
-        <line num="2563" type="stmt" count="64"/>
-        <line num="2564" type="stmt" count="64"/>
-        <line num="2566" type="stmt" count="64"/>
-        <line num="2567" type="stmt" count="64"/>
-        <line num="2569" type="stmt" count="64"/>
-        <line num="2571" type="stmt" count="64"/>
+        <line num="2561" type="method" name="getRaw" visibility="public" complexity="2" crap="2" count="65"/>
+        <line num="2563" type="stmt" count="65"/>
+        <line num="2564" type="stmt" count="65"/>
+        <line num="2566" type="stmt" count="65"/>
+        <line num="2567" type="stmt" count="65"/>
+        <line num="2569" type="stmt" count="65"/>
+        <line num="2571" type="stmt" count="65"/>
         <line num="2584" type="method" name="getPrimaryKeysBy" visibility="public" complexity="2" crap="2.00" count="2"/>
         <line num="2586" type="stmt" count="2"/>
         <line num="2587" type="stmt" count="2"/>
@@ -15102,11 +15102,11 @@
         <line num="2774" type="stmt" count="0"/>
         <line num="2777" type="stmt" count="0"/>
         <line num="2780" type="stmt" count="0"/>
-        <line num="2794" type="method" name="addInitialized" visibility="private" complexity="2" crap="2" count="71"/>
-        <line num="2796" type="stmt" count="71"/>
+        <line num="2794" type="method" name="addInitialized" visibility="private" complexity="2" crap="2" count="72"/>
+        <line num="2796" type="stmt" count="72"/>
         <line num="2797" type="stmt" count="38"/>
-        <line num="2800" type="stmt" count="71"/>
-        <line num="2801" type="stmt" count="71"/>
+        <line num="2800" type="stmt" count="72"/>
+        <line num="2801" type="stmt" count="72"/>
         <line num="2814" type="method" name="addInitializedArray" visibility="private" complexity="2" crap="2" count="2"/>
         <line num="2816" type="stmt" count="2"/>
         <line num="2817" type="stmt" count="1"/>
@@ -19459,7 +19459,7 @@
     <package name="phpOMS\Math\Stochastic\Distribution">
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/BernoulliDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\BernoulliDistribution" namespace="phpOMS\Math\Stochastic\Distribution" fullPackage="phpOMS" package="phpOMS">
-          <metrics complexity="20" methods="12" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="26" elements="40" coveredelements="36"/>
+          <metrics complexity="19" methods="11" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="27" coveredstatements="26" elements="38" coveredelements="36"/>
         </class>
         <line num="39" type="method" name="getPmf" visibility="public" complexity="3" crap="3.07" count="1"/>
         <line num="41" type="stmt" count="1"/>
@@ -19499,9 +19499,7 @@
         <line num="193" type="stmt" count="1"/>
         <line num="205" type="method" name="getExKurtosis" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="207" type="stmt" count="1"/>
-        <line num="210" type="method" name="getRandom" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="213" type="stmt" count="0"/>
-        <metrics loc="214" ncloc="91" classes="1" methods="12" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="26" elements="40" coveredelements="36"/>
+        <metrics loc="209" ncloc="86" classes="1" methods="11" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="27" coveredstatements="26" elements="38" coveredelements="36"/>
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/BetaDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\BetaDistribution" namespace="phpOMS\Math\Stochastic\Distribution">
@@ -19511,7 +19509,7 @@
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/BinomialDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\BinomialDistribution" namespace="phpOMS\Math\Stochastic\Distribution" fullPackage="phpOMS" package="phpOMS">
-          <metrics complexity="12" methods="11" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="13" elements="25" coveredelements="23"/>
+          <metrics complexity="11" methods="10" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="23" coveredelements="23"/>
         </class>
         <line num="42" type="method" name="getMode" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="44" type="stmt" count="1"/>
@@ -19536,13 +19534,11 @@
         <line num="175" type="stmt" count="1"/>
         <line num="188" type="method" name="getVariance" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="190" type="stmt" count="1"/>
-        <line num="193" type="method" name="getRandom" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="196" type="stmt" count="0"/>
-        <metrics loc="197" ncloc="71" classes="1" methods="11" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="13" elements="25" coveredelements="23"/>
+        <metrics loc="192" ncloc="66" classes="1" methods="10" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="23" coveredelements="23"/>
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/CauchyDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\CauchyDistribution" namespace="phpOMS\Math\Stochastic\Distribution" fullPackage="phpOMS" package="phpOMS">
-          <metrics complexity="6" methods="6" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="5" elements="12" coveredelements="10"/>
+          <metrics complexity="5" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="10" coveredelements="10"/>
         </class>
         <line num="38" type="method" name="getPdf" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="40" type="stmt" count="1"/>
@@ -19554,139 +19550,83 @@
         <line num="84" type="stmt" count="1"/>
         <line num="96" type="method" name="getEntropy" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="98" type="stmt" count="1"/>
-        <line num="101" type="method" name="getRandom" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="104" type="stmt" count="0"/>
-        <metrics loc="105" ncloc="37" classes="1" methods="6" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="5" elements="12" coveredelements="10"/>
+        <metrics loc="100" ncloc="32" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="10" coveredelements="10"/>
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/ChiSquaredDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\ChiSquaredDistribution" namespace="phpOMS\Math\Stochastic\Distribution" fullPackage="phpOMS" package="phpOMS">
-          <metrics complexity="22" methods="11" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="65" coveredstatements="0" elements="76" coveredelements="0"/>
+          <metrics complexity="20" methods="10" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="33" elements="44" coveredelements="42"/>
         </class>
-        <line num="91" type="method" name="testHypothesis" visibility="public" complexity="9" crap="90" count="0"/>
-        <line num="92" type="stmt" count="0"/>
-        <line num="93" type="stmt" count="0"/>
-        <line num="94" type="stmt" count="0"/>
-        <line num="95" type="stmt" count="0"/>
-        <line num="97" type="stmt" count="0"/>
-        <line num="99" type="stmt" count="0"/>
-        <line num="100" type="stmt" count="0"/>
-        <line num="101" type="stmt" count="0"/>
-        <line num="103" type="stmt" count="0"/>
-        <line num="105" type="stmt" count="0"/>
-        <line num="106" type="stmt" count="0"/>
-        <line num="107" type="stmt" count="0"/>
-        <line num="109" type="stmt" count="0"/>
-        <line num="110" type="stmt" count="0"/>
-        <line num="111" type="stmt" count="0"/>
-        <line num="113" type="stmt" count="0"/>
-        <line num="114" type="stmt" count="0"/>
-        <line num="115" type="stmt" count="0"/>
-        <line num="116" type="stmt" count="0"/>
-        <line num="117" type="stmt" count="0"/>
-        <line num="118" type="stmt" count="0"/>
-        <line num="120" type="stmt" count="0"/>
-        <line num="121" type="stmt" count="0"/>
-        <line num="122" type="stmt" count="0"/>
-        <line num="124" type="stmt" count="0"/>
-        <line num="125" type="stmt" count="0"/>
-        <line num="136" type="method" name="getDegreesOfFreedom" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="137" type="stmt" count="0"/>
-        <line num="138" type="stmt" count="0"/>
-        <line num="139" type="stmt" count="0"/>
-        <line num="140" type="stmt" count="0"/>
-        <line num="141" type="stmt" count="0"/>
-        <line num="142" type="stmt" count="0"/>
-        <line num="143" type="stmt" count="0"/>
-        <line num="157" type="method" name="getPdf" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="158" type="stmt" count="0"/>
-        <line num="159" type="stmt" count="0"/>
-        <line num="160" type="stmt" count="0"/>
-        <line num="161" type="stmt" count="0"/>
-        <line num="163" type="stmt" count="0"/>
-        <line num="164" type="stmt" count="0"/>
-        <line num="175" type="method" name="getMode" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="176" type="stmt" count="0"/>
-        <line num="177" type="stmt" count="0"/>
-        <line num="178" type="stmt" count="0"/>
-        <line num="189" type="method" name="getMean" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="190" type="stmt" count="0"/>
-        <line num="191" type="stmt" count="0"/>
-        <line num="192" type="stmt" count="0"/>
-        <line num="203" type="method" name="getMedian" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="204" type="stmt" count="0"/>
-        <line num="205" type="stmt" count="0"/>
-        <line num="206" type="stmt" count="0"/>
-        <line num="217" type="method" name="getVariance" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="218" type="stmt" count="0"/>
-        <line num="219" type="stmt" count="0"/>
-        <line num="220" type="stmt" count="0"/>
-        <line num="234" type="method" name="getMgf" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="235" type="stmt" count="0"/>
-        <line num="236" type="stmt" count="0"/>
-        <line num="237" type="stmt" count="0"/>
-        <line num="238" type="stmt" count="0"/>
-        <line num="240" type="stmt" count="0"/>
-        <line num="241" type="stmt" count="0"/>
-        <line num="252" type="method" name="getSkewness" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="253" type="stmt" count="0"/>
-        <line num="254" type="stmt" count="0"/>
-        <line num="255" type="stmt" count="0"/>
-        <line num="266" type="method" name="getExKurtosis" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="267" type="stmt" count="0"/>
-        <line num="268" type="stmt" count="0"/>
-        <line num="269" type="stmt" count="0"/>
-        <line num="271" type="method" name="getRandom" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="272" type="stmt" count="0"/>
-        <line num="274" type="stmt" count="0"/>
-        <metrics loc="275" ncloc="149" classes="1" methods="11" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="65" coveredstatements="0" elements="76" coveredelements="0"/>
+        <line num="91" type="method" name="testHypothesis" visibility="public" complexity="8" crap="8" count="3"/>
+        <line num="93" type="stmt" count="3"/>
+        <line num="94" type="stmt" count="1"/>
+        <line num="97" type="stmt" count="2"/>
+        <line num="99" type="stmt" count="2"/>
+        <line num="100" type="stmt" count="1"/>
+        <line num="103" type="stmt" count="2"/>
+        <line num="105" type="stmt" count="2"/>
+        <line num="106" type="stmt" count="2"/>
+        <line num="109" type="stmt" count="2"/>
+        <line num="110" type="stmt" count="1"/>
+        <line num="113" type="stmt" count="1"/>
+        <line num="114" type="stmt" count="1"/>
+        <line num="115" type="stmt" count="1"/>
+        <line num="116" type="stmt" count="1"/>
+        <line num="120" type="stmt" count="1"/>
+        <line num="123" type="stmt" count="1"/>
+        <line num="124" type="stmt" count="1"/>
+        <line num="125" type="stmt" count="1"/>
+        <line num="126" type="stmt" count="1"/>
+        <line num="139" type="method" name="getDegreesOfFreedom" visibility="public" complexity="2" crap="2" count="3"/>
+        <line num="141" type="stmt" count="3"/>
+        <line num="142" type="stmt" count="1"/>
+        <line num="144" type="stmt" count="3"/>
+        <line num="160" type="method" name="getPdf" visibility="public" complexity="2" crap="2.15" count="1"/>
+        <line num="162" type="stmt" count="1"/>
+        <line num="163" type="stmt" count="1"/>
+        <line num="166" type="stmt" count="0"/>
+        <line num="178" type="method" name="getMode" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="180" type="stmt" count="1"/>
+        <line num="192" type="method" name="getMean" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="194" type="stmt" count="1"/>
+        <line num="206" type="method" name="getMedian" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="208" type="stmt" count="1"/>
+        <line num="220" type="method" name="getVariance" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="222" type="stmt" count="1"/>
+        <line num="237" type="method" name="getMgf" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="239" type="stmt" count="2"/>
+        <line num="240" type="stmt" count="1"/>
+        <line num="243" type="stmt" count="1"/>
+        <line num="255" type="method" name="getSkewness" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="257" type="stmt" count="1"/>
+        <line num="269" type="method" name="getExKurtosis" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="271" type="stmt" count="1"/>
+        <metrics loc="273" ncloc="147" classes="1" methods="10" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="33" elements="44" coveredelements="42"/>
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/ExponentialDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\ExponentialDistribution" namespace="phpOMS\Math\Stochastic\Distribution" fullPackage="phpOMS" package="phpOMS">
-          <metrics complexity="13" methods="10" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="0" elements="42" coveredelements="0"/>
+          <metrics complexity="12" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="20" coveredelements="20"/>
         </class>
-        <line num="37" type="method" name="getPdf" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="38" type="stmt" count="0"/>
-        <line num="39" type="stmt" count="0"/>
-        <line num="40" type="stmt" count="0"/>
-        <line num="52" type="method" name="getCdf" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="53" type="stmt" count="0"/>
-        <line num="54" type="stmt" count="0"/>
-        <line num="55" type="stmt" count="0"/>
-        <line num="64" type="method" name="getMode" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="65" type="stmt" count="0"/>
-        <line num="66" type="stmt" count="0"/>
-        <line num="67" type="stmt" count="0"/>
-        <line num="78" type="method" name="getMean" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="79" type="stmt" count="0"/>
-        <line num="80" type="stmt" count="0"/>
-        <line num="81" type="stmt" count="0"/>
-        <line num="92" type="method" name="getMedian" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="93" type="stmt" count="0"/>
-        <line num="94" type="stmt" count="0"/>
-        <line num="95" type="stmt" count="0"/>
-        <line num="106" type="method" name="getVariance" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="107" type="stmt" count="0"/>
-        <line num="108" type="stmt" count="0"/>
-        <line num="109" type="stmt" count="0"/>
-        <line num="123" type="method" name="getMgf" visibility="public" complexity="2" crap="6" count="0"/>
-        <line num="124" type="stmt" count="0"/>
-        <line num="125" type="stmt" count="0"/>
-        <line num="126" type="stmt" count="0"/>
-        <line num="127" type="stmt" count="0"/>
-        <line num="129" type="stmt" count="0"/>
-        <line num="130" type="stmt" count="0"/>
-        <line num="139" type="method" name="getSkewness" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="140" type="stmt" count="0"/>
-        <line num="141" type="stmt" count="0"/>
-        <line num="142" type="stmt" count="0"/>
-        <line num="151" type="method" name="getExKurtosis" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="152" type="stmt" count="0"/>
-        <line num="153" type="stmt" count="0"/>
-        <line num="154" type="stmt" count="0"/>
-        <line num="156" type="method" name="getRandom" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="157" type="stmt" count="0"/>
-        <line num="159" type="stmt" count="0"/>
-        <metrics loc="160" ncloc="61" classes="1" methods="10" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="0" elements="42" coveredelements="0"/>
+        <line num="37" type="method" name="getPdf" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="39" type="stmt" count="1"/>
+        <line num="52" type="method" name="getCdf" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="54" type="stmt" count="1"/>
+        <line num="64" type="method" name="getMode" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="66" type="stmt" count="1"/>
+        <line num="78" type="method" name="getMean" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="80" type="stmt" count="1"/>
+        <line num="92" type="method" name="getMedian" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="94" type="stmt" count="1"/>
+        <line num="106" type="method" name="getVariance" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="108" type="stmt" count="1"/>
+        <line num="123" type="method" name="getMgf" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="125" type="stmt" count="2"/>
+        <line num="126" type="stmt" count="1"/>
+        <line num="129" type="stmt" count="1"/>
+        <line num="139" type="method" name="getSkewness" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="141" type="stmt" count="1"/>
+        <line num="151" type="method" name="getExKurtosis" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="153" type="stmt" count="1"/>
+        <metrics loc="155" ncloc="56" classes="1" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="20" coveredelements="20"/>
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/FDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\FDistribution" namespace="phpOMS\Math\Stochastic\Distribution">
@@ -19702,48 +19642,27 @@
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/GeometricDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\GeometricDistribution" namespace="phpOMS\Math\Stochastic\Distribution" fullPackage="phpOMS" package="phpOMS">
-          <metrics complexity="10" methods="10" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="0" elements="39" coveredelements="0"/>
+          <metrics complexity="10" methods="9" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="8" elements="18" coveredelements="16"/>
         </class>
-        <line num="37" type="method" name="getPmf" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="38" type="stmt" count="0"/>
-        <line num="39" type="stmt" count="0"/>
-        <line num="40" type="stmt" count="0"/>
-        <line num="52" type="method" name="getCdf" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="53" type="stmt" count="0"/>
-        <line num="54" type="stmt" count="0"/>
-        <line num="55" type="stmt" count="0"/>
-        <line num="64" type="method" name="getMode" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="65" type="stmt" count="0"/>
-        <line num="66" type="stmt" count="0"/>
-        <line num="67" type="stmt" count="0"/>
-        <line num="78" type="method" name="getMean" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="79" type="stmt" count="0"/>
-        <line num="80" type="stmt" count="0"/>
-        <line num="81" type="stmt" count="0"/>
-        <line num="92" type="method" name="getMedian" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="93" type="stmt" count="0"/>
-        <line num="94" type="stmt" count="0"/>
-        <line num="95" type="stmt" count="0"/>
-        <line num="106" type="method" name="getVariance" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="107" type="stmt" count="0"/>
-        <line num="108" type="stmt" count="0"/>
-        <line num="109" type="stmt" count="0"/>
-        <line num="121" type="method" name="getMgf" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="122" type="stmt" count="0"/>
+        <line num="37" type="method" name="getPmf" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="39" type="stmt" count="1"/>
+        <line num="52" type="method" name="getCdf" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="54" type="stmt" count="1"/>
+        <line num="64" type="method" name="getMode" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="66" type="stmt" count="1"/>
+        <line num="78" type="method" name="getMean" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="80" type="stmt" count="1"/>
+        <line num="92" type="method" name="getMedian" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="94" type="stmt" count="1"/>
+        <line num="106" type="method" name="getVariance" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="108" type="stmt" count="1"/>
+        <line num="121" type="method" name="getMgf" visibility="public" complexity="2" crap="6" count="0"/>
         <line num="123" type="stmt" count="0"/>
-        <line num="124" type="stmt" count="0"/>
-        <line num="135" type="method" name="getSkewness" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="136" type="stmt" count="0"/>
-        <line num="137" type="stmt" count="0"/>
-        <line num="138" type="stmt" count="0"/>
-        <line num="149" type="method" name="getExKurtosis" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="150" type="stmt" count="0"/>
-        <line num="151" type="stmt" count="0"/>
-        <line num="152" type="stmt" count="0"/>
-        <line num="154" type="method" name="getRandom" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="155" type="stmt" count="0"/>
-        <line num="157" type="stmt" count="0"/>
-        <metrics loc="158" ncloc="57" classes="1" methods="10" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="0" elements="39" coveredelements="0"/>
+        <line num="135" type="method" name="getSkewness" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="137" type="stmt" count="1"/>
+        <line num="149" type="method" name="getExKurtosis" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="151" type="stmt" count="1"/>
+        <metrics loc="153" ncloc="52" classes="1" methods="9" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="8" elements="18" coveredelements="16"/>
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/HypergeometricDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\HypergeometricDistribution" namespace="phpOMS\Math\Stochastic\Distribution">
@@ -19753,7 +19672,7 @@
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/LaplaceDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\LaplaceDistribution" namespace="phpOMS\Math\Stochastic\Distribution" fullPackage="phpOMS" package="phpOMS">
-          <metrics complexity="12" methods="10" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="0" elements="42" coveredelements="0"/>
+          <metrics complexity="11" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="0" elements="39" coveredelements="0"/>
         </class>
         <line num="38" type="method" name="getPdf" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="39" type="stmt" count="0"/>
@@ -19794,10 +19713,7 @@
         <line num="157" type="stmt" count="0"/>
         <line num="158" type="stmt" count="0"/>
         <line num="159" type="stmt" count="0"/>
-        <line num="161" type="method" name="getRandom" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="162" type="stmt" count="0"/>
-        <line num="164" type="stmt" count="0"/>
-        <metrics loc="165" ncloc="61" classes="1" methods="10" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="0" elements="42" coveredelements="0"/>
+        <metrics loc="160" ncloc="56" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="0" elements="39" coveredelements="0"/>
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/LogDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\LogDistribution" namespace="phpOMS\Math\Stochastic\Distribution">
@@ -19819,7 +19735,7 @@
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/NormalDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\NormalDistribution" namespace="phpOMS\Math\Stochastic\Distribution" fullPackage="phpOMS" package="phpOMS">
-          <metrics complexity="10" methods="10" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="0" elements="39" coveredelements="0"/>
+          <metrics complexity="9" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="27" coveredstatements="0" elements="36" coveredelements="0"/>
         </class>
         <line num="39" type="method" name="getPdf" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="40" type="stmt" count="0"/>
@@ -19857,10 +19773,7 @@
         <line num="150" type="stmt" count="0"/>
         <line num="151" type="stmt" count="0"/>
         <line num="152" type="stmt" count="0"/>
-        <line num="154" type="method" name="getRandom" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="155" type="stmt" count="0"/>
-        <line num="157" type="stmt" count="0"/>
-        <metrics loc="158" ncloc="58" classes="1" methods="10" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="0" elements="39" coveredelements="0"/>
+        <metrics loc="153" ncloc="53" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="27" coveredstatements="0" elements="36" coveredelements="0"/>
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/ParetoDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\ParetoDistribution" namespace="phpOMS\Math\Stochastic\Distribution">
@@ -19870,7 +19783,7 @@
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/PoissonDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\PoissonDistribution" namespace="phpOMS\Math\Stochastic\Distribution" fullPackage="phpOMS" package="phpOMS">
-          <metrics complexity="12" methods="11" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="0" elements="47" coveredelements="0"/>
+          <metrics complexity="11" methods="10" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="0" elements="44" coveredelements="0"/>
         </class>
         <line num="42" type="method" name="getPmf" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="43" type="stmt" count="0"/>
@@ -19916,10 +19829,7 @@
         <line num="177" type="stmt" count="0"/>
         <line num="178" type="stmt" count="0"/>
         <line num="179" type="stmt" count="0"/>
-        <line num="181" type="method" name="getRandom" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="182" type="stmt" count="0"/>
-        <line num="184" type="stmt" count="0"/>
-        <metrics loc="185" ncloc="71" classes="1" methods="11" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="0" elements="47" coveredelements="0"/>
+        <metrics loc="180" ncloc="66" classes="1" methods="10" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="0" elements="44" coveredelements="0"/>
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/TDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\TDistribution" namespace="phpOMS\Math\Stochastic\Distribution">
@@ -19977,7 +19887,7 @@
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/UniformDistributionDiscrete.php">
         <class name="phpOMS\Math\Stochastic\Distribution\UniformDistributionDiscrete" namespace="phpOMS\Math\Stochastic\Distribution" fullPackage="phpOMS" package="phpOMS">
-          <metrics complexity="11" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="0" elements="39" coveredelements="0"/>
+          <metrics complexity="10" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="0" elements="36" coveredelements="0"/>
         </class>
         <line num="38" type="method" name="getPmf" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="39" type="stmt" count="0"/>
@@ -20015,10 +19925,7 @@
         <line num="151" type="stmt" count="0"/>
         <line num="152" type="stmt" count="0"/>
         <line num="153" type="stmt" count="0"/>
-        <line num="155" type="method" name="getRandom" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="156" type="stmt" count="0"/>
-        <line num="158" type="stmt" count="0"/>
-        <metrics loc="159" ncloc="59" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="0" elements="39" coveredelements="0"/>
+        <metrics loc="154" ncloc="54" classes="1" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="0" elements="36" coveredelements="0"/>
       </file>
       <file name="/home/spl1nes/Orange-Management/phpOMS/Math/Stochastic/Distribution/WeibullDistribution.php">
         <class name="phpOMS\Math\Stochastic\Distribution\WeibullDistribution" namespace="phpOMS\Math\Stochastic\Distribution">
@@ -27782,22 +27689,22 @@
         <line num="236" type="stmt" count="24"/>
         <line num="237" type="stmt" count="24"/>
         <line num="239" type="stmt" count="24"/>
-        <line num="240" type="stmt" count="19"/>
-        <line num="241" type="stmt" count="19"/>
-        <line num="243" type="stmt" count="19"/>
-        <line num="245" type="stmt" count="19"/>
-        <line num="246" type="stmt" count="10"/>
-        <line num="247" type="stmt" count="10"/>
+        <line num="240" type="stmt" count="17"/>
+        <line num="241" type="stmt" count="17"/>
+        <line num="243" type="stmt" count="17"/>
+        <line num="245" type="stmt" count="17"/>
+        <line num="246" type="stmt" count="12"/>
+        <line num="247" type="stmt" count="12"/>
         <line num="251" type="stmt" count="24"/>
         <line num="254" type="stmt" count="24"/>
         <line num="256" type="stmt" count="24"/>
         <line num="257" type="stmt" count="24"/>
         <line num="258" type="stmt" count="24"/>
-        <line num="261" type="stmt" count="24"/>
-        <line num="263" type="stmt" count="24"/>
-        <line num="264" type="stmt" count="21"/>
-        <line num="265" type="stmt" count="21"/>
-        <line num="268" type="stmt" count="23"/>
+        <line num="261" type="stmt" count="23"/>
+        <line num="263" type="stmt" count="23"/>
+        <line num="264" type="stmt" count="23"/>
+        <line num="265" type="stmt" count="23"/>
+        <line num="268" type="stmt" count="22"/>
         <line num="271" type="stmt" count="24"/>
         <line num="283" type="method" name="generateParagraph" visibility="private" complexity="4" crap="20" count="0"/>
         <line num="285" type="stmt" count="0"/>
@@ -28584,6 +28491,6 @@
         <metrics loc="281" ncloc="135" classes="1" methods="12" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="45" coveredstatements="33" elements="57" coveredelements="40"/>
       </file>
     </package>
-    <metrics files="1259" loc="129605" ncloc="69739" classes="504" methods="3716" coveredmethods="2250" conditionals="0" coveredconditionals="0" statements="16949" coveredstatements="10615" elements="20665" coveredelements="12865"/>
+    <metrics files="1259" loc="129558" ncloc="69692" classes="504" methods="3706" coveredmethods="2276" conditionals="0" coveredconditionals="0" statements="16866" coveredstatements="10667" elements="20572" coveredelements="12943"/>
   </project>
 </coverage>
