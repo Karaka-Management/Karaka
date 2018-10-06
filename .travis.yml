@@ -1,4 +1,6 @@
 language: php
+sudo: required
+dist: trusty
 php:
     - '7.2'
     - nightly
@@ -6,14 +8,10 @@ services:
     - mysql
     - redis
     - memcached
-before_install:
-    - apt-get update
-    - apt-get install -qq libmemcached-dev
 before_script:
     - pecl install ast
     - composer install
     - chmod -R 755 Build/Hooks
-    - printf "\n" | pecl install memcached
 addons:
     code_climate:
         repo_token:
