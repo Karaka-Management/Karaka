@@ -4,6 +4,7 @@ php:
     - nightly
 services:
     - mysql
+    - postgresql
     - redis
     - memcached
 before_script:
