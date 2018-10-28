@@ -21,7 +21,7 @@
     <script src="/../jsOMS/Message/Response/Response.js"></script>
     <script src="/../jsOMS/UI/Component/Form.js"></script>
     <script src="/../jsOMS/Views/FormView.js"></script>
-    <script src="/../Model/Message/Redirect.js"></script>
+    <script src="/../jsOMS/Model/Message/Redirect.js"></script>
 </head>
 <body>
 <main>

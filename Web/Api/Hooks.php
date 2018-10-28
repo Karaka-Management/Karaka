@@ -17,5 +17,7 @@
         14 => '\some\function\to\call:functionname',
         15 => '\some\function\to\call:functionname',
         16 => '\some\function\to\call:functionname',
+        17 => '\some\function\to\call:functionname',
+        18 => '\some\function\to\call:functionname',
     ],
 ];
