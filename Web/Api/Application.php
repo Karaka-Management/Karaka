@@ -271,7 +271,10 @@ final class Application
             $this->app->sessionManager->save();
             $response->set($request->getUri()->__toString(), new Reload());
         } else {
-            $response->set($request->getUri()->__toString(), new Notify('Login failed due to wrong login information', NotifyType::INFO));
+            $response->set($request->getUri()->__toString(), new Notify(
+                'Login failed due to wrong login information',
+                NotifyType::INFO
+            ));
         }
     }
 

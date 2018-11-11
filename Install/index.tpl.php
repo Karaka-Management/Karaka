@@ -357,6 +357,8 @@ jsOMS.ready(function ()
             window.alert('You didn\'t fill out all required configuration fields. Please check your settings also on the previous pages.');
         }
 
+        app.eventManager.trigger(e.id);
+
         return valid;
     });
     formManager.get('installForm').setSuccess(function(e) {
