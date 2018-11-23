@@ -295,8 +295,8 @@ $db = new \PDO($CONFIG['db']['core']['masters']['admin']['db'] . ':host=' .
     $CONFIG['db']['core']['masters']['admin']['login'],
     $CONFIG['db']['core']['masters']['admin']['password']
 );
-$db->exec('DROP DATABASE IF EXISTS ' .  $CONFIG['db']['core']['masters']['admin']['database']);
-$db->exec('CREATE DATABASE IF NOT EXISTS ' .  $CONFIG['db']['core']['masters']['admin']['database']);
+$db->exec('DROP DATABASE IF EXISTS ' . $CONFIG['db']['core']['masters']['admin']['database']);
+$db->exec('CREATE DATABASE IF NOT EXISTS ' . $CONFIG['db']['core']['masters']['admin']['database']);
 $db = null;
 
 $db = new \PDO($CONFIG['db']['core']['postgresql']['admin']['db'] . ':host=' .

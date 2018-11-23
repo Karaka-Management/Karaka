@@ -76,7 +76,11 @@ $htaccess .= <<<EOT
 # END URL rewrite
 
 # BEGIN Access control
-# TODO: implement access control limitation to only allow index.php access (also consider modrewrite)
+<Files *.php>
+    Order Deny,Allow
+    Deny from all
+    Allow from 127.0.0.1
+</Files>
 # END Access control
 
 # Disable directory view

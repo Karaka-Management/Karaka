@@ -190,8 +190,6 @@ final class Application
                 $response
             );
 
-            // todo: maybe better check if this and response is empty?!
-            // this is sometimes getting called even on normal web views... maybe this is related to the service worker
             if (empty($dispatched)) {
                 $response->getHeader()->setStatusCode(RequestStatusCode::R_404);
                 $response->set($request->getUri()->__toString(), '');
