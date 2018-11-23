@@ -304,8 +304,8 @@ $db = new \PDO($CONFIG['db']['core']['postgresql']['admin']['db'] . ':host=' .
     $CONFIG['db']['core']['postgresql']['admin']['login'],
     $CONFIG['db']['core']['postgresql']['admin']['password']
 );
-$db->exec('DROP DATABASE ' .  $CONFIG['db']['core']['postgresql']['admin']['database']);
-$db->exec('CREATE DATABASE ' .  $CONFIG['db']['core']['postgresql']['admin']['database']);
+$db->exec('DROP DATABASE ' . $CONFIG['db']['core']['postgresql']['admin']['database']);
+$db->exec('CREATE DATABASE ' . $CONFIG['db']['core']['postgresql']['admin']['database']);
 $db = null;
 
 $httpSession        = new HttpSession();
