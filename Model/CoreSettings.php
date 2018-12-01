@@ -27,7 +27,7 @@ use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class CoreSettings extends SettingsAbstract
+final class CoreSettings extends SettingsAbstract
 {
 
     /**

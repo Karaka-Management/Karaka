@@ -43,7 +43,7 @@ use Web\Exception\DatabaseException;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class ConsoleApplication extends ApplicationAbstract
+final class ConsoleApplication extends ApplicationAbstract
 {
     /**
      * Temp config.
