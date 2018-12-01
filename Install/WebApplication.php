@@ -293,6 +293,9 @@ final class WebApplication extends ApplicationAbstract
         \file_put_contents(__DIR__ . '/../Web/Backend/Routes.php', '<?php return [];');
         \file_put_contents(__DIR__ . '/../Web/Api/Routes.php', '<?php return [];');
         \file_put_contents(__DIR__ . '/../Console/Routes.php', '<?php return [];');
+
+        \file_put_contents(__DIR__ . '/../Web/Api/Hooks.php', '<?php return [];');
+        \file_put_contents(__DIR__ . '/../Console/Hooks.php', '<?php return [];');
     }
 
     /**

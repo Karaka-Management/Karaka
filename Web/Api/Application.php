@@ -141,9 +141,11 @@ final class Application
         $con = $this->app->dbPool->get();
         DataMapperAbstract::setConnection($con);
 
-        $this->app->cachePool      = new CachePool();
-        $this->app->appSettings    = new CoreSettings($con);
-        $this->app->eventManager   = new EventManager();
+        $this->app->cachePool    = new CachePool();
+        $this->app->appSettings  = new CoreSettings($con);
+        $this->app->eventManager = new EventManager();
+        $this->app->eventManager->importFromFile(__DIR__ . '/Hooks.php');
+
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
 
         $aid = Auth::authenticate($this->app->sessionManager);
