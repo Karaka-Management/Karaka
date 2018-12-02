@@ -143,7 +143,7 @@ final class Application
 
         $this->app->cachePool    = new CachePool();
         $this->app->appSettings  = new CoreSettings($con);
-        $this->app->eventManager = new EventManager();
+        $this->app->eventManager = new EventManager($this->app->dispatcher);
         $this->app->eventManager->importFromFile(__DIR__ . '/Hooks.php');
 
         $this->app->accountManager = new AccountManager($this->app->sessionManager);

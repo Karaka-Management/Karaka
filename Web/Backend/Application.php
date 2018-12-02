@@ -162,7 +162,7 @@ final class Application
 
         $this->app->cachePool      = new CachePool();
         $this->app->appSettings    = new CoreSettings($con);
-        $this->app->eventManager   = new EventManager();
+        $this->app->eventManager   = new EventManager($this->app->dispatcher);
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
 
         $aid = Auth::authenticate($this->app->sessionManager);
@@ -523,7 +523,7 @@ final class Application
      */
     private function getNavigation(Request $request, Response $response) : View
     {
-        /** @var \Modules\Navigation\Controller $navController */
+        /** @var \Modules\Navigation\Controller\BackendController $navController */
         $navController = $this->app->moduleManager->get('Navigation');
         $navController->loadLanguage($request, $response);
 
