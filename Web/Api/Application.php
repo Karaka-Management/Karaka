@@ -152,8 +152,6 @@ final class Application
         $request->getHeader()->setAccount($aid);
         $response->getHeader()->setAccount($aid);
 
-        // todo: only load options if no language specified?
-        $options = $this->app->appSettings->get([1000000009, 1000000029]);
         $account = $this->loadAccount($request);
 
         if (!$account instanceof NullAccount) {

@@ -43,6 +43,8 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Module\ModuleManager;
 use phpOMS\System\MimeType;
 
+use Model\Settings;
+
 /**
  * Application class.
  *
@@ -648,18 +650,18 @@ final class WebApplication extends ApplicationAbstract
     {
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'settings` (`settings_id`, `settings_module`, `settings_name`, `settings_content`, `settings_group`) VALUES
-                (1000000001, NULL, \'pass_pattern\', \'\', NULL),
-                (1000000002, NULL, \'login_timeout\', \'3\', NULL),
-                (1000000003, NULL, \'pass_interval\', \'90\', NULL),
-                (1000000004, NULL, \'pass_history\', \'3\', NULL),
-                (1000000005, NULL, \'login_tries\', \'3\', NULL),
-                (1000000006, NULL, \'log\', \'1\', NULL),
-                (1000000007, NULL, \'log_path\', \'\', NULL),
+                (' . Settings::PASSWORD_PATTERN . ', NULL, \'pass_pattern\', \'\', NULL),
+                (' . Settings::LOGIN_TIMEOUT . ', NULL, \'login_timeout\', \'3\', NULL),
+                (' . Settings::PASSWORD_INTERVAL . ', NULL, \'pass_interval\', \'90\', NULL),
+                (' . Settings::PASSWORD_HISTORY . ', NULL, \'pass_history\', \'3\', NULL),
+                (' . Settings::LOGIN_TRIES . ', NULL, \'login_tries\', \'3\', NULL),
+                (' . Settings::LOGGING_STATUS . ', NULL, \'log\', \'1\', NULL),
+                (' . Settings::LOGGING_PATH . ', NULL, \'log_path\', \'\', NULL),
                 (1000000009, NULL, \'oname\', \'Orange Management\', NULL),
                 (1000000010, NULL, \'theme\', \'oms-slim\', NULL),
                 (1000000011, NULL, \'theme_path\', \'/oms-slim\', NULL),
                 (1000000012, NULL, \'changed\', \'1\', NULL),
-                (1000000013, NULL, \'login_status\', \'1\', NULL),
+                (' . Settings::LOGIN_STATUS . ', NULL, \'login_status\', \'1\', NULL),
                 (1000000014, NULL, \'login_msg\', \'Maintenance scheduled for tomorrow from 11:00 am to 1:00 pm.\', NULL),
                 (1000000015, NULL, \'use_cache\', \'0\', NULL),
                 (1000000016, NULL, \'last_recache\', \'0000-00-00 00:00:00\', NULL),

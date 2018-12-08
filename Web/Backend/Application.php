@@ -169,7 +169,6 @@ final class Application
         $request->getHeader()->setAccount($aid);
         $response->getHeader()->setAccount($aid);
 
-        $options = $this->app->appSettings->get([1000000009, 1000000029]);
         $account = $this->loadAccount($request);
 
         if (!$account instanceof NullAccount) {
