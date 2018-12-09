@@ -12,25 +12,26 @@
  */
 namespace Web\Backend;
 
+use Model\CoreSettings;
+use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\AccountPermissionMapper;
 use Modules\Admin\Models\GroupPermissionMapper;
 use Modules\Organization\Models\UnitMapper;
-use Modules\Admin\Models\AccountMapper;
-use Modules\Profile\Models\ProfileMapper;
 
-use phpOMS\Account\AccountManager;
+use Modules\Profile\Models\ProfileMapper;
 use phpOMS\Account\Account;
+use phpOMS\Account\AccountManager;
 use phpOMS\Account\NullAccount;
 use phpOMS\Account\PermissionType;
 use phpOMS\Asset\AssetType;
 use phpOMS\Auth\Auth;
 use phpOMS\DataStorage\Cache\CachePool;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\DataStorage\Database\DatabaseStatus;
+use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\RelationType;
+use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
 use phpOMS\Localization\L11nManager;
@@ -42,11 +43,10 @@ use phpOMS\Model\Html\Head;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\Router;
 use phpOMS\Router\RouteVerb;
-use phpOMS\Uri\UriFactory;
 use phpOMS\System\File\PathException;
-use phpOMS\Views\View;
+use phpOMS\Uri\UriFactory;
 
-use Model\CoreSettings;
+use phpOMS\Views\View;
 
 use Web\WebApplication;
 

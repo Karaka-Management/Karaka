@@ -9,9 +9,9 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/Autoloader.php';
 $CONFIG = require_once __DIR__ . '/../../config.php';
 
-use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Session\HttpSession;
 
 // Reset database
 $db = new \PDO($CONFIG['db']['core']['masters']['admin']['db'] . ':host=' .

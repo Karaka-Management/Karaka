@@ -15,9 +15,9 @@ declare(strict_types=1);
 namespace Web\Backend;
 
 use Modules\Organization\Models\Unit;
+use Modules\Profile\Models\Profile;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
-use Modules\Profile\Models\Profile;
 
 /**
  * List view.

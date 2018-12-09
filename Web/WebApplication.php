@@ -16,13 +16,13 @@ namespace Web;
 
 use phpOMS\ApplicationAbstract;
 
+use phpOMS\Autoloader;
+use phpOMS\Localization\ISO639x1Enum;
+use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\Response;
-use phpOMS\Localization\ISO639x1Enum;
-use phpOMS\Localization\Localization;
 use phpOMS\Uri\UriFactory;
-use phpOMS\Autoloader;
 
 use Web\Exception\DatabaseException;
 use Web\Exception\UnexpectedApplicationException;

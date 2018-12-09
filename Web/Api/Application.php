@@ -12,39 +12,39 @@
  */
 namespace Web\Api;
 
-use phpOMS\Auth\Auth;
-use phpOMS\Auth\LoginReturnType;
-use phpOMS\DataStorage\Database\DatabaseStatus;
-use phpOMS\Message\Http\Request;
-use phpOMS\Message\Http\Response;
-use phpOMS\Message\Http\RequestStatusCode;
-use phpOMS\System\MimeType;
-use phpOMS\Views\View;
-use phpOMS\Account\AccountManager;
-use phpOMS\Account\Account;
-use phpOMS\Account\NullAccount;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\RelationType;
-use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
-use phpOMS\DataStorage\Cache\CachePool;
-use phpOMS\Event\EventManager;
-use phpOMS\Uri\UriFactory;
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Session\HttpSession;
-use phpOMS\Dispatcher\Dispatcher;
-use phpOMS\Localization\L11nManager;
-use phpOMS\Module\ModuleManager;
-use phpOMS\Router\Router;
-
+use Model\CoreSettings;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\AccountPermissionMapper;
 use Modules\Admin\Models\GroupPermissionMapper;
-
+use phpOMS\Account\Account;
+use phpOMS\Account\AccountManager;
+use phpOMS\Account\NullAccount;
+use phpOMS\Auth\Auth;
+use phpOMS\Auth\LoginReturnType;
+use phpOMS\DataStorage\Cache\CachePool;
+use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
+use phpOMS\DataStorage\Database\DatabasePool;
+use phpOMS\DataStorage\Database\DatabaseStatus;
+use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\RelationType;
+use phpOMS\DataStorage\Session\HttpSession;
+use phpOMS\Dispatcher\Dispatcher;
+use phpOMS\Event\EventManager;
+use phpOMS\Localization\L11nManager;
+use phpOMS\Message\Http\Request;
+use phpOMS\Message\Http\RequestStatusCode;
+use phpOMS\Message\Http\Response;
 use phpOMS\Model\Message\Notify;
+
 use phpOMS\Model\Message\NotifyType;
 use phpOMS\Model\Message\Redirect;
 use phpOMS\Model\Message\Reload;
-use Model\CoreSettings;
+
+use phpOMS\Module\ModuleManager;
+use phpOMS\Router\Router;
+use phpOMS\System\MimeType;
+use phpOMS\Uri\UriFactory;
+use phpOMS\Views\View;
 
 use Web\WebApplication;
 
