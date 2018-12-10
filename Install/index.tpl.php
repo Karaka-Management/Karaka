@@ -321,7 +321,7 @@ jsOMS.ready(function ()
         });
     }
 
-    for (let i = 0; i < prevButtonsLength; i++) {
+    for (let i = 0; i < prevButtonsLength; ++i) {
         prevButtons[i].addEventListener('click', function() {
             let index = prevButtons.indexOf(this);
 
