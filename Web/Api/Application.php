@@ -210,14 +210,8 @@ final class Application
      */
     private function loadAccount(Request $request) : Account
     {
-        $this->app->accountManager->add(AccountMapper::get($request->getHeader()->getAccount(), RelationType::ALL, null, 2));
-        $account = $this->app->accountManager->get($request->getHeader()->getAccount());
-
-        $groupPermissions = GroupPermissionMapper::getFor(\array_keys($account->getGroups()), 'group', RelationType::ALL, null, 2);
-        $account->addPermissions(\is_array($groupPermissions) ? $groupPermissions : [$groupPermissions]);
-
-        $accountPermissions = AccountPermissionMapper::getFor($request->getHeader()->getAccount(), 'account', RelationType::ALL, null, 2);
-        $account->addPermissions(\is_array($accountPermissions) ? $accountPermissions : [$accountPermissions]);
+        $account = AccountMapper::getWithPermissions($request->getHeader()->getAccount());
+        $this->app->accountManager->add($account);
 
         return $account;
     }
