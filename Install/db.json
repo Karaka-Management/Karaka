@@ -1,0 +1,75 @@
+{
+    "module": {
+        "name": "module",
+        "fields": {
+            "module_id": {
+                "name": "module_id",
+                "type": "VARCHAR(255)",
+                "null": false,
+                "primary": true
+            },
+            "module_theme": {
+                "name": "module_theme",
+                "type": "VARCHAR(100)",
+                "default": null,
+                "null": true
+            },
+            "module_path": {
+                "name": "module_path",
+                "type": "VARCHAR(50)",
+                "null": false
+            },
+            "module_active": {
+                "name": "module_active",
+                "type": "TINYINT",
+                "default": 1,
+                "null": false
+            },
+            "module_version": {
+                "name": "module_version",
+                "type": "VARCHAR(10)",
+                "default": null,
+                "null": true
+            }
+        }
+    },
+    "module_load": {
+        "name": "module_load",
+        "fields": {
+            "module_id": {
+                "name": "module_load_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "module_load_pid": {
+                "name": "module_load_pid",
+                "type": "VARCHAR(40)",
+                "null": false
+            },
+            "module_load_type": {
+                "name": "module_load_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "module_load_from": {
+                "name": "module_load_from",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "module_load_for": {
+                "name": "module_load_for",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "module_load_file": {
+                "name": "module_load_file",
+                "type": "VARCHAR(255)",
+                "null": false
+            }
+        }
+    }
+}

@@ -31,5 +31,6 @@ $GLOBALS['session'] = $httpSession;
 $GLOBALS['dbpool'] = new DatabasePool();
 $GLOBALS['dbpool']->create('admin', $CONFIG['db']['core']['masters']['admin']);
 $GLOBALS['dbpool']->create('select', $CONFIG['db']['core']['masters']['select']);
+$GLOBALS['dbpool']->create('schema', $CONFIG['db']['core']['masters']['schema']);
 
 DataMapperAbstract::setConnection($GLOBALS['dbpool']->get());

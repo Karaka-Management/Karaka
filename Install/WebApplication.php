@@ -28,6 +28,7 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\DatabaseType;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Localization\L11nManager;
@@ -426,8 +427,7 @@ final class WebApplication extends ApplicationAbstract
      */
     private static function installCore(ConnectionAbstract $db) : void
     {
-        self::createModuleTable($db);
-        self::createModuleLoadTable($db);
+        self::createBaseTables($db);
         self::installCoreModules($db);
     }
 
@@ -440,43 +440,50 @@ final class WebApplication extends ApplicationAbstract
      *
      * @since  1.0.0
      */
-    private static function createModuleTable(ConnectionAbstract $db) : void
+    private static function createBaseTables(ConnectionAbstract $db) : void
     {
-        $db->con->prepare(
-            'CREATE TABLE if NOT EXISTS `' . $db->prefix . 'module` (
-                `module_id` varchar(255) NOT NULL,
-                `module_theme` varchar(100) DEFAULT NULL,
-                `module_path` varchar(50) NOT NULL,
-                `module_active` tinyint(1) NOT NULL DEFAULT 1,
-                `module_version` varchar(10) DEFAULT NULL,
-                PRIMARY KEY (`module_id`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;'
-        )->execute();
+        $path = __DIR__ . '/db.json';
+
+        if (!\file_exists($path)) {
+            return;
+        }
+
+        $content = \file_get_contents($path);
+        if ($content === false) {
+            return;
+        }
+
+        $definitions = \json_decode($content, true);
+        foreach ($definitions as $definition) {
+            self::createTable($definition, $db);
+        }
     }
 
     /**
-     * Create modules to load table
+     * Create table module.
      *
-     * @param ConnectionAbstract $db Database connection
+     * @param array              $definition Table definition
+     * @param ConnectionAbstract $db         Database connection
      *
      * @return void
      *
      * @since  1.0.0
      */
-    private static function createModuleLoadTable(ConnectionAbstract $db) : void
+    private static function createTable(array $definition, ConnectionAbstract $db) : void
     {
-        $db->con->prepare(
-            'CREATE TABLE if NOT EXISTS `' . $db->prefix . 'module_load` (
-                `module_load_id` int(11) NOT NULL AUTO_INCREMENT,
-                `module_load_pid` varchar(40) NOT NULL,
-                `module_load_type` tinyint(1) NOT NULL,
-                `module_load_from` varchar(255) DEFAULT NULL,
-                `module_load_for` varchar(255) DEFAULT NULL,
-                `module_load_file` varchar(255) NOT NULL,
-                PRIMARY KEY (`module_load_id`),
-                KEY `module_load_from` (`module_load_from`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
-        )->execute();
+        $builder = new SchemaBuilder($db);
+        $builder->prefix($db->prefix);
+        $builder->createTable($definition['name'] ?? '');
+
+        foreach ($definition['fields'] as $name => $def) {
+            $builder->field(
+                $name, $def['type'], $def['default'] ?? null,
+                $def['null'] ?? true, $def['primary'] ?? false, $def['autoincrement'] ?? false,
+                $def['foreignTable'] ?? null, $def['foreignKey'] ?? null
+            );
+        }
+
+        $builder->execute();
     }
 
     /**
