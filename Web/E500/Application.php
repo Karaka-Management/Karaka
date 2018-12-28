@@ -15,7 +15,6 @@ namespace Web\E500;
 use phpOMS\Asset\AssetType;
 use phpOMS\Localization\L11nManager;
 use phpOMS\Message\Http\Request;
-use phpOMS\Message\Http\RequestMethod;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\Http\Response;
 use phpOMS\Model\Html\Head;

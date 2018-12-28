@@ -14,7 +14,6 @@
 namespace tests\Model;
 
 use Model\CoreSettings;
-use phpOMS\DataStorage\Database\DatabasePool;
 
 class CoreSettingsTest extends \PHPUnit\Framework\TestCase
 {

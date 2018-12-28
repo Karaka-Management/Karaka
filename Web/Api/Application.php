@@ -14,8 +14,6 @@ namespace Web\Api;
 
 use Model\CoreSettings;
 use Modules\Admin\Models\AccountMapper;
-use Modules\Admin\Models\AccountPermissionMapper;
-use Modules\Admin\Models\GroupPermissionMapper;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\NullAccount;
@@ -26,7 +24,6 @@ use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;

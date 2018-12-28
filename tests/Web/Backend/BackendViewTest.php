@@ -16,7 +16,6 @@ namespace tests\Web\Backend;
 require_once __DIR__ . '/../../../phpOMS/Autoloader.php';
 
 use Web\Backend\BackendView;
-use Modules\Profile\Models\ProfileMapper;
 
 class BackendViewTest extends \PHPUnit\Framework\TestCase
 {

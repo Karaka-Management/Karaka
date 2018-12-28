@@ -13,22 +13,22 @@
 namespace Console;
 
 use Model\CoreSettings;
-use phpOMS\ApplicationAbstract;
 use phpOMS\Account\AccountManager;
+use phpOMS\ApplicationAbstract;
 use phpOMS\DataStorage\Cache\CachePool;
+use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Session\ConsoleSession;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
-use phpOMS\Localization\Localization;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Localization\L11nManager;
-use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
+use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
-use phpOMS\Module\ModuleManager;
-use phpOMS\Router\Router;
 use phpOMS\Message\Console\Request;
 use phpOMS\Message\Console\Response;
+use phpOMS\Module\ModuleManager;
+use phpOMS\Router\Router;
 use phpOMS\Uri\Argument;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;

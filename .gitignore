@@ -18,3 +18,5 @@ Web/**/*/Routes.php
 .directory
 build
 cookie.txt
+*.cache
+*.xml

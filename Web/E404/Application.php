@@ -12,13 +12,10 @@
  */
 namespace Web\E404;
 
-use phpOMS\Asset\AssetType;
 use phpOMS\Localization\L11nManager;
 use phpOMS\Message\Http\Request;
-use phpOMS\Message\Http\RequestMethod;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\Http\Response;
-use phpOMS\Model\Html\Head;
 use phpOMS\System\File\PathException;
 use phpOMS\Views\View;
 use Web\WebApplication;

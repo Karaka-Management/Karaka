@@ -16,9 +16,6 @@ namespace Install\tests;
 require_once __DIR__ . '/../../config.php';
 
 use Install\WebApplication;
-use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\RequestMethod;
 use phpOMS\Message\Http\Response;

@@ -14,8 +14,6 @@ namespace Web\Backend;
 
 use Model\CoreSettings;
 use Modules\Admin\Models\AccountMapper;
-use Modules\Admin\Models\AccountPermissionMapper;
-use Modules\Admin\Models\GroupPermissionMapper;
 use Modules\Organization\Models\UnitMapper;
 
 use Modules\Profile\Models\ProfileMapper;
@@ -30,7 +28,6 @@ use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;

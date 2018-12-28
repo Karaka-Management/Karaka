@@ -9,9 +9,9 @@ error_reporting(E_ALL);
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/Autoloader.php';
 
-use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Session\HttpSession;
 
 $CONFIG = [
     'db'       => [
