@@ -19,7 +19,7 @@ use Web\Backend\BackendView;
 
 class BackendViewTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault() : void
     {
         $view = new BackendView();
 

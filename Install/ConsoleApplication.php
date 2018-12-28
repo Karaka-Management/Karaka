@@ -167,7 +167,7 @@ final class ConsoleApplication extends ApplicationAbstract
         return [];
     }
 
-    public static function installRequest(Request $request, Response $response)
+    public static function installRequest(Request $request, Response $response) : void
     {
         if (!empty($valid = self::validateRequest($request))) {
             return;
@@ -246,30 +246,30 @@ final class ConsoleApplication extends ApplicationAbstract
         ]);
     }
 
-    private static function installConfigFile(Request $request)
+    private static function installConfigFile(Request $request) : void
     {
         self::editConfigFile($request);
         self::editHtaccessFile($request);
     }
 
-    private static function editConfigFile(Request $request)
+    private static function editConfigFile(Request $request) : void
     {
         $config = \file_get_contents(__DIR__ . '/../config.php');
     }
 
-    private static function editHtaccessFile(Request $request)
+    private static function editHtaccessFile(Request $request) : void
     {
         $ht = \file_get_contents(__DIR__ . '/../.htaccess');
     }
 
-    private static function installCore(ConnectionAbstract $db)
+    private static function installCore(ConnectionAbstract $db) : void
     {
         self::createModuleTable($db);
         self::createModuleLoadTable($db);
         self::installAdminModule($db);
     }
 
-    private static function createModuleTable(ConnectionAbstract $db)
+    private static function createModuleTable(ConnectionAbstract $db) : void
     {
         $db->con->prepare(
             'CREATE TABLE if NOT EXISTS `' . $db->prefix . 'module` (
@@ -283,7 +283,7 @@ final class ConsoleApplication extends ApplicationAbstract
         )->execute();
     }
 
-    private static function createModuleLoadTable(ConnectionAbstract $db)
+    private static function createModuleLoadTable(ConnectionAbstract $db) : void
     {
         $db->con->prepare(
             'CREATE TABLE if NOT EXISTS `' . $db->prefix . 'module_load` (
@@ -299,7 +299,7 @@ final class ConsoleApplication extends ApplicationAbstract
         )->execute();
     }
 
-    private static function installAdminModule(ConnectionAbstract $db)
+    private static function installAdminModule(ConnectionAbstract $db) : void
     {
         $app = new class extends ApplicationAbstract
         {
@@ -312,13 +312,13 @@ final class ConsoleApplication extends ApplicationAbstract
         $moduleManager->install('Admin');
     }
 
-    private static function installGroups(ConnectionAbstract $db)
+    private static function installGroups(ConnectionAbstract $db) : void
     {
         self::installMainGroups($db);
         self::installGroupPermissions($db);
     }
 
-    private static function installMainGroups(ConnectionAbstract $db)
+    private static function installMainGroups(ConnectionAbstract $db) : void
     {
         $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
 
@@ -330,7 +330,7 @@ final class ConsoleApplication extends ApplicationAbstract
         )->execute();
     }
 
-    private static function installGroupPermissions(ConnectionAbstract $db)
+    private static function installGroupPermissions(ConnectionAbstract $db) : void
     {
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'group_permission` (`group_permission_group`, `group_permission_unit`, `group_permission_app`, `group_permission_module`, `group_permission_from`, `group_permission_type`, `group_permission_element`, `group_permission_component`, `group_permission_permission`) VALUES
@@ -343,13 +343,13 @@ final class ConsoleApplication extends ApplicationAbstract
         )->execute();
     }
 
-    private static function installUsers(Request $request, ConnectionAbstract $db)
+    private static function installUsers(Request $request, ConnectionAbstract $db) : void
     {
         self::installUserLocalization($db);
         self::installMainUser($request, $db);
     }
 
-    private static function installUserLocalization(ConnectionAbstract $db)
+    private static function installUserLocalization(ConnectionAbstract $db) : void
     {
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'l11n` (`l11n_country`, `l11n_language`, `l11n_currency`, `l11n_number_thousand`, `l11n_number_decimal`, `l11n_angle`, `l11n_temperature`, `l11n_weight_very_light`, `l11n_weight_light`, `l11n_weight_medium`, `l11n_weight_heavy`, `l11n_weight_very_heavy`, `l11n_speed_very_slow`, `l11n_speed_slow`, `l11n_speed_medium`, `l11n_speed_fast`, `l11n_speed_very_fast`, `l11n_speed_sea`, `l11n_length_very_short`, `l11n_length_short`, `l11n_length_medium`, `l11n_length_long`, `l11n_length_very_long`, `l11n_length_sea`, `l11n_area_very_small`, `l11n_area_small`, `l11n_area_medium`, `l11n_area_large`, `l11n_area_very_large`, `l11n_volume_very_small`, `l11n_volume_small`, `l11n_volume_medium`, `l11n_volume_large`, `l11n_volume_very_large`, `l11n_volume_teaspoon`, `l11n_volume_tablespoon`, `l11n_volume_glass`) VALUES
@@ -357,7 +357,7 @@ final class ConsoleApplication extends ApplicationAbstract
         )->execute();
     }
 
-    private static function installMainUser(Request $request, ConnectionAbstract $db)
+    private static function installMainUser(Request $request, ConnectionAbstract $db) : void
     {
         $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
 
@@ -373,7 +373,7 @@ final class ConsoleApplication extends ApplicationAbstract
         )->execute();
     }
 
-    private static function installSettings(Request $request, ConnectionAbstract $db)
+    private static function installSettings(Request $request, ConnectionAbstract $db) : void
     {
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'settings` (`settings_id`, `settings_module`, `settings_name`, `settings_content`, `settings_group`) VALUES

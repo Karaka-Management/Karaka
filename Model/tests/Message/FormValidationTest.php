@@ -18,7 +18,7 @@ use phpOMS\Model\Message\FormValidation;
 class FormValidationTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testAttributes()
+    public function testAttributes() : void
     {
         $obj = new FormValidation([]);
         self::assertInstanceOf('\phpOMS\Model\Message\FormValidation', $obj);
@@ -27,7 +27,7 @@ class FormValidationTest extends \PHPUnit\Framework\TestCase
         self::assertObjectHasAttribute('validation', $obj);
     }
 
-    public function testDefault()
+    public function testDefault() : void
     {
         $obj = new FormValidation([]);
 
@@ -35,7 +35,7 @@ class FormValidationTest extends \PHPUnit\Framework\TestCase
         self::assertEmpty($obj->toArray()['validation']);
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $arr = ['a' => true, 'b' => false];
         $obj = new FormValidation($arr);

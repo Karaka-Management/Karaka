@@ -18,7 +18,7 @@ use phpOMS\Model\Message\Reload;
 class ReloadTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testAttributes()
+    public function testAttributes() : void
     {
         $obj = new Reload();
         self::assertInstanceOf('\phpOMS\Model\Message\Reload', $obj);
@@ -27,7 +27,7 @@ class ReloadTest extends \PHPUnit\Framework\TestCase
         self::assertObjectHasAttribute('delay', $obj);
     }
 
-    public function testDefault()
+    public function testDefault() : void
     {
         $obj = new Reload();
 
@@ -35,7 +35,7 @@ class ReloadTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(0, $obj->toArray()['time']);
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $obj = new Reload(5);
 

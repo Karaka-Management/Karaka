@@ -19,7 +19,7 @@ use Web\Exception\DatabaseException;
 
 class DatabaseExceptionTest extends \PHPUnit\Framework\TestCase
 {
-    public function testException()
+    public function testException() : void
     {
         self::assertInstanceOf(\RuntimeException::class, new DatabaseException(''));
     }

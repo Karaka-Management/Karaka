@@ -26,7 +26,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
     /**
      * @group admin
      */
-    public function testInstall()
+    public function testInstall() : void
     {
         $config   = include __DIR__ . '/../../config.php';
         $response = new Response();

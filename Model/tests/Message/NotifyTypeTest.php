@@ -17,7 +17,7 @@ use phpOMS\Model\Message\NotifyType;
 
 class NotifyTypeTest extends \PHPUnit\Framework\TestCase
 {
-    public function testEnums()
+    public function testEnums() : void
     {
         self::assertEquals(5, count(NotifyType::getConstants()));
         self::assertEquals(NotifyType::getConstants(), array_unique(NotifyType::getConstants()));

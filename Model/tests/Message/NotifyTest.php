@@ -19,7 +19,7 @@ use phpOMS\Model\Message\NotifyType;
 class NotifyTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testAttributes()
+    public function testAttributes() : void
     {
         $obj = new Notify();
         self::assertInstanceOf('\phpOMS\Model\Message\Notify', $obj);
@@ -32,7 +32,7 @@ class NotifyTest extends \PHPUnit\Framework\TestCase
         self::assertObjectHasAttribute('level', $obj);
     }
 
-    public function testDefault()
+    public function testDefault() : void
     {
         $obj = new Notify();
 
@@ -44,7 +44,7 @@ class NotifyTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(NotifyType::INFO, $obj->toArray()['level']);
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $obj = new Notify('message', NotifyType::WARNING);
         $obj->setDelay(3);

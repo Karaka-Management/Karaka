@@ -19,7 +19,7 @@ use phpOMS\Model\Message\DomAction;
 class DomTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testAttributes()
+    public function testAttributes() : void
     {
         $obj = new Dom();
         self::assertInstanceOf('\phpOMS\Model\Message\Dom', $obj);
@@ -31,7 +31,7 @@ class DomTest extends \PHPUnit\Framework\TestCase
         self::assertObjectHasAttribute('action', $obj);
     }
 
-    public function testDefault()
+    public function testDefault() : void
     {
         $obj = new Dom();
 
@@ -42,7 +42,7 @@ class DomTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(DomAction::MODIFY, $obj->toArray()['action']);
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $obj = new Dom();
         $obj->setDelay(3);

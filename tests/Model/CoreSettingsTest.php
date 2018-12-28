@@ -18,7 +18,7 @@ use Model\CoreSettings;
 class CoreSettingsTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testSettings()
+    public function testSettings() : void
     {
         $settings = new CoreSettings($GLOBALS['dbpool']->get());
 
