@@ -191,8 +191,14 @@ final class Application
             );
 
             if (empty($dispatched)) {
+                $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
                 $response->getHeader()->setStatusCode(RequestStatusCode::R_404);
-                $response->set($request->getUri()->__toString(), '');
+                $response->set($request->getUri()->__toString(), [
+                    'status' => \phpOMS\Message\NotificationLevel::ERROR,
+                    'title' => '',
+                    'message' => '',
+                    'response' => [],
+                ]);
             }
 
             $pageView->addData('dispatch', $dispatched);
