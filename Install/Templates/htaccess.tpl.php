@@ -81,6 +81,9 @@ $htaccess .= <<<EOT
     Deny from all
     Allow from 127.0.0.1
 </Files>
+<Files index.php>
+    Allow from all
+</Files>
 # END Access control
 
 # Disable directory view
