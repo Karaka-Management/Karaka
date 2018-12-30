@@ -23,6 +23,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\ApplicationAbstract;
 use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
+use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
 use phpOMS\Dispatcher\Dispatcher;
@@ -226,6 +227,7 @@ final class WebApplication extends ApplicationAbstract
         }
 
         $db = self::setupDatabaseConnection($request);
+        DataMapperAbstract::setConnection($db);
 
         self::clearOld();
         self::installConfigFile($request);
