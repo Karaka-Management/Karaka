@@ -67,7 +67,7 @@ $dispatch = $this->getData('dispatch') ?? [];
 </header>
 <div id="out">
     <?= $side; ?>
-    <input type="checkbox" id="nav-trigger" class="nav-trigger"<?= !$this->request->isMobile() ? ' checked' : ''; ?>>
+    <input type="checkbox" id="nav-trigger" class="nav-trigger" checked>
     <main class="container-fluid">
         <?php
         foreach ($dispatch as $view) {
