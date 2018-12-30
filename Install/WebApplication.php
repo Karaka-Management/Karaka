@@ -506,6 +506,7 @@ final class WebApplication extends ApplicationAbstract
 
         $moduleManager->install('Admin');
         $moduleManager->install('Organization');
+        $moduleManager->install('Help');
         $moduleManager->install('Profile');
         $moduleManager->install('Navigation');
     }
