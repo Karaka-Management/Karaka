@@ -13,7 +13,7 @@ html, body {
 #bar-s {
   user-select: none;
   height: 25px;
-  background: #2f2f2f;
+  background: #3b3b3b;
   border-top: 3px solid #FBA026;
   overflow: hidden; }
 
@@ -48,7 +48,8 @@ html, body {
 
 #snav, main {
   overflow: auto;
-  height: 100%; }
+  height: 100%;
+  background: #f1f1f1; }
 
 #t-nav {
   font-size: 0.75em;
@@ -66,3 +67,5 @@ html, body {
 main {
   position: relative;
   box-sizing: border-box; }
+
+/*# sourceMappingURL=backend-small.css.map */

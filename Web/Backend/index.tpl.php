@@ -76,12 +76,14 @@ $dispatch = $this->getData('dispatch') ?? [];
             }
         }
         ?>
-        <template id="app-message">
-            <div class="log-msg" style="z-index: 11; position: absolute; margin: 0 auto; right: 1%; top: 1%;">
-                <h1 class="log-msg-title"></h1>
-                <div class="log-msg-content"></div>
-            </div>
-        </template>
+        <div id="app-message-container" style="position: absolute; margin: 0 auto; right: 1%; top: 1%;">
+            <template id="app-message">
+                <div class="log-msg" style="z-index: 11; position: relative; margin: 0 auto; right: 0; top: 0; margin-bottom: 10px;">
+                    <h1 class="log-msg-title"></h1>
+                    <div class="log-msg-content"></div>
+                </div>
+            </template>
+        </div>
     </main>
 </div>
 <?= $head->renderAssetsLate(); ?>

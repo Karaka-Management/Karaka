@@ -16,7 +16,7 @@ html, body {
 #bar-s {
     user-select: none;
     height: 25px;
-    background: $d-base-color-o;
+    background: #3b3b3b;
     border-top: 3px solid #FBA026;
     overflow: hidden;
 }
@@ -66,6 +66,7 @@ html, body {
 #snav, main {
     overflow: auto;
     height: 100%;
+    background: #f1f1f1;
 }
 
 #t-nav {
