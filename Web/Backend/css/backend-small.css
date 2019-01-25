@@ -1,3 +1,23 @@
+/* Global */
+/* Content Container */
+/* Content box */
+/* Navigation */
+/* Colors */
+/* Accordion */
+/* Log */
+/* Blockquote */
+/* Breadcrumbs */
+/* Input */
+/* Button */
+/* Canvas */
+/* Article */
+/* Form */
+/* Icon */
+/* Img */
+/* list */
+/* pagination */
+/* pre */
+/* tag */
 html, body {
   width: 100%;
   height: 100%;
@@ -63,6 +83,8 @@ html, body {
     margin-right: 5px; }
   #t-nav li {
     display: inline; }
+    #t-nav li:hover {
+      color: #FBA026; }
 
 main {
   position: relative;

@@ -1,4 +1,5 @@
 @import "backend_vars";
+@import "../../../cssOMS/vars";
 
 html, body {
     width: 100%;
@@ -86,6 +87,10 @@ html, body {
 
     li {
         display: inline;
+
+        &:hover {
+            color: #FBA026;
+        }
     }
 }
 
