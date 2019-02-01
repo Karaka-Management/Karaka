@@ -370,6 +370,7 @@ final class Application
         $head->addAsset(AssetType::JS, '/jsOMS/Dispatcher/Dispatcher.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Log/Logger.js');
         $head->addAsset(AssetType::JS, '/jsOMS/Log/LogLevel.js');
+        $head->addAsset(AssetType::JS, '/jsOMS/UI/Component/AdvancedInput.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Component/Form.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Component/Table.js');
         $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/InputManager.js');

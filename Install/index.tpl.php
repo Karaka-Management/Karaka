@@ -3,25 +3,26 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="/../jsOMS/Utils/oLib.js"></script>
-    <script src="/../jsOMS/Asset/AssetManager.js"></script>
-    <script src="/../jsOMS/Autoloader.js"></script>
-    <script src="/../jsOMS/Log/Logger.js"></script>
-    <script src="/../jsOMS/Log/LogLevel.js"></script>
-    <script src="/../jsOMS/Uri/Http.js"></script>
-    <script src="/../jsOMS/Uri/UriFactory.js"></script>
-    <script src="/../jsOMS/Event/EventManager.js"></script>
-    <script src="/../jsOMS/Message/Request/BrowserType.js"></script>
-    <script src="/../jsOMS/Message/Request/OSType.js"></script>
-    <script src="/../jsOMS/Message/Request/RequestMethod.js"></script>
-    <script src="/../jsOMS/Message/Request/RequestType.js"></script>
-    <script src="/../jsOMS/Message/Request/Request.js"></script>
-    <script src="/../jsOMS/Message/Response/ResponseType.js"></script>
-    <script src="/../jsOMS/Message/Response/ResponseManager.js"></script>
-    <script src="/../jsOMS/Message/Response/Response.js"></script>
-    <script src="/../jsOMS/UI/Component/Form.js"></script>
-    <script src="/../jsOMS/Views/FormView.js"></script>
-    <script src="/../jsOMS/Model/Message/Redirect.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="../jsOMS/Utils/oLib.js"></script>
+    <script src="../jsOMS/Asset/AssetManager.js"></script>
+    <script src="../jsOMS/Autoloader.js"></script>
+    <script src="../jsOMS/Log/Logger.js"></script>
+    <script src="../jsOMS/Log/LogLevel.js"></script>
+    <script src="../jsOMS/Uri/Http.js"></script>
+    <script src="../jsOMS/Uri/UriFactory.js"></script>
+    <script src="../jsOMS/Event/EventManager.js"></script>
+    <script src="../jsOMS/Message/Request/BrowserType.js"></script>
+    <script src="../jsOMS/Message/Request/OSType.js"></script>
+    <script src="../jsOMS/Message/Request/RequestMethod.js"></script>
+    <script src="../jsOMS/Message/Request/RequestType.js"></script>
+    <script src="../jsOMS/Message/Request/Request.js"></script>
+    <script src="../jsOMS/Message/Response/ResponseType.js"></script>
+    <script src="../jsOMS/Message/Response/ResponseManager.js"></script>
+    <script src="../jsOMS/Message/Response/Response.js"></script>
+    <script src="../jsOMS/UI/Component/Form.js"></script>
+    <script src="../jsOMS/Views/FormView.js"></script>
+    <script src="../jsOMS/Model/Message/Redirect.js"></script>
 </head>
 <body>
 <main>
