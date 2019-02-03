@@ -65,17 +65,17 @@ class WebApplication extends ApplicationAbstract
         } catch (DatabaseException $e) {
             $this->logger->critical(FileLogger::MSG_FULL, [
                 'message' => $e->getMessage(),
-                'line'    => 62]);
+                'line'    => __LINE__]);
             $sub = new \Web\E503\Application($this, $config);
         } catch (UnexpectedApplicationException $e) {
             $this->logger->critical(FileLogger::MSG_FULL, [
                 'message' => $e->getMessage(),
-                'line'    => 64]);
+                'line'    => __LINE__]);
             $sub = new \Web\E404\Application($this, $config);
         } catch (\Throwable $e) {
             $this->logger->critical(FileLogger::MSG_FULL, [
                 'message' => $e->getMessage(),
-                'line'    => 66]);
+                'line'    => __LINE__]);
             $sub = new \Web\E500\Application($this, $config);
         } finally {
             if ($sub === null) {
