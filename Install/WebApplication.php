@@ -335,12 +335,12 @@ final class WebApplication extends ApplicationAbstract
     private static function setupDatabaseConnection(Request $request) : ConnectionAbstract
     {
         return ConnectionFactory::create([
-            'db' => (string) $request->getData('dbtype'),
-            'host' => (string) $request->getData('dbhost'),
-            'port' => (string) $request->getData('dbport'),
-            'prefix' => (string) $request->getData('dbprefix'),
+            'db'       => (string) $request->getData('dbtype'),
+            'host'     => (string) $request->getData('dbhost'),
+            'port'     => (string) $request->getData('dbport'),
+            'prefix'   => (string) $request->getData('dbprefix'),
             'database' => (string) $request->getData('dbname'),
-            'login' => (string) $request->getData('schemauser'),
+            'login'    => (string) $request->getData('schemauser'),
             'password' => (string) $request->getData('schemapassword'),
         ]);
     }

@@ -91,8 +91,8 @@
                 <p>All non critical elements can be fixed after installation if you find yourself in need of one of the
                 features. All critical elements must be fixed before you can continue with the installation.</p>
 
-                <p>For help please check our <a href="website.orange-management.de">Installation Guide</a>.</p>
-                <?php $isOK = version_compare('7.0.0', PHP_VERSION) < 1 && extension_loaded('pdo'); ?>
+                <p>For help please check our <a href="http://website.orange-management.de">Installation Guide</a>.</p>
+                <?php $isOK = \version_compare('7.2.0', PHP_VERSION) < 1 && \extension_loaded('pdo'); ?>
                 <table>
                     <thead>
                         <tr>
@@ -102,69 +102,69 @@
                             <th>Your Environment
                     <tbody>
                         <tr>
-                            <td class="<?= version_compare('7.2.0', PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>"><?= version_compare('7.2.0', PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \version_compare('7.2.0', PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>"><?= \version_compare('7.2.0', PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>
                             <td>Critcal
                             <td>PHP version >= 7.2.0
                             <td><?= PHP_VERSION; ?>
                         <tr>
-                            <td class="<?= extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>
                             <td>Critcal
                             <td>PDO database extension for PHP
-                            <td><?= extension_loaded('pdo') ? 'Available' : 'Not installed'; ?>
+                            <td><?= \extension_loaded('pdo') ? 'Available' : 'Not installed'; ?>
                         <tr>
-                            <td class="<?= extension_loaded('imap') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('imap') ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \extension_loaded('imap') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('imap') ? 'OK' : 'FAILED'; ?>
                             <td>Medium
                             <td>IMAP extension for PHP
-                            <td><?= extension_loaded('imap') ? 'Available' : 'Not installed'; ?>
+                            <td><?= \extension_loaded('imap') ? 'Available' : 'Not installed'; ?>
                         <tr>
-                            <td class="<?= extension_loaded('curl') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('curl') ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \extension_loaded('curl') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('curl') ? 'OK' : 'FAILED'; ?>
                             <td>Medium
                             <td>cUrl extension for PHP
-                            <td><?= extension_loaded('curl') ? 'Available' : 'Not installed'; ?>
+                            <td><?= \extension_loaded('curl') ? 'Available' : 'Not installed'; ?>
                         <tr>
-                            <td class="<?= extension_loaded('ftp') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('ftp') ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \extension_loaded('ftp') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('ftp') ? 'OK' : 'FAILED'; ?>
                             <td>Medium
                             <td>FTP extension for PHP
-                            <td><?= extension_loaded('ftp') ? 'Available' : 'Not installed'; ?>
+                            <td><?= \extension_loaded('ftp') ? 'Available' : 'Not installed'; ?>
                         <tr>
-                            <td class="<?= extension_loaded('dom') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('dom') ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \extension_loaded('dom') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('dom') ? 'OK' : 'FAILED'; ?>
                             <td>Medium
                             <td>Dom extension for PHP
-                            <td><?= extension_loaded('dom') ? 'Available' : 'Not installed'; ?>
+                            <td><?= \extension_loaded('dom') ? 'Available' : 'Not installed'; ?>
                         <tr>
-                            <td class="<?= extension_loaded('xml') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('xml') ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \extension_loaded('xml') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('xml') ? 'OK' : 'FAILED'; ?>
                             <td>Medium
                             <td>Xml extension for PHP
-                            <td><?= extension_loaded('xml') ? 'Available' : 'Not installed'; ?>
+                            <td><?= \extension_loaded('xml') ? 'Available' : 'Not installed'; ?>
                         <tr>
-                            <td class="<?= extension_loaded('bcmath') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('bcmath') ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \extension_loaded('bcmath') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('bcmath') ? 'OK' : 'FAILED'; ?>
                             <td>Medium
                             <td>BCMath extension for PHP
-                            <td><?= extension_loaded('bcmath') ? 'Available' : 'Not installed'; ?>
+                            <td><?= \extension_loaded('bcmath') ? 'Available' : 'Not installed'; ?>
                         <tr>
-                            <td class="<?= extension_loaded('mbstring') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('mbstring') ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \extension_loaded('mbstring') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('mbstring') ? 'OK' : 'FAILED'; ?>
                             <td>Optional
                             <td>Multibyte extension (mbstring) for PHP for international characters (e.g. chinese, russian)
-                            <td><?= extension_loaded('mbstring') ? 'Available' : 'Not installed'; ?>
+                            <td><?= \extension_loaded('mbstring') ? 'Available' : 'Not installed'; ?>
                         <tr>
-                            <td class="<?= extension_loaded('zip') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('zip') ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \extension_loaded('zip') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('zip') ? 'OK' : 'FAILED'; ?>
                             <td>Optional
                             <td>Zip extension for PHP
-                            <td><?= extension_loaded('zip') ? 'Available' : 'Not installed'; ?>
+                            <td><?= \extension_loaded('zip') ? 'Available' : 'Not installed'; ?>
                         <tr>
-                            <td class="<?= extension_loaded('zlib') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('zlib') ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \extension_loaded('zlib') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('zlib') ? 'OK' : 'FAILED'; ?>
                             <td>Optional
                             <td>Zlib extension for PHP
-                            <td><?= extension_loaded('zlib') ? 'Available' : 'Not installed'; ?>
+                            <td><?= \extension_loaded('zlib') ? 'Available' : 'Not installed'; ?>
                         <tr>
-                            <td class="<?= extension_loaded('gd') ? 'OK' : 'FAILED'; ?>"><?= extension_loaded('gd') ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \extension_loaded('gd') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('gd') ? 'OK' : 'FAILED'; ?>
                             <td>Optional
                             <td>Gd extension for PHP
-                            <td><?= extension_loaded('gd') ? 'Available' : 'Not installed'; ?>
+                            <td><?= \extension_loaded('gd') ? 'Available' : 'Not installed'; ?>
                 </table>
 
                 <p><strong>Tip:</strong> Many PHP extension just need to be activated in your php.ini file located
-                at <?= php_ini_loaded_file(); ?>. Reload the installation in your browser after making any adjustments.</p>
+                at <?= \php_ini_loaded_file(); ?>. Reload the installation in your browser after making any adjustments.</p>
 
                 <p><button class="prev">Previous</button><button class="next"<?= !$isOK ? ' disabled' : ''?>>Next</button></p>
             </div>
@@ -281,7 +281,7 @@
                     <li><label for="iDomain">Top Level domain</label>
                     <li><input id="iDomain" name="domain" type="text" value="<?= $this->request->getUri()->getHost(); ?>" form="installForm" placeholder="demo.com" pattern="^((?!(www\.|http)).)*$" required>
                     <li><label for="iWebSubdir">Web Subdirectory</label>
-                    <li><input id="iWebSubdir" name="websubdir" type="text" value="/<?= substr($this->request->getUri()->getPath(), \stripos($this->request->getUri()->getPath(), 'Install/')+8); ?>" form="installForm" required>
+                    <li><input id="iWebSubdir" name="websubdir" type="text" value="/<?= \substr($this->request->getUri()->getPath(), \stripos($this->request->getUri()->getPath(), 'Install/')+8); ?>" form="installForm" required>
                     <li><label for="iDefaultLang">Default Language</label>
                     <li><select id="iDefaultLang" name="defaultlang" form="installForm">
                             <option value="en" selected>English
