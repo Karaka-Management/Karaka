@@ -82,7 +82,7 @@ final class Application
         $response->getHeader()->setStatusCode(RequestStatusCode::R_500);
 
         /* Load theme language */
-        if (($path = realpath($oldPath = __DIR__ . '/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php')) === false) {
+        if (($path = \realpath($oldPath = __DIR__ . '/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php')) === false) {
             throw new PathException($oldPath);
         }
 

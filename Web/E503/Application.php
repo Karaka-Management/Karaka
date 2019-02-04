@@ -78,7 +78,7 @@ final class Application
         $pageView->setTemplate('/Web/E503/index');
 
         /* Load theme language */
-        if (($path = realpath($oldPath = __DIR__ . '/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php')) === false) {
+        if (($path = \realpath($oldPath = __DIR__ . '/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php')) === false) {
             throw new PathException($oldPath);
         }
 

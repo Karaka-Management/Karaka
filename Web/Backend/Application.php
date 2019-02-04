@@ -273,7 +273,7 @@ final class Application
     private function loadLanguageFromPath(string $language, string $path) : void
     {
         /* Load theme language */
-        if (($absPath = realpath($path)) === false) {
+        if (($absPath = \realpath($path)) === false) {
             throw new PathException($path);
         }
 
