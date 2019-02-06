@@ -12,7 +12,9 @@
  */
 //<editor-fold desc="Require/Include">
 require_once __DIR__ . '/phpOMS/Autoloader.php';
-require_once __DIR__ . '/config.php';
+$config = require_once __DIR__ . '/config.php';
 //</editor-fold>
 
-$App = new \Socket\SocketApplication($CONFIG, $argv[1] ?? SocketType::TCP_CLIENT);
+use phpOMS\Socket\SocketType;
+
+$App = new \Socket\SocketApplication($config, $argv[1] ?? SocketType::TCP_CLIENT);
