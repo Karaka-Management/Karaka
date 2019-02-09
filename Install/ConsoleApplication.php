@@ -14,14 +14,6 @@ declare(strict_types=1);
 
 namespace Install;
 
-use phpOMS\Account\AccountStatus;
-
-use phpOMS\Account\AccountType;
-use phpOMS\Account\GroupStatus;
-use phpOMS\Account\PermissionType;
-use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
-use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\Dispatcher\Dispatcher;
@@ -29,9 +21,11 @@ use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
 use phpOMS\Message\Console\Request;
 use phpOMS\Message\Console\Response;
-use phpOMS\Module\ModuleManager;
 use phpOMS\Router\Router;
+use phpOMS\Router\RouteVerb;
+use phpOMS\System\MimeType;
 use phpOMS\Uri\UriFactory;
+use phpOMS\Views\View;
 
 /**
  * Application class.
@@ -41,16 +35,8 @@ use phpOMS\Uri\UriFactory;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class ConsoleApplication extends ApplicationAbstract
+final class ConsoleApplication extends InstallAbstract
 {
-    /**
-     * Temp config.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    private $config = [];
-
     /**
      * Constructor.
      *
@@ -68,7 +54,6 @@ final class ConsoleApplication extends ApplicationAbstract
         $this->setupHandlers();
 
         $this->logger = FileLogger::getInstance($config['log']['file']['path'], false);
-        $this->config = $config;
         $request      = $this->initRequest($config['language'][0]);
         $response     = $this->initResponse($request);
 
@@ -77,20 +62,6 @@ final class ConsoleApplication extends ApplicationAbstract
         $this->run($request, $response);
 
         echo $response->getBody();
-    }
-
-    /**
-     * Setup general handlers for the application.
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    private function setupHandlers() : void
-    {
-        set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
-        set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
-        register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
     }
 
     /**
@@ -104,11 +75,9 @@ final class ConsoleApplication extends ApplicationAbstract
      */
     private function initRequest(string $language) : Request
     {
-        $request     = Request::createFromSuperglobals();
-        $subDirDepth = substr_count($rootPath, '/');
+        $request = new Request();
 
-        $request->createRequestHashs($subDirDepth);
-        $request->getUri()->setRootPath($rootPath);
+        $request->createRequestHashs(0);
         UriFactory::setupUriBuilder($request->getUri());
 
         $request->getHeader()->getL11n()->setLanguage($language);
@@ -147,26 +116,46 @@ final class ConsoleApplication extends ApplicationAbstract
      */
     private function run(Request $request, Response $response) : void
     {
-        $this->dbPool = new DatabasePool();
         $this->dispatcher = new Dispatcher($this);
-        $this->router = new Router();
+        $this->router     = new Router();
 
         $this->setupRoutes();
-
-        $this->dbPool->create('admin', $this->config['db']['core']['masters']['admin']);
-        DataMapperAbstract::setConnection($this->dbPool->get());
-
         $response->getHeader()->set('content-language', $response->getHeader()->getL11n()->getLanguage(), true);
         UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());
 
-        $this->dispatcher->dispatch($this->router->route($request), $request, $response);
+        $dispatched = $this->dispatcher->dispatch(
+            $this->router->route(
+                $request->getUri()->getRoute(),
+                $request->getRouteVerb()
+            ),
+            $request,
+            $response
+        );
     }
 
-    public function loadSetupFile(string $path) : array
+    /**
+     * Setup routes for installer
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private function setupRoutes() : void
     {
-        return [];
+        $this->router->add('^.*', '\Install\WebApplication::installView', RouteVerb::GET);
+        $this->router->add('^.*', '\Install\WebApplication::installRequest', RouteVerb::PUT);
     }
 
+    /**
+     * Handle install request.
+     *
+     * @param Request  $request  Request
+     * @param Response $response Response
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public static function installRequest(Request $request, Response $response) : void
     {
         if (!empty($valid = self::validateRequest($request))) {
@@ -183,6 +172,15 @@ final class ConsoleApplication extends ApplicationAbstract
         self::installSettings($request, $db);
     }
 
+    /**
+     * Validate install request.
+     *
+     * @param Request $request Request
+     *
+     * @return array<string, bool>
+     *
+     * @since  1.0.0
+     */
     private static function validateRequest(Request $request) : array
     {
         $valid = [];
@@ -194,17 +192,17 @@ final class ConsoleApplication extends ApplicationAbstract
             || ($valid['iDbPrefix'] = empty($request->getData('dbprefix')))
             || ($valid['iDbName'] = empty($request->getData('dbname')))
             || ($valid['iSchemaUser'] = empty($request->getData('schemauser')))
-            || ($valid['iSchemaPassword'] = empty($request->getData('schemapassword')))
+            //|| ($valid['iSchemaPassword'] = empty($request->getData('schemapassword')))
             || ($valid['iCreateUser'] = empty($request->getData('createuser')))
-            || ($valid['iCreatePassword'] = empty($request->getData('createpassword')))
+            //|| ($valid['iCreatePassword'] = empty($request->getData('createpassword')))
             || ($valid['iSelectUser'] = empty($request->getData('selectuser')))
-            || ($valid['iSelectPassword'] = empty($request->getData('selectpassword')))
+            //|| ($valid['iSelectPassword'] = empty($request->getData('selectpassword')))
             || ($valid['iDeleteUser'] = empty($request->getData('deleteuser')))
-            || ($valid['iDeletePassword'] = empty($request->getData('deletepassword')))
+            //|| ($valid['iDeletePassword'] = empty($request->getData('deletepassword')))
             || ($valid['iDbName'] = !self::testDbConnection($request))
             || ($valid['iOrgName'] = empty($request->getData('orgname')))
             || ($valid['iAdminName'] = empty($request->getData('adminname')))
-            || ($valid['iAdminPassword'] = empty($request->getData('adminpassword')))
+            //|| ($valid['iAdminPassword'] = empty($request->getData('adminpassword')))
             || ($valid['iAdminEmail'] = empty($request->getData('adminemail')))
             || ($valid['iDomain'] = empty($request->getData('domain')))
             || ($valid['iWebSubdir'] = empty($request->getData('websubdir')))
@@ -214,198 +212,5 @@ final class ConsoleApplication extends ApplicationAbstract
         }
 
         return [];
-    }
-
-    private static function clearOld() : void
-    {
-        \file_put_contents(__DIR__ . '/../Web/Backend/Routes.php', '<?php return [];');
-        \file_put_contents(__DIR__ . '/../Web/Api/Routes.php', '<?php return [];');
-    }
-
-    private static function hasPhpExtensions() : bool
-    {
-        return extension_loaded('pdo')
-            && extension_loaded('mbstring');
-    }
-
-    private static function testDbConnection(Request $request) : bool
-    {
-        return true;
-    }
-
-    private static function setupDatabaseConnection(Request $request) : ConnectionAbstract
-    {
-        return ConnectionFactory::create([
-            'db'       => (string) $request->getData('dbtype'),
-            'host'     => (string) $request->getData('dbhost'),
-            'port'     => (string) $request->getData('dbport'),
-            'prefix'   => (string) $request->getData('dbprefix'),
-            'database' => (string) $request->getData('dbname'),
-            'login'    => (string) $request->getData('schemauser'),
-            'password' => (string) $request->getData('schemapassword'),
-        ]);
-    }
-
-    private static function installConfigFile(Request $request) : void
-    {
-        self::editConfigFile($request);
-        self::editHtaccessFile($request);
-    }
-
-    private static function editConfigFile(Request $request) : void
-    {
-        $config = \file_get_contents(__DIR__ . '/../config.php');
-    }
-
-    private static function editHtaccessFile(Request $request) : void
-    {
-        $ht = \file_get_contents(__DIR__ . '/../.htaccess');
-    }
-
-    private static function installCore(ConnectionAbstract $db) : void
-    {
-        self::createModuleTable($db);
-        self::createModuleLoadTable($db);
-        self::installAdminModule($db);
-    }
-
-    private static function createModuleTable(ConnectionAbstract $db) : void
-    {
-        $db->con->prepare(
-            'CREATE TABLE if NOT EXISTS `' . $db->prefix . 'module` (
-                `module_id` varchar(255) NOT NULL,
-                `module_theme` varchar(100) DEFAULT NULL,
-                `module_path` varchar(50) NOT NULL,
-                `module_active` tinyint(1) NOT NULL DEFAULT 1,
-                `module_version` varchar(10) DEFAULT NULL,
-                PRIMARY KEY (`module_id`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;'
-        )->execute();
-    }
-
-    private static function createModuleLoadTable(ConnectionAbstract $db) : void
-    {
-        $db->con->prepare(
-            'CREATE TABLE if NOT EXISTS `' . $db->prefix . 'module_load` (
-                `module_load_id` int(11) NOT NULL AUTO_INCREMENT,
-                `module_load_pid` varchar(40) NOT NULL,
-                `module_load_type` tinyint(1) NOT NULL,
-                `module_load_from` varchar(255) DEFAULT NULL,
-                `module_load_for` varchar(255) DEFAULT NULL,
-                `module_load_file` varchar(255) NOT NULL,
-                PRIMARY KEY (`module_load_id`),
-                KEY `module_load_from` (`module_load_from`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
-        )->execute();
-    }
-
-    private static function installAdminModule(ConnectionAbstract $db) : void
-    {
-        $app = new class extends ApplicationAbstract
-        {
-        };
-        $app->dbPool = new DatabasePool();
-        $app->dbPool->add('select', $db);
-        $app->dbPool->add('schema', $db);
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../Modules');
-        $moduleManager->install('Admin');
-    }
-
-    private static function installGroups(ConnectionAbstract $db) : void
-    {
-        self::installMainGroups($db);
-        self::installGroupPermissions($db);
-    }
-
-    private static function installMainGroups(ConnectionAbstract $db) : void
-    {
-        $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
-
-        $db->con->prepare(
-            'INSERT INTO `' . $db->prefix . 'group` (`group_name`, `group_desc`, `group_status`, `group_created`) VALUES
-                (\'guest\', NULL, ' . GroupStatus::ACTIVE . ', \'' . $date->format('Y-m-d H:i:s') . '\'),
-                (\'user\', NULL, ' . GroupStatus::ACTIVE . ', \'' . $date->format('Y-m-d H:i:s') . '\'),
-                (\'admin\', NULL, ' . GroupStatus::ACTIVE . ', \'' . $date->format('Y-m-d H:i:s') . '\');'
-        )->execute();
-    }
-
-    private static function installGroupPermissions(ConnectionAbstract $db) : void
-    {
-        $db->con->prepare(
-            'INSERT INTO `' . $db->prefix . 'group_permission` (`group_permission_group`, `group_permission_unit`, `group_permission_app`, `group_permission_module`, `group_permission_from`, `group_permission_type`, `group_permission_element`, `group_permission_component`, `group_permission_permission`) VALUES
-                (3, 1, \'backend\', NULL, NULL, NULL, NULL, NULL, ' . (PermissionType::READ | PermissionType::CREATE | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION) . ');'
-        )->execute();
-
-        $db->con->prepare(
-            'INSERT INTO `' . $db->prefix . 'group_permission` (`group_permission_group`, `group_permission_unit`, `group_permission_app`, `group_permission_module`, `group_permission_from`, `group_permission_type`, `group_permission_element`, `group_permission_component`, `group_permission_permission`) VALUES
-                (3, 1, \'api\', NULL, NULL, NULL, NULL, NULL, ' . (PermissionType::READ | PermissionType::CREATE | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION) . ');'
-        )->execute();
-    }
-
-    private static function installUsers(Request $request, ConnectionAbstract $db) : void
-    {
-        self::installUserLocalization($db);
-        self::installMainUser($request, $db);
-    }
-
-    private static function installUserLocalization(ConnectionAbstract $db) : void
-    {
-        $db->con->prepare(
-            'INSERT INTO `' . $db->prefix . 'l11n` (`l11n_country`, `l11n_language`, `l11n_currency`, `l11n_number_thousand`, `l11n_number_decimal`, `l11n_angle`, `l11n_temperature`, `l11n_weight_very_light`, `l11n_weight_light`, `l11n_weight_medium`, `l11n_weight_heavy`, `l11n_weight_very_heavy`, `l11n_speed_very_slow`, `l11n_speed_slow`, `l11n_speed_medium`, `l11n_speed_fast`, `l11n_speed_very_fast`, `l11n_speed_sea`, `l11n_length_very_short`, `l11n_length_short`, `l11n_length_medium`, `l11n_length_long`, `l11n_length_very_long`, `l11n_length_sea`, `l11n_area_very_small`, `l11n_area_small`, `l11n_area_medium`, `l11n_area_large`, `l11n_area_very_large`, `l11n_volume_very_small`, `l11n_volume_small`, `l11n_volume_medium`, `l11n_volume_large`, `l11n_volume_very_large`, `l11n_volume_teaspoon`, `l11n_volume_tablespoon`, `l11n_volume_glass`) VALUES
-                (\'DE\', \'EN\', \'EUR\', \',\', \'.\', \'degree\', \'celsius\', \'mg\', \'g\', \'kg\', \'t\', \'t\', \'ms\', \'ms\', \'kph\', \'kph\', \'kph\', \'knot\', \'mm\', \'cm\', \'m\', \'km\', \'km\', \'mile\', \'mm\', \'cm\', \'m\', \'km\', \'km\', \'ml\', \'cl\', \'l\', \'l\', \'l\', \'metric teaspoon\', \'metric tablespoon\', \'metric glass\'), (\'DE\', \'EN\', \'EUR\', \',\', \'.\', \'degree\', \'celsius\', \'mg\', \'g\', \'kg\', \'t\', \'t\', \'ms\', \'ms\', \'kph\', \'kph\', \'kph\', \'knot\', \'mm\', \'cm\', \'m\', \'km\', \'km\', \'mile\', \'mm\', \'cm\', \'m\', \'km\', \'km\', \'ml\', \'cl\', \'l\', \'l\', \'l\', \'metric teaspoon\', \'metric tablespoon\', \'metric glass\');'
-        )->execute();
-    }
-
-    private static function installMainUser(Request $request, ConnectionAbstract $db) : void
-    {
-        $date = new \DateTime('NOW', new \DateTimeZone('UTC'));
-
-        $db->con->prepare(
-            'INSERT INTO `' . $db->prefix . 'account` (`account_status`, `account_type`, `account_login`, `account_name1`, `account_name2`, `account_name3`, `account_password`, `account_email`, `account_tries`, `account_lactive`, `account_localization`, `account_created_at`) VALUES
-                (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', \'' . ((string) $request->getData('adminname')) . '\', \'' . ((string) $request->getData('adminname')) . '\', \'\', \'\', \'' . password_hash((string) $request->getData('adminpassword'), PASSWORD_DEFAULT) . '\', \'' . ((string) $request->getData('adminemail')) . '\', 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\'),
-                (' . AccountStatus::ACTIVE . ', ' . AccountType::USER . ', \'guest\', \'Guest\', \'\', \'\', \'' . password_hash('guest', PASSWORD_DEFAULT) . '\', \'guest@email.com\', 5, \'' . $date->format('Y-m-d H:i:s') . '\', 2, \'' . $date->format('Y-m-d H:i:s') . '\');'
-        )->execute();
-
-        $db->con->prepare(
-            'INSERT INTO `' . $db->prefix . 'account_group` (`account_group_group`, `account_group_account`) VALUES
-                (3, 1);'
-        )->execute();
-    }
-
-    private static function installSettings(Request $request, ConnectionAbstract $db) : void
-    {
-        $db->con->prepare(
-            'INSERT INTO `' . $db->prefix . 'settings` (`settings_id`, `settings_module`, `settings_name`, `settings_content`, `settings_group`) VALUES
-                (1000000001, NULL, \'username_length_max\', \'20\', NULL),
-                (1000000002, NULL, \'username_length_min\', \'5\', NULL),
-                (1000000003, NULL, \'password_length_max\', \'50\', NULL),
-                (1000000004, NULL, \'password_length_min\', \'5\', NULL),
-                (1000000005, NULL, \'login_tries\', \'3\', NULL),
-                (1000000006, NULL, \'pass_special\', \'1\', NULL),
-                (1000000007, NULL, \'pass_upper\', \'0\', NULL),
-                (1000000008, NULL, \'pass_numeric\', \'1\', NULL),
-                (1000000009, NULL, \'oname\', \'Orange Management\', NULL),
-                (1000000010, NULL, \'theme\', \'oms-slim\', NULL),
-                (1000000011, NULL, \'theme_path\', \'/oms-slim\', NULL),
-                (1000000012, NULL, \'changed\', \'1\', NULL),
-                (1000000013, NULL, \'login_status\', \'1\', NULL),
-                (1000000014, NULL, \'login_msg\', \'Maintenance scheduled for tomorrow from 11:00 am to 1:00 pm.\', NULL),
-                (1000000015, NULL, \'use_cache\', \'0\', NULL),
-                (1000000016, NULL, \'last_recache\', \'0000-00-00 00:00:00\', NULL),
-                (1000000017, NULL, \'public_access\', \'0\', NULL),
-                (1000000018, NULL, \'rewrite\', \'0\', NULL),
-                (1000000019, NULL, \'country\', \'DE\', NULL),
-                (1000000020, NULL, \'language\', \'en\', NULL),
-                (1000000021, NULL, \'timezone\', \'Europe/Berlin\', NULL),
-                (1000000022, NULL, \'timeformat\', \'DD.MM.YYYY hh:mm:ss\', NULL),
-                (1000000023, NULL, \'currency\', \'USD\', NULL),
-                (1000000024, NULL, \'pass_lower\', \'1\', NULL),
-                (1000000025, NULL, \'mail_admin\', \'mail@admin.com\', NULL),
-                (1000000026, NULL, \'login_name\', \'1\', NULL),
-                (1000000027, NULL, \'decimal_point\', \'.\', NULL),
-                (1000000028, NULL, \'thousands_sep\', \',\', NULL),
-                (1000000029, NULL, \'server_language\', \'en\', NULL)'
-        )->execute();
     }
 }
