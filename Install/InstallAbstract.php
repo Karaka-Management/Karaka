@@ -281,6 +281,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $moduleManager = new ModuleManager($app, __DIR__ . '/../Modules');
 
         $moduleManager->install('Admin');
+        $moduleManager->install('Auditor');
         $moduleManager->install('Organization');
         $moduleManager->install('Help');
         $moduleManager->install('Profile');
