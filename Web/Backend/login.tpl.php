@@ -17,8 +17,8 @@ $head = $this->getData('head');
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <base href="<?= \phpOMS\Uri\UriFactory::build('{/base}'); ?>">
-    <link rel="manifest" href="<?= \phpOMS\Uri\UriFactory::build('/Web/Backend/manifest.json'); ?>">
+    <base href="<?= \phpOMS\Uri\UriFactory::build('{/base}'); ?>/">
+    <link rel="manifest" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/manifest.json'); ?>">
     <?= $head->getMeta()->render(); ?>
     <title><?= $this->printHtml($head->getTitle()); ?></title>
     <?= $head->renderAssets(); ?>
@@ -81,10 +81,10 @@ $head = $this->getData('head');
 <div id="login-container">
     <header><h1>Orange Management</h1></header>
     <div id="login-logo" class="floatLeft">
-        <img alt="Logo" src="<?= \phpOMS\Uri\UriFactory::build('/Web/Backend/img/logo.png'); ?>" width="200">
+        <img alt="Logo" src="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/img/logo.png'); ?>" width="200">
     </div>
     <div id="login-form" class="floatLeft">
-        <form id="login" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/login?{?}'); ?>">
+        <form id="login" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/login?{?}'); ?>">
             <table class="layout">
                 <tr><td><label for="iName"><?= $this->getHtml('Username', 0, 0); ?></label>
                 <tr><td><input id="iName" type="text" name="user">

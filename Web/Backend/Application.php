@@ -333,107 +333,107 @@ final class Application
     private function initResponseHead(Head $head, Request $request, Response $response) : void
     {
         /* Load assets */
-        $head->addAsset(AssetType::CSS, '/Resources/fontawesome/css/font-awesome.min.css');
-        $head->addAsset(AssetType::CSS, '/cssOMS/styles.css');
+        $head->addAsset(AssetType::CSS, 'Resources/fontawesome/css/font-awesome.min.css');
+        $head->addAsset(AssetType::CSS, 'cssOMS/styles.css');
 
         /* @todo: this should be loaded in one file for releases. right now this is done for easier debugging purposes */
         // Framework
-        $head->addAsset(AssetType::JS, '/jsOMS/Utils/oLib.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Asset/AssetManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Autoloader.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UnhandledException.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Account/AccountType.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Account/AccountManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Uri/Http.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Uri/UriFactory.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/DataStorage/CacheManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/DataStorage/LocalStorage.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/DataStorage/StorageManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Event/EventManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/BrowserType.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/OSType.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/RequestMethod.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/RequestType.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Request/Request.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/ActionManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/ResponseType.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/ResponseManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Response/Response.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/App/AppNotification.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/Browser/BrowserNotification.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationType.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationLevel.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Message/Notification/NotificationMessage.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Module/ModuleFactory.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Module/ModuleManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Dispatcher/Dispatcher.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Log/Logger.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Log/LogLevel.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Component/AdvancedInput.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Component/Form.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Component/Table.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/InputManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Keyboard/KeyboardManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Mouse/ClickType.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Mouse/EventType.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Mouse/MouseManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Touch/TouchManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Voice/VoiceManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Voice/ReadManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Input/Voice/SpeechManager.js');
-        //$head->addAsset(AssetType::JS, '/jsOMS/UI/Element/Button.js');
-        //$head->addAsset(AssetType::JS, '/jsOMS/UI/Element/Select.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Component/Table.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Component/Tab.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/Loader.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/DragNDrop.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/GeneralUI.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/UI/UIManager.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Views/FormView.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Views/TableView.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Utils/Parser/Markdown.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Utils/oLib.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Asset/AssetManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Autoloader.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UnhandledException.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Account/AccountType.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Account/AccountManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Uri/Http.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Uri/UriFactory.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/DataStorage/CacheManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/DataStorage/LocalStorage.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/DataStorage/StorageManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Event/EventManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Message/Request/BrowserType.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Message/Request/OSType.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Message/Request/RequestMethod.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Message/Request/RequestType.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Message/Request/Request.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/ActionManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Message/Response/ResponseType.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Message/Response/ResponseManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Message/Response/Response.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Message/Notification/App/AppNotification.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Message/Notification/Browser/BrowserNotification.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Message/Notification/NotificationType.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Message/Notification/NotificationLevel.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Message/Notification/NotificationManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Message/Notification/NotificationMessage.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Module/ModuleFactory.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Module/ModuleManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Dispatcher/Dispatcher.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Log/Logger.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Log/LogLevel.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/Component/AdvancedInput.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/Component/Form.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/Component/Table.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/Input/InputManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/Input/Keyboard/KeyboardManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/Input/Mouse/ClickType.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/Input/Mouse/EventType.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/Input/Mouse/MouseManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/Input/Touch/TouchManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/Input/Voice/VoiceManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/Input/Voice/ReadManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/Input/Voice/SpeechManager.js');
+        //$head->addAsset(AssetType::JS, 'jsOMS/UI/Element/Button.js');
+        //$head->addAsset(AssetType::JS, 'jsOMS/UI/Element/Select.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/Component/Table.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/Component/Tab.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/Loader.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/DragNDrop.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/GeneralUI.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/UI/UIManager.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Views/FormView.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Views/TableView.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Utils/Parser/Markdown.js');
 
         // Models
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Message/DomActionType.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Message/DomAction.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Message/FormValidation.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Message/NotifyType.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Message/Notify.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Message/Redirect.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Message/Reload.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Message/DomActionType.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Message/DomAction.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Message/FormValidation.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Message/NotifyType.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Message/Notify.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Message/Redirect.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Message/Reload.js');
 
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Message/Request.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Message/Log.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Popup.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Remove.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Show.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Hide.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Focus.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Datalist/Clear.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Datalist/Append.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Table/Clear.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/Table/Append.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Utils/Timer.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Validate/Keypress.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/SetValue.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/RemoveValue.js');
-        $head->addAsset(AssetType::JS, '/jsOMS/Model/Action/Dom/GetValue.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Message/Request.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Message/Log.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Dom/Popup.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Dom/Remove.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Dom/Show.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Dom/Hide.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Dom/Focus.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Dom/Datalist/Clear.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Dom/Datalist/Append.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Dom/Table/Clear.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Dom/Table/Append.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Utils/Timer.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Validate/Keypress.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Dom/SetValue.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Dom/RemoveValue.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Dom/GetValue.js');
 
-        $head->addAsset(AssetType::JS, '/Web/Backend/js/config.js');
-        $head->addAsset(AssetType::JS, '/Web/Backend/js/global/ActionEvents.js');
-        $head->addAsset(AssetType::JS, '/Web/Backend/js/global/KeyboardEvents.js');
-        $head->addAsset(AssetType::JS, '/Web/Backend/js/global/MouseEvents.js');
-        $head->addAsset(AssetType::JS, '/Web/Backend/js/global/ResponseEvents.js');
-        $head->addAsset(AssetType::JS, '/Web/Backend/js/global/TouchEvents.js');
-        $head->addAsset(AssetType::JS, '/Web/Backend/js/global/VoiceEvents.js');
+        $head->addAsset(AssetType::JS, 'Web/Backend/js/config.js');
+        $head->addAsset(AssetType::JS, 'Web/Backend/js/global/ActionEvents.js');
+        $head->addAsset(AssetType::JS, 'Web/Backend/js/global/KeyboardEvents.js');
+        $head->addAsset(AssetType::JS, 'Web/Backend/js/global/MouseEvents.js');
+        $head->addAsset(AssetType::JS, 'Web/Backend/js/global/ResponseEvents.js');
+        $head->addAsset(AssetType::JS, 'Web/Backend/js/global/TouchEvents.js');
+        $head->addAsset(AssetType::JS, 'Web/Backend/js/global/VoiceEvents.js');
 
-        $head->addAsset(AssetType::JS, '/Web/Backend/ServiceWorker.js');
-        $head->addAsset(AssetType::JSLATE, '/Web/Backend/js/backend.js');
-        $head->addAsset(AssetType::JSLATE, '/Web/Backend/js/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.js');
+        $head->addAsset(AssetType::JS, 'Web/Backend/ServiceWorker.js');
+        $head->addAsset(AssetType::JSLATE, 'Web/Backend/js/backend.js');
+        $head->addAsset(AssetType::JSLATE, 'Web/Backend/js/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.js');
 
-        $head->addAsset(AssetType::JSLATE, '/Modules/Navigation/Controller.js');
-        $head->addAsset(AssetType::JSLATE, '/Modules/Navigation/Models/Navigation.js');
+        $head->addAsset(AssetType::JSLATE, 'Modules/Navigation/Controller.js');
+        $head->addAsset(AssetType::JSLATE, 'Modules/Navigation/Models/Navigation.js');
 
         $head->setScript('core', $script = 'const assetManager = new jsOMS.Asset.AssetManager();');
         $response->getHeader()->set(
@@ -444,13 +444,13 @@ final class Application
             true
         );
 
-        $head->addAsset(AssetType::CSS, '/Web/Backend/css/backend.css');
+        $head->addAsset(AssetType::CSS, 'Web/Backend/css/backend.css');
 
         if ($request->hasData('debug')) {
-            $head->addAsset(AssetType::CSS, '/cssOMS/debug.css');
+            $head->addAsset(AssetType::CSS, 'cssOMS/debug.css');
         }
 
-        $head->addAsset(AssetType::JS, '/Resources/d3/d3.min.js');
+        $head->addAsset(AssetType::JS, 'Resources/d3/d3.min.js');
 
         $css = \file_get_contents(__DIR__ . '/css/backend-small.css');
         if ($css === false) {
