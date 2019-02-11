@@ -180,6 +180,7 @@ abstract class InstallAbstract extends ApplicationAbstract
     {
         $fullTLD = $request->getData('domain');
         $tld     = \str_replace(['.', 'http://', 'https://'], ['\.', '', ''], $request->getData('domain') ?? '');
+        $subPath = $request->getData('websubdir') ?? '/';
 
         $config = include __DIR__ . '/Templates/htaccess.tpl.php';
 

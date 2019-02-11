@@ -77,7 +77,13 @@ EOT;
 $htaccess .= <<<EOT
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.*)$ /?{QUERY_STRING} [QSA]
+    RewriteRule ^(.*)$ 
+EOT;
+
+$htaccess .= $subPath;
+
+$htaccess .= <<<EOT
+?{QUERY_STRING} [QSA]
 </ifmodule>
 # END URL rewrite
 
