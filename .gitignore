@@ -20,3 +20,6 @@ build
 cookie.txt
 *.cache
 *.xml
+config.php
+.htaccess
+Web/Api/Hooks.php
