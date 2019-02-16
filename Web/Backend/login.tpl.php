@@ -87,10 +87,10 @@ $head = $this->getData('head');
         <form id="login" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/login?{?}'); ?>">
             <table class="layout">
                 <tr><td><label for="iName"><?= $this->getHtml('Username', 0, 0); ?></label>
-                <tr><td><input id="iName" type="text" name="user">
+                <tr><td><input id="iName" type="text" name="user" tabindex="1" autofocus>
                 <tr><td><label for="iPassword"><?= $this->getHtml('Password', 0, 0); ?></label>
-                <tr><td><input id="iPassword" type="password" name="pass">
-                <tr><td><input id="iLoginButton" name="loginButton" type="submit" value="<?= $this->getHtml('Login', 0, 0); ?>">
+                <tr><td><input id="iPassword" type="password" name="pass" tabindex="2">
+                <tr><td><input id="iLoginButton" name="loginButton" type="submit" value="<?= $this->getHtml('Login', 0, 0); ?>" tabindex="3">
             </table>
         </form>
     </div>
