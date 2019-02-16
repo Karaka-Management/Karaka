@@ -17,5 +17,6 @@ const ACTION_EVENTS = {
     'message.request': requestAction, /** global: requestAction */
     'message.log': logAction, /** global: logAction */
     'utils.timer': timerAction, /** global: timerAction */
-    'validate.keypress': validateKeypress /** global: validateKeypress */
+    'validate.keypress': validateKeypress, /** global: validateKeypress */
+    'event.prevent': preventEvent /** global: preventEvent */
 };

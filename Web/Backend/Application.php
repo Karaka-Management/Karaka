@@ -419,6 +419,7 @@ final class Application
         $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Dom/SetValue.js');
         $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Dom/RemoveValue.js');
         $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Dom/GetValue.js');
+        $head->addAsset(AssetType::JS, 'jsOMS/Model/Action/Event/Prevent.js');
 
         $head->addAsset(AssetType::JS, 'Web/Backend/js/config.js');
         $head->addAsset(AssetType::JS, 'Web/Backend/js/global/ActionEvents.js');
