@@ -168,7 +168,7 @@ final class Application
 
         $account = $this->loadAccount($request);
 
-        if (!$account instanceof NullAccount) {
+        if (!($account instanceof NullAccount)) {
             $response->getHeader()->setL11n($account->getL11n());
         }
 
