@@ -226,35 +226,8 @@ abstract class InstallAbstract extends ApplicationAbstract
 
         $definitions = \json_decode($content, true);
         foreach ($definitions as $definition) {
-            self::createTable($definition, $db);
+            SchemaBuilder::createFromSchema($definition, $db)->execute();
         }
-    }
-
-    /**
-     * Create table module.
-     *
-     * @param array              $definition Table definition
-     * @param ConnectionAbstract $db         Database connection
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    protected static function createTable(array $definition, ConnectionAbstract $db) : void
-    {
-        $builder = new SchemaBuilder($db);
-        $builder->prefix($db->prefix);
-        $builder->createTable($definition['name'] ?? '');
-
-        foreach ($definition['fields'] as $name => $def) {
-            $builder->field(
-                $name, $def['type'], $def['default'] ?? null,
-                $def['null'] ?? true, $def['primary'] ?? false, $def['autoincrement'] ?? false,
-                $def['foreignTable'] ?? null, $def['foreignKey'] ?? null
-            );
-        }
-
-        $builder->execute();
     }
 
     /**
