@@ -22,6 +22,7 @@ use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\Response;
+use phpOMS\Uri\Http;
 use phpOMS\Uri\UriFactory;
 
 use Web\Exception\DatabaseException;
@@ -54,14 +55,15 @@ class WebApplication extends ApplicationAbstract
             $this->setupHandlers();
 
             $this->logger = FileLogger::getInstance($config['log']['file']['path'], false);
-            $request      = $this->initRequest($config['page']['root'], $config['language'][0]);
-            $response     = $this->initResponse($request, $config['language']);
 
-            UriFactory::setupUriBuilder($request->getUri());
+            UriFactory::setQuery('/prefix', '');
+            UriFactory::setQuery('/api', 'api/');
+            $applicationName = $this->getApplicationName(Http::fromCurrent(), $config['app']);
+            $request         = $this->initRequest($config['page']['root'], $config);
+            $response        = $this->initResponse($request, $config);
 
-            $applicationName = $this->getApplicationName($request->getUri()->getPathElement(1) ?? '');
-            $app             = '\Web\\' . $applicationName . '\Application';
-            $sub             = new $app($this, $config);
+            $app = '\Web\\' . $applicationName . '\Application';
+            $sub = new $app($this, $config);
         } catch (DatabaseException $e) {
             $this->logger->critical(FileLogger::MSG_FULL, [
                 'message' => $e->getMessage(),
@@ -123,26 +125,27 @@ class WebApplication extends ApplicationAbstract
      * Initialize current application request
      *
      * @param string $rootPath Web root path
-     * @param string $language Fallback language
+     * @param array  $config   App config
      *
      * @return Request Initial client request
      *
      * @since  1.0.0
      */
-    private function initRequest(string $rootPath, string $language) : Request
+    private function initRequest(string $rootPath, array $config) : Request
     {
         $request     = Request::createFromSuperglobals();
-        $subDirDepth = \substr_count($rootPath, '/');
+        $subDirDepth = \substr_count($rootPath, '/') - 1;
 
-        $request->createRequestHashs($subDirDepth);
+        $defaultLang = $config['language'][0];
+        $uriLang     = \strtolower($request->getUri()->getPathElement(0));
+        $requestLang = $request->getRequestLanguage();
+        $langCode    = ISO639x1Enum::isValidValue($uriLang) ? $uriLang : (ISO639x1Enum::isValidValue($requestLang) ? $requestLang : $defaultLang);
+
+        $request->createRequestHashs($subDirDepth + (ISO639x1Enum::isValidValue($uriLang) ? 1 : 0) + ($config['app']['name'] === 'path' ? 1 : 0));
         $request->getUri()->setRootPath($rootPath);
         UriFactory::setupUriBuilder($request->getUri());
 
-        $langCode = \strtolower($request->getUri()->getPathElement(0));
-        $request->getHeader()->getL11n()->loadFromLanguage(
-            empty($langCode) || !ISO639x1Enum::isValidValue($langCode) ? $language : $langCode
-        );
-        UriFactory::setQuery('/lang', $request->getHeader()->getL11n()->getLanguage());
+        $request->getHeader()->getL11n()->loadFromLanguage($langCode, \explode('_', $request->getLocale())[1] ?? '*');
 
         return $request;
     }
@@ -150,14 +153,14 @@ class WebApplication extends ApplicationAbstract
     /**
      * Initialize basic response
      *
-     * @param Request $request   Client request
-     * @param array   $languages Supported languages
+     * @param Request $request Client request
+     * @param array  $config   App config
      *
      * @return Response Initial client request
      *
      * @since  1.0.0
      */
-    private function initResponse(Request $request, array $languages) : Response
+    private function initResponse(Request $request, array $config) : Response
     {
         $response = new Response(new Localization());
         $response->getHeader()->set('content-type', 'text/html; charset=utf-8');
@@ -170,11 +173,18 @@ class WebApplication extends ApplicationAbstract
             $response->getHeader()->set('strict-transport-security', 'max-age=31536000');
         }
 
-        $response->getHeader()->getL11n()->loadFromLanguage(
-            !\in_array(
-                $request->getHeader()->getL11n()->getLanguage(), $languages
-            ) ? $languages[0] : $request->getHeader()->getL11n()->getLanguage()
-        );
+        $defaultLang = $config['language'][0];
+        $uriLang     = \strtolower($request->getUri()->getPathElement(0));
+        $requestLang = $request->getHeader()->getL11n()->getLanguage();
+        $langCode    = ISO639x1Enum::isValidValue($requestLang) && \in_array($requestLang, $config['language']) ? $requestLang : (ISO639x1Enum::isValidValue($uriLang) && \in_array($uriLang, $config['language']) ? $uriLang : $defaultLang);
+
+        $response->getHeader()->getL11n()->loadFromLanguage($langCode, \explode('_', $request->getLocale())[1] ?? '*');
+        UriFactory::setQuery('/lang', $request->getHeader()->getL11n()->getLanguage());
+
+        if (ISO639x1Enum::isValidValue($uriLang)) {
+            UriFactory::setQuery('/prefix',  $uriLang . '/' . (empty(UriFactory::getQuery('/prefix')) ? '' : UriFactory::getQuery('/prefix')));
+            UriFactory::setQuery('/api',  $uriLang . '/' . (empty(UriFactory::getQuery('/api')) ? '' : UriFactory::getQuery('/api')));
+        }
 
         return $response;
     }
@@ -182,21 +192,52 @@ class WebApplication extends ApplicationAbstract
     /**
      * Get name of the application.
      *
-     * The application name will be evaluated based on the URI.
-     *
-     * @param string $request Request string of the current request
+     * @param Http  $uri    Current Uri
+     * @param array $config App configuration
      *
      * @return string Application name
      *
      * @since  1.0.0
      */
-    private function getApplicationName(string $request) : string
+    private function getApplicationName(Http $uri, array $config) : string
     {
-        $applicationName = \ucfirst(\strtolower($request));
-        $applicationName = empty($applicationName) ? 'E500' : $applicationName;
+        switch ($config['name'] ?? '') {
+            case 'subdomain':
+                $subdomain = $uri->getSubdomain();
+                $appName   = empty($subdomain) ? $config['default'] ?? '' : $subdomain;
 
-        if (Autoloader::exists('\Web\\' . $applicationName . '\Application') === false) {
-            throw new UnexpectedApplicationException($applicationName);
+                break;
+            case 'path':
+                // todo: what if the app name is at a different path position. can it be on another position? will lang ever miss in uri if appname is available?
+                $appName = $uri->getPathElement(1) ?? $config['default'];
+
+                UriFactory::setQuery('/prefix', (empty(UriFactory::getQuery('/prefix')) ? '' : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement(1) . '/');
+                break;
+            case 'domain':
+                $appName = $config['domains'][$uri->getHost()] ?? $config['default'];
+                break;
+            default:
+                $appName = $config['default'] ?? '';
+        }
+
+        return $this->getApplicationNameFromString($appName);
+    }
+
+    /**
+     * Get name of the application.
+     *
+     * @param string $app Application name proposal
+     *
+     * @return string Application name
+     *
+     * @since  1.0.0
+     */
+    private function getApplicationNameFromString(string $app) : string
+    {
+        $applicationName = \ucfirst(\strtolower($app));
+
+        if (empty($applicationName) || !Autoloader::exists('\Web\\' . $applicationName . '\Application')) {
+            $applicationName = 'E500';
         }
 
         return $applicationName;

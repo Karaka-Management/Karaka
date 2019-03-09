@@ -29,6 +29,7 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Session\HttpSession;
+use phpOMS\DataStorage\Cookie\CookieJar;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
 use phpOMS\Localization\L11nManager;
@@ -134,6 +135,7 @@ final class Application
         );
 
         $this->app->sessionManager = new HttpSession(36000);
+        $this->app->cookieJar      = new CookieJar();
         $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../Modules');
         $this->app->dispatcher     = new Dispatcher($this->app);
 
@@ -170,6 +172,10 @@ final class Application
 
         if (!($account instanceof NullAccount)) {
             $response->getHeader()->setL11n($account->getL11n());
+        } elseif ($this->app->sessionManager->get('language') !== null) {
+            $response->getHeader()->getL11n()->loadFromLanguage($this->app->sessionManager->get('language'), $this->app->sessionManager->get('country') ?? '*');
+        } elseif ($this->app->cookieJar->get('language') !== null) {
+            $response->getHeader()->getL11n()->loadFromLanguage($this->app->cookieJar->get('language'), $this->app->cookieJar->get('country') ?? '*');
         }
 
         UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());

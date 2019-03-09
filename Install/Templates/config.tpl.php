@@ -115,7 +115,12 @@ return [
         'https' => false,
     ],
     'app'      => [
-        'path' => __DIR__,
+        'path'    => __DIR__,
+        'name'    => 'domain',
+        'default' => 'backend',
+        'domains' => [
+            '$tld' => 'backend'
+        ],
     ],
     'socket'   => [
         'master' => [
