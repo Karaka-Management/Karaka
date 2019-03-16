@@ -94,6 +94,22 @@ return [
             ],
         ],
     ],
+    'mail'      => [
+        'imap' => [
+            'host' => '127.0.0.1',
+            'port' => 143,
+            'ssl' => false,
+            'user' => 'test',
+            'password' => '123456',
+        ],
+        'pop3' => [
+            'host' => '127.0.0.1',
+            'port' => 25,
+            'ssl' => false,
+            'user' => 'test',
+            'password' => '123456',
+        ],
+    ],
     'cache' => [
         'redis' => [
             'db'   => 1,
