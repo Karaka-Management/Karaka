@@ -1,11 +1,11 @@
 /* TEAM */
-Orange Management Solutions
-Site: http://website.orange-management.de
+Orange Management
+Site: https://orange-management.org
 Location: Frankfurt, Germany
 
 /* SITE */
-Last update: 2018
-Standards: PHP 7.1, HTML5, CSS3, JavaScript
+Last update: 2019
+Standards: PHP 7.2, HTML5, CSS3, JavaScript
 Components: FontAwesome, D3.js, Three.js, PHPSpreadSheet, TCPDF
 Software: Sublime Text, PHPStorm, Github, Git, Visual Studio Code
 IDE: Sublime Text, PHPStorm, Visual Studio Code

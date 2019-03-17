@@ -208,15 +208,14 @@ class WebApplication extends ApplicationAbstract
      */
     private function getApplicationName(Http $uri, array $config) : string
     {
-        $subdomain = $uri->getSubdomain();
-        $appName   = empty($subdomain) ? $config['default'] ?? '' : $subdomain;
-        $appName   = $this->getApplicationNameFromString($appName);
+        $appName = $uri->getSubdomain();
+        $appName = $this->getApplicationNameFromString($appName);
 
         if ($appName !== 'E500') {
             return $appName;
         }
 
-        $appName = $uri->getPathElement(0) ?? $config['default'];
+        $appName = $uri->getPathElement(0);
         $appName = $this->getApplicationNameFromString($appName);
 
         if ($appName !== 'E500') {
