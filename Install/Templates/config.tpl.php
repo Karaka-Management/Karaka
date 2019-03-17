@@ -132,7 +132,6 @@ return [
     ],
     'app'      => [
         'path'    => __DIR__,
-        'name'    => 'domain',
         'default' => 'backend',
         'domains' => [
             '$tld' => 'backend'

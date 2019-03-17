@@ -167,11 +167,11 @@ final class Application
         if (!empty($uris = $request->getUri()->getQuery('r'))) {
             $this->handleBatchRequest($uris, $request, $response);
         } else {
-            if ($request->getUri()->getPathElement(2) === 'login') {
+            if ($request->getUri()->getPathElement(0) === 'login') {
                 $this->handleLogin($request, $response);
 
                 return;
-            } elseif ($request->getUri()->getPathElement(2) === 'logout'
+            } elseif ($request->getUri()->getPathElement(0) === 'logout'
                 && $request->getData('csrf') === $this->app->sessionManager->get('CSRF')
             ) {
                 $this->handleLogout($request, $response);

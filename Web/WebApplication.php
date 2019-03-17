@@ -137,12 +137,19 @@ class WebApplication extends ApplicationAbstract
         $subDirDepth = \substr_count($rootPath, '/') - 1;
 
         $defaultLang = $config['language'][0];
-        $uriLang     = \strtolower($request->getUri()->getPathElement(0));
+        $uriLang     = \strtolower($request->getUri()->getPathElement($subDirDepth + 0));
         $requestLang = $request->getRequestLanguage();
         $langCode    = ISO639x1Enum::isValidValue($uriLang) ? $uriLang : (ISO639x1Enum::isValidValue($requestLang) ? $requestLang : $defaultLang);
 
-        $request->createRequestHashs($subDirDepth + (ISO639x1Enum::isValidValue($uriLang) ? 1 : 0) + ($config['app']['name'] === 'path' ? 1 : 0));
+        $pathOffset = $subDirDepth
+            + (ISO639x1Enum::isValidValue($uriLang) ?
+                1 + ($this->getApplicationNameFromString($request->getUri()->getPathElement($subDirDepth + 1)) !== 'E500' ? 1 : 0) :
+                0 + ($this->getApplicationNameFromString($request->getUri()->getPathElement($subDirDepth + 0)) !== 'E500' ? 1 : 0)
+        );
+
+        $request->createRequestHashs($pathOffset);
         $request->getUri()->setRootPath($rootPath);
+        $request->getUri()->setPathOffset($pathOffset);
         UriFactory::setupUriBuilder($request->getUri());
 
         $request->getHeader()->getL11n()->loadFromLanguage($langCode, \explode('_', $request->getLocale())[1] ?? '*');
@@ -201,24 +208,24 @@ class WebApplication extends ApplicationAbstract
      */
     private function getApplicationName(Http $uri, array $config) : string
     {
-        switch ($config['name'] ?? '') {
-            case 'subdomain':
-                $subdomain = $uri->getSubdomain();
-                $appName   = empty($subdomain) ? $config['default'] ?? '' : $subdomain;
+        $subdomain = $uri->getSubdomain();
+        $appName   = empty($subdomain) ? $config['default'] ?? '' : $subdomain;
+        $appName   = $this->getApplicationNameFromString($appName);
 
-                break;
-            case 'path':
-                // todo: what if the app name is at a different path position. can it be on another position? will lang ever miss in uri if appname is available?
-                $appName = $uri->getPathElement(1) ?? $config['default'];
-
-                UriFactory::setQuery('/prefix', (empty(UriFactory::getQuery('/prefix')) ? '' : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement(1) . '/');
-                break;
-            case 'domain':
-                $appName = $config['domains'][$uri->getHost()] ?? $config['default'];
-                break;
-            default:
-                $appName = $config['default'] ?? '';
+        if ($appName !== 'E500') {
+            return $appName;
         }
+
+        $appName = $uri->getPathElement(0) ?? $config['default'];
+        $appName = $this->getApplicationNameFromString($appName);
+
+        if ($appName !== 'E500') {
+            UriFactory::setQuery('/prefix', (empty(UriFactory::getQuery('/prefix')) ? '' : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement(1) . '/');
+
+            return $appName;
+        }
+
+        $appName = $config['domains'][$uri->getHost()] ?? $config['default'];
 
         return $this->getApplicationNameFromString($appName);
     }
