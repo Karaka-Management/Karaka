@@ -23,6 +23,6 @@ class BackendViewTest extends \PHPUnit\Framework\TestCase
     {
         $view = new BackendView();
 
-        self::assertContains('Web/Backend/img/user_default_', $view->getProfileImage());
+        self::assertStringContainsString('Web/Backend/img/user_default_', $view->getProfileImage());
     }
 }
