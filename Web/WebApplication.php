@@ -224,6 +224,15 @@ class WebApplication extends ApplicationAbstract
             return $appName;
         }
 
+        $appName = $uri->getPathElement(1);
+        $appName = $this->getApplicationNameFromString($appName);
+
+        if ($appName !== 'E500') {
+            UriFactory::setQuery('/prefix', (empty(UriFactory::getQuery('/prefix')) ? '' : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement(1) . '/');
+
+            return $appName;
+        }
+
         $appName = $config['domains'][$uri->getHost()] ?? $config['default'];
 
         return $this->getApplicationNameFromString($appName);
