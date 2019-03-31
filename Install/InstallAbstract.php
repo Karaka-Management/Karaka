@@ -241,9 +241,11 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function installCoreModules(ConnectionAbstract $db) : void
     {
-        $app         = new class extends ApplicationAbstract {
+        $app = new class extends ApplicationAbstract
+        {
             protected $appName = 'Api';
         };
+
         $app->dbPool = new DatabasePool();
 
         $app->dbPool->add('select', $db);

@@ -465,11 +465,7 @@ final class Application
         }
 
         $css = \preg_replace('!\s+!', ' ', $css);
-        /*if ($css === null) {
-            $css = '';
-        }*/
-
-        $head->setStyle('core', $css);
+        $head->setStyle('core', $css ?? '');
         $head->setTitle('Orange Management Backend');
     }
 

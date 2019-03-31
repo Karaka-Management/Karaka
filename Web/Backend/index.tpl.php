@@ -76,10 +76,14 @@ $dispatch = $this->getData('dispatch') ?? [];
             }
         }
         ?>
+
+        <template id="table-filter-tpl">
+            <div id="table-filter">hello</div>
+        </template>
     </main>
 </div>
 <div id="app-message-container" style="position: absolute; margin: 0 auto; right: 0; top: 0; padding: 85px 10px 0 0;">
-    <template id="app-message">
+    <template id="app-message-tpl">
         <div class="log-msg" style="z-index: 11; position: relative; margin: 0 auto; right: 0; top: 0; margin-bottom: 10px;">
             <h1 class="log-msg-title"></h1>
             <div class="log-msg-content"></div>
