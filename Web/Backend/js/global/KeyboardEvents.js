@@ -1,5 +1,5 @@
 /** global: jsOMS */
-const KEYBOARD_EVENTS = [
+export const KEYBOARD_EVENTS = [
     {
         'element': 'body',
         'keys': [38],
