@@ -41,8 +41,6 @@ We believe software should support a business in it's daily tasks and growth in 
 
 Since we believe in our software and transparent business model you can live test parts of our application and it's modules in our demo application at https://orange-management.app (user: admin, pass: orange) without any registration or inquiry. This can be done even during the development phase.
 
-<p align="center"><img src="https://raw.githubusercontent.com/Orange-Management/Assets/master/art/logo.png" width="48" alt="Logo"></p>
-
 ## Development Status
 
 Currently Orange Management is still developing the first Alpha version. As soon as we have a running Beta version we are allowing external testers to use our software and a selected amount of inhouse developed modules.
