@@ -1,38 +1,77 @@
-[![Build Status](https://travis-ci.org/Orange-Management/Orange-Management.svg?branch=develop)](https://travis-ci.org/Orange-Management/Orange-Management)
+# Orange-Management
 
-# General
+<p align="center"><img src="https://raw.githubusercontent.com/Orange-Management/Assets/master/art/logo.png" width="256" alt="Logo"></p>
 
-The Orange Management software is a modular web application for small to mid sized companies that need CRM, ERP, Intranet and/or CMS features. The Orange Management modules can be split into the following different categories:
+The Orange Management software is a modular web application for small to mid sized companies that need CRM, ERP, Intranet and/or CMS functionalities and much more.
 
-* General
-* Business
-* Education
-* Health Care
+With Orange-Management you have one partner who can provide all the tools and software solutions you are used to at fair and reasonable prices even for small organizations and companies/startups. Our solutions can be used independently from each other or fully integrated with other solutions we provide. By choosing Orange-Management as your partner you'll be able to adjust your software based on the changes in your requirements without worrying about integration and workflow optimization. 
 
-There is no limitation on how to combine modules. The modules are structured in a way that there is a minimum amount of dependencies between modules. Often modules provide additional functionality for other modules or modules request features from existing modules. Only in a few cases modules require another module for it's functionality, this is usually only the case for core modules or modules that have a strong relation to an other module.
+<p align="center"><img src="https://raw.githubusercontent.com/Orange-Management/Assets/master/art/logo.png" width="48" alt="Logo"></p>
 
-Thanks to the modular structure it's easy to have full control over the costs and keep the functionality to the exact amount that is needed. There is no fear of having too many functions that reduce the usability if they are not needed. This also results in a fast environment not just because only the necessary parts get installed but also because the core is built for a good experience in terms of performance.
+## Table of content
+
+- [Installation](#installation)
+    - [Requirements](#requirements)
+    - [Setup](#setup)
+- [Philosophy](#philosophy)
+- [Development Status](#development-status)
+- [Become a contributor](#become-a-contributor)
+- [Misc](#misc)
+
+## Installation
+
+### Requirements
+
+Some of the following requirements are only necessary for developers and not for end-users:
+
+* PHP 7.3
+* PHP extension: php7.3-cli php7.3-common php7.3-mysql php7.3-pgsql php7.3-xdebug php7.3-json php7.3-opcache php7.3-pdo php7.3-sqlite php7.3-mbstring php7.3-curl php7.3-imap php7.3-bcmath php7.3-zip php7.3-dom php7.3-xml php7.3-phar php7.3-gd php7.3-dev php-pear
+* apache2 (recommended) or nginx
+* mysql-server or postgresql postgresql-contrib
+* Make sure that url rewriting is active
+* Download the Orange-Management project or clone the Orange-Management repository (incl. submodules).
+
+### Setup
+
+After installing the requirements and configuring the webserver for the correct path navigate to https://your_url.com/Install and follow the installation process. Afterwards you will be redirected to the installed backend.
+
+For more detailed information please checkout the [Installation Guide](https://orange-management.org/dev/guide?page=setup/installation) for developers or the [Installation Guide](https://orange-management.org/info?page=setup/server) for end-users.
+
+## Philosophy
+
+We believe software should support a business in it's daily tasks and growth in a very efficient way without frustration. In order to achieve this we constantly take feedback from our customers and expand and improve our software solutions.
+
+Since we believe in our software and transparent business model you can live test parts of our application and it's modules in our demo application at https://orange-management.app (user: admin, pass: orange) without any registration or inquiry. This can be done even during the development phase.
+
+<p align="center"><img src="https://raw.githubusercontent.com/Orange-Management/Assets/master/art/logo.png" width="48" alt="Logo"></p>
 
 ## Development Status
 
-Currently Orange Management is still fully developing the first Alpha version. As soon as we have a running Beta version we are allowing external testers to use our software and a selected amount of inhouse developed modules.
+Currently Orange Management is still developing the first Alpha version. As soon as we have a running Beta version we are allowing external testers to use our software and a selected amount of inhouse developed modules.
 
-## Developers
+General updates can be found in our info section at https://orange-management.org/info and developer updates can be found in our developer section at https://orange-management.org/dev. In our developer section you can also check out the automatically generated reports such as code coverage, code style, static analysis etc. as well as our code style guide lines and developer documentation.
 
-We are always looking for people that are interested in joining this project. We are looking for:
+![Preview](https://raw.githubusercontent.com/Orange-Management/Assets/master/art/preview.png)
 
-* PHP developer
-* JavaScript developer
-* Frontend developer
-* Designer
+<p align="center"><img src="https://raw.githubusercontent.com/Orange-Management/Assets/master/art/logo.png" width="48" alt="Logo"></p>
 
-Are you interested in joining us? Feel free to contact us at spl1nes.com@gmail.com.
+## Become a contributor
 
-## Overview
+Orange-Management has a very open culture and we always welcome new people who share our philosophy in providing create solutions which just work. Please contact us if you are interested in working together on our application.
 
-* Project: Orange Management
-* Group: Orange Management
-* Developers: 1
-* Languages: PHP, JS, Java, HTML, CSS
-* Dependencies: d3.js, THREE.js, tcpdf, PhpExcel
-* Website: [http://website.orange-management.de](http://website.orange-management.de)
+* PHP Developer
+* JS Developer
+* Artist and/or Frontend
+* DevOps
+
+Check out https://orange-management.org/career and our developer section https://orange-management.org/dev for more information.
+
+<p align="center"><img src="https://raw.githubusercontent.com/Orange-Management/Assets/master/art/logo.png" width="48" alt="Logo"></p>
+
+## Misc
+
+* Languages: PHP, JS, HTML, CSS
+* Website: [https://orange-management.org](https://orange-management.org)
+* Demo: [https://orange-management.app](https://orange-management.app) (user: admin, pass: orange)
+* Dev: [https://orange-management.org/dev](https://orange-management.org/dev)
+* Contact: dennis@orange-management.email
