@@ -6,8 +6,6 @@ The Orange Management software is a modular web application for small to mid siz
 
 With Orange-Management you have one partner who can provide all the tools and software solutions you are used to at fair and reasonable prices even for small organizations and companies/startups. Our solutions can be used independently from each other or fully integrated with other solutions we provide. By choosing Orange-Management as your partner you'll be able to adjust your software based on the changes in your requirements without worrying about integration and workflow optimization. 
 
-<p align="center"><img src="https://raw.githubusercontent.com/Orange-Management/Assets/master/art/logo.png" width="48" alt="Logo"></p>
-
 ## Table of content
 
 - [Installation](#installation)
@@ -53,8 +51,6 @@ General updates can be found in our info section at https://orange-management.or
 
 ![Preview](https://raw.githubusercontent.com/Orange-Management/Assets/master/art/preview.png)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Orange-Management/Assets/master/art/logo.png" width="48" alt="Logo"></p>
-
 ## Become a contributor
 
 Orange-Management has a very open culture and we always welcome new people who share our philosophy in providing create solutions which just work. Please contact us if you are interested in working together on our application.
@@ -65,8 +61,6 @@ Orange-Management has a very open culture and we always welcome new people who s
 * DevOps
 
 Check out https://orange-management.org/career and our developer section https://orange-management.org/dev for more information.
-
-<p align="center"><img src="https://raw.githubusercontent.com/Orange-Management/Assets/master/art/logo.png" width="48" alt="Logo"></p>
 
 ## Misc
 
