@@ -127,7 +127,7 @@ final class Application
             return;
         }
 
-        /* Checking csrf token, if a csrf token is required at all has to be decided in the controller */
+        /* Checking csrf token, if a csrf token is required at all has to be decided in the route or controller */
         if ($request->getData('CSRF') !== null
             && $this->app->sessionManager->get('CSRF') !== $request->getData('CSRF')
         ) {
@@ -183,7 +183,7 @@ final class Application
 
             $dispatched = $this->app->dispatcher->dispatch(
                 $this->app->router->route(
-                    $request->getUri()->getRoute(),
+                    $request,
                     $request->getRouteVerb(),
                     $this->app->appName,
                     $this->app->orgId,

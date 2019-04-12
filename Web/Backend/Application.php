@@ -214,7 +214,7 @@ final class Application
 
         $dispatched = $this->app->dispatcher->dispatch(
             $this->app->router->route(
-                $request->getUri()->getRoute(),
+                $request,
                 $request->getRouteVerb(),
                 $this->app->appName,
                 $this->app->orgId,
@@ -346,6 +346,8 @@ final class Application
         $head->addAsset(AssetType::JS, 'jsOMS/Utils/oLib.js');
         $head->addAsset(AssetType::JS, 'jsOMS/UnhandledException.js');
         $head->addAsset(AssetType::JSLATE, 'Modules/Navigation/Controller.js', ['type' => 'module']);
+
+        $script = '';
 
         $response->getHeader()->set(
             'content-security-policy',
