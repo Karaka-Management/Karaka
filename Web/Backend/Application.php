@@ -348,7 +348,6 @@ final class Application
         $head->addAsset(AssetType::JSLATE, 'Modules/Navigation/Controller.js', ['type' => 'module']);
 
         $script = '';
-
         $response->getHeader()->set(
             'content-security-policy',
             'base-uri \'self\'; script-src \'self\' blob: \'sha256-'
