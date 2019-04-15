@@ -15,6 +15,7 @@ With Orange-Management you have one partner who can provide all the tools and so
     - [Setup](#setup)
   - [Philosophy](#philosophy)
   - [Development Status](#development-status)
+  - [Unit Tests](#unit-tests)
   - [Become a contributor](#become-a-contributor)
   - [Misc](#misc)
 
@@ -50,6 +51,16 @@ Currently Orange Management is still developing the first Alpha version. As soon
 General updates can be found in our info section at https://orange-management.org/info and developer updates can be found in our developer section at https://orange-management.org/dev. In our developer section you can also check out the automatically generated reports such as code coverage, code style, static analysis etc. as well as our code style guide lines and developer documentation.
 
 ![Preview](https://raw.githubusercontent.com/Orange-Management/Assets/master/art/preview.png)
+
+## Unit Tests
+
+Run the following command in the repository directory of the web application for unit tests:
+
+```
+php .\phpunit.phar --configuration ./tests/phpunit_default.xml
+```
+
+This command will also generate the code coverage reports in the `./Build/coverage/` directory of the whole application (including framework unit tests).
 
 ## Become a contributor
 
