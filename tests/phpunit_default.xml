@@ -43,9 +43,10 @@
         </whitelist>
     </filter>
     <logging>
-        <log type="junit" target="../Build/log/test.xml"/>
+        <log type="junit" target="../Build/test/junit_php.xml"/>
         <log type="testdox-html" target="../Build/test/index.html"/>
-        <log type="coverage-html" target="../Build/coverage" lowUpperBound="50" highLowerBound="80"/>
+        <log type="testdox-text" target="../Build/test/testdox.txt"/>
+        <log type="coverage-html" target="../Build/coverage" lowUpperBound="50" highLowerBound="85"/>
         <log type="coverage-clover" target="coverage.xml" />
     </logging>
 </phpunit>
