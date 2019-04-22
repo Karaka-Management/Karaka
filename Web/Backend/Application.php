@@ -110,6 +110,8 @@ final class Application
         $pageView->setData('head', $head);
         $response->set('Content', $pageView);
 
+        $this->app->l11nManager = new L11nManager($this->app->appName);
+
         /* Backend only allows GET */
         if ($request->getMethod() !== RequestMethod::GET) {
             $this->create406Response($response, $pageView);
@@ -117,7 +119,6 @@ final class Application
             return;
         }
 
-        $this->app->l11nManager = new L11nManager($this->app->appName);
         $this->app->dbPool      = new DatabasePool();
 
         $this->app->router = new Router();
