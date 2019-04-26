@@ -352,7 +352,7 @@ final class Application
         $response->getHeader()->set(
             'content-security-policy',
             'base-uri \'self\'; script-src \'self\' blob: \'sha256-'
-            . \base64_encode(hash('sha256', $script, true))
+            . \base64_encode(\hash('sha256', $script, true))
             . '\'; worker-src \'self\'',
             true
         );
