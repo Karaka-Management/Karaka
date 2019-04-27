@@ -55,12 +55,12 @@ $dispatch = $this->getData('dispatch') ?? [];
         </span>
         <span class="vC" id="s-bar" role="search">
             <span> <input id="iSearchBox" name="search" type="text" autofocus="autofocus"> </span>
-            <input type="submit" id="iSearchButton" name="searchButton" value="<?= $this->getHtml('Search', 0, 0); ?>">
+            <input type="submit" id="iSearchButton" name="searchButton" value="<?= $this->getHtml('Search', '0', '0'); ?>">
         </span>
         <span class="vC" id="u-box">
             <a href="<?= \phpOMS\Uri\UriFactory::build('{/prefix}profile/single?{?}&id=' . $this->request->getHeader()->getAccount()); ?>">
                 <span><?= $this->printHtml($this->profile->getAccount()->getName1()); ?></span>
-                <img alt="<?= $this->getHtml('AccountImage', 0, 0); ?>" data-lazyload="<?= $this->getProfileImage(); ?>">
+                <img alt="<?= $this->getHtml('AccountImage', '0', '0'); ?>" data-lazyload="<?= $this->getProfileImage(); ?>">
             </a>
         </span>
     </div>

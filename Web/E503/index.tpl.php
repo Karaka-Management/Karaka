@@ -6,5 +6,5 @@
 </head>
 <body>
 <header></header>
-<main><?= $this->getHtml('Description', 0, 0); ?></main>
+<main><?= $this->getHtml('Description', '0', '0'); ?></main>
 <footer></footer>
