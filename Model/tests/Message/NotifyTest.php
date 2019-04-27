@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace phpOMS\tests\phpOMS\Model\Message;
 use phpOMS\Model\Message\Notify;
 use phpOMS\Model\Message\NotifyType;
 
+/**
+ * @internal
+ */
 class NotifyTest extends \PHPUnit\Framework\TestCase
 {
 
@@ -59,7 +62,7 @@ class NotifyTest extends \PHPUnit\Framework\TestCase
             'stay' => 5,
             'msg' => 'msg',
             'title' => 'title',
-            'level' => NotifyType::ERROR
+            'level' => NotifyType::ERROR,
         ], $obj->toArray());
 
         self::assertEquals(\json_encode([
@@ -68,7 +71,7 @@ class NotifyTest extends \PHPUnit\Framework\TestCase
             'stay' => 5,
             'msg' => 'msg',
             'title' => 'title',
-            'level' => NotifyType::ERROR
+            'level' => NotifyType::ERROR,
         ]), $obj->serialize());
 
         self::assertEquals([
@@ -77,7 +80,7 @@ class NotifyTest extends \PHPUnit\Framework\TestCase
             'stay' => 5,
             'msg' => 'msg',
             'title' => 'title',
-            'level' => NotifyType::ERROR
+            'level' => NotifyType::ERROR,
         ], $obj->jsonSerialize());
 
         $obj2 = new Notify();

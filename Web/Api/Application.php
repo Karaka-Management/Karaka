@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -20,12 +20,12 @@ use phpOMS\Account\NullAccount;
 use phpOMS\Auth\Auth;
 use phpOMS\Auth\LoginReturnType;
 use phpOMS\DataStorage\Cache\CachePool;
+use phpOMS\DataStorage\Cookie\CookieJar;
 use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Session\HttpSession;
-use phpOMS\DataStorage\Cookie\CookieJar;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
 use phpOMS\Localization\L11nManager;

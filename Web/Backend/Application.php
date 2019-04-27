@@ -10,6 +10,8 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
+declare(strict_types=1);
+
 namespace Web\Backend;
 
 use Model\CoreSettings;
@@ -24,12 +26,12 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Asset\AssetType;
 use phpOMS\Auth\Auth;
 use phpOMS\DataStorage\Cache\CachePool;
+use phpOMS\DataStorage\Cookie\CookieJar;
 use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Session\HttpSession;
-use phpOMS\DataStorage\Cookie\CookieJar;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
 use phpOMS\Localization\L11nManager;

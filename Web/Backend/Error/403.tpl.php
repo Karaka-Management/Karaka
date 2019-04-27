@@ -1,1 +1,1 @@
-<?= $this->getHtml('403Message', 0, 0); ?>
+<?= $this->getHtml('403Message', 0, 0);

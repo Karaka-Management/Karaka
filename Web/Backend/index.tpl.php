@@ -71,7 +71,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     <main class="container-fluid">
         <?php
         foreach ($dispatch as $view) {
-            if ($view instanceOf \phpOMS\Contract\RenderableInterface) {
+            if ($view instanceof \phpOMS\Contract\RenderableInterface) {
                 echo $view->render();
             }
         }

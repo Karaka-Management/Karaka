@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,11 +15,14 @@ namespace phpOMS\tests\phpOMS\Model\Message;
 
 use phpOMS\Model\Message\NotifyType;
 
+/**
+ * @internal
+ */
 class NotifyTypeTest extends \PHPUnit\Framework\TestCase
 {
     public function testEnums() : void
     {
-        self::assertEquals(5, \count(NotifyType::getConstants()));
+        self::assertCount(5, NotifyType::getConstants());
         self::assertEquals(NotifyType::getConstants(), \array_unique(NotifyType::getConstants()));
 
         self::assertEquals(0, NotifyType::BINARY);

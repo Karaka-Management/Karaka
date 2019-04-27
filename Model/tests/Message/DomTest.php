@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace phpOMS\tests\phpOMS\Model\Message;
 use phpOMS\Model\Message\Dom;
 use phpOMS\Model\Message\DomAction;
 
+/**
+ * @internal
+ */
 class DomTest extends \PHPUnit\Framework\TestCase
 {
 

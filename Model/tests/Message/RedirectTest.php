@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,6 +15,9 @@ namespace phpOMS\tests\phpOMS\Model\Message;
 
 use phpOMS\Model\Message\Redirect;
 
+/**
+ * @internal
+ */
 class RedirectTest extends \PHPUnit\Framework\TestCase
 {
 
@@ -36,7 +39,7 @@ class RedirectTest extends \PHPUnit\Framework\TestCase
         /* Testing default values */
         self::assertEmpty($obj->toArray()['uri']);
         self::assertEquals(0, $obj->toArray()['time']);
-        self::assertEquals(false, $obj->toArray()['new']);
+        self::assertFalse($obj->toArray()['new']);
     }
 
     public function testSetGet() : void

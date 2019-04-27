@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,6 +15,9 @@ namespace phpOMS\tests\phpOMS\Model\Message;
 
 use phpOMS\Model\Message\Reload;
 
+/**
+ * @internal
+ */
 class ReloadTest extends \PHPUnit\Framework\TestCase
 {
 

@@ -67,17 +67,17 @@ class WebApplication extends ApplicationAbstract
         } catch (DatabaseException $e) {
             $this->logger->critical(FileLogger::MSG_FULL, [
                 'message' => $e->getMessage(),
-                'line'    => __LINE__]);
+                'line'    => __LINE__, ]);
             $sub = new \Web\E503\Application($this, $config);
         } catch (UnexpectedApplicationException $e) {
             $this->logger->critical(FileLogger::MSG_FULL, [
                 'message' => $e->getMessage(),
-                'line'    => __LINE__]);
+                'line'    => __LINE__, ]);
             $sub = new \Web\E404\Application($this, $config);
         } catch (\Throwable $e) {
             $this->logger->critical(FileLogger::MSG_FULL, [
                 'message' => $e->getMessage(),
-                'line'    => __LINE__]);
+                'line'    => __LINE__, ]);
             $sub = new \Web\E500\Application($this, $config);
         } finally {
             if ($sub === null) {
@@ -161,7 +161,7 @@ class WebApplication extends ApplicationAbstract
      * Initialize basic response
      *
      * @param Request $request Client request
-     * @param array  $config   App config
+     * @param array   $config  App config
      *
      * @return Response Initial client request
      *

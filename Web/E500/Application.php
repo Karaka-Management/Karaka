@@ -10,6 +10,8 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
+declare(strict_types=1);
+
 namespace Web\E500;
 
 use phpOMS\Asset\AssetType;
