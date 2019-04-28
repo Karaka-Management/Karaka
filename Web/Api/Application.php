@@ -156,9 +156,17 @@ final class Application
         if (!($account instanceof NullAccount)) {
             $response->getHeader()->setL11n($account->getL11n());
         } elseif ($this->app->sessionManager->get('language') !== null) {
-            $response->getHeader()->getL11n()->loadFromLanguage($this->app->sessionManager->get('language'), $this->app->sessionManager->get('country') ?? '*');
+            $response->getHeader()->getL11n()
+                ->loadFromLanguage(
+                    $this->app->sessionManager->get('language'),
+                    $this->app->sessionManager->get('country') ?? '*'
+                );
         } elseif ($this->app->cookieJar->get('language') !== null) {
-            $response->getHeader()->getL11n()->loadFromLanguage($this->app->cookieJar->get('language'), $this->app->cookieJar->get('country') ?? '*');
+            $response->getHeader()->getL11n()
+                ->loadFromLanguage(
+                    $this->app->cookieJar->get('language'),
+                    $this->app->cookieJar->get('country') ?? '*'
+                );
         }
 
         UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());

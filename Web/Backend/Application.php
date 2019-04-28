@@ -105,9 +105,8 @@ final class Application
      */
     public function run(Request $request, Response $response) : void
     {
-        $this->app->orgId = (int) ($request->getData('u') ?? 1);
-        $pageView         = new BackendView($this->app, $request, $response);
-        $head             = new Head();
+        $pageView = new BackendView($this->app, $request, $response);
+        $head     = new Head();
 
         $pageView->setData('head', $head);
         $response->set('Content', $pageView);
@@ -152,7 +151,9 @@ final class Application
         }
 
         /* CSRF token OK? */
-        if ($request->getData('CSRF') !== null && $this->app->sessionManager->get('CSRF') !== $request->getData('csrf')) {
+        if ($request->getData('CSRF') !== null
+            && $this->app->sessionManager->get('CSRF') !== $request->getData('csrf')
+        ) {
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
 
             return;
@@ -176,9 +177,17 @@ final class Application
         if (!($account instanceof NullAccount)) {
             $response->getHeader()->setL11n($account->getL11n());
         } elseif ($this->app->sessionManager->get('language') !== null) {
-            $response->getHeader()->getL11n()->loadFromLanguage($this->app->sessionManager->get('language'), $this->app->sessionManager->get('country') ?? '*');
+            $response->getHeader()->getL11n()
+                ->loadFromLanguage(
+                    $this->app->sessionManager->get('language'),
+                    $this->app->sessionManager->get('country') ?? '*'
+                );
         } elseif ($this->app->cookieJar->get('language') !== null) {
-            $response->getHeader()->getL11n()->loadFromLanguage($this->app->cookieJar->get('language'), $this->app->cookieJar->get('country') ?? '*');
+            $response->getHeader()->getL11n()
+                ->loadFromLanguage(
+                    $this->app->cookieJar->get('language'),
+                    $this->app->cookieJar->get('country') ?? '*'
+                );
         }
 
         UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());

@@ -62,6 +62,9 @@ class WebApplication extends ApplicationAbstract
             $request         = $this->initRequest($config['page']['root'], $config);
             $response        = $this->initResponse($request, $config);
 
+            $this->orgId = $this->getApplicationOrganization($request, $config);
+            $this->theme = $this->getApplicationTheme($request, $config);
+
             $app = '\Web\\' . $applicationName . '\Application';
             $sub = new $app($this, $config);
         } catch (DatabaseException $e) {
@@ -136,7 +139,7 @@ class WebApplication extends ApplicationAbstract
         $request     = Request::createFromSuperglobals();
         $subDirDepth = \substr_count($rootPath, '/') - 1;
 
-        $defaultLang = $config['language'][0];
+        $defaultLang = $config['domains'][$request->getUri()->getHost()]['lang'] ?? $config['language'][0];
         $uriLang     = \strtolower($request->getUri()->getPathElement($subDirDepth + 0));
         $requestLang = $request->getRequestLanguage();
         $langCode    = ISO639x1Enum::isValidValue($uriLang) ? $uriLang : (ISO639x1Enum::isValidValue($requestLang) ? $requestLang : $defaultLang);
@@ -180,7 +183,7 @@ class WebApplication extends ApplicationAbstract
             $response->getHeader()->set('strict-transport-security', 'max-age=31536000');
         }
 
-        $defaultLang = $config['language'][0];
+        $defaultLang = $config['domains'][$request->getUri()->getHost()]['lang'] ?? $config['language'][0];
         $uriLang     = \strtolower($request->getUri()->getPathElement(0));
         $requestLang = $request->getHeader()->getL11n()->getLanguage();
         $langCode    = ISO639x1Enum::isValidValue($requestLang) && \in_array($requestLang, $config['language']) ? $requestLang : (ISO639x1Enum::isValidValue($uriLang) && \in_array($uriLang, $config['language']) ? $uriLang : $defaultLang);
@@ -208,6 +211,7 @@ class WebApplication extends ApplicationAbstract
      */
     private function getApplicationName(Http $uri, array $config) : string
     {
+        // check subdomain
         $appName = $uri->getSubdomain();
         $appName = $this->getApplicationNameFromString($appName);
 
@@ -215,6 +219,7 @@ class WebApplication extends ApplicationAbstract
             return $appName;
         }
 
+        // check uri path 0 (no language is defined)
         $appName = $uri->getPathElement(0);
         $appName = $this->getApplicationNameFromString($appName);
 
@@ -224,6 +229,7 @@ class WebApplication extends ApplicationAbstract
             return $appName;
         }
 
+        // check uri path 1 (language is defined)
         $appName = $uri->getPathElement(1);
         $appName = $this->getApplicationNameFromString($appName);
 
@@ -233,7 +239,8 @@ class WebApplication extends ApplicationAbstract
             return $appName;
         }
 
-        $appName = $config['domains'][$uri->getHost()] ?? $config['default'];
+        // check config
+        $appName = $config['domains'][$uri->getHost()]['app'] ?? $config['default'];
 
         return $this->getApplicationNameFromString($appName);
     }
@@ -256,5 +263,35 @@ class WebApplication extends ApplicationAbstract
         }
 
         return $applicationName;
+    }
+
+    /**
+     * Get application organization
+     *
+     * @param Request $request Client request
+     * @param array   $config  App config
+     *
+     * @return int Organization id
+     *
+     * @since  1.0.0
+     */
+    private function getApplicationOrganization(Request $request, array $config) : int
+    {
+        return (int) ($request->getData('u') ?? ($config['domains'][$request->getUri()->getHost()]['org'] ?? 1));
+    }
+
+    /**
+     * Get application theme
+     *
+     * @param Request $request Client request
+     * @param array   $config  App config
+     *
+     * @return string Theme name
+     *
+     * @since  1.0.0
+     */
+    private function getApplicationTheme(Request $request, array $config) : string
+    {
+        return $config['domains'][$request->getUri()->getHost()]['theme'] ?? 'Backend';
     }
 }

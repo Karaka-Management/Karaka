@@ -134,7 +134,12 @@ return [
         'path'    => __DIR__,
         'default' => 'backend',
         'domains' => [
-            '$tld' => 'backend'
+            '$tld' => [
+                'app'   => 'backend',
+                'lang'  => 'en',
+                'theme' => 'Backend',
+                'org'  => 1,
+            ],
         ],
     ],
     'socket'   => [
