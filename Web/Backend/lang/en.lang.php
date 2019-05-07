@@ -12,6 +12,7 @@
  */
 return [[
     'Login'      => 'Login',
+    'Logo'       => 'Logo',
     'Password'   => 'Password',
     'Username'   => 'Username',
     'Results'    => 'Results',

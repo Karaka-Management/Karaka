@@ -105,7 +105,7 @@ class WebApplication extends ApplicationAbstract
                 $this->sessionManager->lock();
             }
 
-            echo $response->getBody();
+            echo $response->getBody(true);
         }
     }
 

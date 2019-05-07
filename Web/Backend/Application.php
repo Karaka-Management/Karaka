@@ -353,6 +353,7 @@ final class Application
         /* Load assets */
         $head->addAsset(AssetType::CSS, 'Resources/fontawesome/css/font-awesome.min.css');
         $head->addAsset(AssetType::CSS, 'cssOMS/styles.css');
+        $head->addAsset(AssetType::CSS, '//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,700,900');
 
         // Framework
         $head->addAsset(AssetType::JS, 'jsOMS/Utils/oLib.js');
