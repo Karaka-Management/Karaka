@@ -21,9 +21,9 @@ $head = $this->getData('head');
     <link rel="manifest" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/manifest.json'); ?>">
     <?= $head->getMeta()->render(); ?>
     <title><?= $this->printHtml($head->getTitle()); ?></title>
-    <?= $head->renderAssets(); ?>
     <style><?= $head->renderStyle(); ?></style>
     <script><?= $head->renderScript(); ?></script>
+    <?= $head->renderAssets(); ?>
     <style type="text/css">
         :root {
             --main-background: #2e1a5a;

@@ -1,5 +1,4 @@
 @import "backend_vars";
-@import "../../../cssOMS/vars";
 
 html, body {
     width: 100%;
@@ -7,73 +6,80 @@ html, body {
     min-width: 100%;
     max-width: 100%;
     overflow: hidden;
-    font-family: arial, serif;
-    color: $d-font-color;
-    background: $d-cont-color;
+    font-family: var(--font-family);
+    color: #000;
+}
+
+body {
     display: flex;
-    flex-flow: column;
 }
 
-#bar-s {
-    user-select: none;
-    height: 25px;
-    background: #3b3b3b;
-    border-top: 3px solid #FBA026;
-    overflow: hidden;
-}
+main > header {
+    background: rgb(248, 248, 248);
+    border-bottom: 1px solid var(--box-border);
+    height: 60px;
+    padding: 0 5px 0 5px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-flow: row;
 
-#bar-b {
-    user-select: none;
-    height: 50px;
-    background: #fff;
-    border-bottom: 1px solid $d-border-cont;
-    display: table;
-    width: 100%;
+    > form {
+        flex: 1;
+        max-width: 800px;
+        padding: 0 5px 0 5px;
+    }
 
-    > span {
-        padding-left: 5px;
+    input[type=text] {
+        width: 100%;
+        background: rgba(255, 255, 255, 1);
+        border: 1px solid var(--input-border);
+        text-shadow: none;
+        box-shadow: none;
+        color: rgba(0, 0, 0, 1);
+        transition : border 500ms ease-out;
+        outline: none;
+        box-sizing: border-box;
+        padding-left: 2rem;
     }
 }
 
 #logo {
-    width: 1%;
-
-    a {
-        color: $d-base-color-o;
-    }
+    flex: 1;
+    text-align: right;
 
     select {
-        font-size: 1rem;
-    }
-}
-
-#s-bar {
-    input[type=text] {
-        width: 50%;
+        background: none;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: .8rem;
     }
 }
 
 #ham-trigger {
-    width: 1%;
+    flex: 0;
+
+    i {
+        font-size: 1.5rem;
+    }
 }
 
-#out {
-    box-sizing: border-box;
-    width: 100%;
-    flex: 1;
-    overflow: auto;
+#t-nav-container {
+    margin-left: auto;
 }
 
-#snav, main {
+main {
     overflow: auto;
     height: 100%;
     background: #f1f1f1;
 }
 
+#content {
+    padding-left: 1rem;
+}
+
 #t-nav {
-    font-size: 0.75em;
-    color: $d-nav-color;
-    float: right;
+    font-size: .8rem;
+    color: #000;
     font-weight: bold;
 
     a {
@@ -89,12 +95,13 @@ html, body {
         display: inline;
 
         &:hover {
-            color: #FBA026;
+            color: var(--link-hover);
         }
     }
 }
 
 main {
-    position: relative;
+    flex: 1;
     box-sizing: border-box;
+    overflow-y: auto;
 }

@@ -1,5 +1,3 @@
-@import "backend_vars", "default";
-
 #dim {
     position: absolute;
     top: 0;
@@ -12,19 +10,17 @@
 }
 
 #u-box {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem 0 1rem;
+    height: 60px;
+    border-bottom: 1px solid var(--input-border);
+    box-sizing: border-box;
+
     img {
-        padding: 3px;
-        width: 30px;
-        height: 30px;
-        border: 1px solid $d-border-cont;
-        vertical-align: middle;
-    }
-
-    padding-right: 5px;
-    text-align: right;
-
-    span, img {
-        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
     }
 
     a {
@@ -47,33 +43,4 @@
     background: #fff;
 }
 
-.l-1 {
-    label {
-        &:first-child {
-            font-weight: bold;
-        }
-    }
-
-    li {
-        &:nth-child(2n+3) {
-            margin-top: 15px;
-        }
-
-        &:nth-child(2n+2) {
-            margin-top: 5px;
-        }
-    }
-
-    input + select {
-        width: auto;
-        margin-left: 5px;
-    }
-}
-
-.l-2 {
-    li:nth-child(2n+1) {
-        display: inline;
-    }
-}
-
-@import "backend_media", "backend_box", "backend_table", "backend_form";
+@import "backend_media";

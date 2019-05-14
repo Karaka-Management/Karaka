@@ -1,80 +1,106 @@
-/* Global */
-/* Content Container */
-/* Content box */
-/* Navigation */
-/* Colors */
-/* Accordion */
-/* Log */
-/* Blockquote */
-/* Breadcrumbs */
-/* Input */
-/* Button */
-/* Canvas */
-/* Article */
-/* Form */
-/* Icon */
-/* Img */
-/* list */
-/* pagination */
-/* pre */
-/* tag */
+:root {
+  --main-background: rgb(46, 26, 90);
+  --main-background-highlight: rgb(158, 81, 197);
+  --input-border: rgba(166, 135, 232, .4);
+  --input-border-active: rgba(166, 135, 232, .7);
+  --input-color: rgba(166, 135, 232, .6);
+  --input-color-active: rgba(166, 135, 232, .8);
+  --input-icon-color: rgba(166, 135, 232, .6);
+  --input-icon-color-active: rgba(166, 135, 232, 1);
+  --button-main-background: rgba(166, 135, 232, .6);
+  --button-main-background-active: rgba(166, 135, 232, .8);
+  --button-main-color: rgba(255, 255, 255, .9);
+  --text-on-background-color: rgba(255, 255, 255, 0.7);
+  --text-on-background-color-2: rgba(255, 255, 255, 0.85);
+  --nav-category-background: rgb(43, 58, 101);
+  --nav-category-background-highlight: rgb(113, 43, 145);
+  --nav-category-background-hover: rgb(120, 50, 153);
+  --nav-sub-background: rgb(72, 39, 102);
+  --nav-sub-background-highlight: rgb(94, 52, 133);
+  --nav-sub-background-hover: rgb(116, 67, 161);
+  --nav-header-background: rgb(72, 39, 102);
+  --nav-header-background-highlight: rgb(94, 52, 133);
+  --nav-header-background-hover: rgb(116, 67, 161);
+  --nav-content-hover: rgb(177, 97, 218);
+  --font-family: 'Roboto', sans-serif;
+  --button-colored-background: rgb(158, 81, 197);
+  --button-colored-background-hover: rgb(177, 97, 218);
+  --table-caption-background: rgb(255, 255, 255);
+  --table-head-background: rgb(236, 232, 255);
+  --table-row-background: rgb(255, 255, 255);
+  --table-row-background-alt: rgb(255, 255, 255);
+  --table-row-background-hover: rgb(220, 211, 255);
+  --link-color: rgb(72, 39, 102);
+  --link-hover: rgb(158, 81, 197);
+  --badge-size: .55rem;
+  --badge-color: rgb(255, 255, 255);
+  --badge-background: rgb(158, 81, 197);
+  --box-border: rgb(218, 218, 218); }
+
 html, body {
   width: 100%;
   height: 100%;
   min-width: 100%;
   max-width: 100%;
   overflow: hidden;
-  font-family: arial, serif;
-  color: #000;
-  background: #eaecf0;
+  font-family: var(--font-family);
+  color: #000; }
+
+body {
+  display: flex; }
+
+main > header {
+  background: #f8f8f8;
+  border-bottom: 1px solid var(--box-border);
+  height: 60px;
+  padding: 0 5px 0 5px;
+  box-sizing: border-box;
   display: flex;
-  flex-flow: column; }
-
-#bar-s {
-  user-select: none;
-  height: 25px;
-  background: #3b3b3b;
-  border-top: 3px solid #FBA026;
-  overflow: hidden; }
-
-#bar-b {
-  user-select: none;
-  height: 50px;
-  background: #fff;
-  border-bottom: 1px solid #dadee2;
-  display: table;
-  width: 100%; }
-  #bar-b > span {
-    padding-left: 5px; }
+  align-items: center;
+  flex-flow: row; }
+  main > header > form {
+    flex: 1;
+    max-width: 800px;
+    padding: 0 5px 0 5px; }
+  main > header input[type=text] {
+    width: 100%;
+    background: white;
+    border: 1px solid var(--input-border);
+    text-shadow: none;
+    box-shadow: none;
+    color: black;
+    transition: border 500ms ease-out;
+    outline: none;
+    box-sizing: border-box;
+    padding-left: 2rem; }
 
 #logo {
-  width: 1%; }
-  #logo a {
-    color: #2f2f2f; }
+  flex: 1;
+  text-align: right; }
   #logo select {
-    font-size: 1rem; }
-
-#s-bar input[type=text] {
-  width: 50%; }
+    background: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: .8rem; }
 
 #ham-trigger {
-  width: 1%; }
+  flex: 0; }
+  #ham-trigger i {
+    font-size: 1.5rem; }
 
-#out {
-  box-sizing: border-box;
-  width: 100%;
-  flex: 1;
-  overflow: auto; }
+#t-nav-container {
+  margin-left: auto; }
 
-#snav, main {
+main {
   overflow: auto;
   height: 100%;
   background: #f1f1f1; }
 
+#content {
+  padding-left: 1rem; }
+
 #t-nav {
-  font-size: 0.75em;
-  color: #fff;
-  float: right;
+  font-size: .8rem;
+  color: #000;
   font-weight: bold; }
   #t-nav a {
     padding: 0 5px 0 5px;
@@ -84,9 +110,9 @@ html, body {
   #t-nav li {
     display: inline; }
     #t-nav li:hover {
-      color: #FBA026; }
+      color: var(--link-hover); }
 
 main {
-  position: relative;
-  box-sizing: border-box; }
-
+  flex: 1;
+  box-sizing: border-box;
+  overflow-y: auto; }

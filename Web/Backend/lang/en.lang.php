@@ -43,5 +43,5 @@ return [[
     'Friday'     => 'Friday',
     'Saturday'   => 'Saturday',
     'Sunday'     => 'Sunday',
-    'AccountImage'  => 'Account Image',
+    'User'       => 'User',
 ]];

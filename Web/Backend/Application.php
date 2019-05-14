@@ -400,6 +400,7 @@ final class Application
      */
     private function createLoggedOutResponse(Response $response, Head $head, View $pageView) : void
     {
+        $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
         $pageView->setTemplate('/Web/Backend/login');
     }
 

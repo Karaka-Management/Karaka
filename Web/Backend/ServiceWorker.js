@@ -13,9 +13,7 @@ self.addEventListener('install', event => {
     event.waitUntil(
         /** global: caches */
         caches.open(CACHE_VERSION).then(cache => cache.addAll([
-            '/en/E404', // todo: this should be /en/404 but since it's header is 404 it cannot get cached
-            //'/en/backend' // todo: doesn't work with login since the login page will be cached instead of the backend
-            //'/Web/E404/css/styles.css'
+            '',
         ])).then(self.skipWaiting())
     );
 });
@@ -27,7 +25,7 @@ self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request).then(response => response || fetch(event.request)).catch(() => {
                 if (event.request.mode === 'navigate' && event.request.cache !== 'only-if-cached') {
-                    return caches.match('/en/E404');
+                    return caches.match('');
                 }
 
                 return;
