@@ -27,9 +27,9 @@ $dispatch = $this->getData('dispatch') ?? [];
     <?= $head->getMeta()->render(); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#2f2f2f">
-    <meta name="msapplication-navbutton-color" content="#2f2f2f">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#2f2f2f">
+    <meta name="theme-color" content="#712b91">
+    <meta name="msapplication-navbutton-color" content="#712b91">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#712b91">
     <base href="<?= \phpOMS\Uri\UriFactory::build('{/base}'); ?>/">
     <link rel="manifest" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/manifest.json'); ?>">
     <link rel="shortcut icon" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/img/favicon.ico'); ?>" type="image/x-icon">
@@ -56,15 +56,14 @@ $dispatch = $this->getData('dispatch') ?? [];
                     <?php endforeach; ?>
                 </select>
             </span>
+            <label class="ham-trigger" for="nav-trigger"><i class="fa fa-bars p"></i></label>
         </span>
         <?= $side; ?>
     </nav>
-    <main role="main" class="container-fluid">
+    <main role="main">
         <header>
-            <span id="ham-trigger">
-                <label for="nav-trigger"><i class="fa fa-bars p"></i></label>
-            </span>
             <form id="s-bar">
+                <label class="ham-trigger" for="nav-trigger"><i class="fa fa-bars p"></i></label>
                 <span role="search" class="inputWrapper">
                     <span class="textWrapper">
                         <input id="iSearchBox" name="search" type="text" autofocus="autofocus">
@@ -77,7 +76,7 @@ $dispatch = $this->getData('dispatch') ?? [];
             <div id="t-nav-container"><?= $top ?></div>
         </header>
 
-        <div id="content">
+        <div id="content" class="container-fluid">
             <?php
             foreach ($dispatch as $view) {
                 if ($view instanceof \phpOMS\Contract\RenderableInterface) {

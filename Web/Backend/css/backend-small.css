@@ -3,8 +3,8 @@
   --main-background-highlight: rgb(158, 81, 197);
   --input-border: rgba(166, 135, 232, .4);
   --input-border-active: rgba(166, 135, 232, .7);
-  --input-color: rgba(166, 135, 232, .6);
-  --input-color-active: rgba(166, 135, 232, .8);
+  --input-color: rgb(116, 67, 161);
+  --input-color-active: rgb(94, 52, 133);
   --input-background: rgba(255, 255, 255);
   --input-background-active: rgba(255, 255, 255);
   --input-icon-color: rgba(166, 135, 232, .6);
@@ -54,23 +54,25 @@ body {
 main > header {
   background: #f8f8f8;
   border-bottom: 1px solid var(--box-border);
-  height: 60px;
-  padding: 0 5px 0 5px;
+  padding: 1rem;
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  flex-flow: row; }
+  flex-flow: row;
+  flex: 0; }
   main > header > form {
+    display: flex;
     flex: 1;
-    max-width: 800px;
-    padding: 0 5px 0 5px; }
+    padding: 0 5px 0 5px;
+    max-width: 800px; }
+  main > header .inputWrapper {
+    flex: 1; }
   main > header input[type=text] {
     width: 100%;
     background: white;
     border: 1px solid var(--input-border);
     text-shadow: none;
     box-shadow: none;
-    color: black;
     transition: border 500ms ease-out;
     outline: none;
     box-sizing: border-box;
@@ -84,21 +86,27 @@ main > header {
     color: rgba(255, 255, 255, 0.8);
     font-size: .8rem; }
 
-#ham-trigger {
-  flex: 0; }
-  #ham-trigger i {
+.ham-trigger {
+  display: flex;
+  color: #000;
+  align-items: center;
+  flex: 0;
+  margin-right: 5px; }
+  .ham-trigger i {
     font-size: 1.5rem; }
+
+nav .ham-trigger {
+  color: var(--text-on-background-color-2);
+  margin: 0 0 0 5px;
+  display: none; }
 
 #t-nav-container {
   margin-left: auto; }
 
-main {
-  overflow: auto;
-  height: 100%;
-  background: #f1f1f1; }
-
 #content {
-  padding-left: 1rem; }
+  flex: 1;
+  padding-left: 1rem;
+  overflow-y: auto; }
 
 #t-nav {
   font-size: .8rem;
@@ -115,9 +123,12 @@ main {
       color: var(--link-hover); }
 
 main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #f1f1f1;
   flex: 1;
-  box-sizing: border-box;
-  overflow-y: auto; }
+  box-sizing: border-box; }
 
 #dim {
   position: absolute;
@@ -143,9 +154,20 @@ main {
   #u-box a {
     display: inline-block; }
 
-@media only screen and (max-width: 800px) {
-  #s-nav {
-    width: 100%; } }
+@media only screen and (max-width: 500px) {
+  nav .ham-trigger {
+    display: flex; } }
+@media only screen and (max-width: 600px) {
+  main > header {
+    flex-flow: column;
+    height: auto;
+    padding: 1rem; }
+    main > header form {
+      width: 100%; }
+
+  #t-nav-container {
+    order: -1;
+    margin-bottom: .5rem; } }
 @media only screen and (max-width: 1000px) {
   #t-nav .link {
     display: none; } }

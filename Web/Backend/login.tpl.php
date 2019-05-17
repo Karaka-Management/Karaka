@@ -18,6 +18,9 @@ $head = $this->getData('head');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <base href="<?= \phpOMS\Uri\UriFactory::build('{/base}'); ?>/">
+    <meta name="theme-color" content="#9e51c5">
+    <meta name="msapplication-navbutton-color" content="#9e51c5">
+    <meta name="theme-color" content="#9e51c5">
     <link rel="manifest" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/manifest.json'); ?>">
     <?= $head->getMeta()->render(); ?>
     <title><?= $this->printHtml($head->getTitle()); ?></title>

@@ -17,17 +17,22 @@ body {
 main > header {
     background: rgb(248, 248, 248);
     border-bottom: 1px solid var(--box-border);
-    height: 60px;
-    padding: 0 5px 0 5px;
+    padding: 1rem;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     flex-flow: row;
+    flex: 0;
 
     > form {
+        display: flex;
         flex: 1;
-        max-width: 800px;
         padding: 0 5px 0 5px;
+        max-width: 800px;
+    }
+
+    .inputWrapper {
+        flex: 1;
     }
 
     input[type=text] {
@@ -36,7 +41,6 @@ main > header {
         border: 1px solid var(--input-border);
         text-shadow: none;
         box-shadow: none;
-        color: rgba(0, 0, 0, 1);
         transition : border 500ms ease-out;
         outline: none;
         box-sizing: border-box;
@@ -55,26 +59,32 @@ main > header {
     }
 }
 
-#ham-trigger {
+.ham-trigger {
+    display: flex;
+    color: #000;
+    align-items: center;
     flex: 0;
+    margin-right: 5px;
 
     i {
         font-size: 1.5rem;
     }
 }
 
+nav .ham-trigger {
+    color: var(--text-on-background-color-2);
+    margin: 0 0 0 5px;
+    display: none;
+}
+
 #t-nav-container {
     margin-left: auto;
 }
 
-main {
-    overflow: auto;
-    height: 100%;
-    background: #f1f1f1;
-}
-
 #content {
+    flex: 1;
     padding-left: 1rem;
+    overflow-y: auto;
 }
 
 #t-nav {
@@ -101,9 +111,13 @@ main {
 }
 
 main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #f1f1f1;
+
     flex: 1;
     box-sizing: border-box;
-    overflow-y: auto;
 }
 
 #dim {

@@ -1,6 +1,24 @@
-@media only screen and (max-width: 800px) {
-    #s-nav {
-        width: 100%;
+@media only screen and (max-width: 500px) {
+    nav .ham-trigger {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    main > header  {
+        flex-flow: column;
+        height: auto;
+        padding: 1rem;
+
+
+        form {
+            width: 100%;
+        }
+    }
+
+    #t-nav-container {
+        order: -1;
+        margin-bottom: .5rem;
     }
 }
 
