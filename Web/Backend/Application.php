@@ -369,8 +369,6 @@ final class Application
             true
         );
 
-        $head->addAsset(AssetType::CSS, 'Web/Backend/css/backend.css');
-
         if ($request->hasData('debug')) {
             $head->addAsset(AssetType::CSS, 'cssOMS/debug.css');
         }

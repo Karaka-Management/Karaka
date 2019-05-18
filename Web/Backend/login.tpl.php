@@ -162,6 +162,7 @@ $head = $this->getData('head');
         form input[type=text]:active, form input[type=text]:focus,
         form input[type=password]:active, form input[type=password]:focus {
             border: 1px solid var(--input-border-active);
+            color: var(--text-on-background-color);
         }
 
         form input[type=text]:active~.frontIcon, form input[type=text]:focus~.frontIcon,
