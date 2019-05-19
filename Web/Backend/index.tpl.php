@@ -61,7 +61,7 @@ $dispatch = $this->getData('dispatch') ?? [];
         </span>
         <?= $side; ?>
     </nav>
-    <main role="main">
+    <main>
         <header>
             <form id="s-bar">
                 <label class="ham-trigger" for="nav-trigger"><i class="fa fa-bars p"></i></label>
@@ -77,7 +77,7 @@ $dispatch = $this->getData('dispatch') ?? [];
             <div id="t-nav-container"><?= $top ?></div>
         </header>
 
-        <div id="content" class="container-fluid">
+        <div id="content" class="container-fluid" role="main">
             <?php
             foreach ($dispatch as $view) {
                 if ($view instanceof \phpOMS\Contract\RenderableInterface) {
