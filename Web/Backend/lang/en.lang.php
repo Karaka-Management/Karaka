@@ -44,4 +44,5 @@ return [[
     'Saturday'   => 'Saturday',
     'Sunday'     => 'Sunday',
     'User'       => 'User',
+    ':meta'      => 'Orange Management backend application for businesses including EPR, CRM, Intranet, Office and much more.',
 ]];

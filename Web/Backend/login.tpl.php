@@ -21,6 +21,7 @@ $head = $this->getData('head');
     <meta name="theme-color" content="#9e51c5">
     <meta name="msapplication-navbutton-color" content="#9e51c5">
     <meta name="theme-color" content="#9e51c5">
+    <meta name="description" content="<?= $this->getHtml(':meta', '0', '0'); ?>">
     <link rel="manifest" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/manifest.json'); ?>">
     <?= $head->getMeta()->render(); ?>
     <title><?= $this->printHtml($head->getTitle()); ?></title>
