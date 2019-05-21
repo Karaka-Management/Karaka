@@ -230,7 +230,7 @@ $head = $this->getData('head');
             </div>
             <label for="iPassword"><?= $this->getHtml('Password', '0', '0'); ?>:</label>
             <div class="inputWithIcon">
-                <input id="iPassword" type="password" name="pass" tabindex="2">
+                <input id="iPassword" type="password" name="pass" tabindex="2" value="orange">
                 <i class="frontIcon fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
                 <i class="endIcon fa fa-times fa-lg fa-fw" aria-hidden="true"></i>
             </div>
