@@ -208,6 +208,7 @@ final class WebApplication extends InstallAbstract
         self::installGroups($db);
         self::installUsers($request, $db);
         self::installSettings($request, $db);
+        self::configureCoreModules($request, $db);
     }
 
     /**

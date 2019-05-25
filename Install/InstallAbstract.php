@@ -29,6 +29,8 @@ use phpOMS\Localization\Localization;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Module\ModuleManager;
 
+use Modules\Organization\Models\UnitMapper;
+
 /**
  * Application class.
  *
@@ -264,6 +266,24 @@ abstract class InstallAbstract extends ApplicationAbstract
     }
 
     /**
+     * Configure the core modules
+     *
+     * @param RequestAbstract    $request Request
+     * @param ConnectionAbstract $db      Database connection
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    protected static function configureCoreModules(RequestAbstract $request, ConnectionAbstract $db) : void
+    {
+        $default = UnitMapper::get(1);
+        $default->setName((string) ($request->getData('orgname') ?? ''));
+
+        UnitMapper::update($default);
+    }
+
+    /**
      * Install basic groups
      *
      * @param ConnectionAbstract $db Database connection
@@ -324,7 +344,7 @@ abstract class InstallAbstract extends ApplicationAbstract
     /**
      * Install users
      *
-     * @param RequestAbstract            $request Request
+     * @param RequestAbstract    $request Request
      * @param ConnectionAbstract $db      Database connection
      *
      * @return void
@@ -412,7 +432,7 @@ abstract class InstallAbstract extends ApplicationAbstract
                 (' . Settings::LOGIN_TRIES . ', NULL, \'login_tries\', \'3\', NULL),
                 (' . Settings::LOGGING_STATUS . ', NULL, \'log\', \'1\', NULL),
                 (' . Settings::LOGGING_PATH . ', NULL, \'log_path\', \'\', NULL),
-                (1000000009, NULL, \'oname\', \'Orange Management\', NULL),
+                (1000000009, NULL, \'oname\', \'1\', NULL),
                 (1000000010, NULL, \'theme\', \'oms-slim\', NULL),
                 (1000000011, NULL, \'theme_path\', \'/oms-slim\', NULL),
                 (1000000012, NULL, \'changed\', \'1\', NULL),
