@@ -23,6 +23,7 @@ $head = $this->getData('head');
     <meta name="theme-color" content="#9e51c5">
     <meta name="description" content="<?= $this->getHtml(':meta', '0', '0'); ?>">
     <link rel="manifest" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/manifest.json'); ?>">
+    <link rel="shortcut icon" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/img/favicon.ico'); ?>" type="image/x-icon">
     <?= $head->getMeta()->render(); ?>
     <title><?= $this->printHtml($head->getTitle()); ?></title>
     <style><?= $head->renderStyle(); ?></style>
