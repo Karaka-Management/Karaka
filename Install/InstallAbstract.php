@@ -29,6 +29,10 @@ use phpOMS\Localization\Localization;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Module\ModuleManager;
 
+use phpOMS\Module\InfoManager;
+use Modules\Media\Models\Collection;
+use Modules\Media\Models\CollectionMapper;
+
 use Modules\Organization\Models\UnitMapper;
 
 /**
@@ -277,10 +281,19 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function configureCoreModules(RequestAbstract $request, ConnectionAbstract $db) : void
     {
+        // setup basic units
         $default = UnitMapper::get(1);
         $default->setName((string) ($request->getData('orgname') ?? ''));
 
         UnitMapper::update($default);
+
+        // setup basic collections
+        $collection = new Collection();
+        $collection->setName('Modules');
+        $collection->setVirtualPath('/');
+        $collection->setCreatedBy(1);
+
+        CollectionMapper::create($collection);
     }
 
     /**
