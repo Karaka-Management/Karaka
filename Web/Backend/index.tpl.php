@@ -18,7 +18,7 @@ $top = $nav->render();
 $nav->setTemplate('/Modules/Navigation/Theme/Backend/side');
 $side = $nav->render();
 
-$head = $this->getData('head');
+$head     = $this->getData('head');
 $dispatch = $this->getData('dispatch') ?? [];
 ?>
 <!DOCTYPE HTML>
@@ -63,7 +63,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     </nav>
     <main>
         <header>
-            <form id="s-bar">
+            <form id="s-bar" method="GET" action="<?= \phpOMS\Uri\UriFactory::build('{/api}search?{?}&csrf={$CSRF}'); ?>&search={#iSearchBox}">
                 <label class="ham-trigger" for="nav-trigger"><i class="fa fa-bars p"></i></label>
                 <span role="search" class="inputWrapper">
                     <span class="textWrapper">

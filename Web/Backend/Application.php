@@ -226,7 +226,8 @@ final class Application
 
         $dispatched = $this->app->dispatcher->dispatch(
             $this->app->router->route(
-                $request,
+                $request->getUri()->getRoute(),
+                $request->getData('CSRF'),
                 $request->getRouteVerb(),
                 $this->app->appName,
                 $this->app->orgId,
