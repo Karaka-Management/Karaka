@@ -256,7 +256,12 @@ final class Application
             $modules = $this->app->moduleManager->getRoutedModules($request_r);
             $this->app->moduleManager->initModule($modules);
 
-            $this->app->dispatcher->dispatch($this->app->router->route($request), $request, $response);
+            $this->app->dispatcher->dispatch(
+                $this->app->router->route(
+                    $request->getUri()->getRoute(),
+                    $request->getData('CSRF') ?? null
+                ), $request, $response
+            );
         }
     }
 
