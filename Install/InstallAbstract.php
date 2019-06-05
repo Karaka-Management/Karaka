@@ -34,6 +34,7 @@ use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 
 use Modules\Organization\Models\UnitMapper;
+use Modules\Organization\Models\Status;
 
 /**
  * Application class.
@@ -284,6 +285,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         // setup basic units
         $default = UnitMapper::get(1);
         $default->setName((string) ($request->getData('orgname') ?? ''));
+        $default->setStatus(Status::ACTIVE);
 
         UnitMapper::update($default);
 
