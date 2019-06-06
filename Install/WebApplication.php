@@ -144,6 +144,7 @@ final class WebApplication extends InstallAbstract
         $dispatched = $this->dispatcher->dispatch(
             $this->router->route(
                 $request->getUri()->getRoute(),
+                $request->getData('CSRF'),
                 $request->getRouteVerb()
             ),
             $request,
