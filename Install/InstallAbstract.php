@@ -347,12 +347,12 @@ abstract class InstallAbstract extends ApplicationAbstract
     {
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'group_permission` (`group_permission_group`, `group_permission_unit`, `group_permission_app`, `group_permission_module`, `group_permission_from`, `group_permission_type`, `group_permission_element`, `group_permission_component`, `group_permission_permission`) VALUES
-                (3, 1, \'backend\', NULL, NULL, NULL, NULL, NULL, ' . (PermissionType::READ | PermissionType::CREATE | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION) . ');'
+                (3, null, \'backend\', NULL, NULL, NULL, NULL, NULL, ' . (PermissionType::READ | PermissionType::CREATE | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION) . ');'
         )->execute();
 
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'group_permission` (`group_permission_group`, `group_permission_unit`, `group_permission_app`, `group_permission_module`, `group_permission_from`, `group_permission_type`, `group_permission_element`, `group_permission_component`, `group_permission_permission`) VALUES
-                (3, 1, \'api\', NULL, NULL, NULL, NULL, NULL, ' . (PermissionType::READ | PermissionType::CREATE | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION) . ');'
+                (3, null, \'api\', NULL, NULL, NULL, NULL, NULL, ' . (PermissionType::READ | PermissionType::CREATE | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION) . ');'
         )->execute();
     }
 
@@ -447,7 +447,7 @@ abstract class InstallAbstract extends ApplicationAbstract
                 (' . Settings::LOGIN_TRIES . ', NULL, \'login_tries\', \'3\', NULL),
                 (' . Settings::LOGGING_STATUS . ', NULL, \'log\', \'1\', NULL),
                 (' . Settings::LOGGING_PATH . ', NULL, \'log_path\', \'\', NULL),
-                (1000000009, NULL, \'oname\', \'1\', NULL),
+                (' . Settings::DEFAULT_ORGANIZATION . ', NULL, \'oname\', \'1\', NULL),
                 (1000000010, NULL, \'theme\', \'oms-slim\', NULL),
                 (1000000011, NULL, \'theme_path\', \'/oms-slim\', NULL),
                 (1000000012, NULL, \'changed\', \'1\', NULL),
