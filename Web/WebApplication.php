@@ -62,7 +62,6 @@ class WebApplication extends ApplicationAbstract
             $request         = $this->initRequest($config['page']['root'], $config);
             $response        = $this->initResponse($request, $config);
 
-            $this->orgId = $this->getApplicationOrganization($request, $config);
             $this->theme = $this->getApplicationTheme($request, $config);
 
             $app = '\Web\\' . $applicationName . '\Application';
@@ -263,21 +262,6 @@ class WebApplication extends ApplicationAbstract
         }
 
         return $applicationName;
-    }
-
-    /**
-     * Get application organization
-     *
-     * @param Request $request Client request
-     * @param array   $config  App config
-     *
-     * @return int Organization id
-     *
-     * @since  1.0.0
-     */
-    private function getApplicationOrganization(Request $request, array $config) : int
-    {
-        return (int) ($request->getData('u') ?? ($config['domains'][$request->getUri()->getHost()]['org'] ?? 1));
     }
 
     /**

@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Web\Backend;
 
 use Model\CoreSettings;
+use Model\Settings;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Organization\Models\UnitMapper;
 
@@ -168,6 +169,9 @@ final class Application
         $this->app->eventManager   = new EventManager($this->app->dispatcher);
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
 
+        $this->app->orgId = $this->getApplicationOrganization($request, $this->config);
+        $pageView->setData('orgId', $this->app->orgId);
+
         $aid = Auth::authenticate($this->app->sessionManager);
         $request->getHeader()->setAccount($aid);
         $response->getHeader()->setAccount($aid);
@@ -237,6 +241,27 @@ final class Application
             $response
         );
         $pageView->addData('dispatch', $dispatched);
+    }
+
+    /**
+     * Get application organization
+     *
+     * @param Request $request Client request
+     * @param array   $config  App config
+     *
+     * @return int Organization id
+     *
+     * @since  1.0.0
+     */
+    private function getApplicationOrganization(Request $request, array $config) : int
+    {
+        return (int) (
+            $request->getData('u') ?? (
+                $config['domains'][$request->getUri()->getHost()]['org'] ?? $this->app->appSettings->get(
+                    Settings::DEFAULT_ORGANIZATION
+                ) ?? 1
+            )
+        );
     }
 
     /**

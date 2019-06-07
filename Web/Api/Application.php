@@ -13,6 +13,7 @@
 namespace Web\Api;
 
 use Model\CoreSettings;
+use Model\Settings;
 use Modules\Admin\Models\AccountMapper;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
@@ -146,6 +147,9 @@ final class Application
         $this->app->eventManager->importFromFile(__DIR__ . '/Hooks.php');
 
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
+
+        $this->app->orgId = $this->getApplicationOrganization($request, $this->config);
+        $pageView->setData('orgId', $this->app->orgId);
 
         $aid = Auth::authenticate($this->app->sessionManager);
         $request->getHeader()->setAccount($aid);
@@ -311,5 +315,26 @@ final class Application
         $this->app->sessionManager->save();
 
         $response->set($request->getUri()->__toString(), new Redirect('http://www.google.de'));
+    }
+
+    /**
+     * Get application organization
+     *
+     * @param Request $request Client request
+     * @param array   $config  App config
+     *
+     * @return int Organization id
+     *
+     * @since  1.0.0
+     */
+    private function getApplicationOrganization(Request $request, array $config) : int
+    {
+        return (int) (
+            $request->getData('u') ?? (
+                $config['domains'][$request->getUri()->getHost()]['org'] ?? $this->app->appSettings->get(
+                    Settings::DEFAULT_ORGANIZATION
+                ) ?? 1
+            )
+        );
     }
 }

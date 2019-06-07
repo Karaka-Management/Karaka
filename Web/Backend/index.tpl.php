@@ -53,7 +53,7 @@ $dispatch = $this->getData('dispatch') ?? [];
                     data-action='[{"listener": "change", "action": [{"key": 1, "type": "redirect", "uri": "{%}&u={#unit-selector}", "target": "self"}]}]'
                     title="Unit selector">
                     <?php foreach ($this->organizations as $organization) : ?>
-                        <option value="<?= $this->printHtml($organization->getId()); ?>"<?= $this->request->getData('u') == $organization->getId() ? ' selected' : ''; ?>><?= $this->printHtml($organization->getName()); ?>
+                        <option value="<?= $this->printHtml($organization->getId()); ?>"<?= $this->getData('orgId') == $organization->getId() ? ' selected' : ''; ?>><?= $this->printHtml($organization->getName()); ?>
                     <?php endforeach; ?>
                 </select>
             </span>
