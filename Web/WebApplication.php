@@ -117,10 +117,10 @@ class WebApplication extends ApplicationAbstract
      */
     private function setupHandlers() : void
     {
-        \set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
-        \set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
-        \register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
-        \mb_internal_encoding('UTF-8');
+//        \set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
+//        \set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
+//        \register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
+//        \mb_internal_encoding('UTF-8');
     }
 
     /**
