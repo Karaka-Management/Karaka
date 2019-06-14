@@ -22,8 +22,8 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
     {
         $settings = new CoreSettings($GLOBALS['dbpool']->get());
 
-        self::assertEquals([1000000009 => 'Orange Management', 1000000020 => 'en'], $settings->get([1000000009, 1000000020]));
+        self::assertEquals([1000000009 => '1', 1000000020 => 'en'], $settings->get([1000000009, 1000000020]));
         self::assertEmpty($settings->get([12345678, 123456789]));
-        self::assertEquals('Orange Management', $settings->get(1000000009));
+        self::assertEquals('1', $settings->get(1000000009));
     }
 }
