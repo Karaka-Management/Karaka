@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 $htaccess = <<<EOT
 # BEGIN Gzip Compression
 <ifmodule mod_rewrite.c>
@@ -60,7 +60,7 @@ AddType application/vnd.ms-fontobject .eot
 EOT;
 
 if (\stripos($fullTLD, '127.0.0.1') === false) {
-    if (\filter_var($fullTLD, FILTER_VALIDATE_IP) === false) {
+    if (\filter_var($fullTLD, \FILTER_VALIDATE_IP) === false) {
 $htaccess .= <<<EOT
     RewriteCond %{HTTP_HOST} !^www.*$ [L]
 
@@ -68,8 +68,8 @@ EOT;
     }
 
 $htaccess .= <<<EOT
-    RewriteCond %{HTTP_HOST} ^(.*)\.$tld
-    RewriteRule ^([a-zA-Z]{2})\/(.*)$ $fullTLD/$1/%1/$2 [QSA]
+    RewriteCond %{HTTP_HOST} ^(.*)\.${tld}
+    RewriteRule ^([a-zA-Z]{2})\/(.*)$ ${fullTLD}/$1/%1/$2 [QSA]
 
 EOT;
 }
