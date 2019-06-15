@@ -24,3 +24,4 @@ config.php
 .htaccess
 Web/Api/Hooks.php
 coverage.xml
+*.jar
