@@ -16,7 +16,7 @@
     "scope": "/",
     "display": "standalone",
     "orientation": "any",
-    "theme_color": "aliceblue",
+    "theme_color": "#712b91",
     "background_color": "white",
     "permissions": {
         "audio-capture" : {
