@@ -130,7 +130,7 @@ final class Application
 
         /* Checking csrf token, if a csrf token is required at all has to be decided in the route or controller */
         if ($request->getData('CSRF') !== null
-            && $this->app->sessionManager->get('CSRF') !== $request->getData('CSRF')
+            && !\hash_equals($this->app->sessionManager->get('CSRF'), $request->getData('CSRF'))
         ) {
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
 

@@ -153,7 +153,7 @@ final class Application
 
         /* CSRF token OK? */
         if ($request->getData('CSRF') !== null
-            && $this->app->sessionManager->get('CSRF') !== $request->getData('csrf')
+            && !\hash_equals($this->app->sessionManager->get('CSRF'), $request->getData('CSRF'))
         ) {
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
 
