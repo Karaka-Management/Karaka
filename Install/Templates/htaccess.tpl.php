@@ -84,11 +84,12 @@ $htaccess .= $subPath;
 
 $htaccess .= <<<EOT
 ?{QUERY_STRING} [QSA]
+
 EOT;
 
 $htaccess .= <<< EOT
     RewriteCond %{HTTPS} !on
-    RewriteCond %{HTTP_HOST} !^127.0.0
+    RewriteCond %{HTTP_HOST} !^(127\.0\.0)|(192\.)|(172\.)
     RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 </ifmodule>
 # END URL rewrite

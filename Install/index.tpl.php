@@ -91,7 +91,7 @@
                 <p>All non critical elements can be fixed after installation if you find yourself in need of one of the
                 features. All critical elements must be fixed before you can continue with the installation.</p>
 
-                <p>For help please check our <a href="http://website.orange-management.de">Installation Guide</a>.</p>
+                <p>For help please check our <a href="https://orange-management.org">Installation Guide</a>.</p>
                 <?php $isOK = \version_compare('7.2.0', PHP_VERSION) < 1 && \extension_loaded('pdo'); ?>
                 <table>
                     <thead>
