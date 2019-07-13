@@ -80,7 +80,7 @@ $htaccess .= <<<EOT
     RewriteRule ^(.*)$
 EOT;
 
-$htaccess .= $subPath;
+$htaccess .= ' ' . $subPath;
 
 $htaccess .= <<<EOT
 ?{QUERY_STRING} [QSA]
