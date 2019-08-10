@@ -87,7 +87,7 @@ $dispatch = $this->getData('dispatch') ?? [];
             ?>
 
             <template id="table-filter-tpl">
-                <div id="table-filter">hello</div>
+                <div id="table-filter">some table filter</div>
             </template>
         </div>
     </main>
