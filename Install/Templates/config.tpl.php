@@ -19,7 +19,7 @@ return <<<EOT
 /**
  * Orange Management
  *
- * PHP Version 7.2
+ * PHP Version 7.4
  *
  * @package    Install
  * @copyright  Dennis Eichhorn

@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.2
+ * PHP Version 7.4
  *
  * @package    Web\Api
  * @copyright  Dennis Eichhorn
@@ -61,10 +61,10 @@ final class Application
     /**
      * WebApplication.
      *
-     * @var WebApplication
+     * @var null|WebApplication
      * @since 1.0.0
      */
-    private $app = null;
+    private ?WebApplication $app = null;
 
     /**
      * Temp config.
@@ -72,7 +72,7 @@ final class Application
      * @var array
      * @since 1.0.0
      */
-    private $config = [];
+    private array $config = [];
 
     /**
      * Constructor.

@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.2
+ * PHP Version 7.4
  *
  * @package    Model
  * @copyright  Dennis Eichhorn
@@ -36,7 +36,7 @@ final class CoreSettings extends SettingsAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'settings';
+    protected static ?string $table = 'settings';
 
     /**
      * Columns.
@@ -44,7 +44,7 @@ final class CoreSettings extends SettingsAbstract
      * @var string[]
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'settings_id',
         'settings_content',
     ];
