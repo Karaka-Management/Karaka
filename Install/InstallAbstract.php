@@ -250,7 +250,7 @@ abstract class InstallAbstract extends ApplicationAbstract
     {
         $app = new class extends ApplicationAbstract
         {
-            protected $appName = 'Api';
+            protected string $appName = 'Api';
         };
 
         $app->dbPool = new DatabasePool();
