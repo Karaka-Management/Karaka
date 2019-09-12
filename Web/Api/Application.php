@@ -178,47 +178,49 @@ final class Application
 
         if (!empty($uris = $request->getUri()->getQuery('r'))) {
             $this->handleBatchRequest($uris, $request, $response);
-        } else {
-            if ($request->getUri()->getPathElement(0) === 'login') {
-                $this->handleLogin($request, $response);
 
-                return;
-            } elseif ($request->getUri()->getPathElement(0) === 'logout'
-                && $request->getData('csrf') === $this->app->sessionManager->get('CSRF')
-            ) {
-                $this->handleLogout($request, $response);
-
-                return;
-            }
-
-            $this->app->moduleManager->initRequestModules($request);
-
-            $dispatched = $this->app->dispatcher->dispatch(
-                $this->app->router->route(
-                    $request->getUri()->getRoute(),
-                    $request->getData('CSRF'),
-                    $request->getRouteVerb(),
-                    $this->app->appName,
-                    $this->app->orgId,
-                    $account
-                ),
-                $request,
-                $response
-            );
-
-            if (empty($dispatched)) {
-                $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-                $response->getHeader()->setStatusCode(RequestStatusCode::R_404);
-                $response->set($request->getUri()->__toString(), [
-                    'status'   => \phpOMS\Message\NotificationLevel::ERROR,
-                    'title'    => '',
-                    'message'  => '',
-                    'response' => [],
-                ]);
-            }
-
-            $pageView->addData('dispatch', $dispatched);
+            return;
         }
+
+        if ($request->getUri()->getPathElement(0) === 'login') {
+            $this->handleLogin($request, $response);
+
+            return;
+        } elseif ($request->getUri()->getPathElement(0) === 'logout'
+            && $request->getData('csrf') === $this->app->sessionManager->get('CSRF')
+        ) {
+            $this->handleLogout($request, $response);
+
+            return;
+        }
+
+        $this->app->moduleManager->initRequestModules($request);
+
+        $dispatched = $this->app->dispatcher->dispatch(
+            $this->app->router->route(
+                $request->getUri()->getRoute(),
+                $request->getData('CSRF'),
+                $request->getRouteVerb(),
+                $this->app->appName,
+                $this->app->orgId,
+                $account
+            ),
+            $request,
+            $response
+        );
+
+        if (empty($dispatched)) {
+            $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_404);
+            $response->set($request->getUri()->__toString(), [
+                'status'   => \phpOMS\Message\NotificationLevel::ERROR,
+                'title'    => '',
+                'message'  => '',
+                'response' => [],
+            ]);
+        }
+
+        $pageView->addData('dispatch', $dispatched);
     }
 
     /**
