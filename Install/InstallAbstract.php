@@ -25,11 +25,9 @@ use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
-use phpOMS\Localization\Localization;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Module\ModuleManager;
 
-use phpOMS\Module\InfoManager;
 use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 
@@ -392,7 +390,7 @@ abstract class InstallAbstract extends ApplicationAbstract
     /**
      * Setup root user in database
      *
-     * @param RequestAbstract            $request Request
+     * @param RequestAbstract    $request Request
      * @param ConnectionAbstract $db      Database connection
      *
      * @return void
@@ -429,7 +427,7 @@ abstract class InstallAbstract extends ApplicationAbstract
     /**
      * Setup basic settings
      *
-     * @param RequestAbstract            $request Request
+     * @param RequestAbstract    $request Request
      * @param ConnectionAbstract $db      Database connection
      *
      * @return void
