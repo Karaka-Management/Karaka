@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Install;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Localization\Localization;
