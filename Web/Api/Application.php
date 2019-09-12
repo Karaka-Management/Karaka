@@ -14,7 +14,9 @@ namespace Web\Api;
 
 use Model\CoreSettings;
 use Model\Settings;
+
 use Modules\Admin\Models\AccountMapper;
+
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\NullAccount;
@@ -34,11 +36,9 @@ use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\Http\Response;
 use phpOMS\Model\Message\Notify;
-
 use phpOMS\Model\Message\NotifyType;
 use phpOMS\Model\Message\Redirect;
 use phpOMS\Model\Message\Reload;
-
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\Router;
 use phpOMS\System\MimeType;
