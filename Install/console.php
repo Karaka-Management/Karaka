@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Install
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Install
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 //<editor-fold desc="Require/Include">
 require_once __DIR__ . '/../phpOMS/Autoloader.php';

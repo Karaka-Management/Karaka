@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Web
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Web
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -31,10 +31,10 @@ use Web\Exception\UnexpectedApplicationException;
 /**
  * Application class.
  *
- * @package    Web
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Web
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class WebApplication extends ApplicationAbstract
 {
@@ -44,7 +44,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @param array $config Core config
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(array $config)
     {
@@ -113,7 +113,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function setupHandlers() : void
     {
@@ -131,7 +131,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @return Request Initial client request
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function initRequest(string $rootPath, array $config) : Request
     {
@@ -167,7 +167,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @return Response Initial client request
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function initResponse(Request $request, array $config) : Response
     {
@@ -206,7 +206,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @return string Application name
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function getApplicationName(Http $uri, array $config) : string
     {
@@ -251,7 +251,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @return string Application name
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function getApplicationNameFromString(string $app) : string
     {
@@ -272,7 +272,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @return string Theme name
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function getApplicationTheme(Request $request, array $config) : string
     {

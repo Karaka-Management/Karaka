@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Web\Exception
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Web\Exception
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,10 +17,10 @@ namespace Web\Exception;
 /**
  * Permission exception class.
  *
- * @package    Web\Exception
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Web\Exception
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class UnexpectedApplicationException extends \RuntimeException
 {
@@ -31,7 +31,7 @@ class UnexpectedApplicationException extends \RuntimeException
      * @param int        $code     Exception code
      * @param \Exception $previous Previous exception
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(string $message, int $code = 0, \Exception $previous = null)
     {

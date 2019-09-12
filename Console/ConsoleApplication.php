@@ -48,7 +48,7 @@ final class ConsoleApplication extends ApplicationAbstract
     /**
      * Temp config.
      *
-     * @var array
+     * @var   array
      * @since 1.0.0
      */
     private $config = [];
@@ -61,7 +61,7 @@ final class ConsoleApplication extends ApplicationAbstract
      *
      * @throws \Exception
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(array $arg, array $config)
     {
@@ -141,7 +141,7 @@ final class ConsoleApplication extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function setupHandlers() : void
     {
@@ -160,7 +160,7 @@ final class ConsoleApplication extends ApplicationAbstract
      *
      * @return Request Initial client request
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function initRequest(array $arg, string $rootPath, string $language) : Request
     {
@@ -188,7 +188,7 @@ final class ConsoleApplication extends ApplicationAbstract
      *
      * @return Response Initial client request
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function initResponse(Request $request, array $languages) : Response
     {

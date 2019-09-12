@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Install
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Install
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -30,10 +30,10 @@ use phpOMS\Views\View;
 /**
  * Application class.
  *
- * @package    Install
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Install
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class ConsoleApplication extends InstallAbstract
 {
@@ -43,7 +43,7 @@ final class ConsoleApplication extends InstallAbstract
      * @param array $config Core config
      * @param array $arg    Call argument
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(array $config, array $arg)
     {
@@ -71,7 +71,7 @@ final class ConsoleApplication extends InstallAbstract
      *
      * @return Request Initial client request
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function initRequest(string $language) : Request
     {
@@ -93,7 +93,7 @@ final class ConsoleApplication extends InstallAbstract
      *
      * @return Response Initial client request
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function initResponse(Request $request) : Response
     {
@@ -112,7 +112,7 @@ final class ConsoleApplication extends InstallAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function run(Request $request, Response $response) : void
     {
@@ -139,7 +139,7 @@ final class ConsoleApplication extends InstallAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function setupRoutes() : void
     {
@@ -155,7 +155,7 @@ final class ConsoleApplication extends InstallAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function installRequest(Request $request, Response $response) : void
     {
@@ -180,7 +180,7 @@ final class ConsoleApplication extends InstallAbstract
      *
      * @return array<string, bool>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private static function validateRequest(Request $request) : array
     {

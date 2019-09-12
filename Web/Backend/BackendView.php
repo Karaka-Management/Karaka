@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Web\Backend
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Web\Backend
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -22,17 +22,17 @@ use phpOMS\Views\View;
 /**
  * List view.
  *
- * @package    Web\Backend
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Web\Backend
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class BackendView extends View
 {
     /**
      * Navigation view
      *
-     * @var View
+     * @var   View
      * @since 1.0.0
      */
     protected $nav = null;
@@ -40,7 +40,7 @@ class BackendView extends View
     /**
      * User profile.
      *
-     * @var Profile
+     * @var   Profile
      * @since 1.0.0
      */
     protected $profile = null;
@@ -48,7 +48,7 @@ class BackendView extends View
     /**
      * Organizations.
      *
-     * @var Unit[]
+     * @var   Unit[]
      * @since 1.0.0
      */
     protected $organizations = null;
@@ -60,7 +60,7 @@ class BackendView extends View
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function setNavigation(View $nav) : void
@@ -75,7 +75,7 @@ class BackendView extends View
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function setProfile(Profile $profile) : void
@@ -88,7 +88,7 @@ class BackendView extends View
      *
      * @return string Profile image link
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getProfileImage() : string
     {
@@ -106,7 +106,7 @@ class BackendView extends View
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function setOrganizations(array $organizations) : void

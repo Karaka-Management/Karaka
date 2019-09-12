@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    tests
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   tests
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,17 +19,17 @@ spl_autoload_register('\tests\Autoloader::defaultAutoloader');
 /**
  * Autoloader class.
  *
- * @package    tests
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package tests
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class Autoloader
 {
     /**
      * Base paths for autoloading
      *
-     * @var string[]
+     * @var   string[]
      * @since 1.0.0
      */
     private static $paths = [
@@ -40,7 +40,7 @@ final class Autoloader
     /**
      * Constructor.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     private function __construct()
@@ -55,7 +55,7 @@ final class Autoloader
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function addPath(string $path) : void
     {
@@ -73,7 +73,7 @@ final class Autoloader
      *
      * @throws AutoloadException Throws this exception if the class to autoload doesn't exist. This could also be related to a wrong namespace/file path correlation.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function defaultAutoloader(string $class) : void
     {
@@ -98,7 +98,7 @@ final class Autoloader
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function exists(string $class) : bool
     {

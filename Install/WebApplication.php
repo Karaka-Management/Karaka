@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Install
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Install
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -31,10 +31,10 @@ use phpOMS\Views\View;
 /**
  * Application class.
  *
- * @package    Install
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Install
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class WebApplication extends InstallAbstract
 {
@@ -43,7 +43,7 @@ final class WebApplication extends InstallAbstract
      *
      * @param array $config Core config
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(array $config)
     {
@@ -72,7 +72,7 @@ final class WebApplication extends InstallAbstract
      *
      * @return Request Initial client request
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function initRequest(string $rootPath, string $language) : Request
     {
@@ -100,7 +100,7 @@ final class WebApplication extends InstallAbstract
      *
      * @return Response Initial client request
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function initResponse(Request $request, array $languages) : Response
     {
@@ -130,7 +130,7 @@ final class WebApplication extends InstallAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function run(Request $request, Response $response) : void
     {
@@ -157,7 +157,7 @@ final class WebApplication extends InstallAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function setupRoutes() : void
     {
@@ -173,7 +173,7 @@ final class WebApplication extends InstallAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function installView(Request $request, Response $response) : void
     {
@@ -190,7 +190,7 @@ final class WebApplication extends InstallAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function installRequest(Request $request, Response $response) : void
     {
@@ -219,7 +219,7 @@ final class WebApplication extends InstallAbstract
      *
      * @return array<string, bool>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private static function validateRequest(Request $request) : array
     {

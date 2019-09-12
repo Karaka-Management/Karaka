@@ -42,7 +42,7 @@ class SocketApplication extends ApplicationAbstract
     /**
      * Socket type.
      *
-     * @var SocketType
+     * @var   SocketType
      * @since 1.0.0
      */
     private $type;
@@ -55,7 +55,7 @@ class SocketApplication extends ApplicationAbstract
      *
      * @throws \Exception
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(array $config, string $type)
     {

@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Web\Backend
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Web\Backend
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -23,7 +23,6 @@ use Modules\Profile\Models\ProfileMapper;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\NullAccount;
-use phpOMS\Account\PermissionType;
 use phpOMS\Asset\AssetType;
 use phpOMS\Auth\Auth;
 use phpOMS\DataStorage\Cache\CachePool;
@@ -54,10 +53,10 @@ use Web\WebApplication;
 /**
  * Application class.
  *
- * @package    Web\Backend
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Web\Backend
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  * @codeCoverageIgnore
  */
 final class Application
@@ -65,7 +64,7 @@ final class Application
     /**
      * WebApplication.
      *
-     * @var null|WebApplication
+     * @var   null|WebApplication
      * @since 1.0.0
      */
     private ?WebApplication $app = null;
@@ -73,7 +72,7 @@ final class Application
     /**
      * Temp config.
      *
-     * @var array
+     * @var   array
      * @since 1.0.0
      */
     private array $config = [];
@@ -84,7 +83,7 @@ final class Application
      * @param WebApplication $app    WebApplication
      * @param array          $config Application config
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(WebApplication $app, array $config)
     {
@@ -102,7 +101,7 @@ final class Application
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function run(Request $request, Response $response) : void
     {
@@ -121,8 +120,7 @@ final class Application
             return;
         }
 
-        $this->app->dbPool      = new DatabasePool();
-
+        $this->app->dbPool = new DatabasePool();
         $this->app->router = new Router();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
         $this->app->router->add(
@@ -251,7 +249,7 @@ final class Application
      *
      * @return int Organization id
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function getApplicationOrganization(Request $request, array $config) : int
     {
@@ -272,7 +270,7 @@ final class Application
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function create406Response(Response $response, View $pageView) : void
     {
@@ -292,7 +290,7 @@ final class Application
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function create503Response(Response $response, View $pageView) : void
     {
@@ -312,7 +310,7 @@ final class Application
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function loadLanguageFromPath(string $language, string $path) : void
     {
@@ -333,7 +331,7 @@ final class Application
      *
      * @return Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function loadAccount(Request $request) : Account
     {
@@ -351,7 +349,7 @@ final class Application
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function create403Response(Response $response, View $pageView) : void
     {
@@ -372,7 +370,7 @@ final class Application
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function initResponseHead(Head $head, Request $request, Response $response) : void
     {
@@ -420,7 +418,7 @@ final class Application
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function createLoggedOutResponse(Response $response, Head $head, View $pageView) : void
     {
@@ -437,7 +435,7 @@ final class Application
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function createDefaultPageView(Request $request, Response $response, BackendView $pageView) : void
     {
@@ -456,7 +454,7 @@ final class Application
      *
      * @return View
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function getNavigation(Request $request, Response $response) : View
     {

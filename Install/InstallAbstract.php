@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Install
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Install
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -39,10 +39,10 @@ use Modules\Organization\Models\Status;
 /**
  * Application class.
  *
- * @package    Install
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Install
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 abstract class InstallAbstract extends ApplicationAbstract
 {
@@ -51,7 +51,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected function setupHandlers() : void
     {
@@ -66,7 +66,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function clearOld() : void
     {
@@ -83,7 +83,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function hasPhpExtensions() : bool
     {
@@ -98,7 +98,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function testDbConnection(RequestAbstract $request) : bool
     {
@@ -112,7 +112,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return ConnectionAbstract
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function setupDatabaseConnection(RequestAbstract $request) : ConnectionAbstract
     {
@@ -134,7 +134,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function installConfigFile(RequestAbstract $request) : void
     {
@@ -149,7 +149,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function editConfigFile(RequestAbstract $request) : void
     {
@@ -181,7 +181,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function editHtaccessFile(RequestAbstract $request) : void
     {
@@ -201,7 +201,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function installCore(ConnectionAbstract $db) : void
     {
@@ -216,7 +216,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function createBaseTables(ConnectionAbstract $db) : void
     {
@@ -244,7 +244,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function installCoreModules(ConnectionAbstract $db) : void
     {
@@ -278,7 +278,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function configureCoreModules(RequestAbstract $request, ConnectionAbstract $db) : void
     {
@@ -305,7 +305,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function installGroups(ConnectionAbstract $db) : void
     {
@@ -320,7 +320,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function installMainGroups(ConnectionAbstract $db) : void
     {
@@ -341,7 +341,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function installGroupPermissions(ConnectionAbstract $db) : void
     {
@@ -364,7 +364,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function installUsers(RequestAbstract $request, ConnectionAbstract $db) : void
     {
@@ -379,7 +379,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function installUserLocalization(ConnectionAbstract $db) : void
     {
@@ -397,7 +397,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function installMainUser(RequestAbstract $request, ConnectionAbstract $db) : void
     {
@@ -434,7 +434,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     protected static function installSettings(RequestAbstract $request, ConnectionAbstract $db) : void
     {

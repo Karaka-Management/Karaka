@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Web\Api
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Web\Api
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 namespace Web\Api;
 
@@ -50,10 +50,10 @@ use Web\WebApplication;
 /**
  * Application class.
  *
- * @package    Web\Api
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Web\Api
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  * @codeCoverageIgnore
  */
 final class Application
@@ -61,7 +61,7 @@ final class Application
     /**
      * WebApplication.
      *
-     * @var null|WebApplication
+     * @var   null|WebApplication
      * @since 1.0.0
      */
     private ?WebApplication $app = null;
@@ -69,7 +69,7 @@ final class Application
     /**
      * Temp config.
      *
-     * @var array
+     * @var   array
      * @since 1.0.0
      */
     private array $config = [];
@@ -80,7 +80,7 @@ final class Application
      * @param WebApplication $app    WebApplication
      * @param array          $config Application config
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(WebApplication $app, array $config)
     {
@@ -98,7 +98,7 @@ final class Application
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function run(Request $request, Response $response) : void
     {
@@ -228,7 +228,7 @@ final class Application
      *
      * @return Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function loadAccount(Request $request) : Account
     {
@@ -247,7 +247,7 @@ final class Application
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function handleBatchRequest(string $uris, Request $request, Response $response) : void
     {
@@ -277,7 +277,7 @@ final class Application
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function handleLogin(Request $request, Response $response) : void
     {
@@ -305,7 +305,7 @@ final class Application
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function handleLogout(Request $request, Response $response) : void
     {
@@ -325,7 +325,7 @@ final class Application
      *
      * @return int Organization id
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function getApplicationOrganization(Request $request, array $config) : int
     {

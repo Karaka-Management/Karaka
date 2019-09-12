@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Web\Error
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Web\Error
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -27,10 +27,10 @@ use Web\WebApplication;
 /**
  * Application class.
  *
- * @package    Web\Error
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Web\Error
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  * @codeCoverageIgnore
  */
 final class Application
@@ -38,7 +38,7 @@ final class Application
     /**
      * WebApplication.
      *
-     * @var null|WebApplication
+     * @var   null|WebApplication
      * @since 1.0.0
      */
     private ?WebApplication $app = null;
@@ -46,7 +46,7 @@ final class Application
     /**
      * Temp config.
      *
-     * @var array
+     * @var   array
      * @since 1.0.0
      */
     private array $config = [];
@@ -57,7 +57,7 @@ final class Application
      * @param Webapplication $app    Application
      * @param array          $config Configuration
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(WebApplication $app, array $config)
     {
@@ -74,7 +74,7 @@ final class Application
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function run(Request $request, Response $response) : void
     {

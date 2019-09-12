@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Model
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Model
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -22,10 +22,10 @@ use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
  *
  * This is used in order to manage global Framework and Module settings
  *
- * @package    Model
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Model
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class CoreSettings extends SettingsAbstract
 {
@@ -33,7 +33,7 @@ final class CoreSettings extends SettingsAbstract
     /**
      * Settings table.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static ?string $table = 'settings';
@@ -41,7 +41,7 @@ final class CoreSettings extends SettingsAbstract
     /**
      * Columns.
      *
-     * @var string[]
+     * @var   string[]
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -54,7 +54,7 @@ final class CoreSettings extends SettingsAbstract
      *
      * @param ConnectionAbstract $connection Database connection
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(ConnectionAbstract $connection)
     {
