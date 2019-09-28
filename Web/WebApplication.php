@@ -256,7 +256,7 @@ class WebApplication extends ApplicationAbstract
     {
         $applicationName = \ucfirst(\strtolower($app));
 
-        if (empty($applicationName) || !Autoloader::exists('\Web\\' . $applicationName . '\Application')) {
+        if (empty($applicationName) || !Autoloader::exists('\\Web\\' . $applicationName . '\\Application')) {
             $applicationName = 'E500';
         }
 

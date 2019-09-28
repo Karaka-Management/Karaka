@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Web\Backend
+ * @package   Web\Timerecording
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Web\Backend;
+namespace Web\Timerecording;
 
 use Model\CoreSettings;
 use Model\Settings;
@@ -53,7 +53,7 @@ use Web\WebApplication;
 /**
  * Application class.
  *
- * @package Web\Backend
+ * @package Web\Timerecording
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
@@ -88,13 +88,13 @@ final class Application
     public function __construct(WebApplication $app, array $config)
     {
         $this->app          = $app;
-        $this->app->appName = 'Backend';
+        $this->app->appName = 'Timerecording';
         $this->config       = $config;
         UriFactory::setQuery('/app', \strtolower($this->app->appName));
     }
 
     /**
-     * Rendering backend.
+     * Rendering timerecording.
      *
      * @param Request  $request  Request
      * @param Response $response Response
@@ -105,7 +105,7 @@ final class Application
      */
     public function run(Request $request, Response $response) : void
     {
-        $pageView = new BackendView($this->app, $request, $response);
+        $pageView = new TimerecordingView($this->app, $request, $response);
         $head     = new Head();
 
         $pageView->setData('head', $head);
@@ -113,7 +113,7 @@ final class Application
 
         $this->app->l11nManager = new L11nManager($this->app->appName);
 
-        /* Backend only allows GET */
+        /* Timerecording only allows GET */
         if ($request->getMethod() !== RequestMethod::GET) {
             $this->create406Response($response, $pageView);
 
@@ -124,10 +124,10 @@ final class Application
         $this->app->router = new Router();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
         $this->app->router->add(
-            '/backend/e403',
+            '/timerecording/e403',
             function() use ($request, $response) {
                 $view = new View($this->app, $request, $response);
-                $view->setTemplate('/Web/Backend/Error/403_inline');
+                $view->setTemplate('/Web/Timerecording/Error/403_inline');
                 $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
 
                 return $view;
@@ -135,7 +135,7 @@ final class Application
             RouteVerb::GET
         );
 
-        $this->app->sessionManager = new HttpSession(36000);
+        $this->app->sessionManager = new HttpSession(60);
         $this->app->cookieJar      = new CookieJar();
         $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../Modules');
         $this->app->dispatcher     = new Dispatcher($this->app);
@@ -215,7 +215,7 @@ final class Application
         /** todo: fix by checking for special permission like read, orgid, appname, ...., component = login must be set
          * the current solution is bad because if a user has read, orgid, appname he can read everything so you don't
          * want to give this to users. if i don't understand what this means at a later stage... just trust me future me.
-         * create a permission e.g. 1, backend, ...., 1 which will be the login permission and check it below.
+         * create a permission e.g. 1, timerecording, ...., 1 which will be the login permission and check it below.
          */
         /*if (!$account->hasPermission(PermissionType::READ, $this->app->orgId, $this->app->appName)) {
             $this->create403Response($response, $pageView);
@@ -275,7 +275,7 @@ final class Application
     private function create406Response(Response $response, View $pageView) : void
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_406);
-        $pageView->setTemplate('/Web/Backend/Error/406');
+        $pageView->setTemplate('/Web/Timerecording/Error/406');
         $this->loadLanguageFromPath(
             $response->getHeader()->getL11n()->getLanguage(),
             __DIR__ . '/Error/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php'
@@ -295,7 +295,7 @@ final class Application
     private function create503Response(Response $response, View $pageView) : void
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_503);
-        $pageView->setTemplate('/Web/Backend/Error/503');
+        $pageView->setTemplate('/Web/Timerecording/Error/503');
         $this->loadLanguageFromPath(
             $response->getHeader()->getL11n()->getLanguage(),
             __DIR__ . '/Error/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php'
@@ -354,7 +354,7 @@ final class Application
     private function create403Response(Response $response, View $pageView) : void
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-        $pageView->setTemplate('/Web/Backend/Error/403');
+        $pageView->setTemplate('/Web/Timerecording/Error/403');
         $this->loadLanguageFromPath(
             $response->getHeader()->getL11n()->getLanguage(),
             __DIR__ . '/Error/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php'
@@ -382,7 +382,7 @@ final class Application
         // Framework
         $head->addAsset(AssetType::JS, 'jsOMS/Utils/oLib.js');
         $head->addAsset(AssetType::JS, 'jsOMS/UnhandledException.js');
-        $head->addAsset(AssetType::JS, 'Web/Backend/js/backend.js', ['type' => 'module']);
+        $head->addAsset(AssetType::JS, 'Web/Timerecording/js/timerecording.js', ['type' => 'module']);
         $head->addAsset(AssetType::JSLATE, 'Modules/Navigation/Controller.js', ['type' => 'module']);
 
         $script = '';
@@ -398,14 +398,14 @@ final class Application
             $head->addAsset(AssetType::CSS, 'cssOMS/debug.css');
         }
 
-        $css = \file_get_contents(__DIR__ . '/css/backend-small.css');
+        $css = \file_get_contents(__DIR__ . '/css/timerecording-small.css');
         if ($css === false) {
             $css = '';
         }
 
         $css = \preg_replace('!\s+!', ' ', $css);
         $head->setStyle('core', $css ?? '');
-        $head->setTitle('Orange Management Backend');
+        $head->setTitle('Orange Management Timerecording');
     }
 
     /**
@@ -422,27 +422,28 @@ final class Application
     private function createLoggedOutResponse(Response $response, Head $head, View $pageView) : void
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-        $pageView->setTemplate('/Web/Backend/login');
+        $pageView->setTemplate('/Web/Timerecording/login');
+        $head->addAsset(AssetType::JS, 'Web/Timerecording/js/login.js', ['type' => 'module']);
     }
 
     /**
      * Create default page view
      *
-     * @param Request     $request  Request
-     * @param Response    $response Response
-     * @param BackendView $pageView View
+     * @param Request           $request  Request
+     * @param Response          $response Response
+     * @param TimerecordingView $pageView View
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function createDefaultPageView(Request $request, Response $response, BackendView $pageView) : void
+    private function createDefaultPageView(Request $request, Response $response, TimerecordingView $pageView) : void
     {
         $pageView->setOrganizations(UnitMapper::getAll());
         $pageView->setProfile(ProfileMapper::getFor($request->getHeader()->getAccount(), 'account'));
         $pageView->setData('nav', $this->getNavigation($request, $response));
 
-        $pageView->setTemplate('/Web/Backend/index');
+        $pageView->setTemplate('/Web/Timerecording/index');
     }
 
     /**
@@ -457,7 +458,7 @@ final class Application
      */
     private function getNavigation(Request $request, Response $response) : View
     {
-        /** @var \Modules\Navigation\Controller\BackendController $navController */
+        /** @var \Modules\Navigation\Controller\TimerecordingController $navController */
         $navController = $this->app->moduleManager->get('Navigation');
         $navController->loadLanguage($request, $response);
 

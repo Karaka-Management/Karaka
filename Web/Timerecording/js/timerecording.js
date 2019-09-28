@@ -62,18 +62,6 @@ export class Application {
         UriFactory.setQuery('/lang', window.location.href.substr(this.request.getBase().length).split('/')[0]);
 
         this.uiManager.bind();
-        this.setupServiceWorker();
-    };
-
-    setupServiceWorker ()
-    {
-        /** global: navigator */
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/Web/Backend/ServiceWorker.js', {scope: this.request.getBase()}).catch(function (e)
-            {
-                Logger.instance.warning('ServiceWorker registration failed.');
-            });
-        }
     };
 
     setResponseMessages ()
