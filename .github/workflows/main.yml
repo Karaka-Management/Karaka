@@ -22,7 +22,6 @@ jobs:
       uses: michaelw90/PHP-Lint@1.0.0
     - uses: pxgamer/phpunit-action@master
         with:
-          # If there isn't a PHPUnit config, specify files or directories to test
           command: --configuration tests/phpunit_default.xml
     
 
