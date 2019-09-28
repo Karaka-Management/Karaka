@@ -18,6 +18,8 @@ jobs:
         php-version: 7.3
         extension-csv: mbstring, xdebug #optional
         coverage: xdebug #optional
+    - name: Setup composer
+      uses: MilesChou/composer-action@master
     - name: Setup MySQL
       uses: mirromutth/mysql-action@v1.1
       with:
