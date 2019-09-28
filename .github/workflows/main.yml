@@ -21,7 +21,7 @@ jobs:
     - name: PHP Lint
       uses: michaelw90/PHP-Lint@1.0.0
     - uses: pxgamer/phpunit-action@master
-        with:
-          command: --configuration tests/phpunit_default.xml
+      with:
+        command: --configuration tests/phpunit_default.xml
     
 
