@@ -8,10 +8,21 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: Checkout submodules
+      uses: textbook/git-checkout-submodule-action@master
+    - name: Installing PHP
+      uses: shivammathur/setup-php@master
+      with:
+        php-version: 7.3
+        extension-csv: mbstring, xdebug #optional
+        coverage: xdebug #optional
+    - name: PHP Lint
+      uses: michaelw90/PHP-Lint@1.0.0
+    - uses: pxgamer/phpunit-action@master
+        with:
+          # If there isn't a PHPUnit config, specify files or directories to test
+          command: --configuration tests/phpunit_default.xml
+    
+
