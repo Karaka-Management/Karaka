@@ -18,8 +18,6 @@ jobs:
         php-version: 7.3
         extension-csv: mbstring, xdebug #optional
         coverage: xdebug #optional
-    - name: PHP Lint
-      uses: michaelw90/PHP-Lint@1.0.0
     - name: Setup MySQL
       uses: mirromutth/mysql-action@v1.1
       with:
