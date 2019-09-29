@@ -10,7 +10,7 @@ jsOMS.ready(function ()
 
     login.addEventListener('click', function() {
         if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-            navigator.mediaDevices.getUserMedia({ video: true, audio: false, exact: 'user' }).then(function(stream) {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then(function(stream) {
                 video.srcObject = stream;
                 video.play();
 
