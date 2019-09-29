@@ -25,8 +25,8 @@ With Orange-Management you have one partner who can provide all the tools and so
 
 Some of the following requirements are only necessary for developers and not for end-users:
 
-* PHP 7.3
-* PHP extension: php7.3-cli php7.3-common php7.3-mysql php7.3-pgsql php7.3-xdebug php7.3-json php7.3-opcache php7.3-pdo php7.3-sqlite php7.3-mbstring php7.3-curl php7.3-imap php7.3-bcmath php7.3-zip php7.3-dom php7.3-xml php7.3-phar php7.3-gd php7.3-dev php-pear
+* PHP 7.4
+* PHP extension: php7.4-cli php7.4-common php7.4-mysql php7.4-pgsql php7.4-xdebug php7.4-json php7.4-opcache php7.4-pdo php7.4-sqlite php7.4-mbstring php7.4-curl php7.4-imap php7.4-bcmath php7.4-zip php7.4-dom php7.4-xml php7.4-phar php7.4-gd php7.4-dev php-pear
 * apache2 (recommended) or nginx
 * mysql-server or postgresql postgresql-contrib
 * Make sure that url rewriting is active
