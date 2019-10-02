@@ -91,9 +91,9 @@ $dispatch = $this->getData('dispatch') ?? [];
             </template>
         </div>
     </main>
-<div id="app-message-container" style="position: absolute; margin: 0 auto; right: 0; top: 0; padding: 85px 10px 0 0;">
+<div id="app-message-container">
     <template id="app-message-tpl">
-        <div class="log-msg" style="z-index: 11; position: relative; margin: 0 auto; right: 0; top: 0; margin-bottom: 10px;">
+        <div class="log-msg">
             <h1 class="log-msg-title"></h1>
             <div class="log-msg-content"></div>
         </div>

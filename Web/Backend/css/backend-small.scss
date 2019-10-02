@@ -150,4 +150,21 @@ main {
     }
 }
 
+#app-message-container {
+    position: absolute;
+    margin: 0 auto;
+    right: 0;
+    top: 0;
+    padding: 85px 10px 0 0;
+
+    .log-msg {
+        z-index: 11;
+        position: relative;
+        margin: 0 auto;
+        right: 0;
+        top: 0;
+        margin-bottom: 10px;
+    }
+}
+
 @import "backend_media";
