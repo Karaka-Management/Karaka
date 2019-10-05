@@ -228,13 +228,16 @@ class WebApplication extends ApplicationAbstract
         }
 
         // check uri path 1 (language is defined)
-        $appName = $uri->getPathElement(1);
-        $appName = $this->getApplicationNameFromString($appName);
+        if (\strlen($uri->getPathElement(0)) === 2) {
+            // @todo: === 2 is not a valid check. it should check if it is a valid language
+            $appName = $uri->getPathElement(1);
+            $appName = $this->getApplicationNameFromString($appName);
 
-        if ($appName !== 'E500') {
-            UriFactory::setQuery('/prefix', (empty(UriFactory::getQuery('/prefix')) ? '' : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement(1) . '/');
+            if ($appName !== 'E500') {
+                UriFactory::setQuery('/prefix', (empty(UriFactory::getQuery('/prefix')) ? '' : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement(1) . '/');
 
-            return $appName;
+                return $appName;
+            }
         }
 
         // check config
