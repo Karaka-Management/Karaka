@@ -44,7 +44,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     <input type="checkbox" id="nav-trigger" name="nav-hamburger" class="nav-trigger">
     <nav>
         <span id="u-box">
-            <a href="<?= \phpOMS\Uri\UriFactory::build('{/prefix}profile/single?{?}&id=' . $this->request->getHeader()->getAccount()); ?>">
+            <a href="<?= \phpOMS\Uri\UriFactory::build('{/prefix}profile/single?{?}&id=' . $this->profile->getId()); ?>">
                 <img alt="<?= $this->getHtml('User', '0', '0'); ?>" data-lazyload="<?= $this->getProfileImage(); ?>">
             </a>
             <span id="logo" itemscope itemtype="http://schema.org/Organization">
