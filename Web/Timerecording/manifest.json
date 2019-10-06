@@ -3,7 +3,7 @@
     "dir": "ltr",
     "start_url": "../../en/timerecording",
     "type": "privileged",
-    "name": "Orange Management Backend",
+    "name": "Orange Management Time Recording",
     "description": "OMS timerecording application.",
     "short_name": "OMS Backend",
     "icons": [

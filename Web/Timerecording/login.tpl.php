@@ -71,44 +71,41 @@ $head = $this->getData('head');
         }
 
         #login-logo {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             height: 185px;
         }
 
         #login-logo img {
             animation: pulse 1.5s ease infinite alternate;
-            width: 60%;
-            max-width: 200px;
+            width: 20%;
+            min-width: 200px;
         }
 
         @keyframes pulse {
             0% {
-                width: 60%;
+                width: 20%;
+                min-width: 200px;
             }
 
             30%, 100% {
-                width: 65%;
+                width: 25%;
+                min-width: 210px;
             }
         }
 
-        header {
-            text-align: left;
-            margin-bottom: 1rem;
-        }
-
-        header h1 {
-            font-weight: 300;
+        h1 {
+            text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
         }
 
         #login-logo {
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
         #login-logo, #login-form {
             text-align: center;
+        }
+
+        #passwordLogin, #cameraLogin {
+            text-align: left;
         }
 
         form {
@@ -124,9 +121,67 @@ $head = $this->getData('head');
             cursor: pointer;
         }
 
-        form input[type=submit], button {
+        form input[type=text],
+        form input[type=password] {
+            margin-bottom: .5rem;
+            background: rgba(0, 0, 0, .15);
+            border: 1px solid var(--input-border);
+            text-shadow: none;
+            box-shadow: none;
+            color: var(--text-on-background-color);
             width: 100%;
-            max-width: 20rem;
+            transition : border 500ms ease-out;
+            outline: none;
+            box-sizing: border-box;
+            line-height: 1rem;
+        }
+
+        .inputWithIcon {
+            position: relative;
+        }
+
+        .inputWithIcon input {
+            padding-left: 2.5rem;
+        }
+
+        .inputWithIcon .frontIcon {
+            color: var(--input-icon-color);
+            font-size: 1rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: .65rem;
+        }
+
+        .inputWithIcon .endIcon {
+            color: var(--input-icon-color);
+            font-size: 1rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: .65rem;
+        }
+
+        form input[type=text]:active, form input[type=text]:focus,
+        form input[type=password]:active, form input[type=password]:focus {
+            border: 1px solid var(--input-border-active);
+            color: var(--text-on-background-color);
+        }
+
+        form input[type=text]:active~.frontIcon, form input[type=text]:focus~.frontIcon,
+        form input[type=password]:active~.frontIcon, form input[type=password]:focus~.frontIcon,
+        form input[type=text]:active~.endIcon, form input[type=text]:focus~.endIcon,
+        form input[type=password]:active~.endIcon, form input[type=password]:focus~.endIcon {
+            color: var(--input-icon-color-active);
+        }
+
+        form input[type=text]~.endIcon, form input[type=text]~.endIcon,
+        form input[type=password]~.endIcon, form input[type=password]~.endIcon {
+            cursor: pointer;
+        }
+
+        form input[type=submit], button {
+            width: calc(50% - 10px);
             background-color: var(--button-main-background);
             border: none;
             text-shadow: none;
@@ -135,6 +190,11 @@ $head = $this->getData('head');
             cursor: pointer;
             transition : background-color 500ms ease-out;
             margin-bottom: 1rem;
+            white-space: nowrap;
+        }
+
+        button+button, input+button {
+            margin-left: 14px;
         }
 
         form input[type=submit]:hover, button:hover,
@@ -145,9 +205,26 @@ $head = $this->getData('head');
             box-shadow: none;
         }
 
+        #forgot-password {
+            text-align: center;
+        }
+
+        #forgot-password a {
+            padding-bottom: .5rem;
+            cursor: pointer;
+            transition : border-bottom 100ms ease-out;
+        }
+
+        #forgot-password a:hover,
+        #forgot-password a:focus {
+            color: rgba(255, 255, 255, .8);
+            border-bottom: 1px solid rgba(255, 255, 255, .6);
+        }
+
         video {
             width: 100%;
             height: 100%;
+            border: 1px solid var(--input-border);
         }
     </style>
 </head>
@@ -158,10 +235,32 @@ $head = $this->getData('head');
     </div>
     <div id="login-form">
         <form id="login" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}login?{?}'); ?>">
-            <button id="iLoginButton" name="loginButton" type="button" tabindex="1"><?= $this->getHtml('Login', '0', '0'); ?></button>
-            <h1 id="iLoginText" class="hidden">Please hold your ID in front of the camera:</h1>
-            <video id="iVideoCanvas" class="hidden"></video>
-            <div id="iCountdown" class="hidden">Camera turns off in: <span id="iCountdownClock"></span> (s)</div>
+            <button id="iCameraLoginButton" name="cameraLoginButton" type="button" tabindex="1"><?= $this->getHtml('CameraLogin', '0', '0'); ?></button>
+            <button id="iPasswordLoginButton" name="passwordLoginButton" type="button" tabindex="2"><?= $this->getHtml('PasswordLogin', '0', '0'); ?></button>
+            <div id="cameraLogin" class="hidden">
+                <h1><?= $this->getHtml('IDCard', '0', '0'); ?>:</h1>
+                <video id="iVideoCanvas"></video>
+                <button class="cancelButton" name="cancelButton" type="button" tabindex="6"><?= $this->getHtml('Cancel', '0', '0'); ?></button>
+                <div id="iCameraCountdown"><?php \printf($this->getHtml('TimerCamera', '0', '0'), '<span id="iCameraCountdownClock"></span>'); ?></div>
+            </div>
+            <div id="passwordLogin" class="hidden">
+            <h1><?= $this->getHtml('Login', '0', '0'); ?>:</h1>
+                <label for="iName"><?= $this->getHtml('Username', '0', '0'); ?>:</label>
+                <div class="inputWithIcon">
+                    <input id="iName" type="text" name="user" tabindex="3" value="admin" autofocus>
+                    <i class="frontIcon fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                    <i class="endIcon fa fa-times fa-lg fa-fw" aria-hidden="true"></i>
+                </div>
+                <label for="iPassword"><?= $this->getHtml('Password', '0', '0'); ?>:</label>
+                <div class="inputWithIcon">
+                    <input id="iPassword" type="password" name="pass" tabindex="4" value="orange">
+                    <i class="frontIcon fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
+                    <i class="endIcon fa fa-times fa-lg fa-fw" aria-hidden="true"></i>
+                </div>
+                <input id="iLoginButton" name="loginButton" type="submit" value="<?= $this->getHtml('Login', '0', '0'); ?>" tabindex="5">
+                <button class="cancelButton" name="cancelButton" type="button" tabindex="6"><?= $this->getHtml('Cancel', '0', '0'); ?></button>
+                <div id="iPasswordCountdown"><?php \printf($this->getHtml('TimerLogin', '0', '0'), '<span id="iPasswordCountdownClock"></span>'); ?></div>
+            </div>
         </form>
     </div>
 </div>

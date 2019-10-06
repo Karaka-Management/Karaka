@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Orange Management
  *
@@ -11,6 +10,8 @@
  * @version   1.0.0
  * @link      https://orange-management.org
  */
+declare(strict_types=1);
+
 return [[
     '403Message' => 'Access is restricted',
     '503Message' => 'Database connection problem',

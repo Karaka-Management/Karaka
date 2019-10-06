@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Orange Management
  *
@@ -11,7 +10,17 @@
  * @version   1.0.0
  * @link      https://orange-management.org
  */
+declare(strict_types=1);
+
 return [[
-    'Login'      => 'Login',
-    'Logo'      => 'Logo',
+    'CameraLogin'   => 'Camera Login',
+    'Cancel'        => 'Cancel',
+    'IDCard'        => 'ID Card',
+    'Login'         => 'Login',
+    'Logo'          => 'Logo',
+    'Password'      => 'Password',
+    'PasswordLogin' => 'Password Login',
+    'TimerCamera'   => 'Camera turns off in: %s (s)',
+    'TimerLogin'    => 'Login turns off in: %s (s)',
+    'Username'      => 'Username',
 ]];

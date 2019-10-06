@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Orange Management
  *
@@ -11,6 +10,8 @@
  * @version   1.0.0
  * @link      https://orange-management.org
  */
+declare(strict_types=1);
+
 return [[
     'ErrorMessage' => 'Error 503',
     'Description' => 'A service this page is relying on is not responding we are working on it.',

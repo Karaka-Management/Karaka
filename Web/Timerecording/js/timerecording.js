@@ -67,8 +67,8 @@ export class Application {
     setResponseMessages ()
     {
         /** global: RESPONSE_EVENTS */
-        for(let key in RESPONSE_EVENTS) {
-            if(RESPONSE_EVENTS.hasOwnProperty(key)) {
+        for (let key in RESPONSE_EVENTS) {
+            if (RESPONSE_EVENTS.hasOwnProperty(key)) {
                 this.responseManager.add(key, RESPONSE_EVENTS[key]);
             }
         }
@@ -77,8 +77,8 @@ export class Application {
     setActions ()
     {
         /** global: ACTION_EVENTS */
-        for(let key in ACTION_EVENTS) {
-            if(ACTION_EVENTS.hasOwnProperty(key)) {
+        for (let key in ACTION_EVENTS) {
+            if (ACTION_EVENTS.hasOwnProperty(key)) {
                 this.uiManager.getActionManager().add(key, ACTION_EVENTS[key]);
             }
         }
@@ -89,7 +89,7 @@ export class Application {
         /** global: KEYBOARD_EVENTS */
         let length = KEYBOARD_EVENTS.length;
 
-        for(let i = 0; i < length; i++) {
+        for (let i = 0; i < length; i++) {
             this.inputManager.getKeyboardManager().add(
                 KEYBOARD_EVENTS[i]['element'],
                 KEYBOARD_EVENTS[i]['keys'],
@@ -103,7 +103,7 @@ export class Application {
         /** global: MOUSE_EVENTS */
         let length = MOUSE_EVENTS.length;
 
-        for(let i = 0; i < length; i++) {
+        for (let i = 0; i < length; i++) {
             this.inputManager.getMouseManager().add(
                 MOUSE_EVENTS[i]['element'],
                 MOUSE_EVENTS[i]['type'],
@@ -117,8 +117,8 @@ export class Application {
     setVoiceActions ()
     {
         /** global: VOICE_EVENTS */
-        for(let key in VOICE_EVENTS) {
-            if(VOICE_EVENTS.hasOwnProperty(key)) {
+        for (let key in VOICE_EVENTS) {
+            if (VOICE_EVENTS.hasOwnProperty(key)) {
                 this.voiceManager.add(key, VOICE_EVENTS[key]);
             }
         }
