@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Web\Backend
+ * @package   Web\Timerecording
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0

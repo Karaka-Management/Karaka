@@ -20,7 +20,7 @@ use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
 
 /**
- * List view.
+ * Main view.
  *
  * @package Web\Timerecording
  * @license OMS License 1.0

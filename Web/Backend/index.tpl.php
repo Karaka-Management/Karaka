@@ -20,24 +20,32 @@ $top = $nav->render();
 $nav->setTemplate('/Modules/Navigation/Theme/Backend/side');
 $side = $nav->render();
 
-$head     = $this->getData('head');
+/** @var phpOMS\Model\Html\Head $head */
+$head = $this->getData('head');
+
+/** @var array $dispatch */
 $dispatch = $this->getData('dispatch') ?? [];
 ?>
 <!DOCTYPE HTML>
 <html lang="<?= $this->printHtml($this->response->getHeader()->getL11n()->getLanguage()); ?>">
 <head>
-    <?= $head->getMeta()->render(); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#712b91">
     <meta name="msapplication-navbutton-color" content="#712b91">
     <meta name="apple-mobile-web-app-status-bar-style" content="#712b91">
     <meta name="description" content="<?= $this->getHtml(':meta', '0', '0'); ?>">
+    <?= $head->getMeta()->render(); ?>
+
     <base href="<?= \phpOMS\Uri\UriFactory::build('{/base}'); ?>/">
+
     <link rel="manifest" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/manifest.json'); ?>">
     <link rel="shortcut icon" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/img/favicon.ico'); ?>" type="image/x-icon">
+
     <title><?= $this->printHtml($head->getTitle()); ?></title>
+
     <?= $head->renderAssets(); ?>
+
     <style><?= $head->renderStyle(); ?></style>
     <script><?= $head->renderScript(); ?></script>
 </head>
