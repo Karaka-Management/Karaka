@@ -8,7 +8,7 @@ For the code style and best practices please have a look at the developer-guide 
 
 ### Suggestions
 
-If you have a good idea for improvement feel free to create a new issue with all the relevant information. 
+If you have a good idea for improvement feel free to create a new issue with all the relevant information.
 
 ### Issues
 
@@ -22,6 +22,6 @@ Not always are the defined coding style standards upheld, if you notice that sim
 
 While code coverage is just a metric it is still appreciated to cover as many files and code paths as possible. Just have a look at the code coverage and implement missing unit tests.
 
-### Freatures
+### Features
 
 You have a good idea for a feature and can implement it yourself, go ahead and create a new pull request.
