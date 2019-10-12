@@ -3,7 +3,7 @@
         bootstrap="Bootstrap.php"
         colors="true"
         stopOnError="true"
-        stopOnFailure="true"
+        stopOnFailure="false"
         stopOnIncomplete="false"
         stopOnSkipped="false"
         beStrictAboutTestsThatDoNotTestAnything="false"
