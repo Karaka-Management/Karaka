@@ -23,4 +23,5 @@ return [[
     'TimerCamera'   => 'Camera turns off in: %s (s)',
     'TimerLogin'    => 'Login turns off in: %s (s)',
     'Username'      => 'Username',
+    ':meta'         => 'Time recording application',
 ]];

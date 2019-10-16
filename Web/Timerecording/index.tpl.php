@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 $nav = $this->getData('nav');
 
-$nav->setTemplate('/Modules/Navigation/Theme/Timerecording/top');
+$nav->setTemplate('/Modules/Navigation/Theme/Backend/top');
 $top = $nav->render();
 
 /** @var phpOMS\Model\Html\Head $head */
@@ -48,8 +48,15 @@ $dispatch = $this->getData('dispatch') ?? [];
 </head>
 <body>
 <div class="vh" id="dim"></div>
-<nav><?= $top; ?></nav>
+<header><div id="t-nav-container"><?= $top ?></div></header>
 <main id="content" class="container-fluid" role="main">
+<?php
+foreach ($dispatch as $view) {
+    if ($view instanceof \phpOMS\Contract\RenderableInterface) {
+        echo $view->render();
+    }
+}
+?>
 </main>
 <div id="app-message-container">
     <template id="app-message-tpl">
