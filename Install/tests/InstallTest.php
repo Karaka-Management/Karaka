@@ -35,7 +35,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
                             'login'    => 'root', /* db login name */
-                            'password' => '', /* db login password */
+                            'password' => 'root', /* db login password */
                             'database' => 'oms', /* db name */
                             'prefix'   => 'oms_', /* db table prefix */
                             'weight'   => 1000, /* db table prefix */
@@ -45,7 +45,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
                             'login'    => 'root', /* db login name */
-                            'password' => '', /* db login password */
+                            'password' => 'root', /* db login password */
                             'database' => 'oms', /* db name */
                             'prefix'   => 'oms_', /* db table prefix */
                             'weight'   => 1000, /* db table prefix */
@@ -55,7 +55,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
                             'login'    => 'root', /* db login name */
-                            'password' => '', /* db login password */
+                            'password' => 'root', /* db login password */
                             'database' => 'oms', /* db name */
                             'prefix'   => 'oms_', /* db table prefix */
                             'weight'   => 1000, /* db table prefix */
@@ -65,7 +65,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
                             'login'    => 'root', /* db login name */
-                            'password' => '', /* db login password */
+                            'password' => 'root', /* db login password */
                             'database' => 'oms', /* db name */
                             'prefix'   => 'oms_', /* db table prefix */
                             'weight'   => 1000, /* db table prefix */
@@ -75,7 +75,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
                             'login'    => 'root', /* db login name */
-                            'password' => '', /* db login password */
+                            'password' => 'root', /* db login password */
                             'database' => 'oms', /* db name */
                             'prefix'   => 'oms_', /* db table prefix */
                             'weight'   => 1000, /* db table prefix */
@@ -85,7 +85,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
                             'login'    => 'root', /* db login name */
-                            'password' => '', /* db login password */
+                            'password' => 'root', /* db login password */
                             'database' => 'oms', /* db name */
                             'prefix'   => 'oms_', /* db table prefix */
                             'weight'   => 1000, /* db table prefix */
