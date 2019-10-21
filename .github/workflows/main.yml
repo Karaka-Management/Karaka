@@ -5,9 +5,23 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: false
+          MYSQL_ROOT_PASSWORD: ""
+          MYSQL_DATABASE: oms
+        ports:
+          - 3306
     steps:
     - name: Checkout
       uses: actions/checkout@master
-    - name: CI/CD
-      uses: Orange-Management/omsAction@master
+    - name: Setup submodules
+      run: |
+        git submodule update --init --recursive
+        git submodule foreach git checkout develop
+    - name: Setup composer
+      run: composer install
+    - name: Test with phpunit
+      run: vendor/bin/phpunit --coverage-text -v --configuration tests/phpunit_default.xml
