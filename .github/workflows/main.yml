@@ -1,0 +1,11 @@
+name: CI/CD
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: CI/CD
+      uses: Orange-Management/omsAction@master
