@@ -9,26 +9,24 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_ALLOW_EMPTY_PASSWORD: false
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: oms
         ports:
           - 3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
-    - name: Configure database
-      run: |
-        mysql -u root -proot -e "USE mysql; ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ''; FLUSH PRIVILEGES;"
-    - name: Checkout
+    - name: Checkout Repository
       uses: actions/checkout@master
-    - name: Setup submodules
+    - name: Setup Submodules
       run: |
         git submodule update --init --recursive
         git submodule foreach git checkout develop
-    - name: Setup composer
+    - name: Setup Composer
       run: composer install
-    - name: Test with phpunit
+    - name: phpunit
       run: vendor/bin/phpunit --coverage-text -v --configuration tests/phpunit_default.xml
-    - name: Test with phpstan
+    - name: phpstan
       run: /vendor/bin/phpstan --autoload-file=phpOMS/Autoloader.php -l 7 -c Build/Config/phpstan.neon ./
-    - name: Test with phpcs
+    - name: phpcs
       run: /vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report=full
