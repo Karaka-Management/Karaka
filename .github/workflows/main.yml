@@ -16,7 +16,7 @@ jobs:
           - 3306
     steps:
     - name: Configure database
-      run: mysql -u root -p -e "USE mysql; ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ''; FLUSH PRIVILEGES;"
+      run: mysql -u root -e "USE mysql; ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ''; FLUSH PRIVILEGES;"
     - name: Checkout
       uses: actions/checkout@master
     - name: Setup submodules
