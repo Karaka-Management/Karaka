@@ -9,14 +9,14 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: false
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_PASSWORD: ""
           MYSQL_DATABASE: oms
         ports:
           - 3306
     steps:
     - name: Configure database
-      run: mysql -e "USE mysql; ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ''; FLUSH PRIVILEGES;"
+      run: mysql -u USER -p PASSWORD -e "USE mysql; ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ''; FLUSH PRIVILEGES;"
     - name: Checkout
       uses: actions/checkout@master
     - name: Setup submodules
