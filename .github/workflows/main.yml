@@ -18,7 +18,6 @@ jobs:
     - name: Configure database
       run: |
         mysql -u root -proot -e "USE mysql; ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ''; FLUSH PRIVILEGES;"
-        service mysql restart
     - name: Checkout
       uses: actions/checkout@master
     - name: Setup submodules
