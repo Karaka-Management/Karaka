@@ -1,0 +1,8 @@
+name: CI/CD
+
+on: [push]
+
+jobs:
+    steps:
+    - name: CI/CD
+      uses: Orange-Management/omsAction@master
