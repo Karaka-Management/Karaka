@@ -42,7 +42,7 @@ use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\Http\Response;
 use phpOMS\Model\Html\Head;
 use phpOMS\Module\ModuleManager;
-use phpOMS\Router\Router;
+use phpOMS\Router\WebRouter;
 use phpOMS\Router\RouteVerb;
 use phpOMS\System\File\PathException;
 use phpOMS\Uri\UriFactory;
@@ -121,7 +121,7 @@ final class Application
         }
 
         $this->app->dbPool = new DatabasePool();
-        $this->app->router = new Router();
+        $this->app->router = new WebRouter();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
         $this->app->router->add(
             '/backend/e403',

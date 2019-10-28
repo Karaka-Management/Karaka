@@ -26,16 +26,18 @@ $rightOffset = $page + $offset - $pages - 1;
 
 $start = \max($page - ($rightOffset > 0 ? $rightOffset : 0) - $offset, 1);
 $end   = \min($page + ($leftOffset > 0 ? $leftOffset : 0) + $offset, $pages);
+
+$url = UriFactory::build('{%}&page=%d');
 ?>
 <ul class="pagination">
     <?php if ($start !== 1) : ?>
-        <li><a href="<?= UriFactory::build('{%}&page=1'); ?>"<?= $page === 1 ? ' class="active"' : ''; ?>>1</a>
+        <li><a href="<?= printf($url, 1); ?>"<?= $page === 1 ? ' class="active"' : ''; ?>>1</a>
     <?php endif; ?>
     <?php for ($i = $start; $i <= $end; ++$i) : ?>
-        <li><a href="<?= UriFactory::build('{%}&page=' . $i); ?>"<?= $page === $i ? ' class="active"' : ''; ?>><?= $i; ?></a>
+        <li><a href="<?= printf($url, $i); ?>"<?= $page === $i ? ' class="active"' : ''; ?>><?= $i; ?></a>
     <?php endfor; ?>
 
     <?php if ($pages !== $i - 1) : ?>
-        <li><a href="<?= UriFactory::build('{%}&page=' . $pages); ?>"<?= $page === $pages ? ' class="active"' : ''; ?>><?= $pages; ?></a>
+        <li><a href="<?= printf($url, $pages); ?>"<?= $page === $pages ? ' class="active"' : ''; ?>><?= $pages; ?></a>
     <?php endif; ?>
 </ul>

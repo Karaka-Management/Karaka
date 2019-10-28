@@ -42,7 +42,7 @@ use phpOMS\Model\Message\NotifyType;
 use phpOMS\Model\Message\Redirect;
 use phpOMS\Model\Message\Reload;
 use phpOMS\Module\ModuleManager;
-use phpOMS\Router\Router;
+use phpOMS\Router\WebRouter;
 use phpOMS\System\MimeType;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
@@ -109,7 +109,7 @@ final class Application
 
         $this->app->l11nManager = new L11nManager($this->app->appName);
         $this->app->dbPool      = new DatabasePool();
-        $this->app->router      = new Router();
+        $this->app->router      = new WebRouter();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
 
         $this->app->sessionManager = new HttpSession(36000);

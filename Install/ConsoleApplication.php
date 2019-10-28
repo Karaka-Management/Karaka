@@ -21,7 +21,7 @@ use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
 use phpOMS\Message\Console\Request;
 use phpOMS\Message\Console\Response;
-use phpOMS\Router\Router;
+use phpOMS\Router\WebRouter;
 use phpOMS\Router\RouteVerb;
 use phpOMS\System\MimeType;
 use phpOMS\Uri\UriFactory;
@@ -117,7 +117,7 @@ final class ConsoleApplication extends InstallAbstract
     private function run(Request $request, Response $response) : void
     {
         $this->dispatcher = new Dispatcher($this);
-        $this->router     = new Router();
+        $this->router     = new WebRouter();
 
         $this->setupRoutes();
         $response->getHeader()->set('content-language', $response->getHeader()->getL11n()->getLanguage(), true);
