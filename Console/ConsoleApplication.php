@@ -30,7 +30,7 @@ use phpOMS\Log\FileLogger;
 use phpOMS\Message\Console\Request;
 use phpOMS\Message\Console\Response;
 use phpOMS\Module\ModuleManager;
-use phpOMS\Router\Router;
+use phpOMS\Router\WebRouter;
 use phpOMS\Uri\Argument;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
@@ -98,7 +98,7 @@ final class ConsoleApplication extends ApplicationAbstract
             $con = $this->dbPool->get();
 
             $this->l11nManager = new L11nManager($this->appName);
-            $this->router      = new Router();
+            $this->router      = new WebRouter();
             $this->router->importFromFile(__DIR__ . '/Routes.php');
 
             $this->cachePool      = new CachePool();
