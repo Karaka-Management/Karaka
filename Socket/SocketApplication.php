@@ -43,22 +43,6 @@ class SocketApplication extends ApplicationAbstract
 {
 
     /**
-     * Socket type.
-     *
-     * @var   SocketType
-     * @since 1.0.0
-     */
-    protected string $type;
-
-    /**
-     * Temp config.
-     *
-     * @var   array
-     * @since 1.0.0
-     */
-    protected array $config = [];
-
-    /**
      * Constructor.
      *
      * @param array  $config Core config
@@ -72,60 +56,16 @@ class SocketApplication extends ApplicationAbstract
     {
         $this->setupHandlers();
 
-        $this->appName = 'Backend';
-        $this->config       = $config;
+        $sub = null;
 
-        $this->type   = $type;
-        $socket       = null;
-        $this->logger = FileLogger::getInstance($config['log']['file']['path'], true);
-
-        if ($type === SocketType::TCP_SERVER) {
-            $this->logger->info('Setting up TCP socket application...');
-
-            $this->dbPool = new DatabasePool();
-            $this->dbPool->create('core', $config['db']['core']['masters']['admin']);
-            $this->dbPool->create('select', $config['db']['core']['masters']['select']);
-
-            if ($this->dbPool->get()->getStatus() !== DatabaseStatus::OK) {
-                //$this->create503Response($response, $pageView);
-
-                return;
-            }
-
-            // TODO: Create server session manager. Client account has reference to elmeent in here (&$session[$clientID])
-            $this->sessionManager = new HttpSession(36000);
-            $this->cachePool      = new CachePool($this->dbPool);
-            $this->appSettings    = new CoreSettings($this->dbPool->get());
-            $this->eventManager   = new EventManager($this->dispatcher);
-            $this->accountManager = new AccountManager($this->sessionManager);
-
-            $this->router = new WebRouter();
-            $this->router->importFromFile(__DIR__ . '/Routes.php');
-
-            $this->moduleManager  = new ModuleManager($this, __DIR__ . '/../Modules');
-            $this->dispatcher     = new Dispatcher($this);
-            $this->l11nManager    = new L11nManager($this->appName);
-
-            $this->logger->info('Initializing active modules...');
-            /*$modules = $this->moduleManager->getActiveModules();
-            foreach ($modules as $name => $module) {
-                $this->moduleManager->initModule($name);
-            }*/
-
-            $socket = new Server($this);
-            $socket->create('127.0.0.1', $config['socket']['master']['port']);
-            $socket->setLimit($config['socket']['master']['limit']);
-        } elseif ($type === SocketType::TCP_CLIENT) {
-            $socket = new Client();
-            $socket->create('127.0.0.1', $config['socket']['master']['port']);
-        } elseif ($type === SocketType::WEB_SOCKET) {
-            $socket = new Client();
-            $socket->create('127.0.0.1', $config['socket']['master']['port']);
-        } else {
-            throw new \InvalidArgumentException('Socket type "' . $type . '" is not supported.');
+        try {
+            $app = '\Socket\\' . $type . '\Application';
+            $sub = new $app($this, $config);
+        } catch (\Throwable $e) {
+            $sub = ''; // todo: create dummy app
+        } finally {
+            $sub->run();
         }
-
-        $socket->run();
     }
 
     /**
