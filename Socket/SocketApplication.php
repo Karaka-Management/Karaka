@@ -14,22 +14,7 @@ declare(strict_types=1);
 
 namespace Socket;
 
-use Model\CoreSettings;
-use phpOMS\Account\AccountManager;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Cache\CachePool;
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Session\HttpSession;
-use phpOMS\Dispatcher\Dispatcher;
-use phpOMS\Event\EventManager;
-use phpOMS\Localization\L11nManager;
-use phpOMS\Log\FileLogger;
-use phpOMS\Module\ModuleManager;
-use phpOMS\Router\WebRouter;
-use phpOMS\Socket\Client\Client;
-use phpOMS\Socket\Server\Server;
-use phpOMS\Socket\SocketType;
-use phpOMS\DataStorage\Database\DatabaseStatus;
 
 /**
  * Controller class.
@@ -38,6 +23,7 @@ use phpOMS\DataStorage\Database\DatabaseStatus;
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
+ * @codeCoverageIgnore
  */
 class SocketApplication extends ApplicationAbstract
 {

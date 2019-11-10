@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace Socket\Socketserver;
 
 use Model\CoreSettings;
+
 use phpOMS\Account\AccountManager;
-use phpOMS\ApplicationAbstract;
 use phpOMS\DataStorage\Cache\CachePool;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Session\HttpSession;
@@ -29,6 +29,7 @@ use phpOMS\Socket\Server\Server;
 use phpOMS\Socket\SocketType;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\Router\SocketRouter;
+
 use Socket\SocketApplication;
 
 /**
@@ -38,6 +39,7 @@ use Socket\SocketApplication;
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
+ * @codeCoverageIgnore
  */
 class Application
 {
