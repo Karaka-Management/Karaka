@@ -3,7 +3,7 @@
         bootstrap="Bootstrap.php"
         colors="true"
         stopOnError="true"
-        stopOnFailure="false"
+        stopOnFailure="true"
         stopOnIncomplete="false"
         stopOnSkipped="false"
         beStrictAboutTestsThatDoNotTestAnything="false"
@@ -39,6 +39,7 @@
                 <directory suffix=".php">../Modules/**/Admin/Routes*</directory>
                 <directory suffix=".php">../Modules/**/Admin/Install*</directory>
                 <directory suffix=".php">../Modules/Media/Files*</directory>
+                <directory suffix="Routes.php">../*</directory>
             </exclude>
         </whitelist>
     </filter>
@@ -63,4 +64,9 @@
             </arguments>
         </listener>
     </listeners>-->
+    <groups>
+        <exclude>
+            <group>volume</group>
+        </exclude>
+    </groups>
 </phpunit>
