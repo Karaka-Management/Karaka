@@ -19,4 +19,4 @@ $config = require_once __DIR__ . '/config.php';
 
 use phpOMS\Socket\SocketType;
 
-$App = new \Socket\SocketApplication($config, $argv[1] ?? SocketType::TCP_CLIENT);
+$App = new \Socket\SocketApplication($config, $argv[1] ?? 'Socketclient');
