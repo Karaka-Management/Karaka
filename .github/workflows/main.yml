@@ -35,7 +35,7 @@ jobs:
     - name: Setup Composer
       run: composer install
     - name: phpstan
-      run: vendor/bin/phpstan analyse --autoload-file=phpOMS/Autoloader.php -l 7 -c Build/Config/phpstan.neon ./
+      run: vendor/bin/phpstan analyse -a phpOMS/Autoloader.php --no-progress -l 7 -c Build/Config/phpstan.neon ./
     - name: phpcs
       run: vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report=full
     - name: phpunit
