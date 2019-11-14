@@ -31,7 +31,7 @@ jobs:
       uses: shivammathur/setup-php@master
       with:
           php-version: ${{ matrix.php-versions }}
-          extension-csv: mbstring, intl, gd, imagick, zip, dom, mysql imap
+          extension-csv: mbstring, intl, gd, imagick, zip, dom, mysql, imap
     - name: Setup Composer
       run: composer install
     - name: phpstan
