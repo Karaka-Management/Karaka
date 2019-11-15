@@ -34,9 +34,9 @@ jobs:
           extension-csv: mbstring, intl, gd, imagick, zip, dom, mysql, imap
     - name: Setup Composer
       run: composer install
+    - name: phpunit
+      run: vendor/bin/phpunit --coverage-text -v --configuration tests/phpunit_no_coverage.xml
     - name: phpstan
       run: vendor/bin/phpstan analyse -a phpOMS/Autoloader.php --no-progress -l 7 -c Build/Config/phpstan.neon ./
     - name: phpcs
       run: vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report=full
-    - name: phpunit
-      run: vendor/bin/phpunit --coverage-text -v --configuration tests/phpunit_no_coverage.xml
