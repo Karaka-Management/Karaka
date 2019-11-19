@@ -41,7 +41,7 @@ jobs:
       uses: shivammathur/setup-php@master
       with:
           php-version: ${{ matrix.php-versions }}
-          extension-csv: mbstring, intl, gd, imagick, zip, dom, mysql, pgsql, imap
+          extension-csv: mbstring, intl, gd, imagick, zip, dom, mysql, pgsql, sqlite, imap
     - name: Setup Composer
       run: composer install
     - name: phpunit
