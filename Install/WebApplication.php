@@ -201,8 +201,6 @@ final class WebApplication extends InstallAbstract
 
         $db = self::setupDatabaseConnection($request);
         DataMapperAbstract::setConnection($db);
-        
-        var_dump($db);
 
         self::clearOld();
         self::installConfigFile($request);
