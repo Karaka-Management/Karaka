@@ -77,9 +77,9 @@ class Application
      */
     public function __construct(SocketApplication $app, array $config)
     {
-        $this->app          = $app;
+        $this->app     = $app;
         $this->appName = 'Socketserver';
-        $this->config       = $config;
+        $this->config  = $config;
 
         $this->app->logger = FileLogger::getInstance($config['log']['file']['path'], true);
 

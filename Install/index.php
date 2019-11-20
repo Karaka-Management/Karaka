@@ -10,6 +10,8 @@
  * @version   1.0.0
  * @link      https://orange-management.org
  */
+declare(strict_types=1);
+
 ob_start();
 
 //<editor-fold desc="Require/Include">

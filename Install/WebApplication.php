@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Install;
 
+use phpOMS\DataStorage\Database\Connection\NullConnection;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Localization\ISO639x1Enum;
@@ -200,6 +201,11 @@ final class WebApplication extends InstallAbstract
         }
 
         $db = self::setupDatabaseConnection($request);
+
+        if ($db instanceof NullConnection) {
+            return;
+        }
+
         DataMapperAbstract::setConnection($db);
 
         self::clearOld();
