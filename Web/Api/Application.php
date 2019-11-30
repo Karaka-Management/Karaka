@@ -290,7 +290,7 @@ final class Application
         $login = AccountMapper::login((string) ($request->getData('user') ?? ''), (string) ($request->getData('pass') ?? ''));
 
         if ($login >= LoginReturnType::OK) {
-            $this->app->sessionManager->set('UID', $login);
+            $this->app->sessionManager->set('UID', $login, true);
             $this->app->sessionManager->save();
             $response->set($request->getUri()->__toString(), new Reload());
         } else {
