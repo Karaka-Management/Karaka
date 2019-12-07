@@ -51,8 +51,16 @@ jobs:
       with:
           php-version: ${{ matrix.php-versions }}
           extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
-    - name: Setup Composer
-      run: composer install
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      run: |
+        echo "::set-output name=dir::$(composer config cache-files-dir)"
+    - uses: actions/cache@v1
+      with:
+        path: ${{ steps.composer-cache.outputs.dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-composer-
     - name: phpunit
       run: vendor/bin/phpunit --coverage-text -v --configuration tests/phpunit_no_coverage.xml
     - name: phpstan
