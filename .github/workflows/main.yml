@@ -101,3 +101,24 @@ jobs:
       run: composer install
     - name: phpcs
       run: vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report=full
+  linting:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        php-versions: ['7.4']
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@master
+    - name: Setup Submodules
+      run: |
+        git submodule update --init --recursive
+        git submodule foreach git checkout develop
+    - name: Setup PHP, with composer and extensions
+      uses: shivammathur/setup-php@master
+      with:
+          php-version: ${{ matrix.php-versions }}
+          extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+    - name: PHP linting
+      run: find . -type f -name '*.php' -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v "No syntax errors detected" )
