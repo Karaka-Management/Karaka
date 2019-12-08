@@ -32,7 +32,7 @@ jobs:
         options: --entrypoint redis-server
       memcached:
         image: memcached
-        ports: 
+        ports:
           - 11211:11211
     strategy:
       fail-fast: false
@@ -121,4 +121,4 @@ jobs:
           php-version: ${{ matrix.php-versions }}
           extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
     - name: PHP linting
-      run: find . -type f -name '*.php' -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v "No syntax errors detected" )
+      run: find ./Web ./phpOMS ./Build ./Modules -type f -name '*.php' -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v "No syntax errors detected" )
