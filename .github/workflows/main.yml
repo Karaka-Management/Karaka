@@ -50,7 +50,7 @@ jobs:
       uses: shivammathur/setup-php@master
       with:
           php-version: ${{ matrix.php-versions }}
-          extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          extension: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
           coverage: pcov
     - name: Setup Composer
       run: composer install
@@ -74,7 +74,7 @@ jobs:
       uses: shivammathur/setup-php@master
       with:
           php-version: ${{ matrix.php-versions }}
-          extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          extension: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
     - name: Setup Composer
       run: composer install
     - name: phpstan
@@ -97,7 +97,7 @@ jobs:
       uses: shivammathur/setup-php@master
       with:
           php-version: ${{ matrix.php-versions }}
-          extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          extension: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
     - name: Setup Composer
       run: composer install
     - name: phpcs
@@ -120,6 +120,6 @@ jobs:
       uses: shivammathur/setup-php@master
       with:
           php-version: ${{ matrix.php-versions }}
-          extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          extension: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
     - name: PHP linting
       run: find ./Web ./phpOMS ./Build ./Modules -type f -name '*.php' -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v "No syntax errors detected" )
