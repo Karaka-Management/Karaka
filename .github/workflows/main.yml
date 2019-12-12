@@ -101,7 +101,7 @@ jobs:
       run: composer install
     - name: phpcs
       run: vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report=full
-  linting:
+  custom:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -122,3 +122,15 @@ jobs:
           extension: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
     - name: PHP linting
       run: find ./Web ./phpOMS ./Build ./Modules -type f -name '*.php' -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v "No syntax errors detected" )
+    - name: Php strict
+      run: if [[ $(grep -r -L "declare(strict_types=1);" --include=*.php --exclude={*.tpl.php,*Hooks.php,*Routes.php,*SearchCommands.php} ./phpOMS ./Web ./Modules ./Model) -ne "" ]]; then exit 1; fi
+    - name: Html inspection
+      run: |
+        if [[ $(find ./Web ./phpOMS ./Build ./Modules -name "*tpl.php" | xargs grep -E '=\"[\#\$\%\^\&\*\(\)\\/\ ]*\"') -ne "" ]]; then exit 1; fi
+        if [[ $(find ./Web ./phpOMS ./Build ./Modules -name "*tpl.php" | xargs grep -P '(\<img)((?!.*?alt=).)*(>)') -ne "" ]]; then exit 1; fi
+    - name: Js strict
+      run: if [[ $(grep -r -L "\"use strict\";" --include=*.js ./jsOMS ./Modules ./Model) -ne "" ]]; then exit 1; fi
+    - name: Js inspection
+      run: |
+        if [[ $(grep -rlni "onafterprint=\|onbeforeprint=\|onbeforeunload=\|onerror=\|onhaschange=\|onload=\|onmessage=\|onoffline=\|ononline=\|onpagehide=\|onpageshow=\|onpopstate=\|onredo=\|onresize=\|onstorage=\|onund=o\|onunload=\|onblur=\|onchage=\|oncontextmenu=\|onfocus=\|onformchange=\|onforminput=\|oninput=\|oninvalid=\|onreset=\|onselect=\|onsubmit=\|onkeydown=\|onkeypress=\|onkeyup=\|onclick=\|ondblclic=k\|ondrag=\|ondragend=\|ondragenter=\|ondragleave=\|ondragover=\|ondragstart=\|ondrop=\|onmousedown=\|onmousemove=\|onmouseout=\|onmouseover=\|onmouseup=\|onmousewheel=\|onscroll=\|onabor=t\|oncanplay=\|oncanplaythrough=\|ondurationchange=\|onemptied=\|onended=\|onerror=\|onloadeddata=\|onloadedmetadata=\|onloadstart=\|onpause=\|onplay=\|onplaying=\|onprogress=\|onratechange=\|onreadystatechange=\|onseeked=\|onseeking=\|onstalled=\|onsuspend=\|ontimeupdate=\|onvolumechange=" --include=*.js ./jsOMS ./Modules) -ne "" ]]; then exit 1; fi
+
