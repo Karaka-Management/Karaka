@@ -51,6 +51,7 @@ jobs:
       with:
           php-version: ${{ matrix.php-versions }}
           extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          coverage: pcov
     - name: Setup Composer
       run: composer install
     - name: phpunit
