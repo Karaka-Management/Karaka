@@ -49,7 +49,7 @@ jobs:
       uses: shivammathur/setup-php@master
       with:
           php-version: ${{ matrix.php-versions }}
-          extension: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
           coverage: pcov
     - name: Setup Composer
       run: composer install
@@ -73,7 +73,7 @@ jobs:
       uses: shivammathur/setup-php@master
       with:
           php-version: ${{ matrix.php-versions }}
-          extension: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
     - name: Setup Composer
       run: composer install
     - name: phpstan
@@ -96,7 +96,7 @@ jobs:
       uses: shivammathur/setup-php@master
       with:
           php-version: ${{ matrix.php-versions }}
-          extension: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
     - name: Setup Composer
       run: composer install
     - name: phpcs
@@ -119,7 +119,7 @@ jobs:
       uses: shivammathur/setup-php@master
       with:
           php-version: ${{ matrix.php-versions }}
-          extension: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
     - name: PHP linting
       run: find ./Web ./phpOMS ./Build ./Modules -type f -name '*.php' -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v "No syntax errors detected" )
     - name: Php strict
@@ -133,4 +133,3 @@ jobs:
     - name: Js inspection
       run: |
         if [[ $(grep -rlni "onafterprint=\|onbeforeprint=\|onbeforeunload=\|onerror=\|onhaschange=\|onload=\|onmessage=\|onoffline=\|ononline=\|onpagehide=\|onpageshow=\|onpopstate=\|onredo=\|onresize=\|onstorage=\|onund=o\|onunload=\|onblur=\|onchage=\|oncontextmenu=\|onfocus=\|onformchange=\|onforminput=\|oninput=\|oninvalid=\|onreset=\|onselect=\|onsubmit=\|onkeydown=\|onkeypress=\|onkeyup=\|onclick=\|ondblclic=k\|ondrag=\|ondragend=\|ondragenter=\|ondragleave=\|ondragover=\|ondragstart=\|ondrop=\|onmousedown=\|onmousemove=\|onmouseout=\|onmouseover=\|onmouseup=\|onmousewheel=\|onscroll=\|onabor=t\|oncanplay=\|oncanplaythrough=\|ondurationchange=\|onemptied=\|onended=\|onerror=\|onloadeddata=\|onloadedmetadata=\|onloadstart=\|onpause=\|onplay=\|onplaying=\|onprogress=\|onratechange=\|onreadystatechange=\|onseeked=\|onseeking=\|onstalled=\|onsuspend=\|ontimeupdate=\|onvolumechange=" --include=*.js ./jsOMS ./Modules) -ne "" ]]; then exit 1; fi
-
