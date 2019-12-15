@@ -18,7 +18,6 @@ use phpOMS\DataStorage\Database\Connection\NullConnection;
 
 class CoreSettingsTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testSettingsGet() : void
     {
         $settings = new CoreSettings($GLOBALS['dbpool']->get());
