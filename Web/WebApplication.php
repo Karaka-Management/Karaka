@@ -37,7 +37,6 @@ use Web\Exception\UnexpectedApplicationException;
  */
 class WebApplication extends ApplicationAbstract
 {
-
     /**
      * Constructor.
      *

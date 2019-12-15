@@ -27,7 +27,6 @@ use phpOMS\ApplicationAbstract;
  */
 class SocketApplication extends ApplicationAbstract
 {
-
     /**
      * Constructor.
      *

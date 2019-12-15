@@ -29,7 +29,6 @@ use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
  */
 final class CoreSettings extends SettingsAbstract
 {
-
     /**
      * Settings table.
      *

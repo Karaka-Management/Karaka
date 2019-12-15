@@ -26,7 +26,6 @@ spl_autoload_register('\Install\tests\Autoloader::default_autoloader');
  */
 class Autoloader
 {
-
     /**
      * Loading classes by namespace + class name.
      *
