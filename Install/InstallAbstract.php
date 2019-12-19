@@ -27,12 +27,15 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Module\ModuleManager;
+use phpOMS\Message\Http\Request;
+use phpOMS\Message\Http\Response;
 
 use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 
 use Modules\Organization\Models\UnitMapper;
 use Modules\Organization\Models\Status;
+use Modules\Admin\Controller\ApiController;
 
 /**
  * Application class.
@@ -363,6 +366,34 @@ abstract class InstallAbstract extends ApplicationAbstract
     {
         self::installUserLocalization($db);
         self::installMainUser($request, $db);
+    }
+
+    /**
+     * Install applications
+     *
+     * @param RequestAbstract    $request Request
+     * @param ConnectionAbstract $db      Database connection
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    protected static function installApplications(RequestAbstract $request, ConnectionAbstract $db) : void
+    {
+        $apps  = $request->getDataList('apps');
+        $theme = 'Akebi';
+
+        /** @var ApiController $module */
+        $module = $this->moduleManager->get('Admin');
+
+        foreach ($apps as $app) {
+            $temp = new Request();
+            $temp->getHeader()->setAccount(1);
+            $temp->setData('app', $app);
+            $temp->setData('theme', $theme);
+
+            $module->apiInstallApplication($temp, new Response());
+        }
     }
 
     /**

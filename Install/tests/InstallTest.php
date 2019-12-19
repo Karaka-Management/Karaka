@@ -157,6 +157,10 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         $request->setData('websubdir', '/');
         $request->setData('defaultlang', 'en');
 
+        $request->setData('apps', 'Api');
+        $request->setData('apps', 'Backend');
+        $request->setData('apps', 'Timerecording');
+
         WebApplication::installRequest($request, $response);
     }
 }

@@ -1,0 +1,153 @@
+@import "backend_vars";
+
+html, body {
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    font-family: var(--font-family);
+    color: #000;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: rgb(248, 248, 248);
+    border-bottom: 1px solid var(--box-border);
+    padding: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-flow: row;
+    flex: 0;
+
+    > form {
+        display: flex;
+        flex: 1;
+        padding: 0 5px 0 5px;
+        max-width: 800px;
+    }
+
+    .inputWrapper {
+        flex: 1;
+    }
+
+    input[type=text] {
+        width: 100%;
+        background: rgba(255, 255, 255, 1);
+        border: 1px solid var(--input-border);
+        text-shadow: none;
+        box-shadow: none;
+        transition : border 500ms ease-out;
+        outline: none;
+        box-sizing: border-box;
+        padding-left: 2rem;
+    }
+}
+
+#logo {
+    flex: 1;
+    text-align: right;
+
+    select {
+        background: none;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: .8rem;
+    }
+}
+
+#t-nav-container {
+    margin-left: auto;
+}
+
+#content {
+    flex: 1;
+    padding-left: 1rem;
+    overflow-y: auto;
+}
+
+#t-nav {
+    font-size: .8rem;
+    color: #000;
+    font-weight: bold;
+
+    a {
+        padding: 0 5px 0 5px;
+        line-height: 25px;
+    }
+
+    i {
+        margin-right: 5px;
+    }
+
+    li {
+        display: inline;
+
+        &:hover {
+            color: var(--link-hover);
+        }
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #f1f1f1;
+
+    flex: 1;
+    box-sizing: border-box;
+}
+
+#dim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    z-index: 5;
+}
+
+#u-box {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem 0 1rem;
+    height: 60px;
+    border-bottom: 1px solid var(--input-border);
+    box-sizing: border-box;
+
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    a {
+        display: inline-block;
+    }
+}
+
+#app-message-container {
+    position: absolute;
+    margin: 0 auto;
+    right: 0;
+    top: 0;
+    padding: 85px 10px 0 0;
+
+    .log-msg {
+        z-index: 11;
+        position: relative;
+        margin: 0 auto;
+        right: 0;
+        top: 0;
+        margin-bottom: 10px;
+    }
+}
+
+@import "timerecording_media";
