@@ -48,6 +48,14 @@ use Modules\Admin\Controller\ApiController;
 abstract class InstallAbstract extends ApplicationAbstract
 {
     /**
+     * Module manager
+     *
+     * @var ModuleManager
+     * @since 1.0.0
+     */
+    static protected ModuleManager $mManager;
+
+    /**
      * Setup general handlers for the application.
      *
      * @return void
@@ -261,14 +269,14 @@ abstract class InstallAbstract extends ApplicationAbstract
         $app->dbPool->add('update', $db);
         $app->dbPool->add('schema', $db);
 
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../Modules');
+        self::$mManager = new ModuleManager($app, __DIR__ . '/../Modules');
 
-        $moduleManager->install('Admin');
-        $moduleManager->install('Auditor');
-        $moduleManager->install('Organization');
-        $moduleManager->install('Help');
-        $moduleManager->install('Profile');
-        $moduleManager->install('Navigation');
+        self::$mManager->install('Admin');
+        self::$mManager->install('Auditor');
+        self::$mManager->install('Organization');
+        self::$mManager->install('Help');
+        self::$mManager->install('Profile');
+        self::$mManager->install('Navigation');
     }
 
     /**
@@ -384,7 +392,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $theme = 'Akebi';
 
         /** @var ApiController $module */
-        $module = $this->moduleManager->get('Admin');
+        $module = self::$mManager->get('Admin');
 
         foreach ($apps as $app) {
             $temp = new Request();
