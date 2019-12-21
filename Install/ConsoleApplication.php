@@ -14,8 +14,6 @@ declare(strict_types=1);
 
 namespace Install;
 
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
@@ -23,9 +21,7 @@ use phpOMS\Message\Console\Request;
 use phpOMS\Message\Console\Response;
 use phpOMS\Router\WebRouter;
 use phpOMS\Router\RouteVerb;
-use phpOMS\System\MimeType;
 use phpOMS\Uri\UriFactory;
-use phpOMS\Views\View;
 
 /**
  * Application class.

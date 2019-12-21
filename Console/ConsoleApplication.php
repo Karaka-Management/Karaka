@@ -21,6 +21,7 @@ use phpOMS\DataStorage\Cache\CachePool;
 use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Session\ConsoleSession;
+use phpOMS\DataStorage\Session\ConsoleSessionHandler;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
 use phpOMS\Localization\ISO639x1Enum;
@@ -71,16 +72,16 @@ final class ConsoleApplication extends ApplicationAbstract
         $this->config  = $config;
         $response      = null;
 
+        $this->logger = FileLogger::getInstance($config['log']['file']['path'], true);
+
         try {
             if (PHP_SAPI !== 'cli') {
                 throw new \Exception();
             }
 
             //$this->setupHandlers();
-
-            $this->logger = FileLogger::getInstance($config['log']['file']['path'], true);
-            $request      = $this->initRequest($arg, $config['app']['path'], $config['language'][0]);
-            $response     = $this->initResponse($request, $config['language']);
+            $request  = $this->initRequest($arg, $config['app']['path'], $config['language'][0]);
+            $response = $this->initResponse($request, $config['language']);
 
             $pageView = new View($this, $request, $response);
             $pageView->setTemplate('/Console/index');
@@ -112,7 +113,7 @@ final class ConsoleApplication extends ApplicationAbstract
             $modules = $this->moduleManager->getActiveModules();
             $this->moduleManager->initModule($modules);
 
-            $routed     = $this->router->route($request);
+            $routed     = $this->router->route($request->getUri()->getRoute());
             $dispatched = $this->dispatcher->dispatch($routed, $request, $response);
             $pageView->addData('dispatch', $dispatched);
         } catch (DatabaseException $e) {
@@ -151,6 +152,9 @@ final class ConsoleApplication extends ApplicationAbstract
         \set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
         \register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
         \mb_internal_encoding('UTF-8');
+
+        $consoleSessionHandler = new ConsoleSessionHandler(__DIR__);
+        \session_set_save_handler($consoleSessionHandler);
     }
 
     /**
