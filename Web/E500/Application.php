@@ -38,10 +38,10 @@ final class Application
     /**
      * WebApplication.
      *
-     * @var   null|WebApplication
+     * @var   WebApplication
      * @since 1.0.0
      */
-    private ?WebApplication $app = null;
+    private WebApplication $app;
 
     /**
      * Temp config.
