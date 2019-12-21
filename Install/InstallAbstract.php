@@ -53,7 +53,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      * @var ModuleManager
      * @since 1.0.0
      */
-    static protected ModuleManager $mManager;
+    protected static ModuleManager $mManager;
 
     /**
      * Setup general handlers for the application.
