@@ -188,9 +188,7 @@ final class Application
             $this->handleLogin($request, $response);
 
             return;
-        } elseif ($request->getUri()->getPathElement(0) === 'logout'
-            && $request->getData('csrf') === $this->app->sessionManager->get('CSRF')
-        ) {
+        } elseif ($request->getUri()->getPathElement(0) === 'logout') {
             $this->handleLogout($request, $response);
 
             return;
