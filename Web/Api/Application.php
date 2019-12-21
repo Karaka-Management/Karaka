@@ -48,6 +48,7 @@ use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
 
 use Web\WebApplication;
+use phpOMS\Message\NotificationLevel;
 
 /**
  * Application class.
@@ -316,7 +317,13 @@ final class Application
         $this->app->sessionManager->remove('UID');
         $this->app->sessionManager->save();
 
-        $response->set($request->getUri()->__toString(), new Redirect('http://www.google.de'));
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
+        $response->set($request->getUri()->__toString(), [
+            'status'   => NotificationLevel::OK,
+            'title'    => 'Logout successfull',
+            'message'  => 'You are redirected to the login page',
+            'response' => null,
+        ]);
     }
 
     /**
