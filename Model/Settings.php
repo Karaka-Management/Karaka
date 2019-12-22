@@ -17,7 +17,7 @@ namespace Model;
 use phpOMS\Stdlib\Base\Enum;
 
 /**
- * Default settings enum
+ * Default settings enum.
  *
  * @package Model
  * @license OMS License 1.0
