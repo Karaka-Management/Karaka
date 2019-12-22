@@ -45,7 +45,6 @@ final class Autoloader
      */
     private function __construct()
     {
-
     }
 
     /**
