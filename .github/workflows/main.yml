@@ -37,7 +37,7 @@ jobs:
       fail-fast: false
       max-parallel: 3
       matrix:
-        php-versions: ['7.4']
+        php-versions: ['7.4', '8.0']
     steps:
     - name: Checkout Repository
       uses: actions/checkout@master
@@ -50,6 +50,7 @@ jobs:
       with:
           php-version: ${{ matrix.php-versions }}
           extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
           coverage: pcov
     - name: Setup Composer
       run: composer install
@@ -61,7 +62,7 @@ jobs:
       fail-fast: false
       max-parallel: 3
       matrix:
-        php-versions: ['7.4']
+        php-versions: ['7.4', '8.0']
     steps:
     - name: Checkout Repository
       uses: actions/checkout@master
@@ -74,6 +75,7 @@ jobs:
       with:
           php-version: ${{ matrix.php-versions }}
           extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
     - name: Setup Composer
       run: composer install
     - name: phpstan
@@ -84,7 +86,7 @@ jobs:
       fail-fast: false
       max-parallel: 3
       matrix:
-        php-versions: ['7.4']
+        php-versions: ['7.4', '8.0']
     steps:
     - name: Checkout Repository
       uses: actions/checkout@master
@@ -97,6 +99,7 @@ jobs:
       with:
           php-version: ${{ matrix.php-versions }}
           extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
     - name: Setup Composer
       run: composer install
     - name: phpcs
@@ -107,7 +110,7 @@ jobs:
       fail-fast: false
       max-parallel: 3
       matrix:
-        php-versions: ['7.4']
+        php-versions: ['7.4', '8.0']
     steps:
     - name: Checkout Repository
       uses: actions/checkout@master
@@ -120,6 +123,7 @@ jobs:
       with:
           php-version: ${{ matrix.php-versions }}
           extension-csv: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
     - name: PHP linting
       run: find ./Web ./phpOMS ./Build ./Modules -type f -name '*.php' -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v "No syntax errors detected" )
     - name: Php strict
