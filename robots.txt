@@ -11,5 +11,9 @@ Disallow: /phpOMS
 Disallow: /jsOMS
 Disallow: /cssOMS
 Disallow: /Modules
+Disallow: /Model
 Disallow: /Socket
+Disallow: /Install
+Disallow: /Logs
 Disallow: /Web
+Disallow: /tests
