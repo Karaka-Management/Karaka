@@ -1,11 +1,15 @@
 User-Agent: *
-Disallow: 
+Disallow:
 Disallow: /Admin
+Disallow: /Build
 Disallow: /Cache
 Disallow: /Console
 Disallow: /Dev
 Disallow: /Docs
 Disallow: /Framework
+Disallow: /phpOMS
+Disallow: /jsOMS
+Disallow: /cssOMS
 Disallow: /Modules
 Disallow: /Socket
 Disallow: /Web
