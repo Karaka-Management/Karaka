@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 ini_set('memory_limit', '2048M');
 ini_set('display_errors', 1);
