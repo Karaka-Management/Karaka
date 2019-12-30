@@ -41,10 +41,11 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@master
+      with:
+        fetch-depth: 1
     - name: Setup Submodules
       run: |
-        git submodule update --init --recursive
-        git submodule foreach git checkout develop
+        git submodule update --init --force --recursive --depth=1
     - name: Setup PHP, with composer and extensions
       uses: shivammathur/setup-php@master
       with:
@@ -75,10 +76,11 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@master
+      with:
+        fetch-depth: 1
     - name: Setup Submodules
       run: |
-        git submodule update --init --recursive
-        git submodule foreach git checkout develop
+        git submodule update --init --force --recursive --depth=1
     - name: Setup PHP, with composer and extensions
       uses: shivammathur/setup-php@master
       with:
@@ -108,10 +110,11 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@master
+      with:
+        fetch-depth: 1
     - name: Setup Submodules
       run: |
-        git submodule update --init --recursive
-        git submodule foreach git checkout develop
+        git submodule update --init --force --recursive --depth=1
     - name: Setup PHP, with composer and extensions
       uses: shivammathur/setup-php@master
       with:
@@ -141,10 +144,11 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@master
+      with:
+        fetch-depth: 1
     - name: Setup Submodules
       run: |
-        git submodule update --init --recursive
-        git submodule foreach git checkout develop
+        git submodule update --init --force --recursive --depth=1
     - name: Setup PHP, with composer and extensions
       uses: shivammathur/setup-php@master
       with:
