@@ -89,7 +89,7 @@ final class Application
     public function __construct(WebApplication $app, array $config)
     {
         $this->app          = $app;
-        $this->app->appName = 'backend';
+        $this->app->appName = 'Backend';
         $this->config       = $config;
         UriFactory::setQuery('/app', \strtolower($this->app->appName));
     }
