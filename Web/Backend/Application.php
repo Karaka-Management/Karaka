@@ -24,6 +24,7 @@ use Modules\Profile\Models\ProfileMapper;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\NullAccount;
+use phpOMS\Account\PermissionType;
 use phpOMS\Asset\AssetType;
 use phpOMS\Auth\Auth;
 use phpOMS\DataStorage\Cache\CachePool;
