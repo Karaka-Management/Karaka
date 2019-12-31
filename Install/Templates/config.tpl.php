@@ -134,10 +134,10 @@ return [
     ],
     'app'      => [
         'path'    => __DIR__,
-        'default' => 'backend',
+        'default' => 'Backend',
         'domains' => [
             '$tld' => [
-                'app'   => 'backend',
+                'app'   => 'Backend',
                 'lang'  => 'en',
                 'theme' => 'Backend',
                 'org'  => 1,

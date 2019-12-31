@@ -44,6 +44,9 @@ use Modules\Admin\Controller\ApiController;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Orange-Management#47
+ *  It should be possible to define the localization in the install script which then is used during the install process.
  */
 abstract class InstallAbstract extends ApplicationAbstract
 {
@@ -416,7 +419,8 @@ abstract class InstallAbstract extends ApplicationAbstract
     protected static function installUserLocalization(ConnectionAbstract $db) : void
     {
         /**
-         * @todo: load settings defined by install script
+         * @todo Orange-Management/Orange-Management#47
+         *  It should be possible to define the localization in the install script
          */
         $db->con->prepare(
             'INSERT INTO `' . $db->prefix . 'l11n` (`l11n_country`, `l11n_language`, `l11n_currency`, `l11n_number_thousand`, `l11n_number_decimal`, `l11n_angle`, `l11n_temperature`, `l11n_weight_very_light`, `l11n_weight_light`, `l11n_weight_medium`, `l11n_weight_heavy`, `l11n_weight_very_heavy`, `l11n_speed_very_slow`, `l11n_speed_slow`, `l11n_speed_medium`, `l11n_speed_fast`, `l11n_speed_very_fast`, `l11n_speed_sea`, `l11n_length_very_short`, `l11n_length_short`, `l11n_length_medium`, `l11n_length_long`, `l11n_length_very_long`, `l11n_length_sea`, `l11n_area_very_small`, `l11n_area_small`, `l11n_area_medium`, `l11n_area_large`, `l11n_area_very_large`, `l11n_volume_very_small`, `l11n_volume_small`, `l11n_volume_medium`, `l11n_volume_large`, `l11n_volume_very_large`, `l11n_volume_teaspoon`, `l11n_volume_tablespoon`, `l11n_volume_glass`) VALUES

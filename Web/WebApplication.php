@@ -34,6 +34,32 @@ use Web\Exception\UnexpectedApplicationException;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Orange-Management#46
+ *  If a route starts with a 2 character path it's possible that this can conflict with a valid 2 character lang code e.g.
+ *      http://127.0.0.1/hr/staff/list
+ *  This is invalid as `hr` is also a valid 2-char lang code.
+ *
+ * @todo Orange-Management/Orange-Management#45
+ *  Currently only the sub-app is handled via config files based on domain or subdomain.
+ *  For the future also the default theme and the default unit and the default language per subdomain/domain should be defined per domain/subdomain.
+ *  **Why**? The reason for this is that this would allow to create different experiences for the same app if a different domain is used.
+ *  E.g. a shop system for different units which is very important for larger organizations with sub-organizations where the different organizations have different shops.
+ *  Note: Language is a little bit special as there is also a second part in the url where the language can be defined (after the TLD).
+ *
+ * @todo Orange-Management/Orange-Management#48
+ *  Use different user formatting!
+ *  Users may have different localizations and based on their localization data needs to be shown in a different way
+ *  E.g. DateTime format & actual time, currency format, ...
+ *
+ * @todo Ornage-Management/phpOMS#202
+ *  Dynamic string handling
+ *  Implement a parsing system which allows to output dynamic strings (sprintf might help)
+ *
+ * @todo Orange-Management/Modules#98
+ *  Add unit id to all models
+ *  All models are bound to a specific unit or 0/null in case of no unit.
+ *  This is important since not everyone should be allowed to create models for all units (unless permissions say so).
  */
 class WebApplication extends ApplicationAbstract
 {
@@ -227,8 +253,7 @@ class WebApplication extends ApplicationAbstract
         }
 
         // check uri path 1 (language is defined)
-        if (\strlen($uri->getPathElement(0)) === 2) {
-            // @todo: === 2 is not a valid check. it should check if it is a valid language
+        if (ISO639x1Enum::isValidValue($uri->getPathElement(0))) {
             $appName = $uri->getPathElement(1);
             $appName = $this->getApplicationNameFromString($appName);
 

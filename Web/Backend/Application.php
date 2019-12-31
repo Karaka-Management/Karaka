@@ -88,7 +88,7 @@ final class Application
     public function __construct(WebApplication $app, array $config)
     {
         $this->app          = $app;
-        $this->app->appName = 'Backend';
+        $this->app->appName = 'backend';
         $this->config       = $config;
         UriFactory::setQuery('/app', \strtolower($this->app->appName));
     }
@@ -212,16 +212,11 @@ final class Application
         }
 
         /* No reading permission */
-        /** todo: fix by checking for special permission like read, orgid, appname, ...., component = login must be set
-         * the current solution is bad because if a user has read, orgid, appname he can read everything so you don't
-         * want to give this to users. if i don't understand what this means at a later stage... just trust me future me.
-         * create a permission e.g. 1, backend, ...., 1 which will be the login permission and check it below.
-         */
-        /*if (!$account->hasPermission(PermissionType::READ, $this->app->orgId, $this->app->appName)) {
+        if (!$account->hasPermission(PermissionType::READ, $this->app->orgId, $this->app->appName, 'Dashboard')) {
             $this->create403Response($response, $pageView);
 
             return;
-        }*/
+        }
 
         $this->app->moduleManager->initRequestModules($request);
         $this->createDefaultPageView($request, $response, $pageView);
