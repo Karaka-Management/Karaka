@@ -57,7 +57,9 @@
                 "name": "module_load_from",
                 "type": "VARCHAR(255)",
                 "default": null,
-                "null": true
+                "null": true,
+                "foreignTable": "module",
+                "foreignKey": "module_id"
             },
             "module_load_for": {
                 "name": "module_load_for",
