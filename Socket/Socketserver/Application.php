@@ -95,7 +95,11 @@ class Application
             return;
         }
 
-        // TODO: Create server session manager. Client account has reference to elmeent in here (&$session[$clientID])
+        /**
+         * @todo Orange-Management/phpOMS#230
+         *  Create socket session
+         *  Maybe use the ConsoleSocket
+         */
         $this->app->sessionManager = new HttpSession(36000);
         $this->app->cachePool      = new CachePool($this->app->dbPool);
         $this->app->appSettings    = new CoreSettings($this->app->dbPool->get());

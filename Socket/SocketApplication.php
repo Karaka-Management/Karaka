@@ -47,7 +47,12 @@ class SocketApplication extends ApplicationAbstract
             $app = '\Socket\\' . $type . '\Application';
             $sub = new $app($this, $config);
         } catch (\Throwable $e) {
-            $sub = ''; // todo: create dummy app
+            /**
+             * @todo Orange-Management/Orange-Management#50
+             *  Create error socket on failure
+             *  If the socket creation fails an error application should be created which outputs the socket initialization failure.
+             */
+            $sub = '';
         } finally {
             $sub->run();
         }
@@ -62,9 +67,9 @@ class SocketApplication extends ApplicationAbstract
      */
     private function setupHandlers() : void
     {
-//        \set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
-//        \set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
-//        \register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
-//        \mb_internal_encoding('UTF-8');
+        \set_exception_handler(['\phpOMS\UnhandledHandler', 'exceptionHandler']);
+        \set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
+        \register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
+        \mb_internal_encoding('UTF-8');
     }
 }
