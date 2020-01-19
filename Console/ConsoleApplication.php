@@ -59,8 +59,8 @@ final class ConsoleApplication extends ApplicationAbstract
     /**
      * Constructor.
      *
-     * @param array $arg    Call argument
-     * @param array $config Core config
+     * @param string[] $arg    Call argument
+     * @param array    $config Core config
      *
      * @throws \Exception
      *
