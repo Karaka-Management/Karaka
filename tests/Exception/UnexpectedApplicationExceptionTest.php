@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -17,6 +17,9 @@ require_once __DIR__ . '/../../phpOMS/Autoloader.php';
 
 use Web\Exception\UnexpectedApplicationException;
 
+/**
+ * @internal
+ */
 class UnexpectedApplicationExceptionTest extends \PHPUnit\Framework\TestCase
 {
     public function testException() : void

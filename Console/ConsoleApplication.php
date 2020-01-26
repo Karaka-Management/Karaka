@@ -51,7 +51,7 @@ final class ConsoleApplication extends ApplicationAbstract
     /**
      * Temp config.
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     private array $config = [];
@@ -75,7 +75,7 @@ final class ConsoleApplication extends ApplicationAbstract
         $this->logger = FileLogger::getInstance($config['log']['file']['path'], true);
 
         try {
-            if (PHP_SAPI !== 'cli') {
+            if (\PHP_SAPI !== 'cli') {
                 throw new \Exception();
             }
 
@@ -119,14 +119,14 @@ final class ConsoleApplication extends ApplicationAbstract
         } catch (DatabaseException $e) {
             $this->logger->critical(FileLogger::MSG_FULL, [
                 'message' => $e->getMessage(),
-                'line'    => 62]);
+                'line'    => 62, ]);
 
             $response = $response ?? new Response(new Localization());
             $response->set('Content', 'Database error: ' . $e->getMessage());
         } catch (\Throwable $e) {
             $this->logger->critical(FileLogger::MSG_FULL, [
                 'message' => $e->getMessage(),
-                'line'    => 66]);
+                'line'    => 66, ]);
 
             $response = $response ?? new Response(new Localization());
             $response->set('Content', 'Critical error: ' . $e->getMessage());

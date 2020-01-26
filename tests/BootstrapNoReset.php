@@ -1,9 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
-ini_set('memory_limit', '2048M');
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+\ini_set('memory_limit', '2048M');
+\ini_set('display_errors', 1);
+\ini_set('display_startup_errors', 1);
+\error_reporting(\E_ALL);
 //setlocale(LC_ALL, 'en_US.UTF-8');
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -289,7 +289,7 @@ $CONFIG = [
         'en',
     ],
     'apis'     => [
-    ]
+    ],
 ];
 
 $httpSession        = new HttpSession();

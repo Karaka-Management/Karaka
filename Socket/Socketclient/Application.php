@@ -14,12 +14,12 @@ declare(strict_types=1);
 
 namespace Socket\Socketclient;
 
-use phpOMS\Log\FileLogger;
-use phpOMS\Socket\Client\Client;
-use phpOMS\Router\SocketRouter;
-use phpOMS\Module\ModuleManager;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Localization\L11nManager;
+use phpOMS\Log\FileLogger;
+use phpOMS\Module\ModuleManager;
+use phpOMS\Router\SocketRouter;
+use phpOMS\Socket\Client\Client;
 
 use Socket\SocketApplication;
 
@@ -37,7 +37,7 @@ class Application
     /**
      * SocketApplication.
      *
-     * @var   SocketApplication
+     * @var SocketApplication
      * @since 1.0.0
      */
     private SocketApplication $app;
@@ -45,7 +45,7 @@ class Application
     /**
      * Temp config.
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     protected array $config = [];
@@ -53,7 +53,7 @@ class Application
     /**
      * Socket.
      *
-     * @var   Client
+     * @var Client
      * @since 1.0.0
      */
     protected Client $socket;

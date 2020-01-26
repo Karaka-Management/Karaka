@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-ob_start();
+\ob_start();
 
 //<editor-fold desc="Require/Include">
 require_once __DIR__ . '/phpOMS/Autoloader.php';
@@ -21,4 +21,4 @@ $config = require_once __DIR__ . '/config.php';
 
 $App = new \Web\WebApplication($config);
 
-ob_end_flush();
+\ob_end_flush();

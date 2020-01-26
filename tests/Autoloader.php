@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace tests;
 
-spl_autoload_register('\tests\Autoloader::defaultAutoloader');
+\spl_autoload_register('\tests\Autoloader::defaultAutoloader');
 
 /**
  * Autoloader class.
@@ -29,7 +29,7 @@ final class Autoloader
     /**
      * Base paths for autoloading
      *
-     * @var   string[]
+     * @var string[]
      * @since 1.0.0
      */
     private static $paths = [

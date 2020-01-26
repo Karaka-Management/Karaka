@@ -19,16 +19,16 @@ use Model\CoreSettings;
 use phpOMS\Account\AccountManager;
 use phpOMS\DataStorage\Cache\CachePool;
 use phpOMS\DataStorage\Database\DatabasePool;
+use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
 use phpOMS\Localization\L11nManager;
 use phpOMS\Log\FileLogger;
 use phpOMS\Module\ModuleManager;
+use phpOMS\Router\SocketRouter;
 use phpOMS\Socket\Server\Server;
 use phpOMS\Socket\SocketType;
-use phpOMS\DataStorage\Database\DatabaseStatus;
-use phpOMS\Router\SocketRouter;
 
 use Socket\SocketApplication;
 
@@ -46,7 +46,7 @@ class Application
     /**
      * SocketApplication.
      *
-     * @var   SocketApplication
+     * @var SocketApplication
      * @since 1.0.0
      */
     private SocketApplication $app;
@@ -54,7 +54,7 @@ class Application
     /**
      * Socket type.
      *
-     * @var   SocketType
+     * @var SocketType
      * @since 1.0.0
      */
     protected string $type;
@@ -62,7 +62,7 @@ class Application
     /**
      * Temp config.
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     protected array $config = [];

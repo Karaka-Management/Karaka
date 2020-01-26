@@ -17,6 +17,5 @@ require_once __DIR__ . '/phpOMS/Autoloader.php';
 $config = require_once __DIR__ . '/config.php';
 //</editor-fold>
 
-use phpOMS\Socket\SocketType;
 
 $App = new \Socket\SocketApplication($config, $argv[1] ?? 'Socketclient');

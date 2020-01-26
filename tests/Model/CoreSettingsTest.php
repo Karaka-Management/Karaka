@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace tests\Model;
 use Model\CoreSettings;
 use phpOMS\DataStorage\Database\Connection\NullConnection;
 
+/**
+ * @internal
+ */
 class CoreSettingsTest extends \PHPUnit\Framework\TestCase
 {
     public function testSettingsGet() : void
