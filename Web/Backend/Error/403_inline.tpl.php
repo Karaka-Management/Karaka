@@ -1,6 +1,7 @@
-<?php
+<?php declare(strict_types=1);
 
 use phpOMS\Uri\UriFactory;
+
 ?>
 <div class="centerText box">
     <div>You don't have the required permission to access this content.</div>

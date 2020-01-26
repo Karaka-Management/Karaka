@@ -16,6 +16,11 @@ namespace Install;
 
 use Model\Settings;
 
+use Modules\Admin\Controller\ApiController;
+use Modules\Media\Models\Collection;
+use Modules\Media\Models\CollectionMapper;
+use Modules\Organization\Models\Status;
+use Modules\Organization\Models\UnitMapper;
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use phpOMS\Account\GroupStatus;
@@ -24,18 +29,13 @@ use phpOMS\ApplicationAbstract;
 use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\DatabasePool;
+
 use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
+use phpOMS\Message\Http\Request;
+
+use phpOMS\Message\Http\Response;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Module\ModuleManager;
-use phpOMS\Message\Http\Request;
-use phpOMS\Message\Http\Response;
-
-use Modules\Media\Models\Collection;
-use Modules\Media\Models\CollectionMapper;
-
-use Modules\Organization\Models\UnitMapper;
-use Modules\Organization\Models\Status;
-use Modules\Admin\Controller\ApiController;
 
 /**
  * Application class.
@@ -260,7 +260,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function installCoreModules(ConnectionAbstract $db) : void
     {
-        $app = new class extends ApplicationAbstract
+        $app = new class() extends ApplicationAbstract
         {
             protected string $appName = 'Api';
         };
@@ -449,7 +449,7 @@ abstract class InstallAbstract extends ApplicationAbstract
 
         $adminlogin    = (string) $request->getData('adminname');
         $adminname     = $adminlogin;
-        $adminpassword = \password_hash((string) $request->getData('adminpassword'), PASSWORD_DEFAULT);
+        $adminpassword = \password_hash((string) $request->getData('adminpassword'), \PASSWORD_DEFAULT);
         $adminemail    = (string) $request->getData('adminemail');
 
         $stmt->bindParam(':adminlogin', $adminlogin);

@@ -37,18 +37,17 @@ use phpOMS\Localization\L11nManager;
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\Http\Response;
+use phpOMS\Message\NotificationLevel;
 use phpOMS\Model\Message\Notify;
 use phpOMS\Model\Message\NotifyType;
-use phpOMS\Model\Message\Redirect;
 use phpOMS\Model\Message\Reload;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\WebRouter;
 use phpOMS\System\MimeType;
 use phpOMS\Uri\UriFactory;
-use phpOMS\Views\View;
 
+use phpOMS\Views\View;
 use Web\WebApplication;
-use phpOMS\Message\NotificationLevel;
 
 /**
  * Application class.
@@ -64,7 +63,7 @@ final class Application
     /**
      * WebApplication.
      *
-     * @var   WebApplication
+     * @var WebApplication
      * @since 1.0.0
      */
     private WebApplication $app;
@@ -72,7 +71,7 @@ final class Application
     /**
      * Temp config.
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     private array $config = [];

@@ -38,7 +38,7 @@ final class Application
     /**
      * WebApplication.
      *
-     * @var   WebApplication
+     * @var WebApplication
      * @since 1.0.0
      */
     private WebApplication $app;
@@ -46,7 +46,7 @@ final class Application
     /**
      * Temp config.
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     private array $config = [];

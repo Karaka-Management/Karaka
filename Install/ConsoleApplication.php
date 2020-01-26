@@ -19,8 +19,8 @@ use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
 use phpOMS\Message\Console\Request;
 use phpOMS\Message\Console\Response;
-use phpOMS\Router\WebRouter;
 use phpOMS\Router\RouteVerb;
+use phpOMS\Router\WebRouter;
 use phpOMS\Uri\UriFactory;
 
 /**
@@ -43,7 +43,7 @@ final class ConsoleApplication extends InstallAbstract
      */
     public function __construct(array $config, array $arg)
     {
-        if (PHP_SAPI !== 'cli') {
+        if (\PHP_SAPI !== 'cli') {
             throw new \Exception();
         }
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * @var string $db     Database
  * @var string $host   Host
@@ -34,63 +34,63 @@ return [
         'core' => [
             'masters' => [
                 'admin'  => [
-                    'db'       => '$db', /* db type */
-                    'host'     => '$host', /* db host address */
-                    'port'     => '$port', /* db host port */
+                    'db'       => '${db}', /* db type */
+                    'host'     => '${host}', /* db host address */
+                    'port'     => '${port}', /* db host port */
                     'login'    => '{$admin['login']}', /* db login name */
                     'password' => '{$admin['password']}', /* db login password */
-                    'database' => '$dbname', /* db name */
-                    'prefix'   => '$prefix', /* db table prefix */
+                    'database' => '${dbname}', /* db name */
+                    'prefix'   => '${prefix}', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
                 ],
                 'insert'  => [
-                    'db'       => '$db', /* db type */
-                    'host'     => '$host', /* db host address */
-                    'port'     => '$port', /* db host port */
+                    'db'       => '${db}', /* db type */
+                    'host'     => '${host}', /* db host address */
+                    'port'     => '${port}', /* db host port */
                     'login'    => '{$insert['login']}', /* db login name */
                     'password' => '{$insert['password']}', /* db login password */
-                    'database' => '$dbname', /* db name */
-                    'prefix'   => '$prefix', /* db table prefix */
+                    'database' => '${dbname}', /* db name */
+                    'prefix'   => '${prefix}', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
                 ],
                 'select'  => [
-                    'db'       => '$db', /* db type */
-                    'host'     => '$host', /* db host address */
-                    'port'     => '$port', /* db host port */
+                    'db'       => '${db}', /* db type */
+                    'host'     => '${host}', /* db host address */
+                    'port'     => '${port}', /* db host port */
                     'login'    => '{$select['login']}', /* db login name */
                     'password' => '{$select['password']}', /* db login password */
-                    'database' => '$dbname', /* db name */
-                    'prefix'   => '$prefix', /* db table prefix */
+                    'database' => '${dbname}', /* db name */
+                    'prefix'   => '${prefix}', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
                 ],
                 'update'  => [
-                    'db'       => '$db', /* db type */
-                    'host'     => '$host', /* db host address */
-                    'port'     => '$port', /* db host port */
+                    'db'       => '${db}', /* db type */
+                    'host'     => '${host}', /* db host address */
+                    'port'     => '${port}', /* db host port */
                     'login'    => '{$update['login']}', /* db login name */
                     'password' => '{$update['password']}', /* db login password */
-                    'database' => '$dbname', /* db name */
-                    'prefix'   => '$prefix', /* db table prefix */
+                    'database' => '${dbname}', /* db name */
+                    'prefix'   => '${prefix}', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
                 ],
                 'delete'  => [
-                    'db'       => '$db', /* db type */
-                    'host'     => '$host', /* db host address */
-                    'port'     => '$port', /* db host port */
+                    'db'       => '${db}', /* db type */
+                    'host'     => '${host}', /* db host address */
+                    'port'     => '${port}', /* db host port */
                     'login'    => '{$delete['login']}', /* db login name */
                     'password' => '{$delete['password']}', /* db login password */
-                    'database' => '$dbname', /* db name */
-                    'prefix'   => '$prefix', /* db table prefix */
+                    'database' => '${dbname}', /* db name */
+                    'prefix'   => '${prefix}', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
                 ],
                 'schema'  => [
-                    'db'       => '$db', /* db type */
-                    'host'     => '$host', /* db host address */
-                    'port'     => '$port', /* db host port */
+                    'db'       => '${db}', /* db type */
+                    'host'     => '${host}', /* db host address */
+                    'port'     => '${port}', /* db host port */
                     'login'    => '{$schema['login']}', /* db login name */
                     'password' => '{$schema['password']}', /* db login password */
-                    'database' => '$dbname', /* db name */
-                    'prefix'   => '$prefix', /* db table prefix */
+                    'database' => '${dbname}', /* db name */
+                    'prefix'   => '${prefix}', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
                 ],
             ],
@@ -129,14 +129,14 @@ return [
         ],
     ],
     'page'     => [
-        'root'  => '$subdir',
+        'root'  => '${subdir}',
         'https' => false,
     ],
     'app'      => [
         'path'    => __DIR__,
         'default' => 'Backend',
         'domains' => [
-            '$tld' => [
+            '${tld}' => [
                 'app'   => 'Backend',
                 'lang'  => 'en',
                 'theme' => 'Backend',
@@ -146,7 +146,7 @@ return [
     ],
     'socket'   => [
         'master' => [
-            'host'  => '$tld',
+            'host'  => '${tld}',
             'limit' => 300,
             'port'  => 4310,
         ],

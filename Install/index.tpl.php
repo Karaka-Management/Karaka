@@ -1,4 +1,5 @@
-<?php /** @var \phpOMS\Views\View $this View */?><!DOCTYPE HTML>
+<?php declare(strict_types=1);
+/** @var \phpOMS\Views\View $this View */?><!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,7 +93,7 @@
                 features. All critical elements must be fixed before you can continue with the installation.</p>
 
                 <p>For help please check our <a href="https://orange-management.org">Installation Guide</a>.</p>
-                <?php $isOK = \version_compare('7.2.0', PHP_VERSION) < 1 && \extension_loaded('pdo'); ?>
+                <?php $isOK = \version_compare('7.2.0', \PHP_VERSION) < 1 && \extension_loaded('pdo'); ?>
                 <table>
                     <thead>
                         <tr>
@@ -102,10 +103,10 @@
                             <th>Your Environment
                     <tbody>
                         <tr>
-                            <td class="<?= \version_compare('7.2.0', PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>"><?= \version_compare('7.2.0', PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \version_compare('7.2.0', \PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>"><?= \version_compare('7.2.0', \PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>
                             <td>Critcal
                             <td>PHP version >= 7.2.0
-                            <td><?= PHP_VERSION; ?>
+                            <td><?= \PHP_VERSION; ?>
                         <tr>
                             <td class="<?= \extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>
                             <td>Critcal

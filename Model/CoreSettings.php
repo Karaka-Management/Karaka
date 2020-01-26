@@ -32,7 +32,7 @@ final class CoreSettings extends SettingsAbstract
     /**
      * Settings table.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static ?string $table = 'settings';
@@ -40,7 +40,7 @@ final class CoreSettings extends SettingsAbstract
     /**
      * Columns.
      *
-     * @var   string[]
+     * @var string[]
      * @since 1.0.0
      */
     protected static array $columns = [

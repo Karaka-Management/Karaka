@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -19,6 +19,9 @@ use phpOMS\Message\Http\RequestMethod;
 use phpOMS\Message\Http\Response;
 use phpOMS\Uri\Http;
 
+/**
+ * @internal
+ */
 class InstallTest extends \PHPUnit\Framework\TestCase
 {
     /**
@@ -127,7 +130,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                 'en',
             ],
             'apis'     => [
-            ]
+            ],
         ];
         $response = new Response();
         $request  = new Request(new Http(''));

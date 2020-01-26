@@ -43,8 +43,8 @@ use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\Http\Response;
 use phpOMS\Model\Html\Head;
 use phpOMS\Module\ModuleManager;
-use phpOMS\Router\WebRouter;
 use phpOMS\Router\RouteVerb;
+use phpOMS\Router\WebRouter;
 use phpOMS\System\File\PathException;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
@@ -65,7 +65,7 @@ final class Application
     /**
      * WebApplication.
      *
-     * @var   WebApplication
+     * @var WebApplication
      * @since 1.0.0
      */
     private WebApplication $app;
@@ -73,7 +73,7 @@ final class Application
     /**
      * Temp config.
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     private array $config = [];
