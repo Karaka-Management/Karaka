@@ -3,168 +3,168 @@ name: CI/CD
 on: [push]
 
 jobs:
-    code-tests:
-        runs-on: ubuntu-latest
-        services:
-            mysql:
-                image: mysql:5.7
-                env:
-                    MYSQL_ALLOW_EMPTY_PASSWORD: false
-                    MYSQL_ROOT_PASSWORD: root
-                    MYSQL_DATABASE: oms
-                ports:
-                    - 3306
-                options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-            postgres:
-                image: postgres:10.8
-                env:
-                    POSTGRES_USER: postgres
-                    POSTGRES_PASSWORD: root
-                    POSTGRES_DB: oms
-                ports:
-                - 5432:5432
-                options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
-            redis:
-                image: redis
-                ports:
-                - 6379:6379
-                options: --entrypoint redis-server
-            memcached:
-                image: memcached
-                ports:
-                    - 11211:11211
-        strategy:
-            fail-fast: false
-            max-parallel: 3
-            matrix:
-                php-versions: ['7.4']
-        steps:
-        - name: Checkout Repository
-            uses: actions/checkout@master
-            with:
-                fetch-depth: 1
-        - name: Setup Submodules
-            run: |
-                git submodule update --init --force --recursive --depth=1
-        - name: Setup PHP, with composer and extensions
-            uses: shivammathur/setup-php@master
-            with:
-                    php-version: ${{ matrix.php-versions }}
-                    extensions: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
-                    ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
-                    coverage: pcov
-        - name: Get Composer Cache Directory
-            id: composer-cache
-            run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-        - name: Cache dependencies
-            uses: actions/cache@v1
-            with:
-                path: ${{ steps.composer-cache.outputs.dir }}
-                key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-                restore-keys: ${{ runner.os }}-composer-
-        - name: Setup Composer
-            run: composer install
-        - name: phpunit
-            run: vendor/bin/phpunit --coverage-text -v --configuration tests/phpunit_no_coverage.xml
-    static-tests:
-        runs-on: ubuntu-latest
-        strategy:
-            fail-fast: false
-            max-parallel: 3
-            matrix:
-                php-versions: ['7.4']
-        steps:
-        - name: Checkout Repository
-            uses: actions/checkout@master
-            with:
-                fetch-depth: 1
-        - name: Setup Submodules
-            run: |
-                git submodule update --init --force --recursive --depth=1
-        - name: Setup PHP, with composer and extensions
-            uses: shivammathur/setup-php@master
-            with:
-                    php-version: ${{ matrix.php-versions }}
-                    extensions: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
-                    ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
-        - name: Get Composer Cache Directory
-            id: composer-cache
-            run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-        - name: Cache dependencies
-            uses: actions/cache@v1
-            with:
-                path: ${{ steps.composer-cache.outputs.dir }}
-                key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-                restore-keys: ${{ runner.os }}-composer-
-        - name: Setup Composer
-            run: composer install
-        - name: phpstan
-            run: vendor/bin/phpstan analyse -a phpOMS/Autoloader.php --no-progress -l 7 -c Build/Config/phpstan.neon ./
-    codestyle-tests:
-        runs-on: ubuntu-latest
-        strategy:
-            fail-fast: false
-            max-parallel: 3
-            matrix:
-                php-versions: ['7.4']
-        steps:
-        - name: Checkout Repository
-            uses: actions/checkout@master
-            with:
-                fetch-depth: 1
-        - name: Setup Submodules
-            run: |
-                git submodule update --init --force --recursive --depth=1
-        - name: Setup PHP, with composer and extensions
-            uses: shivammathur/setup-php@master
-            with:
-                    php-version: ${{ matrix.php-versions }}
-                    extensions: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
-                    ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
-        - name: Get Composer Cache Directory
-            id: composer-cache
-            run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-        - name: Cache dependencies
-            uses: actions/cache@v1
-            with:
-                path: ${{ steps.composer-cache.outputs.dir }}
-                key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-                restore-keys: ${{ runner.os }}-composer-
-        - name: Setup Composer
-            run: composer install
-        - name: phpcs
-            run: vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report=full
-    custom:
-        runs-on: ubuntu-latest
-        strategy:
-            fail-fast: false
-            max-parallel: 3
-            matrix:
-                php-versions: ['7.4', '8.0']
-        steps:
-        - name: Checkout Repository
-            uses: actions/checkout@master
-            with:
-                fetch-depth: 1
-        - name: Setup Submodules
-            run: |
-                git submodule update --init --force --recursive --depth=1
-        - name: Setup PHP, with composer and extensions
-            uses: shivammathur/setup-php@master
-            with:
-                    php-version: ${{ matrix.php-versions }}
-                    extensions: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
-                    ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
-        - name: PHP linting
-            run: find ./Web ./phpOMS ./Build ./Modules -type f -name '*.php' -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v "No syntax errors detected" )
-        - name: Php strict
-            run: if [[ $(grep -r -L "declare(strict_types=1);" --include=*.php --exclude={*.tpl.php,*Hooks.php,*Routes.php,*SearchCommands.php} ./phpOMS ./Web ./Modules ./Model) -ne "" ]]; then exit 1; fi
-        - name: Html inspection
-            run: |
-                if [[ $(find ./Web ./phpOMS ./Build ./Modules -name "*tpl.php" | xargs grep -E '=\"[\#\$\%\^\&\*\(\)\\/\ ]*\"') -ne "" ]]; then exit 1; fi
-                if [[ $(find ./Web ./phpOMS ./Build ./Modules -name "*tpl.php" | xargs grep -P '(\<img)((?!.*?alt=).)*(>)') -ne "" ]]; then exit 1; fi
-        - name: Js strict
-            run: if [[ $(grep -r -L "\"use strict\";" --include=*.js ./jsOMS ./Modules ./Model) -ne "" ]]; then exit 1; fi
-        - name: Js inspection
-            run: |
-                if [[ $(grep -rlni "onafterprint=\|onbeforeprint=\|onbeforeunload=\|onerror=\|onhaschange=\|onload=\|onmessage=\|onoffline=\|ononline=\|onpagehide=\|onpageshow=\|onpopstate=\|onredo=\|onresize=\|onstorage=\|onund=o\|onunload=\|onblur=\|onchage=\|oncontextmenu=\|onfocus=\|onformchange=\|onforminput=\|oninput=\|oninvalid=\|onreset=\|onselect=\|onsubmit=\|onkeydown=\|onkeypress=\|onkeyup=\|onclick=\|ondblclic=k\|ondrag=\|ondragend=\|ondragenter=\|ondragleave=\|ondragover=\|ondragstart=\|ondrop=\|onmousedown=\|onmousemove=\|onmouseout=\|onmouseover=\|onmouseup=\|onmousewheel=\|onscroll=\|onabor=t\|oncanplay=\|oncanplaythrough=\|ondurationchange=\|onemptied=\|onended=\|onerror=\|onloadeddata=\|onloadedmetadata=\|onloadstart=\|onpause=\|onplay=\|onplaying=\|onprogress=\|onratechange=\|onreadystatechange=\|onseeked=\|onseeking=\|onstalled=\|onsuspend=\|ontimeupdate=\|onvolumechange=" --include=*.js ./jsOMS ./Modules ./Web) -ne "" ]]; then exit 1; fi
+  code-tests:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: false
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: oms
+        ports:
+          - 3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+      postgres:
+        image: postgres:10.8
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: root
+          POSTGRES_DB: oms
+        ports:
+        - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
+      redis:
+        image: redis
+        ports:
+        - 6379:6379
+        options: --entrypoint redis-server
+      memcached:
+        image: memcached
+        ports:
+          - 11211:11211
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        php-versions: ['7.4']
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@master
+      with:
+        fetch-depth: 1
+    - name: Setup Submodules
+      run: |
+        git submodule update --init --force --recursive --depth=1
+    - name: Setup PHP, with composer and extensions
+      uses: shivammathur/setup-php@master
+      with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
+          coverage: pcov
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+    - name: Cache dependencies
+      uses: actions/cache@v1
+      with:
+        path: ${{ steps.composer-cache.outputs.dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: ${{ runner.os }}-composer-
+    - name: Setup Composer
+      run: composer install
+    - name: phpunit
+      run: vendor/bin/phpunit --coverage-text -v --configuration tests/phpunit_no_coverage.xml
+  static-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        php-versions: ['7.4']
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@master
+      with:
+        fetch-depth: 1
+    - name: Setup Submodules
+      run: |
+        git submodule update --init --force --recursive --depth=1
+    - name: Setup PHP, with composer and extensions
+      uses: shivammathur/setup-php@master
+      with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+    - name: Cache dependencies
+      uses: actions/cache@v1
+      with:
+        path: ${{ steps.composer-cache.outputs.dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: ${{ runner.os }}-composer-
+    - name: Setup Composer
+      run: composer install
+    - name: phpstan
+      run: vendor/bin/phpstan analyse -a phpOMS/Autoloader.php --no-progress -l 7 -c Build/Config/phpstan.neon ./
+  codestyle-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        php-versions: ['7.4']
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@master
+      with:
+        fetch-depth: 1
+    - name: Setup Submodules
+      run: |
+        git submodule update --init --force --recursive --depth=1
+    - name: Setup PHP, with composer and extensions
+      uses: shivammathur/setup-php@master
+      with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+    - name: Cache dependencies
+      uses: actions/cache@v1
+      with:
+        path: ${{ steps.composer-cache.outputs.dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: ${{ runner.os }}-composer-
+    - name: Setup Composer
+      run: composer install
+    - name: phpcs
+      run: vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report=full
+  custom:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        php-versions: ['7.4', '8.0']
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@master
+      with:
+        fetch-depth: 1
+    - name: Setup Submodules
+      run: |
+        git submodule update --init --force --recursive --depth=1
+    - name: Setup PHP, with composer and extensions
+      uses: shivammathur/setup-php@master
+      with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
+    - name: PHP linting
+      run: find ./Web ./phpOMS ./Build ./Modules -type f -name '*.php' -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v "No syntax errors detected" )
+    - name: Php strict
+      run: if [[ $(grep -r -L "declare(strict_types=1);" --include=*.php --exclude={*.tpl.php,*Hooks.php,*Routes.php,*SearchCommands.php} ./phpOMS ./Web ./Modules ./Model) -ne "" ]]; then exit 1; fi
+    - name: Html inspection
+      run: |
+        if [[ $(find ./Web ./phpOMS ./Build ./Modules -name "*tpl.php" | xargs grep -E '=\"[\#\$\%\^\&\*\(\)\\/\ ]*\"') -ne "" ]]; then exit 1; fi
+        if [[ $(find ./Web ./phpOMS ./Build ./Modules -name "*tpl.php" | xargs grep -P '(\<img)((?!.*?alt=).)*(>)') -ne "" ]]; then exit 1; fi
+    - name: Js strict
+      run: if [[ $(grep -r -L "\"use strict\";" --include=*.js ./jsOMS ./Modules ./Model) -ne "" ]]; then exit 1; fi
+    - name: Js inspection
+      run: |
+        if [[ $(grep -rlni "onafterprint=\|onbeforeprint=\|onbeforeunload=\|onerror=\|onhaschange=\|onload=\|onmessage=\|onoffline=\|ononline=\|onpagehide=\|onpageshow=\|onpopstate=\|onredo=\|onresize=\|onstorage=\|onund=o\|onunload=\|onblur=\|onchage=\|oncontextmenu=\|onfocus=\|onformchange=\|onforminput=\|oninput=\|oninvalid=\|onreset=\|onselect=\|onsubmit=\|onkeydown=\|onkeypress=\|onkeyup=\|onclick=\|ondblclic=k\|ondrag=\|ondragend=\|ondragenter=\|ondragleave=\|ondragover=\|ondragstart=\|ondrop=\|onmousedown=\|onmousemove=\|onmouseout=\|onmouseover=\|onmouseup=\|onmousewheel=\|onscroll=\|onabor=t\|oncanplay=\|oncanplaythrough=\|ondurationchange=\|onemptied=\|onended=\|onerror=\|onloadeddata=\|onloadedmetadata=\|onloadstart=\|onpause=\|onplay=\|onplaying=\|onprogress=\|onratechange=\|onreadystatechange=\|onseeked=\|onseeking=\|onstalled=\|onsuspend=\|ontimeupdate=\|onvolumechange=" --include=*.js ./jsOMS ./Modules ./Web) -ne "" ]]; then exit 1; fi
