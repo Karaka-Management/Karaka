@@ -71,16 +71,16 @@ final class Application
     /**
      * Temp config.
      *
-     * @var array{db:array{core:array{masters:array{select:array, admin:array, insert:array, update:array, delete:array, schema:array}}}, log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[]}
+     * @var array{log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string, prefix:string}, insert:array{db:string, database:string, prefix:string}, select:array{db:string, database:string, prefix:string}, update:array{db:string, database:string, prefix:string}, delete:array{db:string, database:string, prefix:string}, schema:array{db:string, database:string, prefix:string}}}}}
      * @since 1.0.0
      */
-    private array $config = [];
+    private array $config;
 
     /**
      * Constructor.
      *
-     * @param WebApplication                                                                                                                                                                                                                                                                   $app    WebApplication
-     * @param array{db:array{core:array{masters:array{select:array, admin:array, insert:array, update:array, delete:array, schema:array}}}, log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[]} $config Application config
+     * @param WebApplication                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     $app    WebApplication
+     * @param array{log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string, prefix:string}, insert:array{db:string, database:string, prefix:string}, select:array{db:string, database:string, prefix:string}, update:array{db:string, database:string, prefix:string}, delete:array{db:string, database:string, prefix:string}, schema:array{db:string, database:string, prefix:string}}}}} $config Application config
      *
      * @since 1.0.0
      */
@@ -150,7 +150,7 @@ final class Application
 
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
 
-        $this->app->orgId = $this->getApplicationOrganization($request, $this->config);
+        $this->app->orgId = $this->getApplicationOrganization($request, $this->config['app']['domains']);
         $pageView->setData('orgId', $this->app->orgId);
 
         $aid = Auth::authenticate($this->app->sessionManager);
@@ -328,18 +328,18 @@ final class Application
     /**
      * Get application organization
      *
-     * @param Request                $request Client request
-     * @param array{domains:array{}} $config  App config
+     * @param Request $request Client request
+     * @param array   $domains App domains
      *
      * @return int Organization id
      *
      * @since 1.0.0
      */
-    private function getApplicationOrganization(Request $request, array $config) : int
+    private function getApplicationOrganization(Request $request, array $domains) : int
     {
         return (int) (
             $request->getData('u') ?? (
-                $config['domains'][$request->getUri()->getHost()]['org'] ?? $this->app->appSettings->get(
+                $domains[$request->getUri()->getHost()]['org'] ?? $this->app->appSettings->get(
                     Settings::DEFAULT_ORGANIZATION
                 ) ?? 1
             )

@@ -14,8 +14,9 @@ declare(strict_types=1);
 
 //<editor-fold desc="Require/Include">
 require_once __DIR__ . '/phpOMS/Autoloader.php';
+
+/** @var array{log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string, prefix:string}, insert:array{db:string, database:string, prefix:string}, select:array{db:string, database:string, prefix:string}, update:array{db:string, database:string, prefix:string}, delete:array{db:string, database:string, prefix:string}, schema:array{db:string, database:string, prefix:string}}}}, socket:array{master:array}} $config */
 $config = require_once __DIR__ . '/config.php';
 //</editor-fold>
-
 
 $App = new \Socket\SocketApplication($config, $argv[1] ?? 'Socketclient');

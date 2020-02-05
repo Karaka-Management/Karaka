@@ -16,6 +16,8 @@ declare(strict_types=1);
 
 //<editor-fold desc="Require/Include">
 require_once __DIR__ . '/phpOMS/Autoloader.php';
+
+/** @var array{log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[]} $config */
 $config = require_once __DIR__ . '/config.php';
 //</editor-fold>
 

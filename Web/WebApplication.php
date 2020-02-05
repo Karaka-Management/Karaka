@@ -86,7 +86,7 @@ class WebApplication extends ApplicationAbstract
             $request         = $this->initRequest($config['page']['root'], $config);
             $response        = $this->initResponse($request, $config);
 
-            $this->theme = $this->getApplicationTheme($request, $config);
+            $this->theme = $this->getApplicationTheme($request, $config['app']['domains']);
 
             $app = '\Web\\' . $applicationName . '\Application';
             $sub = new $app($this, $config);
@@ -150,8 +150,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Initialize current application request
      *
-     * @param string                                  $rootPath Web root path
-     * @param array{domains:array, language:string[]} $config   App config
+     * @param string                                             $rootPath Web root path
+     * @param array{app:array{domains:array}, language:string[]} $config   App config
      *
      * @return Request Initial client request
      *
@@ -162,7 +162,7 @@ class WebApplication extends ApplicationAbstract
         $request     = Request::createFromSuperglobals();
         $subDirDepth = \substr_count($rootPath, '/') - 1;
 
-        $defaultLang = $config['domains'][$request->getUri()->getHost()]['lang'] ?? $config['language'][0];
+        $defaultLang = $config['app']['domains'][$request->getUri()->getHost()]['lang'] ?? $config['language'][0];
         $uriLang     = \strtolower($request->getUri()->getPathElement($subDirDepth + 0));
         $requestLang = $request->getRequestLanguage();
         $langCode    = ISO639x1Enum::isValidValue($uriLang) ? $uriLang : (ISO639x1Enum::isValidValue($requestLang) ? $requestLang : $defaultLang);
@@ -186,8 +186,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Initialize basic response
      *
-     * @param Request                                 $request Client request
-     * @param array{domains:array, language:string[]} $config  App config
+     * @param Request                                            $request Client request
+     * @param array{app:array{domains:array}, language:string[]} $config  App config
      *
      * @return Response Initial client request
      *
@@ -206,7 +206,7 @@ class WebApplication extends ApplicationAbstract
             $response->getHeader()->set('strict-transport-security', 'max-age=31536000');
         }
 
-        $defaultLang = $config['domains'][$request->getUri()->getHost()]['lang'] ?? $config['language'][0];
+        $defaultLang = $config['app']['domains'][$request->getUri()->getHost()]['lang'] ?? $config['language'][0];
         $uriLang     = \strtolower($request->getUri()->getPathElement(0));
         $requestLang = $request->getHeader()->getL11n()->getLanguage();
         $langCode    = ISO639x1Enum::isValidValue($requestLang) && \in_array($requestLang, $config['language']) ? $requestLang : (ISO639x1Enum::isValidValue($uriLang) && \in_array($uriLang, $config['language']) ? $uriLang : $defaultLang);
@@ -225,8 +225,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Get name of the application.
      *
-     * @param Http                 $uri    Current Uri
-     * @param array{domains:array} $config App configuration
+     * @param Http                                 $uri    Current Uri
+     * @param array{domains:array, default:string} $config App configuration
      *
      * @return string Application name
      *
@@ -293,8 +293,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Get application theme
      *
-     * @param Request              $request Client request
-     * @param array{domains:array} $config  App config
+     * @param Request $request Client request
+     * @param array   $config  App config
      *
      * @return string Theme name
      *
@@ -302,6 +302,6 @@ class WebApplication extends ApplicationAbstract
      */
     private function getApplicationTheme(Request $request, array $config) : string
     {
-        return $config['domains'][$request->getUri()->getHost()]['theme'] ?? 'Backend';
+        return $config[$request->getUri()->getHost()]['theme'] ?? 'Backend';
     }
 }

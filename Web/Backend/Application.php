@@ -76,7 +76,7 @@ final class Application
      * @var array{db:array{core:array{masters:array{select:array{db:string, host:string, port:int, login:string, password:string, database:string, prefix:string}}}}, log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[]}
      * @since 1.0.0
      */
-    private array $config = [];
+    private array $config;
 
     /**
      * Constructor.
@@ -168,7 +168,7 @@ final class Application
         $this->app->eventManager   = new EventManager($this->app->dispatcher);
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
 
-        $this->app->orgId = $this->getApplicationOrganization($request, $this->config);
+        $this->app->orgId = $this->getApplicationOrganization($request, $this->config['app']['domains']);
         $pageView->setData('orgId', $this->app->orgId);
 
         $aid = Auth::authenticate($this->app->sessionManager);
@@ -240,8 +240,8 @@ final class Application
     /**
      * Get application organization
      *
-     * @param Request              $request Client request
-     * @param array{domains:array} $config  App config
+     * @param Request $request Client request
+     * @param array   $config  App config
      *
      * @return int Organization id
      *

@@ -131,7 +131,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         return ConnectionFactory::create([
             'db'       => (string) $request->getData('dbtype'),
             'host'     => (string) $request->getData('dbhost'),
-            'port'     => (string) $request->getData('dbport'),
+            'port'     => (int)    $request->getData('dbport'),
             'prefix'   => (string) $request->getData('dbprefix'),
             'database' => (string) $request->getData('dbname'),
             'login'    => (string) $request->getData('schemauser'),

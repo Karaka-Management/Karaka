@@ -30,8 +30,8 @@ class SocketApplication extends ApplicationAbstract
     /**
      * Constructor.
      *
-     * @param array  $config Core config
-     * @param string $type   Socket type
+     * @param array{log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string, prefix:string}, insert:array{db:string, database:string, prefix:string}, select:array{db:string, database:string, prefix:string}, update:array{db:string, database:string, prefix:string}, delete:array{db:string, database:string, prefix:string}, schema:array{db:string, database:string, prefix:string}}}}, socket:array{master:array}} $config Core config
+     * @param string                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         $type   Socket type
      *
      * @throws \Exception
      *

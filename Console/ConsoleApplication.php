@@ -51,16 +51,16 @@ final class ConsoleApplication extends ApplicationAbstract
     /**
      * Temp config.
      *
-     * @var array
+     * @var array{log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string, prefix:string}, insert:array{db:string, database:string, prefix:string}, select:array{db:string, database:string, prefix:string}, update:array{db:string, database:string, prefix:string}, delete:array{db:string, database:string, prefix:string}, schema:array{db:string, database:string, prefix:string}}}}}
      * @since 1.0.0
      */
-    private array $config = [];
+    private array $config;
 
     /**
      * Constructor.
      *
-     * @param string[] $arg    Call argument
-     * @param array    $config Core config
+     * @param string[]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           $arg    Call argument
+     * @param array{log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string, prefix:string}, insert:array{db:string, database:string, prefix:string}, select:array{db:string, database:string, prefix:string}, update:array{db:string, database:string, prefix:string}, delete:array{db:string, database:string, prefix:string}, schema:array{db:string, database:string, prefix:string}}}}} $config Core config
      *
      * @throws \Exception
      *
