@@ -73,7 +73,7 @@ final class Application
     /**
      * Temp config.
      *
-     * @var array
+     * @var array{db:array{core:array{masters:array{select:array{db:string, host:string, port:int, login:string, password:string, database:string, prefix:string}}}}, log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[]}
      * @since 1.0.0
      */
     private array $config = [];
@@ -81,8 +81,8 @@ final class Application
     /**
      * Constructor.
      *
-     * @param WebApplication $app    WebApplication
-     * @param array          $config Application config
+     * @param WebApplication                                                                                                                                                                                                                                                                                               $app    WebApplication
+     * @param array{db:array{core:array{masters:array{select:array{db:string, host:string, port:int, login:string, password:string, database:string, prefix:string}}}}, log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[]} $config Application config
      *
      * @since 1.0.0
      */
@@ -240,8 +240,8 @@ final class Application
     /**
      * Get application organization
      *
-     * @param Request $request Client request
-     * @param array   $config  App config
+     * @param Request              $request Client request
+     * @param array{domains:array} $config  App config
      *
      * @return int Organization id
      *
