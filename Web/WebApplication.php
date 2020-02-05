@@ -66,7 +66,7 @@ class WebApplication extends ApplicationAbstract
     /**
      * Constructor.
      *
-     * @param array $config Core config
+     * @param array{log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[]} $config Core config
      *
      * @since 1.0.0
      */
@@ -150,8 +150,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Initialize current application request
      *
-     * @param string $rootPath Web root path
-     * @param array  $config   App config
+     * @param string                                  $rootPath Web root path
+     * @param array{domains:array, language:string[]} $config   App config
      *
      * @return Request Initial client request
      *
@@ -186,8 +186,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Initialize basic response
      *
-     * @param Request $request Client request
-     * @param array   $config  App config
+     * @param Request                                 $request Client request
+     * @param array{domains:array, language:string[]} $config  App config
      *
      * @return Response Initial client request
      *
@@ -225,8 +225,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Get name of the application.
      *
-     * @param Http  $uri    Current Uri
-     * @param array $config App configuration
+     * @param Http                 $uri    Current Uri
+     * @param array{domains:array} $config App configuration
      *
      * @return string Application name
      *
@@ -293,8 +293,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Get application theme
      *
-     * @param Request $request Client request
-     * @param array   $config  App config
+     * @param Request              $request Client request
+     * @param array{domains:array} $config  App config
      *
      * @return string Theme name
      *
