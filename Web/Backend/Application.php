@@ -106,7 +106,7 @@ final class Application
      */
     public function run(Request $request, Response $response) : void
     {
-        $pageView = new BackendView($this->app, $request, $response);
+        $pageView = new BackendView($this->app->l11nManager, $request, $response);
         $head     = new Head();
 
         $pageView->setData('head', $head);
@@ -127,7 +127,7 @@ final class Application
         $this->app->router->add(
             '/backend/e403',
             function() use ($request, $response) {
-                $view = new View($this->app, $request, $response);
+                $view = new View($this->app->l11nManager, $request, $response);
                 $view->setTemplate('/Web/Backend/Error/403_inline');
                 $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
 

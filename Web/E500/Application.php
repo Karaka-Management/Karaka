@@ -78,7 +78,7 @@ final class Application
      */
     public function run(Request $request, Response $response) : void
     {
-        $pageView = new View($this->app, $request, $response);
+        $pageView = new View($this->app->l11nManager, $request, $response);
         $pageView->setTemplate('/Web/E500/index');
         $response->set('Content', $pageView);
         $response->getHeader()->setStatusCode(RequestStatusCode::R_500);

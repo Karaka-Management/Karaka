@@ -83,10 +83,6 @@ final class ConsoleApplication extends ApplicationAbstract
             $request  = $this->initRequest($arg, $config['app']['path'], $config['language'][0]);
             $response = $this->initResponse($request, $config['language']);
 
-            $pageView = new View($this, $request, $response);
-            $pageView->setTemplate('/Console/index');
-            $response->set('Content', $pageView);
-
             $this->dbPool = new DatabasePool();
             $this->dbPool->create('core', $this->config['db']['core']['masters']['admin']);
             $this->dbPool->create('insert', $this->config['db']['core']['masters']['insert']);
@@ -109,6 +105,10 @@ final class ConsoleApplication extends ApplicationAbstract
             $this->accountManager = new AccountManager($this->sessionManager);
             $this->moduleManager  = new ModuleManager($this, __DIR__ . '/../../Modules');
             $this->dispatcher     = new Dispatcher($this);
+
+            $pageView = new View($this->l11nManager, $request, $response);
+            $pageView->setTemplate('/Console/index');
+            $response->set('Content', $pageView);
 
             $modules = $this->moduleManager->getActiveModules();
             $this->moduleManager->initModule($modules);

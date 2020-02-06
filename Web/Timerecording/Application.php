@@ -106,13 +106,13 @@ final class Application
      */
     public function run(Request $request, Response $response) : void
     {
-        $pageView = new TimerecordingView($this->app, $request, $response);
+        $this->app->l11nManager = new L11nManager($this->app->appName);
+
+        $pageView = new TimerecordingView($this->app->l11nManager, $request, $response);
         $head     = new Head();
 
         $pageView->setData('head', $head);
         $response->set('Content', $pageView);
-
-        $this->app->l11nManager = new L11nManager($this->app->appName);
 
         /* Timerecording only allows GET */
         if ($request->getMethod() !== RequestMethod::GET) {
@@ -127,7 +127,7 @@ final class Application
         $this->app->router->add(
             '/timerecording/e403',
             function() use ($request, $response) {
-                $view = new View($this->app, $request, $response);
+                $view = new View($this->app->l11nManager, $request, $response);
                 $view->setTemplate('/Web/Timerecording/Error/403_inline');
                 $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
 

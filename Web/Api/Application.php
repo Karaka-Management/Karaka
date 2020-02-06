@@ -105,7 +105,7 @@ final class Application
     public function run(Request $request, Response $response) : void
     {
         $response->getHeader()->set('Content-Type', 'text/plain; charset=utf-8');
-        $pageView = new View($this->app, $request, $response);
+        $pageView = new View($this->app->l11nManager, $request, $response);
 
         $this->app->l11nManager = new L11nManager($this->app->appName);
         $this->app->dbPool      = new DatabasePool();

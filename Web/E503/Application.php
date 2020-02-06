@@ -76,7 +76,7 @@ final class Application
      */
     public function run(Request $request, Response $response) : void
     {
-        $pageView = new View($this->app, $request, $response);
+        $pageView = new View($this->app->l11nManager, $request, $response);
         $pageView->setTemplate('/Web/E503/index');
 
         /* Load theme language */
