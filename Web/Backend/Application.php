@@ -106,13 +106,13 @@ final class Application
      */
     public function run(Request $request, Response $response) : void
     {
+        $this->app->l11nManager = new L11nManager($this->app->appName);
+
         $pageView = new BackendView($this->app->l11nManager, $request, $response);
         $head     = new Head();
 
         $pageView->setData('head', $head);
         $response->set('Content', $pageView);
-
-        $this->app->l11nManager = new L11nManager($this->app->appName);
 
         /* Backend only allows GET */
         if ($request->getMethod() !== RequestMethod::GET) {
