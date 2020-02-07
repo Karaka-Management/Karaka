@@ -1,18 +1,18 @@
 <?php declare(strict_types=1);
 /**
- * @var string                               $db     Database
- * @var string                               $host   Host
- * @var int                                  $port   Port
+ * @var string              $db     Database
+ * @var string              $host   Host
+ * @var int                 $port   Port
  * @var array{login:string, password:string} $admin  Admin login data
  * @var array{login:string, password:string} $insert Insert login data
  * @var array{login:string, password:string} $select Select login data
  * @var array{login:string, password:string} $update Update login data
  * @var array{login:string, password:string} $delete Delete login data
  * @var array{login:string, password:string} $schema Schema login data
- * @var string                               $dbname Database name
- * @var string                               $prefix Table prefix
- * @var string                               $subdir Subdirectory path
- * @var string                               $tld    Top level domain
+ * @var string              $dbname Database name
+ * @var string              $prefix Table prefix
+ * @var string              $subdir Subdirectory path
+ * @var string              $tld    Top level domain
  */
 return <<<EOT
 <?php
