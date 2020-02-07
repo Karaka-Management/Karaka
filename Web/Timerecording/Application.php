@@ -229,7 +229,8 @@ final class Application
                 $request->getRouteVerb(),
                 $this->app->appName,
                 $this->app->orgId,
-                $account
+                $account,
+                $request->getData()
             ),
             $request,
             $response
