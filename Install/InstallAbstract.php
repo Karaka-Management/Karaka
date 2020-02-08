@@ -49,9 +49,6 @@ use phpOMS\Module\ModuleManager;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
- *
- * @todo Orange-Management/Orange-Management#47
- *  It should be possible to define the localization in the install script which then is used during the install process.
  */
 abstract class InstallAbstract extends ApplicationAbstract
 {
