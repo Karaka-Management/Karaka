@@ -432,6 +432,9 @@ abstract class InstallAbstract extends ApplicationAbstract
         $account->generatePassword((string) $request->getData('adminpassword'));
         $account->setEmail((string) $request->getData('adminemail'));
 
+        $l11n = $account->getL11n();
+        $l11n->loadFromLanguage($request->getData('defaultlang') ?? 'en', $request->getData('defaultcountry') ?? 'us');
+
         AccountMapper::create($account);
 
         $db->con->prepare(

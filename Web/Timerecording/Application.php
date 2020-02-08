@@ -18,6 +18,7 @@ use Model\CoreSettings;
 use Model\Settings;
 
 use Modules\Admin\Models\AccountMapper;
+use Modules\Admin\Models\LocalizationMapper;
 use Modules\Organization\Models\UnitMapper;
 use Modules\Profile\Models\ProfileMapper;
 
@@ -167,6 +168,7 @@ final class Application
         $this->app->appSettings    = new CoreSettings($con);
         $this->app->eventManager   = new EventManager($this->app->dispatcher);
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
+        $this->app->l11nServer     = LocalizationMapper::get(1);
 
         $this->app->orgId = $this->getApplicationOrganization($request, $this->config);
         $pageView->setData('orgId', $this->app->orgId);

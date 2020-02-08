@@ -18,6 +18,7 @@ use Model\CoreSettings;
 use Model\Settings;
 
 use Modules\Admin\Models\AccountMapper;
+use Modules\Admin\Models\LocalizationMapper;
 
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
@@ -149,6 +150,7 @@ final class Application
         $this->app->eventManager->importFromFile(__DIR__ . '/Hooks.php');
 
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
+        $this->app->l11nServer     = LocalizationMapper::get(1);
 
         $this->app->orgId = $this->getApplicationOrganization($request, $this->config['app']['domains']);
         $pageView->setData('orgId', $this->app->orgId);

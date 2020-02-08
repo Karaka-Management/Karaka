@@ -159,6 +159,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         $request->setData('domain', '127.0.0.1');
         $request->setData('websubdir', '/');
         $request->setData('defaultlang', 'en');
+        $request->setData('defaultcountry', 'us');
 
         $request->setData('apps', 'Api');
         $request->setData('apps', 'Backend');
