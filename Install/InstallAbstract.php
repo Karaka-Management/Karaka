@@ -21,6 +21,7 @@ use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\Group;
 use Modules\Admin\Models\GroupMapper;
+use Modules\Admin\Models\LocalizationMapper;
 use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Organization\Models\Status;
@@ -35,6 +36,7 @@ use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
+use phpOMS\Localization\Localization;
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\Response;
 use phpOMS\Message\RequestAbstract;
@@ -478,5 +480,8 @@ abstract class InstallAbstract extends ApplicationAbstract
                 (1000000023, NULL, \'currency\', \'USD\', NULL),
                 (1000000025, NULL, \'mail_admin\', \'mail@admin.com\', NULL)'
         )->execute();
+
+        $l11n = Localization::fromLanguage($request->getData('defaultlang'), $request->getData('defaultcountry') ?? '*');
+        LocalizationMapper::create($l11n);
     }
 }
