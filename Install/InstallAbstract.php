@@ -307,6 +307,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $collection = new Collection();
         $collection->setName('Modules');
         $collection->setVirtualPath('/');
+        $collection->setPath('/');
         $collection->setCreatedBy(1);
 
         CollectionMapper::create($collection);
