@@ -116,7 +116,7 @@ class WebApplication extends ApplicationAbstract
 
             $sub->run($request ?? new Request(), $response);
 
-            if ($this->sessionManager !== null) {
+            if (isset($this->sessionManager)) {
                 $this->sessionManager->save();
             }
 
@@ -124,7 +124,7 @@ class WebApplication extends ApplicationAbstract
             $header = $response->getHeader();
             $header->push();
 
-            if ($this->sessionManager !== null) {
+            if (isset($this->sessionManager)) {
                 $this->sessionManager->lock();
             }
 
