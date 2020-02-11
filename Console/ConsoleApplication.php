@@ -28,8 +28,8 @@ use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Localization\L11nManager;
 use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
-use phpOMS\Message\Console\Request;
-use phpOMS\Message\Console\Response;
+use phpOMS\Message\Console\ConsoleRequest;
+use phpOMS\Message\Console\ConsoleResponse;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\WebRouter;
 use phpOMS\Uri\Argument;
@@ -121,18 +121,18 @@ final class ConsoleApplication extends ApplicationAbstract
                 'message' => $e->getMessage(),
                 'line'    => 62, ]);
 
-            $response = $response ?? new Response(new Localization());
+            $response = $response ?? new ConsoleResponse(new Localization());
             $response->set('Content', 'Database error: ' . $e->getMessage());
         } catch (\Throwable $e) {
             $this->logger->critical(FileLogger::MSG_FULL, [
                 'message' => $e->getMessage(),
                 'line'    => 66, ]);
 
-            $response = $response ?? new Response(new Localization());
+            $response = $response ?? new ConsoleResponse(new Localization());
             $response->set('Content', 'Critical error: ' . $e->getMessage());
         } finally {
             if ($response === null) {
-                $response = new Response();
+                $response = new ConsoleResponse();
             }
 
             echo $response->getBody();
@@ -164,13 +164,13 @@ final class ConsoleApplication extends ApplicationAbstract
      * @param string $rootPath Web root path
      * @param string $language Fallback language
      *
-     * @return Request Initial client request
+     * @return ConsoleRequest Initial client request
      *
      * @since 1.0.0
      */
-    private function initRequest(array $arg, string $rootPath, string $language) : Request
+    private function initRequest(array $arg, string $rootPath, string $language) : ConsoleRequest
     {
-        $request     = new Request(new Argument($arg[1] ?? ''));
+        $request     = new ConsoleRequest(new Argument($arg[1] ?? ''));
         $subDirDepth = \substr_count($rootPath, '/');
 
         $request->createRequestHashs($subDirDepth);
@@ -189,16 +189,16 @@ final class ConsoleApplication extends ApplicationAbstract
     /**
      * Initialize basic response
      *
-     * @param Request $request   Client request
-     * @param array   $languages Supported languages
+     * @param ConsoleRequest $request   Client request
+     * @param array          $languages Supported languages
      *
-     * @return Response Initial client request
+     * @return ConsoleResponse Initial client request
      *
      * @since 1.0.0
      */
-    private function initResponse(Request $request, array $languages) : Response
+    private function initResponse(ConsoleRequest $request, array $languages) : ConsoleResponse
     {
-        $response = new Response(new Localization());
+        $response = new ConsoleResponse(new Localization());
 
         $response->getHeader()->getL11n()->loadFromLanguage(
             !\in_array(

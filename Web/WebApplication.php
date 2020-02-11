@@ -19,8 +19,8 @@ use phpOMS\Autoloader;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
-use phpOMS\Message\Http\Request;
-use phpOMS\Message\Http\Response;
+use phpOMS\Message\Http\HttpRequest;
+use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Uri\Http;
 use phpOMS\Uri\UriFactory;
 
@@ -111,18 +111,16 @@ class WebApplication extends ApplicationAbstract
             }
 
             if ($response === null) {
-                $response = new Response();
+                $response = new HttpResponse();
             }
 
-            $sub->run($request ?? new Request(), $response);
+            $sub->run($request ?? new HttpRequest(), $response);
 
             if (isset($this->sessionManager)) {
                 $this->sessionManager->save();
             }
 
-            /** @var \phpOMS\Message\Http\Header $header */
-            $header = $response->getHeader();
-            $header->push();
+            $response->getHeader()->push();
 
             if (isset($this->sessionManager)) {
                 $this->sessionManager->lock();
@@ -153,13 +151,13 @@ class WebApplication extends ApplicationAbstract
      * @param string                                             $rootPath Web root path
      * @param array{app:array{domains:array}, language:string[]} $config   App config
      *
-     * @return Request Initial client request
+     * @return HttpRequest Initial client request
      *
      * @since 1.0.0
      */
-    private function initRequest(string $rootPath, array $config) : Request
+    private function initRequest(string $rootPath, array $config) : HttpRequest
     {
-        $request     = Request::createFromSuperglobals();
+        $request     = HttpRequest::createFromSuperglobals();
         $subDirDepth = \substr_count($rootPath, '/') - 1;
 
         $defaultLang = $config['app']['domains'][$request->getUri()->getHost()]['lang'] ?? $config['language'][0];
@@ -186,16 +184,16 @@ class WebApplication extends ApplicationAbstract
     /**
      * Initialize basic response
      *
-     * @param Request                                            $request Client request
+     * @param HttpRequest                                        $request Client request
      * @param array{app:array{domains:array}, language:string[]} $config  App config
      *
-     * @return Response Initial client request
+     * @return HttpResponse Initial client request
      *
      * @since 1.0.0
      */
-    private function initResponse(Request $request, array $config) : Response
+    private function initResponse(HttpRequest $request, array $config) : HttpResponse
     {
-        $response = new Response(new Localization());
+        $response = new HttpResponse(new Localization());
         $response->getHeader()->set('content-type', 'text/html; charset=utf-8');
         $response->getHeader()->set('x-xss-protection', '1; mode=block');
         $response->getHeader()->set('x-content-type-options', 'nosniff');
@@ -293,14 +291,14 @@ class WebApplication extends ApplicationAbstract
     /**
      * Get application theme
      *
-     * @param Request $request Client request
-     * @param array   $config  App config
+     * @param HttpRequest $request Client request
+     * @param array       $config  App config
      *
      * @return string Theme name
      *
      * @since 1.0.0
      */
-    private function getApplicationTheme(Request $request, array $config) : string
+    private function getApplicationTheme(HttpRequest $request, array $config) : string
     {
         return $config[$request->getUri()->getHost()]['theme'] ?? 'Backend';
     }

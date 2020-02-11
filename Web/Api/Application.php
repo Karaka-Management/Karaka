@@ -35,9 +35,9 @@ use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
 use phpOMS\Localization\L11nManager;
-use phpOMS\Message\Http\Request;
+use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\RequestStatusCode;
-use phpOMS\Message\Http\Response;
+use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Model\Message\Notify;
 use phpOMS\Model\Message\NotifyType;
@@ -96,14 +96,14 @@ final class Application
     /**
      * Rendering backend.
      *
-     * @param Request  $request  Request
-     * @param Response $response Response
+     * @param HttpRequest  $request  Request
+     * @param HttpResponse $response Response
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function run(Request $request, Response $response) : void
+    public function run(HttpRequest $request, HttpResponse $response) : void
     {
         $response->getHeader()->set('Content-Type', 'text/plain; charset=utf-8');
         $pageView = new View($this->app->l11nManager, $request, $response);
@@ -229,13 +229,13 @@ final class Application
     /**
      * Load permission
      *
-     * @param Request $request Current request
+     * @param HttpRequest $request Current request
      *
      * @return Account
      *
      * @since 1.0.0
      */
-    private function loadAccount(Request $request) : Account
+    private function loadAccount(HttpRequest $request) : Account
     {
         $account = AccountMapper::getWithPermissions($request->getHeader()->getAccount());
         $this->app->accountManager->add($account);
@@ -246,15 +246,15 @@ final class Application
     /**
      * Handle batch requests
      *
-     * @param string   $uris     Uris to handle
-     * @param Request  $request  Request
-     * @param Response $response Response
+     * @param string       $uris     Uris to handle
+     * @param HttpRequest  $request  Request
+     * @param HttpResponse $response Response
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function handleBatchRequest(string $uris, Request $request, Response $response) : void
+    private function handleBatchRequest(string $uris, HttpRequest $request, HttpResponse $response) : void
     {
         $request_r = clone $request;
         $uris      = \json_decode($uris, true);
@@ -277,14 +277,14 @@ final class Application
     /**
      * Handle login request
      *
-     * @param Request  $request  Request
-     * @param Response $response Response
+     * @param HttpRequest  $request  Request
+     * @param HttpResponse $response Response
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function handleLogin(Request $request, Response $response) : void
+    private function handleLogin(HttpRequest $request, HttpResponse $response) : void
     {
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
 
@@ -305,14 +305,14 @@ final class Application
     /**
      * Handle logout request
      *
-     * @param Request  $request  Request
-     * @param Response $response Response
+     * @param HttpRequest  $request  Request
+     * @param HttpResponse $response Response
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function handleLogout(Request $request, Response $response) : void
+    private function handleLogout(HttpRequest $request, HttpResponse $response) : void
     {
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
 
@@ -331,14 +331,14 @@ final class Application
     /**
      * Get application organization
      *
-     * @param Request $request Client request
-     * @param array   $domains App domains
+     * @param HttpRequest $request Client request
+     * @param array       $domains App domains
      *
      * @return int Organization id
      *
      * @since 1.0.0
      */
-    private function getApplicationOrganization(Request $request, array $domains) : int
+    private function getApplicationOrganization(HttpRequest $request, array $domains) : int
     {
         return (int) (
             $request->getData('u') ?? (

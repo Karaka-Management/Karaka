@@ -14,9 +14,9 @@
 namespace Install\tests;
 
 use Install\WebApplication;
-use phpOMS\Message\Http\Request;
+use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\RequestMethod;
-use phpOMS\Message\Http\Response;
+use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Uri\Http;
 
 /**
@@ -132,8 +132,8 @@ class InstallTest extends \PHPUnit\Framework\TestCase
             'apis'     => [
             ],
         ];
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
         $request->setMethod(RequestMethod::POST);
 
         $request->setData('dbhost', $config['db']['core']['masters']['admin']['host']);

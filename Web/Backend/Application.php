@@ -38,10 +38,10 @@ use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
 use phpOMS\Localization\L11nManager;
-use phpOMS\Message\Http\Request;
+use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\RequestMethod;
 use phpOMS\Message\Http\RequestStatusCode;
-use phpOMS\Message\Http\Response;
+use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Model\Html\Head;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\RouteVerb;
@@ -98,14 +98,14 @@ final class Application
     /**
      * Rendering backend.
      *
-     * @param Request  $request  Request
-     * @param Response $response Response
+     * @param HttpRequest  $request  Request
+     * @param HttpResponse $response Response
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function run(Request $request, Response $response) : void
+    public function run(HttpRequest $request, HttpResponse $response) : void
     {
         $this->app->l11nManager = new L11nManager($this->app->appName);
 
@@ -243,14 +243,14 @@ final class Application
     /**
      * Get application organization
      *
-     * @param Request $request Client request
-     * @param array   $config  App config
+     * @param HttpRequest $request Client request
+     * @param array       $config  App config
      *
      * @return int Organization id
      *
      * @since 1.0.0
      */
-    private function getApplicationOrganization(Request $request, array $config) : int
+    private function getApplicationOrganization(HttpRequest $request, array $config) : int
     {
         return (int) (
             $request->getData('u') ?? (
@@ -264,14 +264,14 @@ final class Application
     /**
      * Create 406 response.
      *
-     * @param Response $response Response
-     * @param View     $pageView View
+     * @param HttpResponse $response Response
+     * @param View         $pageView View
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function create406Response(Response $response, View $pageView) : void
+    private function create406Response(HttpResponse $response, View $pageView) : void
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_406);
         $pageView->setTemplate('/Web/Backend/Error/406');
@@ -284,14 +284,14 @@ final class Application
     /**
      * Create 406 response.
      *
-     * @param Response $response Response
-     * @param View     $pageView View
+     * @param HttpResponse $response Response
+     * @param View         $pageView View
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function create503Response(Response $response, View $pageView) : void
+    private function create503Response(HttpResponse $response, View $pageView) : void
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_503);
         $pageView->setTemplate('/Web/Backend/Error/503');
@@ -326,13 +326,13 @@ final class Application
     /**
      * Load permission
      *
-     * @param Request $request Current request
+     * @param HttpRequest $request Current request
      *
      * @return Account
      *
      * @since 1.0.0
      */
-    private function loadAccount(Request $request) : Account
+    private function loadAccount(HttpRequest $request) : Account
     {
         $account = AccountMapper::getWithPermissions($request->getHeader()->getAccount());
         $this->app->accountManager->add($account);
@@ -343,14 +343,14 @@ final class Application
     /**
      * Create 406 response.
      *
-     * @param Response $response Response
-     * @param View     $pageView View
+     * @param HttpResponse $response Response
+     * @param View         $pageView View
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function create403Response(Response $response, View $pageView) : void
+    private function create403Response(HttpResponse $response, View $pageView) : void
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
         $pageView->setTemplate('/Web/Backend/Error/403');
@@ -363,15 +363,15 @@ final class Application
     /**
      * Initialize response head
      *
-     * @param Head     $head     Head to fill
-     * @param Request  $request  Request
-     * @param Response $response Response
+     * @param Head         $head     Head to fill
+     * @param HttpRequest  $request  Request
+     * @param HttpResponse $response Response
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function initResponseHead(Head $head, Request $request, Response $response) : void
+    private function initResponseHead(Head $head, HttpRequest $request, HttpResponse $response) : void
     {
         /* Load assets */
         $head->addAsset(AssetType::CSS, 'Resources/fontawesome/css/font-awesome.min.css');
@@ -410,15 +410,15 @@ final class Application
     /**
      * Create logged out response
      *
-     * @param Response $response Response
-     * @param Head     $head     Head to fill
-     * @param View     $pageView View
+     * @param HttpResponse $response Response
+     * @param Head         $head     Head to fill
+     * @param View         $pageView View
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function createLoggedOutResponse(Response $response, Head $head, View $pageView) : void
+    private function createLoggedOutResponse(HttpResponse $response, Head $head, View $pageView) : void
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
         $pageView->setTemplate('/Web/Backend/login');
@@ -427,15 +427,15 @@ final class Application
     /**
      * Create default page view
      *
-     * @param Request     $request  Request
-     * @param Response    $response Response
-     * @param BackendView $pageView View
+     * @param HttpRequest  $request  Request
+     * @param HttpResponse $response Response
+     * @param BackendView  $pageView View
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function createDefaultPageView(Request $request, Response $response, BackendView $pageView) : void
+    private function createDefaultPageView(HttpRequest $request, HttpResponse $response, BackendView $pageView) : void
     {
         $pageView->setOrganizations(UnitMapper::getAll());
         $pageView->setProfile(ProfileMapper::getFor($request->getHeader()->getAccount(), 'account'));
@@ -447,14 +447,14 @@ final class Application
     /**
      * Create navigation
      *
-     * @param Request  $request  Request
-     * @param Response $response Response
+     * @param HttpRequest  $request  Request
+     * @param HttpResponse $response Response
      *
      * @return View
      *
      * @since 1.0.0
      */
-    private function getNavigation(Request $request, Response $response) : View
+    private function getNavigation(HttpRequest $request, HttpResponse $response) : View
     {
         /** @var \Modules\Navigation\Controller\BackendController $navController */
         $navController = $this->app->moduleManager->get('Navigation');

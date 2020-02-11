@@ -16,9 +16,9 @@ namespace Web\E500;
 
 use phpOMS\Asset\AssetType;
 use phpOMS\Localization\L11nManager;
-use phpOMS\Message\Http\Request;
+use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\RequestStatusCode;
-use phpOMS\Message\Http\Response;
+use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Model\Html\Head;
 use phpOMS\System\File\PathException;
 use phpOMS\Views\View;
@@ -69,14 +69,14 @@ final class Application
     /**
      * Preparing response.
      *
-     * @param Request  $request  Request
-     * @param Response $response Response
+     * @param HttpRequest  $request  Request
+     * @param HttpResponse $response Response
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function run(Request $request, Response $response) : void
+    public function run(HttpRequest $request, HttpResponse $response) : void
     {
         $pageView = new View($this->app->l11nManager, $request, $response);
         $pageView->setTemplate('/Web/E500/index');

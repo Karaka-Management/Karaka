@@ -17,8 +17,8 @@ namespace Install;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
-use phpOMS\Message\Console\Request;
-use phpOMS\Message\Console\Response;
+use phpOMS\Message\Console\ConsoleRequest;
+use phpOMS\Message\Console\ConsoleResponse;
 use phpOMS\Router\RouteVerb;
 use phpOMS\Router\WebRouter;
 use phpOMS\Uri\UriFactory;
@@ -65,13 +65,13 @@ final class ConsoleApplication extends InstallAbstract
      *
      * @param string $language Fallback language
      *
-     * @return Request Initial client request
+     * @return ConsoleRequest Initial client request
      *
      * @since 1.0.0
      */
-    private function initRequest(string $language) : Request
+    private function initRequest(string $language) : ConsoleRequest
     {
-        $request = new Request();
+        $request = new ConsoleRequest();
 
         $request->createRequestHashs(0);
         UriFactory::setupUriBuilder($request->getUri());
@@ -85,15 +85,15 @@ final class ConsoleApplication extends InstallAbstract
     /**
      * Initialize basic response
      *
-     * @param Request $request Client request
+     * @param ConsoleRequest $request Client request
      *
-     * @return Response Initial client request
+     * @return ConsoleResponse Initial client request
      *
      * @since 1.0.0
      */
-    private function initResponse(Request $request) : Response
+    private function initResponse(ConsoleRequest $request) : ConsoleResponse
     {
-        $response = new Response(new Localization());
+        $response = new ConsoleResponse(new Localization());
 
         $response->getHeader()->getL11n()->setLanguage($request->getHeader()->getL11n()->getLanguage());
 
@@ -103,14 +103,14 @@ final class ConsoleApplication extends InstallAbstract
     /**
      * Rendering install.
      *
-     * @param Request  $request  Request
-     * @param Response $response Response
+     * @param ConsoleRequest  $request  Request
+     * @param ConsoleResponse $response Response
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function run(Request $request, Response $response) : void
+    private function run(ConsoleRequest $request, ConsoleResponse $response) : void
     {
         $this->dispatcher = new Dispatcher($this);
         $this->router     = new WebRouter();
@@ -146,14 +146,14 @@ final class ConsoleApplication extends InstallAbstract
     /**
      * Handle install request.
      *
-     * @param Request  $request  Request
-     * @param Response $response Response
+     * @param ConsoleRequest  $request  Request
+     * @param ConsoleResponse $response Response
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public static function installRequest(Request $request, Response $response) : void
+    public static function installRequest(ConsoleRequest $request, ConsoleResponse $response) : void
     {
         if (!empty($valid = self::validateRequest($request))) {
             return;
@@ -172,13 +172,13 @@ final class ConsoleApplication extends InstallAbstract
     /**
      * Validate install request.
      *
-     * @param Request $request Request
+     * @param ConsoleRequest $request Request
      *
      * @return array<string, bool>
      *
      * @since 1.0.0
      */
-    private static function validateRequest(Request $request) : array
+    private static function validateRequest(ConsoleRequest $request) : array
     {
         $valid = [];
 

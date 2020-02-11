@@ -37,8 +37,8 @@ use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
 use phpOMS\Localization\Localization;
-use phpOMS\Message\Http\Request;
-use phpOMS\Message\Http\Response;
+use phpOMS\Message\Http\HttpRequest;
+use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Module\ModuleManager;
 
@@ -403,12 +403,12 @@ abstract class InstallAbstract extends ApplicationAbstract
         $module = self::$mManager->get('Admin');
 
         foreach ($apps as $app) {
-            $temp = new Request();
+            $temp = new HttpRequest();
             $temp->getHeader()->setAccount(1);
             $temp->setData('app', $app);
             $temp->setData('theme', $theme);
 
-            $module->apiInstallApplication($temp, new Response());
+            $module->apiInstallApplication($temp, new HttpResponse());
         }
     }
 

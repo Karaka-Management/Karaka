@@ -20,8 +20,8 @@ use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
-use phpOMS\Message\Http\Request;
-use phpOMS\Message\Http\Response;
+use phpOMS\Message\Http\HttpRequest;
+use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Router\RouteVerb;
 use phpOMS\Router\WebRouter;
 use phpOMS\System\MimeType;
@@ -57,9 +57,7 @@ final class WebApplication extends InstallAbstract
 
         $this->run($request, $response);
 
-        /** @var \phpOMS\Message\Http\Header $header */
-        $header = $response->getHeader();
-        $header->push();
+        $header = $response->getHeader()->push();
 
         echo $response->getBody();
     }
@@ -70,13 +68,13 @@ final class WebApplication extends InstallAbstract
      * @param string $rootPath Web root path
      * @param string $language Fallback language
      *
-     * @return Request Initial client request
+     * @return HttpRequest Initial client request
      *
      * @since 1.0.0
      */
-    private function initRequest(string $rootPath, string $language) : Request
+    private function initRequest(string $rootPath, string $language) : HttpRequest
     {
-        $request     = Request::createFromSuperglobals();
+        $request     = HttpRequest::createFromSuperglobals();
         $subDirDepth = \substr_count($rootPath, '/');
 
         $request->createRequestHashs($subDirDepth);
@@ -95,16 +93,16 @@ final class WebApplication extends InstallAbstract
     /**
      * Initialize basic response
      *
-     * @param Request $request   Client request
-     * @param array   $languages Supported languages
+     * @param HttpRequest $request   Client request
+     * @param array       $languages Supported languages
      *
-     * @return Response Initial client request
+     * @return HttpResponse Initial client request
      *
      * @since 1.0.0
      */
-    private function initResponse(Request $request, array $languages) : Response
+    private function initResponse(HttpRequest $request, array $languages) : HttpResponse
     {
-        $response = new Response(new Localization());
+        $response = new HttpResponse(new Localization());
         $response->getHeader()->set('content-type', 'text/html; charset=utf-8');
         $response->getHeader()->set('x-xss-protection', '1; mode=block');
         $response->getHeader()->set('x-content-type-options', 'nosniff');
@@ -125,14 +123,14 @@ final class WebApplication extends InstallAbstract
     /**
      * Rendering backend.
      *
-     * @param Request  $request  Request
-     * @param Response $response Response
+     * @param HttpRequest  $request  Request
+     * @param HttpResponse $response Response
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function run(Request $request, Response $response) : void
+    private function run(HttpRequest $request, HttpResponse $response) : void
     {
         $this->dispatcher = new Dispatcher($this);
         $this->router     = new WebRouter();
@@ -168,14 +166,14 @@ final class WebApplication extends InstallAbstract
     /**
      * Create install view
      *
-     * @param Request  $request  Request
-     * @param Response $response Response
+     * @param HttpRequest  $request  Request
+     * @param HttpResponse $response Response
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public static function installView(Request $request, Response $response) : void
+    public static function installView(HttpRequest $request, HttpResponse $response) : void
     {
         $view = new View(null, $request, $response);
         $view->setTemplate('/Install/index');
@@ -185,14 +183,14 @@ final class WebApplication extends InstallAbstract
     /**
      * Handle install request.
      *
-     * @param Request  $request  Request
-     * @param Response $response Response
+     * @param HttpRequest  $request  Request
+     * @param HttpResponse $response Response
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public static function installRequest(Request $request, Response $response) : void
+    public static function installRequest(HttpRequest $request, HttpResponse $response) : void
     {
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
 
@@ -221,13 +219,13 @@ final class WebApplication extends InstallAbstract
     /**
      * Validate install request.
      *
-     * @param Request $request Request
+     * @param HttpRequest $request Request
      *
      * @return array<string, bool>
      *
      * @since 1.0.0
      */
-    private static function validateRequest(Request $request) : array
+    private static function validateRequest(HttpRequest $request) : array
     {
         $valid = [];
 
