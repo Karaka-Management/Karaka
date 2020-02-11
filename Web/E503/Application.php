@@ -16,8 +16,8 @@ namespace Web\E503;
 
 use phpOMS\Localization\L11nManager;
 use phpOMS\Message\Http\HttpRequest;
-use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\Http\HttpResponse;
+use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\System\File\PathException;
 use phpOMS\Views\View;
 use Web\WebApplication;

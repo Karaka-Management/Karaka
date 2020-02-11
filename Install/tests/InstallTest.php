@@ -15,8 +15,8 @@ namespace Install\tests;
 
 use Install\WebApplication;
 use phpOMS\Message\Http\HttpRequest;
-use phpOMS\Message\Http\RequestMethod;
 use phpOMS\Message\Http\HttpResponse;
+use phpOMS\Message\Http\RequestMethod;
 use phpOMS\Uri\Http;
 
 /**
