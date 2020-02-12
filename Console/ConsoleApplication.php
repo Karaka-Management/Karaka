@@ -121,19 +121,17 @@ final class ConsoleApplication extends ApplicationAbstract
                 'message' => $e->getMessage(),
                 'line'    => 62, ]);
 
-            $response = $response ?? new ConsoleResponse(new Localization());
+            $response ??= new ConsoleResponse();
             $response->set('Content', 'Database error: ' . $e->getMessage());
         } catch (\Throwable $e) {
             $this->logger->critical(FileLogger::MSG_FULL, [
                 'message' => $e->getMessage(),
                 'line'    => 66, ]);
 
-            $response = $response ?? new ConsoleResponse(new Localization());
+            $response ??= new ConsoleResponse();
             $response->set('Content', 'Critical error: ' . $e->getMessage());
         } finally {
-            if ($response === null) {
-                $response = new ConsoleResponse();
-            }
+            $response ??= new ConsoleResponse();
 
             echo $response->getBody();
         }
