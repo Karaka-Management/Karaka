@@ -17,7 +17,7 @@ use Install\WebApplication;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\Http\RequestMethod;
-use phpOMS\Uri\Http;
+use phpOMS\Uri\HttpUri;
 
 /**
  * @internal
@@ -133,7 +133,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
             ],
         ];
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
         $request->setMethod(RequestMethod::POST);
 
         $request->setData('dbhost', $config['db']['core']['masters']['admin']['host']);

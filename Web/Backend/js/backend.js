@@ -12,7 +12,7 @@ import { ModuleManager } from '../../../jsOMS/Module/ModuleManager.js';
 import { ReadManager } from '../../../jsOMS/UI/Input/Voice/ReadManager.js';
 import { VoiceManager } from '../../../jsOMS/UI/Input/Voice/VoiceManager.js';
 import { NotificationManager } from '../../../jsOMS/Message/Notification/NotificationManager.js';
-import { Http } from '../../../jsOMS/Uri/Http.js';
+import { HttpUri } from '../../../jsOMS/Uri/HttpUri.js';
 import { UriFactory } from '../../../jsOMS/Uri/UriFactory.js';
 
 import { ACTION_EVENTS } from './global/ActionEvents.js';
@@ -59,10 +59,10 @@ export class Application
         this.readManager     = new ReadManager();
         this.voiceManager    = new VoiceManager(this);
         this.notifyManager   = new NotificationManager();
-        this.request         = new Http(window.location.href);
+        this.request         = new HttpUri(window.location.href);
 
         this.request.setRootPath(
-            Http.parseUrl(
+            HttpUri.parseUrl(
                 document.getElementsByTagName('base')[0].href
             ).path
         );

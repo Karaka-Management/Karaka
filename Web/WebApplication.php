@@ -21,7 +21,7 @@ use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
-use phpOMS\Uri\Http;
+use phpOMS\Uri\HttpUri;
 use phpOMS\Uri\UriFactory;
 
 use Web\Exception\DatabaseException;
@@ -82,7 +82,7 @@ class WebApplication extends ApplicationAbstract
 
             UriFactory::setQuery('/prefix', '');
             UriFactory::setQuery('/api', 'api/');
-            $applicationName = $this->getApplicationName(Http::fromCurrent(), $config['app']);
+            $applicationName = $this->getApplicationName(HttpUri::fromCurrent(), $config['app']);
             $request         = $this->initRequest($config['page']['root'], $config);
             $response        = $this->initResponse($request, $config);
 
@@ -223,14 +223,14 @@ class WebApplication extends ApplicationAbstract
     /**
      * Get name of the application.
      *
-     * @param Http                                 $uri    Current Uri
+     * @param HttpUri                              $uri    Current Uri
      * @param array{domains:array, default:string} $config App configuration
      *
      * @return string Application name
      *
      * @since 1.0.0
      */
-    private function getApplicationName(Http $uri, array $config) : string
+    private function getApplicationName(HttpUri $uri, array $config) : string
     {
         // check subdomain
         $appName = $uri->getSubdomain();
