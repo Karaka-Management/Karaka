@@ -15,6 +15,7 @@ declare(strict_types=1);
 return [[
     ':meta'      => 'Orange Management backend application for businesses including EPR, CRM, Intranet, Office and much more.',
     'Add'        => 'Add',
+    'CurrencyB'  => 'B',
     'Cancel'     => 'Cancel',
     'Close'      => 'Close',
     'Create'     => 'Create',
@@ -27,8 +28,10 @@ return [[
     'Find'       => 'Find',
     'Friday'     => 'Friday',
     'ID'         => 'ID',
+    'CurrencyK'  => 'K',
     'Login'      => 'Login',
     'Logo'       => 'Logo',
+    'CurrencyM'  => 'M',
     'Monday'     => 'Monday',
     'More'       => 'More',
     'Navigation' => 'Navigation',
