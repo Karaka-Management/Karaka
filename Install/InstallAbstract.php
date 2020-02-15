@@ -457,29 +457,29 @@ abstract class InstallAbstract extends ApplicationAbstract
     protected static function installSettings(RequestAbstract $request, ConnectionAbstract $db) : void
     {
         $db->con->prepare(
-            'INSERT INTO `' . $db->prefix . 'settings` (`settings_id`, `settings_module`, `settings_name`, `settings_content`, `settings_group`) VALUES
-                (' . Settings::PASSWORD_PATTERN . ', NULL, \'pass_pattern\', \'\', NULL),
-                (' . Settings::LOGIN_TIMEOUT . ', NULL, \'login_timeout\', \'3\', NULL),
-                (' . Settings::PASSWORD_INTERVAL . ', NULL, \'pass_interval\', \'90\', NULL),
-                (' . Settings::PASSWORD_HISTORY . ', NULL, \'pass_history\', \'3\', NULL),
-                (' . Settings::LOGIN_TRIES . ', NULL, \'login_tries\', \'3\', NULL),
-                (' . Settings::LOGGING_STATUS . ', NULL, \'log\', \'1\', NULL),
-                (' . Settings::LOGGING_PATH . ', NULL, \'log_path\', \'\', NULL),
-                (' . Settings::DEFAULT_ORGANIZATION . ', NULL, \'oname\', \'1\', NULL),
-                (1000000010, NULL, \'theme\', \'oms-slim\', NULL),
-                (1000000011, NULL, \'theme_path\', \'/oms-slim\', NULL),
-                (1000000012, NULL, \'changed\', \'1\', NULL),
-                (' . Settings::LOGIN_STATUS . ', NULL, \'login_status\', \'1\', NULL),
-                (1000000014, NULL, \'login_msg\', \'Maintenance scheduled for tomorrow from 11:00 am to 1:00 pm.\', NULL),
-                (1000000015, NULL, \'use_cache\', \'0\', NULL),
-                (1000000016, NULL, \'last_recache\', \'0000-00-00 00:00:00\', NULL),
-                (1000000017, NULL, \'public_access\', \'0\', NULL),
-                (1000000018, NULL, \'rewrite\', \'0\', NULL),
-                (1000000019, NULL, \'country\', \'DE\', NULL),
-                (1000000020, NULL, \'language\', \'en\', NULL),
-                (1000000021, NULL, \'timezone\', \'Europe/Berlin\', NULL),
-                (1000000023, NULL, \'currency\', \'USD\', NULL),
-                (1000000025, NULL, \'mail_admin\', \'mail@admin.com\', NULL)'
+            'INSERT INTO `' . $db->prefix . 'settings` (`settings_name`, `settings_content`) VALUES
+                (' . Settings::PASSWORD_PATTERN . ', \'\'),
+                (' . Settings::LOGIN_TIMEOUT . ', \'3\'),
+                (' . Settings::PASSWORD_INTERVAL . ', \'90\'),
+                (' . Settings::PASSWORD_HISTORY . ', \'3\'),
+                (' . Settings::LOGIN_TRIES . ', \'3\'),
+                (' . Settings::LOGGING_STATUS . ', \'1\'),
+                (' . Settings::LOGGING_PATH . ', \'\'),
+                (' . Settings::DEFAULT_ORGANIZATION . ', \'1\'),
+                (1000000010, \'oms-slim\'),
+                (1000000011, \'/oms-slim\'),
+                (1000000012, \'1\'),
+                (' . Settings::LOGIN_STATUS . ', \'1\'),
+                (1000000014, \'Maintenance scheduled for tomorrow from 11:00 am to 1:00 pm.\'),
+                (1000000015, \'0\'),
+                (1000000016, \'0000-00-00 00:00:00\'),
+                (1000000017, \'0\'),
+                (1000000018, \'0\'),
+                (1000000019, \'DE\'),
+                (1000000020, \'en\'),
+                (1000000021, \'Europe/Berlin\'),
+                (1000000023, \'USD\'),
+                (1000000025, \'mail@admin.com\')'
         )->execute();
 
         $l11n = Localization::fromLanguage($request->getData('defaultlang'), $request->getData('defaultcountry') ?? '*');
