@@ -47,11 +47,6 @@ use Web\Exception\UnexpectedApplicationException;
  *  E.g. a shop system for different units which is very important for larger organizations with sub-organizations where the different organizations have different shops.
  *  Note: Language is a little bit special as there is also a second part in the url where the language can be defined (after the TLD).
  *
- * @todo Orange-Management/Orange-Management#48
- *  Use different user formatting!
- *  Users may have different localizations and based on their localization data needs to be shown in a different way
- *  E.g. DateTime format & actual time, currency format, ...
- *
  * @todo Ornage-Management/phpOMS#202
  *  Dynamic string handling
  *  Implement a parsing system which allows to output dynamic strings (sprintf might help)
