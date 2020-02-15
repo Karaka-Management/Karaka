@@ -14,11 +14,11 @@ declare(strict_types=1);
 
 namespace Model;
 
-use phpOMS\Config\SettingsInterface;
-use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
-use phpOMS\DataStorage\Cache\CachePool;
-use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Config\OptionsTrait;
+use phpOMS\Config\SettingsInterface;
+use phpOMS\DataStorage\Cache\CachePool;
+use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
+use phpOMS\DataStorage\Database\Query\Builder;
 
 /**
  * Core settings class.
@@ -181,7 +181,7 @@ final class CoreSettings implements SettingsInterface
                             'module'  => $option[static::$columns['module']] ?? null,
                             'group'   => $option[static::$columns['group']] ?? null,
                             'account' => $option[static::$columns['account']] ?? null,
-                        ]
+                        ],
                     ],
                     true
                 );
@@ -213,8 +213,8 @@ final class CoreSettings implements SettingsInterface
                         'content' => $option['content'] ?? null,
                         'module'  => $option['module'] ?? null,
                         'group'   => $option['group'] ?? null,
-                        'account' => $option['account'] ?? null
-                    ]
+                        'account' => $option['account'] ?? null,
+                    ],
                 ],
                 true
             );
