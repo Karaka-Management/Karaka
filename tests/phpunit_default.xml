@@ -39,6 +39,7 @@
                 <directory suffix=".php">../Modules/**/Admin/Routes*</directory>
                 <directory suffix=".php">../Modules/**/Admin/Install*</directory>
                 <directory suffix=".php">../Modules/Media/Files*</directory>
+                <directory suffix="Routes.php">../*</directory>
             </exclude>
         </whitelist>
     </filter>
