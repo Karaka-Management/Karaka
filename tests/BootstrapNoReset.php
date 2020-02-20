@@ -305,7 +305,7 @@ $GLOBALS['dbpool']->create('schema', $CONFIG['db']['core']['masters']['schema'])
 
 DataMapperAbstract::setConnection($GLOBALS['dbpool']->get());
 
-function phpServe()
+function phpServe(): void
 {
     // OS detection
     $isWindows = \stristr(\php_uname('s'), 'Windows') !== false;
@@ -333,8 +333,8 @@ function phpServe()
 
     // Execute the command and store the process ID
     $output = [];
-    echo \sprintf('Starting server...') . PHP_EOL;
-    echo \sprintf(' Current directory: %s', \getcwd()) . PHP_EOL;
+    echo \sprintf('Starting server...') . \PHP_EOL;
+    echo \sprintf(' Current directory: %s', \getcwd()) . \PHP_EOL;
     echo \sprintf(' %s', $command);
     \exec($command, $output);
 
@@ -350,16 +350,16 @@ function phpServe()
     // Log
     echo \sprintf(
         ' %s - Web server started on %s:%d with PID %d',
-        date('r'),
+        \date('r'),
         WEB_SERVER_HOST,
         WEB_SERVER_PORT,
         $pid
-    ) . PHP_EOL;
+    ) . \PHP_EOL;
 
     // Kill the web server when the process ends
-    \register_shutdown_function(function() use ($killCommand, $pid) {
-        echo PHP_EOL . \sprintf('Stopping server...') . PHP_EOL;
-        echo \sprintf(' %s - Killing process with ID %d', \date('r'), $pid) . PHP_EOL;
+    \register_shutdown_function(function() use ($killCommand, $pid): void {
+        echo \PHP_EOL . \sprintf('Stopping server...') . \PHP_EOL;
+        echo \sprintf(' %s - Killing process with ID %d', \date('r'), $pid) . \PHP_EOL;
         \exec($killCommand . $pid);
     });
 }
