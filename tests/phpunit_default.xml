@@ -64,4 +64,9 @@
             </arguments>
         </listener>
     </listeners>-->
+    <php>
+        <const name="WEB_SERVER_HOST" value="localhost" />
+        <const name="WEB_SERVER_PORT" value="1234" />
+        <const name="WEB_SERVER_DOCROOT" value="./" />
+    </php>
 </phpunit>
