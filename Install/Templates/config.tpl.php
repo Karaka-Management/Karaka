@@ -134,7 +134,12 @@ return [
     ],
     'app'      => [
         'path'    => __DIR__,
-        'default' => 'Backend',
+        'default' => [
+            'app'   => 'Backend',
+            'lang'  => 'en',
+            'theme' => 'Backend',
+            'org'  => 1,
+        ],
         'domains' => [
             '${tld}' => [
                 'app'   => 'Backend',
@@ -154,8 +159,6 @@ return [
     'language' => [
         'en',
     ],
-    'apis'     => [
-    ]
 ];
 
 EOT;
