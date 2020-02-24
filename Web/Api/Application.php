@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Web\Api;
 
 use Model\CoreSettings;
-use Model\Settings;
 
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\LocalizationMapper;
@@ -72,7 +71,7 @@ final class Application
     /**
      * Temp config.
      *
-     * @var array{log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string, prefix:string}, insert:array{db:string, database:string, prefix:string}, select:array{db:string, database:string, prefix:string}, update:array{db:string, database:string, prefix:string}, delete:array{db:string, database:string, prefix:string}, schema:array{db:string, database:string, prefix:string}}}}}
+     * @var array{log:array{file:array{path:string}}, app:array{path:string, default:array{app:string, org:int, lang:string}, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string, prefix:string}, insert:array{db:string, database:string, prefix:string}, select:array{db:string, database:string, prefix:string}, update:array{db:string, database:string, prefix:string}, delete:array{db:string, database:string, prefix:string}, schema:array{db:string, database:string, prefix:string}}}}}
      * @since 1.0.0
      */
     private array $config;
@@ -80,8 +79,8 @@ final class Application
     /**
      * Constructor.
      *
-     * @param WebApplication                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     $app    WebApplication
-     * @param array{log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string, prefix:string}, insert:array{db:string, database:string, prefix:string}, select:array{db:string, database:string, prefix:string}, update:array{db:string, database:string, prefix:string}, delete:array{db:string, database:string, prefix:string}, schema:array{db:string, database:string, prefix:string}}}}} $config Application config
+     * @param WebApplication                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      $app    WebApplication
+     * @param array{log:array{file:array{path:string}}, app:array{path:string, default:array{app:string, org:int, lang:string}, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string, prefix:string}, insert:array{db:string, database:string, prefix:string}, select:array{db:string, database:string, prefix:string}, update:array{db:string, database:string, prefix:string}, delete:array{db:string, database:string, prefix:string}, schema:array{db:string, database:string, prefix:string}}}}} $config Application config
      *
      * @since 1.0.0
      */
@@ -152,7 +151,7 @@ final class Application
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
         $this->app->l11nServer     = LocalizationMapper::get(1);
 
-        $this->app->orgId = $this->getApplicationOrganization($request, $this->config['app']['domains']);
+        $this->app->orgId = $this->getApplicationOrganization($request, $this->config['app']);
         $pageView->setData('orgId', $this->app->orgId);
 
         $aid = Auth::authenticate($this->app->sessionManager);
@@ -332,19 +331,17 @@ final class Application
      * Get application organization
      *
      * @param HttpRequest $request Client request
-     * @param array       $domains App domains
+     * @param array       $config  App config
      *
      * @return int Organization id
      *
      * @since 1.0.0
      */
-    private function getApplicationOrganization(HttpRequest $request, array $domains) : int
+    private function getApplicationOrganization(HttpRequest $request, array $config) : int
     {
         return (int) (
             $request->getData('u') ?? (
-                $domains[$request->getUri()->getHost()]['org'] ?? $this->app->appSettings->get(
-                    Settings::DEFAULT_ORGANIZATION
-                ) ?? 1
+                $config['domains'][$request->getUri()->getHost()]['org'] ?? $config['default']['org']
             )
         );
     }

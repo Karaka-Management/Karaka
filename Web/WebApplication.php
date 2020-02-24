@@ -61,7 +61,7 @@ class WebApplication extends ApplicationAbstract
     /**
      * Constructor.
      *
-     * @param array{log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[]} $config Core config
+     * @param array{log:array{file:array{path:string}}, app:array{path:string, default:array{app:string, org:int, lang:string}, domains:array}, page:array{root:string, https:bool}, language:string[]} $config Core config
      *
      * @since 1.0.0
      */
@@ -78,7 +78,7 @@ class WebApplication extends ApplicationAbstract
             UriFactory::setQuery('/prefix', '');
             UriFactory::setQuery('/api', 'api/');
             $applicationName = $this->getApplicationName(HttpUri::fromCurrent(), $config['app']);
-            $request         = $this->initRequest($config['page']['root'], $config);
+            $request         = $this->initRequest($config['page']['root'], $config['app']);
             $response        = $this->initResponse($request, $config);
 
             $this->theme = $this->getApplicationTheme($request, $config['app']['domains']);
@@ -143,8 +143,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Initialize current application request
      *
-     * @param string                                             $rootPath Web root path
-     * @param array{app:array{domains:array}, language:string[]} $config   App config
+     * @param string                                                                $rootPath Web root path
+     * @param array{domains:array, default:array{app:string, org:int, lang:string}} $config   App config
      *
      * @return HttpRequest Initial client request
      *
@@ -155,7 +155,7 @@ class WebApplication extends ApplicationAbstract
         $request     = HttpRequest::createFromSuperglobals();
         $subDirDepth = \substr_count($rootPath, '/') - 1;
 
-        $defaultLang = $config['app']['domains'][$request->getUri()->getHost()]['lang'] ?? $config['language'][0];
+        $defaultLang = $config['domains'][$request->getUri()->getHost()]['lang'] ?? $config['default']['lang'];
         $uriLang     = \strtolower($request->getUri()->getPathElement($subDirDepth + 0));
         $requestLang = $request->getRequestLanguage();
         $langCode    = ISO639x1Enum::isValidValue($uriLang) ? $uriLang : (ISO639x1Enum::isValidValue($requestLang) ? $requestLang : $defaultLang);
@@ -179,8 +179,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Initialize basic response
      *
-     * @param HttpRequest                                        $request Client request
-     * @param array{app:array{domains:array}, language:string[]} $config  App config
+     * @param HttpRequest                                                                                         $request Client request
+     * @param array{app:array{domains:array, default:array{app:string, org:int, lang:string}}, language:string[]} $config  App config
      *
      * @return HttpResponse Initial client request
      *
@@ -199,7 +199,7 @@ class WebApplication extends ApplicationAbstract
             $response->getHeader()->set('strict-transport-security', 'max-age=31536000');
         }
 
-        $defaultLang = $config['app']['domains'][$request->getUri()->getHost()]['lang'] ?? $config['language'][0];
+        $defaultLang = $config['app']['domains'][$request->getUri()->getHost()]['lang'] ?? $config['app']['default']['lang'];
         $uriLang     = \strtolower($request->getUri()->getPathElement(0));
         $requestLang = $request->getHeader()->getL11n()->getLanguage();
         $langCode    = ISO639x1Enum::isValidValue($requestLang) && \in_array($requestLang, $config['language']) ? $requestLang : (ISO639x1Enum::isValidValue($uriLang) && \in_array($uriLang, $config['language']) ? $uriLang : $defaultLang);
@@ -218,8 +218,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Get name of the application.
      *
-     * @param HttpUri                              $uri    Current Uri
-     * @param array{domains:array, default:string} $config App configuration
+     * @param HttpUri                                                               $uri    Current Uri
+     * @param array{domains:array, default:array{app:string, org:int, lang:string}} $config App configuration
      *
      * @return string Application name
      *
@@ -258,7 +258,7 @@ class WebApplication extends ApplicationAbstract
         }
 
         // check config
-        $appName = $config['domains'][$uri->getHost()]['app'] ?? $config['default'];
+        $appName = $config['domains'][$uri->getHost()]['app'] ?? $config['default']['app'];
 
         return $this->getApplicationNameFromString($appName);
     }
