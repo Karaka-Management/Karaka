@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Web;
 
-use phpOMS\ApplicationAbstract;
+use phpOMS\Application\ApplicationAbstract;
 use phpOMS\Autoloader;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Localization\Localization;

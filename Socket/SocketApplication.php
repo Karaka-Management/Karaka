@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Socket;
 
-use phpOMS\ApplicationAbstract;
+use phpOMS\Application\ApplicationAbstract;
 
 /**
  * Controller class.
