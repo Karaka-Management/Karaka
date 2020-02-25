@@ -13,7 +13,7 @@ private.sh
 .vscode
 Web/Api*
 Web/Backend*
-Web/E*
+Web/E[0-9]*
 Console/Routes.php
 Console/Hooks.php
 build
