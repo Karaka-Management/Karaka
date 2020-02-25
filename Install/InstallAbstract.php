@@ -88,11 +88,15 @@ abstract class InstallAbstract extends ApplicationAbstract
         \file_put_contents(__DIR__ . '/../Console/Routes.php', '<?php return [];');
         \file_put_contents(__DIR__ . '/../Console/Hooks.php', '<?php return [];');
 
-        $dirs = Directory::list(__DIR__ . '/../Web');
+        $dirs = \scandir(__DIR__ . '/../Web');
         foreach ($dirs as $dir) {
-            if ($dir !== 'Exception' && $dir !== 'WebApplication.php') {
-                Directory::delete(__DIR__ . '/../Web/' . $dir);
+            if ($dir === '.' || $dir === '..'
+                || $dir === 'Exception'
+                || $dir === 'WebApplication.php'
+            ) {
+                continue;
             }
+                Directory::delete(__DIR__ . '/../Web/' . $dir);
         }
     }
 
