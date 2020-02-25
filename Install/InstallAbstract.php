@@ -275,15 +275,15 @@ abstract class InstallAbstract extends ApplicationAbstract
             protected string $appName = 'Api';
         };
 
-        $app->dbPool = new DatabasePool();
+        $app->moduleManager = self::$mManager;
 
+        $app->dbPool = new DatabasePool();
         $app->dbPool->add('select', $db);
         $app->dbPool->add('insert', $db);
         $app->dbPool->add('update', $db);
         $app->dbPool->add('schema', $db);
 
         self::$mManager = new ModuleManager($app, __DIR__ . '/../Modules');
-
         self::$mManager->install('Admin');
         self::$mManager->install('Auditor');
         self::$mManager->install('Organization');
