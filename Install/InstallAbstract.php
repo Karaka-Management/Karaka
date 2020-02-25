@@ -42,6 +42,7 @@ use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Module\ModuleManager;
 use phpOMS\System\File\Local\Directory;
+use phpOMS\Uri\HttpUri;
 
 /**
  * Application class.
@@ -275,7 +276,6 @@ abstract class InstallAbstract extends ApplicationAbstract
             protected string $appName = 'Api';
         };
 
-        $app->moduleManager = self::$mManager;
 
         $app->dbPool = new DatabasePool();
         $app->dbPool->add('select', $db);
@@ -283,7 +283,9 @@ abstract class InstallAbstract extends ApplicationAbstract
         $app->dbPool->add('update', $db);
         $app->dbPool->add('schema', $db);
 
-        self::$mManager = new ModuleManager($app, __DIR__ . '/../Modules');
+        self::$mManager     = new ModuleManager($app, __DIR__ . '/../Modules');
+        $app->moduleManager = self::$mManager;
+
         self::$mManager->install('Admin');
         self::$mManager->install('Auditor');
         self::$mManager->install('Organization');
@@ -411,7 +413,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $module = self::$mManager->get('Admin');
 
         foreach ($apps as $app) {
-            $temp = new HttpRequest();
+            $temp = new HttpRequest(new HttpUri(''));
             $temp->getHeader()->setAccount(1);
             $temp->setData('appSrc', $app);
             $temp->setData('appDest', 'Web/' . \basename($app));
