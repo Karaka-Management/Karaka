@@ -61,7 +61,7 @@ class WebApplication extends ApplicationAbstract
     /**
      * Constructor.
      *
-     * @param array{log:array{file:array{path:string}}, app:array{path:string, default:array{app:string, org:int, lang:string}, domains:array}, page:array{root:string, https:bool}, language:string[]} $config Core config
+     * @param array{log:array{file:array{path:string}}, app:array{path:string, default:array{id:string, app:string, org:int, lang:string}, domains:array}, page:array{root:string, https:bool}, language:string[]} $config Core config
      *
      * @since 1.0.0
      */
@@ -143,8 +143,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Initialize current application request
      *
-     * @param string                                                                $rootPath Web root path
-     * @param array{domains:array, default:array{app:string, org:int, lang:string}} $config   App config
+     * @param string                                                                           $rootPath Web root path
+     * @param array{domains:array, default:array{id:string, app:string, org:int, lang:string}} $config   App config
      *
      * @return HttpRequest Initial client request
      *
@@ -179,8 +179,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Initialize basic response
      *
-     * @param HttpRequest                                                                                         $request Client request
-     * @param array{app:array{domains:array, default:array{app:string, org:int, lang:string}}, language:string[]} $config  App config
+     * @param HttpRequest                                                                                                    $request Client request
+     * @param array{app:array{domains:array, default:array{id:string, app:string, org:int, lang:string}}, language:string[]} $config  App config
      *
      * @return HttpResponse Initial client request
      *
@@ -218,8 +218,8 @@ class WebApplication extends ApplicationAbstract
     /**
      * Get name of the application.
      *
-     * @param HttpUri                                                               $uri    Current Uri
-     * @param array{domains:array, default:array{app:string, org:int, lang:string}} $config App configuration
+     * @param HttpUri                                                                          $uri    Current Uri
+     * @param array{domains:array, default:array{id:string, app:string, org:int, lang:string}} $config App configuration
      *
      * @return string Application name
      *

@@ -136,16 +136,18 @@ return [
         'path'    => __DIR__,
         'default' => [
             'app'   => 'Backend',
+            'id'    => 'backend'
             'lang'  => 'en',
             'theme' => 'Backend',
-            'org'  => 1,
+            'org'   => 1,
         ],
         'domains' => [
             '${tld}' => [
                 'app'   => 'Backend',
+                'id'    => 'backend'
                 'lang'  => 'en',
                 'theme' => 'Backend',
-                'org'  => 1,
+                'org'   => 1,
             ],
         ],
     ],

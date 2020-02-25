@@ -41,6 +41,7 @@ use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Module\ModuleManager;
+use phpOMS\System\File\Local\Directory;
 
 /**
  * Application class.
@@ -84,12 +85,15 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function clearOld() : void
     {
-        \file_put_contents(__DIR__ . '/../Web/Backend/Routes.php', '<?php return [];');
-        \file_put_contents(__DIR__ . '/../Web/Api/Routes.php', '<?php return [];');
         \file_put_contents(__DIR__ . '/../Console/Routes.php', '<?php return [];');
-
-        \file_put_contents(__DIR__ . '/../Web/Api/Hooks.php', '<?php return [];');
         \file_put_contents(__DIR__ . '/../Console/Hooks.php', '<?php return [];');
+
+        $dirs = Directory::list(__DIR__ . '/../Web');
+        foreach ($dirs as $dir) {
+            if ($dir !== 'Exception' && $dir !== 'WebApplication.php') {
+                Directory::delete(__DIR__ . '/../Web/' . $dir);
+            }
+        }
     }
 
     /**
@@ -405,7 +409,8 @@ abstract class InstallAbstract extends ApplicationAbstract
         foreach ($apps as $app) {
             $temp = new HttpRequest();
             $temp->getHeader()->setAccount(1);
-            $temp->setData('app', $app);
+            $temp->setData('appSrc', $app);
+            $temp->setData('appDest', 'Web/' . \basename($app));
             $temp->setData('theme', $theme);
 
             $module->apiInstallApplication($temp, new HttpResponse());

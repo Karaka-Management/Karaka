@@ -73,7 +73,7 @@ final class Application
     /**
      * Temp config.
      *
-     * @var array{db:array{core:array{masters:array{select:array{db:string, host:string, port:int, login:string, password:string, database:string, prefix:string}}}}, log:array{file:array{path:string}}, app:array{path:string, default:array{app:string, org:int, lang:string}, domains:array}, page:array{root:string, https:bool}, language:string[]}
+     * @var array{db:array{core:array{masters:array{select:array{db:string, host:string, port:int, login:string, password:string, database:string, prefix:string}}}}, log:array{file:array{path:string}}, app:array{path:string, default:array{id:string, app:string, org:int, lang:string}, domains:array}, page:array{root:string, https:bool}, language:string[]}
      * @since 1.0.0
      */
     private array $config;
@@ -82,7 +82,7 @@ final class Application
      * Constructor.
      *
      * @param WebApplication                                                                                                                                                                                                                                                                                                                                $app    WebApplication
-     * @param array{db:array{core:array{masters:array{select:array{db:string, host:string, port:int, login:string, password:string, database:string, prefix:string}}}}, log:array{file:array{path:string}}, app:array{path:string, default:array{app:string, org:int, lang:string}, domains:array}, page:array{root:string, https:bool}, language:string[]} $config Application config
+     * @param array{db:array{core:array{masters:array{select:array{db:string, host:string, port:int, login:string, password:string, database:string, prefix:string}}}}, log:array{file:array{path:string}}, app:array{path:string, default:array{id:string, app:string, org:int, lang:string}, domains:array}, page:array{root:string, https:bool}, language:string[]} $config Application config
      *
      * @since 1.0.0
      */
@@ -118,6 +118,7 @@ final class Application
         if ($request->getMethod() !== RequestMethod::GET) {
             $this->create406Response($response, $pageView);
 
+
             return;
         }
 
@@ -130,6 +131,7 @@ final class Application
                 $view = new View($this->app->l11nManager, $request, $response);
                 $view->setTemplate('/Web/Backend/Error/403_inline');
                 $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+
 
                 return $view;
             },
