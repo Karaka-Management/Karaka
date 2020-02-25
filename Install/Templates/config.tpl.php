@@ -136,7 +136,7 @@ return [
         'path'    => __DIR__,
         'default' => [
             'app'   => 'Backend',
-            'id'    => 'backend'
+            'id'    => 'backend',
             'lang'  => 'en',
             'theme' => 'Backend',
             'org'   => 1,
@@ -144,7 +144,7 @@ return [
         'domains' => [
             '${tld}' => [
                 'app'   => 'Backend',
-                'id'    => 'backend'
+                'id'    => 'backend',
                 'lang'  => 'en',
                 'theme' => 'Backend',
                 'org'   => 1,
