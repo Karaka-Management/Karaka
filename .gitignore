@@ -11,10 +11,9 @@ puphpet
 private.php
 private.sh
 .vscode
-Web/**/*/Routes.php
-Web/**/*/Hooks.php
-Web/Api/Hooks.php
-Web/Api/Routes.php
+Web/Api*
+Web/Backend*
+Web/E*
 Console/Routes.php
 Console/Hooks.php
 build
