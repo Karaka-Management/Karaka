@@ -1,0 +1,20 @@
+{
+    "name": {
+        "id": 1000100000,
+        "internal": "Api",
+        "external": "Api"
+    },
+    "category": "Web",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The api application.",
+    "directory": "Api",
+    "dependencies": {}
+}
