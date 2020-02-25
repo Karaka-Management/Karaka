@@ -81,7 +81,7 @@ final class Application
     /**
      * Constructor.
      *
-     * @param WebApplication                                                                                                                                                                                                                                                                                                                                $app    WebApplication
+     * @param WebApplication                                                                                                                                                                                                                                                                                                                                           $app    WebApplication
      * @param array{db:array{core:array{masters:array{select:array{db:string, host:string, port:int, login:string, password:string, database:string, prefix:string}}}}, log:array{file:array{path:string}}, app:array{path:string, default:array{id:string, app:string, org:int, lang:string}, domains:array}, page:array{root:string, https:bool}, language:string[]} $config Application config
      *
      * @since 1.0.0
