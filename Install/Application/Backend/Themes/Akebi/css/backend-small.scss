@@ -15,7 +15,7 @@ body {
 }
 
 main > header {
-    background: rgb(248, 248, 248);
+    background: var(--header-background);
     border-bottom: 1px solid var(--box-border);
     padding: 1rem;
     box-sizing: border-box;
@@ -23,6 +23,7 @@ main > header {
     align-items: center;
     flex-flow: row;
     flex: 0;
+    box-shadow: 0 0 30px 3px rgba(90, 71, 114, 0.1);
 
     > form {
         display: flex;
@@ -114,7 +115,7 @@ main {
     display: flex;
     flex-direction: column;
     height: 100%;
-    background: #f1f1f1;
+    background: var(--main-background);
 
     flex: 1;
     box-sizing: border-box;
