@@ -139,7 +139,7 @@ return [
             'id'    => 'backend',
             'lang'  => 'en',
             'theme' => 'Backend',
-            'org'   => 1,
+            'org'   => ${defaultOrg},
         ],
         'domains' => [
             '${tld}' => [
@@ -147,7 +147,7 @@ return [
                 'id'    => 'backend',
                 'lang'  => 'en',
                 'theme' => 'Backend',
-                'org'   => 1,
+                'org'   => ${tldOrg},
             ],
         ],
     ],

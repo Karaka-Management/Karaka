@@ -192,6 +192,9 @@ abstract class InstallAbstract extends ApplicationAbstract
         $subdir = $request->getData('websubdir');
         $tld    = $request->getData('domain');
 
+        $tldOrg     = 1;
+        $defaultOrg = 1;
+
         $config = include __DIR__ . '/Templates/config.tpl.php';
 
         \file_put_contents(__DIR__ . '/../config.php', $config);
