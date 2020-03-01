@@ -1,5 +1,5 @@
 :root {
-  --main-background: rgb(46, 26, 90);
+  --main-background: rgb(246, 246, 246);
   --main-background-highlight: rgb(158, 81, 197);
   --input-border: rgba(166, 135, 232, .4);
   --input-border-active: rgba(166, 135, 232, .7);
@@ -37,7 +37,8 @@
   --badge-size: .55rem;
   --badge-color: rgb(255, 255, 255);
   --badge-background: rgb(158, 81, 197);
-  --box-border: rgb(218, 218, 218); }
+  --box-border: #ebedf2;
+  --header-background: rgb(255, 255, 255); }
 
 html, body {
   width: 100%;
@@ -52,14 +53,15 @@ body {
   display: flex; }
 
 main > header {
-  background: #f8f8f8;
+  background: var(--header-background);
   border-bottom: 1px solid var(--box-border);
   padding: 1rem;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   flex-flow: row;
-  flex: 0; }
+  flex: 0;
+  box-shadow: 0 0 30px 3px rgba(90, 71, 114, 0.1); }
   main > header > form {
     display: flex;
     flex: 1;
@@ -126,7 +128,7 @@ main {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: #f1f1f1;
+  background: var(--main-background);
   flex: 1;
   box-sizing: border-box; }
 
@@ -154,22 +156,19 @@ main {
   #u-box a {
     display: inline-block; }
 
-    #app-message-container {
-      position: absolute;
-      margin: 0 auto;
-      right: 0;
-      top: 0;
-      padding: 85px 10px 0 0;
-  }
-
-  .log-msg {
+#app-message-container {
+  position: absolute;
+  margin: 0 auto;
+  right: 0;
+  top: 0;
+  padding: 85px 10px 0 0; }
+  #app-message-container .log-msg {
     z-index: 11;
     position: relative;
     margin: 0 auto;
     right: 0;
     top: 0;
-    margin-bottom: 10px;
-}
+    margin-bottom: 10px; }
 
 @media only screen and (max-width: 500px) {
   nav .ham-trigger {
