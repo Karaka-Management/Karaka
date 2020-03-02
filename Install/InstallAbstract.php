@@ -90,6 +90,11 @@ abstract class InstallAbstract extends ApplicationAbstract
         \file_put_contents(__DIR__ . '/../Console/Hooks.php', '<?php return [];');
 
         $dirs = \scandir(__DIR__ . '/../Web');
+
+        if ($dirs === fase) {
+            return;
+        }
+
         foreach ($dirs as $dir) {
             if ($dir === '.' || $dir === '..'
                 || $dir === 'Exception'
