@@ -91,7 +91,7 @@ abstract class InstallAbstract extends ApplicationAbstract
 
         $dirs = \scandir(__DIR__ . '/../Web');
 
-        if ($dirs === fase) {
+        if ($dirs === false) {
             return;
         }
 
