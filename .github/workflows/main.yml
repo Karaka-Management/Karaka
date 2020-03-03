@@ -101,7 +101,7 @@ jobs:
     - name: Setup Composer
       run: composer install
     - name: phpunit
-      run: vendor/bin/phpunit --coverage-text -v --configuration tests/phpunit_coverage.xml
+      run: vendor/bin/phpunit --coverage-text -v --configuration tests/phpunit_defualt.xml
     - name: codecov
       env:
          CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
