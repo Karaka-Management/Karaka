@@ -293,7 +293,7 @@ $CONFIG = [
 ];
 
 // Reset database
-if (defined('RESET') && RESET === '1') {
+if (\defined('RESET') && RESET === '1') {
     $db = new \PDO($CONFIG['db']['core']['masters']['admin']['db'] . ':host=' .
         $CONFIG['db']['core']['masters']['admin']['host'],
         $CONFIG['db']['core']['masters']['admin']['login'],
