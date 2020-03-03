@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-        bootstrap="BootstrapNoReset.php"
+        bootstrap="Bootstrap.php"
         colors="true"
         stopOnError="true"
-        stopOnFailure="false"
+        stopOnFailure="true"
         stopOnIncomplete="false"
         stopOnSkipped="false"
         beStrictAboutTestsThatDoNotTestAnything="false"
@@ -13,10 +13,10 @@
             <directory>../Install*</directory>
         </testsuite>
         <testsuite name="phpOMS">
-            <directory>../phpOMS*</directory>
+            <directory>../phpOMS/tests*</directory>
         </testsuite>
         <testsuite name="Modules">
-            <directory>../Modules*</directory>
+            <directory>../Modules/tests*</directory>
         </testsuite>
         <testsuite name="App">
             <directory>../tests*</directory>
@@ -32,26 +32,26 @@
             <directory suffix=".php">../Socket/*</directory>
             <directory suffix=".php">../Console/*</directory>
             <exclude>
+                <directory>*vendor*</directory>
+                <directory>vendor</directory>
+                <directory>../vendor</directory>
+                <directory>../phpOMS/vendor</directory>
+                <directory>../Modules/vendor</directory>
                 <directory>../*/tests*</directory>
                 <directory suffix="tpl.php">../*</directory>
                 <directory suffix="lang.php">../*</directory>
                 <directory suffix="Test.php">../*</directory>
-                <directory suffix=".php">../Modules/**/Admin/Routes*</directory>
-                <directory suffix=".php">../Modules/**/Admin/Install*</directory>
-                <directory suffix=".php">../Modules/Media/Files*</directory>
+                <directory suffix="Routes.php">../*</directory>
+                <directory>../Modules/**/Admin/Routes*</directory>
+                <directory>../Modules/**/Admin/Install*</directory>
+                <directory>../Modules/Media/Files*</directory>
             </exclude>
         </whitelist>
     </filter>
-    <logging>
-        <log type="junit" target="../Build/test/junit_php.xml"/>
-        <log type="testdox-html" target="../Build/test/index.html"/>
-        <log type="testdox-text" target="../Build/test/testdox.txt"/>
-        <log type="coverage-html" target="../Build/coverage" lowUpperBound="50" highLowerBound="85"/>
-        <log type="coverage-clover" target="coverage.xml" />
-    </logging>
     <php>
         <const name="WEB_SERVER_HOST" value="localhost" />
         <const name="WEB_SERVER_PORT" value="1234" />
         <const name="WEB_SERVER_DOCROOT" value="./" />
+        <const name="RESET" value="0" />
     </php>
 </phpunit>

@@ -293,23 +293,25 @@ $CONFIG = [
 ];
 
 // Reset database
-$db = new \PDO($CONFIG['db']['core']['masters']['admin']['db'] . ':host=' .
-    $CONFIG['db']['core']['masters']['admin']['host'],
-    $CONFIG['db']['core']['masters']['admin']['login'],
-    $CONFIG['db']['core']['masters']['admin']['password']
-);
-$db->exec('DROP DATABASE IF EXISTS ' . $CONFIG['db']['core']['masters']['admin']['database']);
-$db->exec('CREATE DATABASE IF NOT EXISTS ' . $CONFIG['db']['core']['masters']['admin']['database']);
-$db = null;
+if (defined('RESET') && RESET === '1') {
+    $db = new \PDO($CONFIG['db']['core']['masters']['admin']['db'] . ':host=' .
+        $CONFIG['db']['core']['masters']['admin']['host'],
+        $CONFIG['db']['core']['masters']['admin']['login'],
+        $CONFIG['db']['core']['masters']['admin']['password']
+    );
+    $db->exec('DROP DATABASE IF EXISTS ' . $CONFIG['db']['core']['masters']['admin']['database']);
+    $db->exec('CREATE DATABASE IF NOT EXISTS ' . $CONFIG['db']['core']['masters']['admin']['database']);
+    $db = null;
 
-$db = new \PDO($CONFIG['db']['core']['postgresql']['admin']['db'] . ':host=' .
-    $CONFIG['db']['core']['postgresql']['admin']['host'],
-    $CONFIG['db']['core']['postgresql']['admin']['login'],
-    $CONFIG['db']['core']['postgresql']['admin']['password']
-);
-$db->exec('DROP DATABASE ' . $CONFIG['db']['core']['postgresql']['admin']['database']);
-$db->exec('CREATE DATABASE ' . $CONFIG['db']['core']['postgresql']['admin']['database']);
-$db = null;
+    $db = new \PDO($CONFIG['db']['core']['postgresql']['admin']['db'] . ':host=' .
+        $CONFIG['db']['core']['postgresql']['admin']['host'],
+        $CONFIG['db']['core']['postgresql']['admin']['login'],
+        $CONFIG['db']['core']['postgresql']['admin']['password']
+    );
+    $db->exec('DROP DATABASE ' . $CONFIG['db']['core']['postgresql']['admin']['database']);
+    $db->exec('CREATE DATABASE ' . $CONFIG['db']['core']['postgresql']['admin']['database']);
+    $db = null;
+}
 
 $httpSession        = new HttpSession();
 $GLOBALS['session'] = $httpSession;

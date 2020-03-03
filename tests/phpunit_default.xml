@@ -53,24 +53,11 @@
         <log type="testdox-text" target="../Build/test/testdox.txt"/>
         <log type="coverage-html" target="../Build/coverage" lowUpperBound="75" highLowerBound="90"/>
         <log type="coverage-clover" target="coverage.xml" />
-    </logging><!--
-    <listeners>
-        <listener class="JohnKary\PHPUnit\Listener\SpeedTrapListener">
-            <arguments>
-                <array>
-                    <element key="slowThreshold">
-                        <integer>3000</integer>
-                    </element>
-                    <element key="reportLength">
-                        <integer>100</integer>
-                    </element>
-                </array>
-            </arguments>
-        </listener>
-    </listeners>-->
+    </logging>
     <php>
         <const name="WEB_SERVER_HOST" value="localhost" />
         <const name="WEB_SERVER_PORT" value="1234" />
         <const name="WEB_SERVER_DOCROOT" value="./" />
+        <const name="RESET" value="1" />
     </php>
 </phpunit>
