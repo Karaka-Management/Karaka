@@ -93,7 +93,7 @@ Modules:
   ☐ #182 [ItemManagement] Re-structure item views
   ☐ #181 [Navigation] Cache/optimize navigation language
   ☐ #180 [Warehouse] Implement optimization tool
-  ☐ #179 [Model] Replace int models with NullModels
+  ✔ #179 [Model] Replace int models with NullModels @done(20-03-03 18:45)
   ☐ #178 [UserAnalytics] Implement
   ☐ #177 [Forms] Hotkey for saving tasks for creation/edit
   ☐ #176 [Tasks] Batch handle tasks in the dashboard list
@@ -246,9 +246,9 @@ phpstan:
   ☐ #^Call to an undefined method phpOMS\\\\Message\\\\RequestAbstract\\:\\:getHash\\(\\)\\.$#
   ☐ #^Cannot call method where\\(\\) on array\\.$#
   ☐ #^Static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:find\\(\\) invoked with 4 parameters, 1 required\\.$#
-  ☐ #^Property Modules\\\\Profile\\\\Theme\\\\Backend\\\\Components\\\\AccountGroupSelector\\\\PopupView\\:\\:\\$id has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\ProjectManagement\\\\Models\\\\Project\\:\\:\\$tasks has unknown class Modules\\\\ProjectManagement\\\\Models\\\\Tasks as its type\\.$#
-  ☐ #^PHPDoc tag @param for parameter \\$task with type int\\|Modules\\\\Tasks\\\\Models\\\\Task is not subtype of native type Modules\\\\Tasks\\\\Models\\\\Task\\.$#
+  ✔ #^Property Modules\\\\Profile\\\\Theme\\\\Backend\\\\Components\\\\AccountGroupSelector\\\\PopupView\\:\\:\\$id has no typehint specified\\.$# @done(20-03-03 18:38)
+  ✔ #^Property Modules\\\\ProjectManagement\\\\Models\\\\Project\\:\\:\\$tasks has unknown class Modules\\\\ProjectManagement\\\\Models\\\\Tasks as its type\\.$# @done(20-03-03 18:39)
+  ✔ #^PHPDoc tag @param for parameter \\$task with type int\\|Modules\\\\Tasks\\\\Models\\\\Task is not subtype of native type Modules\\\\Tasks\\\\Models\\\\Task\\.$# @done(20-03-03 18:43)
   ☐ #^Array \\(array\\<Modules\\\\ProjectManagement\\\\Models\\\\Tasks\\>\\) does not accept Modules\\\\Tasks\\\\Models\\\\Task\\.$#
   ✔ #^Method Modules\\\\ProjectManagement\\\\Models\\\\Project\\:\\:getTask\\(\\) should return Modules\\\\Tasks\\\\Models\\\\Task but returnsModules\\\\ProjectManagement\\\\Models\\\\Tasks\\|Modules\\\\Tasks\\\\Models\\\\Task\\.$#" @done(20-03-03 16:25)
   ✔ #^Method Modules\\\\ProjectManagement\\\\Models\\\\Project\\:\\:getTasks\\(\\) should return array\\<Modules\\\\Tasks\\\\Models\\\\Task\\> but returnsarray\\<Modules\\\\ProjectManagement\\\\Models\\\\Tasks\\>\\.$#" @done(20-03-03 16:25)
