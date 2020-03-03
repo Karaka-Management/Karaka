@@ -115,20 +115,20 @@ phpstan:
   ☐ #^Call to an undefined method phpOMS\\\\Router\\\\RouterInterface\\:\\:add\\(\\)\\.$#
   ☐ #^Property Modules\\\\Accounting\\\\Models\\\\IncomeStatement\\:\\:\\$date has no typehint specified\\.$#
   ☐ #^Property Modules\\\\Accounting\\\\Models\\\\IncomeStatement\\:\\:\\$incomeStatement has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$createdBy has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$client has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipTo has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipFAO has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipAddress has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipCity has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipZip has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipCountry has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billTo has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billFAO has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billAddress has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billCity has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billZip has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billCountry has no typehint specified\\.$#
+  ✔ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$createdBy has no typehint specified\\.$# @done(20-03-03 12:26)
+  ✔ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$client has no typehint specified\\.$# @done(20-03-03 12:26)
+  ✔ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipTo has no typehint specified\\.$# @done(20-03-03 12:26)
+  ✔ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipFAO has no typehint specified\\.$# @done(20-03-03 12:26)
+  ✔ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipAddress has no typehint specified\\.$# @done(20-03-03 12:26)
+  ✔ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipCity has no typehint specified\\.$# @done(20-03-03 12:26)
+  ✔ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipZip has no typehint specified\\.$# @done(20-03-03 12:26)
+  ✔ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipCountry has no typehint specified\\.$# @done(20-03-03 12:27)
+  ✔ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billTo has no typehint specified\\.$# @done(20-03-03 12:27)
+  ✔ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billFAO has no typehint specified\\.$# @done(20-03-03 12:27)
+  ✔ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billAddress has no typehint specified\\.$# @done(20-03-03 12:27)
+  ✔ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billCity has no typehint specified\\.$# @done(20-03-03 12:27)
+  ✔ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billZip has no typehint specified\\.$# @done(20-03-03 12:27)
+  ✔ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billCountry has no typehint specified\\.$# @done(20-03-03 12:27)
   ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$refererName has no typehint specified\\.$#
   ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$taxId has no typehint specified\\.$#
   ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$currency has no typehint specified\\.$#
@@ -169,12 +169,12 @@ phpstan:
   ☐ #^Access to an undefined property Modules\\\\ClientManagement\\\\Models\\\\Client\\:\\:\\$taxId\\.$#
   ☐ #^Access to an undefined property Modules\\\\ClientManagement\\\\Models\\\\Client\\:\\:\\$defaultTnvoiceAddress\\.$#
   ☐ #^Property Modules\\\\Comments\\\\Models\\\\Comment\\:\\:\\$createdBy has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\Comments\\\\Models\\\\Comment\\:\\:\\$list has no typehint specified\\.$#
+  ✔ #^Property Modules\\\\Comments\\\\Models\\\\Comment\\:\\:\\$list has no typehint specified\\.$# @done(20-03-03 14:29)
   ☐ #^Property Modules\\\\Comments\\\\Models\\\\Comment\\:\\:\\$ref has no typehint specified\\.$#
   ☐ #^Property Modules\\\\CostCenterAccounting\\\\Models\\\\CostCenter\\:\\:\\$parent \\(int\\|Modules\\\\CostCenterAccounting\\\\Models\\\\CostCenter\\|null\\) does notaccept string\\.$#"
   ☐ #^Property Modules\\\\CostObjectAccounting\\\\Models\\\\CostObject\\:\\:\\$parent \\(int\\|Modules\\\\CostObjectAccounting\\\\Models\\\\CostObject\\|null\\) does notaccept string\\.$#"
-  ☐ #^Property Modules\\\\DatabaseEditor\\\\Models\\\\Database\\:\\:\\$name has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\DatabaseEditor\\\\Models\\\\Database\\:\\:\\$tables has no typehint specified\\.$#
+  ✔ #^Property Modules\\\\DatabaseEditor\\\\Models\\\\Database\\:\\:\\$name has no typehint specified\\.$# @done(20-03-03 13:50)
+  ✔ #^Property Modules\\\\DatabaseEditor\\\\Models\\\\Database\\:\\:\\$tables has no typehint specified\\.$# @done(20-03-03 13:50)
   ☐ #^Property Modules\\\\DatabaseEditor\\\\Models\\\\Table\\:\\:\\$name has no typehint specified\\.$#
   ☐ #^Property Modules\\\\DatabaseEditor\\\\Models\\\\Table\\:\\:\\$fields has no typehint specified\\.$#
   ☐ #^Property Modules\\\\EventManagement\\\\Models\\\\Event\\:\\:\\$tasks has no typehint specified\\.$#
@@ -250,21 +250,21 @@ phpstan:
   ☐ #^Property Modules\\\\ProjectManagement\\\\Models\\\\Project\\:\\:\\$tasks has unknown class Modules\\\\ProjectManagement\\\\Models\\\\Tasks as its type\\.$#
   ☐ #^PHPDoc tag @param for parameter \\$task with type int\\|Modules\\\\Tasks\\\\Models\\\\Task is not subtype of native type Modules\\\\Tasks\\\\Models\\\\Task\\.$#
   ☐ #^Array \\(array\\<Modules\\\\ProjectManagement\\\\Models\\\\Tasks\\>\\) does not accept Modules\\\\Tasks\\\\Models\\\\Task\\.$#
-  ☐ #^Method Modules\\\\ProjectManagement\\\\Models\\\\Project\\:\\:getTask\\(\\) should return Modules\\\\Tasks\\\\Models\\\\Task but returnsModules\\\\ProjectManagement\\\\Models\\\\Tasks\\|Modules\\\\Tasks\\\\Models\\\\Task\\.$#"
-  ☐ #^Method Modules\\\\ProjectManagement\\\\Models\\\\Project\\:\\:getTasks\\(\\) should return array\\<Modules\\\\Tasks\\\\Models\\\\Task\\> but returnsarray\\<Modules\\\\ProjectManagement\\\\Models\\\\Tasks\\>\\.$#"
+  ✔ #^Method Modules\\\\ProjectManagement\\\\Models\\\\Project\\:\\:getTask\\(\\) should return Modules\\\\Tasks\\\\Models\\\\Task but returnsModules\\\\ProjectManagement\\\\Models\\\\Tasks\\|Modules\\\\Tasks\\\\Models\\\\Task\\.$#" @done(20-03-03 16:25)
+  ✔ #^Method Modules\\\\ProjectManagement\\\\Models\\\\Project\\:\\:getTasks\\(\\) should return array\\<Modules\\\\Tasks\\\\Models\\\\Task\\> but returnsarray\\<Modules\\\\ProjectManagement\\\\Models\\\\Tasks\\>\\.$#" @done(20-03-03 16:25)
   ☐ #^Method Modules\\\\ProjectManagement\\\\Models\\\\Project\\:\\:getCalendar\\(\\) should return Modules\\\\Calendar\\\\Models\\\\Calendar but returns int\\Modules\\\\Calendar\\\\Models\\\\Calendar\\.$#"
   ☐ #^Cannot call method setName\\(\\) on int\\|Modules\\\\Calendar\\\\Models\\\\Calendar\\.$#
   ☐ #^Call to static method create\\(\\) on an unknown class Modules\\\\QA\\\\Controller\\\\QAAnswerMapper\\.$#
   ☐ #^Call to an undefined method Modules\\\\QA\\\\Models\\\\QAAnswer\\:\\:setName\\(\\)\\.$#
-  ☐ #^Property Modules\\\\QA\\\\Models\\\\QAAnswer\\:\\:\\$answer has no typehint specified\\.$#
+  ✔ #^Property Modules\\\\QA\\\\Models\\\\QAAnswer\\:\\:\\$answer has no typehint specified\\.$# @done(20-03-03 13:15)
   ☐ #^Property Modules\\\\QA\\\\Models\\\\QAAnswer\\:\\:\\$question has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\QA\\\\Models\\\\QAAnswer\\:\\:\\$isAccepted has no typehint specified\\.$#
+  ✔ #^Property Modules\\\\QA\\\\Models\\\\QAAnswer\\:\\:\\$isAccepted has no typehint specified\\.$# @done(20-03-03 13:16)
   ☐ #^Property Modules\\\\QA\\\\Models\\\\QAAnswer\\:\\:\\$createdBy has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\QA\\\\Models\\\\QACategory\\:\\:\\$parent has no typehint specified\\.$#
+  ✔ #^Property Modules\\\\QA\\\\Models\\\\QACategory\\:\\:\\$parent has no typehint specified\\.$# @done(20-03-03 13:20)
   ☐ #^Property Modules\\\\QA\\\\Models\\\\QAQuestion\\:\\:\\$language has no typehint specified\\.$#
   ☐ #^Property Modules\\\\QA\\\\Models\\\\QAQuestion\\:\\:\\$createdBy has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Category\\:\\:\\$title has no typehint specified\\.$#
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Category\\:\\:\\$parent has no typehint specified\\.$#
+  ✔ #^Property Modules\\\\RiskManagement\\\\Models\\\\Category\\:\\:\\$title has no typehint specified\\.$# @done(20-03-03 14:35)
+  ✔ #^Property Modules\\\\RiskManagement\\\\Models\\\\Category\\:\\:\\$parent has no typehint specified\\.$# @done(20-03-03 14:35)
   ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Category\\:\\:\\$responsible has no typehint specified\\.$#
   ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Category\\:\\:\\$deputy has no typehint specified\\.$#
   ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Cause\\:\\:\\$title has no typehint specified\\.$#
@@ -327,19 +327,19 @@ phpstan:
   ☐ #^Parameter \\#1 \\$dbdata of class phpOMS\\\\DataStorage\\\\Database\\\\Connection\\\\MysqlConnection constructor expects array\\('db' \\=\\> string, 'host' \\=\\>string, 'port' \\=\\> int, 'login' \\=\\> string, 'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\), array\\('db' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'login' \\=\\> string, \\?'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\) given\\.$#"
   ☐ #^Parameter \\#1 \\$dbdata of class phpOMS\\\\DataStorage\\\\Database\\\\Connection\\\\PostgresConnection constructor expects array\\('db' \\=\\> string, 'host' \\=\\>string, 'port' \\=\\> int, 'login' \\=\\> string, 'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\), array\\('db' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'login' \\=\\> string, \\?'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\) given\\.$#"
   ☐ #^Parameter \\#1 \\$dbdata of class phpOMS\\\\DataStorage\\\\Database\\\\Connection\\\\SqlServerConnection constructor expects array\\('db' \\=\\> string, 'host' \\=\\>string, 'port' \\=\\> int, 'login' \\=\\> string, 'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\), array\\('db' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'login' \\=\\> string, \\?'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\) given\\.$#"
-  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:createConditionals\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
-  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:createModel\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
-  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:getObjectId\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
-  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:setObjectId\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
-  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:createHasMany\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
+  ✔ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:createConditionals\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#" @done(20-03-03 16:16)
+  ✔ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:createModel\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#" @done(20-03-03 16:16)
+  ✔ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:getObjectId\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#" @done(20-03-03 16:16)
+  ✔ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:setObjectId\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#" @done(20-03-03 16:16)
+  ✔ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:createHasMany\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#" @done(20-03-03 16:16)
   ☐ #^Variable \\$columns in PHPDoc tag @var does not exist\\.$#
   ☐ #^Variable \\$table in PHPDoc tag @var does not exist\\.$#
-  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:updateHasMany\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
-  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:updateModel\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
-  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:updateConditionals\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
+  ✔ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:updateHasMany\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#" @done(20-03-03 16:16)
+  ✔ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:updateModel\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#" @done(20-03-03 16:16)
+  ✔ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:updateConditionals\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#" @done(20-03-03 16:16)
   ☐ #^Argument of an invalid type string supplied for foreach, only iterables are supported\\.$#
-  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:deleteHasMany\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
-  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:deleteModel\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
+  ✔ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:deleteHasMany\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#" @done(20-03-03 16:16)
+  ✔ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:deleteModel\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#" @done(20-03-03 16:16)
   ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:getConditionals\\(\\) has parameter \\$key with no typehint specified\\.$#
   ☐ #^PHPDoc tag @return with type void is incompatible with native type array\\.$#
   ☐ #^Only iterables can be unpacked, string given in argument \\#1\\.$#
