@@ -102,3 +102,373 @@ cssOMS:
   ☐ #14 Create drop down with search field
   ☐ #12 Create slider element
   ☐ #4 Nicer visual input validation
+
+phpstan:
+  ☐ #^Constructor of class Install\\\\ConsoleApplication has an unused parameter \\$arg\\.$#
+  ☐ #^Call to an undefined method phpOMS\\\\Router\\\\RouterInterface\\:\\:route\\(\\)\\.$#
+  ☐ #^Call to an undefined method phpOMS\\\\Message\\\\Console\\\\ConsoleRequest\\:\\:getRouteVerb\\(\\)\\.$#
+  ☐ #^Call to an undefined method phpOMS\\\\Router\\\\RouterInterface\\:\\:add\\(\\)\\.$#
+  ☐ #^Constant fase not found\\.$#
+  ☐ #^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#
+  ☐ #^Call to an undefined method phpOMS\\\\Message\\\\HeaderAbstract\\:\\:push\\(\\)\\.$#
+  ☐ #^Call to an undefined method phpOMS\\\\Router\\\\RouterInterface\\:\\:route\\(\\)\\.$#
+  ☐ #^Call to an undefined method phpOMS\\\\Router\\\\RouterInterface\\:\\:add\\(\\)\\.$#
+  ☐ #^Property Modules\\\\Accounting\\\\Models\\\\IncomeStatement\\:\\:\\$date has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Accounting\\\\Models\\\\IncomeStatement\\:\\:\\$incomeStatement has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$createdBy has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$client has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipTo has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipFAO has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipAddress has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipCity has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipZip has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipCountry has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billTo has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billFAO has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billAddress has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billCity has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billZip has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$billCountry has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$refererName has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$taxId has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$currency has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$info has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$payment has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$paymentText has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$terms has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$termsText has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipping has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shippingText has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$vouchers has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$trackings has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$elements has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$order has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$item has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$itemName has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$itemDescription has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$quantity has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$singlePrice has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$totalPrice has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$singleDiscountP has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$totalDiscountP has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$singleDiscountR has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$discountQ has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$singlePriceNet has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$totalPriceNet has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$taxP has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$taxR has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$singlePriceGross has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$totalPriceGross has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$event has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$promotion has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$invoice has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Calendar\\\\Theme\\\\Backend\\\\Components\\\\Calendar\\\\BaseView\\:\\:\\$calendar has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ClientManagement\\\\Models\\\\Client\\:\\:\\$salesRep has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ClientManagement\\\\Models\\\\Client\\:\\:\\$defaultDeliveryAddress has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ClientManagement\\\\Models\\\\Client\\:\\:\\$defaultInvoiceAddress has no typehint specified\\.$#
+  ☐ #^Access to an undefined property Modules\\\\ClientManagement\\\\Models\\\\Client\\:\\:\\$taxId\\.$#
+  ☐ #^Access to an undefined property Modules\\\\ClientManagement\\\\Models\\\\Client\\:\\:\\$defaultTnvoiceAddress\\.$#
+  ☐ #^Property Modules\\\\Comments\\\\Models\\\\Comment\\:\\:\\$createdBy has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Comments\\\\Models\\\\Comment\\:\\:\\$list has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Comments\\\\Models\\\\Comment\\:\\:\\$ref has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\CostCenterAccounting\\\\Models\\\\CostCenter\\:\\:\\$parent \\(int\\|Modules\\\\CostCenterAccounting\\\\Models\\\\CostCenter\\|null\\) does notaccept string\\.$#"
+  ☐ #^Property Modules\\\\CostObjectAccounting\\\\Models\\\\CostObject\\:\\:\\$parent \\(int\\|Modules\\\\CostObjectAccounting\\\\Models\\\\CostObject\\|null\\) does notaccept string\\.$#"
+  ☐ #^Property Modules\\\\DatabaseEditor\\\\Models\\\\Database\\:\\:\\$name has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\DatabaseEditor\\\\Models\\\\Database\\:\\:\\$tables has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\DatabaseEditor\\\\Models\\\\Table\\:\\:\\$name has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\DatabaseEditor\\\\Models\\\\Table\\:\\:\\$fields has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\EventManagement\\\\Models\\\\Event\\:\\:\\$tasks has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\EventManagement\\\\Models\\\\Event\\:\\:\\$media has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\EventManagement\\\\Models\\\\Event\\:\\:\\$progress has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\EventManagement\\\\Models\\\\Event\\:\\:\\$progressType has no typehint specified\\.$#
+  ☐ #^Instantiated class Modules\\\\Accounting\\\\Models\\\\CostCenter not found\\.$#
+  ☐ #^Parameter \\#1 \\$con of static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:setConnection\\(\\) expectsphpOMS\\\\DataStorage\\\\Database\\\\Connection\\\\ConnectionAbstract, phpOMS\\\\DataStorage\\\\Database\\\\Connection\\\\ConnectionInterface given\\.$#"
+  ☐ #^Call to method setCostCenter\\(\\) on an unknown class Modules\\\\Accounting\\\\Models\\\\CostCenter\\.$#
+  ☐ #^Call to method setCostCenterName\\(\\) on an unknown class Modules\\\\Accounting\\\\Models\\\\CostCenter\\.$#
+  ☐ #^Call to static method create\\(\\) on an unknown class Modules\\\\Accounting\\\\Models\\\\CostCenterMapper\\.$#
+  ☐ #^Instantiated class Modules\\\\Accounting\\\\Models\\\\CostObject not found\\.$#
+  ☐ #^Call to method setCostObject\\(\\) on an unknown class Modules\\\\Accounting\\\\Models\\\\CostObject\\.$#
+  ☐ #^Call to method setCostObjectName\\(\\) on an unknown class Modules\\\\Accounting\\\\Models\\\\CostObject\\.$#
+  ☐ #^Call to static method create\\(\\) on an unknown class Modules\\\\Accounting\\\\Models\\\\CostObjectMapper\\.$#
+  ☐ #^Call to an undefined method phpOMS\\\\Message\\\\HeaderAbstract\\:\\:setDownloadable\\(\\)\\.$#
+  ☐ #^Property Modules\\\\HumanResourceManagement\\\\Models\\\\StaffList\\:\\:\\$dbPool has unknown class phpOMS\\\\DataStorage\\\\Database\\\\Pool as its type\\.$#
+  ☐ #^Property Modules\\\\HumanResourceManagement\\\\Models\\\\StaffList\\:\\:\\$dbPool \\(phpOMS\\\\DataStorage\\\\Database\\\\Pool\\) does not acceptphpOMS\\\\DataStorage\\\\Database\\\\DatabasePool\\.$#"
+  ☐ #^Call to method get\\(\\) on an unknown class phpOMS\\\\DataStorage\\\\Database\\\\Pool\\.$#
+  ☐ #^Method Modules\\\\HumanResourceManagement\\\\Models\\\\StaffList\\:\\:getStats\\(\\) should return array but return statement is missing\\.$#
+  ☐ #^Parameter \\#1 \\$employee of class Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Session constructor expects int\\Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Employee, Modules\\\\HumanResourceManagement\\\\Models\\\\Employee given\\.$#"
+  ☐ #^Parameter \\#1 \\$session of class Modules\\\\HumanResourceTimeRecording\\\\Models\\\\SessionElement constructor expects int,Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Session given\\.$#"
+  ☐ #^Cannot call method getId\\(\\) on int\\|Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Session\\.$#
+  ☐ #^Call to method getProfile\\(\\) on an unknown class Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Employee\\.$#
+  ☐ #^Property Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Session\\:\\:\\$employee has unknown class Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Employee asits type\\.$#"
+  ☐ #^Parameter \\$employee of method Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Session\\:\\:__construct\\(\\) has invalid typehint typeModules\\\\HumanResourceTimeRecording\\\\Models\\\\Employee\\.$#"
+  ☐ #^Return typehint of method Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Session\\:\\:getEmployee\\(\\) has invalid typeModules\\\\HumanResourceTimeRecording\\\\Models\\\\Employee\\.$#"
+  ☐ #^Cannot call method getStatus\\(\\) on int\\|Modules\\\\HumanResourceTimeRecording\\\\Models\\\\SessionElement\\.$#
+  ☐ #^Cannot call method getDatetime\\(\\) on int\\|Modules\\\\HumanResourceTimeRecording\\\\Models\\\\SessionElement\\.$#
+  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$number has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$articleGroup has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$salesGroup has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$productGroup has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$segment has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$successor has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$media has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$l11n has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$attributes has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$partslist has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$purchase has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$disposal has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$info has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanBoard\\:\\:\\$order has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanBoard\\:\\:\\$createdBy has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanBoard\\:\\:\\$columns has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanCard\\:\\:\\$column has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanCard\\:\\:\\$order has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanCard\\:\\:\\$ref has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanCard\\:\\:\\$createdBy has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanCard\\:\\:\\$comments has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanCard\\:\\:\\$labels has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanCard\\:\\:\\$media has no typehint specified\\.$#
+  ☐ #^Method Modules\\\\Kanban\\\\Models\\\\KanbanCard\\:\\:addMedia\\(\\) has parameter \\$media with no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanCardComment\\:\\:\\$card has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanCardComment\\:\\:\\$createdBy has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanCardComment\\:\\:\\$media has no typehint specified\\.$#
+  ☐ #^PHPDoc tag @return with type int\\|phpOMS\\\\Account\\\\Account is not subtype of native type int\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanColumn\\:\\:\\$order has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanColumn\\:\\:\\$board has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanColumn\\:\\:\\$cards has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Marketing\\\\Models\\\\Promotion\\:\\:\\$media has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Marketing\\\\Models\\\\Promotion\\:\\:\\$progress has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Marketing\\\\Models\\\\Promotion\\:\\:\\$progressType has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Marketing\\\\Models\\\\Promotion\\:\\:\\$tasks has no typehint specified\\.$#
+  ☐ #^Class Modules\\\\Media\\\\Models\\\\Collection implements generic interface Iterator but does not specify its types\\: TKey, TValue$#
+  ☐ #^Method Modules\\\\Media\\\\Models\\\\Collection\\:\\:current\\(\\) has no return typehint specified\\.$#
+  ☐ #^Method Modules\\\\Media\\\\Models\\\\Collection\\:\\:key\\(\\) has no return typehint specified\\.$#
+  ☐ #^Method Modules\\\\Media\\\\Models\\\\Collection\\:\\:valid\\(\\) has no return typehint specified\\.$#
+  ☐ #^Call to an undefined method phpOMS\\\\Message\\\\RequestAbstract\\:\\:getHash\\(\\)\\.$#
+  ☐ #^Cannot call method where\\(\\) on array\\.$#
+  ☐ #^Static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:find\\(\\) invoked with 4 parameters, 1 required\\.$#
+  ☐ #^Property Modules\\\\Profile\\\\Theme\\\\Backend\\\\Components\\\\AccountGroupSelector\\\\PopupView\\:\\:\\$id has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\ProjectManagement\\\\Models\\\\Project\\:\\:\\$tasks has unknown class Modules\\\\ProjectManagement\\\\Models\\\\Tasks as its type\\.$#
+  ☐ #^PHPDoc tag @param for parameter \\$task with type int\\|Modules\\\\Tasks\\\\Models\\\\Task is not subtype of native type Modules\\\\Tasks\\\\Models\\\\Task\\.$#
+  ☐ #^Array \\(array\\<Modules\\\\ProjectManagement\\\\Models\\\\Tasks\\>\\) does not accept Modules\\\\Tasks\\\\Models\\\\Task\\.$#
+  ☐ #^Method Modules\\\\ProjectManagement\\\\Models\\\\Project\\:\\:getTask\\(\\) should return Modules\\\\Tasks\\\\Models\\\\Task but returnsModules\\\\ProjectManagement\\\\Models\\\\Tasks\\|Modules\\\\Tasks\\\\Models\\\\Task\\.$#"
+  ☐ #^Method Modules\\\\ProjectManagement\\\\Models\\\\Project\\:\\:getTasks\\(\\) should return array\\<Modules\\\\Tasks\\\\Models\\\\Task\\> but returnsarray\\<Modules\\\\ProjectManagement\\\\Models\\\\Tasks\\>\\.$#"
+  ☐ #^Method Modules\\\\ProjectManagement\\\\Models\\\\Project\\:\\:getCalendar\\(\\) should return Modules\\\\Calendar\\\\Models\\\\Calendar but returns int\\Modules\\\\Calendar\\\\Models\\\\Calendar\\.$#"
+  ☐ #^Cannot call method setName\\(\\) on int\\|Modules\\\\Calendar\\\\Models\\\\Calendar\\.$#
+  ☐ #^Call to static method create\\(\\) on an unknown class Modules\\\\QA\\\\Controller\\\\QAAnswerMapper\\.$#
+  ☐ #^Call to an undefined method Modules\\\\QA\\\\Models\\\\QAAnswer\\:\\:setName\\(\\)\\.$#
+  ☐ #^Property Modules\\\\QA\\\\Models\\\\QAAnswer\\:\\:\\$answer has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\QA\\\\Models\\\\QAAnswer\\:\\:\\$question has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\QA\\\\Models\\\\QAAnswer\\:\\:\\$isAccepted has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\QA\\\\Models\\\\QAAnswer\\:\\:\\$createdBy has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\QA\\\\Models\\\\QACategory\\:\\:\\$parent has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\QA\\\\Models\\\\QAQuestion\\:\\:\\$language has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\QA\\\\Models\\\\QAQuestion\\:\\:\\$createdBy has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Category\\:\\:\\$title has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Category\\:\\:\\$parent has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Category\\:\\:\\$responsible has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Category\\:\\:\\$deputy has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Cause\\:\\:\\$title has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Cause\\:\\:\\$probability has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Cause\\:\\:\\$department has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Cause\\:\\:\\$risk has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Cause\\:\\:\\$category has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Department\\:\\:\\$department has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Department\\:\\:\\$responsible has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Department\\:\\:\\$deputy has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Process\\:\\:\\$title has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Process\\:\\:\\$department has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Process\\:\\:\\$responsible has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Process\\:\\:\\$deputy has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Process\\:\\:\\$unit has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Project\\:\\:\\$project has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Project\\:\\:\\$responsible has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Project\\:\\:\\$deputy has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$unit has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$department has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$category has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$project has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$process has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$responsible has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$deputy has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$histScore has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$causes has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$solutions has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$riskObjects has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$media has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\RiskObject\\:\\:\\$title has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\RiskObject\\:\\:\\$risk has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Solution\\:\\:\\$title has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Solution\\:\\:\\$probability has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Solution\\:\\:\\$cause has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Solution\\:\\:\\$risk has no typehint specified\\.$#
+  ☐ #^Call to an undefined method phpOMS\\\\Message\\\\RequestAbstract\\:\\:getRouteVerb\\(\\)\\.$#
+  ☐ #^Property Modules\\\\SupplierManagement\\\\Models\\\\Supplier\\:\\:\\$taxId has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\SupplierManagement\\\\Models\\\\Supplier\\:\\:\\$info has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\SupplierManagement\\\\Models\\\\Supplier\\:\\:\\$files has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\SupplierManagement\\\\Models\\\\Supplier\\:\\:\\$contactElements has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\SupplierManagement\\\\Models\\\\Supplier\\:\\:\\$address has no typehint specified\\.$#
+  ☐ #^Method Modules\\\\Support\\\\Models\\\\Message\\:\\:setCreated\\(\\) has parameter \\$created with no typehint specified\\.$#
+  ☐ #^Method Modules\\\\Surveys\\\\Models\\\\Survey\\:\\:setCreated\\(\\) has parameter \\$created with no typehint specified\\.$#
+  ☐ #^Property Modules\\\\WarehouseManagement\\\\Models\\\\Article\\:\\:\\$creator has unknown class phpOMS\\\\Models\\\\User as its type\\.$#
+  ☐ #^Return typehint of method Modules\\\\WarehouseManagement\\\\Models\\\\Article\\:\\:getCreator\\(\\) has invalid type phpOMS\\\\Models\\\\User\\.$#
+  ☐ #^Parameter \\$creator of method Modules\\\\WarehouseManagement\\\\Models\\\\Article\\:\\:setCreator\\(\\) has invalid typehint type phpOMS\\\\Models\\\\User\\.$#
+  ☐ #^Access to an undefined property Modules\\\\WarehouseManagement\\\\Models\\\\Article\\:\\:\\$prices\\.$#
+  ☐ #^Property Modules\\\\Workflow\\\\Templates\\\\Permission\\\\Workflow\\:\\:\\$id has no typehint specified\\.$#
+  ☐ #^Property Modules\\\\Workflow\\\\Templates\\\\Permission\\\\Workflow\\:\\:\\$state has no typehint specified\\.$#
+  ☐ #^Method Modules\\\\Workflow\\\\Templates\\\\Permission\\\\Workflow\\:\\:run\\(\\) has parameter \\$data with no typehint specified\\.$#
+  ☐ #^Method Modules\\\\Workflow\\\\Templates\\\\Permission\\\\Workflow\\:\\:runRequest\\(\\) has parameter \\$data with no typehint specified\\.$#
+  ☐ #^Method Modules\\\\Workflow\\\\Templates\\\\Permission\\\\Workflow\\:\\:runPending\\(\\) has parameter \\$data with no typehint specified\\.$#
+  ☐ #^PHPDoc tag @var for property Socket\\\\Socketserver\\\\Application\\:\\:\\$type with type phpOMS\\\\Socket\\\\SocketType is incompatible with native type string\\.$#
+  ☐ #^Property Socket\\\\Socketserver\\\\Application\\:\\:\\$type has unknown class phpOMS\\\\Socket\\\\SocketType as its type\\.$#
+  ☐ #^Access to an undefined property Socket\\\\Socketserver\\\\Application\\:\\:\\$appName\\.$#
+  ☐ #^Class phpOMS\\\\DataStorage\\\\Cache\\\\CachePool does not have a constructor and must be instantiated without any parameters\\.$#
+  ☐ #^Access to an undefined property Socket\\\\Socketserver\\\\Application\\:\\:\\$socket\\.$#
+  ☐ #^Function setcookie invoked with 8 parameters, 1\\-7 required\\.$#
+  ☐ #^Parameter \\#1 \\$dbdata of class phpOMS\\\\DataStorage\\\\Database\\\\Connection\\\\MysqlConnection constructor expects array\\('db' \\=\\> string, 'host' \\=\\>string, 'port' \\=\\> int, 'login' \\=\\> string, 'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\), array\\('db' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'login' \\=\\> string, \\?'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\) given\\.$#"
+  ☐ #^Parameter \\#1 \\$dbdata of class phpOMS\\\\DataStorage\\\\Database\\\\Connection\\\\PostgresConnection constructor expects array\\('db' \\=\\> string, 'host' \\=\\>string, 'port' \\=\\> int, 'login' \\=\\> string, 'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\), array\\('db' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'login' \\=\\> string, \\?'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\) given\\.$#"
+  ☐ #^Parameter \\#1 \\$dbdata of class phpOMS\\\\DataStorage\\\\Database\\\\Connection\\\\SqlServerConnection constructor expects array\\('db' \\=\\> string, 'host' \\=\\>string, 'port' \\=\\> int, 'login' \\=\\> string, 'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\), array\\('db' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'login' \\=\\> string, \\?'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\) given\\.$#"
+  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:createConditionals\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
+  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:createModel\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
+  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:getObjectId\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
+  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:setObjectId\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
+  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:createHasMany\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
+  ☐ #^Variable \\$columns in PHPDoc tag @var does not exist\\.$#
+  ☐ #^Variable \\$table in PHPDoc tag @var does not exist\\.$#
+  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:updateHasMany\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
+  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:updateModel\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
+  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:updateConditionals\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
+  ☐ #^Argument of an invalid type string supplied for foreach, only iterables are supported\\.$#
+  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:deleteHasMany\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
+  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:deleteModel\\(\\) has parameter \\$refClass with generic class ReflectionClass but does notspecify its types\\: T$#"
+  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:getConditionals\\(\\) has parameter \\$key with no typehint specified\\.$#
+  ☐ #^PHPDoc tag @return with type void is incompatible with native type array\\.$#
+  ☐ #^Only iterables can be unpacked, string given in argument \\#1\\.$#
+  ☐ #^Parameter \\#1 \\.\\.\\.\\$columns of method phpOMS\\\\DataStorage\\\\Database\\\\Query\\\\Builder\\:\\:select\\(\\) expects array\\<int, mixed\\>, string given\\.$#
+  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:getConditionals\\(\\) with return type void returns mixed but should not return anything\\.$#
+  ☐ #^Parameter \\#1 \\$result of static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:populateAbstract\\(\\) expects array, void given\\.$#
+  ☐ #^Parameter \\#3 \\$columns of static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:populateAbstract\\(\\) expects array, string given\\.$#
+  ☐ #^Result of static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:getConditionals\\(\\) \\(void\\) is used\\.$#
+  ☐ #^Call to an undefined static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:populateConditionalsArray\\(\\)\\.$#
+  ☐ #^Parameter \\#1 \\$result of static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:populateAbstractArray\\(\\) expects array, void given\\.$#
+  ☐ #^Parameter \\#3 \\$columns of static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:populateAbstractArray\\(\\) expects array, string given\\.$#
+  ☐ #^Variable \\$primaryField in PHPDoc tag @var does not match assigned variable \\$src\\.$#
+  ☐ #^Array \\(array\\<phpOMS\\\\DataStorage\\\\Database\\\\Connection\\\\ConnectionAbstract\\>\\) does not acceptphpOMS\\\\DataStorage\\\\DataStorageConnectionInterface\\.$#"
+  ☐ #^Instanceof between array and phpOMS\\\\DataStorage\\\\Database\\\\Query\\\\Builder will always evaluate to false\\.$#
+  ☐ #^Call to an undefined method phpOMS\\\\DataStorage\\\\Database\\\\Query\\\\Column\\:\\:getColumn\\(\\)\\.$#
+  ☐ #^Instanceof between mixed and phpOMS\\\\DataStorage\\\\Database\\\\Query\\\\Where will always evaluate to false\\.$#
+  ☐ #^Parameter \\$from of method phpOMS\\\\DataStorage\\\\Database\\\\Query\\\\Grammar\\\\Grammar\\:\\:compileFromQuery\\(\\) has invalid typehint typephpOMS\\\\DataStorage\\\\Database\\\\Query\\\\Grammar\\\\From\\.$#"
+  ☐ #^Call to method toSql\\(\\) on an unknown class phpOMS\\\\DataStorage\\\\Database\\\\Query\\\\Grammar\\\\From\\.$#
+  ☐ #^Method phpOMS\\\\Math\\\\Geometry\\\\ConvexHull\\\\MonotoneChain\\:\\:createConvexHull\\(\\) should return array\\<int, array\\<string, float\\|int\\>\\> but returnsarray\\<int\\|string, array\\<string, float\\|int\\>\\>\\.$#"
+  ☐ #^Parameter \\#3 \\$length of function array_slice expects int\\|null, float\\|int given\\.$#
+  ☐ #^Parameter \\#1 \\$matrix of method phpOMS\\\\Math\\\\Matrix\\\\Matrix\\:\\:setMatrix\\(\\) expects array\\<int, array\\<float\\|int\\>\\>, array\\<int\\|string,array\\<int, \\(float\\|int\\)\\>\\> given\\.$#"
+  ☐ #^Parameter \\#1 \\$offset of method phpOMS\\\\Math\\\\Matrix\\\\Matrix\\:\\:offsetGet\\(\\) expects string, int given\\.$#
+  ☐ #^Method phpOMS\\\\Math\\\\Matrix\\\\Matrix\\:\\:key\\(\\) should return string but returns int\\.$#
+  ☐ #^Method phpOMS\\\\Math\\\\Matrix\\\\Matrix\\:\\:valid\\(\\) has no return typehint specified\\.$#
+  ☐ #^Parameter \\#1 \\$offset of method phpOMS\\\\Math\\\\Matrix\\\\Matrix\\:\\:offsetExists\\(\\) expects string, int given\\.$#
+  ☐ #^Parameter \\#2 \\$offset of function array_slice expects int, float\\|int given\\.$#
+  ☐ #^Method phpOMS\\\\Message\\\\Mail\\\\EmailAbstract\\:\\:decode\\(\\) should return string but returns string\\|false\\.$#
+  ☐ #^Parameter \\#1 \\$overview of method phpOMS\\\\Message\\\\Mail\\\\Mail\\:\\:setOverview\\(\\) expects array, array\\|false given\\.$#
+  ☐ #^Parameter \\#1 \\$body of method phpOMS\\\\Message\\\\Mail\\\\Mail\\:\\:setBody\\(\\) expects string, string\\|false given\\.$#
+  ☐ #^Method phpOMS\\\\Message\\\\Mail\\\\EmailAbstract\\:\\:getInboxOverview\\(\\) should return array but returns array\\|false\\.$#
+  ☐ #^Cannot access property \\$Nmsgs on stdClass\\|false\\.$#
+  ☐ #^Method phpOMS\\\\Message\\\\Mail\\\\EmailAbstract\\:\\:getMessageOverview\\(\\) should return array but returns array\\|false\\.$#
+  ☐ #^Method phpOMS\\\\Message\\\\Mail\\\\EmailAbstract\\:\\:countMessages\\(\\) should return int but returns int\\|false\\.$#
+  ☐ #^Method phpOMS\\\\Message\\\\Mail\\\\EmailAbstract\\:\\:getMessageHeader\\(\\) should return string but returns string\\|false\\.$#
+  ☐ #^Property phpOMS\\\\Message\\\\Mail\\\\Mail\\:\\:\\$overview \\(string\\) does not accept array\\.$#
+  ☐ #^Method phpOMS\\\\Message\\\\Socket\\\\PacketManager\\:\\:handle\\(\\) has parameter \\$client with no typehint specified\\.$#
+  ☐ #^Property phpOMS\\\\Message\\\\Socket\\\\SocketHeader\\:\\:\\$sendFrom has no typehint specified\\.$#
+  ☐ #^Property phpOMS\\\\Message\\\\Socket\\\\SocketHeader\\:\\:\\$sendTo has no typehint specified\\.$#
+  ☐ #^Call to an undefined method phpOMS\\\\Message\\\\RequestAbstract\\:\\:getHash\\(\\)\\.$#
+  ☐ #^Property phpOMS\\\\Socket\\\\Client\\\\Client\\:\\:\\$app has unknown class phpOMS\\\\Socket\\\\Client\\\\SocketApplication as its type\\.$#
+  ☐ #^Property phpOMS\\\\Socket\\\\Client\\\\Client\\:\\:\\$app \\(phpOMS\\\\Socket\\\\Client\\\\SocketApplication\\) does not acceptphpOMS\\\\Application\\\\ApplicationAbstract\\.$#"
+  ☐ #^Parameter \\#1 \\$router of class phpOMS\\\\Message\\\\Socket\\\\PacketManager constructor expects phpOMS\\\\Router\\\\SocketRouter,phpOMS\\\\Router\\\\RouterInterface given\\.$#"
+  ☐ #^Comparison operation \"\\>\" between 1 and 0 is always true\\.$#
+  ☐ #^Access to an undefined property phpOMS\\\\Socket\\\\Client\\\\Client\\:\\:\\$commands\\.$#
+  ☐ #^Property phpOMS\\\\Socket\\\\Client\\\\ClientConnection\\:\\:\\$handshake has no typehint specified\\.$#
+  ☐ #^Property phpOMS\\\\Socket\\\\Client\\\\ClientConnection\\:\\:\\$pid has no typehint specified\\.$#
+  ☐ #^Property phpOMS\\\\Socket\\\\Client\\\\ClientConnection\\:\\:\\$connected has no typehint specified\\.$#
+  ☐ #^Property phpOMS\\\\Socket\\\\Server\\\\ClientManager\\:\\:\\$clients has no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\Socket\\\\Server\\\\ClientManager\\:\\:get\\(\\) has parameter \\$id with no typehint specified\\.$#
+  ☐ #^Property phpOMS\\\\Socket\\\\Server\\\\Server\\:\\:\\$verbose has no typehint specified\\.$#
+  ☐ #^Parameter \\#1 \\$router of class phpOMS\\\\Message\\\\Socket\\\\PacketManager constructor expects phpOMS\\\\Router\\\\SocketRouter,phpOMS\\\\Router\\\\RouterInterface given\\.$#"
+  ☐ #^Cannot call method getSocket\\(\\) on null\\.$#
+  ☐ #^Cannot call method setHandshake\\(\\) on null\\.$#
+  ☐ #^Property phpOMS\\\\Socket\\\\SocketAbstract\\:\\:\\$sock \\(resource\\) does not accept resource\\|false\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:parseRawList\\(\\) should return array\\<string, array\\<string, int\\|string\\>\\> but returns array\\<int\\string, array\\<string, int\\|string\\>\\>\\.$#"
+  ☐ #^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#
+  ☐ #^Parameter \\#3 \\$content of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:put\\(\\) expects string, string\\|false given\\.$#
+  ☐ #^Parameter \\#1 \\$con of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:create\\(\\) expects resource, string given\\.$#
+  ☐ #^Parameter \\#2 \\$path of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:create\\(\\) expects string, int given\\.$#
+  ☐ #^Parameter \\#3 \\$permission of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:create\\(\\) expects int, true given\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:getParent\\(\\) should return phpOMS\\\\System\\\\File\\\\ContainerInterface but return statement ismissing\\.$#"
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:copyNode\\(\\) should return bool but return statement is missing\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:moveNode\\(\\) should return bool but return statement is missing\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:deleteNode\\(\\) should return bool but return statement is missing\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:current\\(\\) has no return typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:key\\(\\) has no return typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:next\\(\\) has no return typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:valid\\(\\) has no return typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:offsetSet\\(\\) has parameter \\$offset with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:offsetSet\\(\\) has parameter \\$value with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:offsetExists\\(\\) has parameter \\$offset with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:offsetUnset\\(\\) has parameter \\$offset with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:exists\\(\\) has parameter \\$con with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:put\\(\\) has parameter \\$con with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:get\\(\\) has parameter \\$con with no typehint specified\\.$#
+  ☐ #^Parameter \\#2 \\$fp of function ftp_fget expects resource, resource\\|false given\\.$#
+  ☐ #^Parameter \\#1 \\$fp of function rewind expects resource, resource\\|false given\\.$#
+  ☐ #^Parameter \\#1 \\$source of function stream_get_contents expects resource, resource\\|false given\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:get\\(\\) should return string but returns string\\|false\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:set\\(\\) has parameter \\$con with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:append\\(\\) has parameter \\$con with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:prepend\\(\\) has parameter \\$con with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:created\\(\\) has parameter \\$con with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:changed\\(\\) has parameter \\$con with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:size\\(\\) has parameter \\$con with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:owner\\(\\) has parameter \\$con with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:permission\\(\\) has parameter \\$con with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:copy\\(\\) has parameter \\$con with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:move\\(\\) has parameter \\$con with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:delete\\(\\) has parameter \\$con with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:create\\(\\) has parameter \\$con with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:getParent\\(\\) should return phpOMS\\\\System\\\\File\\\\ContainerInterface but return statement is missing\\.$#
+  ☐ #^Call to an undefined static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:ftpCreate\\(\\)\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:copyNode\\(\\) should return bool but return statement is missing\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:moveNode\\(\\) should return bool but return statement is missing\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:deleteNode\\(\\) should return bool but return statement is missing\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:putContent\\(\\) should return bool but return statement is missing\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:setContent\\(\\) should return bool but return statement is missing\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:appendContent\\(\\) should return bool but return statement is missing\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:prependContent\\(\\) should return bool but return statement is missing\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:getContent\\(\\) should return string but return statement is missing\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:getExtension\\(\\) should return string but return statement is missing\\.$#
+  ☐ #^Parameter \\#3 \\$content of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:put\\(\\) expects string, int given\\.$#
+  ☐ #^Static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:get\\(\\) invoked with 1 parameter, 2 required\\.$#
+  ☐ #^Parameter \\#1 \\$con of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:create\\(\\) expects resource, string given\\.$#
+  ☐ #^Parameter \\#2 \\$path of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:create\\(\\) expects string, int given\\.$#
+  ☐ #^Parameter \\#3 \\$permission of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:create\\(\\) expects int, true given\\.$#
+  ☐ #^Static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:create\\(\\) invoked with 1 parameter, 2 required\\.$#
+  ☐ #^Parameter \\#1 \\$con of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:list\\(\\) expects resource, string given\\.$#
+  ☐ #^Static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:set\\(\\) invoked with 2 parameters, 3 required\\.$#
+  ☐ #^Static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:append\\(\\) invoked with 2 parameters, 3 required\\.$#
+  ☐ #^Static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:prepend\\(\\) invoked with 2 parameters, 3 required\\.$#
+  ☐ #^Call to an undefined method RecursiveIteratorIterator\\|RegexIterator\\:\\:getSubPathname\\(\\)\\.$#
+  ☐ #^Call to an undefined method RecursiveIteratorIterator\\:\\:getSubPathname\\(\\)\\.$#
+  ☐ #^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:current\\(\\) has no return typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:key\\(\\) has no return typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:next\\(\\) has no return typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:valid\\(\\) has no return typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:offsetSet\\(\\) has parameter \\$offset with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:offsetSet\\(\\) has parameter \\$value with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:offsetExists\\(\\) has parameter \\$offset with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:offsetUnset\\(\\) has parameter \\$offset with no typehint specified\\.$#
+  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:offsetGet\\(\\) has parameter \\$offset with no typehint specified\\.$#
+  ☐ #^Result of \\|\\| is always true\\.$#
+  ☐ #^Comparison operation \"\\>\" between int\\<1000, max\\> and 999 is always true\\.$#
+  ☐ #^Comparison operation \"\\>\" between int\\<1000000, max\\> and 999999 is always true\\.$#
+  ☐ #^Cannot assign offset string to string\\.$#
+  ☐ #^string does not accept array\\<string, mixed\\>\\.$#
+  ☐ #^Method phpOMS\\\\Utils\\\\Parser\\\\Markdown\\\\Markdown\\:\\:blockTableContinue\\(\\) should return array\\|null but return statement is missing\\.$#
+  ☐ #^Unreachable statement \\- code above always terminates\\.$#
+  ☐ #^Method phpOMS\\\\Utils\\\\Parser\\\\Markdown\\\\Markdown\\:\\:inlineSpecialCharacter\\(\\) should return array\\|null but return statement is missing\\.$#
