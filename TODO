@@ -472,3 +472,14 @@ phpstan:
   ☐ #^Method phpOMS\\\\Utils\\\\Parser\\\\Markdown\\\\Markdown\\:\\:blockTableContinue\\(\\) should return array\\|null but return statement is missing\\.$#
   ☐ #^Unreachable statement \\- code above always terminates\\.$#
   ☐ #^Method phpOMS\\\\Utils\\\\Parser\\\\Markdown\\\\Markdown\\:\\:inlineSpecialCharacter\\(\\) should return array\\|null but return statement is missing\\.$#
+
+If null model then
+*`null model needs key in construct
+* create/update need to ignore null models
+* get need to always create null model for last level
+* controller always need to create null model instead of passing int/id
+* MUCH easier typehinting (no union types required)
+
+Problem for models which are related by a different column e.g. language = not related by ID but by 2char ISO code
+* don't want to load the model in many cases but the id or secondary id (e.g. iso code for language)
+* in this case just set the value of the none-id column to the relation value and use the null model in this way.!!!
