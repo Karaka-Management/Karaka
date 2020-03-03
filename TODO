@@ -1,0 +1,104 @@
+Orange-Management:
+  ☐ #50 [ErrorApplication] Create error socket on failure
+  ☐ #46 [Routing] Routing paths which start with 2 characters are invalid
+
+phpOMS:
+  ☐ #233 [DataMapper] On delete the relations and relation tables need to be deleted first
+  ☐ #232 [DataMapper] Relations get updated even if they didn't change
+  ☐ #231 [TaskSchedule] Use the interval for generating a schedule
+  ☐ #230 [SocketSession] Create socket session
+  ☐ #229 [Kmeans] Invalid center coodinate value
+  ☐ #228 [Module Activate/Deactivate/Uninstall] Remove/Add routes on module status change
+  ☐ #227 [DataMapper] Implement unserialize and unJsonSerialize
+  ☐ #226 [DataMapper] Test the update of a model with relations
+  ☐ #225 [DataMapper] Test the deletion of a model with relations
+  ☐ #224 [DataMapper] Implement composite models
+  ☐ #223 [ArrayUtils] Combine power functions with union types
+  ☐ #222 [DataMapper] Implement conditionals
+  ☐ #221 [DataMapper] Create deleteArray, deleteArrayModel
+  ☐ #220 [DataMapper] Use joins
+  ☐ #219 [*Connection] Disable automatic database connection
+  ☐ #218 [ApplicationAbstract] Replace magic methods with readonly once available
+  ☐ #215 Covariance for function parameters
+  ☐ #213 [DataMapper] Allow single field references
+  ☐ #212 [DataMapper] Replace nested models which are represented as scalar/id with NullModel
+  ☐ #206 [ItemClustering] Implement
+  ☐ #204 [BusinessWarehous] Implement warehouse picking algorithm
+  ☐ #194 [Builder] Automatically set prefix during construction
+  ☐ #190 [OAuth 2.0] Implement
+  ☐ #186 [SingularValueDecomposition] Implement
+  ☐ #184 [Cache] Add more functions to the interface
+  ☐ #182 [FileCache] Create file locking
+  ☐ #179 [Matrix] Create unit test for inverse
+  ☐ #176 [Tests] Create assertion for different execution path of angleMean2
+  ☐ #175 [Tests] Create assertion for different execution path of harmonicMean
+  ☐ #173 [Tests] Create unit test for getMeanSquaredScaledError
+
+jsOMS:
+  ☐ #90 [Table] Implement export
+  ☐ #89 [Table] Implement local and remote filtering
+  ☐ #88 [Table] If a filter is active it should be highlighted/marked in the table
+  ☐ #87 [Form] On edit highlight the data which is changed
+  ☐ #86 [Form] On edit replace add button with save and cancel
+  ☐ #85 [Form] Invalid backend/api responses (!201) should undo/stop UI changes
+  ☐ #84 [Form] Remote data responses need to be parsed
+  ☐ #83 [Form] Removing a dynamically added form from the dom should also be removed and unbound from the FormManager
+  ☐ #82 [Form] The container element for inline adding isn't always tbody
+  ☐ #81 [Form] Adding templates to the dom should adjust ids
+  ☐ #80 [Form] Do UI actions (e.g. add) as success injection after the backend response (optional)
+  ☐ #79 [Form] After adding a new element some require a binding for editing
+  ☐ #78 [Form] After adding a new element some require a binding for removal
+  ☐ #77 [Form] Re-consider collecting the value-paths for adding data
+  ☐ #76 [Form] Bug with adding dom elements with the add button
+  ☐ #75 [Form] Allow multiple/different add buttons in a form
+  ☐ #74 [AdvanceSelect] Auto filtering client side data
+  ☐ #73 [AdvancedSelect] Consider none-element
+  ☐ #72 [AdvancedInput] Allow duplication
+  ☐ #70 [AdvancedInput] Implement external styles for selections instead of inline css
+  ☐ #69 [ActionManager] Implement listener for child elements if selector is specified
+  ☐ #68 [Action] Dom/Remove
+  ☐ #67 [Logger] Implement UI logging
+  ☐ #66 [Speech] Remove speech recognition wrapper
+  ☐ #64 [Library] Get nearest element(s) based on selector
+  ☐ #63 [AdvancedInput] Focusout of input element closes dropdown
+  ☐ #62 [AdvancedInput] For local data filter/sort by best match
+  ☐ #61 [AdvancedInput] Consider adding a exit/none element for phone users to jump out
+  ☐ #60 [FormManager] On change listener
+  ☐ #59 [Table] Data download
+
+Modules:
+  ☐ #208 [Media] Media list improvements
+  ☐ #207 [Media] Validate file type and file size on the frontend before uploading
+  ☐ #206 [Tasks] Implement has seen feature
+  ☐ #205 [Tasks] Update task status depending on the new task element or updated task element
+  ☐ #204 [Media] Automatically change the file encoding of text files
+  ☐ #203 [Media] Automatically enable image interlacing
+  ☐ #201 [Tasks] Validate that the user is allowed to create a task element for a specific task
+  ☐ #200 [Help] Add dev help documentation
+  ☐ #199 [UML] Create UML diagrams for all modules
+  ☐ #197 [Kanban] Board: Column width depending amount of columns
+  ☐ #196 [HumanResourceTimeRecording] Implement session delete
+  ☐ #195 [HumanResourceTimeRecording] Allow session element update
+  ☐ #194 [HumanResourceTimeRecording] Allow session update
+  ☐ #193 [Modules] Implement online database and downloading api for modules and updates
+  ☐ #192 [Navigation] Improve sidebar navigation
+  ☐ #191 [Calendar] Limit event loading to a fixed amount of months
+  ☐ #190 [Navigation] Improve slow language loading
+  ☐ #189 [HumanResourceTimeManagement] Limit employee session list
+  ☐ #188 [HumanResourceManagement] Employee work history
+  ☐ #187 [HumanResourceManagement] Employee education history
+  ☐ #186 [Approval] Implement Approval module
+  ☐ #185 [Media] Encrypt/Decrypt media file
+  ☐ #183 [HumanResourceApplication] Create module
+  ☐ #182 [ItemManagement] Re-structure item views
+  ☐ #181 [Navigation] Cache/optimize navigation language
+  ☐ #180 [Warehouse] Implement optimization tool
+  ☐ #179 [Model] Replace int models with NullModels
+  ☐ #178 [UserAnalytics] Implement
+  ☐ #177 [Forms] Hotkey for saving tasks for creation/edit
+  ☐ #176 [Tasks] Batch handle tasks in the dashboard list
+
+cssOMS:
+  ☐ #14 Create drop down with search field
+  ☐ #12 Create slider element
+  ☐ #4 Nicer visual input validation
