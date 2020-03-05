@@ -19,6 +19,7 @@ use Model\CoreSettings;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\LocalizationMapper;
 
+use Modules\Admin\Models\NullAccount;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Auth\Auth;
@@ -43,11 +44,10 @@ use phpOMS\Model\Message\Reload;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\WebRouter;
 use phpOMS\System\MimeType;
-use phpOMS\Uri\UriFactory;
 
+use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
 use Web\WebApplication;
-use Modules\Admin\Models\NullAccount;
 
 /**
  * Application class.

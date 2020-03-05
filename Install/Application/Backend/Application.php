@@ -18,9 +18,10 @@ use Model\CoreSettings;
 
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\LocalizationMapper;
+use Modules\Admin\Models\NullAccount;
 use Modules\Organization\Models\UnitMapper;
-use Modules\Profile\Models\ProfileMapper;
 
+use Modules\Profile\Models\ProfileMapper;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\PermissionType;
@@ -46,10 +47,9 @@ use phpOMS\Router\RouteVerb;
 use phpOMS\Router\WebRouter;
 use phpOMS\System\File\PathException;
 use phpOMS\Uri\UriFactory;
-use phpOMS\Views\View;
 
+use phpOMS\Views\View;
 use Web\WebApplication;
-use Modules\Admin\Models\NullAccount;
 
 /**
  * Application class.
