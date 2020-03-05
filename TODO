@@ -12,7 +12,7 @@ phpOMS:
   ☐ #227 [DataMapper] Implement unserialize and unJsonSerialize
   ☐ #226 [DataMapper] Test the update of a model with relations
   ☐ #225 [DataMapper] Test the deletion of a model with relations
-  ☐ #224 [DataMapper] Implement composite models
+  ✔ #224 [DataMapper] Implement composite models @started(20-03-04 20:38) @done(20-03-05 20:37) @lasted(23h59m31s)
   ☐ #223 [ArrayUtils] Combine power functions with union types
   ☐ #222 [DataMapper] Implement conditionals
   ☐ #221 [DataMapper] Create deleteArray, deleteArrayModel
@@ -21,7 +21,7 @@ phpOMS:
   ☐ #218 [ApplicationAbstract] Replace magic methods with readonly once available
   ☐ #215 Covariance for function parameters
   ☐ #213 [DataMapper] Allow single field references
-  ☐ #212 [DataMapper] Replace nested models which are represented as scalar/id with NullModel
+  ✔ #212 [DataMapper] Replace nested models which are represented as scalar/id with NullModel @started(20-03-04 23:17) @done(20-03-05 20:37) @lasted(21h20m39s)
   ☐ #206 [ItemClustering] Implement
   ☐ #204 [BusinessWarehous] Implement warehouse picking algorithm
   ☐ #194 [Builder] Automatically set prefix during construction
@@ -472,14 +472,3 @@ phpstan:
   ☐ #^Method phpOMS\\\\Utils\\\\Parser\\\\Markdown\\\\Markdown\\:\\:blockTableContinue\\(\\) should return array\\|null but return statement is missing\\.$#
   ☐ #^Unreachable statement \\- code above always terminates\\.$#
   ☐ #^Method phpOMS\\\\Utils\\\\Parser\\\\Markdown\\\\Markdown\\:\\:inlineSpecialCharacter\\(\\) should return array\\|null but return statement is missing\\.$#
-
-If null model then
-*`null model needs key in construct
-* create/update need to ignore null models
-* get need to always create null model for last level
-* controller always need to create null model instead of passing int/id
-* MUCH easier typehinting (no union types required)
-
-Problem for models which are related by a different column e.g. language = not related by ID but by 2char ISO code
-* don't want to load the model in many cases but the id or secondary id (e.g. iso code for language)
-* in this case just set the value of the none-id column to the relation value and use the null model in this way.!!!

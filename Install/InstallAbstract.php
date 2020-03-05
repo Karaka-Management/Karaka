@@ -22,6 +22,7 @@ use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\Group;
 use Modules\Admin\Models\GroupMapper;
 use Modules\Admin\Models\LocalizationMapper;
+use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Organization\Models\Status;
@@ -326,7 +327,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $collection->setName('Modules');
         $collection->setVirtualPath('/');
         $collection->setPath('/');
-        $collection->setCreatedBy(1);
+        $collection->setCreatedBy(new NullAccount(1));
 
         CollectionMapper::create($collection);
     }
