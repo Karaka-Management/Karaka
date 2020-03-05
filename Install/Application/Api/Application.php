@@ -21,7 +21,6 @@ use Modules\Admin\Models\LocalizationMapper;
 
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
-use phpOMS\Account\NullAccount;
 use phpOMS\Auth\Auth;
 use phpOMS\Auth\LoginReturnType;
 use phpOMS\DataStorage\Cache\CachePool;
@@ -48,6 +47,7 @@ use phpOMS\Uri\UriFactory;
 
 use phpOMS\Views\View;
 use Web\WebApplication;
+use Modules\Admin\Models\NullAccount;
 
 /**
  * Application class.
