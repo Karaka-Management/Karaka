@@ -233,7 +233,6 @@ final class WebApplication extends InstallAbstract
             || ($valid['iDbHost'] = empty($request->getData('dbhost')))
             || ($valid['iDbType'] = empty($request->getData('dbtype')))
             || ($valid['iDbPort'] = empty($request->getData('dbport')))
-            || ($valid['iDbPrefix'] = empty($request->getData('dbprefix')))
             || ($valid['iDbName'] = empty($request->getData('dbname')))
             || ($valid['iSchemaUser'] = empty($request->getData('schemauser')))
             //|| ($valid['iSchemaPassword'] = empty($request->getData('schemapassword')))

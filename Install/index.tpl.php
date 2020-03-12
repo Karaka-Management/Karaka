@@ -190,8 +190,6 @@
                             </select>
                         <li><label for="iDbPort">Port</label>
                         <li><input id="iDbPort" name="dbport" type="number" value="3306" required>
-                        <li><label for="iDbPrefix">Prefix</label>
-                        <li><input id="iDbPrefix" name="dbprefix" type="text" value="oms_" required>
                         <li><label for="iDbName">Database</label>
                         <li><input id="iDbName" name="dbname" type="text" value="oms" required>
                     </ul>

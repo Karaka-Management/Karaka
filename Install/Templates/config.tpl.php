@@ -10,7 +10,6 @@
  * @var array{login:string, password:string} $delete Delete login data
  * @var array{login:string, password:string} $schema Schema login data
  * @var string              $dbname Database name
- * @var string              $prefix Table prefix
  * @var string              $subdir Subdirectory path
  * @var string              $tld    Top level domain
  */
@@ -40,8 +39,7 @@ return [
                     'login'    => '{$admin['login']}', /* db login name */
                     'password' => '{$admin['password']}', /* db login password */
                     'database' => '${dbname}', /* db name */
-                    'prefix'   => '${prefix}', /* db table prefix */
-                    'weight'   => 1000, /* db table prefix */
+                    'weight'   => 1000, /* db table weight */
                 ],
                 'insert'  => [
                     'db'       => '${db}', /* db type */
@@ -50,8 +48,7 @@ return [
                     'login'    => '{$insert['login']}', /* db login name */
                     'password' => '{$insert['password']}', /* db login password */
                     'database' => '${dbname}', /* db name */
-                    'prefix'   => '${prefix}', /* db table prefix */
-                    'weight'   => 1000, /* db table prefix */
+                    'weight'   => 1000, /* db table weight */
                 ],
                 'select'  => [
                     'db'       => '${db}', /* db type */
@@ -60,8 +57,7 @@ return [
                     'login'    => '{$select['login']}', /* db login name */
                     'password' => '{$select['password']}', /* db login password */
                     'database' => '${dbname}', /* db name */
-                    'prefix'   => '${prefix}', /* db table prefix */
-                    'weight'   => 1000, /* db table prefix */
+                    'weight'   => 1000, /* db table weight */
                 ],
                 'update'  => [
                     'db'       => '${db}', /* db type */
@@ -70,8 +66,7 @@ return [
                     'login'    => '{$update['login']}', /* db login name */
                     'password' => '{$update['password']}', /* db login password */
                     'database' => '${dbname}', /* db name */
-                    'prefix'   => '${prefix}', /* db table prefix */
-                    'weight'   => 1000, /* db table prefix */
+                    'weight'   => 1000, /* db table weight */
                 ],
                 'delete'  => [
                     'db'       => '${db}', /* db type */
@@ -80,8 +75,7 @@ return [
                     'login'    => '{$delete['login']}', /* db login name */
                     'password' => '{$delete['password']}', /* db login password */
                     'database' => '${dbname}', /* db name */
-                    'prefix'   => '${prefix}', /* db table prefix */
-                    'weight'   => 1000, /* db table prefix */
+                    'weight'   => 1000, /* db table weight */
                 ],
                 'schema'  => [
                     'db'       => '${db}', /* db type */
@@ -90,8 +84,7 @@ return [
                     'login'    => '{$schema['login']}', /* db login name */
                     'password' => '{$schema['password']}', /* db login password */
                     'database' => '${dbname}', /* db name */
-                    'prefix'   => '${prefix}', /* db table prefix */
-                    'weight'   => 1000, /* db table prefix */
+                    'weight'   => 1000, /* db table weight */
                 ],
             ],
         ],

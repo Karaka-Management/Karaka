@@ -40,8 +40,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'login'    => 'root', /* db login name */
                             'password' => 'root', /* db login password */
                             'database' => 'oms', /* db name */
-                            'prefix'   => 'oms_', /* db table prefix */
-                            'weight'   => 1000, /* db table prefix */
+                            'weight'   => 1000, /* db table weight */
                         ],
                         'insert'  => [
                             'db'       => 'mysql', /* db type */
@@ -50,8 +49,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'login'    => 'root', /* db login name */
                             'password' => 'root', /* db login password */
                             'database' => 'oms', /* db name */
-                            'prefix'   => 'oms_', /* db table prefix */
-                            'weight'   => 1000, /* db table prefix */
+                            'weight'   => 1000, /* db table weight */
                         ],
                         'select'  => [
                             'db'       => 'mysql', /* db type */
@@ -60,8 +58,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'login'    => 'root', /* db login name */
                             'password' => 'root', /* db login password */
                             'database' => 'oms', /* db name */
-                            'prefix'   => 'oms_', /* db table prefix */
-                            'weight'   => 1000, /* db table prefix */
+                            'weight'   => 1000, /* db table weight */
                         ],
                         'update'  => [
                             'db'       => 'mysql', /* db type */
@@ -70,8 +67,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'login'    => 'root', /* db login name */
                             'password' => 'root', /* db login password */
                             'database' => 'oms', /* db name */
-                            'prefix'   => 'oms_', /* db table prefix */
-                            'weight'   => 1000, /* db table prefix */
+                            'weight'   => 1000, /* db table weight */
                         ],
                         'delete'  => [
                             'db'       => 'mysql', /* db type */
@@ -80,8 +76,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'login'    => 'root', /* db login name */
                             'password' => 'root', /* db login password */
                             'database' => 'oms', /* db name */
-                            'prefix'   => 'oms_', /* db table prefix */
-                            'weight'   => 1000, /* db table prefix */
+                            'weight'   => 1000, /* db table weight */
                         ],
                         'schema'  => [
                             'db'       => 'mysql', /* db type */
@@ -90,8 +85,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'login'    => 'root', /* db login name */
                             'password' => 'root', /* db login password */
                             'database' => 'oms', /* db name */
-                            'prefix'   => 'oms_', /* db table prefix */
-                            'weight'   => 1000, /* db table prefix */
+                            'weight'   => 1000, /* db table weight */
                         ],
                     ],
                 ],
@@ -139,7 +133,6 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         $request->setData('dbhost', $config['db']['core']['masters']['admin']['host']);
         $request->setData('dbtype', $config['db']['core']['masters']['admin']['db']);
         $request->setData('dbport', $config['db']['core']['masters']['admin']['port']);
-        $request->setData('dbprefix', $config['db']['core']['masters']['admin']['prefix']);
         $request->setData('dbname', $config['db']['core']['masters']['admin']['database']);
         $request->setData('schemauser', $config['db']['core']['masters']['admin']['login']);
         $request->setData('schemapassword', $config['db']['core']['masters']['admin']['password']);

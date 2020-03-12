@@ -137,7 +137,7 @@ final class CoreSettings implements SettingsInterface
             $dbOptions = [];
             $query     = new Builder($this->connection);
             $query->select(...\array_values(static::$columns))
-                ->from($this->connection->prefix . static::$table);
+                ->from(static::$table);
 
             if (!empty($ids)) {
                 $query->where(static::$columns['id'], 'in', $ids);
@@ -224,7 +224,7 @@ final class CoreSettings implements SettingsInterface
             }
 
             $query = new Builder($this->connection);
-            $query->update($this->connection->prefix . static::$table)
+            $query->update(static::$table)
                 ->set([static::$columns['content'] => $option['content']]);
 
             if (!empty($option['id'])) {
@@ -267,7 +267,7 @@ final class CoreSettings implements SettingsInterface
 
         foreach ($options as $option) {
             $query = new Builder($this->connection);
-            $query->update($this->connection->prefix . static::$table)
+            $query->update(static::$table)
                 ->set([static::$columns['content'] => $option['content']]);
 
             if (!empty($option['id'])) {
@@ -303,7 +303,7 @@ final class CoreSettings implements SettingsInterface
     public function create(array $options = []) : void
     {
         $query = new Builder($this->connection);
-        $query->into($this->connection->prefix . static::$table);
+        $query->into(static::$table);
 
         foreach ($options as $column => $option) {
             $query->insert(static::$columns[$column])
