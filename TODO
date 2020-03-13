@@ -13,7 +13,6 @@ phpOMS:
   ☐ #225 [DataMapper] Test the deletion of a model with relations
   ☐ #223 [ArrayUtils] Combine power functions with union types
   ☐ #221 [DataMapper] Create deleteArray, deleteArrayModel
-  ☐ #220 [DataMapper] Use joins @started(20-03-06 23:16)
   ☐ #219 [*Connection] Disable automatic database connection
   ☐ #218 [ApplicationAbstract] Replace magic methods with readonly once available
   ☐ #215 Covariance for function parameters
@@ -420,3 +419,13 @@ phpstan:
   ☐ #^Unreachable statement \\- code above always terminates\\.$#"
   ☐ #^Method phpOMS\\\\Utils\\\\Parser\\\\Markdown\\\\Markdown\\:\\:inlineSpecialCharacter\\(\\) should return array\\|null but return statement is missing\\.$#"
   ☐ #^Parameter \\#3 \\$subject of function str_replace expects array\\|string, string\\|null given\\.$#"
+
+# join
+
+$mapper::queryJoin($query, $on, $columns = [], $depth = 3)
+$mapper::populateWith($result, $depth = 3);
+
+=>
+* Get the query for model, ownsOne, belongsTo
+* Get all results for model, ownsOne, belongsTo
+* Pass this data to the populators
