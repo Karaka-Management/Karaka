@@ -22,3 +22,87 @@
 [submodule "Resources"]
 	path = Resources
 	url = https://github.com/Orange-Management/Resources.git
+[submodule "Modules/Admin"]
+	path = Modules/Admin
+	url = https://github.com/Orange-Management/oms-Admin.git
+[submodule "Modules/Tools"]
+	path = Modules/Tools
+	url = https://github.com/Orange-Management/oms-Tools.git
+[submodule "Modules/Tag"]
+	path = Modules/Tag
+	url = https://github.com/Orange-Management/oms-Tag.git
+[submodule "Modules/Organization"]
+	path = Modules/Organization
+	url = https://github.com/Orange-Management/oms-Organization.git
+[submodule "Modules/Editor"]
+	path = Modules/Editor
+	url = https://github.com/Orange-Management/oms-Editor.git
+[submodule "Modules/Navigation"]
+	path = Modules/Navigation
+	url = https://github.com/Orange-Management/oms-Navigation.git
+[submodule "Modules/Auditor"]
+	path = Modules/Auditor
+	url = https://github.com/Orange-Management/oms-Auditor.git
+[submodule "Modules/News"]
+	path = Modules/News
+	url = https://github.com/Orange-Management/oms-News.git
+[submodule "Modules/Knowledgebase"]
+	path = Modules/Knowledgebase
+	url = https://github.com/Orange-Management/oms-Knowledgebase.git
+[submodule "Modules/Help"]
+	path = Modules/Help
+	url = https://github.com/Orange-Management/oms-Help.git
+[submodule "Modules/Helper"]
+	path = Modules/Helper
+	url = https://github.com/Orange-Management/oms-Helper.git
+[submodule "Modules/Monitoring"]
+	path = Modules/Monitoring
+	url = https://github.com/Orange-Management/oms-Monitoring.git
+[submodule "Modules/Tasks"]
+	path = Modules/Tasks
+	url = https://github.com/Orange-Management/oms-Tasks.git
+[submodule "Modules/Dashboard"]
+	path = Modules/Dashboard
+	url = https://github.com/Orange-Management/oms-Dashboard.git
+[submodule "Modules/Profile"]
+	path = Modules/Profile
+	url = https://github.com/Orange-Management/oms-Profile.git
+[submodule "Modules/Search"]
+	path = Modules/Search
+	url = https://github.com/Orange-Management/oms-Search.git
+[submodule "Modules/Calendar"]
+	path = Modules/Calendar
+	url = https://github.com/Orange-Management/oms-Calendar.git
+[submodule "Modules/Checklist"]
+	path = Modules/Checklist
+	url = https://github.com/Orange-Management/oms-Checklist.git
+[submodule "Modules/Kanban"]
+	path = Modules/Kanban
+	url = https://github.com/Orange-Management/oms-Kanban.git
+[submodule "Modules/MyPrivate"]
+	path = Modules/MyPrivate
+	url = https://github.com/Orange-Management/oms-MyPrivate.git
+[submodule "Modules/Marketing"]
+	path = Modules/Marketing
+	url = https://github.com/Orange-Management/oms-Marketing.git
+[submodule "Modules/EventManagement"]
+	path = Modules/EventManagement
+	url = https://github.com/Orange-Management/oms-EventManagement.git
+[submodule "Modules/ProjectManagement"]
+	path = Modules/ProjectManagement
+	url = https://github.com/Orange-Management/oms-ProjectManagement.git
+[submodule "Modules/RiskManagement"]
+	path = Modules/RiskManagement
+	url = https://github.com/Orange-Management/oms-RiskManagement.git
+[submodule "Modules/HumanResourceTimeRecording"]
+	path = Modules/HumanResourceTimeRecording
+	url = https://github.com/Orange-Management/oms-HumanResourceTimeRecording.git
+[submodule "Modules/HumanResourceManagement"]
+	path = Modules/HumanResourceManagement
+	url = https://github.com/Orange-Management/oms-HumanResourceManagement.git
+[submodule "Modules/Workflow"]
+	path = Modules/Workflow
+	url = https://github.com/Orange-Management/oms-Workflow.git
+[submodule "Modules/Job"]
+	path = Modules/Job
+	url = https://github.com/Orange-Management/oms-Job.git
