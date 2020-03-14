@@ -71,7 +71,7 @@ final class CoreSettings implements SettingsInterface
      * @var string
      * @since 1.0.0
      */
-    protected static ?string $table = 'settings';
+    protected static string $table = 'settings';
 
     /**
      * Constructor.
