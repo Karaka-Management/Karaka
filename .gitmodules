@@ -106,3 +106,27 @@
 [submodule "Modules/Job"]
 	path = Modules/Job
 	url = https://github.com/Orange-Management/oms-Job.git
+[submodule "Modules/Media"]
+	path = Modules/Media
+	url = https://github.com/Orange-Management/oms-Media.git
+[submodule "Modules/Home"]
+	path = Modules/Home
+	url = https://github.com/Orange-Management/oms-Home.git
+[submodule "Modules/Database"]
+	path = Modules/Database
+	url = https://github.com/Orange-Management/oms-Database.git
+[submodule "Modules/DatabaseEditor"]
+	path = Modules/DatabaseEditor
+	url = https://github.com/Orange-Management/oms-DatabaseEditor.git
+[submodule "Modules/Draw"]
+	path = Modules/Draw
+	url = https://github.com/Orange-Management/oms-Draw.git
+[submodule "Modules/Contact"]
+	path = Modules/Contact
+	url = https://github.com/Orange-Management/oms-Contact.git
+[submodule "Modules/Comments"]
+	path = Modules/Comments
+	url = https://github.com/Orange-Management/oms-Comments.git
+[submodule "Modules/Exchange"]
+	path = Modules/Exchange
+	url = https://github.com/Orange-Management/oms-Exchange.git

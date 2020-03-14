@@ -1,0 +1,33 @@
+{
+    "name": {
+        "id": 0,
+        "internal": "",
+        "external": ""
+    },
+    "category": "",
+    "version": "",
+    "requirements": {
+        "phpOMS": "",
+        "phpOMS-db": ""
+    },
+    "creator": {
+        "name": "",
+        "website": ""
+    },
+    "description": "",
+    "directory": "",
+    "dependencies": {
+    },
+    "providing": {
+    },
+    "load": [
+        {
+            "pid": [
+            ],
+            "type": 0,
+            "for": 0,
+            "from": "",
+            "file": ""
+        }
+    ]
+}
