@@ -133,3 +133,6 @@
 [submodule "Modules/QA"]
 	path = Modules/QA
 	url = https://github.com/Orange-Management/oms-QA.git
+[submodule "Modules/TestModule"]
+	path = Modules/TestModule
+	url = https://github.com/Orange-Management/oms-TestModule.git
