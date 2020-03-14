@@ -381,7 +381,7 @@ abstract class InstallAbstract extends ApplicationAbstract
     protected static function installGroupPermissions(ConnectionAbstract $db) : void
     {
         $db->con->prepare(
-            'INSERT INTO `' . 'group_permission` (`group_permission_group`, `group_permission_unit`, `group_permission_app`, `group_permission_module`, `group_permission_from`, `group_permission_type`, `group_permission_element`, `group_permission_component`, `group_permission_permission`) VALUES
+            'INSERT INTO `group_permission` (`group_permission_group`, `group_permission_unit`, `group_permission_app`, `group_permission_module`, `group_permission_from`, `group_permission_type`, `group_permission_element`, `group_permission_component`, `group_permission_permission`) VALUES
                 (3, null, null, NULL, NULL, NULL, NULL, NULL, ' . (PermissionType::READ | PermissionType::CREATE | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION) . ');'
         )->execute();
     }
@@ -457,7 +457,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         AccountMapper::create($account);
 
         $db->con->prepare(
-            'INSERT INTO `' . 'account_group` (`account_group_group`, `account_group_account`) VALUES
+            'INSERT INTO `account_group` (`account_group_group`, `account_group_account`) VALUES
                 (3, ' . $account->getId() . ');'
         )->execute();
     }
@@ -475,7 +475,7 @@ abstract class InstallAbstract extends ApplicationAbstract
     protected static function installSettings(RequestAbstract $request, ConnectionAbstract $db) : void
     {
         $db->con->prepare(
-            'INSERT INTO `' . 'settings` (`settings_name`, `settings_content`) VALUES
+            'INSERT INTO `settings` (`settings_name`, `settings_content`) VALUES
                 (' . Settings::PASSWORD_PATTERN . ', \'\'),
                 (' . Settings::LOGIN_TIMEOUT . ', \'3\'),
                 (' . Settings::PASSWORD_INTERVAL . ', \'90\'),
