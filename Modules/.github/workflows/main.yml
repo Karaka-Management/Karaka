@@ -1,0 +1,118 @@
+name: CI/CD
+
+on: [push]
+
+jobs:
+  autoformat:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'NO_CI')"
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 1
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+      - name: Setup Composer
+        run: composer install
+      - name: Autoformat
+        run: 'vendor/bin/php-cs-fixer fix ./ --rules=''{"array_syntax": {"syntax": "short"}, "blank_line_after_namespace": true, "cast_spaces": {"space": "single"}, "combine_consecutive_issets": true, "compact_nullable_typehint": true, "declare_strict_types": true, "elseif": true, "encoding": true, "explicit_indirect_variable": true, "explicit_string_variable": true, "function_to_constant": true, "implode_call": true, "increment_style": {"style": "pre"}, "is_null": {"use_yoda_style": false}, "line_ending": true, "logical_operators": true, "lowercase_cast": true, "lowercase_constants": true, "lowercase_keywords": true, "modernize_types_casting": true, "native_constant_invocation": true, "native_function_casing": true, "native_function_invocation": true, "new_with_braces": true, "no_alias_functions": true, "no_closing_tag": true, "no_empty_comment": true, "no_empty_phpdoc": true, "no_empty_statement": true, "no_homoglyph_names": true, "no_mixed_echo_print": {"use": "echo"}, "no_php4_constructor": true, "no_singleline_whitespace_before_semicolons": true, "no_spaces_inside_parenthesis": true, "no_trailing_whitespace": true, "no_unneeded_final_method": true, "no_unused_imports": true, "no_useless_return": true, "no_whitespace_before_comma_in_array": true, "no_whitespace_in_blank_line": true, "non_printable_character": true, "ordered_imports": {"sort_algorithm": "alpha"}, "php_unit_construct": true, "php_unit_internal_class": true, "php_unit_ordered_covers": true, "php_unit_set_up_tear_down_visibility": true, "phpdoc_align": {"align": "vertical"}, "phpdoc_annotation_without_dot": true, "phpdoc_scalar": true, "phpdoc_trim_consecutive_blank_line_separation": true, "random_api_migration": true, "self_accessor": true, "set_type_to_cast": true, "short_scalar_cast": true, "single_blank_line_at_eof": true, "single_line_after_imports": true, "standardize_increment": true, "trailing_comma_in_multiline_array": true, "trim_array_spaces": true, "visibility_required": true, "void_return": true}'' --allow-risky=yes'
+      - name: Check for modified files
+        id: git-check
+        run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
+      - name: Push changes
+        if: steps.git-check.outputs.modified == 'true'
+        run: |
+          git config --global user.name 'Formatter Bot'
+          git config --global user.email 'formatter.bot@orange-management.email'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git commit -am "Automated formatting changes"
+          git push
+  codestyle-tests:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'NO_CI')"
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        php-versions: ['7.4']
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@master
+      with:
+        fetch-depth: 1
+    - name: Checkout Build Repository
+      uses: actions/checkout@master
+      with:
+          fetch-depth: 1
+          ref: develop
+          repository: Orange-Management/Build
+          path: Build
+    - name: Setup PHP, with composer and extensions
+      uses: shivammathur/setup-php@master
+      with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+    - name: Cache dependencies
+      uses: actions/cache@v1
+      with:
+        path: ${{ steps.composer-cache.outputs.dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: ${{ runner.os }}-composer-
+    - name: Setup Composer
+      run: composer install
+    - name: phpcs
+      run: vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report=full
+  custom:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'NO_CI')"
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        php-versions: ['7.4', '8.0']
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@master
+      with:
+        fetch-depth: 1
+    - name: Checkout Build Repository
+      uses: actions/checkout@master
+      with:
+          fetch-depth: 1
+          ref: develop
+          repository: Orange-Management/Build
+          path: Build
+    - name: Setup PHP, with composer and extensions
+      uses: shivammathur/setup-php@master
+      with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
+    - name: PHP linting
+      run: find ./ -type f -name '*.php' -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v "No syntax errors detected" )
+    - name: Php strict
+      run: if [[ $(grep -r -L "declare(strict_types=1);" --include=*.php --exclude={*.tpl.php,*Hooks.php,*Routes.php,*SearchCommands.php} ./) -ne "" ]]; then exit 1; fi
+    - name: Html inspection
+      run: |
+        if [[ $(find ./ -name "*tpl.php" | xargs grep -E '=\"[\#\$\%\^\&\*\(\)\\/\ ]*\"') -ne "" ]]; then exit 1; fi
+        if [[ $(find ./ -name "*tpl.php" | xargs grep -P '(\<img)((?!.*?alt=).)*(>)') -ne "" ]]; then exit 1; fi
+    - name: Js strict
+      run: if [[ $(grep -r -L "\"use strict\";" --include=*.js ./) -ne "" ]]; then exit 1; fi
+    - name: Js inspection
+      run: |
+        if [[ $(grep -rlni "onafterprint=\|onbeforeprint=\|onbeforeunload=\|onerror=\|onhaschange=\|onload=\|onmessage=\|onoffline=\|ononline=\|onpagehide=\|onpageshow=\|onpopstate=\|onredo=\|onresize=\|onstorage=\|onund=o\|onunload=\|onblur=\|onchage=\|oncontextmenu=\|onfocus=\|onformchange=\|onforminput=\|oninput=\|oninvalid=\|onreset=\|onselect=\|onsubmit=\|onkeydown=\|onkeypress=\|onkeyup=\|onclick=\|ondblclic=k\|ondrag=\|ondragend=\|ondragenter=\|ondragleave=\|ondragover=\|ondragstart=\|ondrop=\|onmousedown=\|onmousemove=\|onmouseout=\|onmouseover=\|onmouseup=\|onmousewheel=\|onscroll=\|onabor=t\|oncanplay=\|oncanplaythrough=\|ondurationchange=\|onemptied=\|onended=\|onerror=\|onloadeddata=\|onloadedmetadata=\|onloadstart=\|onpause=\|onplay=\|onplaying=\|onprogress=\|onratechange=\|onreadystatechange=\|onseeked=\|onseeking=\|onstalled=\|onsuspend=\|ontimeupdate=\|onvolumechange=" --include=*.js ./) -ne "" ]]; then exit 1; fi

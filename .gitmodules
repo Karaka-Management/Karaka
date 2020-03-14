@@ -1,9 +1,6 @@
 [submodule "Docs"]
 	path = Docs
 	url = https://github.com/Orange-Management/Docs.git
-[submodule "Modules"]
-	path = Modules
-	url = https://github.com/Orange-Management/Modules.git
 [submodule "phpOMS"]
 	path = phpOMS
 	url = https://github.com/Orange-Management/phpOMS.git
