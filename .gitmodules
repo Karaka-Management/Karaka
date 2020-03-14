@@ -130,3 +130,6 @@
 [submodule "Modules/Exchange"]
 	path = Modules/Exchange
 	url = https://github.com/Orange-Management/oms-Exchange.git
+[submodule "Modules/QA"]
+	path = Modules/QA
+	url = https://github.com/Orange-Management/oms-QA.git
