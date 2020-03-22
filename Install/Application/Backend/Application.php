@@ -172,6 +172,10 @@ final class Application
                 );
         }
 
+        if (!\in_array($response->getHeader()->getL11n()->getLanguage(), $this->config['language'])) {
+            $response->getHeader()->getL11n()->setLanguage($this->app->l11nServer->getLanguage());
+        }
+
         $pageView = new BackendView($this->app->l11nManager, $request, $response);
         $head     = new Head();
 

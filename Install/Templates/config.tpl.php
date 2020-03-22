@@ -152,7 +152,7 @@ return [
         ],
     ],
     'language' => [
-        'en',
+        'en', 'de',
     ],
 ];
 
