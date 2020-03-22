@@ -197,19 +197,17 @@ final class Application
 
         $this->app->moduleManager->initRequestModules($request);
 
-        $dispatched = $this->app->dispatcher->dispatch(
-            $this->app->router->route(
-                $request->getUri()->getRoute(),
-                $request->getData('CSRF'),
-                $request->getRouteVerb(),
-                $this->app->appName,
-                $this->app->orgId,
-                $account,
-                $request->getData()
-            ),
-            $request,
-            $response
+        $routed = $this->app->router->route(
+            $request->getUri()->getRoute(),
+            $request->getData('CSRF'),
+            $request->getRouteVerb(),
+            $this->app->appName,
+            $this->app->orgId,
+            $account,
+            $request->getData()
         );
+
+        $dispatched = $this->app->dispatcher->dispatch($routed, $request, $response);
 
         if (empty($dispatched)) {
             $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
