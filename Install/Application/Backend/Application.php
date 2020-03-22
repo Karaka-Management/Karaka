@@ -106,8 +106,15 @@ final class Application
      */
     public function run(HttpRequest $request, HttpResponse $response) : void
     {
-        $this->app->l11nManager = new L11nManager($this->app->appName);
-        $this->app->dbPool      = new DatabasePool();
+        $this->app->l11nManager    = new L11nManager($this->app->appName);
+        $this->app->dbPool         = new DatabasePool();
+        $this->app->sessionManager = new HttpSession(36000);
+        $this->app->cookieJar      = new CookieJar();
+        $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+        $this->app->dispatcher     = new Dispatcher($this->app);
+
+        $this->app->dbPool->create('select', $this->config['db']['core']['masters']['select']);
+
         $this->app->router      = new WebRouter();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
         $this->app->router->add(
@@ -122,13 +129,6 @@ final class Application
             },
             RouteVerb::GET
         );
-
-        $this->app->sessionManager = new HttpSession(36000);
-        $this->app->cookieJar      = new CookieJar();
-        $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../Modules');
-        $this->app->dispatcher     = new Dispatcher($this->app);
-
-        $this->app->dbPool->create('select', $this->config['db']['core']['masters']['select']);
 
         /* CSRF token OK? */
         if ($request->getData('CSRF') !== null
