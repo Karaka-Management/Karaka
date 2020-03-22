@@ -202,7 +202,12 @@ class WebApplication extends ApplicationAbstract
         $defaultLang = $config['app']['domains'][$request->getUri()->getHost()]['lang'] ?? $config['app']['default']['lang'];
         $uriLang     = \strtolower($request->getUri()->getPathElement(0));
         $requestLang = $request->getHeader()->getL11n()->getLanguage();
-        $langCode    = ISO639x1Enum::isValidValue($requestLang) && \in_array($requestLang, $config['language']) ? $requestLang : (ISO639x1Enum::isValidValue($uriLang) && \in_array($uriLang, $config['language']) ? $uriLang : $defaultLang);
+        $langCode    = ISO639x1Enum::isValidValue($requestLang) && \in_array($requestLang, $config['language'])
+            ? $requestLang
+            : (ISO639x1Enum::isValidValue($uriLang) && \in_array($uriLang, $config['language'])
+                ? $uriLang
+                : $defaultLang
+            );
 
         $response->getHeader()->getL11n()->loadFromLanguage($langCode, \explode('_', $request->getLocale())[1] ?? '*');
         UriFactory::setQuery('/lang', $request->getHeader()->getL11n()->getLanguage());
