@@ -107,22 +107,8 @@ final class Application
     public function run(HttpRequest $request, HttpResponse $response) : void
     {
         $this->app->l11nManager = new L11nManager($this->app->appName);
-
-        $pageView = new BackendView($this->app->l11nManager, $request, $response);
-        $head     = new Head();
-
-        $pageView->setData('head', $head);
-        $response->set('Content', $pageView);
-
-        /* Backend only allows GET */
-        if ($request->getMethod() !== RequestMethod::GET) {
-            $this->create406Response($response, $pageView);
-
-            return;
-        }
-
-        $this->app->dbPool = new DatabasePool();
-        $this->app->router = new WebRouter();
+        $this->app->dbPool      = new DatabasePool();
+        $this->app->router      = new WebRouter();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
         $this->app->router->add(
             '/backend/e403',
@@ -144,13 +130,6 @@ final class Application
 
         $this->app->dbPool->create('select', $this->config['db']['core']['masters']['select']);
 
-        /* Database OK? */
-        if ($this->app->dbPool->get()->getStatus() !== DatabaseStatus::OK) {
-            $this->create503Response($response, $pageView);
-
-            return;
-        }
-
         /* CSRF token OK? */
         if ($request->getData('CSRF') !== null
             && !\hash_equals($this->app->sessionManager->get('CSRF'), $request->getData('CSRF'))
@@ -169,9 +148,7 @@ final class Application
         $this->app->eventManager   = new EventManager($this->app->dispatcher);
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
         $this->app->l11nServer     = LocalizationMapper::get(1);
-
-        $this->app->orgId = $this->getApplicationOrganization($request, $this->config['app']);
-        $pageView->setData('orgId', $this->app->orgId);
+        $this->app->orgId          = $this->getApplicationOrganization($request, $this->config['app']);
 
         $aid = Auth::authenticate($this->app->sessionManager);
         $request->getHeader()->setAccount($aid);
@@ -193,6 +170,27 @@ final class Application
                     $this->app->cookieJar->get('language'),
                     $this->app->cookieJar->get('country') ?? '*'
                 );
+        }
+
+        $pageView = new BackendView($this->app->l11nManager, $request, $response);
+        $head     = new Head();
+
+        $pageView->setData('orgId', $this->app->orgId);
+        $pageView->setData('head', $head);
+        $response->set('Content', $pageView);
+
+        /* Backend only allows GET */
+        if ($request->getMethod() !== RequestMethod::GET) {
+            $this->create406Response($response, $pageView);
+
+            return;
+        }
+
+        /* Database OK? */
+        if ($this->app->dbPool->get()->getStatus() !== DatabaseStatus::OK) {
+            $this->create503Response($response, $pageView);
+
+            return;
         }
 
         UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());
