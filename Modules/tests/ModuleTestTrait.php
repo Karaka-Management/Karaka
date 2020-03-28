@@ -238,7 +238,7 @@ trait ModuleTestTrait
             $db = \json_decode(\file_get_contents($schemaPath), true);
 
             foreach ($db as $name => $table) {
-                if (!\in_array($this->app->dbPool->get()->prefix . $name, $tables)) {
+                if (!\in_array($name, $tables)) {
                     self::assertTrue(false);
                 }
 
