@@ -16,7 +16,7 @@
             <directory>../phpOMS/tests*</directory>
         </testsuite>
         <testsuite name="Modules">
-            <directory>../Modules/tests*</directory>
+            <directory>../Modules/**/tests*</directory>
         </testsuite>
         <testsuite name="App">
             <directory>../tests*</directory>
