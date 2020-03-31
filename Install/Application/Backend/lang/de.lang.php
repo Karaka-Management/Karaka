@@ -29,6 +29,7 @@ return [[
     'Friday'     => 'Freitag',
     'ID'         => 'ID',
     'CurrencyK'  => 'K',
+    'Language'   => 'Sprache',
     'Login'      => 'Login',
     'Logo'       => 'Logo',
     'CurrencyM'  => 'M',
