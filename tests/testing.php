@@ -20,7 +20,6 @@ use Modules\Helper\Models\TemplateMapper;
 use Modules\Media\Models\CollectionMapper;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\DataStorage\Session\HttpSession;
 
 $CONFIG = [
