@@ -43,6 +43,10 @@ use Web\Exception\UnexpectedApplicationException;
  *  Add unit id to all models
  *  All models are bound to a specific unit or 0/null in case of no unit.
  *  This is important since not everyone should be allowed to create models for all units (unless permissions say so).
+ *
+ * @todo Orange-Management/Orange-Management#65
+ *  [LazyLoading] Replace own image lazy loading with official solution
+ *  Once the majority of all browsers support `loading="lazy"` this should be used instead of the currently implemented lazy loading version.
  */
 class WebApplication extends ApplicationAbstract
 {
