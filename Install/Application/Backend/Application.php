@@ -115,7 +115,7 @@ final class Application
 
         $this->app->dbPool->create('select', $this->config['db']['core']['masters']['select']);
 
-        $this->app->router      = new WebRouter();
+        $this->app->router = new WebRouter();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
         $this->app->router->add(
             '/backend/e403',
