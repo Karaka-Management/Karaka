@@ -1,0 +1,36 @@
+{
+    "name": {
+        "id": 1007800000,
+        "internal": "CMS",
+        "external": "CMS"
+    },
+    "category": "CMS",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "CMS module.",
+    "directory": "CMS",
+    "dependencies": {
+        "Admin": "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/"
+            ],
+            "type": 5,
+            "from": "CMS",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

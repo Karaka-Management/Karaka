@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1007801001,
+        "pid": "/",
+        "type": 2,
+        "subtype": 0,
+        "name": "Website",
+        "uri": null,
+        "target": "self",
+        "icon": "fa fa-wrench",
+        "order": 15,
+        "from": "Website",
+        "permission": { "permission": 2, "type": null, "element": null },
+        "parent": 0,
+        "children": [
+        ]
+    }
+]
