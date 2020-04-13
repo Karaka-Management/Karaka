@@ -25,6 +25,15 @@
     "load": [
         {
             "pid": [
+                "/cms"
+            ],
+            "type": 4,
+            "for": "Content",
+            "from": "CMS",
+            "file": "CMS"
+        },
+        {
+            "pid": [
                 "/"
             ],
             "type": 5,

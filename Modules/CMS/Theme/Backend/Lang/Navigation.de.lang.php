@@ -13,12 +13,12 @@
 declare(strict_types=1);
 
 return ['Navigation' => [
-    'Applications' => 'Applications',
+    'Applications' => 'Anwendungen',
     'CMS'          => 'CMS',
-    'Create'       => 'Create',
-    'Pages'        => 'Pages',
-    'Permissions'  => 'Permissions',
-    'Settings'     => 'Settings',
+    'Create'       => 'Erstellen',
+    'Pages'        => 'Seiten',
+    'Permissions'  => 'Rechnte',
+    'Settings'     => 'Einstellungen',
     'Templates'    => 'Templates',
     'Themes'       => 'Themes',
     'Widgets'      => 'Widgets',

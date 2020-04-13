@@ -1,0 +1,19 @@
+{
+    "application": {
+        "name": "application",
+        "fields": {
+            "application_id": {
+                "name": "application_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "application_name": {
+                "name": "application_name",
+                "type": "VARCHAR(254)",
+                "null": false
+            }
+        }
+    }
+}
