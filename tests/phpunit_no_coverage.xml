@@ -38,6 +38,8 @@
                 <directory>../phpOMS/vendor</directory>
                 <directory>../Modules/vendor</directory>
                 <directory>../*/tests*</directory>
+                <directory>../**/tests*</directory>
+                <directory>*/tests*</directory>
                 <directory suffix="tpl.php">../*</directory>
                 <directory suffix="lang.php">../*</directory>
                 <directory suffix="Test.php">../*</directory>
