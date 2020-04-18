@@ -3,7 +3,7 @@ name: CI/CD
 on: [push]
 
 jobs:
-  autoformat:
+  notification:
     runs-on: ubuntu-latest
     steps:
       - name: Discord notification
