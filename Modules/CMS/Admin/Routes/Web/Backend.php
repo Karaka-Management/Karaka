@@ -17,4 +17,15 @@ return [
             ],
         ],
     ],
+    '^.*/cms/application/create.*$' => [
+        [
+            'dest' => '\Modules\CMS\Controller\BackendController:viewApplicationCreate',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => BackendController::MODULE_NAME,
+                'type'  => PermissionType::CREATE,
+                'state' => PermissionState::APPLICATION,
+            ],
+        ],
+    ],
 ];

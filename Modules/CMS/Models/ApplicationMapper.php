@@ -33,8 +33,8 @@ final class ApplicationMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'application_id'    => ['name' => 'application_id',    'type' => 'int',      'internal' => 'id'],
-        'application_name'  => ['name' => 'application_name',  'type' => 'string',   'internal' => 'name'],
+        'cms_application_id'    => ['name' => 'cms_application_id',    'type' => 'int',      'internal' => 'id'],
+        'cms_application_name'  => ['name' => 'cms_application_name',  'type' => 'string',   'internal' => 'name'],
     ];
 
     /**
@@ -51,7 +51,7 @@ final class ApplicationMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $table = 'application';
+    protected static string $table = 'cms_application';
 
     /**
      * Primary field name.
@@ -59,5 +59,5 @@ final class ApplicationMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $primaryField = 'application_id';
+    protected static string $primaryField = 'cms_application_id';
 }

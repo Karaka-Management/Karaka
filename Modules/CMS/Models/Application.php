@@ -24,6 +24,14 @@ namespace Modules\CMS\Models;
  */
 class Application
 {
+        /**
+     * ID.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
+
     /**
      * Name
      *
@@ -31,4 +39,42 @@ class Application
      * @since 1.0.0
      */
     private string $name = '';
+
+    /**
+     * Get id
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
+    public function getId() : int
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name Name
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setName(string $name) : void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
+    public function getName() : string
+    {
+        return $this->name;
+    }
 }

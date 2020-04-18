@@ -1,18 +1,56 @@
 {
-    "application": {
-        "name": "application",
+    "cms_application": {
+        "name": "cms_application",
         "fields": {
-            "application_id": {
-                "name": "application_id",
+            "cms_application_id": {
+                "name": "cms_application_id",
                 "type": "INT",
                 "null": false,
                 "primary": true,
                 "autoincrement": true
             },
-            "application_name": {
-                "name": "application_name",
+            "cms_application_name": {
+                "name": "cms_application_name",
                 "type": "VARCHAR(254)",
                 "null": false
+            }
+        }
+    },
+    "cms_post": {
+        "name": "cms_post",
+        "fields": {
+            "cms_post_id": {
+                "name": "cms_post_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "cms_post_title": {
+                "name": "cms_post_title",
+                "type": "VARCHAR(254)",
+                "null": false
+            },
+            "cms_post_content": {
+                "name": "cms_post_content",
+                "type": "TEXT",
+                "null": false
+            },
+            "cms_post_language": {
+                "name": "cms_post_language",
+                "type": "VARCHAR(2)",
+                "default": null,
+                "null": true,
+                "foreignTable": "language",
+                "foreignKey": "language_639_1"
+            },
+            "cms_post_application": {
+                "name": "cms_post_application",
+                "type": "INT",
+                "null": true,
+                "default": null,
+                "foreignTable": "cms_application",
+                "foreignKey": "cms_application_id"
             }
         }
     }
