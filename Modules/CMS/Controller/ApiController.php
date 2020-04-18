@@ -15,12 +15,11 @@ declare(strict_types=1);
 namespace Modules\CMS\Controller;
 
 use Modules\CMS\Models\Application;
+use Modules\CMS\Models\ApplicationMapper;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
-use phpOMS\Utils\Parser\Markdown\Markdown;
-use Modules\CMS\Models\ApplicationMapper;
 
 /**
  * Api controller for the CMS module.
