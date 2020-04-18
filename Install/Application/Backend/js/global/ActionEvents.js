@@ -12,5 +12,4 @@ export const ACTION_EVENTS = {
     'dom.click': domClickAction, /** global: domClickAction */
     'form.submit': formSubmitAction, /** global: domClickAction */
     'event.prevent': preventEvent, /** global: preventEvent */
-    'form.submit': formSubmitAction, /** global: formSubmitAction */
 };
