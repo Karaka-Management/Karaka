@@ -328,6 +328,14 @@ abstract class InstallAbstract extends ApplicationAbstract
         $collection->setCreatedBy(new NullAccount(1));
 
         CollectionMapper::create($collection);
+
+        $collection = new Collection();
+        $collection->setName('Accounts');
+        $collection->setVirtualPath('/');
+        $collection->setPath('/');
+        $collection->setCreatedBy(new NullAccount(1));
+
+        CollectionMapper::create($collection);
     }
 
     /**
