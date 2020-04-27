@@ -422,7 +422,7 @@ abstract class InstallAbstract extends ApplicationAbstract
     protected static function installApplications(RequestAbstract $request, ConnectionAbstract $db) : void
     {
         $apps  = $request->getDataList('apps');
-        $theme = 'Akebi';
+        $theme = 'Default';
 
         /** @var ApiController $module */
         $module = self::$mManager->get('Admin');
