@@ -60,6 +60,10 @@ jsOMS:
   ☐ #60 [FormManager] On change listener
   ☐ #59 [Table] Data download
 
+Media:
+  ☐ #2 [Test] Split ApiController test for Media and Collection
+  ☐ #1 [Test] Create collection creation test
+
 Modules:
   ☐ #208 [Media] Media list improvements
   ☐ #207 [Media] Validate file type and file size on the frontend before uploading
