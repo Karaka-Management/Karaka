@@ -1,19 +1,19 @@
 v0.1.0-alpha:
-  [Tasks] After editing a task the new content should be shown in the description instead of the old json object
-  [Tasks] Adding a new task element should immediately show that content in the task element list instead of requiring a page reload
-  [Tasks] Show the profile image of the user who created the task/task element
-  [Tasks] Implement tags and tag modification
-  [CMS] Allow content creation and modification
-  [CMS] Make all files modifiable in a file overview instead of a view for every type of file (e.g. template, theme, controller)
-  [News] Allow news creation and modification
-  [News] Implement draft view
-  [News] Allow tag modification
-  [Profile] Allow users to define who can see their profile
-  [Knowledgebase] Allow wiki creation and modification
-  [Knowledgebase] Implement draft view
-  [Editor] Allow editor creation and modification
-  [AdvancedInput] Allow pre-defined values/text
-  [AdvancedInput] Allow mandatory and optional pre-defined values/text
+  #13 [Tasks] After editing a task the new content should be shown in the description instead of the old json object
+  #12 [Tasks] Adding a new task element should immediately show that content in the task element list instead of requiring a page reload
+  #11 [Tasks] Show the profile image of the user who created the task/task element
+  #10 [Tasks] Implement tags and tag modification
+  #1 [CMS] Allow content creation and modification
+  #2 [CMS] Make all files modifiable in a file overview instead of a view for every type of file (e.g. template, theme, controller)
+  #1 [News] Allow news creation and modification
+  #2 [News] Implement draft view
+  #3 [News] Allow tag modification
+  #2 [Profiles] Implement basic profile view
+  #1 [Knowledgebase] Allow wiki creation and modification
+  #2 [Knowledgebase] Implement draft view
+  #3 [Editor] Allow editor creation and modification
+  #94 [AdvancedInput] Allow pre-defined values/text
+  #95 [AdvancedInput] Allow mandatory and optional pre-defined values/text
 
 Orange-Management:
   #66 [Build] Create static-tests and unit tests for modules
@@ -66,6 +66,8 @@ phpOMS:
   #194 [Builder] Automatically set prefix during construction
 
 jsOMS:
+  #95 [AdvancedInput] Allow mandatory and optional pre-defined values/text
+  #94 [AdvancedInput] Allow pre-defined values/text
   #93 [Forms] Remove table as layout tool for forms
   #92 [Table] Implement pagination
   #91 [Forms] Hotkey for saving tasks for creation/edit
@@ -134,6 +136,7 @@ Profile:
   #1 [Profile] Define account types to show
 
 Editor:
+  #3 [Editor] Allow editor creation and modification
   #2 [Editor] Versioning
   #1 [Editor] Implement tools
 
