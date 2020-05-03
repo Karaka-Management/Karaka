@@ -1,421 +1,141 @@
+v0.1.0-alpha:
+  [Tasks] After editing a task the new content should be shown in the description instead of the old json object
+  [Tasks] Adding a new task element should immediately show that content in the task element list instead of requiring a page reload
+  [Tasks] Show the profile image of the user who created the task/task element
+  [Tasks] Implement tags and tag modification
+  [CMS] Allow content creation and modification
+  [CMS] Make all files modifiable in a file overview instead of a view for every type of file (e.g. template, theme, controller)
+  [News] Allow news creation and modification
+  [News] Implement draft view
+  [News] Allow tag modification
+  [Profile] Allow users to define who can see their profile
+  [Knowledgebase] Allow wiki creation and modification
+  [Knowledgebase] Implement draft view
+  [Editor] Allow editor creation and modification
+  [AdvancedInput] Allow pre-defined values/text
+  [AdvancedInput] Allow mandatory and optional pre-defined values/text
+
 Orange-Management:
-  ☐ #50 [ErrorApplication] Create error socket on failure
+  #66 [Build] Create static-tests and unit tests for modules
+  #65 [LazyLoading] Replace own image lazy loading with official solution
+  #64 [Localization] Implement setting which lets user see all content no matter the language
+  #63 [ProductionAnalysis] Add module
+  #62 [Event, Project, Promotion] Goal definition
+  #61 [MarketingAnalysis] Implement
+  #60 [Blockchain] Implement blockchain for audited elements
+  #59 [Module ID] Don't use name but id for identification
+  #58 [Documents,Articles,...] Allow directory like structure
+  #56 [TemplateCreator] Implement
+  #55 [Approval] Implement Approval module
+  #54 [Modules] Implement online database and downloading api for modules and updates
+  #53 [UML] Create UML diagrams for all modules
+  #52 [Tests] Create Bootstrap and PHPUnit config files for modules
+  #51 [GithubTemplates] Create github templates for modules
+  #50 [ErrorApplication Create error socket on failure
 
 phpOMS:
-  ☐ #233 [DataMapper] On delete the relations and relation tables need to be deleted first
-  ☐ #232 [DataMapper] Relations get updated even if they didn't change
-  ☐ #231 [TaskSchedule] Use the interval for generating a schedule
-  ☐ #230 [SocketSession] Create socket session
-  ☐ #229 [Kmeans] Invalid center coodinate value
-  ☐ #228 [Module Activate/Deactivate/Uninstall] Remove/Add routes on module status change
-  ☐ #227 [DataMapper] Implement unserialize and unJsonSerialize
-  ☐ #226 [DataMapper] Test the update of a model with relations
-  ☐ #225 [DataMapper] Test the deletion of a model with relations
-  ☐ #223 [ArrayUtils] Combine power functions with union types
-  ☐ #221 [DataMapper] Create deleteArray, deleteArrayModel
-  ☐ #219 [*Connection] Disable automatic database connection
-  ☐ #218 [ApplicationAbstract] Replace magic methods with readonly once available
-  ☐ #215 Covariance for function parameters
-  ☐ #206 [ItemClustering] Implement
-  ☐ #204 [BusinessWarehous] Implement warehouse picking algorithm
-  ☐ #194 [Builder] Automatically set prefix during construction
-  ☐ #190 [OAuth 2.0] Implement
-  ☐ #186 [SingularValueDecomposition] Implement
-  ☐ #184 [Cache] Add more functions to the interface
-  ☐ #182 [FileCache] Create file locking
-  ☐ #179 [Matrix] Create unit test for inverse
-  ☐ #176 [Tests] Create assertion for different execution path of angleMean2
-  ☐ #175 [Tests] Create assertion for different execution path of harmonicMean
-  ☐ #173 [Tests] Create unit test for getMeanSquaredScaledError
+  #252 [WebRouter] Implement test for defining data from route
+  #251 [WebRouter] Implement test to validate the provided data
+  #250 [Tar] Create tar test without destination path/name
+  #249 [Zip] Create zip test without destination path/name
+  #248 [FileLogger] Create test for getInstance
+  #247 [L11nManager] Create currency rendering test for million and billion dividers
+  #246 [EventManager] Create an event with a regex id/name and trigger it
+  #245 [ApplicationManager] Implement test for invalid source and invalid destination
+  #244 [JobScheduling] Implement test for Jobs with same value
+  #243 [JobScheduling] Implement sortByEnd test coverage
+  #242 [DataMapper] Conditional queries bugs/problems
+  #241 [DataMapper] Consider global conditionals
+  #240 [DataMapperAbstract] Use binds
+  #233 [DataMapper] On delete the relations and relation tables need to be deleted first
+  #232 [DataMapper] Relations get updated even if they didn't change
+  #231 [TaskSchedule] Use the interval for generating a schedule
+  #230 [SocketSession] Create socket session
+  #229 [Kmeans] Invalid center coodinate value
+  #228 [Module Activate/Deactivate/Uninstall] Remove/Add routes on module status change
+  #227 [DataMapper] Implement unserialize and unJsonSerialize
+  #226 [DataMapper] Test the update of a model with relations
+  #225 [DataMapper] Test the deletion of a model with relations
+  #223 [ArrayUtils] Combine power functions with union types
+  #221 [DataMapper] Create deleteArray, deleteArrayModel
+  #219 [*Connection] Disable automatic database connection
+  #218 [ApplicationAbstract] Replace magic methods with readonly once available
+  #215 Covariance for function parameters
+  #206 [ItemClustering] Implement
+  #204 [BusinessWarehous] Implement warehouse picking algorithm
+  #194 [Builder] Automatically set prefix during construction
 
 jsOMS:
-  ☐ #90 [Table] Implement export
-  ☐ #89 [Table] Implement local and remote filtering
-  ☐ #88 [Table] If a filter is active it should be highlighted/marked in the table
-  ☐ #87 [Form] On edit highlight the data which is changed
-  ☐ #86 [Form] On edit replace add button with save and cancel
-  ☐ #85 [Form] Invalid backend/api responses (!201) should undo/stop UI changes
-  ☐ #84 [Form] Remote data responses need to be parsed
-  ☐ #83 [Form] Removing a dynamically added form from the dom should also be removed and unbound from the FormManager
-  ☐ #82 [Form] The container element for inline adding isn't always tbody
-  ☐ #81 [Form] Adding templates to the dom should adjust ids
-  ☐ #80 [Form] Do UI actions (e.g. add) as success injection after the backend response (optional)
-  ☐ #79 [Form] After adding a new element some require a binding for editing
-  ☐ #78 [Form] After adding a new element some require a binding for removal
-  ☐ #77 [Form] Re-consider collecting the value-paths for adding data
-  ☐ #76 [Form] Bug with adding dom elements with the add button
-  ☐ #75 [Form] Allow multiple/different add buttons in a form
-  ☐ #74 [AdvanceSelect] Auto filtering client side data
-  ☐ #73 [AdvancedSelect] Consider none-element
-  ☐ #72 [AdvancedInput] Allow duplication
-  ☐ #70 [AdvancedInput] Implement external styles for selections instead of inline css
-  ☐ #69 [ActionManager] Implement listener for child elements if selector is specified
-  ☐ #68 [Action] Dom/Remove
-  ☐ #67 [Logger] Implement UI logging
-  ☐ #66 [Speech] Remove speech recognition wrapper
-  ☐ #64 [Library] Get nearest element(s) based on selector
-  ☐ #63 [AdvancedInput] Focusout of input element closes dropdown
-  ☐ #62 [AdvancedInput] For local data filter/sort by best match
-  ☐ #61 [AdvancedInput] Consider adding a exit/none element for phone users to jump out
-  ☐ #60 [FormManager] On change listener
-  ☐ #59 [Table] Data download
-
-Modules:
-  ☐ #208 [Media] Media list improvements
-  ☐ #207 [Media] Validate file type and file size on the frontend before uploading
-  ☐ #206 [Tasks] Implement has seen feature
-  ☐ #205 [Tasks] Update task status depending on the new task element or updated task element
-  ☐ #204 [Media] Automatically change the file encoding of text files
-  ☐ #203 [Media] Automatically enable image interlacing
-  ☐ #201 [Tasks] Validate that the user is allowed to create a task element for a specific task
-  ☐ #200 [Help] Add dev help documentation
-  ☐ #199 [UML] Create UML diagrams for all modules
-  ☐ #197 [Kanban] Board: Column width depending amount of columns
-  ☐ #196 [HumanResourceTimeRecording] Implement session delete
-  ☐ #195 [HumanResourceTimeRecording] Allow session element update
-  ☐ #194 [HumanResourceTimeRecording] Allow session update
-  ☐ #193 [Modules] Implement online database and downloading api for modules and updates
-  ☐ #192 [Navigation] Improve sidebar navigation
-  ☐ #191 [Calendar] Limit event loading to a fixed amount of months
-  ☐ #190 [Navigation] Improve slow language loading
-  ☐ #189 [HumanResourceTimeManagement] Limit employee session list
-  ☐ #188 [HumanResourceManagement] Employee work history
-  ☐ #187 [HumanResourceManagement] Employee education history
-  ☐ #186 [Approval] Implement Approval module
-  ☐ #185 [Media] Encrypt/Decrypt media file
-  ☐ #183 [HumanResourceApplication] Create module
-  ☐ #182 [ItemManagement] Re-structure item views
-  ☐ #181 [Navigation] Cache/optimize navigation language
-  ☐ #180 [Warehouse] Implement optimization tool
-  ☐ #178 [UserAnalytics] Implement
-  ☐ #177 [Forms] Hotkey for saving tasks for creation/edit
-  ☐ #176 [Tasks] Batch handle tasks in the dashboard list
+  #93 [Forms] Remove table as layout tool for forms
+  #92 [Table] Implement pagination
+  #91 [Forms] Hotkey for saving tasks for creation/edit
+  #90 [Table] Implement export
+  #89 [Table] Implement local and remote filtering
+  #88 [Table] If a filter is active it should be highlighted/marked in the table
+  #87 [Form] On edit highlight the data which is changed
+  #86 [Form] On edit replace add button with save and cancel
+  #85 [Form] Invalid backend/api responses (!201) should undo/stop UI changes
+  #84 [Form] Remote data responses need to be parsed
+  #83 [Form] Removing a dynamically added form from the dom should also be removed and unbound from the FormManager
+  #82 [Form] The container element for inline adding isn't always tbody
+  #81 [Form] Adding templates to the dom should adjust ids
+  #80 [Form] Do UI actions (e.g. add) as success injection after the backend response (optional)
+  #79 [Form] After adding a new element some require a binding for editing
+  #78 [Form] After adding a new element some require a binding for removal
+  #77 [Form] Re-consider collecting the value-paths for adding data
+  #76 [Form] Bug with adding dom elements with the add button
+  #75 [Form] Allow multiple/different add buttons in a form
+  #74 [AdvanceSelect] Auto filtering client side data
+  #73 [AdvancedSelect] Consider none-element
+  #72 [AdvancedInput] Allow duplication
+  #70 [AdvancedInput] Implement external styles for selections instead of inline css
+  #69 [ActionManager] Implement listener for child elements if selector is specified
+  #68 [Action] Dom/Remove
+  #67 [Logger] Implement UI logging
+  #66 [Speech] Remove speech recognition wrapper
+  #64 [Library] Get nearest element(s) based on selector
+  #63 [AdvancedInput] Focusout of input element closes dropdown
+  #62 [AdvancedInput] For local data filter/sort by best match
 
 cssOMS:
-  ☐ #14 Create drop down with search field
-  ☐ #12 Create slider element
-  ☐ #4 Nicer visual input validation
+  #14 Create drop down with search field
+  #12 Create slider element
+  #4 Nicer visual input validation
 
-phpstan:
-  ☐ #^Constructor of class Install\\\\ConsoleApplication has an unused parameter \\$arg\\.$#"
-  ☐ #^Call to an undefined method phpOMS\\\\Router\\\\RouterInterface\\:\\:route\\(\\)\\.$#"
-  ☐ #^Call to an undefined method phpOMS\\\\Message\\\\Console\\\\ConsoleRequest\\:\\:getRouteVerb\\(\\)\\.$#"
-  ☐ #^Call to an undefined method phpOMS\\\\Router\\\\RouterInterface\\:\\:add\\(\\)\\.$#"
-  ☐ #^Call to an undefined method phpOMS\\\\Message\\\\HeaderAbstract\\:\\:push\\(\\)\\.$#"
-  ☐ #^Call to an undefined method phpOMS\\\\Router\\\\RouterInterface\\:\\:route\\(\\)\\.$#"
-  ☐ #^Call to an undefined method phpOMS\\\\Router\\\\RouterInterface\\:\\:add\\(\\)\\.$#"
-  ☐ #^Property Modules\\\\Accounting\\\\Models\\\\IncomeStatement\\:\\:\\$date has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Accounting\\\\Models\\\\IncomeStatement\\:\\:\\$incomeStatement has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$createdBy has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$client has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$refererName has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$taxId has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$currency has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$info has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$payment has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$paymentText has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$terms has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$termsText has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shipping has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$shippingText has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$vouchers has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$trackings has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\Invoice\\:\\:\\$elements has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$order has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$item has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$itemName has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$itemDescription has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$quantity has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$singlePrice has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$totalPrice has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$singleDiscountP has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$totalDiscountP has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$singleDiscountR has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$discountQ has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$singlePriceNet has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$totalPriceNet has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$taxP has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$taxR has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$singlePriceGross has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$totalPriceGross has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$event has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$promotion has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Billing\\\\Models\\\\InvoiceElement\\:\\:\\$invoice has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\ClientManagement\\\\Models\\\\Client\\:\\:\\$salesRep has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\ClientManagement\\\\Models\\\\Client\\:\\:\\$defaultDeliveryAddress has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\ClientManagement\\\\Models\\\\Client\\:\\:\\$defaultInvoiceAddress has no typehint specified\\.$#"
-  ☐ #^Access to an undefined property Modules\\\\ClientManagement\\\\Models\\\\Client\\:\\:\\$taxId\\.$#"
-  ☐ #^Access to an undefined property Modules\\\\ClientManagement\\\\Models\\\\Client\\:\\:\\$defaultTnvoiceAddress\\.$#"
-  ☐ #^Property Modules\\\\CostCenterAccounting\\\\Models\\\\CostCenter\\:\\:\\$parent \\(int\\|Modules\\\\CostCenterAccounting\\\\Models\\\\CostCenter\\|null\\) does not accept string\\.$#"
-  ☐ #^Property Modules\\\\CostObjectAccounting\\\\Models\\\\CostObject\\:\\:\\$parent \\(int\\|Modules\\\\CostObjectAccounting\\\\Models\\\\CostObject\\|null\\) does not accept string\\.$#"
-  ☐ #^Property Modules\\\\DatabaseEditor\\\\Models\\\\Table\\:\\:\\$name has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\DatabaseEditor\\\\Models\\\\Table\\:\\:\\$fields has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\EventManagement\\\\Models\\\\Event\\:\\:\\$tasks has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\EventManagement\\\\Models\\\\Event\\:\\:\\$media has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\EventManagement\\\\Models\\\\Event\\:\\:\\$progress has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\EventManagement\\\\Models\\\\Event\\:\\:\\$progressType has no typehint specified\\.$#"
-  ☐ #^Instantiated class Modules\\\\Accounting\\\\Models\\\\CostCenter not found\\.$#"
-  ☐ #^Parameter \\#1 \\$con of static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:setConnection\\(\\) expects phpOMS\\\\DataStorage\\\\Database\\\\Connection\\\\ConnectionAbstract, phpOMS\\\\DataStorage\\\\Database\\\\Connection\\\\ConnectionInterface given\\.$#"
-  ☐ #^Call to method setCostCenter\\(\\) on an unknown class Modules\\\\Accounting\\\\Models\\\\CostCenter\\.$#"
-  ☐ #^Call to method setCostCenterName\\(\\) on an unknown class Modules\\\\Accounting\\\\Models\\\\CostCenter\\.$#"
-  ☐ #^Call to static method create\\(\\) on an unknown class Modules\\\\Accounting\\\\Models\\\\CostCenterMapper\\.$#"
-  ☐ #^Instantiated class Modules\\\\Accounting\\\\Models\\\\CostObject not found\\.$#"
-  ☐ #^Call to method setCostObject\\(\\) on an unknown class Modules\\\\Accounting\\\\Models\\\\CostObject\\.$#"
-  ☐ #^Call to method setCostObjectName\\(\\) on an unknown class Modules\\\\Accounting\\\\Models\\\\CostObject\\.$#"
-  ☐ #^Call to static method create\\(\\) on an unknown class Modules\\\\Accounting\\\\Models\\\\CostObjectMapper\\.$#"
-  ☐ #^Call to an undefined method phpOMS\\\\Message\\\\HeaderAbstract\\:\\:setDownloadable\\(\\)\\.$#"
-  ☐ #^Property Modules\\\\HumanResourceManagement\\\\Models\\\\StaffList\\:\\:\\$dbPool has unknown class phpOMS\\\\DataStorage\\\\Database\\\\Pool as its type\\.$#"
-  ☐ #^Property Modules\\\\HumanResourceManagement\\\\Models\\\\StaffList\\:\\:\\$dbPool \\(phpOMS\\\\DataStorage\\\\Database\\\\Pool\\) does not accept phpOMS\\\\DataStorage\\\\Database\\\\DatabasePool\\.$#"
-  ☐ #^Call to method get\\(\\) on an unknown class phpOMS\\\\DataStorage\\\\Database\\\\Pool\\.$#"
-  ☐ #^Method Modules\\\\HumanResourceManagement\\\\Models\\\\StaffList\\:\\:getList\\(\\) should return array but returns array\\<string, mixed\\>\\|null\\.$#"
-  ☐ #^Method Modules\\\\HumanResourceManagement\\\\Models\\\\StaffList\\:\\:getStats\\(\\) should return array but return statement is missing\\.$#"
-  ☐ #^Parameter \\#1 \\$employee of class Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Session constructor expects int\\|Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Employee, Modules\\\\HumanResourceManagement\\\\Models\\\\Employee given\\.$#"
-  ☐ #^Parameter \\#1 \\$session of class Modules\\\\HumanResourceTimeRecording\\\\Models\\\\SessionElement constructor expects int, Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Session given\\.$#"
-  ☐ #^Cannot call method getStatus\\(\\) on Modules\\\\HumanResourceTimeRecording\\\\Models\\\\SessionElement\\|null\\.$#"
-  ☐ #^Cannot call method getId\\(\\) on int\\|Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Session\\.$#"
-  ☐ #^Cannot call method getSession\\(\\) on Modules\\\\HumanResourceTimeRecording\\\\Models\\\\SessionElement\\|null\\.$#"
-  ☐ #^Call to method getProfile\\(\\) on an unknown class Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Employee\\.$#"
-  ☐ #^Property Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Session\\:\\:\\$employee has unknown class Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Employee as its type\\.$#"
-  ☐ #^Parameter \\$employee of method Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Session\\:\\:__construct\\(\\) has invalid typehint type Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Employee\\.$#"
-  ☐ #^Return typehint of method Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Session\\:\\:getEmployee\\(\\) has invalid type Modules\\\\HumanResourceTimeRecording\\\\Models\\\\Employee\\.$#"
-  ☐ #^Cannot call method getStatus\\(\\) on int\\|Modules\\\\HumanResourceTimeRecording\\\\Models\\\\SessionElement\\.$#"
-  ☐ #^Cannot call method getDatetime\\(\\) on int\\|Modules\\\\HumanResourceTimeRecording\\\\Models\\\\SessionElement\\.$#"
-  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$number has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$articleGroup has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$salesGroup has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$productGroup has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$segment has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$successor has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$media has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$l11n has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$attributes has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$partslist has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$purchase has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$disposal has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\ItemManagement\\\\Models\\\\Item\\:\\:\\$info has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanBoard\\:\\:\\$order has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanCard\\:\\:\\$column has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanCard\\:\\:\\$order has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanCard\\:\\:\\$ref has no typehint specified\\.$#"
-  ☐ #^Method Modules\\\\Kanban\\\\Models\\\\KanbanCard\\:\\:addMedia\\(\\) has parameter \\$media with no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanCardComment\\:\\:\\$card has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanColumn\\:\\:\\$order has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanColumn\\:\\:\\$board has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Kanban\\\\Models\\\\KanbanColumn\\:\\:\\$cards has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Marketing\\\\Models\\\\Promotion\\:\\:\\$media has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Marketing\\\\Models\\\\Promotion\\:\\:\\$progress has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Marketing\\\\Models\\\\Promotion\\:\\:\\$progressType has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Marketing\\\\Models\\\\Promotion\\:\\:\\$tasks has no typehint specified\\.$#"
-  ☐ #^Class Modules\\\\Media\\\\Models\\\\Collection implements generic interface Iterator but does not specify its types\\: TKey, TValue$#"
-  ☐ #^Method Modules\\\\Media\\\\Models\\\\Collection\\:\\:current\\(\\) has no return typehint specified\\.$#"
-  ☐ #^Method Modules\\\\Media\\\\Models\\\\Collection\\:\\:key\\(\\) has no return typehint specified\\.$#"
-  ☐ #^Method Modules\\\\Media\\\\Models\\\\Collection\\:\\:valid\\(\\) has no return typehint specified\\.$#"
-  ☐ #^Call to an undefined method phpOMS\\\\Message\\\\RequestAbstract\\:\\:getHash\\(\\)\\.$#"
-  ☐ #^Cannot call method where\\(\\) on array\\.$#"
-  ☐ #^Parameter \\#2 \\$searchDepth of static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:find\\(\\) expects int, string given\\.$#"
-  ☐ #^Parameter \\#3 \\$popDepth of static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:find\\(\\) expects int, string given\\.$#"
-  ☐ #^Static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:find\\(\\) invoked with 4 parameters, 1\\-3 required\\.$#"
-  ☐ #^Method Modules\\\\ProjectManagement\\\\Models\\\\Project\\:\\:getCalendar\\(\\) should return Modules\\\\Calendar\\\\Models\\\\Calendar but returns int\\|Modules\\\\Calendar\\\\Models\\\\Calendar\\.$#"
-  ☐ #^Cannot call method setName\\(\\) on int\\|Modules\\\\Calendar\\\\Models\\\\Calendar\\.$#"
-  ☐ #^Property Modules\\\\QA\\\\Models\\\\QAQuestion\\:\\:\\$language has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Category\\:\\:\\$responsible has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Category\\:\\:\\$deputy has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Cause\\:\\:\\$title has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Cause\\:\\:\\$probability has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Cause\\:\\:\\$department has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Cause\\:\\:\\$risk has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Cause\\:\\:\\$category has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Department\\:\\:\\$department has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Department\\:\\:\\$responsible has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Department\\:\\:\\$deputy has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Process\\:\\:\\$title has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Process\\:\\:\\$department has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Process\\:\\:\\$responsible has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Process\\:\\:\\$deputy has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Process\\:\\:\\$unit has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Project\\:\\:\\$project has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Project\\:\\:\\$responsible has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Project\\:\\:\\$deputy has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$unit has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$department has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$category has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$project has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$process has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$responsible has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$deputy has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$histScore has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$causes has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$solutions has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$riskObjects has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Risk\\:\\:\\$media has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\RiskObject\\:\\:\\$title has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\RiskObject\\:\\:\\$risk has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Solution\\:\\:\\$title has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Solution\\:\\:\\$probability has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Solution\\:\\:\\$cause has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\RiskManagement\\\\Models\\\\Solution\\:\\:\\$risk has no typehint specified\\.$#"
-  ☐ #^Call to an undefined method phpOMS\\\\Message\\\\RequestAbstract\\:\\:getRouteVerb\\(\\)\\.$#"
-  ☐ #^Property Modules\\\\SupplierManagement\\\\Models\\\\Supplier\\:\\:\\$taxId has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\SupplierManagement\\\\Models\\\\Supplier\\:\\:\\$info has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\SupplierManagement\\\\Models\\\\Supplier\\:\\:\\$files has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\SupplierManagement\\\\Models\\\\Supplier\\:\\:\\$contactElements has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\SupplierManagement\\\\Models\\\\Supplier\\:\\:\\$address has no typehint specified\\.$#"
-  ☐ #^Method Modules\\\\Support\\\\Models\\\\Message\\:\\:setCreated\\(\\) has parameter \\$created with no typehint specified\\.$#"
-  ☐ #^Method Modules\\\\Surveys\\\\Models\\\\Survey\\:\\:setCreated\\(\\) has parameter \\$created with no typehint specified\\.$#"
-  ☐ #^Method Modules\\\\WarehouseManagement\\\\Models\\\\Arrival\\:\\:getDate\\(\\) should return DateTime but returns DateTime\\|null\\.$#"
-  ☐ #^Method Modules\\\\WarehouseManagement\\\\Models\\\\Arrival\\:\\:getAcceptor\\(\\) should return int but returns int\\|null\\.$#"
-  ☐ #^Property Modules\\\\WarehouseManagement\\\\Models\\\\Article\\:\\:\\$creator has unknown class phpOMS\\\\Models\\\\User as its type\\.$#"
-  ☐ #^Method Modules\\\\WarehouseManagement\\\\Models\\\\Article\\:\\:getCreated\\(\\) should return DateTime but returns DateTime\\|null\\.$#"
-  ☐ #^Return typehint of method Modules\\\\WarehouseManagement\\\\Models\\\\Article\\:\\:getCreator\\(\\) has invalid type phpOMS\\\\Models\\\\User\\.$#"
-  ☐ #^Method Modules\\\\WarehouseManagement\\\\Models\\\\Article\\:\\:getCreator\\(\\) should return phpOMS\\\\Models\\\\User but returns phpOMS\\\\Models\\\\User\\|null\\.$#"
-  ☐ #^Parameter \\$creator of method Modules\\\\WarehouseManagement\\\\Models\\\\Article\\:\\:setCreator\\(\\) has invalid typehint type phpOMS\\\\Models\\\\User\\.$#"
-  ☐ #^Access to an undefined property Modules\\\\WarehouseManagement\\\\Models\\\\Article\\:\\:\\$prices\\.$#"
-  ☐ #^Method Modules\\\\WarehouseManagement\\\\Models\\\\Shipping\\:\\:getDelivered\\(\\) should return DateTime but returns DateTime\\|null\\.$#"
-  ☐ #^Method Modules\\\\WarehouseManagement\\\\Models\\\\Shipping\\:\\:getSender\\(\\) should return int but returns int\\|null\\.$#"
-  ☐ #^Property Modules\\\\Workflow\\\\Templates\\\\Permission\\\\Workflow\\:\\:\\$id has no typehint specified\\.$#"
-  ☐ #^Property Modules\\\\Workflow\\\\Templates\\\\Permission\\\\Workflow\\:\\:\\$state has no typehint specified\\.$#"
-  ☐ #^Method Modules\\\\Workflow\\\\Templates\\\\Permission\\\\Workflow\\:\\:run\\(\\) has parameter \\$data with no typehint specified\\.$#"
-  ☐ #^Method Modules\\\\Workflow\\\\Templates\\\\Permission\\\\Workflow\\:\\:runRequest\\(\\) has parameter \\$data with no typehint specified\\.$#"
-  ☐ #^Method Modules\\\\Workflow\\\\Templates\\\\Permission\\\\Workflow\\:\\:runPending\\(\\) has parameter \\$data with no typehint specified\\.$#"
-  ☐ #^PHPDoc tag @var for property Socket\\\\Socketserver\\\\Application\\:\\:\\$type with type phpOMS\\\\Socket\\\\SocketType is incompatible with native type string\\.$#"
-  ☐ #^Property Socket\\\\Socketserver\\\\Application\\:\\:\\$type has unknown class phpOMS\\\\Socket\\\\SocketType as its type\\.$#"
-  ☐ #^Access to an undefined property Socket\\\\Socketserver\\\\Application\\:\\:\\$appName\\.$#"
-  ☐ #^Class phpOMS\\\\DataStorage\\\\Cache\\\\CachePool does not have a constructor and must be instantiated without any parameters\\.$#"
-  ☐ #^Access to an undefined property Socket\\\\Socketserver\\\\Application\\:\\:\\$socket\\.$#"
-  ☐ #^Function setcookie invoked with 8 parameters, 1\\-7 required\\.$#"
-  ☐ #^Parameter \\#1 \\$dbdata of class phpOMS\\\\DataStorage\\\\Database\\\\Connection\\\\MysqlConnection constructor expects array\\('db' \\=\\> string, 'host' \\=\\> string, 'port' \\=\\> int, 'login' \\=\\> string, 'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\), array\\('db' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'login' \\=\\> string, \\?'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\) given\\.$#"
-  ☐ #^Parameter \\#1 \\$dbdata of class phpOMS\\\\DataStorage\\\\Database\\\\Connection\\\\PostgresConnection constructor expects array\\('db' \\=\\> string, 'host' \\=\\> string, 'port' \\=\\> int, 'login' \\=\\> string, 'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\), array\\('db' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'login' \\=\\> string, \\?'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\) given\\.$#"
-  ☐ #^Parameter \\#1 \\$dbdata of class phpOMS\\\\DataStorage\\\\Database\\\\Connection\\\\SqlServerConnection constructor expects array\\('db' \\=\\> string, 'host' \\=\\> string, 'port' \\=\\> int, 'login' \\=\\> string, 'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\), array\\('db' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'login' \\=\\> string, \\?'password' \\=\\> string, 'database' \\=\\> string, 'prefix' \\=\\> string\\) given\\.$#"
-  ☐ #^Array \\(array\\<string, array\\<string, string\\>\\>\\) does not accept string\\.$#"
-  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:withConditional\\(\\) should return static\\(phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\) but returns class\\-string\\<static\\(phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\)\\>\\.$#"
-  ☐ #^Variable \\$columns in PHPDoc tag @var does not exist\\.$#"
-  ☐ #^Variable \\$table in PHPDoc tag @var does not exist\\.$#"
-  ☐ #^PHPDoc tag @return with type void is incompatible with native type array\\.$#"
-  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:populateOwnsOneArray\\(\\) with return type void returns mixed but should not return anything\\.$#"
-  ☐ #^Method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:populateBelongsToArray\\(\\) with return type void returns mixed but should not return anything\\.$#"
-  ☐ #^Result of static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:populateOwnsOneArray\\(\\) \\(void\\) is used\\.$#"
-  ☐ #^Result of static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:populateBelongsToArray\\(\\) \\(void\\) is used\\.$#"
-  ☐ #^Parameter \\#2 \\$ref of static method phpOMS\\\\DataStorage\\\\Database\\\\DataMapperAbstract\\:\\:getPrimaryKeysBy\\(\\) expects string, string\\|null given\\.$#"
-  ☐ #^If condition is always true\\.$#"
-  ☐ #^Variable \\$primaryField in PHPDoc tag @var does not match assigned variable \\$src\\.$#"
-  ☐ #^Array \\(array\\<phpOMS\\\\DataStorage\\\\Database\\\\Connection\\\\ConnectionAbstract\\>\\) does not accept phpOMS\\\\DataStorage\\\\DataStorageConnectionInterface\\.$#"
-  ☐ #^Instanceof between array and phpOMS\\\\DataStorage\\\\Database\\\\Query\\\\Builder will always evaluate to false\\.$#"
-  ☐ #^Call to an undefined method phpOMS\\\\DataStorage\\\\Database\\\\Query\\\\Column\\:\\:getColumn\\(\\)\\.$#"
-  ☐ #^Instanceof between mixed and phpOMS\\\\DataStorage\\\\Database\\\\Query\\\\Where will always evaluate to false\\.$#"
-  ☐ #^Parameter \\$from of method phpOMS\\\\DataStorage\\\\Database\\\\Query\\\\Grammar\\\\Grammar\\:\\:compileFromQuery\\(\\) has invalid typehint type phpOMS\\\\DataStorage\\\\Database\\\\Query\\\\Grammar\\\\From\\.$#"
-  ☐ #^Call to method toSql\\(\\) on an unknown class phpOMS\\\\DataStorage\\\\Database\\\\Query\\\\Grammar\\\\From\\.$#"
-  ☐ #^Method phpOMS\\\\Math\\\\Geometry\\\\ConvexHull\\\\MonotoneChain\\:\\:createConvexHull\\(\\) should return array\\<int, array\\<string, float\\|int\\>\\> but returns array\\<int\\|string, array\\<string, float\\|int\\>\\>\\.$#"
-  ☐ #^Parameter \\#3 \\$length of function array_slice expects int\\|null, float\\|int given\\.$#"
-  ☐ #^Parameter \\#1 \\$matrix of method phpOMS\\\\Math\\\\Matrix\\\\Matrix\\:\\:setMatrix\\(\\) expects array\\<int, array\\<float\\|int\\>\\>, array\\<int\\|string, array\\<int, \\(float\\|int\\)\\>\\> given\\.$#"
-  ☐ #^Parameter \\#1 \\$offset of method phpOMS\\\\Math\\\\Matrix\\\\Matrix\\:\\:offsetGet\\(\\) expects string, int given\\.$#"
-  ☐ #^Method phpOMS\\\\Math\\\\Matrix\\\\Matrix\\:\\:key\\(\\) should return string but returns int\\.$#"
-  ☐ #^Method phpOMS\\\\Math\\\\Matrix\\\\Matrix\\:\\:valid\\(\\) has no return typehint specified\\.$#"
-  ☐ #^Parameter \\#1 \\$offset of method phpOMS\\\\Math\\\\Matrix\\\\Matrix\\:\\:offsetExists\\(\\) expects string, int given\\.$#"
-  ☐ #^Parameter \\#2 \\$offset of function array_slice expects int, float\\|int given\\.$#"
-  ☐ #^Method phpOMS\\\\Message\\\\Mail\\\\EmailAbstract\\:\\:decode\\(\\) should return string but returns string\\|false\\.$#"
-  ☐ #^Parameter \\#1 \\$overview of method phpOMS\\\\Message\\\\Mail\\\\Mail\\:\\:setOverview\\(\\) expects array, array\\|false given\\.$#"
-  ☐ #^Parameter \\#1 \\$body of method phpOMS\\\\Message\\\\Mail\\\\Mail\\:\\:setBody\\(\\) expects string, string\\|false given\\.$#"
-  ☐ #^Method phpOMS\\\\Message\\\\Mail\\\\EmailAbstract\\:\\:getInboxOverview\\(\\) should return array but returns array\\|false\\.$#"
-  ☐ #^Cannot access property \\$Nmsgs on stdClass\\|false\\.$#"
-  ☐ #^Method phpOMS\\\\Message\\\\Mail\\\\EmailAbstract\\:\\:getMessageOverview\\(\\) should return array but returns array\\|false\\.$#"
-  ☐ #^Method phpOMS\\\\Message\\\\Mail\\\\EmailAbstract\\:\\:countMessages\\(\\) should return int but returns int\\|false\\.$#"
-  ☐ #^Method phpOMS\\\\Message\\\\Mail\\\\EmailAbstract\\:\\:getMessageHeader\\(\\) should return string but returns string\\|false\\.$#"
-  ☐ #^Property phpOMS\\\\Message\\\\Mail\\\\Mail\\:\\:\\$overview \\(string\\) does not accept array\\.$#"
-  ☐ #^Method phpOMS\\\\Message\\\\Socket\\\\PacketManager\\:\\:handle\\(\\) has parameter \\$client with no typehint specified\\.$#"
-  ☐ #^Property phpOMS\\\\Message\\\\Socket\\\\SocketHeader\\:\\:\\$sendFrom has no typehint specified\\.$#"
-  ☐ #^Property phpOMS\\\\Message\\\\Socket\\\\SocketHeader\\:\\:\\$sendTo has no typehint specified\\.$#"
-  ☐ #^Call to an undefined method phpOMS\\\\Message\\\\RequestAbstract\\:\\:getHash\\(\\)\\.$#"
-  ☐ #^Property phpOMS\\\\Socket\\\\Client\\\\Client\\:\\:\\$app has unknown class phpOMS\\\\Socket\\\\Client\\\\SocketApplication as its type\\.$#"
-  ☐ #^Property phpOMS\\\\Socket\\\\Client\\\\Client\\:\\:\\$app \\(phpOMS\\\\Socket\\\\Client\\\\SocketApplication\\) does not accept phpOMS\\\\Application\\\\ApplicationAbstract\\.$#"
-  ☐ #^Parameter \\#1 \\$router of class phpOMS\\\\Message\\\\Socket\\\\PacketManager constructor expects phpOMS\\\\Router\\\\SocketRouter, phpOMS\\\\Router\\\\RouterInterface given\\.$#"
-  ☐ #^Comparison operation \"\\>\" between 1 and 0 is always true\\.$#"
-  ☐ #^Access to an undefined property phpOMS\\\\Socket\\\\Client\\\\Client\\:\\:\\$commands\\.$#"
-  ☐ #^Property phpOMS\\\\Socket\\\\Client\\\\ClientConnection\\:\\:\\$handshake has no typehint specified\\.$#"
-  ☐ #^Property phpOMS\\\\Socket\\\\Client\\\\ClientConnection\\:\\:\\$pid has no typehint specified\\.$#"
-  ☐ #^Property phpOMS\\\\Socket\\\\Client\\\\ClientConnection\\:\\:\\$connected has no typehint specified\\.$#"
-  ☐ #^Property phpOMS\\\\Socket\\\\Server\\\\ClientManager\\:\\:\\$clients has no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\Socket\\\\Server\\\\ClientManager\\:\\:get\\(\\) has parameter \\$id with no typehint specified\\.$#"
-  ☐ #^Property phpOMS\\\\Socket\\\\Server\\\\Server\\:\\:\\$verbose has no typehint specified\\.$#"
-  ☐ #^Parameter \\#1 \\$router of class phpOMS\\\\Message\\\\Socket\\\\PacketManager constructor expects phpOMS\\\\Router\\\\SocketRouter, phpOMS\\\\Router\\\\RouterInterface given\\.$#"
-  ☐ #^Cannot call method getSocket\\(\\) on null\\.$#"
-  ☐ #^Cannot call method setHandshake\\(\\) on null\\.$#"
-  ☐ #^Property phpOMS\\\\Socket\\\\SocketAbstract\\:\\:\\$sock \\(resource\\) does not accept resource\\|false\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:parseRawList\\(\\) should return array\\<string, array\\<string, int\\|string\\>\\> but returns array\\<int\\|string, array\\<string, int\\|string\\>\\>\\.$#"
-  ☐ #^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
-  ☐ #^Parameter \\#3 \\$content of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:put\\(\\) expects string, string\\|false given\\.$#"
-  ☐ #^Parameter \\#1 \\$con of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:create\\(\\) expects resource, string given\\.$#"
-  ☐ #^Parameter \\#2 \\$path of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:create\\(\\) expects string, int given\\.$#"
-  ☐ #^Parameter \\#3 \\$permission of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:create\\(\\) expects int, true given\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:getParent\\(\\) should return phpOMS\\\\System\\\\File\\\\ContainerInterface but return statement is missing\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:copyNode\\(\\) should return bool but return statement is missing\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:moveNode\\(\\) should return bool but return statement is missing\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:deleteNode\\(\\) should return bool but return statement is missing\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:current\\(\\) has no return typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:key\\(\\) has no return typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:next\\(\\) has no return typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:valid\\(\\) has no return typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:offsetSet\\(\\) has parameter \\$offset with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:offsetSet\\(\\) has parameter \\$value with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:offsetExists\\(\\) has parameter \\$offset with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:offsetUnset\\(\\) has parameter \\$offset with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:exists\\(\\) has parameter \\$con with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:put\\(\\) has parameter \\$con with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:get\\(\\) has parameter \\$con with no typehint specified\\.$#"
-  ☐ #^Parameter \\#2 \\$fp of function ftp_fget expects resource, resource\\|false given\\.$#"
-  ☐ #^Parameter \\#1 \\$fp of function rewind expects resource, resource\\|false given\\.$#"
-  ☐ #^Parameter \\#1 \\$source of function stream_get_contents expects resource, resource\\|false given\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:get\\(\\) should return string but returns string\\|false\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:set\\(\\) has parameter \\$con with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:append\\(\\) has parameter \\$con with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:prepend\\(\\) has parameter \\$con with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:created\\(\\) has parameter \\$con with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:changed\\(\\) has parameter \\$con with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:size\\(\\) has parameter \\$con with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:owner\\(\\) has parameter \\$con with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:permission\\(\\) has parameter \\$con with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:copy\\(\\) has parameter \\$con with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:move\\(\\) has parameter \\$con with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:delete\\(\\) has parameter \\$con with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:create\\(\\) has parameter \\$con with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:getParent\\(\\) should return phpOMS\\\\System\\\\File\\\\ContainerInterface but return statement is missing\\.$#"
-  ☐ #^Call to an undefined static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:ftpCreate\\(\\)\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:copyNode\\(\\) should return bool but return statement is missing\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:moveNode\\(\\) should return bool but return statement is missing\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:deleteNode\\(\\) should return bool but return statement is missing\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:putContent\\(\\) should return bool but return statement is missing\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:setContent\\(\\) should return bool but return statement is missing\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:appendContent\\(\\) should return bool but return statement is missing\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:prependContent\\(\\) should return bool but return statement is missing\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:getContent\\(\\) should return string but return statement is missing\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:getExtension\\(\\) should return string but return statement is missing\\.$#"
-  ☐ #^Parameter \\#3 \\$content of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:put\\(\\) expects string, int given\\.$#"
-  ☐ #^Static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:get\\(\\) invoked with 1 parameter, 2 required\\.$#"
-  ☐ #^Parameter \\#1 \\$con of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:create\\(\\) expects resource, string given\\.$#"
-  ☐ #^Parameter \\#2 \\$path of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:create\\(\\) expects string, int given\\.$#"
-  ☐ #^Parameter \\#3 \\$permission of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:create\\(\\) expects int, true given\\.$#"
-  ☐ #^Static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:create\\(\\) invoked with 1 parameter, 2 required\\.$#"
-  ☐ #^Parameter \\#1 \\$con of static method phpOMS\\\\System\\\\File\\\\Ftp\\\\Directory\\:\\:list\\(\\) expects resource, string given\\.$#"
-  ☐ #^Static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:set\\(\\) invoked with 2 parameters, 3 required\\.$#"
-  ☐ #^Static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:append\\(\\) invoked with 2 parameters, 3 required\\.$#"
-  ☐ #^Static method phpOMS\\\\System\\\\File\\\\Ftp\\\\File\\:\\:prepend\\(\\) invoked with 2 parameters, 3 required\\.$#"
-  ☐ #^Call to an undefined method RecursiveIteratorIterator\\|RegexIterator\\:\\:getSubPathname\\(\\)\\.$#"
-  ☐ #^Call to an undefined method RecursiveIteratorIterator\\:\\:getSubPathname\\(\\)\\.$#"
-  ☐ #^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:current\\(\\) has no return typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:key\\(\\) has no return typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:next\\(\\) has no return typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:valid\\(\\) has no return typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:offsetSet\\(\\) has parameter \\$offset with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:offsetSet\\(\\) has parameter \\$value with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:offsetExists\\(\\) has parameter \\$offset with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:offsetUnset\\(\\) has parameter \\$offset with no typehint specified\\.$#"
-  ☐ #^Method phpOMS\\\\System\\\\File\\\\Local\\\\Directory\\:\\:offsetGet\\(\\) has parameter \\$offset with no typehint specified\\.$#"
-  ☐ #^Result of \\|\\| is always true\\.$#"
-  ☐ #^Comparison operation \"\\>\" between int\\<1000, max\\> and 999 is always true\\.$#"
-  ☐ #^Comparison operation \"\\>\" between int\\<1000000, max\\> and 999999 is always true\\.$#"
-  ☐ #^Cannot assign offset string to string\\.$#"
-  ☐ #^string does not accept array\\<string, mixed\\>\\.$#"
-  ☐ #^Method phpOMS\\\\Utils\\\\Parser\\\\Markdown\\\\Markdown\\:\\:blockTableContinue\\(\\) should return array\\|null but return statement is missing\\.$#"
-  ☐ #^Unreachable statement \\- code above always terminates\\.$#"
-  ☐ #^Method phpOMS\\\\Utils\\\\Parser\\\\Markdown\\\\Markdown\\:\\:inlineSpecialCharacter\\(\\) should return array\\|null but return statement is missing\\.$#"
-  ☐ #^Parameter \\#3 \\$subject of function str_replace expects array\\|string, string\\|null given\\.$#"
+Admin:
+  #11 [AccountMapper] Create test for getWithPermission()
+  #10 [Admin] Create update functionality
+  #9 [Admin] Add group permission removal
+  #8 [Admin] Add group permission adjustment
+  #7 [Admin] Add group account removal
+  #6 [Admin] Add group log tab for audits
+  #5 [Admin] Add account log tab
+  #4 [Admin] Add account group removal
+  #3 [UserAnalytics] Implement
+  #2 [Admin] Allow Admin to login as user
+  #1 [Admin] Add user & group settings
+
+Organization:
+  #1 [Unit] Add unit image
+
+Tasks:
+  #9 "Create task/calendar reference
+  #8 "[Task] Implement schedule
+  #7 "[Tasks] Implement dashboard statistics
+  #6 "[Tasks] Add tags
+  #5 "[Tasks] Add a calender like task view
+  #4 "[Tasks] Batch handle tasks in the dashboard list
+  #3 "[Tasks] Validate that the user is allowed to create a task element for a specific task
+  #2 "[Tasks] Update task status depending on the new task element or updated task element
+  #1 "[Tasks] Implement has seen feature
+
+Profile:
+  #2 [Profiles] Implement basic profile view
+  #1 [Profile] Define account types to show
+
+Editor:
+  #2 [Editor] Versioning
+  #1 [Editor] Implement tools
+
+Help:
+  ✔ #1 [Help] Add dev help documentation @done(20-05-03 08:49)
