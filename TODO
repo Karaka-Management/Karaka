@@ -66,6 +66,7 @@ phpOMS:
   #194 [Builder] Automatically set prefix during construction
 
 jsOMS:
+<<<<<<< HEAD
   #95 [AdvancedInput] Allow mandatory and optional pre-defined values/text
   #94 [AdvancedInput] Allow pre-defined values/text
   #93 [Forms] Remove table as layout tool for forms
