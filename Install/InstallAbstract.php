@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Install;
 
+use Model\CoreSettings;
 use Model\Settings;
 
 use Modules\Admin\Controller\ApiController;
@@ -292,6 +293,7 @@ abstract class InstallAbstract extends ApplicationAbstract
 
         self::$mManager     = new ModuleManager($app, __DIR__ . '/../Modules');
         $app->moduleManager = self::$mManager;
+        $app->appSettings   = new CoreSettings($db);
 
         self::$mManager->install('Admin');
         self::$mManager->install('Auditor');

@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests;
 
+use Model\CoreSettings;
 use phpOMS\Application\ApplicationAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
@@ -38,9 +39,10 @@ trait ModuleTestTrait
             protected string $appName = 'Api';
         };
 
-        $this->app->dbPool     = $GLOBALS['dbpool'];
-        $this->app->router     = new WebRouter();
-        $this->app->dispatcher = new Dispatcher($this->app);
+        $this->app->dbPool      = $GLOBALS['dbpool'];
+        $this->app->router      = new WebRouter();
+        $this->app->dispatcher  = new Dispatcher($this->app);
+        $this->app->appSettings = new CoreSettings($this->app->dbPool->get('admin'));
     }
 
     /**
@@ -55,10 +57,10 @@ trait ModuleTestTrait
         $moduleManager->install(self::MODULE_NAME);
 
         self::assertTrue($moduleManager->deactivate(self::MODULE_NAME));
-        self::assertFalse($moduleManager->isActive(self::MODULE_NAME));
+        self::assertFalse($moduleManager->isActive(self::MODULE_NAME), 'Module "' . self::MODULE_NAME . '" is not active.');
 
         self::assertTrue($moduleManager->activate(self::MODULE_NAME));
-        self::assertTrue($moduleManager->isActive(self::MODULE_NAME));
+        self::assertTrue($moduleManager->isActive(self::MODULE_NAME), 'Module "' . self::MODULE_NAME . '" is not active.');
     }
 
     /**
