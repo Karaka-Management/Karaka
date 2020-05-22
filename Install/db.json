@@ -4,7 +4,7 @@
         "fields": {
             "module_id": {
                 "name": "module_id",
-                "type": "VARCHAR(255)",
+                "type": "VARCHAR(190)",
                 "null": false,
                 "primary": true
             },
@@ -55,7 +55,7 @@
             },
             "module_load_from": {
                 "name": "module_load_from",
-                "type": "VARCHAR(255)",
+                "type": "VARCHAR(190)",
                 "default": null,
                 "null": true,
                 "foreignTable": "module",
