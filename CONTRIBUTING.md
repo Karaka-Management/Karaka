@@ -16,10 +16,12 @@ Feel free to grab any open issue implement it and create a new pull request. Mos
 
 ```php
 /**
- * @todo Orange-Management/Orange-Management#ISSUE_NUMBER
+ * @todo Orange-Management/Orange-Management#ISSUE_NUMBER [d:difficulty]
  *  Description for the issue
  */
 ```
+
+The issue information can be used to provide additional information such as priority, difficulty and type. For your first issue try to find a issue marked `[d:first]` or `[d:beginner]`.
 
 ### Code Style
 
