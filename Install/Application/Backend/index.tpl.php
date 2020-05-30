@@ -31,9 +31,9 @@ $dispatch = $this->getData('dispatch') ?? [];
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#712b91">
-    <meta name="msapplication-navbutton-color" content="#712b91">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#712b91">
+    <meta name="theme-color" content="#343a40">
+    <meta name="msapplication-navbutton-color" content="#343a40">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#343a40">
     <meta name="description" content="<?= $this->getHtml(':meta', '0', '0'); ?>">
     <?= $head->getMeta()->render(); ?>
 

@@ -18,9 +18,9 @@ $head = $this->getData('head');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <base href="<?= \phpOMS\Uri\UriFactory::build('{/base}'); ?>/">
-    <meta name="theme-color" content="#9e51c5">
-    <meta name="msapplication-navbutton-color" content="#9e51c5">
-    <meta name="theme-color" content="#9e51c5">
+    <meta name="theme-color" content="#343a40">
+    <meta name="msapplication-navbutton-color" content="#343a40">
+    <meta name="theme-color" content="#343a40">
     <meta name="description" content="<?= $this->getHtml(':meta', '0', '0'); ?>">
     <link rel="manifest" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/manifest.json'); ?>">
     <link rel="shortcut icon" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/img/favicon.ico'); ?>" type="image/x-icon">
@@ -31,19 +31,18 @@ $head = $this->getData('head');
     <?= $head->renderAssets(); ?>
     <style type="text/css">
         :root {
-            --main-background: #2e1a5a;
-            --main-background-highlight: #9e51c5;
+            --main-background: #343a40;
 
-            --input-border: rgba(166, 135, 232, .4);
-            --input-border-active: rgba(166, 135, 232, .7);
+            --input-border: rgba(54, 150, 219, 0.4);
+            --input-border-active: rgba(54, 150, 219, 0.7);
             --input-color: rgba(166, 135, 232, .6);
             --input-color-active: rgba(166, 135, 232, .8);
 
-            --input-icon-color: rgba(166, 135, 232, .6);
-            --input-icon-color-active: rgba(166, 135, 232, 1);
+            --input-icon-color: rgba(54, 150, 219, .6);
+            --input-icon-color-active: rgba(54, 150, 219, 1);
 
-            --button-main-background: rgba(166, 135, 232, .6);
-            --button-main-background-active: rgba(166, 135, 232, .8);
+            --button-main-background: #3697db;
+            --button-main-background-active: #4aabf0;
             --button-main-color: rgba(255, 255, 255, .9);
 
             --text-on-background-color: rgba(255, 255, 255, 0.7);
@@ -52,7 +51,7 @@ $head = $this->getData('head');
         html, body {
             height: 100%;
             font-family: 'Roboto', sans-serif;
-            background-image: linear-gradient(var(--main-background-highlight), var(--main-background));
+            background: var(--main-background);
             color: var(--text-on-background-color);
             padding: 0;
             display: flex;
