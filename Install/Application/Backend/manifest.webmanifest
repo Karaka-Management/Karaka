@@ -1,0 +1,32 @@
+{
+    "lang": "en",
+    "dir": "ltr",
+    "start_url": "../../en/backend",
+    "type": "privileged",
+    "name": "Orange Management Backend",
+    "description": "OMS backend application.",
+    "short_name": "OMS Backend",
+    "icons": [
+        {
+            "src": "/Web/Backend/img/logo.png",
+            "sizes": "64x64 128x128 256x256 512x512",
+            "type": "image/png"
+        }
+    ],
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "any",
+    "theme_color": "#343a40",
+    "background_color": "white",
+    "permissions": {
+        "audio-capture" : {
+            "description" : "Audio capture"
+        },
+        "video-capture": {
+            "description": "Video capture"
+        },
+        "speech-recognition" : {
+            "description" : "Speech recognition"
+        }
+    }
+}

@@ -40,6 +40,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     <base href="<?= \phpOMS\Uri\UriFactory::build('{/base}'); ?>/">
 
     <link rel="manifest" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/manifest.json'); ?>">
+    <link rel="manifest" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/manifest.webmanifest'); ?>">
     <link rel="shortcut icon" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/img/favicon.ico'); ?>" type="image/x-icon">
 
     <title><?= $this->printHtml($head->getTitle()); ?></title>
