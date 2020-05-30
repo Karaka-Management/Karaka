@@ -140,6 +140,3 @@ Editor:
   #3 [Editor] Allow editor creation and modification
   #2 [Editor] Versioning
   #1 [Editor] Implement tools
-
-Help:
-  ✔ #1 [Help] Add dev help documentation @done(20-05-03 08:49)
