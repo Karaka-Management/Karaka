@@ -96,6 +96,10 @@ nav .ham-trigger {
     a {
         padding: 0 5px 0 5px;
         line-height: 25px;
+
+        &:hover, &:focus {
+            color: var(--link-hover);
+        }
     }
 
     i {
@@ -104,10 +108,6 @@ nav .ham-trigger {
 
     li {
         display: inline;
-
-        &:hover {
-            color: var(--link-hover);
-        }
     }
 }
 

@@ -9,6 +9,9 @@
   --input-background-active: rgba(255, 255, 255);
   --input-icon-color: rgba(54, 150, 219, .6);
   --input-icon-color-active: rgba(54, 150, 219, 1);
+  --button-main-background: rgba(166, 135, 232, .6);
+  --button-main-background-active: rgba(166, 135, 232, .8);
+  --button-main-color: rgba(255, 255, 255, .9);
   --text-on-background-color: rgba(255, 255, 255, 0.7);
   --text-on-background-color-2: rgba(255, 255, 255, 0.85);
   --nav-category-background: #343a40;
@@ -115,12 +118,12 @@ nav .ham-trigger {
   #t-nav a {
     padding: 0 5px 0 5px;
     line-height: 25px; }
+    #t-nav a:hover, #t-nav a:focus {
+      color: var(--link-hover); }
   #t-nav i {
     margin-right: 5px; }
   #t-nav li {
     display: inline; }
-    #t-nav li:hover {
-      color: var(--link-hover); }
 
 main {
   display: flex;
