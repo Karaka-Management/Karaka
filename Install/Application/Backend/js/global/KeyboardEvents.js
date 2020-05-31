@@ -27,9 +27,11 @@ export const KEYBOARD_EVENTS = [
                         focusable[0].focus();
                     }
 
-                    break;
+                    return;
                 }
             }
+
+            focusable[0].focus();
         }
     }, {
         'element': '', // previous tab index
@@ -46,9 +48,11 @@ export const KEYBOARD_EVENTS = [
                         focusable[length - 1].focus();
                     }
 
-                    break;
+                    return;
                 }
             }
+
+            focusable[0].focus();
         }
     }
 ];

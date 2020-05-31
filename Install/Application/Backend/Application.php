@@ -29,7 +29,6 @@ use phpOMS\Asset\AssetType;
 use phpOMS\Auth\Auth;
 use phpOMS\DataStorage\Cache\CachePool;
 use phpOMS\DataStorage\Cookie\CookieJar;
-use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
@@ -139,7 +138,7 @@ final class Application
             return;
         }
 
-        /** @var ConnectionAbstract $con */
+        /** @var \phpOMS\DataStorage\Database\Connection\ConnectionAbstract $con */
         $con = $this->app->dbPool->get();
         DataMapperAbstract::setConnection($con);
 

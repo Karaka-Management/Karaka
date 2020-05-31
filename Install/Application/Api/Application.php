@@ -26,7 +26,6 @@ use phpOMS\Auth\Auth;
 use phpOMS\Auth\LoginReturnType;
 use phpOMS\DataStorage\Cache\CachePool;
 use phpOMS\DataStorage\Cookie\CookieJar;
-use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
@@ -38,6 +37,7 @@ use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\NotificationLevel;
+use phpOMS\Model\Html\Head;
 use phpOMS\Model\Message\Notify;
 use phpOMS\Model\Message\NotifyType;
 use phpOMS\Model\Message\Reload;
@@ -48,6 +48,9 @@ use phpOMS\System\MimeType;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
 use Web\WebApplication;
+use phpOMS\Router\RouteVerb;
+use phpOMS\Application\ApplicationAbstract;
+use phpOMS\System\File\PathException;
 
 /**
  * Application class.
@@ -139,7 +142,7 @@ final class Application
             return;
         }
 
-        /** @var ConnectionAbstract $con */
+        /** @var \phpOMS\DataStorage\Database\Connection\ConnectionAbstract $con */
         $con = $this->app->dbPool->get();
         DataMapperAbstract::setConnection($con);
 
@@ -196,6 +199,58 @@ final class Application
         }
 
         $this->app->moduleManager->initRequestModules($request);
+
+        // add tpl loading
+        $this->app->router->add(
+            '/api/tpl/.*',
+            function() use ($account, $request, $response) {
+                $appName = \ucfirst($request->getData('app') ?? 'Backend');
+                $app = new class() extends ApplicationAbstract
+                {
+                };
+
+                $app->appName        = $appName;
+                $app->dbPool         = $this->app->dbPool;
+                $app->orgId          = $this->app->orgId;
+                $app->accountManager = $this->app->accountManager;
+                $app->appSettings    = $this->app->appSettings;
+                $app->l11nManager    = new L11nManager($app->appName);
+                $app->moduleManager  = new ModuleManager($app, __DIR__ . '/../../Modules');
+                $app->dispatcher     = new Dispatcher($app);
+                $app->eventManager   = new EventManager($app->dispatcher);
+                $app->router         = new WebRouter();
+
+                $app->eventManager->importFromFile(__DIR__ . '/../' . $appName . '/Hooks.php');
+                $app->router->importFromFile(__DIR__ . '/../' . $appName . '/Routes.php');
+
+                $route = \str_replace('/api/tpl', '/' . $appName, $request->getUri()->getRoute());
+
+                $view = new View();
+                $view->setTemplate('/Web/Api/index');
+
+                $response->set('Content', $view);
+                $response->get('Content')->setData('head', new Head());
+
+                $app->l11nManager->loadLanguage(
+                    $response->getHeader()->getL11n()->getLanguage(),
+                    '0',
+                    include __DIR__ . '/../' . $appName . '/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php'
+                );
+
+                $routed = $app->router->route(
+                    $route,
+                    $request->getData('CSRF'),
+                    $request->getRouteVerb(),
+                    $appName,
+                    $this->app->orgId,
+                    $account,
+                    $request->getData()
+                );
+
+                $response->get('Content')->setData('dispatch', $app->dispatcher->dispatch($routed, $request, $response));
+            },
+            RouteVerb::GET
+        );
 
         $routed = $this->app->router->route(
             $request->getUri()->getRoute(),
@@ -342,5 +397,27 @@ final class Application
                 $config['domains'][$request->getUri()->getHost()]['org'] ?? $config['default']['org']
             )
         );
+    }
+
+    /**
+     * Load theme language from path
+     *
+     * @param string $language Language name
+     * @param string $path     Language path
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    private function loadLanguageFromPath(string $language, string $path) : void
+    {
+        /* Load theme language */
+        if (($absPath = \realpath($path)) === false) {
+            throw new PathException($path);
+        }
+
+        /** @noinspection PhpIncludeInspection */
+        $themeLanguage = include $absPath;
+        $this->app->l11nManager->loadLanguage($language, '0', $themeLanguage);
     }
 }
