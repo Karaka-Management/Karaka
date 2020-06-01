@@ -21,17 +21,22 @@ export const KEYBOARD_EVENTS = [
 
             for (let i = 0; i < length; ++i) {
                 if (document.activeElement === focusable[i]) {
-                    if (i < length - 1) {
-                        focusable[i + 1].focus();
-                    } else {
-                        focusable[0].focus();
-                    }
+                    let j = 1;
+                    do {
+                        if (i + j < length) {
+                            focusable[i + j].focus();
+                        } else {
+                            focusable[0 + j - 1].focus();
+                        }
+
+                        ++j;
+                    } while (j < length && document.activeElement === focusable[i]);
 
                     return;
                 }
             }
 
-            focusable[0].focus();
+            document.dispatchEvent(new KeyboardEvent('keypress', {keyCode: 9}));
         }
     }, {
         'element': '', // previous tab index
@@ -42,17 +47,22 @@ export const KEYBOARD_EVENTS = [
 
             for (let i = 0; i < length; ++i) {
                 if (document.activeElement === focusable[i]) {
-                    if (i > 0) {
-                        focusable[i - 1].focus();
-                    } else {
-                        focusable[length - 1].focus();
-                    }
+                    let j = 1;
+                    do {
+                        if (i - j > 0) {
+                            focusable[i - j].focus();
+                        } else {
+                            focusable[length - j].focus();
+                        }
+
+                        ++j;
+                    } while (j < length && document.activeElement === focusable[i]);
 
                     return;
                 }
             }
 
-            focusable[0].focus();
+            document.dispatchEvent(new KeyboardEvent('keypress', {keyCode: 9}));
         }
     }
 ];
