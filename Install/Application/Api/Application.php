@@ -22,6 +22,7 @@ use Modules\Admin\Models\LocalizationMapper;
 use Modules\Admin\Models\NullAccount;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
+use phpOMS\Application\ApplicationAbstract;
 use phpOMS\Auth\Auth;
 use phpOMS\Auth\LoginReturnType;
 use phpOMS\DataStorage\Cache\CachePool;
@@ -42,15 +43,14 @@ use phpOMS\Model\Message\Notify;
 use phpOMS\Model\Message\NotifyType;
 use phpOMS\Model\Message\Reload;
 use phpOMS\Module\ModuleManager;
-use phpOMS\Router\WebRouter;
-use phpOMS\System\MimeType;
+use phpOMS\Router\RouteVerb;
 
+use phpOMS\Router\WebRouter;
+use phpOMS\System\File\PathException;
+use phpOMS\System\MimeType;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
 use Web\WebApplication;
-use phpOMS\Router\RouteVerb;
-use phpOMS\Application\ApplicationAbstract;
-use phpOMS\System\File\PathException;
 
 /**
  * Application class.
@@ -203,7 +203,7 @@ final class Application
         // add tpl loading
         $this->app->router->add(
             '/api/tpl/.*',
-            function() use ($account, $request, $response) {
+            function() use ($account, $request, $response): void {
                 $appName = \ucfirst($request->getData('app') ?? 'Backend');
                 $app = new class() extends ApplicationAbstract
                 {
