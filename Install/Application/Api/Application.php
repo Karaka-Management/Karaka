@@ -205,7 +205,7 @@ final class Application
             '/api/tpl/.*',
             function() use ($account, $request, $response): void {
                 $appName = \ucfirst($request->getData('app') ?? 'Backend');
-                $app = new class() extends ApplicationAbstract
+                $app     = new class() extends ApplicationAbstract
                 {
                 };
 
