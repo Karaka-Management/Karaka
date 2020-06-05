@@ -18,8 +18,8 @@ use Model\CoreSettings;
 
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\LocalizationMapper;
-
 use Modules\Admin\Models\NullAccount;
+
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Application\ApplicationAbstract;
@@ -44,12 +44,12 @@ use phpOMS\Model\Message\NotifyType;
 use phpOMS\Model\Message\Reload;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\RouteVerb;
-
 use phpOMS\Router\WebRouter;
 use phpOMS\System\File\PathException;
 use phpOMS\System\MimeType;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
+
 use Web\WebApplication;
 
 /**
