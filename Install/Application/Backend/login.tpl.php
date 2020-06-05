@@ -225,7 +225,7 @@ $head = $this->getData('head');
         <form id="login" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}login?{?}'); ?>">
             <label for="iName"><?= $this->getHtml('Username', '0', '0'); ?>:</label>
             <div class="inputWithIcon">
-                <input id="iName" type="text" name="user" tabindex="1" value="admin" autofocus>
+                <input id="iName" type="text" name="user" tabindex="1" value="admin" spellcheck="false" autofocus>
                 <i class="frontIcon fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
                 <i class="endIcon fa fa-times fa-lg fa-fw" aria-hidden="true"></i>
             </div>
