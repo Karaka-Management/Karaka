@@ -1,0 +1,14 @@
+{
+  "name": "oms",
+  "version": "1.0.0",
+  "description": "",
+  "directories": {},
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "scss": "node-sass Install/Application/Backend/Themes/Default/css/backend_vars.scss > Install/Application/Backend/Themes/Default/css/backend_vars.css && node-sass Install/Application/Backend/Themes/Default/css/backend_small.scss > Install/Application/Backend/Themes/Default/css/backend_small.css"
+  },
+  "author": "Dennis Eichhorn"
+}
