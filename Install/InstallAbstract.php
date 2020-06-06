@@ -494,20 +494,9 @@ abstract class InstallAbstract extends ApplicationAbstract
                 (' . Settings::LOGGING_STATUS . ', \'1\'),
                 (' . Settings::LOGGING_PATH . ', \'\'),
                 (' . Settings::DEFAULT_ORGANIZATION . ', \'1\'),
-                (1000000010, \'oms-slim\'),
-                (1000000011, \'/oms-slim\'),
-                (1000000012, \'1\'),
                 (' . Settings::LOGIN_STATUS . ', \'1\'),
-                (1000000014, \'Maintenance scheduled for tomorrow from 11:00 am to 1:00 pm.\'),
-                (1000000015, \'0\'),
-                (1000000016, \'0000-00-00 00:00:00\'),
-                (1000000017, \'0\'),
-                (1000000018, \'0\'),
-                (1000000019, \'DE\'),
-                (1000000020, \'en\'),
-                (1000000021, \'Europe/Berlin\'),
-                (1000000023, \'USD\'),
-                (1000000025, \'mail@admin.com\')'
+                (' . Settings::DEFAULT_LOCALIZATION . ', \'1\'),
+                (' . Settings::ADMIN_MAIL . ', \'admin@orange-management.org\')'
         )->execute();
 
         $l11n = Localization::fromLanguage($request->getData('defaultlang'), $request->getData('defaultcountry') ?? '*');
