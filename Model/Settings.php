@@ -35,4 +35,6 @@ abstract class Settings extends Enum
     public const LOGGING_PATH         = 1000000007;
     public const DEFAULT_ORGANIZATION = 1000000009;
     public const LOGIN_STATUS         = 1000000013;
+    public const DEFAULT_LOCALIZATION = 1000000014;
+    public const ADMIN_MAIL           = 1000000015;
 }
