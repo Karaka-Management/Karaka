@@ -14,8 +14,8 @@
 namespace tests\Model;
 
 use Model\CoreSettings;
-use phpOMS\DataStorage\Database\Connection\NullConnection;
 use Model\Settings;
+use phpOMS\DataStorage\Database\Connection\NullConnection;
 
 /**
  * @internal
