@@ -140,3 +140,36 @@ Editor:
   #3 [Editor] Allow editor creation and modification
   #2 [Editor] Versioning
   #1 [Editor] Implement tools
+
+spl1nes:
+  Fix media upload form element
+  Implement default elements for tags
+  Implement task media upload
+  Implement task element edit
+  Implement automatic binding of added ui elements
+  Implement Email/Messaging
+  Implement Calendar
+  Implement clocking
+  Fix showing open task count on all pages
+  Fix showing the correct task count, currently the wrong count is shown
+  Implement profile editing
+  Implement content loading with API (e.g. api/tpl/{app}/route)
+    Done
+    JS now needs to hijack page loads and redirect to /tpl/ or should overwrite all links to /tpl/ during loading
+    Then JS needs to exchange the main content
+  Implement basic ticket module
+  Implement basic customer management
+  Implement basic supplier management
+  Implement basic invoicing
+  Implement News comments
+  Implement News editing
+  Load alternative language to local language (load language, else load en, else load any)
+  Implement News creation
+    Tags
+    Favorite
+    Permissions/Groups
+    Make news edit textarea higher (automatically fit to content size)
+    Implement favorites on dashboard
+    Implement headlines on dashboard
+    Implement links hide textarea, other elements show textarea
+  Implement Media hard drive directory add
