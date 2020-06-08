@@ -49,7 +49,7 @@ export const KEYBOARD_EVENTS = [
                 if (document.activeElement === focusable[i]) {
                     let j = 1;
                     do {
-                        if (i - j > 0) {
+                        if (i - j + 1 > 0) {
                             focusable[i - j].focus();
                         } else {
                             focusable[length - j].focus();
