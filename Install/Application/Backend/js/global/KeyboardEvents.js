@@ -14,7 +14,7 @@ export const KEYBOARD_EVENTS = [
         'callback': function (e) {window.history.back();}
     }, {
         'element': '', // next tabindex
-        'keys': [17, 39],
+        'keys': [17, 40],
         'callback': function (e) {
             const focusable = document.querySelectorAll('button, input, select, textarea, [tabindex]:not([tabindex="-1"])'),
                 length      = focusable.length;
@@ -40,7 +40,7 @@ export const KEYBOARD_EVENTS = [
         }
     }, {
         'element': '', // previous tab index
-        'keys': [17, 37],
+        'keys': [17, 38],
         'callback': function (e) {
             const focusable = document.querySelectorAll('button, input, select, textarea, [tabindex]:not([tabindex="-1"])'),
                 length      = focusable.length;
