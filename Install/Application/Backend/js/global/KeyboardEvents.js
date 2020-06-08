@@ -17,7 +17,7 @@ export const KEYBOARD_EVENTS = [
         'keys': [17, 39],
         'callback': function (e) {
             const focusable = document.querySelectorAll('button, input, select, textarea, [tabindex]:not([tabindex="-1"])'),
-                length = focusable.length;
+                length      = focusable.length;
 
             for (let i = 0; i < length; ++i) {
                 if (document.activeElement === focusable[i]) {
@@ -43,7 +43,7 @@ export const KEYBOARD_EVENTS = [
         'keys': [17, 37],
         'callback': function (e) {
             const focusable = document.querySelectorAll('button, input, select, textarea, [tabindex]:not([tabindex="-1"])'),
-                length = focusable.length;
+                length      = focusable.length;
 
             for (let i = 0; i < length; ++i) {
                 if (document.activeElement === focusable[i]) {
