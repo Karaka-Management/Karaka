@@ -66,7 +66,6 @@ phpOMS:
   #194 [Builder] Automatically set prefix during construction
 
 jsOMS:
-<<<<<<< HEAD
   #95 [AdvancedInput] Allow mandatory and optional pre-defined values/text
   #94 [AdvancedInput] Allow pre-defined values/text
   #93 [Forms] Remove table as layout tool for forms
@@ -161,8 +160,16 @@ spl1nes:
   Implement basic customer management
   Implement basic supplier management
   Implement basic invoicing
+  Implement Comments
+    Create
+    Edit
+    Response
+    Delete
+    Block by moderator
   Implement News comments
   Implement News editing
+    Tags
+    Permissions
   Load alternative language to local language (load language, else load en, else load any)
   Implement News creation
     Tags
