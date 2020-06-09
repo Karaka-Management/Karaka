@@ -1,6 +1,4 @@
 v0.1.0-alpha:
-  #13 [Tasks] After editing a task the new content should be shown in the description instead of the old json object
-  #12 [Tasks] Adding a new task element should immediately show that content in the task element list instead of requiring a page reload
   #11 [Tasks] Show the profile image of the user who created the task/task element
   #10 [Tasks] Implement tags and tag modification
   #1 [CMS] Allow content creation and modification
@@ -121,15 +119,15 @@ Organization:
   #1 [Unit] Add unit image
 
 Tasks:
-  #9 "Create task/calendar reference
-  #8 "[Task] Implement schedule
-  #7 "[Tasks] Implement dashboard statistics
-  #6 "[Tasks] Add tags
-  #5 "[Tasks] Add a calender like task view
-  #4 "[Tasks] Batch handle tasks in the dashboard list
-  #3 "[Tasks] Validate that the user is allowed to create a task element for a specific task
-  #2 "[Tasks] Update task status depending on the new task element or updated task element
-  #1 "[Tasks] Implement has seen feature
+  #9 Create task/calendar reference
+  #8 [Task] Implement schedule
+  #7 [Tasks] Implement dashboard statistics
+  #6 [Tasks] Add tags
+  #5 [Tasks] Add a calender like task view
+  #4 [Tasks] Batch handle tasks in the dashboard list
+  #3 [Tasks] Validate that the user is allowed to create a task element for a specific task
+  #2 [Tasks] Update task status depending on the new task element or updated task element
+  #1 [Tasks] Implement has seen feature
 
 Profile:
   #2 [Profiles] Implement basic profile view
