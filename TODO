@@ -3,8 +3,6 @@ v0.1.0-alpha:
   #10 [Tasks] Implement tags and tag modification
   #1 [CMS] Allow content creation and modification
   #2 [CMS] Make all files modifiable in a file overview instead of a view for every type of file (e.g. template, theme, controller)
-  #1 [News] Allow news creation and modification
-  #2 [News] Implement draft view
   #3 [News] Allow tag modification
   #2 [Profiles] Implement basic profile view
   #1 [Knowledgebase] Allow wiki creation and modification
