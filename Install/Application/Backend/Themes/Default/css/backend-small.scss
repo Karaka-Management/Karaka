@@ -152,6 +152,13 @@ main {
     }
 }
 
+img.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
 #app-message-container {
     position: absolute;
     margin: 0 auto;

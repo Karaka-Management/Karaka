@@ -12,6 +12,7 @@
  */
 declare(strict_types=1);
 
+/** @var web\Backend\BackendView $this */
 $nav = $this->getData('nav');
 
 $nav->setTemplate('/Modules/Navigation/Theme/Backend/top');

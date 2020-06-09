@@ -237,7 +237,24 @@ abstract class InstallAbstract extends ApplicationAbstract
     protected static function installCore(ConnectionAbstract $db) : void
     {
         self::createBaseTables($db);
-        self::installCoreModules($db);
+
+        $app = new class() extends ApplicationAbstract
+        {
+            protected string $appName = 'Api';
+        };
+
+        $app->dbPool = new DatabasePool();
+        $app->dbPool->add('select', $db);
+        $app->dbPool->add('insert', $db);
+        $app->dbPool->add('update', $db);
+        $app->dbPool->add('schema', $db);
+
+        self::$mManager     = new ModuleManager($app, __DIR__ . '/../Modules');
+        $app->moduleManager = self::$mManager;
+        $app->appSettings   = new CoreSettings($db);
+
+        self::$mManager->install('Admin');
+        self::$mManager->install('Auditor');
     }
 
     /**
@@ -284,7 +301,6 @@ abstract class InstallAbstract extends ApplicationAbstract
             protected string $appName = 'Api';
         };
 
-
         $app->dbPool = new DatabasePool();
         $app->dbPool->add('select', $db);
         $app->dbPool->add('insert', $db);
@@ -295,8 +311,6 @@ abstract class InstallAbstract extends ApplicationAbstract
         $app->moduleManager = self::$mManager;
         $app->appSettings   = new CoreSettings($db);
 
-        self::$mManager->install('Admin');
-        self::$mManager->install('Auditor');
         self::$mManager->install('Organization');
         self::$mManager->install('Help');
         self::$mManager->install('Profile');
