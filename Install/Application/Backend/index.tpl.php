@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Orange Management
  *
@@ -11,6 +12,8 @@
  * @link      https://orange-management.org
  */
 declare(strict_types=1);
+
+use phpOMS\Uri\UriFactory;
 
 /** @var web\Backend\BackendView $this */
 $nav = $this->getData('nav');
@@ -38,11 +41,11 @@ $dispatch = $this->getData('dispatch') ?? [];
     <meta name="description" content="<?= $this->getHtml(':meta', '0', '0'); ?>">
     <?= $head->getMeta()->render(); ?>
 
-    <base href="<?= \phpOMS\Uri\UriFactory::build('{/base}'); ?>/">
+    <base href="<?= UriFactory::build('{/base}'); ?>/">
 
-    <link rel="manifest" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/manifest.json'); ?>">
-    <link rel="manifest" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/manifest.webmanifest'); ?>">
-    <link rel="shortcut icon" href="<?= \phpOMS\Uri\UriFactory::build('Web/Backend/img/favicon.ico'); ?>" type="image/x-icon">
+    <link rel="manifest" href="<?= UriFactory::build('Web/Backend/manifest.json'); ?>">
+    <link rel="manifest" href="<?= UriFactory::build('Web/Backend/manifest.webmanifest'); ?>">
+    <link rel="shortcut icon" href="<?= UriFactory::build('Web/Backend/img/favicon.ico'); ?>" type="image/x-icon">
 
     <title><?= $this->printHtml($head->getTitle()); ?></title>
 
@@ -56,7 +59,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     <input type="checkbox" id="nav-trigger" name="nav-hamburger" class="nav-trigger">
     <nav>
         <span id="u-box">
-            <a href="<?= \phpOMS\Uri\UriFactory::build('{/prefix}profile/single?{?}&id=' . $this->profile->getId()); ?>">
+            <a href="<?= UriFactory::build('{/prefix}profile/single?{?}&id=' . $this->profile->getId()); ?>">
                 <img alt="<?= $this->getHtml('User', '0', '0'); ?>" data-lazyload="<?= $this->getProfileImage(); ?>">
             </a>
             <span id="logo" itemscope itemtype="http://schema.org/Organization">
@@ -75,7 +78,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     </nav>
     <main>
         <header>
-            <form id="s-bar" method="GET" action="<?= \phpOMS\Uri\UriFactory::build('{/api}search?{?}&app=Backend&csrf={$CSRF}'); ?>&search={#iSearchBox}">
+            <form id="s-bar" method="GET" action="<?= UriFactory::build('{/api}search?{?}&app=Backend&csrf={$CSRF}'); ?>&search={#iSearchBox}">
                 <label class="ham-trigger" for="nav-trigger"><i class="fa fa-bars p"></i></label>
                 <span role="search" class="inputWrapper">
                     <span class="textWrapper">
