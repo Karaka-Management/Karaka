@@ -44,7 +44,6 @@ use phpOMS\Model\Html\Head;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\RouteVerb;
 use phpOMS\Router\WebRouter;
-use phpOMS\System\File\PathException;
 use phpOMS\Uri\UriFactory;
 
 use phpOMS\Views\View;
@@ -274,7 +273,7 @@ final class Application
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_406);
         $pageView->setTemplate('/Web/Backend/Error/406');
-        $this->loadLanguageFromPath(
+        $this->app->loadLanguageFromPath(
             $response->getHeader()->getL11n()->getLanguage(),
             __DIR__ . '/Error/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php'
         );
@@ -294,32 +293,10 @@ final class Application
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_503);
         $pageView->setTemplate('/Web/Backend/Error/503');
-        $this->loadLanguageFromPath(
+        $this->app->loadLanguageFromPath(
             $response->getHeader()->getL11n()->getLanguage(),
             __DIR__ . '/Error/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php'
         );
-    }
-
-    /**
-     * Load theme language from path
-     *
-     * @param string $language Language name
-     * @param string $path     Language path
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    private function loadLanguageFromPath(string $language, string $path) : void
-    {
-        /* Load theme language */
-        if (($absPath = \realpath($path)) === false) {
-            throw new PathException($path);
-        }
-
-        /** @noinspection PhpIncludeInspection */
-        $themeLanguage = include $absPath;
-        $this->app->l11nManager->loadLanguage($language, '0', $themeLanguage);
     }
 
     /**
@@ -353,7 +330,7 @@ final class Application
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
         $pageView->setTemplate('/Web/Backend/Error/403');
-        $this->loadLanguageFromPath(
+        $this->app->loadLanguageFromPath(
             $response->getHeader()->getL11n()->getLanguage(),
             __DIR__ . '/Error/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php'
         );

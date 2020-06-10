@@ -26,6 +26,7 @@ use phpOMS\Uri\UriFactory;
 
 use Web\Exception\DatabaseException;
 use Web\Exception\UnexpectedApplicationException;
+use phpOMS\System\File\PathException;
 
 /**
  * Application class.
@@ -293,5 +294,27 @@ class WebApplication extends ApplicationAbstract
     private function getApplicationTheme(HttpRequest $request, array $config) : string
     {
         return $config[$request->getUri()->getHost()]['theme'] ?? 'Backend';
+    }
+
+    /**
+     * Load theme language from path
+     *
+     * @param string $language Language name
+     * @param string $path     Language path
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function loadLanguageFromPath(string $language, string $path) : void
+    {
+        /* Load theme language */
+        if (($absPath = \realpath($path)) === false) {
+            throw new PathException($path);
+        }
+
+        /** @noinspection PhpIncludeInspection */
+        $themeLanguage = include $absPath;
+        $this->l11nManager->loadLanguage($language, '0', $themeLanguage);
     }
 }
