@@ -197,7 +197,7 @@ final class Application
 
         UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());
 
-        $this->loadLanguageFromPath(
+        $this->app->loadLanguageFromPath(
             $response->getHeader()->getL11n()->getLanguage(),
             __DIR__ . '/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php'
         );
