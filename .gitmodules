@@ -142,3 +142,15 @@
 [submodule "Modules/Messages"]
 	path = Modules/Messages
 	url = https://github.com/Orange-Management/oms-Messages.git
+[submodule "Modules/Support"]
+	path = Modules/Support
+	url = https://github.com/Orange-Management/oms-Support.git
+[submodule "Modules/ClientManagement"]
+	path = Modules/ClientManagement
+	url = https://github.com/Orange-Management/oms-ClientManagement.git
+[submodule "Modules/SupplierManagement"]
+	path = Modules/SupplierManagement
+	url = https://github.com/Orange-Management/oms-SupplierManagement.git
+[submodule "Modules/ItemManagement"]
+	path = Modules/ItemManagement
+	url = https://github.com/Orange-Management/oms-ItemManagement.git
