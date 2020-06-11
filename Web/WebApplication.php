@@ -21,12 +21,12 @@ use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
+use phpOMS\System\File\PathException;
 use phpOMS\Uri\HttpUri;
-use phpOMS\Uri\UriFactory;
 
+use phpOMS\Uri\UriFactory;
 use Web\Exception\DatabaseException;
 use Web\Exception\UnexpectedApplicationException;
-use phpOMS\System\File\PathException;
 
 /**
  * Application class.
