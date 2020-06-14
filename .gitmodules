@@ -154,3 +154,9 @@
 [submodule "Modules/ItemManagement"]
 	path = Modules/ItemManagement
 	url = https://github.com/Orange-Management/oms-ItemManagement.git
+[submodule "Modules/Purchase"]
+	path = Modules/Purchase
+	url = https://github.com/Orange-Management/oms-Purchase.git
+[submodule "Modules/Sales"]
+	path = Modules/Sales
+	url = https://github.com/Orange-Management/oms-Sales.git
