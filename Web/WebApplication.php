@@ -70,7 +70,7 @@ class WebApplication extends ApplicationAbstract
 
             UriFactory::setQuery('/prefix', '');
             UriFactory::setQuery('/api', 'api/');
-            $applicationName = $this->getApplicationName(HttpUri::fromCurrent(), $config['app']);
+            $applicationName = $this->getApplicationName(HttpUri::fromCurrent(), $config['app'], $config['page']['root']);
             $request         = $this->initRequest($config['page']['root'], $config['app']);
             $response        = $this->initResponse($request, $config);
 
@@ -154,10 +154,10 @@ class WebApplication extends ApplicationAbstract
         $langCode    = ISO639x1Enum::isValidValue($uriLang) ? $uriLang : (ISO639x1Enum::isValidValue($requestLang) ? $requestLang : $defaultLang);
 
         $pathOffset = $subDirDepth
-            + (ISO639x1Enum::isValidValue($uriLang) ?
-                1 + ($this->getApplicationNameFromString($request->getUri()->getPathElement($subDirDepth + 1)) !== 'E500' ? 1 : 0) :
-                0 + ($this->getApplicationNameFromString($request->getUri()->getPathElement($subDirDepth + 0)) !== 'E500' ? 1 : 0)
-        );
+            + (ISO639x1Enum::isValidValue($uriLang) 
+                ? 1 + ($this->getApplicationNameFromString($request->getUri()->getPathElement($subDirDepth + 1)) !== 'E500' ? 1 : 0) 
+                : 0 + ($this->getApplicationNameFromString($request->getUri()->getPathElement($subDirDepth + 0)) !== 'E500' ? 1 : 0)
+            );
 
         $request->createRequestHashs($pathOffset);
         $request->getUri()->setRootPath($rootPath);
@@ -216,15 +216,18 @@ class WebApplication extends ApplicationAbstract
     /**
      * Get name of the application.
      *
-     * @param HttpUri                                                                          $uri    Current Uri
-     * @param array{domains:array, default:array{id:string, app:string, org:int, lang:string}} $config App configuration
+     * @param HttpUri                                                                          $uri      Current Uri
+     * @param array{domains:array, default:array{id:string, app:string, org:int, lang:string}} $config   App configuration
+     * @param string                                                                           $rootPath Root path  
      *
      * @return string Application name
      *
      * @since 1.0.0
      */
-    private function getApplicationName(HttpUri $uri, array $config) : string
+    private function getApplicationName(HttpUri $uri, array $config, string $rootPath) : string
     {
+        $subDirDepth = \substr_count($rootPath, '/') - 1;
+
         // check subdomain
         $appName = $uri->getSubdomain();
         $appName = $this->getApplicationNameFromString($appName);
@@ -234,22 +237,22 @@ class WebApplication extends ApplicationAbstract
         }
 
         // check uri path 0 (no language is defined)
-        $appName = $uri->getPathElement(0);
+        $appName = $uri->getPathElement($subDirDepth + 0);
         $appName = $this->getApplicationNameFromString($appName);
 
         if ($appName !== 'E500') {
-            UriFactory::setQuery('/prefix', (empty(UriFactory::getQuery('/prefix')) ? '' : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement(1) . '/');
+            UriFactory::setQuery('/prefix', (empty(UriFactory::getQuery('/prefix')) ? '' : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement($subDirDepth + 1) . '/');
 
             return $appName;
         }
 
         // check uri path 1 (language is defined)
-        if (ISO639x1Enum::isValidValue($uri->getPathElement(0))) {
-            $appName = $uri->getPathElement(1);
+        if (ISO639x1Enum::isValidValue($uri->getPathElement($subDirDepth + 0))) {
+            $appName = $uri->getPathElement($subDirDepth + 1);
             $appName = $this->getApplicationNameFromString($appName);
 
             if ($appName !== 'E500') {
-                UriFactory::setQuery('/prefix', (empty(UriFactory::getQuery('/prefix')) ? '' : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement(1) . '/');
+                UriFactory::setQuery('/prefix', (empty(UriFactory::getQuery('/prefix')) ? '' : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement($subDirDepth + 1) . '/');
 
                 return $appName;
             }
