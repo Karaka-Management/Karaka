@@ -154,8 +154,8 @@ class WebApplication extends ApplicationAbstract
         $langCode    = ISO639x1Enum::isValidValue($uriLang) ? $uriLang : (ISO639x1Enum::isValidValue($requestLang) ? $requestLang : $defaultLang);
 
         $pathOffset = $subDirDepth
-            + (ISO639x1Enum::isValidValue($uriLang) 
-                ? 1 + ($this->getApplicationNameFromString($request->getUri()->getPathElement($subDirDepth + 1)) !== 'E500' ? 1 : 0) 
+            + (ISO639x1Enum::isValidValue($uriLang)
+                ? 1 + ($this->getApplicationNameFromString($request->getUri()->getPathElement($subDirDepth + 1)) !== 'E500' ? 1 : 0)
                 : 0 + ($this->getApplicationNameFromString($request->getUri()->getPathElement($subDirDepth + 0)) !== 'E500' ? 1 : 0)
             );
 
