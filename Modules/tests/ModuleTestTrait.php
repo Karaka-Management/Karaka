@@ -168,13 +168,13 @@ trait ModuleTestTrait
             // test correct hasMany model variable type
             $rel = $mapperReflection->getDefaultProperties()['hasMany'];
             foreach ($rel as $pName => $def) {
-                if (!isset($defaultProperties[$pName])) {
+                $property = $defaultProperties[$pName] ?? null;
+                if (!isset($property)) {
                     self::assertTrue(false, 'Mapper "' . $class . '" property "' . $pName . '" doesn\'t exist in model');
                 }
 
-                $property = $defaultProperties[$pName];
-                if (!\is_array($property)) {
-                    self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" has invalid type compared to model definition');
+                if (!\is_array($property) && !isset($def['column'])) {
+                    self::assertTrue(false, 'Mapper "' . $class . '" column "' . $pName . '" has invalid type compared to model definition');
                 }
             }
         }
