@@ -5,6 +5,29 @@ export const KEYBOARD_EVENTS = [
         'keys': [17, 80],
         'callback': function (e) {document.getElementById('iSearchBox').focus();}
     }, {
+        'element': '', // submit currently focused form
+        'keys': [17, 13],
+        'callback': function (e) {
+            const focused = document.activeElement;
+            let formId    = focused.closest('form');
+
+            if (formId === null) {
+                formId = focused.getAttribute('form');
+            }
+
+            if (formId === null) {
+                formId = focused.getAttribute('data-form');
+            }
+
+            if (formId === null) {
+                return;
+            }
+
+            window.omsApp.uiManager.getFormManager().submit(
+                window.omsApp.uiManager.getFormManager().get(formId)
+            );
+        }
+    }, {
         'element': 'label, tr', // click label
         'keys': [13],
         'callback': function (e) {document.activeElement.click();}
