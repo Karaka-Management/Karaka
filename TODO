@@ -1,5 +1,13 @@
+select ...
+from ...
+where ...
+and can_see_unit IS NULL or (can_see_unit = unit and can_see_element IS NULL)
+    or can_see_app is NULL or (can_see_app = app and can_see_element IS NULL)
+    or can_see_module is NULL or (can_see_module = module and can_see_element IS NULL)
+    or can_see_type is NULL or (can_see_type = type and can_see_element IS NULL)
+    or (can_see_element = element_id and can_see_module = module)
+
 v0.1.0-alpha:
-  #11 [Tasks] Show the profile image of the user who created the task/task element
   #10 [Tasks] Implement tags and tag modification
   #1 [CMS] Allow content creation and modification
   #2 [CMS] Make all files modifiable in a file overview instead of a view for every type of file (e.g. template, theme, controller)
@@ -114,7 +122,6 @@ Admin:
   #1 [Admin] Add user & group settings
 
 Organization:
-  #1 [Unit] Add unit image
 
 Tasks:
   #9 Create task/calendar reference
@@ -125,7 +132,7 @@ Tasks:
   #4 [Tasks] Batch handle tasks in the dashboard list
   #3 [Tasks] Validate that the user is allowed to create a task element for a specific task
   #2 [Tasks] Update task status depending on the new task element or updated task element
-  #1 [Tasks] Implement has seen feature
+  #1 [Tasks] Implement has seen feature (currently not working correctly, shows all open tasks)
 
 Profile:
   #2 [Profiles] Implement basic profile view
@@ -145,7 +152,6 @@ spl1nes:
   Implement Email/Messaging
   Implement Calendar
   Implement clocking
-  Fix showing open task count on all pages
   Fix showing the correct task count, currently the wrong count is shown
   Implement profile editing
   Implement content loading with API (e.g. api/tpl/{app}/route)
