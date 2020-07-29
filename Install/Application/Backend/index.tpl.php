@@ -65,7 +65,7 @@ $dispatch = $this->getData('dispatch') ?? [];
             <span id="logo" itemscope itemtype="http://schema.org/Organization">
                 <select
                     class="plain" id="unit-selector" name="unit"
-                    data-action='[{"listener": "change", "action": [{"key": 1, "type": "redirect", "uri": "{%}&u={#unit-selector}", "target": "self"}]}]'
+                    data-action='[{"listener": "change", "action": [{"key": 1, "type": "redirect", "uri": "{%}&u={!#unit-selector}", "target": "self"}]}]'
                     title="Unit selector">
                     <?php foreach ($this->organizations as $organization) : ?>
                         <option value="<?= $this->printHtml($organization->getId()); ?>"<?= $this->getData('orgId') == $organization->getId() ? ' selected' : ''; ?>><?= $this->printHtml($organization->getName()); ?>
@@ -78,7 +78,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     </nav>
     <main>
         <header>
-            <form id="s-bar" method="GET" action="<?= UriFactory::build('{/api}search?{?}&app=Backend&csrf={$CSRF}'); ?>&search={#iSearchBox}">
+            <form id="s-bar" method="GET" action="<?= UriFactory::build('{/api}search?{?}&app=Backend&csrf={$CSRF}'); ?>&search={!#iSearchBox}">
                 <label class="ham-trigger" for="nav-trigger"><i class="fa fa-bars p"></i></label>
                 <span role="search" class="inputWrapper">
                     <span class="textWrapper">
