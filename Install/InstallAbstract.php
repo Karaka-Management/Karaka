@@ -340,7 +340,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $collection = new Collection();
         $collection->setName('Modules');
         $collection->setVirtualPath('/');
-        $collection->setPath('/');
+        $collection->setPath('/Modules/Media/Files/Modules');
         $collection->setCreatedBy(new NullAccount(1));
 
         CollectionMapper::create($collection);
@@ -348,7 +348,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $collection = new Collection();
         $collection->setName('Accounts');
         $collection->setVirtualPath('/');
-        $collection->setPath('/');
+        $collection->setPath('/Modules/Media/Files/Accounts');
         $collection->setCreatedBy(new NullAccount(1));
 
         CollectionMapper::create($collection);
