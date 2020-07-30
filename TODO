@@ -31,6 +31,7 @@ Orange-Management:
   #62 [Event, Project, Promotion] Goal definition
   #61 [MarketingAnalysis] Implement
   #63 [ProductionAnalysis] Add module
+  #? [Pagination] Bug: If pagination (next/previous) is implemented in a tab (e.g. second tab) the newly loaded page after clicking on next shows the first tab instead of the tab which contains the list.
 
 phpOMS:
   #252 [WebRouter] Implement test for defining data from route
@@ -63,6 +64,9 @@ phpOMS:
   #204 [BusinessWarehous] Implement warehouse picking algorithm
   #194 [Builder] Automatically set prefix during construction
   #190 [OAuth 2.0] Implement
+  #? [HttpRequest] Fragments should be an array since there can be multiple combined with '&'
+  #? [UriFactory] Fragments should be accessible via {#0} = specific and {#} = all joined with '&'
+  #? [TextSearch] Create full text search for files/in-memory texts and return the best matched files and the matched phrases
 
 jsOMS:
   #99 [VoiceCommand] Implement voice pause/continue command
@@ -95,11 +99,17 @@ jsOMS:
   #67 [Logger] Implement UI logging
   #66 [Speech] Remove speech recognition wrapper
   #64 [Library] Get nearest element(s) based on selector
+  #? [Tabs] Fragments should be joined with '&' instead of ','
+  #? [UriFactory] Fragments should be accessible via {#0} = specific and {#} = all joined with '&'
+  #? [UriFactory] Consider to parse EVERY url in the uri factory (see bug with auditlog pagination)
+  #? [Tabs] Slow change of tabs on load if a tab is provided. Before the page is ready the correct tabs should be activated. This way the user doesn't see the tab jumping from the first tab to the n-th tab. Currently the backend rendering is kind of fixing this.
+  #? Highlight currently filtered columns (maybe blue background for easy identification)
+  #? Highlight currently sorted columns (maybe blue background for easy identification)
 
 cssOMS:
   #14 Create drop down with search field
   #12 Create slider element
-  #4 Nicer visual input validation
+  #4 Nicer visual input validation (e.g. show checkmark and x in input fields *optional*)
 
 Build:
   #11 [Language Files] Create language file manager
@@ -124,6 +134,7 @@ Admin:
   #? Consider to move the name1 - name3 into their own name table. This would make it easier to search for names at the cost of ?
 
 Auditor:
+  #? Create printable reports based on specific changes (print specific changes for auditors)
 
 CMS:
   #2 [CMS] Make all files modifiable in a file overview instead of a view for every type of file
@@ -136,8 +147,12 @@ Calendar:
   #4 [Calendar] Allow user to define start of week
   #? [Calendar] Implement table
   #? [Calendar] Implement layouts (daily, weekly, monthly, annual view)
+  #? [Chart] Create Gantt chart from calenders (specify duration)
+  #? [Chart] Create Gantt chart from events with specific tag
+  #? [Tag] Implement tags for events
 
 Checklist:
+  #? Create job which automatically creates checklists
 
 ClientManagement:
   #? Geo map for customer in customer profile
@@ -149,6 +164,8 @@ Comments:
   #? Allow configuration options for comment list (allow response, allow upvote, max length, allow edit, ...)
 
 Contact:
+  #? Impl. in own profile
+  #? Impl. contact sync/sharing between profiles
 
 Dashboard:
   #4 [Bug] Drag&Drop element sometimes disappear on drop
@@ -176,6 +193,7 @@ Exchange:
 Help:
 
 Helper:
+  #? Create job which executes a helper (create new entry and potentially export)
 
 Home:
 
@@ -204,6 +222,7 @@ Kanban:
 Knowledgebase:
   #2 [Knowledgebase] Implement draft view
   #1 [Knowledgebase] Allow wiki creation and modification
+  #? Add app and category selection on create
 
 Marketing:
 
@@ -221,6 +240,8 @@ Media:
   #11 [Media] Implement resumable uploads
   #12 [Media] Implement drag/drop upload
   #13 [Media] Allow collection modification
+  #? Implement external resources (e.g. link to resource, api specific end-points from dropbox etc.)
+  #? Allow to reference a file (e.g. like a symlink) directly
 
 Messages:
 
@@ -228,6 +249,7 @@ Monitoring:
   #1 [Monitoring] Implement code integrity
 
 MyPrivate:
+  #? Consider to remove???
 
 Navigation:
   #5 [Goto Command] Match navigation command based on approximate matches
@@ -241,6 +263,10 @@ News:
   #3 [News] Allow tag modification
 
 Organization:
+  #? [Organigram] Create more recognizable grouping
+  #? [Organigram] Create organigram in SVG with connection lines
+  #? [Organigram] Create printable version
+  #? [Organigram] Create approval/versioning (e.g. for ISO)
 
 Profile:
   #1 [Profile] Define account types to show
@@ -263,13 +289,21 @@ Sales:
   #1 [Analysis] Create dashboard
 
 Search:
+  #? Implement module specific search (e.g. :tasks title....)
+  #? Implement global search hook
+  #? Implement tag search hook = mix of global and module specific hook
 
 SupplierManagement:
 
 Support:
   #? Implement
+  #? Allow to move a support request to the Q&A
+  #? Create account for new email address
 
 Tag:
+  #? Add icon to tags
+  #? Create default color set
+  #? Create optional hook which creates tags whenever a group is created
 
 Tasks:
   #18 [Analysis] Tasks per user
@@ -291,6 +325,7 @@ Tasks:
 TestModule:
 
 Tools:
+  #? Create tool to create/modify language files in a more human readable way
 
 Workflow:
   #2 [Workflow] Request/approval workflow
