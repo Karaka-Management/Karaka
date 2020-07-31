@@ -39,6 +39,7 @@
                 <directory>../Modules/vendor</directory>
                 <directory>../*/tests*</directory>
                 <directory>../**/tests*</directory>
+                <directory>../Modules/**/vendor*</directory>
                 <directory>*/tests*</directory>
                 <directory suffix="tpl.php">../*</directory>
                 <directory suffix="lang.php">../*</directory>
@@ -51,6 +52,12 @@
             </exclude>
         </whitelist>
     </filter>
+    <groups>
+        <exclude>
+            <group>volume</group>
+            <group>maybe</group>
+        </exclude>
+    </groups>
     <logging>
         <log type="junit" target="../Build/test/junit_php.xml"/>
         <log type="testdox-html" target="../Build/test/index.html"/>
