@@ -135,6 +135,7 @@ Admin:
 
 Auditor:
   #? Create printable reports based on specific changes (print specific changes for auditors)
+  #? Create audit logs for base elements (e.g. 3 base groups etc. from the installer)
 
 CMS:
   #2 [CMS] Make all files modifiable in a file overview instead of a view for every type of file
@@ -396,7 +397,7 @@ where ...
     AND (account_permission_app IS NULL OR account_permission_app = 'APP')
     AND (account_permission_module IS NULL OR account_permission_module = 'MODULE')
     AND (account_permission_type IS NULL OR account_permission_type = 'TYPE')
-    AND (account_permission_element IS NULL OR account_permission_element = 'ELEMENT')
+    AND (account_permission_element IS NULL OR account_permission_element = 'THIS_ID')
     AND (account_permission_component IS NULL OR account_permission_component = 'COMPONENT')
     AND account_permission_permission = ???
   )
@@ -407,7 +408,7 @@ where ...
     AND (group_permission_app IS NULL OR group_permission_app = 'APP')
     AND (group_permission_module IS NULL OR group_permission_module = 'MODULE')
     AND (group_permission_type IS NULL OR group_permission_type = 'TYPE')
-    AND (group_permission_element IS NULL OR group_permission_element = 'ELEMENT')
+    AND (group_permission_element IS NULL OR group_permission_element = 'THIS_ID')
     AND (group_permission_component IS NULL OR group_permission_component = 'COMPONENT')
     AND group_permission_permission = ???
   )
