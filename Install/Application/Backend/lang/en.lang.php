@@ -27,6 +27,7 @@ return [[
     'Empty'      => 'Empty',
     'Filter'     => 'Filter',
     'Find'       => 'Find',
+    'ForgottPassword'       => 'Forgott Password?',
     'Friday'     => 'Friday',
     'ID'         => 'ID',
     'CurrencyK'  => 'K',

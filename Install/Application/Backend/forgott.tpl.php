@@ -202,18 +202,19 @@ $head = $this->getData('head');
             box-shadow: none;
         }
 
-        #forgot-password {
+        /* Only this part below is different from the login page */
+        #back {
             text-align: center;
         }
 
-        #forgot-password a {
+        #back a {
             padding-bottom: .5rem;
             cursor: pointer;
             transition : border-bottom 100ms ease-out;
         }
 
-        #forgot-password a:hover,
-        #forgot-password a:focus {
+        #back a:hover,
+        #back a:focus {
             color: rgba(255, 255, 255, .8);
             border-bottom: 1px solid rgba(255, 255, 255, .6);
         }
@@ -224,24 +225,18 @@ $head = $this->getData('head');
     <div id="login-logo">
         <img alt="<?= $this->getHtml('Logo', '0', '0'); ?>" src="<?= UriFactory::build('Web/Backend/img/logo.png'); ?>">
     </div>
-    <header><h1><?= $this->getHtml('Login', '0', '0'); ?></h1></header>
+    <header><h1><?= $this->getHtml('ForgottPassword', '0', '0'); ?></h1></header>
     <div id="login-form">
-        <form id="login" method="POST" action="<?= UriFactory::build('{/api}login?{?}'); ?>">
+        <form id="forgott" method="POST" action="<?= UriFactory::build('{/api}forgott?{?}'); ?>">
             <label for="iName"><?= $this->getHtml('Username', '0', '0'); ?>:</label>
             <div class="inputWithIcon">
                 <input id="iName" type="text" name="user" tabindex="1" value="admin" autocomplete="off" spellcheck="false" autofocus>
                 <i class="frontIcon fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
                 <i class="endIcon fa fa-times fa-lg fa-fw" aria-hidden="true"></i>
             </div>
-            <label for="iPassword"><?= $this->getHtml('Password', '0', '0'); ?>:</label>
-            <div class="inputWithIcon">
-                <input id="iPassword" type="password" name="pass" tabindex="2" value="orange">
-                <i class="frontIcon fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
-                <i class="endIcon fa fa-times fa-lg fa-fw" aria-hidden="true"></i>
-            </div>
-            <input id="iLoginButton" name="loginButton" type="submit" value="<?= $this->getHtml('Login', '0', '0'); ?>" tabindex="3">
+            <input id="iForgottButton" name="forgottButton" type="submit" value="<?= $this->getHtml('Submit', '0', '0'); ?>" tabindex="3">
         </form>
     </div>
-    <div id="forgot-password"><a href="<?= UriFactory::build('{/prefix}forgott?{?}'); ?>" tabindex="4"><?= $this->getHtml('ForgottPassword', '0', '0'); ?></a></div>
+    <div id="back"><a href="<?= UriFactory::build('{/backend}'); ?>" tabindex="2"><?= $this->getHtml('Back', '0', '0'); ?></a></div>
 </div>
 <?= $head->renderAssetsLate(); ?>

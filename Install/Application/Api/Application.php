@@ -188,16 +188,6 @@ final class Application
             return;
         }
 
-        if ($request->getUri()->getPathElement(0) === 'login') {
-            $this->handleLogin($request, $response);
-
-            return;
-        } elseif ($request->getUri()->getPathElement(0) === 'logout') {
-            $this->handleLogout($request, $response);
-
-            return;
-        }
-
         $this->app->moduleManager->initRequestModules($request);
 
         // add tpl loading
@@ -324,60 +314,6 @@ final class Application
                 ), $request, $response
             );
         }
-    }
-
-    /**
-     * Handle login request
-     *
-     * @param HttpRequest  $request  Request
-     * @param HttpResponse $response Response
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    private function handleLogin(HttpRequest $request, HttpResponse $response) : void
-    {
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-
-        $login = AccountMapper::login((string) ($request->getData('user') ?? ''), (string) ($request->getData('pass') ?? ''));
-
-        if ($login >= LoginReturnType::OK) {
-            $this->app->sessionManager->set('UID', $login, true);
-            $this->app->sessionManager->save();
-            $response->set($request->getUri()->__toString(), new Reload());
-        } else {
-            $response->set($request->getUri()->__toString(), new Notify(
-                'Login failed due to wrong login information',
-                NotifyType::INFO
-            ));
-        }
-    }
-
-    /**
-     * Handle logout request
-     *
-     * @param HttpRequest  $request  Request
-     * @param HttpResponse $response Response
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    private function handleLogout(HttpRequest $request, HttpResponse $response) : void
-    {
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-
-        $this->app->sessionManager->remove('UID');
-        $this->app->sessionManager->save();
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->getUri()->__toString(), [
-            'status'   => NotificationLevel::OK,
-            'title'    => 'Logout successfull',
-            'message'  => 'You are redirected to the login page',
-            'response' => null,
-        ]);
     }
 
     /**

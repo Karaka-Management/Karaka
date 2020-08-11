@@ -208,6 +208,13 @@ final class Application
         $this->initResponseHead($head, $request, $response);
 
         /* Handle not logged in */
+        if ($request->getUri()->getPathElement(0) === 'forgott') {
+            $this->createForgottResponse($response, $head, $pageView);
+
+            return;
+        }
+
+        /* Handle not logged in */
         if ($account->getId() < 1) {
             $this->createLoggedOutResponse($response, $head, $pageView);
 
@@ -381,6 +388,23 @@ final class Application
         $css = \preg_replace('!\s+!', ' ', $css);
         $head->setStyle('core', $css ?? '');
         $head->setTitle('Orange Management Backend');
+    }
+
+    /**
+     * Create forgott response
+     *
+     * @param HttpResponse $response Response
+     * @param Head         $head     Head to fill
+     * @param View         $pageView View
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    private function createForgottResponse(HttpResponse $response, Head $head, View $pageView) : void
+    {
+        $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+        $pageView->setTemplate('/Web/Backend/forgott');
     }
 
     /**
