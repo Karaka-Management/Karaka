@@ -208,8 +208,8 @@ final class Application
         $this->initResponseHead($head, $request, $response);
 
         /* Handle not logged in */
-        if ($request->getUri()->getPathElement(0) === 'forgott') {
-            $this->createForgottResponse($response, $head, $pageView);
+        if (\in_array($request->getUri()->getPathElement(0), ['forgott', 'privacy', 'imprint', 'terms'])) {
+            $this->createBaseLoggedOutResponse($request, $response, $head, $pageView);
 
             return;
         }
@@ -393,6 +393,7 @@ final class Application
     /**
      * Create forgott response
      *
+     * @param HttpRequest  $request  Request
      * @param HttpResponse $response Response
      * @param Head         $head     Head to fill
      * @param View         $pageView View
@@ -401,10 +402,18 @@ final class Application
      *
      * @since 1.0.0
      */
-    private function createForgottResponse(HttpResponse $response, Head $head, View $pageView) : void
+    private function createBaseLoggedOutResponse(HttpRequest $request, HttpResponse $response, Head $head, View $pageView) : void
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-        $pageView->setTemplate('/Web/Backend/forgott');
+        $pageView->setTemplate('/Web/Backend/' . $request->getUri()->getPathElement(0));
+
+        $css = \file_get_contents(__DIR__ . '/css/logout-small.css');
+        if ($css === false) {
+            $css = '';
+        }
+
+        $css = \preg_replace('!\s+!', ' ', $css);
+        $head->setStyle('core', $css ?? '');
     }
 
     /**
@@ -422,6 +431,14 @@ final class Application
     {
         $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
         $pageView->setTemplate('/Web/Backend/login');
+
+        $css = \file_get_contents(__DIR__ . '/css/logout-small.css');
+        if ($css === false) {
+            $css = '';
+        }
+
+        $css = \preg_replace('!\s+!', ' ', $css);
+        $head->setStyle('core', $css ?? '');
     }
 
     /**

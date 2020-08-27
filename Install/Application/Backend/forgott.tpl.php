@@ -34,209 +34,33 @@ $head = $this->getData('head');
     <style><?= $head->renderStyle(); ?></style>
     <script><?= $head->renderScript(); ?></script>
     <?= $head->renderAssets(); ?>
-    <style type="text/css">
-        :root {
-            --main-background: #343a40;
-
-            --input-border: rgba(54, 150, 219, 0.4);
-            --input-border-active: rgba(54, 150, 219, 0.7);
-            --input-color: rgba(166, 135, 232, .6);
-            --input-color-active: rgba(166, 135, 232, .8);
-
-            --input-icon-color: rgba(54, 150, 219, .6);
-            --input-icon-color-active: rgba(54, 150, 219, 1);
-
-            --button-main-background: #3697db;
-            --button-main-background-active: #4aabf0;
-            --button-main-color: rgba(255, 255, 255, .9);
-
-            --text-on-background-color: rgba(255, 255, 255, 0.7);
-        }
-
-        html, body {
-            height: 100%;
-            font-family: 'Roboto', sans-serif;
-            background: var(--main-background);
-            color: var(--text-on-background-color);
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            flex-direction: column;
-            font-weight: 300;
-        }
-
-        #login-container {
-            width: 90%;
-            max-width: 300px;
-            margin: 0 auto;
-        }
-
-        #login-logo {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 185px;
-        }
-
-        #login-logo img {
-            animation: pulse 1.5s ease infinite alternate;
-            width: 60%;
-        }
-
-        @keyframes pulse {
-            0% {
-                width: 60%;
-            }
-
-            30%, 100% {
-                width: 65%;
-            }
-        }
-
-        header {
-            text-align: left;
-            margin-bottom: 1rem;
-        }
-
-        header h1 {
-            font-weight: 300;
-        }
-
-        #login-logo {
-            margin-bottom: 10%;
-        }
-
-        #login-logo {
-            text-align: center;
-        }
-
-        form {
-            margin-bottom: 10%;
-        }
-
-        form label {
-            text-shadow: none;
-            color: var(--text-on-background-color);
-            cursor: pointer;
-        }
-
-        form input[type=text],
-        form input[type=password] {
-            margin-bottom: .5rem;
-            background: rgba(0, 0, 0, .15);
-            border: 1px solid var(--input-border);
-            text-shadow: none;
-            box-shadow: none;
-            color: var(--text-on-background-color);
-            width: 100%;
-            transition : border 500ms ease-out;
-            outline: none;
-            box-sizing: border-box;
-            line-height: 1rem;
-        }
-
-        .inputWithIcon {
-            position: relative;
-        }
-
-        .inputWithIcon input {
-            padding-left: 2.5rem;
-        }
-
-        .inputWithIcon .frontIcon {
-            color: var(--input-icon-color);
-            font-size: 1rem;
-            position: absolute;
-            left: 0;
-            top: 0;
-            padding: .65rem;
-        }
-
-        .inputWithIcon .endIcon {
-            color: var(--input-icon-color);
-            font-size: 1rem;
-            position: absolute;
-            right: 0;
-            top: 0;
-            padding: .65rem;
-        }
-
-        form input[type=text]:active, form input[type=text]:focus,
-        form input[type=password]:active, form input[type=password]:focus {
-            border: 1px solid var(--input-border-active);
-            color: var(--text-on-background-color);
-        }
-
-        form input[type=text]:active~.frontIcon, form input[type=text]:focus~.frontIcon,
-        form input[type=password]:active~.frontIcon, form input[type=password]:focus~.frontIcon,
-        form input[type=text]:active~.endIcon, form input[type=text]:focus~.endIcon,
-        form input[type=password]:active~.endIcon, form input[type=password]:focus~.endIcon {
-            color: var(--input-icon-color-active);
-        }
-
-        form input[type=text]~.endIcon, form input[type=text]~.endIcon,
-        form input[type=password]~.endIcon, form input[type=password]~.endIcon {
-            cursor: pointer;
-        }
-
-        form input[type=submit] {
-            width: 100%;
-            background-color: var(--button-main-background);
-            border: none;
-            text-shadow: none;
-            box-shadow: none;
-            color: var(--button-main-color);
-            cursor: pointer;
-            transition : background-color 500ms ease-out;
-        }
-
-        form input[type=submit]:hover,
-        form input[type=submit]:focus {
-            background-color: var(--button-main-background-active);
-            border: none;
-            text-shadow: none;
-            box-shadow: none;
-        }
-
-        /* Only this part below is different from the login page */
-        #back {
-            text-align: center;
-        }
-
-        #back a {
-            padding-bottom: .5rem;
-            cursor: pointer;
-            transition : border-bottom 100ms ease-out;
-        }
-
-        #back a:hover,
-        #back a:focus {
-            color: rgba(255, 255, 255, .8);
-            border-bottom: 1px solid rgba(255, 255, 255, .6);
-        }
-    </style>
 </head>
 <body>
-<div id="login-container">
-    <div id="login-logo">
-        <img alt="<?= $this->getHtml('Logo', '0', '0'); ?>" src="<?= UriFactory::build('Web/Backend/img/logo.png'); ?>">
+<main>
+    <div id="login-container">
+        <div id="login-logo">
+            <img alt="<?= $this->getHtml('Logo', '0', '0'); ?>" src="<?= UriFactory::build('Web/Backend/img/logo.png'); ?>">
+        </div>
+        <header><h1><?= $this->getHtml('ForgottPassword', '0', '0'); ?></h1></header>
+        <div id="login-form">
+            <form id="forgott" method="POST" action="<?= UriFactory::build('{/api}forgott?{?}'); ?>">
+                <label for="iName"><?= $this->getHtml('Username', '0', '0'); ?>:</label>
+                <div class="inputWithIcon">
+                    <input id="iName" type="text" name="user" tabindex="1" value="admin" autocomplete="off" spellcheck="false" autofocus>
+                    <i class="frontIcon fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                    <i class="endIcon fa fa-times fa-lg fa-fw" aria-hidden="true"></i>
+                </div>
+                <input id="iForgottButton" name="forgottButton" type="submit" value="<?= $this->getHtml('Submit', '0', '0'); ?>" tabindex="3">
+            </form>
+        </div>
+        <div id="below-form"><a href="<?= UriFactory::build('{/backend}'); ?>" tabindex="2"><?= $this->getHtml('Back', '0', '0'); ?></a></div>
     </div>
-    <header><h1><?= $this->getHtml('ForgottPassword', '0', '0'); ?></h1></header>
-    <div id="login-form">
-        <form id="forgott" method="POST" action="<?= UriFactory::build('{/api}forgott?{?}'); ?>">
-            <label for="iName"><?= $this->getHtml('Username', '0', '0'); ?>:</label>
-            <div class="inputWithIcon">
-                <input id="iName" type="text" name="user" tabindex="1" value="admin" autocomplete="off" spellcheck="false" autofocus>
-                <i class="frontIcon fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
-                <i class="endIcon fa fa-times fa-lg fa-fw" aria-hidden="true"></i>
-            </div>
-            <input id="iForgottButton" name="forgottButton" type="submit" value="<?= $this->getHtml('Submit', '0', '0'); ?>" tabindex="3">
-        </form>
-    </div>
-    <div id="back"><a href="<?= UriFactory::build('{/backend}'); ?>" tabindex="2"><?= $this->getHtml('Back', '0', '0'); ?></a></div>
-</div>
+</main>
+<footer>
+    <ul>
+        <li><a href="<?= UriFactory::build('{/prefix}privacy?{?}'); ?>"><?= $this->getHtml('PrivacyPolicy', '0', '0'); ?></a>
+        <li><a href="<?= UriFactory::build('{/prefix}terms?{?}'); ?>"><?= $this->getHtml('Terms', '0', '0'); ?></a>
+        <li><a href="<?= UriFactory::build('{/prefix}imprint?{?}'); ?>"><?= $this->getHtml('Imprint', '0', '0'); ?></a>
+    </ul>
+</footer>
 <?= $head->renderAssetsLate(); ?>
