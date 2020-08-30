@@ -304,7 +304,7 @@ DataMapperAbstract::setConnection($GLOBALS['dbpool']->get());
 
 $GLOBALS['frameworkpath'] = '/phpOMS/';
 
-function phpServe(): void
+function phpServe() : void
 {
     // OS detection
     $isWindows = \stristr(\php_uname('s'), 'Windows') !== false;
@@ -356,7 +356,7 @@ function phpServe(): void
     ) . \PHP_EOL;
 
     // Kill the web server when the process ends
-    \register_shutdown_function(function() use ($killCommand, $pid): void {
+    \register_shutdown_function(function() use ($killCommand, $pid) : void {
         echo \PHP_EOL . \sprintf('Stopping server...') . \PHP_EOL;
         echo \sprintf(' %s - Killing process with ID %d', \date('r'), $pid) . \PHP_EOL;
         \exec($killCommand . $pid);

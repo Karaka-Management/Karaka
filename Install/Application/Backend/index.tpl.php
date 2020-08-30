@@ -89,7 +89,7 @@ $dispatch = $this->getData('dispatch') ?? [];
                     <input type="submit" id="iSearchButton" name="searchButton" value="<?= $this->getHtml('Search', '0', '0'); ?>">
                 </span>
             </form>
-            <div id="t-nav-container"><?= $top ?></div>
+            <div id="t-nav-container"><?= $top; ?></div>
         </header>
 
         <div id="content" class="container-fluid" role="main">
