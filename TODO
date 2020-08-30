@@ -32,6 +32,9 @@ Orange-Management:
   #61 [MarketingAnalysis] Implement
   #63 [ProductionAnalysis] Add module
   #? [Pagination] Bug: If pagination (next/previous) is implemented in a tab (e.g. second tab) the newly loaded page after clicking on next shows the first tab instead of the tab which contains the list.
+  #? Make forgotten page use the router instead of the manual routing. The problem is that this was using the backend default base template. As a work around we could use the default backend template and an "empty" template for login/forgotten/ and other pages like privacy policy etc.
+  #? Add privacy policy to all pages incl. login/forgott page!
+  #? Pull out css of login and forgott page into own styles file since they are very similar
 
 phpOMS:
   #252 [WebRouter] Implement test for defining data from route
@@ -61,12 +64,16 @@ phpOMS:
   #218 [ApplicationAbstract] Replace magic methods with readonly once available
   #215 Covariance for function parameters
   #206 [ItemClustering] Implement
-  #204 [BusinessWarehous] Implement warehouse picking algorithm
+  #204 [BusinessWarehouse] Implement warehouse picking algorithm
   #194 [Builder] Automatically set prefix during construction
   #190 [OAuth 2.0] Implement
   #? [HttpRequest] Fragments should be an array since there can be multiple combined with '&'
   #? [UriFactory] Fragments should be accessible via {#0} = specific and {#} = all joined with '&'
   #? [TextSearch] Create full text search for files/in-memory texts and return the best matched files and the matched phrases
+  #? [ClusterAnalysis] Create the different cluster analysis implementations
+  #? [Markdown] Create a substr function which returns a substring without parsing issues. This could be implemented by defining a soft and hard limit for the text length. Or by forcing closing tags at the end.
+  #? Consider to remove ::class with FQCN strings... consider to use class_keyword_remove in php-cs-fixer
+  #? Add DateTimeImmutable as type to the DataMapper. This is important for some date times!
 
 jsOMS:
   #99 [VoiceCommand] Implement voice pause/continue command
@@ -245,6 +252,7 @@ Media:
   #? Allow to reference a file (e.g. like a symlink) directly
 
 Messages:
+  #? Add notification component for creating and timing push notifications
 
 Monitoring:
   #1 [Monitoring] Implement code integrity
