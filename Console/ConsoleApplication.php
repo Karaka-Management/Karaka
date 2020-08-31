@@ -35,7 +35,6 @@ use phpOMS\Router\WebRouter;
 use phpOMS\Uri\Argument;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
-
 use Web\Exception\DatabaseException;
 
 /**

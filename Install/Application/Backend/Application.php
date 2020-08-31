@@ -15,12 +15,10 @@ declare(strict_types=1);
 namespace Web\Backend;
 
 use Model\CoreSettings;
-
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\LocalizationMapper;
 use Modules\Admin\Models\NullAccount;
 use Modules\Organization\Models\UnitMapper;
-
 use Modules\Profile\Models\ProfileMapper;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
@@ -45,7 +43,6 @@ use phpOMS\Module\ModuleManager;
 use phpOMS\Router\RouteVerb;
 use phpOMS\Router\WebRouter;
 use phpOMS\Uri\UriFactory;
-
 use phpOMS\Views\View;
 use Web\WebApplication;
 
@@ -121,7 +118,6 @@ final class Application
                 $view = new View($this->app->l11nManager, $request, $response);
                 $view->setTemplate('/Web/Backend/Error/403_inline');
                 $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-
 
                 return $view;
             },

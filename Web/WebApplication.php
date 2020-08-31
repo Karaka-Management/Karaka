@@ -23,7 +23,6 @@ use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\System\File\PathException;
 use phpOMS\Uri\HttpUri;
-
 use phpOMS\Uri\UriFactory;
 use Web\Exception\DatabaseException;
 use Web\Exception\UnexpectedApplicationException;

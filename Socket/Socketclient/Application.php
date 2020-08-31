@@ -20,7 +20,6 @@ use phpOMS\Log\FileLogger;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\SocketRouter;
 use phpOMS\Socket\Client\Client;
-
 use Socket\SocketApplication;
 
 /**

@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Socket\Socketserver;
 
 use Model\CoreSettings;
-
 use phpOMS\Account\AccountManager;
 use phpOMS\DataStorage\Cache\CachePool;
 use phpOMS\DataStorage\Database\DatabasePool;
@@ -29,7 +28,6 @@ use phpOMS\Module\ModuleManager;
 use phpOMS\Router\SocketRouter;
 use phpOMS\Socket\Server\Server;
 use phpOMS\Socket\SocketType;
-
 use Socket\SocketApplication;
 
 /**

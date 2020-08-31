@@ -16,7 +16,6 @@ namespace Install;
 
 use Model\CoreSettings;
 use Model\Settings;
-
 use Modules\Admin\Controller\ApiController;
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
@@ -28,7 +27,6 @@ use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Organization\Models\Status;
 use Modules\Organization\Models\UnitMapper;
-
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use phpOMS\Account\GroupStatus;
