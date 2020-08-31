@@ -14,5 +14,5 @@ declare(strict_types=1);
 
 return [[
     'ErrorMessage' => 'Error 503',
-    'Description' => 'Ein Dienst auf den diese Anwendung angewiesen ist reagiert nicht, wir arbeiten an einer Lösung.',
+    'Description'  => 'Ein Dienst auf den diese Anwendung angewiesen ist reagiert nicht, wir arbeiten an einer Lösung.',
 ]];

@@ -143,7 +143,7 @@ trait ModuleTestTrait
                 // testing existence of member variable in model
                 if (\stripos($column['internal'], '/') !== false) {
                     $column['internal'] = \explode('/', $column['internal'])[0];
-                    $isArray = true;
+                    $isArray            = true;
                 }
 
                 if (!$classReflection->hasProperty($column['internal'])) {

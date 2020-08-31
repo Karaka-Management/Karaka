@@ -14,5 +14,5 @@ declare(strict_types=1);
 
 return [[
     'ErrorMessage' => 'Error 503',
-    'Description' => 'A service this page is relying on is not responding we are working on it.',
+    'Description'  => 'A service this page is relying on is not responding we are working on it.',
 ]];

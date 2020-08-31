@@ -14,5 +14,5 @@ declare(strict_types=1);
 
 return [[
     'ErrorMessage' => 'Error 404 - Unexpected error',
-    'Description' => 'The page you tried to reach is no longer available.',
+    'Description'  => 'The page you tried to reach is no longer available.',
 ]];
