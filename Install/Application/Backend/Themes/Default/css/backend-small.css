@@ -89,9 +89,11 @@ main > header {
   flex: 1;
   text-align: right; }
   #logo select {
-    background: none;
+    background: var(--nav-category-background);
     color: rgba(255, 255, 255, 0.8);
     font-size: .8rem; }
+  #logo option {
+    padding: .5rem; }
 
 .ham-trigger {
   display: flex;

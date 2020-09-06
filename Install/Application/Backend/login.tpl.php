@@ -59,7 +59,7 @@ $head = $this->getData('head');
                 <input id="iLoginButton" name="loginButton" type="submit" value="<?= $this->getHtml('Login', '0', '0'); ?>" tabindex="3">
             </form>
         </div>
-        <div id="below-form"><a href="<?= UriFactory::build('{/prefix}forgott?{?}'); ?>" tabindex="4"><?= $this->getHtml('ForgottPassword', '0', '0'); ?></a></div>
+        <div id="below-form"><a href="<?= UriFactory::build('{/prefix}forgot?{?}'); ?>" tabindex="4"><?= $this->getHtml('ForgotPassword', '0', '0'); ?></a></div>
     </div>
 </main>
 <footer>

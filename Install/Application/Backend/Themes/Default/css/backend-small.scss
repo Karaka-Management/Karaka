@@ -54,7 +54,7 @@ main > header {
     text-align: right;
 
     select {
-        background: none;
+        background: var(--nav-category-background);
         color: rgba(255, 255, 255, 0.8);
         font-size: .8rem;
     }

@@ -204,7 +204,7 @@ final class Application
         $this->initResponseHead($head, $request, $response);
 
         /* Handle not logged in */
-        if (\in_array($request->getUri()->getPathElement(0), ['forgott', 'privacy', 'imprint', 'terms'])) {
+        if (\in_array($request->getUri()->getPathElement(0), ['forgot', 'privacy', 'imprint', 'terms'])) {
             $this->createBaseLoggedOutResponse($request, $response, $head, $pageView);
 
             return;
@@ -387,7 +387,7 @@ final class Application
     }
 
     /**
-     * Create forgott response
+     * Create forgot response
      *
      * @param HttpRequest  $request  Request
      * @param HttpResponse $response Response

@@ -57,7 +57,7 @@ $dispatch = $this->getData('dispatch') ?? [];
 <body>
 <div class="vh" id="dim"></div>
     <input type="checkbox" id="nav-trigger" name="nav-hamburger" class="nav-trigger">
-    <nav>
+    <nav id="nav-side">
         <span id="u-box">
             <a href="<?= UriFactory::build('{/prefix}profile/single?{?}&id=' . $this->profile->getId()); ?>">
                 <img alt="<?= $this->getHtml('User', '0', '0'); ?>" data-lazyload="<?= $this->getProfileImage(); ?>">
