@@ -1,0 +1,221 @@
+:root {
+    --main-background: #343a40;
+
+    --input-border: rgba(54, 150, 219, 0.4);
+    --input-border-active: rgba(54, 150, 219, 0.7);
+    --input-color: rgba(166, 135, 232, .6);
+    --input-color-active: rgba(166, 135, 232, .8);
+
+    --input-icon-color: rgba(54, 150, 219, .6);
+    --input-icon-color-active: rgba(54, 150, 219, 1);
+
+    --button-main-background: #3697db;
+    --button-main-background-active: #4aabf0;
+    --button-main-color: rgba(255, 255, 255, .9);
+
+    --text-on-background-color: rgba(255, 255, 255, 0.7);
+}
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--main-background);
+    color: var(--text-on-background-color);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    font-weight: 300;
+
+    scrollbar-color: var(--button-main-background) var(--main-background);
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--button-main-background);
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--main-background);
+    }
+}
+
+footer {
+    align-self: flex-end;
+
+    li {
+        display: inline-block;
+        padding: 1rem;
+    }
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 800px;
+
+    article {
+        background: inherit;
+        padding: 0;
+        margin: 0;
+        font-size: inherit;
+        color: inherit;
+    }
+}
+
+#login-container {
+    width: 90%;
+    max-width: 300px;
+    margin: 0 auto;
+
+    label {
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+#login-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 185px;
+    text-align: center;
+    margin-bottom: 10%;
+
+    img {
+        animation: pulse 1.5s ease infinite alternate;
+        width: 60%;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        width: 60%;
+    }
+
+    30%, 100% {
+        width: 65%;
+    }
+}
+
+header {
+    text-align: left;
+    margin-bottom: 1rem;
+
+    h1 {
+        font-weight: 300;
+    }
+}
+
+form {
+    margin-bottom: 10%;
+
+    label {
+        text-shadow: none;
+        color: var(--text-on-background-color);
+        cursor: pointer;
+    }
+}
+
+form input[type=text],
+form input[type=password] {
+    margin-bottom: .5rem;
+    background: rgba(0, 0, 0, .15);
+    border: 1px solid var(--input-border);
+    text-shadow: none;
+    box-shadow: none;
+    color: var(--text-on-background-color);
+    width: 100%;
+    transition : border 500ms ease-out;
+    outline: none;
+    box-sizing: border-box;
+    line-height: 1rem;
+}
+
+.inputWithIcon {
+    position: relative;
+
+    .frontIcon {
+        color: var(--input-icon-color);
+        font-size: 1rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: .65rem;
+    }
+
+    .endIcon {
+        color: var(--input-icon-color);
+        font-size: 1rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: .65rem;
+    }
+
+    input[type="text"], input[type="password"] {
+        padding-left: 2.5rem;
+    }
+}
+
+form input[type=text]:active, form input[type=text]:focus,
+form input[type=password]:active, form input[type=password]:focus {
+    border: 1px solid var(--input-border-active);
+    color: var(--text-on-background-color);
+}
+
+form input[type=text]:active~.frontIcon, form input[type=text]:focus~.frontIcon,
+form input[type=password]:active~.frontIcon, form input[type=password]:focus~.frontIcon,
+form input[type=text]:active~.endIcon, form input[type=text]:focus~.endIcon,
+form input[type=password]:active~.endIcon, form input[type=password]:focus~.endIcon {
+    color: var(--input-icon-color-active);
+}
+
+form input[type=text]~.endIcon, form input[type=text]~.endIcon,
+form input[type=password]~.endIcon, form input[type=password]~.endIcon {
+    cursor: pointer;
+}
+
+form input[type=submit] {
+    width: 100%;
+    background-color: var(--button-main-background);
+    border: none;
+    text-shadow: none;
+    box-shadow: none;
+    color: var(--button-main-color);
+    cursor: pointer;
+    transition : background-color 500ms ease-out;
+}
+
+form input[type=submit]:hover,
+form input[type=submit]:focus {
+    background-color: var(--button-main-background-active);
+    border: none;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+/* Only this part below is different from the login page */
+#below-form {
+    margin-top: 1rem;
+    text-align: center;
+
+    a {
+        padding-bottom: .5rem;
+        cursor: pointer;
+        transition : border-bottom 100ms ease-out;
+    }
+
+    a:hover,
+    a:focus {
+        color: rgba(255, 255, 255, .8);
+        border-bottom: 1px solid rgba(255, 255, 255, .6);
+    }
+}
