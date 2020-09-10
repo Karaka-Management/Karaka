@@ -93,7 +93,7 @@ trait ModuleTestTrait
             $columns         = $classReflection->getDefaultProperties()['columns'];
 
             foreach ($columns as $cName => $column) {
-                if (!\in_array($column['type'], ['int', 'string', 'DateTime', 'Json', 'Serializable', 'bool', 'float'])) {
+                if (!\in_array($column['type'], ['int', 'string', 'DateTime', 'DateTimeImmutable', 'Json', 'Serializable', 'bool', 'float'])) {
                     self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" has invalid type');
                 }
 
@@ -159,6 +159,7 @@ trait ModuleTestTrait
                     || (\is_bool($property) && $column['type'] === 'bool')
                     || (\is_float($property) && $column['type'] === 'float')
                     || ($property instanceof \DateTime && $column['type'] === 'DateTime')
+                    || ($property instanceof \DateTimeImmutable && $column['type'] === 'DateTimeImmutable')
                     || (isset($ownsOne[$column['internal']]) && $column['type'] === 'int') // if it is in ownsOne it can be a different type because it is a reference!
                 )) {
                     self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" has invalid type compared to model definition');
@@ -311,6 +312,7 @@ trait ModuleTestTrait
                         || ($column['type'] === 'bool' && \stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0)
                         || ($column['type'] === 'float' && \stripos($db[$table]['fields'][$cName]['type'], 'DECIMAL') === 0)
                         || ($column['type'] === 'DateTime' && \stripos($db[$table]['fields'][$cName]['type'], 'DATETIME') === 0)
+                        || ($column['type'] === 'DateTimeImmutable' && \stripos($db[$table]['fields'][$cName]['type'], 'DATETIME') === 0)
                     )) {
                         self::assertTrue(false, 'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" is incompatible with mapper "' . $class . '" definition "' . $db[$table]['fields'][$cName]['type'] . '" for field "' . $cName . '"');
                     }
