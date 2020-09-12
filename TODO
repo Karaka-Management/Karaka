@@ -33,16 +33,11 @@ Orange-Management:
   #63 [ProductionAnalysis] Add module
   #? [Pagination] Bug: If pagination (next/previous) is implemented in a tab (e.g. second tab) the newly loaded page after clicking on next shows the first tab instead of the tab which contains the list.
   #? Make forgotten page use the router instead of the manual routing. The problem is that this was using the backend default base template. As a work around we could use the default backend template and an "empty" template for login/forgotten/ and other pages like privacy policy etc.
-  #? Add privacy policy to all pages incl. login/forgott page!
-  #? Pull out css of login and forgott page into own styles file since they are very similar
 
 phpOMS:
-  #252 [WebRouter] Implement test for defining data from route
-  #251 [WebRouter] Implement test to validate the provided data
   #250 [Tar] Create tar test without destination path/name
   #249 [Zip] Create zip test without destination path/name
   #248 [FileLogger] Create test for getInstance
-  #247 [L11nManager] Create currency rendering test for million and billion dividers
   #246 [EventManager] Create an event with a regex id/name and trigger it
   #245 [ApplicationManager] Implement test for invalid source and invalid destination
   #244 [JobScheduling] Implement test for Jobs with same value
@@ -65,15 +60,12 @@ phpOMS:
   #215 Covariance for function parameters
   #206 [ItemClustering] Implement
   #204 [BusinessWarehouse] Implement warehouse picking algorithm
-  #194 [Builder] Automatically set prefix during construction
   #190 [OAuth 2.0] Implement
   #? [HttpRequest] Fragments should be an array since there can be multiple combined with '&'
   #? [UriFactory] Fragments should be accessible via {#0} = specific and {#} = all joined with '&'
   #? [TextSearch] Create full text search for files/in-memory texts and return the best matched files and the matched phrases
   #? [ClusterAnalysis] Create the different cluster analysis implementations
   #? [Markdown] Create a substr function which returns a substring without parsing issues. This could be implemented by defining a soft and hard limit for the text length. Or by forcing closing tags at the end.
-  #? Consider to remove ::class with FQCN strings... consider to use class_keyword_remove in php-cs-fixer
-  #? Add DateTimeImmutable as type to the DataMapper. This is important for some date times!
 
 jsOMS:
   #99 [VoiceCommand] Implement voice pause/continue command
@@ -111,7 +103,6 @@ jsOMS:
   #? [UriFactory] Consider to parse EVERY url in the uri factory (see bug with auditlog pagination)
   #? [Tabs] Slow change of tabs on load if a tab is provided. Before the page is ready the correct tabs should be activated. This way the user doesn't see the tab jumping from the first tab to the n-th tab. Currently the backend rendering is kind of fixing this.
   #? Highlight currently filtered columns (maybe blue background for easy identification)
-  #? Highlight currently sorted columns (maybe blue background for easy identification)
 
 cssOMS:
   #14 Create drop down with search field
@@ -121,7 +112,6 @@ cssOMS:
 Build:
   #11 [Language Files] Create language file manager
   #10 [CI/CD] Create the following CI/CD workflows
-  #8 [Readme] Improve readme
 
 Developer-Guide:
   #8 Improve layout
@@ -197,6 +187,8 @@ Editor:
 EventManagement:
 
 Exchange:
+  #? Remove Dashboard
+  #? Save and show information about the last export/import in order to prevent duplicated imports in the same period
 
 Help:
 
@@ -250,6 +242,7 @@ Media:
   #13 [Media] Allow collection modification
   #? Implement external resources (e.g. link to resource, api specific end-points from dropbox etc.)
   #? Allow to reference a file (e.g. like a symlink) directly
+  #? Account directories should contain the name of the account not just the id (at least in the DB name)
 
 Messages:
   #? Add notification component for creating and timing push notifications
@@ -270,6 +263,7 @@ Navigation:
 News:
   #4 Implement optional email notification
   #3 [News] Allow tag modification
+  #? [Create/Edit] Fix visual bug where content overflows because of fixed size?
 
 Organization:
   #? [Organigram] Create more recognizable grouping
