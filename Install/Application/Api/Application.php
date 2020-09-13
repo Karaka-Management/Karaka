@@ -119,12 +119,6 @@ final class Application
         $this->app->dbPool->create('delete', $this->config['db']['core']['masters']['delete']);
         $this->app->dbPool->create('schema', $this->config['db']['core']['masters']['schema']);
 
-        if ($this->app->dbPool->get()->getStatus() !== DatabaseStatus::OK) {
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_503);
-
-            return;
-        }
-
         /* Checking csrf token, if a csrf token is required at all has to be decided in the route or controller */
         if ($request->getData('CSRF') !== null
             && !\hash_equals($this->app->sessionManager->get('CSRF'), $request->getData('CSRF'))

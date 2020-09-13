@@ -55,7 +55,6 @@ phpOMS:
   #225 [DataMapper] Test the deletion of a model with relations
   #223 [ArrayUtils] Combine power functions with union types
   #221 [DataMapper] Create deleteArray, deleteArrayModel
-  #219 [*Connection] Disable automatic database connection
   #218 [ApplicationAbstract] Replace magic methods with readonly once available
   #215 Covariance for function parameters
   #206 [ItemClustering] Implement
