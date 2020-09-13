@@ -25,7 +25,6 @@ use phpOMS\Auth\Auth;
 use phpOMS\DataStorage\Cache\CachePool;
 use phpOMS\DataStorage\Cookie\CookieJar;
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Dispatcher\Dispatcher;
