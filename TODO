@@ -35,10 +35,6 @@ Orange-Management:
   #? Make forgotten page use the router instead of the manual routing. The problem is that this was using the backend default base template. As a work around we could use the default backend template and an "empty" template for login/forgotten/ and other pages like privacy policy etc.
 
 phpOMS:
-  #250 [Tar] Create tar test without destination path/name
-  #249 [Zip] Create zip test without destination path/name
-  #248 [FileLogger] Create test for getInstance
-  #246 [EventManager] Create an event with a regex id/name and trigger it
   #245 [ApplicationManager] Implement test for invalid source and invalid destination
   #244 [JobScheduling] Implement test for Jobs with same value
   #243 [JobScheduling] Implement sortByEnd test coverage
