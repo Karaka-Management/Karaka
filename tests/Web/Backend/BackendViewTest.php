@@ -15,9 +15,9 @@ namespace tests\Web\Backend;
 
 require_once __DIR__ . '/../../../phpOMS/Autoloader.php';
 
-use Web\Backend\BackendView;
 use Modules\Media\Models\Media;
 use Modules\Profile\Models\Profile;
+use Web\Backend\BackendView;
 
 /**
  * @internal
