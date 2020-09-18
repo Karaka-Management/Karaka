@@ -16,6 +16,8 @@ namespace tests\Web\Backend;
 require_once __DIR__ . '/../../../phpOMS/Autoloader.php';
 
 use Web\Backend\BackendView;
+use Modules\Media\Models\Media;
+use Modules\Profile\Models\Profile;
 
 /**
  * @internal
@@ -27,5 +29,19 @@ class BackendViewTest extends \PHPUnit\Framework\TestCase
         $view = new BackendView();
 
         self::assertStringContainsString('Web/Backend/img/user_default_', $view->getProfileImage());
+    }
+
+    public function testProfileImageUrl() : void
+    {
+        $view = new BackendView();
+
+        $media = new Media();
+        $media->setPath('/test/path/image.jpeg');
+
+        $profile = new Profile();
+        $profile->setImage($media);
+
+        $view->setProfile($profile);
+        self::assertEquals('test/path/image.jpeg', $view->getProfileImage());
     }
 }
