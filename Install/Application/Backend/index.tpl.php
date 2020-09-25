@@ -60,7 +60,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     <nav id="nav-side">
         <span id="u-box">
             <a href="<?= UriFactory::build('{/prefix}profile/single?{?}&id=' . $this->profile->getId()); ?>">
-                <img alt="<?= $this->getHtml('User', '0', '0'); ?>" data-lazyload="<?= $this->getProfileImage(); ?>">
+                <img alt="<?= $this->getHtml('User', '0', '0'); ?>" loading="lazy" src="<?= $this->getProfileImage(); ?>">
             </a>
             <span id="logo" itemscope itemtype="http://schema.org/Organization">
                 <select
