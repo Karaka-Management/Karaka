@@ -107,6 +107,7 @@ cssOMS:
 Build:
   #11 [Language Files] Create language file manager
   #10 [CI/CD] Create the following CI/CD workflows
+  #? replace phar usage with composer usage
 
 Developer-Guide:
   #8 Improve layout
