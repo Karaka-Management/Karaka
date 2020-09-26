@@ -238,6 +238,7 @@ Media:
   #? Implement external resources (e.g. link to resource, api specific end-points from dropbox etc.)
   #? Allow to reference a file (e.g. like a symlink) directly
   #? Account directories should contain the name of the account not just the id (at least in the DB name)
+  #? Create a home link either as first list element or as part of the breadcrumb navigation which directly links to the logged-in user directory
 
 Messages:
   #? Add notification component for creating and timing push notifications
