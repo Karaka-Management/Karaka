@@ -24,7 +24,7 @@ $head = $this->getData('head');
     <base href="<?= UriFactory::build('{/base}'); ?>/">
     <meta name="theme-color" content="#343a40">
     <meta name="msapplication-navbutton-color" content="#343a40">
-    <meta name="theme-color" content="#343a40">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#343a40">
     <meta name="description" content="<?= $this->getHtml(':meta', '0', '0'); ?>">
     <link rel="manifest" href="<?= UriFactory::build('Web/Backend/manifest.json'); ?>">
     <link rel="manifest" href="<?= UriFactory::build('Web/Backend/manifest.webmanifest'); ?>">
