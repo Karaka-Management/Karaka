@@ -240,6 +240,7 @@ Media:
   #? Allow to reference a file (e.g. like a symlink) directly
   #? Account directories should contain the name of the account not just the id (at least in the DB name)
   #? Create a home link either as first list element or as part of the breadcrumb navigation which directly links to the logged-in user directory
+  #? Allow to manually overwrite the breadcrumb navigation with a text field. Maybe add a edit button at the end which replaces the breadcrumb with a textfield which then can be edited for faster navigation.
 
 Messages:
   #? Add notification component for creating and timing push notifications

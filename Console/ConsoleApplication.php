@@ -20,8 +20,8 @@ use phpOMS\Application\ApplicationAbstract;
 use phpOMS\DataStorage\Cache\CachePool;
 use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Session\ConsoleSession;
-use phpOMS\DataStorage\Session\ConsoleSessionHandler;
+use phpOMS\DataStorage\Session\FileSession;
+use phpOMS\DataStorage\Session\FileSessionHandler;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
 use phpOMS\Localization\ISO639x1Enum;
@@ -100,7 +100,7 @@ final class ConsoleApplication extends ApplicationAbstract
             $this->cachePool      = new CachePool();
             $this->appSettings    = new CoreSettings($con);
             $this->eventManager   = new EventManager();
-            $this->sessionManager = new ConsoleSession();
+            $this->sessionManager = new FileSession();
             $this->accountManager = new AccountManager($this->sessionManager);
             $this->moduleManager  = new ModuleManager($this, __DIR__ . '/../../Modules');
             $this->dispatcher     = new Dispatcher($this);
@@ -150,7 +150,7 @@ final class ConsoleApplication extends ApplicationAbstract
         \register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
         \mb_internal_encoding('UTF-8');
 
-        $consoleSessionHandler = new ConsoleSessionHandler(__DIR__);
+        $consoleSessionHandler = new FileSessionHandler(__DIR__);
         \session_set_save_handler($consoleSessionHandler);
     }
 
