@@ -57,8 +57,7 @@ final class WebApplication extends InstallAbstract
 
         $this->run($request, $response);
 
-        $header = $response->getHeader()->push();
-
+        $response->getHeader()->push();
         echo $response->getBody();
     }
 
@@ -139,7 +138,7 @@ final class WebApplication extends InstallAbstract
         $response->getHeader()->set('content-language', $response->getHeader()->getL11n()->getLanguage(), true);
         UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());
 
-        $dispatched = $this->dispatcher->dispatch(
+        $this->dispatcher->dispatch(
             $this->router->route(
                 $request->getUri()->getRoute(),
                 $request->getData('CSRF'),

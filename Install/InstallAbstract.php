@@ -102,7 +102,8 @@ abstract class InstallAbstract extends ApplicationAbstract
             ) {
                 continue;
             }
-                Directory::delete(__DIR__ . '/../Web/' . $dir);
+
+            Directory::delete(__DIR__ . '/../Web/' . $dir);
         }
     }
 
