@@ -275,7 +275,7 @@ abstract class InstallAbstract extends ApplicationAbstract
 
         $content = \file_get_contents($path);
         if ($content === false) {
-            return;
+            return; // @codeCoverageIgnore
         }
 
         $definitions = \json_decode($content, true);

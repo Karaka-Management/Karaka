@@ -10,7 +10,6 @@
  * @version   1.0.0
  * @link      https://orange-management.org
  */
-
 namespace Install\tests;
 
 use Install\WebApplication;
