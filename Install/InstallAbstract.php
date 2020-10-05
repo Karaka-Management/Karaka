@@ -502,6 +502,7 @@ abstract class InstallAbstract extends ApplicationAbstract
     {
         $setting = new Setting();
         SettingMapper::create($setting->with(0, SettingsEnum::PASSWORD_PATTERN, ''));
+        SettingMapper::create($setting->with(0, SettingsEnum::LOGIN_TRIES, '3'));
         SettingMapper::create($setting->with(0, SettingsEnum::LOGIN_TIMEOUT, '3'));
         SettingMapper::create($setting->with(0, SettingsEnum::PASSWORD_INTERVAL, '90'));
         SettingMapper::create($setting->with(0, SettingsEnum::PASSWORD_HISTORY, '3'));
