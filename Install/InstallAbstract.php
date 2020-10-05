@@ -15,7 +15,9 @@ declare(strict_types=1);
 namespace Install;
 
 use Model\CoreSettings;
-use Model\Settings;
+use Model\Setting;
+use Model\SettingsEnum;
+use Model\SettingMapper;
 use Modules\Admin\Controller\ApiController;
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
@@ -498,20 +500,17 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function installSettings(RequestAbstract $request, ConnectionAbstract $db) : void
     {
-        $db->con->prepare(
-            'INSERT INTO `settings` (`settings_name`, `settings_content`) VALUES
-                (' . Settings::PASSWORD_PATTERN . ', \'\'),
-                (' . Settings::LOGIN_TIMEOUT . ', \'3\'),
-                (' . Settings::PASSWORD_INTERVAL . ', \'90\'),
-                (' . Settings::PASSWORD_HISTORY . ', \'3\'),
-                (' . Settings::LOGIN_TRIES . ', \'3\'),
-                (' . Settings::LOGGING_STATUS . ', \'1\'),
-                (' . Settings::LOGGING_PATH . ', \'\'),
-                (' . Settings::DEFAULT_ORGANIZATION . ', \'1\'),
-                (' . Settings::LOGIN_STATUS . ', \'1\'),
-                (' . Settings::DEFAULT_LOCALIZATION . ', \'1\'),
-                (' . Settings::ADMIN_MAIL . ', \'admin@orange-management.org\')'
-        )->execute();
+        $setting = new Setting();
+        SettingMapper::create($setting->with(0, SettingsEnum::PASSWORD_PATTERN, ''));
+        SettingMapper::create($setting->with(0, SettingsEnum::LOGIN_TIMEOUT, '3'));
+        SettingMapper::create($setting->with(0, SettingsEnum::PASSWORD_INTERVAL, '90'));
+        SettingMapper::create($setting->with(0, SettingsEnum::PASSWORD_HISTORY, '3'));
+        SettingMapper::create($setting->with(0, SettingsEnum::LOGGING_STATUS, '1'));
+        SettingMapper::create($setting->with(0, SettingsEnum::LOGGING_PATH, ''));
+        SettingMapper::create($setting->with(0, SettingsEnum::DEFAULT_ORGANIZATION, '1'));
+        SettingMapper::create($setting->with(0, SettingsEnum::LOGIN_STATUS, '1'));
+        SettingMapper::create($setting->with(0, SettingsEnum::DEFAULT_LOCALIZATION, '1'));
+        SettingMapper::create($setting->with(0, SettingsEnum::ADMIN_MAIL, 'admin@orange-management.org'));
 
         $l11n = Localization::fromLanguage($request->getData('defaultlang'), $request->getData('defaultcountry') ?? '*');
         LocalizationMapper::create($l11n);

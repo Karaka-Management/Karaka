@@ -47,6 +47,8 @@ use Web\Exception\UnexpectedApplicationException;
  * @todo Orange-Management/Orange-Management#65
  *  [LazyLoading] Replace own image lazy loading with official solution
  *  Once the majority of all browsers support `loading="lazy"` this should be used instead of the currently implemented lazy loading version.
+ *
+ * @codeCoverageIgnore
  */
 class WebApplication extends ApplicationAbstract
 {
@@ -217,7 +219,7 @@ class WebApplication extends ApplicationAbstract
      *
      * @param HttpUri                                                                          $uri      Current Uri
      * @param array{domains:array, default:array{id:string, app:string, org:int, lang:string}} $config   App configuration
-     * @param string                                                                           $rootPath Root path  
+     * @param string                                                                           $rootPath Root path
      *
      * @return string Application name
      *
