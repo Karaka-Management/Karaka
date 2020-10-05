@@ -12,6 +12,7 @@
  */
 declare(strict_types=1);
 
+// @codeCoverageIgnoreStart
 \ob_start();
 
 //<editor-fold desc="Require/Include">
@@ -22,3 +23,4 @@ $config = require_once __DIR__ . '/../config.php';
 $App = new \Install\WebApplication($config);
 
 \ob_end_flush();
+// @codeCoverageIgnoreEnd

@@ -17,12 +17,73 @@ use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\Http\RequestMethod;
 use phpOMS\Uri\HttpUri;
+use phpOMS\DataStorage\Database\DatabaseType;
+use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * @internal
  */
 class InstallTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @group admin
+     */
+    public function testInvalidInstallRequest() : void
+    {
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new HttpUri(''));
+        $request->setMethod(RequestMethod::POST);
+
+        WebApplication::installRequest($request, $response);
+        self::assertEquals(RequestStatusCode::R_400, $response->getHeader()->getStatusCode());
+    }
+
+    /**
+     * @group admin
+     */
+    public function testInvalidDatabaseInstallRequest() : void
+    {
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new HttpUri(''));
+        $request->setMethod(RequestMethod::POST);
+
+        $request->setData('dbhost', '127.0.0.1');
+        $request->setData('dbtype', DatabaseType::MYSQL);
+        $request->setData('dbport', 3306);
+        $request->setData('dbname', 'invalid');
+        $request->setData('schemauser', 'invalid');
+        $request->setData('schemapassword', 'invalid');
+        $request->setData('createuser', 'invalid');
+        $request->setData('createpassword', 'invalid');
+        $request->setData('selectuser', 'invalid');
+        $request->setData('selectpassword', 'invalid');
+        $request->setData('updateuser', 'invalid');
+        $request->setData('updatepassword', 'invalid');
+        $request->setData('deleteuser', 'invalid');
+        $request->setData('deletepassword', 'invalid');
+
+        $request->setData('orgname', 'Orange-Management');
+        $request->setData('adminname', 'admin');
+        $request->setData('adminpassword', 'orange');
+        $request->setData('adminemail', 'admin@oms.com');
+        $request->setData('domain', '127.0.0.1');
+        $request->setData('websubdir', '/');
+        $request->setData('defaultlang', 'en');
+        $request->setData('defaultcountry', 'us');
+
+        $request->setData(
+            'apps',
+            'Install/Application/Api, '
+            . 'Install/Application/Backend, '
+            . 'Install/Application/E404, '
+            . 'Install/Application/E500, '
+            . 'Install/Application/E503'
+        );
+
+        WebApplication::installRequest($request, $response);
+        self::assertEquals(RequestStatusCode::R_400, $response->getHeader()->getStatusCode());
+    }
+
     /**
      * @group admin
      */
@@ -163,5 +224,6 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         );
 
         WebApplication::installRequest($request, $response);
+        self::assertEquals(RequestStatusCode::R_200, $response->getHeader()->getStatusCode());
     }
 }

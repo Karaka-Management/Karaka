@@ -69,71 +69,7 @@ final class ConsoleApplication extends ApplicationAbstract
     {
         $this->appName = 'CLI';
         $this->config  = $config;
-        $response      = null;
-
-        $this->logger = FileLogger::getInstance($config['log']['file']['path'], true);
-
-        try {
-            if (\PHP_SAPI !== 'cli') {
-                throw new \Exception();
-            }
-
-            //$this->setupHandlers();
-            $request  = $this->initRequest($arg, $config['app']['path'], $config['language'][0]);
-            $response = $this->initResponse($request, $config['language']);
-
-            $this->dbPool = new DatabasePool();
-            $this->dbPool->create('core', $this->config['db']['core']['masters']['admin']);
-            $this->dbPool->create('insert', $this->config['db']['core']['masters']['insert']);
-            $this->dbPool->create('select', $this->config['db']['core']['masters']['select']);
-            $this->dbPool->create('update', $this->config['db']['core']['masters']['update']);
-            $this->dbPool->create('delete', $this->config['db']['core']['masters']['delete']);
-            $this->dbPool->create('schema', $this->config['db']['core']['masters']['schema']);
-
-            /** @var ConnectionAbstract $con */
-            $con = $this->dbPool->get();
-
-            $this->l11nManager = new L11nManager($this->appName);
-            $this->router      = new WebRouter();
-            $this->router->importFromFile(__DIR__ . '/Routes.php');
-
-            $this->cachePool      = new CachePool();
-            $this->appSettings    = new CoreSettings($con);
-            $this->eventManager   = new EventManager();
-            $this->sessionManager = new FileSession();
-            $this->accountManager = new AccountManager($this->sessionManager);
-            $this->moduleManager  = new ModuleManager($this, __DIR__ . '/../../Modules');
-            $this->dispatcher     = new Dispatcher($this);
-
-            $pageView = new View($this->l11nManager, $request, $response);
-            $pageView->setTemplate('/Console/index');
-            $response->set('Content', $pageView);
-
-            $modules = $this->moduleManager->getActiveModules();
-            $this->moduleManager->initModule($modules);
-
-            $routed     = $this->router->route($request->getUri()->getRoute());
-            $dispatched = $this->dispatcher->dispatch($routed, $request, $response);
-            $pageView->addData('dispatch', $dispatched);
-        } catch (DatabaseException $e) {
-            $this->logger->critical(FileLogger::MSG_FULL, [
-                'message' => $e->getMessage(),
-                'line'    => 62, ]);
-
-            $response ??= new ConsoleResponse();
-            $response->set('Content', 'Database error: ' . $e->getMessage());
-        } catch (\Throwable $e) {
-            $this->logger->critical(FileLogger::MSG_FULL, [
-                'message' => $e->getMessage(),
-                'line'    => 66, ]);
-
-            $response ??= new ConsoleResponse();
-            $response->set('Content', 'Critical error: ' . $e->getMessage());
-        } finally {
-            $response ??= new ConsoleResponse();
-
-            echo $response->getBody();
-        }
+        $this->logger  = FileLogger::getInstance($config['log']['file']['path'], true);
     }
 
     /**
@@ -167,19 +103,7 @@ final class ConsoleApplication extends ApplicationAbstract
      */
     private function initRequest(array $arg, string $rootPath, string $language) : ConsoleRequest
     {
-        $request     = new ConsoleRequest(new Argument($arg[1] ?? ''));
-        $subDirDepth = \substr_count($rootPath, '/');
-
-        $request->createRequestHashs($subDirDepth);
-        $request->getUri()->setRootPath($rootPath);
-        UriFactory::setupUriBuilder($request->getUri());
-
-        $langCode = \strtolower($request->getUri()->getPathElement(0));
-        $request->getHeader()->getL11n()->loadFromLanguage(
-            empty($langCode) || !ISO639x1Enum::isValidValue($langCode) ? $language : $langCode
-        );
-        UriFactory::setQuery('/lang', $request->getHeader()->getL11n()->getLanguage());
-
+        $request = new ConsoleRequest(new Argument($arg[1] ?? ''));
         return $request;
     }
 
@@ -196,13 +120,6 @@ final class ConsoleApplication extends ApplicationAbstract
     private function initResponse(ConsoleRequest $request, array $languages) : ConsoleResponse
     {
         $response = new ConsoleResponse(new Localization());
-
-        $response->getHeader()->getL11n()->loadFromLanguage(
-            !\in_array(
-                $request->getHeader()->getL11n()->getLanguage(), $languages
-            ) ? $languages[0] : $request->getHeader()->getL11n()->getLanguage()
-        );
-
         return $response;
     }
 }

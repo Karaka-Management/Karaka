@@ -23,6 +23,7 @@
       <directory suffix="lang.php">../*</directory>
       <directory suffix="Test.php">../*</directory>
       <directory suffix="Routes.php">../*</directory>
+      <directory suffix="Hooks.php">../*</directory>
       <directory>../Modules/**/Admin/Routes*</directory>
       <directory>../Modules/**/Admin/Install*</directory>
       <directory>../Modules/Media/Files*</directory>

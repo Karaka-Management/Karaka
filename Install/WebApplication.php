@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Install;
 
 use phpOMS\DataStorage\Database\Connection\NullConnection;
+use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Localization\ISO639x1Enum;
@@ -27,6 +28,7 @@ use phpOMS\Router\WebRouter;
 use phpOMS\System\MimeType;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
+use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Application class.
@@ -44,6 +46,7 @@ final class WebApplication extends InstallAbstract
      * @param array $config Core config
      *
      * @since 1.0.0
+     * @codeCoverageIgnore
      */
     public function __construct(array $config)
     {
@@ -70,6 +73,7 @@ final class WebApplication extends InstallAbstract
      * @return HttpRequest Initial client request
      *
      * @since 1.0.0
+     * @codeCoverageIgnore
      */
     private function initRequest(string $rootPath, string $language) : HttpRequest
     {
@@ -98,6 +102,7 @@ final class WebApplication extends InstallAbstract
      * @return HttpResponse Initial client request
      *
      * @since 1.0.0
+     * @codeCoverageIgnore
      */
     private function initResponse(HttpRequest $request, array $languages) : HttpResponse
     {
@@ -128,6 +133,7 @@ final class WebApplication extends InstallAbstract
      * @return void
      *
      * @since 1.0.0
+     * @codeCoverageIgnore
      */
     private function run(HttpRequest $request, HttpResponse $response) : void
     {
@@ -155,6 +161,7 @@ final class WebApplication extends InstallAbstract
      * @return void
      *
      * @since 1.0.0
+     * @codeCoverageIgnore
      */
     private function setupRoutes() : void
     {
@@ -171,6 +178,7 @@ final class WebApplication extends InstallAbstract
      * @return void
      *
      * @since 1.0.0
+     * @codeCoverageIgnore
      */
     public static function installView(HttpRequest $request, HttpResponse $response) : void
     {
@@ -187,6 +195,8 @@ final class WebApplication extends InstallAbstract
      *
      * @return void
      *
+     * @api
+     *
      * @since 1.0.0
      */
     public static function installRequest(HttpRequest $request, HttpResponse $response) : void
@@ -194,12 +204,15 @@ final class WebApplication extends InstallAbstract
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
 
         if (!empty($valid = self::validateRequest($request))) {
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_400);
             return;
         }
 
         $db = self::setupDatabaseConnection($request);
+        $db->connect();
 
-        if ($db instanceof NullConnection) {
+        if ($db->getStatus() !== DatabaseStatus::OK) {
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_400);
             return;
         }
 
@@ -214,6 +227,8 @@ final class WebApplication extends InstallAbstract
         self::installApplications($request, $db);
         self::installSettings($request, $db);
         self::configureCoreModules($request, $db);
+
+        $response->getHeader()->setStatusCode(RequestStatusCode::R_200);
     }
 
     /**

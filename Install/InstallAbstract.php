@@ -70,6 +70,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      * @return void
      *
      * @since 1.0.0
+     * @codeCoverageIgnore
      */
     protected function setupHandlers() : void
     {
@@ -92,9 +93,8 @@ abstract class InstallAbstract extends ApplicationAbstract
         \file_put_contents(__DIR__ . '/../Console/Hooks.php', '<?php return [];');
 
         $dirs = \scandir(__DIR__ . '/../Web');
-
         if ($dirs === false) {
-            return;
+            return; // @codeCoverageIgnore
         }
 
         foreach ($dirs as $dir) {
