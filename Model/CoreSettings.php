@@ -118,7 +118,12 @@ final class CoreSettings implements SettingsInterface
             }
 
             foreach ($names as $i => $name) {
-                $key = ($name ?? '') . ':' . ($module ?? '') . ':' . ($group ?? '') . ':' . ($account ?? '');
+                $key = ($name ?? '')
+                    . ':' . ($module ?? '')
+                    . ':' . ($group ?? '')
+                    . ':' . ($account ?? '');
+
+                $key = \trim($key, ':');
 
                 if ($this->exists($key)) {
                     $options[$key] = $this->getOption($key);
@@ -132,36 +137,35 @@ final class CoreSettings implements SettingsInterface
             return \count($options) > 1 ? $options : \reset($options);
         }
 
+        $query = new Builder($this->connection);
+
         // remaining from storage
         try {
             $dbOptions = [];
-            $query     = new Builder($this->connection);
             $query->select(...\array_values(static::$columns))
                 ->from(static::$table);
 
             if (!empty($ids)) {
-                $query->where(static::$columns['id'], 'in', $ids);
+                $query->where(static::$columns['id'], (\is_array($ids) ? 'in' : '='), $ids);
             }
 
-            if ($names !== null) {
-                $query->andWhere(static::$columns['name'], 'in', $names);
+            if (!empty($names)) {
+                $query->andWhere(static::$columns['name'], (\is_array($names) ? 'in' : '='), $names);
             }
 
-            if ($module !== null) {
+            if (!empty($module)) {
                 $query->andWhere(static::$columns['module'], '=', $module);
             }
 
-            if ($group !== null) {
+            if (!empty($group)) {
                 $query->andWhere(static::$columns['group'], '=', $group);
             }
 
-            if ($account !== null) {
+            if (!empty($account)) {
                 $query->andWhere(static::$columns['account'], '=', $account);
             }
 
-            $sql = $query->toSql();
-
-            $sth = $this->connection->con->prepare($sql);
+            $sth = $this->connection->con->prepare($query->toSql());
             $sth->execute();
 
             $dbOptions = $sth->fetchAll(\PDO::FETCH_ASSOC);
@@ -171,13 +175,20 @@ final class CoreSettings implements SettingsInterface
             }
 
             foreach ($dbOptions as $option) {
+                $key = ($option[static::$columns['name']] ?? '')
+                    . ':' . ($option[static::$columns['module']] ?? '')
+                    . ':' . ($option[static::$columns['group']] ?? '')
+                    . ':' . ($option[static::$columns['account']] ?? '');
+
+                $key = \trim($key, ':');
+
                 $this->setOptions(
                     [
-                        $option[static::$columns['name']] =>
+                        $key =>
                         [
                             'id'      => $option[static::$columns['id']] ?? null,
-                            'name'    => $option[static::$columns['name']],
-                            'content' => $option[static::$columns['content']],
+                            'name'    => $option[static::$columns['name']] ?? null,
+                            'content' => $option[static::$columns['content']] ?? null,
                             'module'  => $option[static::$columns['module']] ?? null,
                             'group'   => $option[static::$columns['group']] ?? null,
                             'account' => $option[static::$columns['account']] ?? null,
@@ -185,10 +196,11 @@ final class CoreSettings implements SettingsInterface
                     ],
                     true
                 );
-                $options[$option[static::$columns['name']]] = $option[static::$columns['content']];
+                $options[$key] = $this->getOption($key);
             }
         } catch (\Throwable $e) {
-            throw $e;
+            var_dump($query->toSql()); // @codeCoverageIgnore
+            throw $e; // @codeCoverageIgnore
         }
 
         return \count($options) > 1 ? $options : \reset($options);
@@ -203,10 +215,18 @@ final class CoreSettings implements SettingsInterface
             $this->connection->con->beginTransaction();
         }
 
+        /** @var array $option */
         foreach ($options as $option) {
+            $key = ($option['name'] ?? '')
+                . ':' . ($option['module'] ?? '')
+                . ':' . ($option['group'] ?? '')
+                . ':' . ($option['account'] ?? '');
+
+            $key = \trim($key, ':');
+
             $this->setOptions(
                 [
-                    $option['id'] ?? $option['name'] ?? '0' =>
+                    $key =>
                     [
                         'id'      => $option['id'] ?? null,
                         'name'    => $option['name'] ?? null,
@@ -219,41 +239,53 @@ final class CoreSettings implements SettingsInterface
                 true
             );
 
-            if (!$store) {
-                continue;
+            if ($store) {
+                $this->saveOptionToDatabase($option);
             }
-
-            $query = new Builder($this->connection);
-            $query->update(static::$table)
-                ->set([static::$columns['content'] => $option['content']]);
-
-            if (!empty($option['id'])) {
-                $query->where(static::$columns['id'], 'in', $option['id']);
-            }
-
-            if (isset($option['name'])) {
-                $query->andWhere(static::$columns['name'], '=', $option['name']);
-            }
-
-            if (isset($option['module'])) {
-                $query->andWhere(static::$columns['module'], '=', $option['module']);
-            }
-
-            if (isset($option['group'])) {
-                $query->andWhere(static::$columns['group'], '=', $option['group']);
-            }
-
-            if (isset($option['account'])) {
-                $query->andWhere(static::$columns['account'], '=', $option['account']);
-            }
-
-            $sth = $this->connection->con->prepare($query->toSql());
-            $sth->execute();
         }
 
         if ($store) {
             $this->connection->con->commit();
         }
+    }
+
+    /**
+     * Save setting / option to database
+     *
+     * @param array $option Option / setting
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    private function saveOptionToDatabase(array $option) : void
+    {
+        $query = new Builder($this->connection);
+        $query->update(static::$table)
+            ->set([static::$columns['content'] => $option['content']]);
+
+        if (!empty($option['id'])) {
+            $query->where(static::$columns['id'], '=', $option['id']);
+        }
+
+        if (!empty($option['name'])) {
+            $query->andWhere(static::$columns['name'], '=', $option['name']);
+        }
+
+        if (!empty($option['module'])) {
+            $query->andWhere(static::$columns['module'], '=', $option['module']);
+        }
+
+        if (!empty($option['group'])) {
+            $query->andWhere(static::$columns['group'], '=', $option['group']);
+        }
+
+        if (!empty($option['account'])) {
+            $query->andWhere(static::$columns['account'], '=', $option['account']);
+        }
+
+        $sth = $this->connection->con->prepare($query->toSql());
+        $sth->execute();
     }
 
     /**
@@ -266,32 +298,7 @@ final class CoreSettings implements SettingsInterface
         $options = empty($options) ? $this->options : $options;
 
         foreach ($options as $option) {
-            $query = new Builder($this->connection);
-            $query->update(static::$table)
-                ->set([static::$columns['content'] => $option['content']]);
-
-            if (!empty($option['id'])) {
-                $query->where(static::$columns['id'], '=', $option['id']);
-            }
-
-            if (isset($option['name'])) {
-                $query->andWhere(static::$columns['name'], '=', $option['name']);
-            }
-
-            if (isset($option['module'])) {
-                $query->andWhere(static::$columns['module'], '=', $option['module']);
-            }
-
-            if (isset($option['group'])) {
-                $query->andWhere(static::$columns['group'], '=', $option['group']);
-            }
-
-            if (isset($option['account'])) {
-                $query->andWhere(static::$columns['account'], '=', $option['account']);
-            }
-
-            $sth = $this->connection->con->prepare($query->toSql());
-            $sth->execute();
+            $this->saveOptionToDatabase($option);
         }
 
         $this->connection->con->commit();

@@ -32,7 +32,7 @@
     </exclude>
     <report>
       <clover outputFile="coverage.xml"/>
-      <html outputDirectory="../Build/coverage" lowUpperBound="75" highLowerBound="90"/>
+      <html outputDirectory="../Build/coverage" lowUpperBound="75" highLowerBound="95"/>
     </report>
   </coverage>
   <testsuites>
