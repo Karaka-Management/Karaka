@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Install;
 
-use phpOMS\DataStorage\Database\Connection\NullConnection;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\Dispatcher\Dispatcher;
@@ -23,12 +22,12 @@ use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
+use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Router\RouteVerb;
 use phpOMS\Router\WebRouter;
 use phpOMS\System\MimeType;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
-use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Application class.

@@ -199,7 +199,7 @@ final class CoreSettings implements SettingsInterface
                 $options[$key] = $this->getOption($key);
             }
         } catch (\Throwable $e) {
-            var_dump($query->toSql()); // @codeCoverageIgnore
+            \var_dump($query->toSql()); // @codeCoverageIgnore
             throw $e; // @codeCoverageIgnore
         }
 

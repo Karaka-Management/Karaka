@@ -22,7 +22,7 @@ class SettingTest extends \PHPUnit\Framework\TestCase
 {
     private Setting $setting;
 
-    public function setUp() : void
+    protected function setUp() : void
     {
         $this->setting = new Setting();
     }

@@ -16,8 +16,8 @@ namespace Install;
 
 use Model\CoreSettings;
 use Model\Setting;
-use Model\SettingsEnum;
 use Model\SettingMapper;
+use Model\SettingsEnum;
 use Modules\Admin\Controller\ApiController;
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;

@@ -15,8 +15,8 @@ namespace tests\Model;
 
 use Model\CoreSettings;
 use Model\Setting;
-use Model\SettingsEnum;
 use Model\SettingMapper;
+use Model\SettingsEnum;
 use phpOMS\DataStorage\Database\Connection\NullConnection;
 
 /**
@@ -26,7 +26,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
 {
     protected CoreSettings $settings;
 
-    public function setUp() : void
+    protected function setUp() : void
     {
         $this->settings = new CoreSettings($GLOBALS['dbpool']->get());
     }
@@ -36,7 +36,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         self::assertCount(2,
             $this->settings->get(null, [
                 SettingsEnum::DEFAULT_ORGANIZATION,
-                SettingsEnum::PASSWORD_INTERVAL
+                SettingsEnum::PASSWORD_INTERVAL,
             ])
         );
 
@@ -52,9 +52,9 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         self::assertEmpty(
             $this->settings->set([
                 [
-                    'name' => SettingsEnum::PASSWORD_INTERVAL,
-                    'content' => '60'
-                ]
+                    'name'    => SettingsEnum::PASSWORD_INTERVAL,
+                    'content' => '60',
+                ],
             ], true)
         );
 
@@ -66,9 +66,9 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         self::assertEmpty(
             $this->settings->set([
                 [
-                    'name' => SettingsEnum::PASSWORD_INTERVAL,
-                    'content' => '90'
-                ]
+                    'name'    => SettingsEnum::PASSWORD_INTERVAL,
+                    'content' => '90',
+                ],
             ], true)
         );
 
@@ -83,9 +83,9 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         self::assertEmpty(
             $this->settings->set([
                 [
-                    'name' => SettingsEnum::PASSWORD_INTERVAL,
-                    'content' => '60'
-                ]
+                    'name'    => SettingsEnum::PASSWORD_INTERVAL,
+                    'content' => '60',
+                ],
             ], false)
         );
 
@@ -107,9 +107,9 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
     {
         $this->settings->save([
             [
-                'name' => SettingsEnum::PASSWORD_INTERVAL,
-                'content' => '60'
-            ]
+                'name'    => SettingsEnum::PASSWORD_INTERVAL,
+                'content' => '60',
+            ],
         ]);
 
         self::assertEquals(
@@ -119,8 +119,8 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
 
         $this->settings->set([
             [
-                'name' => SettingsEnum::PASSWORD_INTERVAL,
-                'content' => '90']
+                'name'    => SettingsEnum::PASSWORD_INTERVAL,
+                'content' => '90', ],
             ], true
         );
 
@@ -139,13 +139,13 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
 
         $this->settings->set([
             [
-                'id' => $testId,
-                'name' => 'name',
+                'id'      => $testId,
+                'name'    => 'name',
                 'content' => 'new content',
-                'module' => 'Admin',
-                'group' => 1,
+                'module'  => 'Admin',
+                'group'   => 1,
                 'account' => 1,
-            ]
+            ],
         ], true);
 
         $settingR = SettingMapper::get($testId);

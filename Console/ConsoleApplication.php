@@ -14,28 +14,13 @@ declare(strict_types=1);
 
 namespace Console;
 
-use Model\CoreSettings;
-use phpOMS\Account\AccountManager;
 use phpOMS\Application\ApplicationAbstract;
-use phpOMS\DataStorage\Cache\CachePool;
-use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Session\FileSession;
 use phpOMS\DataStorage\Session\FileSessionHandler;
-use phpOMS\Dispatcher\Dispatcher;
-use phpOMS\Event\EventManager;
-use phpOMS\Localization\ISO639x1Enum;
-use phpOMS\Localization\L11nManager;
 use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
 use phpOMS\Message\Console\ConsoleRequest;
 use phpOMS\Message\Console\ConsoleResponse;
-use phpOMS\Module\ModuleManager;
-use phpOMS\Router\WebRouter;
 use phpOMS\Uri\Argument;
-use phpOMS\Uri\UriFactory;
-use phpOMS\Views\View;
-use Web\Exception\DatabaseException;
 
 /**
  * Application class.

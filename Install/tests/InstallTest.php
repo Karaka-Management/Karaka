@@ -13,12 +13,12 @@
 namespace Install\tests;
 
 use Install\WebApplication;
+use phpOMS\DataStorage\Database\DatabaseType;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\Http\RequestMethod;
-use phpOMS\Uri\HttpUri;
-use phpOMS\DataStorage\Database\DatabaseType;
 use phpOMS\Message\Http\RequestStatusCode;
+use phpOMS\Uri\HttpUri;
 
 /**
  * @internal

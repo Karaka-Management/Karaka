@@ -14,14 +14,10 @@ declare(strict_types=1);
 
 namespace Install;
 
-use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Localization\Localization;
-use phpOMS\Log\FileLogger;
 use phpOMS\Message\Console\ConsoleRequest;
 use phpOMS\Message\Console\ConsoleResponse;
 use phpOMS\Router\RouteVerb;
-use phpOMS\Router\WebRouter;
-use phpOMS\Uri\UriFactory;
 
 /**
  * Application class.

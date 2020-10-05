@@ -33,11 +33,11 @@ final class SettingMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'settings_id'           => ['name' => 'settings_id',           'type' => 'int',      'internal' => 'id'],
-        'settings_name'        => ['name' => 'settings_name',        'type' => 'string',   'internal' => 'name'],
+        'settings_id'             => ['name' => 'settings_id',           'type' => 'int',      'internal' => 'id'],
+        'settings_name'           => ['name' => 'settings_name',        'type' => 'string',   'internal' => 'name'],
         'settings_content'        => ['name' => 'settings_content',        'type' => 'string',   'internal' => 'content'],
-        'settings_module'        => ['name' => 'settings_module',        'type' => 'string',   'internal' => 'module'],
-        'settings_group'        => ['name' => 'settings_group',        'type' => 'int',   'internal' => 'group'],
+        'settings_module'         => ['name' => 'settings_module',        'type' => 'string',   'internal' => 'module'],
+        'settings_group'          => ['name' => 'settings_group',        'type' => 'int',   'internal' => 'group'],
         'settings_account'        => ['name' => 'settings_account',        'type' => 'int',   'internal' => 'account'],
     ];
 
