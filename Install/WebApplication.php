@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Orange Management
  *
@@ -10,6 +11,7 @@
  * @version   1.0.0
  * @link      https://orange-management.org
  */
+
 declare(strict_types=1);
 
 namespace Install;
@@ -74,7 +76,7 @@ final class WebApplication extends InstallAbstract
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    private function initRequest(string $rootPath, string $language) : HttpRequest
+    private function initRequest(string $rootPath, string $language): HttpRequest
     {
         $request     = HttpRequest::createFromSuperglobals();
         $subDirDepth = \substr_count($rootPath, '/');
@@ -103,7 +105,7 @@ final class WebApplication extends InstallAbstract
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    private function initResponse(HttpRequest $request, array $languages) : HttpResponse
+    private function initResponse(HttpRequest $request, array $languages): HttpResponse
     {
         $response = new HttpResponse(new Localization());
         $response->getHeader()->set('content-type', 'text/html; charset=utf-8');
@@ -134,7 +136,7 @@ final class WebApplication extends InstallAbstract
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    private function run(HttpRequest $request, HttpResponse $response) : void
+    private function run(HttpRequest $request, HttpResponse $response): void
     {
         $this->dispatcher = new Dispatcher($this);
         $this->router     = new WebRouter();
@@ -162,7 +164,7 @@ final class WebApplication extends InstallAbstract
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    private function setupRoutes() : void
+    private function setupRoutes(): void
     {
         $this->router->add('^.*', '\Install\WebApplication::installView', RouteVerb::GET);
         $this->router->add('^.*', '\Install\WebApplication::installRequest', RouteVerb::PUT);
@@ -179,7 +181,7 @@ final class WebApplication extends InstallAbstract
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public static function installView(HttpRequest $request, HttpResponse $response) : void
+    public static function installView(HttpRequest $request, HttpResponse $response): void
     {
         $view = new View(null, $request, $response);
         $view->setTemplate('/Install/index');
@@ -198,7 +200,7 @@ final class WebApplication extends InstallAbstract
      *
      * @since 1.0.0
      */
-    public static function installRequest(HttpRequest $request, HttpResponse $response) : void
+    public static function installRequest(HttpRequest $request, HttpResponse $response): void
     {
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
 
@@ -239,7 +241,7 @@ final class WebApplication extends InstallAbstract
      *
      * @since 1.0.0
      */
-    private static function validateRequest(HttpRequest $request) : array
+    private static function validateRequest(HttpRequest $request): array
     {
         $valid = [];
 
