@@ -98,6 +98,7 @@ jsOMS:
   #? [UriFactory] Consider to parse EVERY url in the uri factory (see bug with auditlog pagination)
   #? [Tabs] Slow change of tabs on load if a tab is provided. Before the page is ready the correct tabs should be activated. This way the user doesn't see the tab jumping from the first tab to the n-th tab. Currently the backend rendering is kind of fixing this.
   #? Highlight currently filtered columns (maybe blue background for easy identification)
+  #? If a form has unsaved content ask the user if he want's to leave the page "beforeunload"-Event
 
 cssOMS:
   #14 Create drop down with search field
