@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 /**
  * Orange Management
  *
@@ -10,6 +10,7 @@
  * @version   1.0.0
  * @link      https://orange-management.org
  */
+declare(strict_types=1);
 
 namespace tests\Model;
 
@@ -27,11 +28,19 @@ class SettingTest extends \PHPUnit\Framework\TestCase
         $this->setting = new Setting();
     }
 
+    /**
+     * @covers Model\Setting
+     * @group framework
+     */
     public function testDefault() : void
     {
         self::assertEquals(0, $this->setting->getId());
     }
 
+    /**
+     * @covers Model\Setting
+     * @group framework
+     */
     public function testWithInitailization() : void
     {
         $this->setting->with(1, 'name', 'content', 'module', 2, 3);

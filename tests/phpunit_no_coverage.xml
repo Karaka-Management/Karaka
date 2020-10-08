@@ -14,16 +14,20 @@
       <directory>*vendor*</directory>
       <directory>vendor</directory>
       <directory>../vendor</directory>
+      <directory>../Install/Application</directory>
       <directory>../phpOMS/vendor</directory>
       <directory>../Modules/vendor</directory>
       <directory>../*/tests*</directory>
       <directory>../**/tests*</directory>
+      <directory>../Modules/**/vendor*</directory>
       <directory>*/tests*</directory>
       <directory suffix="tpl.php">../*</directory>
       <directory suffix="lang.php">../*</directory>
       <directory suffix="Test.php">../*</directory>
       <directory suffix="Routes.php">../*</directory>
       <directory suffix="Hooks.php">../*</directory>
+      <directory>../Modules/**/test*</directory>
+      <directory>../Modules/**/Theme*</directory>
       <directory>../Modules/**/Admin/Routes*</directory>
       <directory>../Modules/**/Admin/Install*</directory>
       <directory>../Modules/Media/Files*</directory>

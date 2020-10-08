@@ -271,7 +271,7 @@ abstract class InstallAbstract extends ApplicationAbstract
     {
         $path = __DIR__ . '/db.json';
 
-        if (!\file_exists($path)) {
+        if (!\is_file($path)) {
             return;
         }
 

@@ -80,7 +80,7 @@ final class Autoloader
         $class = \str_replace(['_', '\\'], '/', $class);
 
         foreach (self::$paths as $path) {
-            if (\file_exists($file = $path . $class . '.php')) {
+            if (\is_file($file = $path . $class . '.php')) {
                 include_once $file;
 
                 return;
@@ -105,7 +105,7 @@ final class Autoloader
         $class = \str_replace(['_', '\\'], '/', $class);
 
         foreach (self::$paths as $path) {
-            if (\file_exists($file = $path . $class . '.php')) {
+            if (\is_file($file = $path . $class . '.php')) {
                 return true;
             }
         }

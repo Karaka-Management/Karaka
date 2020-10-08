@@ -27,6 +27,7 @@
       <directory suffix="Routes.php">../*</directory>
       <directory suffix="Hooks.php">../*</directory>
       <directory>../Modules/**/test*</directory>
+      <directory>../Modules/**/Theme*</directory>
       <directory>../Modules/**/Admin/Routes*</directory>
       <directory>../Modules/**/Admin/Install*</directory>
       <directory>../Modules/Media/Files*</directory>

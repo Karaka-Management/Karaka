@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 /**
  * Orange Management
  *
@@ -10,6 +10,7 @@
  * @version   1.0.0
  * @link      https://orange-management.org
  */
+declare(strict_types=1);
 
 namespace tests\Model;
 
@@ -20,6 +21,10 @@ use Model\NullSetting;
  */
 class NullSettingTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Model\NullSetting
+     * @group framework
+     */
     public function testDefault() : void
     {
         $null = new NullSetting(123);

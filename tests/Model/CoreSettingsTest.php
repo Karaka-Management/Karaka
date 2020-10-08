@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 /**
  * Orange Management
  *
@@ -10,6 +10,7 @@
  * @version   1.0.0
  * @link      https://orange-management.org
  */
+declare(strict_types=1);
 
 namespace tests\Model;
 
@@ -31,6 +32,10 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         $this->settings = new CoreSettings($GLOBALS['dbpool']->get());
     }
 
+    /**
+     * @covers Model\CoreSettings
+     * @group framework
+     */
     public function testSettingsGet() : void
     {
         self::assertCount(2,
@@ -47,6 +52,10 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         );
     }
 
+    /**
+     * @covers Model\CoreSettings
+     * @group framework
+     */
     public function testSettingsSet() : void
     {
         self::assertEmpty(
@@ -78,6 +87,10 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         );
     }
 
+    /**
+     * @covers Model\CoreSettings
+     * @group framework
+     */
     public function testSettingsSetWithoutStore() : void
     {
         self::assertEmpty(
@@ -103,6 +116,10 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         );
     }
 
+    /**
+     * @covers Model\CoreSettings
+     * @group framework
+     */
     public function testSettingsSave() : void
     {
         $this->settings->save([
@@ -131,6 +148,10 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         );
     }
 
+    /**
+     * @covers Model\CoreSettings
+     * @group framework
+     */
     public function testSetWithSave() : void
     {
         $setting = new Setting();
@@ -155,6 +176,10 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('new content', $settingR2['content']);
     }
 
+    /**
+     * @covers Model\CoreSettings
+     * @group framework
+     */
     public function testDbException() : void
     {
         $this->expectException(\Throwable::class);

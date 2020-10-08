@@ -194,7 +194,7 @@ trait ModuleTestTrait
     {
         $schemaPath = __DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Admin/Install/db.json';
 
-        if (\file_exists($schemaPath)) {
+        if (\is_file($schemaPath)) {
             $db = \json_decode(\file_get_contents($schemaPath), true);
 
             foreach ($db as $name => $table) {
@@ -240,7 +240,7 @@ trait ModuleTestTrait
 
         $schemaPath = __DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Admin/Install/db.json';
 
-        if (\file_exists($schemaPath)) {
+        if (\is_file($schemaPath)) {
             $db = \json_decode(\file_get_contents($schemaPath), true);
 
             foreach ($db as $name => $table) {
@@ -271,7 +271,7 @@ trait ModuleTestTrait
         $schemaPath = __DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Admin/Install/db.json';
         $mappers    = \glob(__DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Models/*Mapper.php');
 
-        if (\file_exists($schemaPath)) {
+        if (\is_file($schemaPath)) {
             $db = \json_decode(\file_get_contents($schemaPath), true);
 
             foreach ($mappers as $mapper) {
@@ -372,20 +372,20 @@ trait ModuleTestTrait
     public function testRoutes() : void
     {
         $moduleManager      = new ModuleManager($this->app, __DIR__ . '/../../Modules');
-        $totalBackendRoutes = \file_exists(__DIR__ . '/../../Web/Backend/Routes.php') ? include __DIR__ . '/../../Web/Backend/Routes.php' : [];
-        $totalApiRoutes     = \file_exists(__DIR__ . '/../../Web/Api/Routes.php') ? include __DIR__ . '/../../Web/Api/Routes.php' : [];
+        $totalBackendRoutes = \is_file(__DIR__ . '/../../Web/Backend/Routes.php') ? include __DIR__ . '/../../Web/Backend/Routes.php' : [];
+        $totalApiRoutes     = \is_file(__DIR__ . '/../../Web/Api/Routes.php') ? include __DIR__ . '/../../Web/Api/Routes.php' : [];
 
         $module = $moduleManager->get(self::MODULE_NAME);
 
         if (!($module instanceof NullModule)) {
             // test routes
-            if (\file_exists($module::MODULE_PATH . '/Admin/Routes/Web/Backend.php')) {
+            if (\is_file($module::MODULE_PATH . '/Admin/Routes/Web/Backend.php')) {
                 $moduleRoutes = include $module::MODULE_PATH . '/Admin/Routes/Web/Backend.php';
                 self::assertEquals(1, $this->routesTest($moduleRoutes, $totalBackendRoutes), 'Backend route assert failed for '. self::MODULE_NAME);
             }
 
             // test routes
-            if (\file_exists($module::MODULE_PATH . '/Admin/Routes/Web/Api.php')) {
+            if (\is_file($module::MODULE_PATH . '/Admin/Routes/Web/Api.php')) {
                 $moduleRoutes = include $module::MODULE_PATH . '/Admin/Routes/Web/Api.php';
                 self::assertEquals(1, $this->routesTest($moduleRoutes, $totalApiRoutes), 'Api route assert failed for '. self::MODULE_NAME);
             }
@@ -399,20 +399,20 @@ trait ModuleTestTrait
     public function testHooks() : void
     {
         $moduleManager     = new ModuleManager($this->app, __DIR__ . '/../../Modules');
-        $totalBackendHooks = \file_exists(__DIR__ . '/../../Web/Backend/Hooks.php') ? include __DIR__ . '/../../Web/Backend/Hooks.php' : [];
-        $totalApiHooks     = \file_exists(__DIR__ . '/../../Web/Api/Hooks.php') ? include __DIR__ . '/../../Web/Api/Hooks.php' : [];
+        $totalBackendHooks = \is_file(__DIR__ . '/../../Web/Backend/Hooks.php') ? include __DIR__ . '/../../Web/Backend/Hooks.php' : [];
+        $totalApiHooks     = \is_file(__DIR__ . '/../../Web/Api/Hooks.php') ? include __DIR__ . '/../../Web/Api/Hooks.php' : [];
 
         $module = $moduleManager->get(self::MODULE_NAME);
 
         if (!($module instanceof NullModule)) {
             // test hooks
-            if (\file_exists($module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php')) {
+            if (\is_file($module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php')) {
                 $moduleHooks = include $module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php';
                 self::assertEquals(1, $this->hooksTest($moduleHooks, $totalBackendHooks), 'Backend hook assert failed for '. self::MODULE_NAME);
             }
 
             // test hooks
-            if (\file_exists($module::MODULE_PATH . '/Admin/Hooks/Web/Api.php')) {
+            if (\is_file($module::MODULE_PATH . '/Admin/Hooks/Web/Api.php')) {
                 $moduleHooks = include $module::MODULE_PATH . '/Admin/Hooks/Web/Api.php';
                 self::assertEquals(1, $this->hooksTest($moduleHooks, $totalApiHooks), 'Api hook assert failed for '. self::MODULE_NAME);
             }
@@ -432,7 +432,7 @@ trait ModuleTestTrait
         if (!($module instanceof NullModule)) {
             // test if navigation db entries match json files
             if (!($moduleManager->get('Navigation') instanceof NullModule)
-                && \file_exists($module::MODULE_PATH . '/Admin/Install/Navigation.install.json')
+                && \is_file($module::MODULE_PATH . '/Admin/Install/Navigation.install.json')
             ) {
                 self::assertTrue(
                     $this->navLinksTest(
@@ -490,7 +490,7 @@ trait ModuleTestTrait
             foreach ($dests as $verb) {
                 $parts = \explode(':', $verb['dest']);
                 $path  = __DIR__ . '/../../' . \ltrim(\str_replace('\\', '/', $parts[0]), '/') . '.php';
-                if (!\file_exists($path)) {
+                if (!\is_file($path)) {
                     return -2;
                 }
 
@@ -516,7 +516,7 @@ trait ModuleTestTrait
             foreach ($dests['callback'] as $callback) {
                 $parts = \explode(':', $callback);
                 $path  = __DIR__ . '/../../' . \ltrim(\str_replace('\\', '/', $parts[0]), '/') . '.php';
-                if (!\file_exists($path)) {
+                if (!\is_file($path)) {
                     return -2;
                 }
 
