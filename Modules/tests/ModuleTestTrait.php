@@ -496,7 +496,9 @@ trait ModuleTestTrait
 
                 // test route method
                 $content = \file_get_contents($path);
-                if (\stripos($content, 'function ' . $parts[\count($parts) - 1]) === false) {
+                if (\stripos($content, 'function ' . $parts[\count($parts) - 1]) === false
+                    && \strpos($parts[\count($parts) - 1], 'Trait') === false
+                ) {
                     return -3;
                 }
             }
