@@ -26,6 +26,7 @@ use phpOMS\Uri\HttpUri;
 class InstallTest extends \PHPUnit\Framework\TestCase
 {
     /**
+     * @covers Install\WebApplication<extended>
      * @group admin
      */
     public function testInvalidInstallRequest() : void
@@ -39,6 +40,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @covers Install\WebApplication<extended>
      * @group admin
      */
     public function testInvalidDatabaseInstallRequest() : void
@@ -85,6 +87,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @covers Install\WebApplication<extended>
      * @group admin
      */
     public function testInstall() : void
