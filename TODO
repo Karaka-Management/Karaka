@@ -33,6 +33,7 @@ Orange-Management:
   #63 [ProductionAnalysis] Add module
   #? [Pagination] Bug: If pagination (next/previous) is implemented in a tab (e.g. second tab) the newly loaded page after clicking on next shows the first tab instead of the tab which contains the list.
   #? Make forgotten page use the router instead of the manual routing. The problem is that this was using the backend default base template. As a work around we could use the default backend template and an "empty" template for login/forgotten/ and other pages like privacy policy etc.
+  #? Create a unit test which tests if a controller function properly checks for the user permissions. This could be done with specific test method names (e.g. apiFunctionNameWithoutPermission())
 
 phpOMS:
   #245 [ApplicationManager] Implement test for invalid source and invalid destination
@@ -61,6 +62,9 @@ phpOMS:
   #? [TextSearch] Create full text search for files/in-memory texts and return the best matched files and the matched phrases
   #? [ClusterAnalysis] Create the different cluster analysis implementations
   #? [Markdown] Create a substr function which returns a substring without parsing issues. This could be implemented by defining a soft and hard limit for the text length. Or by forcing closing tags at the end.
+  #? [DataMapperAbstract] When using getQuery() and then making a ->where(...) the where will often fail because the table name is suffixed with an integer e.g. `_3`. This means you need to know the depth of the query in order to manually write it. The query builder should figure this out by himself. It knows the _INT value from the `FROM` clause and should just overwrite in the where clause where needed. See the GSD Importer from the exchange module for reference.
+  #? Implement iterable fetch. Currently all models are returned in one go, additionally an iterator should be returned for iterable access in case of MANY results (e.g. Exchange module)
+  #? implement attributes for addAssets. This way we could add the `integrity` attribute for external asset loading
 
 jsOMS:
   #99 [VoiceCommand] Implement voice pause/continue command
@@ -126,6 +130,7 @@ Admin:
   #7 [Admin] Add group account removal
   #10 [Admin] Create update functionality
   #? Consider to move the name1 - name3 into their own name table. This would make it easier to search for names at the cost of ?
+  #? Add some way to hide addresses and contacts from other modules (e.g. we don't want all modules to see all addresses etc. because some of the information might be module specific and should not be allowed to change from another module e.g. shipping address, private phone etc.)
 
 Auditor:
   #? Create printable reports based on specific changes (print specific changes for auditors)
@@ -191,6 +196,7 @@ Help:
 
 Helper:
   #? Create job which executes a helper (create new entry and potentially export)
+  #? Create JS Helper module, in here the download and print should be handled (e.g. document.getElementById('iHelperFrame').contentWindow.print();)
 
 Home:
 
