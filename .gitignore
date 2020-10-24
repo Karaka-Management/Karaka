@@ -29,3 +29,4 @@ coverage.xml
 *.phar
 *.xml
 omsSetup
+demoSetup
