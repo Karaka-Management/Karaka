@@ -18,6 +18,7 @@ use phpOMS\Localization\Localization;
 use phpOMS\Message\Console\ConsoleRequest;
 use phpOMS\Message\Console\ConsoleResponse;
 use phpOMS\Router\RouteVerb;
+use phpOMS\Uri\Argument;
 
 /**
  * Application class.
@@ -26,9 +27,19 @@ use phpOMS\Router\RouteVerb;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @property \phpOMS\Router\SocketRouter $router
  */
 final class ConsoleApplication extends InstallAbstract
 {
+    /**
+     * Temp config.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    private array $config;
+
     /**
      * Constructor.
      *
@@ -43,21 +54,26 @@ final class ConsoleApplication extends InstallAbstract
             throw new \Exception();
         }
 
+        $this->config = $config;
+        $this->initRequest($arg, __DIR__ . '/../', \locale_get_default());
+
         $this->setupHandlers();
     }
 
     /**
      * Initialize current application request
      *
+     * @param array  $arg      Cli arguments
+     * @param string $rootPath Web root path
      * @param string $language Fallback language
      *
      * @return ConsoleRequest Initial client request
      *
      * @since 1.0.0
      */
-    private function initRequest(string $language) : ConsoleRequest
+    private function initRequest(array $arg, string $rootPath, string $language) : ConsoleRequest
     {
-        $request = new ConsoleRequest();
+        $request = new ConsoleRequest(new Argument($arg[1] ?? ''));
         return $request;
     }
 
@@ -99,7 +115,7 @@ final class ConsoleApplication extends InstallAbstract
      */
     private function setupRoutes() : void
     {
-        $this->router->add('^.*', '\Install\WebApplication::installView', RouteVerb::GET);
-        $this->router->add('^.*', '\Install\WebApplication::installRequest', RouteVerb::PUT);
+        $this->router->add('^.*', '\Install\WebApplication::installView');
+        $this->router->add('^.*', '\Install\WebApplication::installRequest');
     }
 }

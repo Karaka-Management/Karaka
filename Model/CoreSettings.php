@@ -146,11 +146,11 @@ final class CoreSettings implements SettingsInterface
                 ->from(static::$table);
 
             if (!empty($ids)) {
-                $query->where(static::$columns['id'], (\is_array($ids) ? 'in' : '='), $ids);
+                $query->where(static::$columns['id'], 'in', $ids);
             }
 
             if (!empty($names)) {
-                $query->andWhere(static::$columns['name'], (\is_array($names) ? 'in' : '='), $names);
+                $query->andWhere(static::$columns['name'], 'in', $names);
             }
 
             if (!empty($module)) {

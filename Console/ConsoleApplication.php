@@ -29,6 +29,8 @@ use phpOMS\Uri\Argument;
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
+ *
+ * @property \phpOMS\Router\SocketRouter $router
  */
 final class ConsoleApplication extends ApplicationAbstract
 {
@@ -55,6 +57,9 @@ final class ConsoleApplication extends ApplicationAbstract
         $this->appName = 'CLI';
         $this->config  = $config;
         $this->logger  = FileLogger::getInstance($config['log']['file']['path'], true);
+
+        $this->setupHandlers();
+        $this->initRequest($arg, __DIR__, \locale_get_default());
     }
 
     /**
