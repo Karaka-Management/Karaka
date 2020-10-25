@@ -139,6 +139,18 @@ Auditor:
 CMS:
   #2 [CMS] Make all files modifiable in a file overview instead of a view for every type of file
   #1 [CMS] Allow content creation and modification
+  #? Application ideas
+    clocking
+    support / ticket
+    calendar
+    dashboard / presentation slider (weather, news, images ...)
+    sales dashboard
+    monitor / log dashboard
+    production dashboard
+    shop
+    website
+    wiki
+    Q&A
 
 Calendar:
   #1 [Calendar] Limit event loading to a fixed amount of months
@@ -338,6 +350,28 @@ Tools:
 Workflow:
   #2 [Workflow] Request/approval workflow
   #1 [Workflow] Create module
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+////
+//// Demo TODO
+////
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+Demo tasks incl. tags
+Demo Editor incl. paths
+Demo Helper
+Demo Wiki
+Demo Tickets
+Demo HR
+Demo HR Timerecording
+Demo Application (e.g. website, clocking, wiki, ticket, Q&A)
+Demo Kanban
+Demo Clients
+Demo Suppliers
+Demo Items
+Demo Risk management
+Demo profile contacts
+Think about moving contact to contact module??? I'm not sure if I want that!
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 ////
