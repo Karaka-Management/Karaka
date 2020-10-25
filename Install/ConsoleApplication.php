@@ -17,7 +17,6 @@ namespace Install;
 use phpOMS\Localization\Localization;
 use phpOMS\Message\Console\ConsoleRequest;
 use phpOMS\Message\Console\ConsoleResponse;
-use phpOMS\Router\RouteVerb;
 use phpOMS\Uri\Argument;
 
 /**
