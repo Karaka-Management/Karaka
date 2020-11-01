@@ -197,6 +197,7 @@ Editor:
   #3 [Editor] Allow editor creation and modification
   #1 [Editor] Implement tools
   #2 [Editor] Versioning
+  #? Auto recognize csv files and create table view editor
 
 EventManagement:
 
@@ -357,9 +358,7 @@ Workflow:
 ////
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-Demo tasks incl. tags
-Demo Editor incl. paths
-Demo Helper
+Demo Helper (e.g. bogus sales report, mailing generator, zertificate generator)
 Demo Wiki
 Demo Tickets
 Demo HR
