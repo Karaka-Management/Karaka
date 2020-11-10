@@ -195,7 +195,7 @@ class WebApplication extends ApplicationAbstract
 
         $defaultLang = $config['app']['domains'][$request->getUri()->getHost()]['lang'] ?? $config['app']['default']['lang'];
         $uriLang     = \strtolower($request->getUri()->getPathElement(0));
-        $requestLang = $request->getHeader()->getL11n()->getLanguage();
+        $requestLang = $request->getLanguage();
         $langCode    = ISO639x1Enum::isValidValue($requestLang) && \in_array($requestLang, $config['language'])
             ? $requestLang
             : (ISO639x1Enum::isValidValue($uriLang) && \in_array($uriLang, $config['language'])
@@ -204,7 +204,7 @@ class WebApplication extends ApplicationAbstract
             );
 
         $response->getHeader()->getL11n()->loadFromLanguage($langCode, \explode('_', $request->getLocale())[1] ?? '*');
-        UriFactory::setQuery('/lang', $request->getHeader()->getL11n()->getLanguage());
+        UriFactory::setQuery('/lang', $request->getLanguage());
 
         if (ISO639x1Enum::isValidValue($uriLang)) {
             UriFactory::setQuery('/prefix',  $uriLang . '/' . (empty(UriFactory::getQuery('/prefix')) ? '' : UriFactory::getQuery('/prefix')));
