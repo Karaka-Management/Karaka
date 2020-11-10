@@ -166,7 +166,7 @@ final class Application
                 );
         }
 
-        if (!\in_array($response->getHeader()->getL11n()->getLanguage(), $this->config['language'])) {
+        if (!\in_array($response->getLanguage(), $this->config['language'])) {
             $response->getHeader()->getL11n()->setLanguage($this->app->l11nServer->getLanguage());
         }
 
@@ -191,14 +191,14 @@ final class Application
             return;
         }
 
-        UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());
+        UriFactory::setQuery('/lang', $response->getLanguage());
 
         $this->app->loadLanguageFromPath(
-            $response->getHeader()->getL11n()->getLanguage(),
-            __DIR__ . '/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php'
+            $response->getLanguage(),
+            __DIR__ . '/lang/' . $response->getLanguage() . '.lang.php'
         );
 
-        $response->getHeader()->set('content-language', $response->getHeader()->getL11n()->getLanguage(), true);
+        $response->getHeader()->set('content-language', $response->getLanguage(), true);
 
         /* Create html head */
         $this->initResponseHead($head, $request, $response);
@@ -277,8 +277,8 @@ final class Application
         $response->getHeader()->setStatusCode(RequestStatusCode::R_406);
         $pageView->setTemplate('/Web/Backend/Error/406');
         $this->app->loadLanguageFromPath(
-            $response->getHeader()->getL11n()->getLanguage(),
-            __DIR__ . '/Error/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php'
+            $response->getLanguage(),
+            __DIR__ . '/Error/lang/' . $response->getLanguage() . '.lang.php'
         );
     }
 
@@ -297,8 +297,8 @@ final class Application
         $response->getHeader()->setStatusCode(RequestStatusCode::R_503);
         $pageView->setTemplate('/Web/Backend/Error/503');
         $this->app->loadLanguageFromPath(
-            $response->getHeader()->getL11n()->getLanguage(),
-            __DIR__ . '/Error/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php'
+            $response->getLanguage(),
+            __DIR__ . '/Error/lang/' . $response->getLanguage() . '.lang.php'
         );
     }
 
@@ -334,8 +334,8 @@ final class Application
         $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
         $pageView->setTemplate('/Web/Backend/Error/403');
         $this->app->loadLanguageFromPath(
-            $response->getHeader()->getL11n()->getLanguage(),
-            __DIR__ . '/Error/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php'
+            $response->getLanguage(),
+            __DIR__ . '/Error/lang/' . $response->getLanguage() . '.lang.php'
         );
     }
 

@@ -31,7 +31,7 @@ $head = $this->getData('head');
 $dispatch = $this->getData('dispatch') ?? [];
 ?>
 <!DOCTYPE HTML>
-<html lang="<?= $this->printHtml($this->response->getHeader()->getL11n()->getLanguage()); ?>">
+<html lang="<?= $this->printHtml($this->response->getLanguage()); ?>">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

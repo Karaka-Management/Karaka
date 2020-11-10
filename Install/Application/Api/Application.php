@@ -164,8 +164,8 @@ final class Application
                 );
         }
 
-        UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());
-        $response->getHeader()->set('content-language', $response->getHeader()->getL11n()->getLanguage(), true);
+        UriFactory::setQuery('/lang', $response->getLanguage());
+        $response->getHeader()->set('content-language', $response->getLanguage(), true);
 
         if (!empty($uris = $request->getUri()->getQuery('r'))) {
             $this->handleBatchRequest($uris, $request, $response);
@@ -207,9 +207,9 @@ final class Application
                 $response->get('Content')->setData('head', new Head());
 
                 $app->l11nManager->loadLanguage(
-                    $response->getHeader()->getL11n()->getLanguage(),
+                    $response->getLanguage(),
                     '0',
-                    include __DIR__ . '/../' . $appName . '/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php'
+                    include __DIR__ . '/../' . $appName . '/lang/' . $response->getLanguage() . '.lang.php'
                 );
 
                 $routed = $app->router->route(

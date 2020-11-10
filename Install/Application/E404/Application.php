@@ -80,7 +80,7 @@ final class Application
         $pageView->setTemplate('/Web/E404/index');
 
         /* Load theme language */
-        if (($path = \realpath($oldPath = __DIR__ . '/lang/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php')) === false) {
+        if (($path = \realpath($oldPath = __DIR__ . '/lang/' . $response->getLanguage() . '.lang.php')) === false) {
             throw new PathException($oldPath);
         }
 
@@ -88,7 +88,7 @@ final class Application
 
         /** @noinspection PhpIncludeInspection */
         $themeLanguage = include $path;
-        $this->app->l11nManager->loadLanguage($response->getHeader()->getL11n()->getLanguage(), '0', $themeLanguage);
+        $this->app->l11nManager->loadLanguage($response->getLanguage(), '0', $themeLanguage);
 
         $response->set('Content', $pageView);
         $response->getHeader()->setStatusCode(RequestStatusCode::R_404);

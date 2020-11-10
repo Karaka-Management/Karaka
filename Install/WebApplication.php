@@ -91,7 +91,7 @@ final class WebApplication extends InstallAbstract
         $request->getHeader()->getL11n()->setLanguage(
             empty($langCode) || !ISO639x1Enum::isValidValue($langCode) ? $language : $langCode
         );
-        UriFactory::setQuery('/lang', $request->getHeader()->getL11n()->getLanguage());
+        UriFactory::setQuery('/lang', $request->getLanguage());
 
         return $request;
     }
@@ -121,7 +121,7 @@ final class WebApplication extends InstallAbstract
         }
 
         $response->getHeader()->getL11n()->setLanguage(
-            !\in_array($request->getHeader()->getL11n()->getLanguage(), $languages) ? 'en' : $request->getHeader()->getL11n()->getLanguage()
+            !\in_array($request->getLanguage(), $languages) ? 'en' : $request->getLanguage()
         );
 
         return $response;
@@ -144,8 +144,8 @@ final class WebApplication extends InstallAbstract
         $this->router     = new WebRouter();
 
         $this->setupRoutes();
-        $response->getHeader()->set('content-language', $response->getHeader()->getL11n()->getLanguage(), true);
-        UriFactory::setQuery('/lang', $response->getHeader()->getL11n()->getLanguage());
+        $response->getHeader()->set('content-language', $response->getLanguage(), true);
+        UriFactory::setQuery('/lang', $response->getLanguage());
 
         $this->dispatcher->dispatch(
             $this->router->route(
