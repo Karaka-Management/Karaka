@@ -57,34 +57,41 @@ html, body {
 body {
   display: flex; }
 
-main > header {
-  background: var(--header-background);
-  border-bottom: 1px solid var(--box-border);
-  padding: 0 1rem 0 1rem;
-  box-sizing: border-box;
+main {
   display: flex;
-  align-items: center;
-  flex-flow: row;
-  flex-shrink: 0;
-  height: 65px;
-  box-shadow: 0 0 5px 1px rgba(72, 71, 114, 0.2); }
-  main > header > form {
-    display: flex;
-    flex: 1;
-    padding: 0 5px 0 5px;
-    max-width: 800px; }
-  main > header .inputWrapper {
-    flex: 1; }
-  main > header input[type=text] {
-    width: 100%;
-    background: white;
-    border: 1px solid var(--input-border);
-    text-shadow: none;
-    box-shadow: none;
-    transition: border 500ms ease-out;
-    outline: none;
+  flex-direction: column;
+  height: 100%;
+  background: var(--main-background);
+  flex: 1;
+  box-sizing: border-box; }
+  main > header {
+    background: var(--header-background);
+    border-bottom: 1px solid var(--box-border);
+    padding: 0 1rem 0 1rem;
     box-sizing: border-box;
-    padding-left: 2rem; }
+    display: flex;
+    align-items: center;
+    flex-flow: row;
+    flex-shrink: 0;
+    height: 65px;
+    box-shadow: 0 0 5px 1px rgba(72, 71, 114, 0.2); }
+    main > header > form {
+      display: flex;
+      flex: 1;
+      padding: 0 5px 0 5px;
+      max-width: 800px; }
+    main > header .inputWrapper {
+      flex: 1; }
+    main > header input[type=text] {
+      width: 100%;
+      background: white;
+      border: 1px solid var(--input-border);
+      text-shadow: none;
+      box-shadow: none;
+      transition: border 500ms ease-out;
+      outline: none;
+      box-sizing: border-box;
+      padding-left: 2rem; }
 
 #logo {
   flex: 1;
@@ -112,9 +119,11 @@ nav .ham-trigger {
   margin-left: auto; }
 
 #content {
+  display: flex;
   flex: 1;
-  padding-left: 1rem;
-  overflow-y: auto; }
+  padding: 0 0 1rem 1rem;
+  overflow-y: auto;
+  direction: column; }
 
 #t-nav {
   font-size: .8rem;
@@ -129,14 +138,6 @@ nav .ham-trigger {
     margin-right: 5px; }
   #t-nav li {
     display: inline; }
-
-main {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background: var(--main-background);
-  flex: 1;
-  box-sizing: border-box; }
 
 #dim {
   position: absolute;
