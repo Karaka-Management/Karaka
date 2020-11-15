@@ -193,6 +193,9 @@ DatabaseEditor:
 
 Draw:
 
+Finance:
+  #? Accounting forensics (Benfords Law, cent values, amount of bookings between specified amounts, amount * bookings between specified amounts)
+
 Editor:
   #3 [Editor] Allow editor creation and modification
   #1 [Editor] Implement tools
