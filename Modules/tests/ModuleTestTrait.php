@@ -72,11 +72,13 @@ trait ModuleTestTrait
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
         $module        = $moduleManager->get(self::MODULE_NAME);
 
-        if (!($module instanceof NullModule)) {
-            self::assertEquals(self::MODULE_NAME, $module::MODULE_NAME);
-            self::assertEquals(\realpath(__DIR__ . '/../../Modules/' . self::MODULE_NAME), \realpath($module::MODULE_PATH));
-            self::assertGreaterThanOrEqual(0, Version::compare($module::MODULE_VERSION, '1.0.0'));
+        if ($module instanceof NullModule) {
+            return;
         }
+
+        self::assertEquals(self::MODULE_NAME, $module::MODULE_NAME);
+        self::assertEquals(\realpath(__DIR__ . '/../../Modules/' . self::MODULE_NAME), \realpath($module::MODULE_PATH));
+        self::assertGreaterThanOrEqual(0, Version::compare($module::MODULE_VERSION, '1.0.0'));
     }
 
     /**
@@ -122,18 +124,17 @@ trait ModuleTestTrait
         $mappers = \glob(__DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Models/*Mapper.php');
 
         foreach ($mappers as $mapper) {
-            $class            = $this->getMapperFromPath($mapper);
+            $class = $this->getMapperFromPath($mapper);
+
+            if ($class === '\Modules\Admin\Models\ModuleMapper'
+                || !Autoloader::exists(\substr($class, 0, -6))
+            ) {
+                continue;
+            }
+
             $mapperReflection = new \ReflectionClass($class);
             $columns          = $mapperReflection->getDefaultProperties()['columns'];
             $ownsOne          = $mapperReflection->getDefaultProperties()['ownsOne'];
-
-            if ($class === '\Modules\Admin\Models\ModuleMapper') {
-                continue;
-            }
-
-            if (!Autoloader::exists(\substr($class, 0, -6))) {
-                continue;
-            }
 
             $classReflection   = new \ReflectionClass(\substr($class, 0, -6));
             $defaultProperties = $classReflection->getDefaultProperties();
@@ -194,39 +195,41 @@ trait ModuleTestTrait
     {
         $schemaPath = __DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Admin/Install/db.json';
 
-        if (\is_file($schemaPath)) {
-            $db = \json_decode(\file_get_contents($schemaPath), true);
+        if (!\is_file($schemaPath)) {
+            self::assertTrue(true);
 
-            foreach ($db as $name => $table) {
-                if ($name !== ($table['name'] ?? false)) {
+            return;
+        }
+
+        $db = \json_decode(\file_get_contents($schemaPath), true);
+
+        foreach ($db as $name => $table) {
+            if ($name !== ($table['name'] ?? false)) {
+                self::assertTrue(false);
+            }
+
+            foreach ($table['fields'] as $cName => $column) {
+                if ($cName !== ($column['name'] ?? false)) {
                     self::assertTrue(false);
                 }
 
-                foreach ($table['fields'] as $cName => $column) {
-                    if ($cName !== ($column['name'] ?? false)) {
-                        self::assertTrue(false);
-                    }
-
-                    if (!(\stripos($column['type'] ?? '', 'TINYINT') === 0
-                        || \stripos($column['type'] ?? '', 'SMALLINT') === 0
-                        || \stripos($column['type'] ?? '', 'INT') === 0
-                        || \stripos($column['type'] ?? '', 'BIGINT') === 0
-                        || \stripos($column['type'] ?? '', 'VARCHAR') === 0
-                        || \stripos($column['type'] ?? '', 'VARBINARY') === 0
-                        || \stripos($column['type'] ?? '', 'TEXT') === 0
-                        || \stripos($column['type'] ?? '', 'DATETIME') === 0
-                        || \stripos($column['type'] ?? '', 'DECIMAL') === 0
-                    )) {
-                        self::assertTrue(false, 'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" is a missing/invalid type');
-                    }
+                if (!(\stripos($column['type'] ?? '', 'TINYINT') === 0
+                    || \stripos($column['type'] ?? '', 'SMALLINT') === 0
+                    || \stripos($column['type'] ?? '', 'INT') === 0
+                    || \stripos($column['type'] ?? '', 'BIGINT') === 0
+                    || \stripos($column['type'] ?? '', 'VARCHAR') === 0
+                    || \stripos($column['type'] ?? '', 'VARBINARY') === 0
+                    || \stripos($column['type'] ?? '', 'TEXT') === 0
+                    || \stripos($column['type'] ?? '', 'DATETIME') === 0
+                    || \stripos($column['type'] ?? '', 'DECIMAL') === 0
+                )) {
+                    self::assertTrue(false, 'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" is a missing/invalid type');
                 }
             }
-
-            $dbTemplate = \json_decode(\file_get_contents(__DIR__ . '/../../phpOMS/DataStorage/Database/tableDefinition.json'), true);
-            self::assertTrue(Json::validateTemplate($dbTemplate, $db), 'Invalid db template for ' . self::MODULE_NAME);
         }
 
-        self::assertTrue(true);
+        $dbTemplate = \json_decode(\file_get_contents(__DIR__ . '/../../phpOMS/DataStorage/Database/tableDefinition.json'), true);
+        self::assertTrue(Json::validateTemplate($dbTemplate, $db), 'Invalid db template for ' . self::MODULE_NAME);
     }
 
     /**
@@ -240,21 +243,25 @@ trait ModuleTestTrait
 
         $schemaPath = __DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Admin/Install/db.json';
 
-        if (\is_file($schemaPath)) {
-            $db = \json_decode(\file_get_contents($schemaPath), true);
+        if (!\is_file($schemaPath)) {
+            self::assertTrue(true);
 
-            foreach ($db as $name => $table) {
-                if (!\in_array($name, $tables)) {
-                    self::assertTrue(false);
-                }
+            return;
+        }
 
-                $field  = new SchemaBuilder($this->app->dbPool->get());
-                $fields = $field->selectFields($name)->execute()->fetchAll();
+        $db = \json_decode(\file_get_contents($schemaPath), true);
 
-                foreach ($table['fields'] as $cName => $column) {
-                    if (!ArrayUtils::inArrayRecursive($cName, $fields)) {
-                        self::assertTrue(false, 'Couldn\'t find "' . $cName . '" in "' . $name . '"');
-                    }
+        foreach ($db as $name => $table) {
+            if (!\in_array($name, $tables)) {
+                self::assertTrue(false);
+            }
+
+            $field  = new SchemaBuilder($this->app->dbPool->get());
+            $fields = $field->selectFields($name)->execute()->fetchAll();
+
+            foreach ($table['fields'] as $cName => $column) {
+                if (!ArrayUtils::inArrayRecursive($cName, $fields)) {
+                    self::assertTrue(false, 'Couldn\'t find "' . $cName . '" in "' . $name . '"');
                 }
             }
         }
@@ -271,58 +278,60 @@ trait ModuleTestTrait
         $schemaPath = __DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Admin/Install/db.json';
         $mappers    = \glob(__DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Models/*Mapper.php');
 
-        if (\is_file($schemaPath)) {
-            $db = \json_decode(\file_get_contents($schemaPath), true);
+        if (!\is_file($schemaPath)) {
+            self::assertTrue(true);
 
-            foreach ($mappers as $mapper) {
-                $class = $this->getMapperFromPath($mapper);
+            return;
+        }
 
-                if (\defined('self::MAPPER_TO_IGNORE') && \in_array(\ltrim($class, '\\'), self::MAPPER_TO_IGNORE)) {
-                    continue;
+        $db = \json_decode(\file_get_contents($schemaPath), true);
+
+        foreach ($mappers as $mapper) {
+            $class = $this->getMapperFromPath($mapper);
+
+            if (\defined('self::MAPPER_TO_IGNORE') && \in_array(\ltrim($class, '\\'), self::MAPPER_TO_IGNORE)
+                || $class === '\Modules\Admin\Models\ModuleMapper'
+            ) {
+                continue;
+            }
+
+            $mapperReflection = new \ReflectionClass($class);
+            $table            = $mapperReflection->getDefaultProperties()['table'];
+            $columns          = $mapperReflection->getDefaultProperties()['columns'];
+
+            foreach ($columns as $cName => $column) {
+                // testing existence of field name in schema
+                if (!isset($db[$table]['fields'][$cName])) {
+                    self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" doesn\'t match schema');
                 }
 
-                $mapperReflection = new \ReflectionClass($class);
-                $table            = $mapperReflection->getDefaultProperties()['table'];
-                $columns          = $mapperReflection->getDefaultProperties()['columns'];
-
-                if ($class === '\Modules\Admin\Models\ModuleMapper') {
-                    continue;
+                // testing schema/mapper same column data type
+                if (!(($column['type'] === 'string'
+                        && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
+                            || \stripos($db[$table]['fields'][$cName]['type'], 'VARBINARY') === 0
+                            || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0))
+                    || ($column['type'] === 'int'
+                        && (\stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0
+                            || \stripos($db[$table]['fields'][$cName]['type'], 'SMALLINT') === 0
+                            || \stripos($db[$table]['fields'][$cName]['type'], 'INT') === 0
+                            || \stripos($db[$table]['fields'][$cName]['type'], 'BIGINT') === 0))
+                    || ($column['type'] === 'Json'
+                        && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
+                            || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0))
+                    || ($column['type'] === 'Serializable')
+                    || ($column['type'] === 'bool' && \stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0)
+                    || ($column['type'] === 'float' && \stripos($db[$table]['fields'][$cName]['type'], 'DECIMAL') === 0)
+                    || ($column['type'] === 'DateTime' && \stripos($db[$table]['fields'][$cName]['type'], 'DATETIME') === 0)
+                    || ($column['type'] === 'DateTimeImmutable' && \stripos($db[$table]['fields'][$cName]['type'], 'DATETIME') === 0)
+                )) {
+                    self::assertTrue(false, 'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" is incompatible with mapper "' . $class . '" definition "' . $db[$table]['fields'][$cName]['type'] . '" for field "' . $cName . '"');
                 }
+            }
 
-                foreach ($columns as $cName => $column) {
-                    // testing existence of field name in schema
-                    if (!isset($db[$table]['fields'][$cName])) {
-                        self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" doesn\'t match schema');
-                    }
-
-                    // testing schema/mapper same column data type
-                    if (!(($column['type'] === 'string'
-                            && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
-                                || \stripos($db[$table]['fields'][$cName]['type'], 'VARBINARY') === 0
-                                || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0))
-                        || ($column['type'] === 'int'
-                            && (\stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0
-                                || \stripos($db[$table]['fields'][$cName]['type'], 'SMALLINT') === 0
-                                || \stripos($db[$table]['fields'][$cName]['type'], 'INT') === 0
-                                || \stripos($db[$table]['fields'][$cName]['type'], 'BIGINT') === 0))
-                        || ($column['type'] === 'Json'
-                            && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
-                                || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0))
-                        || ($column['type'] === 'Serializable')
-                        || ($column['type'] === 'bool' && \stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0)
-                        || ($column['type'] === 'float' && \stripos($db[$table]['fields'][$cName]['type'], 'DECIMAL') === 0)
-                        || ($column['type'] === 'DateTime' && \stripos($db[$table]['fields'][$cName]['type'], 'DATETIME') === 0)
-                        || ($column['type'] === 'DateTimeImmutable' && \stripos($db[$table]['fields'][$cName]['type'], 'DATETIME') === 0)
-                    )) {
-                        self::assertTrue(false, 'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" is incompatible with mapper "' . $class . '" definition "' . $db[$table]['fields'][$cName]['type'] . '" for field "' . $cName . '"');
-                    }
-                }
-
-                // testing schema/mapper same primary key definition
-                $primary = $mapperReflection->getDefaultProperties()['primaryField'];
-                if (!($db[$table]['fields'][$primary]['primary'] ?? false)) {
-                    self::assertTrue(false, 'Field "' . $primary . '" from mapper "' . $class . '" is not defined as primary key in table "' . $table . '"');
-                }
+            // testing schema/mapper same primary key definition
+            $primary = $mapperReflection->getDefaultProperties()['primaryField'];
+            if (!($db[$table]['fields'][$primary]['primary'] ?? false)) {
+                self::assertTrue(false, 'Field "' . $primary . '" from mapper "' . $class . '" is not defined as primary key in table "' . $table . '"');
             }
         }
 
@@ -341,12 +350,14 @@ trait ModuleTestTrait
 
         $module = $moduleManager->get(self::MODULE_NAME);
 
-        if (!($module instanceof NullModule)) {
-            // validate info.json
-            $info = \json_decode(\file_get_contents($module::MODULE_PATH . '/info.json'), true);
-            self::assertTrue($this->infoJsonTest($info, $sampleInfo), 'Info assert failed for '. self::MODULE_NAME);
-            self::assertTrue(Json::validateTemplate($infoTemplate, $info), 'Invalid info template for ' . self::MODULE_NAME);
+        if ($module instanceof NullModule) {
+            return;
         }
+
+        // validate info.json
+        $info = \json_decode(\file_get_contents($module::MODULE_PATH . '/info.json'), true);
+        self::assertTrue($this->infoJsonTest($info, $sampleInfo), 'Info assert failed for '. self::MODULE_NAME);
+        self::assertTrue(Json::validateTemplate($infoTemplate, $info), 'Invalid info template for ' . self::MODULE_NAME);
     }
 
     /**
@@ -358,11 +369,13 @@ trait ModuleTestTrait
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
         $module        = $moduleManager->get(self::MODULE_NAME);
 
-        if (!($module instanceof NullModule)) {
-            // validate dependency installation
-            $info = \json_decode(\file_get_contents($module::MODULE_PATH . '/info.json'), true);
-            self::assertTrue($this->dependencyTest($info, $moduleManager->getInstalledModules(false)), 'Invalid dependency configuration in ' . self::MODULE_NAME);
+        if ($module instanceof NullModule) {
+            return;
         }
+
+        // validate dependency installation
+        $info = \json_decode(\file_get_contents($module::MODULE_PATH . '/info.json'), true);
+        self::assertTrue($this->dependencyTest($info, $moduleManager->getInstalledModules(false)), 'Invalid dependency configuration in ' . self::MODULE_NAME);
     }
 
     /**
@@ -377,18 +390,20 @@ trait ModuleTestTrait
 
         $module = $moduleManager->get(self::MODULE_NAME);
 
-        if (!($module instanceof NullModule)) {
-            // test routes
-            if (\is_file($module::MODULE_PATH . '/Admin/Routes/Web/Backend.php')) {
-                $moduleRoutes = include $module::MODULE_PATH . '/Admin/Routes/Web/Backend.php';
-                self::assertEquals(1, $this->routesTest($moduleRoutes, $totalBackendRoutes), 'Backend route assert failed for '. self::MODULE_NAME);
-            }
+        if ($module instanceof NullModule) {
+            return;
+        }
 
-            // test routes
-            if (\is_file($module::MODULE_PATH . '/Admin/Routes/Web/Api.php')) {
-                $moduleRoutes = include $module::MODULE_PATH . '/Admin/Routes/Web/Api.php';
-                self::assertEquals(1, $this->routesTest($moduleRoutes, $totalApiRoutes), 'Api route assert failed for '. self::MODULE_NAME);
-            }
+        // test routes
+        if (\is_file($module::MODULE_PATH . '/Admin/Routes/Web/Backend.php')) {
+            $moduleRoutes = include $module::MODULE_PATH . '/Admin/Routes/Web/Backend.php';
+            self::assertEquals(1, $this->routesTest($moduleRoutes, $totalBackendRoutes), 'Backend route assert failed for '. self::MODULE_NAME);
+        }
+
+        // test routes
+        if (\is_file($module::MODULE_PATH . '/Admin/Routes/Web/Api.php')) {
+            $moduleRoutes = include $module::MODULE_PATH . '/Admin/Routes/Web/Api.php';
+            self::assertEquals(1, $this->routesTest($moduleRoutes, $totalApiRoutes), 'Api route assert failed for '. self::MODULE_NAME);
         }
     }
 
@@ -404,18 +419,20 @@ trait ModuleTestTrait
 
         $module = $moduleManager->get(self::MODULE_NAME);
 
-        if (!($module instanceof NullModule)) {
-            // test hooks
-            if (\is_file($module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php')) {
-                $moduleHooks = include $module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php';
-                self::assertEquals(1, $this->hooksTest($moduleHooks, $totalBackendHooks), 'Backend hook assert failed for '. self::MODULE_NAME);
-            }
+        if ($module instanceof NullModule) {
+            return;
+        }
 
-            // test hooks
-            if (\is_file($module::MODULE_PATH . '/Admin/Hooks/Web/Api.php')) {
-                $moduleHooks = include $module::MODULE_PATH . '/Admin/Hooks/Web/Api.php';
-                self::assertEquals(1, $this->hooksTest($moduleHooks, $totalApiHooks), 'Api hook assert failed for '. self::MODULE_NAME);
-            }
+        // test hooks
+        if (\is_file($module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php')) {
+            $moduleHooks = include $module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php';
+            self::assertEquals(1, $this->hooksTest($moduleHooks, $totalBackendHooks), 'Backend hook assert failed for '. self::MODULE_NAME);
+        }
+
+        // test hooks
+        if (\is_file($module::MODULE_PATH . '/Admin/Hooks/Web/Api.php')) {
+            $moduleHooks = include $module::MODULE_PATH . '/Admin/Hooks/Web/Api.php';
+            self::assertEquals(1, $this->hooksTest($moduleHooks, $totalApiHooks), 'Api hook assert failed for '. self::MODULE_NAME);
         }
     }
 
@@ -429,23 +446,24 @@ trait ModuleTestTrait
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
         $module        = $moduleManager->get(self::MODULE_NAME);
 
-        if (!($module instanceof NullModule)) {
-            // test if navigation db entries match json files
-            if (!($moduleManager->get('Navigation') instanceof NullModule)
-                && \is_file($module::MODULE_PATH . '/Admin/Install/Navigation.install.json')
-            ) {
-                self::assertTrue(
-                    $this->navLinksTest(
-                        $this->app->dbPool->get(),
-                        \json_decode(
-                            \file_get_contents($module::MODULE_PATH . '/Admin/Install/Navigation.install.json'),
-                            true
-                        ),
-                        self::MODULE_NAME
-                    )
-                );
-            }
+        if (($module instanceof NullModule)
+            || ($moduleManager->get('Navigation') instanceof NullModule)
+            || !\is_file($module::MODULE_PATH . '/Admin/Install/Navigation.install.json')
+        ) {
+            return;
         }
+
+        // test if navigation db entries match json files
+        self::assertTrue(
+            $this->navLinksTest(
+                $this->app->dbPool->get(),
+                \json_decode(
+                    \file_get_contents($module::MODULE_PATH . '/Admin/Install/Navigation.install.json'),
+                    true
+                ),
+                self::MODULE_NAME
+            )
+        );
     }
 
     private function navLinksTest($db, array $links, string $module) : bool
