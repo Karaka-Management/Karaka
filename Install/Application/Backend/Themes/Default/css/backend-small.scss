@@ -98,7 +98,7 @@ nav .ham-trigger {
     flex: 1;
     padding: 0 0 1rem 1rem;
     overflow-y: auto;
-    direction: column;
+    flex-direction: column;
 }
 
 #t-nav {
