@@ -331,14 +331,14 @@ abstract class InstallAbstract extends ApplicationAbstract
     protected static function configureCoreModules(RequestAbstract $request, ConnectionAbstract $db) : void
     {
         // setup basic units
-        $default = UnitMapper::get(1);
+        $default       = UnitMapper::get(1);
         $default->name = (string) ($request->getData('orgname') ?? '');
         $default->setStatus(Status::ACTIVE);
 
         UnitMapper::update($default);
 
         // setup basic collections
-        $collection = new Collection();
+        $collection       = new Collection();
         $collection->name = 'Modules';
         $collection->setVirtualPath('/');
         $collection->setPath('/Modules/Media/Files/Modules');
@@ -346,7 +346,7 @@ abstract class InstallAbstract extends ApplicationAbstract
 
         CollectionMapper::create($collection);
 
-        $collection = new Collection();
+        $collection       = new Collection();
         $collection->name = 'Accounts';
         $collection->setVirtualPath('/');
         $collection->setPath('/Modules/Media/Files/Accounts');
@@ -446,7 +446,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $module = self::$mManager->get('Admin');
 
         foreach ($apps as $app) {
-            $temp = new HttpRequest(new HttpUri(''));
+            $temp                  = new HttpRequest(new HttpUri(''));
             $temp->header->account = 1;
             $temp->setData('appSrc', $app);
             $temp->setData('appDest', 'Web/' . \basename($app));

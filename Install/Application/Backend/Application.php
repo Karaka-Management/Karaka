@@ -144,8 +144,8 @@ final class Application
         $this->app->l11nServer     = LocalizationMapper::get(1);
         $this->app->orgId          = $this->getApplicationOrganization($request, $this->config['app']);
 
-        $aid = Auth::authenticate($this->app->sessionManager);
-        $request->header->account = $aid;
+        $aid                       = Auth::authenticate($this->app->sessionManager);
+        $request->header->account  = $aid;
         $response->header->account = $aid;
 
         $account = $this->loadAccount($request);

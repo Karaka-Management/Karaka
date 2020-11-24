@@ -47,7 +47,7 @@ class BackendViewTest extends \PHPUnit\Framework\TestCase
         $media = new Media();
         $media->setPath('/test/path/image.jpeg');
 
-        $profile = new Profile();
+        $profile        = new Profile();
         $profile->image = $media;
 
         $view->setProfile($profile);
