@@ -39,7 +39,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     <meta name="msapplication-navbutton-color" content="#343a40">
     <meta name="apple-mobile-web-app-status-bar-style" content="#343a40">
     <meta name="description" content="<?= $this->getHtml(':meta', '0', '0'); ?>">
-    <?= $head->getMeta()->render(); ?>
+    <?= $head->meta->render(); ?>
 
     <base href="<?= UriFactory::build('{/base}'); ?>/">
 
@@ -47,7 +47,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     <link rel="manifest" href="<?= UriFactory::build('Web/Backend/manifest.webmanifest'); ?>">
     <link rel="shortcut icon" href="<?= UriFactory::build('Web/Backend/img/favicon.ico'); ?>" type="image/x-icon">
 
-    <title><?= $this->printHtml($head->getTitle()); ?></title>
+    <title><?= $this->printHtml($head->title); ?></title>
 
     <?= $head->renderAssets(); ?>
 
@@ -68,7 +68,7 @@ $dispatch = $this->getData('dispatch') ?? [];
                     data-action='[{"listener": "change", "action": [{"key": 1, "type": "redirect", "uri": "{%}&u={!#unit-selector}", "target": "self"}]}]'
                     title="Unit selector">
                     <?php foreach ($this->organizations as $organization) : ?>
-                        <option value="<?= $this->printHtml($organization->getId()); ?>"<?= $this->getData('orgId') == $organization->getId() ? ' selected' : ''; ?>><?= $this->printHtml($organization->getName()); ?>
+                        <option value="<?= $this->printHtml($organization->getId()); ?>"<?= $this->getData('orgId') == $organization->getId() ? ' selected' : ''; ?>><?= $this->printHtml($organization->name); ?>
                     <?php endforeach; ?>
                 </select>
             </span>

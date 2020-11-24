@@ -332,25 +332,25 @@ abstract class InstallAbstract extends ApplicationAbstract
     {
         // setup basic units
         $default = UnitMapper::get(1);
-        $default->setName((string) ($request->getData('orgname') ?? ''));
+        $default->name = (string) ($request->getData('orgname') ?? '');
         $default->setStatus(Status::ACTIVE);
 
         UnitMapper::update($default);
 
         // setup basic collections
         $collection = new Collection();
-        $collection->setName('Modules');
+        $collection->name = 'Modules';
         $collection->setVirtualPath('/');
         $collection->setPath('/Modules/Media/Files/Modules');
-        $collection->setCreatedBy(new NullAccount(1));
+        $collection->createdBy = new NullAccount(1);
 
         CollectionMapper::create($collection);
 
         $collection = new Collection();
-        $collection->setName('Accounts');
+        $collection->name = 'Accounts';
         $collection->setVirtualPath('/');
         $collection->setPath('/Modules/Media/Files/Accounts');
-        $collection->setCreatedBy(new NullAccount(1));
+        $collection->createdBy = new NullAccount(1);
 
         CollectionMapper::create($collection);
     }
@@ -447,7 +447,7 @@ abstract class InstallAbstract extends ApplicationAbstract
 
         foreach ($apps as $app) {
             $temp = new HttpRequest(new HttpUri(''));
-            $temp->getHeader()->setAccount(1);
+            $temp->header->account = 1;
             $temp->setData('appSrc', $app);
             $temp->setData('appDest', 'Web/' . \basename($app));
             $temp->setData('theme', $theme);
@@ -472,12 +472,12 @@ abstract class InstallAbstract extends ApplicationAbstract
         $account->setStatus(AccountStatus::ACTIVE);
         $account->setLoginTries(3);
         $account->setType(AccountType::USER);
-        $account->setName((string) $request->getData('adminname'));
-        $account->setName1((string) $request->getData('adminname'));
+        $account->login = (string) $request->getData('adminname');
+        $account->name1 = (string) $request->getData('adminname');
         $account->generatePassword((string) $request->getData('adminpassword'));
         $account->setEmail((string) $request->getData('adminemail'));
 
-        $l11n = $account->getL11n();
+        $l11n = $account->l11n;
         $l11n->loadFromLanguage($request->getData('defaultlang') ?? 'en', $request->getData('defaultcountry') ?? 'us');
 
         AccountMapper::create($account);

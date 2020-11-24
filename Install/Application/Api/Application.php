@@ -98,7 +98,7 @@ final class Application
      */
     public function run(HttpRequest $request, HttpResponse $response) : void
     {
-        $response->getHeader()->set('Content-Type', 'text/plain; charset=utf-8');
+        $response->header->set('Content-Type', 'text/plain; charset=utf-8');
         $pageView = new View($this->app->l11nManager, $request, $response);
 
         $this->app->l11nManager = new L11nManager($this->app->appName);
@@ -122,7 +122,7 @@ final class Application
         if ($request->getData('CSRF') !== null
             && !\hash_equals($this->app->sessionManager->get('CSRF'), $request->getData('CSRF'))
         ) {
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            $response->header->status = RequestStatusCode::R_403;
 
             return;
         }
@@ -143,21 +143,21 @@ final class Application
         $pageView->setData('orgId', $this->app->orgId);
 
         $aid = Auth::authenticate($this->app->sessionManager);
-        $request->getHeader()->setAccount($aid);
-        $response->getHeader()->setAccount($aid);
+        $request->header->account = $aid;
+        $response->header->account = $aid;
 
         $account = $this->loadAccount($request);
 
         if (!($account instanceof NullAccount)) {
-            $response->getHeader()->setL11n($account->getL11n());
+            $response->header->l11n = $account->l11n;
         } elseif ($this->app->sessionManager->get('language') !== null) {
-            $response->getHeader()->getL11n()
+            $response->header->l11n
                 ->loadFromLanguage(
                     $this->app->sessionManager->get('language'),
                     $this->app->sessionManager->get('country') ?? '*'
                 );
         } elseif ($this->app->cookieJar->get('language') !== null) {
-            $response->getHeader()->getL11n()
+            $response->header->l11n
                 ->loadFromLanguage(
                     $this->app->cookieJar->get('language'),
                     $this->app->cookieJar->get('country') ?? '*'
@@ -165,9 +165,9 @@ final class Application
         }
 
         UriFactory::setQuery('/lang', $response->getLanguage());
-        $response->getHeader()->set('content-language', $response->getLanguage(), true);
+        $response->header->set('content-language', $response->getLanguage(), true);
 
-        if (!empty($uris = $request->getUri()->getQuery('r'))) {
+        if (!empty($uris = $request->uri->getQuery('r'))) {
             $this->handleBatchRequest($uris, $request, $response);
 
             return;
@@ -198,7 +198,7 @@ final class Application
                 $app->eventManager->importFromFile(__DIR__ . '/../' . $appName . '/Hooks.php');
                 $app->router->importFromFile(__DIR__ . '/../' . $appName . '/Routes.php');
 
-                $route = \str_replace('/api/tpl', '/' . $appName, $request->getUri()->getRoute());
+                $route = \str_replace('/api/tpl', '/' . $appName, $request->uri->getRoute());
 
                 $view = new View();
                 $view->setTemplate('/Web/Api/index');
@@ -228,7 +228,7 @@ final class Application
         );
 
         $routed = $this->app->router->route(
-            $request->getUri()->getRoute(),
+            $request->uri->getRoute(),
             $request->getData('CSRF'),
             $request->getRouteVerb(),
             $this->app->appName,
@@ -240,9 +240,9 @@ final class Application
         $dispatched = $this->app->dispatcher->dispatch($routed, $request, $response);
 
         if (empty($dispatched)) {
-            $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_404);
-            $response->set($request->getUri()->__toString(), [
+            $response->header->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
+            $response->header->status = RequestStatusCode::R_404;
+            $response->set($request->uri->__toString(), [
                 'status'   => \phpOMS\Message\NotificationLevel::ERROR,
                 'title'    => '',
                 'message'  => '',
@@ -264,7 +264,7 @@ final class Application
      */
     private function loadAccount(HttpRequest $request) : Account
     {
-        $account = AccountMapper::getWithPermissions($request->getHeader()->getAccount());
+        $account = AccountMapper::getWithPermissions($request->header->account);
         $this->app->accountManager->add($account);
 
         return $account;
@@ -294,7 +294,7 @@ final class Application
 
             $this->app->dispatcher->dispatch(
                 $this->app->router->route(
-                    $request->getUri()->getRoute(),
+                    $request->uri->getRoute(),
                     $request->getData('CSRF') ?? null
                 ), $request, $response
             );
@@ -315,7 +315,7 @@ final class Application
     {
         return (int) (
             $request->getData('u') ?? (
-                $config['domains'][$request->getUri()->getHost()]['org'] ?? $config['default']['org']
+                $config['domains'][$request->uri->host]['org'] ?? $config['default']['org']
             )
         );
     }

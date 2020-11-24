@@ -36,7 +36,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         $request->setMethod(RequestMethod::POST);
 
         WebApplication::installRequest($request, $response);
-        self::assertEquals(RequestStatusCode::R_400, $response->getHeader()->getStatusCode());
+        self::assertEquals(RequestStatusCode::R_400, $response->header->status);
     }
 
     /**
@@ -83,7 +83,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         );
 
         WebApplication::installRequest($request, $response);
-        self::assertEquals(RequestStatusCode::R_400, $response->getHeader()->getStatusCode());
+        self::assertEquals(RequestStatusCode::R_400, $response->header->status);
     }
 
     /**
@@ -227,6 +227,6 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         );
 
         WebApplication::installRequest($request, $response);
-        self::assertEquals(RequestStatusCode::R_200, $response->getHeader()->getStatusCode());
+        self::assertEquals(RequestStatusCode::R_200, $response->header->status);
     }
 }

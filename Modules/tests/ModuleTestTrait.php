@@ -345,7 +345,7 @@ trait ModuleTestTrait
     public function testJson() : void
     {
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
-        $sampleInfo    = \json_decode(\file_get_contents(__DIR__ . '/info.json'), true);
+        $sampleInfo    = \json_decode(\file_get_contents(__DIR__ . '/../TestModule/info.json'), true);
         $infoTemplate  = \json_decode(\file_get_contents(__DIR__ . '/../../phpOMS/Module/infoLayout.json'), true);
 
         $module = $moduleManager->get(self::MODULE_NAME);

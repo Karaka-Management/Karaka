@@ -270,43 +270,49 @@ $CONFIG = [
 
 // Reset database
 if (\defined('RESET') && RESET === '1') {
-    try {
-        $db = new \PDO($CONFIG['db']['core']['masters']['admin']['db'] . ':host=' .
-            $CONFIG['db']['core']['masters']['admin']['host'],
-            $CONFIG['db']['core']['masters']['admin']['login'],
-            $CONFIG['db']['core']['masters']['admin']['password']
-        );
-        $db->exec('DROP DATABASE IF EXISTS ' . $CONFIG['db']['core']['masters']['admin']['database']);
-        $db->exec('CREATE DATABASE IF NOT EXISTS ' . $CONFIG['db']['core']['masters']['admin']['database']);
-        $db = null;
-    } catch (\Throwable $t) {
-        echo "\nCouldn't connect to MYSQL DB\n";
+    if (\extension_loaded('pdo_mysql')) {
+        try {
+            $db = new \PDO('mysql:host=' .
+                $CONFIG['db']['core']['masters']['admin']['host'],
+                $CONFIG['db']['core']['masters']['admin']['login'],
+                $CONFIG['db']['core']['masters']['admin']['password']
+            );
+            $db->exec('DROP DATABASE IF EXISTS ' . $CONFIG['db']['core']['masters']['admin']['database']);
+            $db->exec('CREATE DATABASE IF NOT EXISTS ' . $CONFIG['db']['core']['masters']['admin']['database']);
+            $db = null;
+        } catch (\Throwable $t) {
+            echo "\nCouldn't connect to MYSQL DB\n";
+        }
     }
 
-    try {
-        $db = new \PDO($CONFIG['db']['core']['postgresql']['admin']['db'] . ':host=' .
-            $CONFIG['db']['core']['postgresql']['admin']['host'],
-            $CONFIG['db']['core']['postgresql']['admin']['login'],
-            $CONFIG['db']['core']['postgresql']['admin']['password']
-        );
-        $db->exec('DROP DATABASE IF EXISTS ' . $CONFIG['db']['core']['postgresql']['admin']['database']);
-        $db->exec('CREATE DATABASE ' . $CONFIG['db']['core']['postgresql']['admin']['database']);
-        $db = null;
-    } catch (\Throwable $t) {
-        echo "\nCouldn't connect to POSTGRESQL DB\n";
+    if (\extension_loaded('pdo_pgsql')) {
+        try {
+            $db = new \PDO('pgsql:host=' .
+                $CONFIG['db']['core']['postgresql']['admin']['host'],
+                $CONFIG['db']['core']['postgresql']['admin']['login'],
+                $CONFIG['db']['core']['postgresql']['admin']['password']
+            );
+            $db->exec('DROP DATABASE IF EXISTS ' . $CONFIG['db']['core']['postgresql']['admin']['database']);
+            $db->exec('CREATE DATABASE ' . $CONFIG['db']['core']['postgresql']['admin']['database']);
+            $db = null;
+        } catch (\Throwable $t) {
+            echo "\nCouldn't connect to POSTGRESQL DB\n";
+        }
     }
 
-    try {
-        $db = new \PDO($CONFIG['db']['core']['mssql']['admin']['db'] . ':host=' .
-            $CONFIG['db']['core']['mssql']['admin']['host'],
-            $CONFIG['db']['core']['mssql']['admin']['login'],
-            $CONFIG['db']['core']['mssql']['admin']['password']
-        );
-        $db->exec('DROP DATABASE IF EXISTS ' . $CONFIG['db']['core']['mssql']['admin']['database']);
-        $db->exec('CREATE DATABASE ' . $CONFIG['db']['core']['mssql']['admin']['database']);
-        $db = null;
-    } catch (\Throwable $t) {
-        echo "\nCouldn't connect to MSSQL DB\n";
+    if (\extension_loaded('pdo_sqlsrv')) {
+        try {
+            $db = new \PDO('sqlsrv:Server=' .
+                $CONFIG['db']['core']['mssql']['admin']['host'],
+                $CONFIG['db']['core']['mssql']['admin']['login'],
+                $CONFIG['db']['core']['mssql']['admin']['password']
+            );
+            $db->exec('DROP DATABASE IF EXISTS ' . $CONFIG['db']['core']['mssql']['admin']['database']);
+            $db->exec('CREATE DATABASE ' . $CONFIG['db']['core']['mssql']['admin']['database']);
+            $db = null;
+        } catch (\Throwable $t) {
+            echo "\nCouldn't connect to MSSQL DB\n";
+        }
     }
 }
 

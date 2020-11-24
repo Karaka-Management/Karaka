@@ -91,6 +91,6 @@ final class Application
         $this->app->l11nManager->loadLanguage($response->getLanguage(), '0', $themeLanguage);
 
         $response->set('Content', $pageView);
-        $response->getHeader()->setStatusCode(RequestStatusCode::R_503);
+        $response->header->status = RequestStatusCode::R_503;
     }
 }

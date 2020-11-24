@@ -109,7 +109,7 @@ class WebApplication extends ApplicationAbstract
                 $this->sessionManager->save();
             }
 
-            $response->getHeader()->push();
+            $response->header->push();
 
             if (isset($this->sessionManager)) {
                 $this->sessionManager->lock();
@@ -149,23 +149,23 @@ class WebApplication extends ApplicationAbstract
         $request     = HttpRequest::createFromSuperglobals();
         $subDirDepth = \substr_count($rootPath, '/') - 1;
 
-        $defaultLang = $config['domains'][$request->getUri()->getHost()]['lang'] ?? $config['default']['lang'];
-        $uriLang     = \strtolower($request->getUri()->getPathElement($subDirDepth + 0));
+        $defaultLang = $config['domains'][$request->uri->host]['lang'] ?? $config['default']['lang'];
+        $uriLang     = \strtolower($request->uri->getPathElement($subDirDepth + 0));
         $requestLang = $request->getRequestLanguage();
         $langCode    = ISO639x1Enum::isValidValue($uriLang) ? $uriLang : (ISO639x1Enum::isValidValue($requestLang) ? $requestLang : $defaultLang);
 
         $pathOffset = $subDirDepth
             + (ISO639x1Enum::isValidValue($uriLang)
-                ? 1 + ($this->getApplicationNameFromString($request->getUri()->getPathElement($subDirDepth + 1)) !== 'E500' ? 1 : 0)
-                : 0 + ($this->getApplicationNameFromString($request->getUri()->getPathElement($subDirDepth + 0)) !== 'E500' ? 1 : 0)
+                ? 1 + ($this->getApplicationNameFromString($request->uri->getPathElement($subDirDepth + 1)) !== 'E500' ? 1 : 0)
+                : 0 + ($this->getApplicationNameFromString($request->uri->getPathElement($subDirDepth + 0)) !== 'E500' ? 1 : 0)
             );
 
         $request->createRequestHashs($pathOffset);
-        $request->getUri()->setRootPath($rootPath);
-        $request->getUri()->setPathOffset($pathOffset);
-        UriFactory::setupUriBuilder($request->getUri());
+        $request->uri->setRootPath($rootPath);
+        $request->uri->setPathOffset($pathOffset);
+        UriFactory::setupUriBuilder($request->uri);
 
-        $request->getHeader()->getL11n()->loadFromLanguage($langCode, \explode('_', $request->getLocale())[1] ?? '*');
+        $request->header->l11n->loadFromLanguage($langCode, \explode('_', $request->getLocale())[1] ?? '*');
 
         return $request;
     }
@@ -183,18 +183,18 @@ class WebApplication extends ApplicationAbstract
     private function initResponse(HttpRequest $request, array $config) : HttpResponse
     {
         $response = new HttpResponse(new Localization());
-        $response->getHeader()->set('content-type', 'text/html; charset=utf-8');
-        $response->getHeader()->set('x-xss-protection', '1; mode=block');
-        $response->getHeader()->set('x-content-type-options', 'nosniff');
-        $response->getHeader()->set('x-frame-options', 'SAMEORIGIN');
-        $response->getHeader()->set('referrer-policy', 'same-origin');
+        $response->header->set('content-type', 'text/html; charset=utf-8');
+        $response->header->set('x-xss-protection', '1; mode=block');
+        $response->header->set('x-content-type-options', 'nosniff');
+        $response->header->set('x-frame-options', 'SAMEORIGIN');
+        $response->header->set('referrer-policy', 'same-origin');
 
         if ($request->isHttps()) {
-            $response->getHeader()->set('strict-transport-security', 'max-age=31536000');
+            $response->header->set('strict-transport-security', 'max-age=31536000');
         }
 
-        $defaultLang = $config['app']['domains'][$request->getUri()->getHost()]['lang'] ?? $config['app']['default']['lang'];
-        $uriLang     = \strtolower($request->getUri()->getPathElement(0));
+        $defaultLang = $config['app']['domains'][$request->uri->host]['lang'] ?? $config['app']['default']['lang'];
+        $uriLang     = \strtolower($request->uri->getPathElement(0));
         $requestLang = $request->getLanguage();
         $langCode    = ISO639x1Enum::isValidValue($requestLang) && \in_array($requestLang, $config['language'])
             ? $requestLang
@@ -203,7 +203,7 @@ class WebApplication extends ApplicationAbstract
                 : $defaultLang
             );
 
-        $response->getHeader()->getL11n()->loadFromLanguage($langCode, \explode('_', $request->getLocale())[1] ?? '*');
+        $response->header->l11n->loadFromLanguage($langCode, \explode('_', $request->getLocale())[1] ?? '*');
         UriFactory::setQuery('/lang', $request->getLanguage());
 
         if (ISO639x1Enum::isValidValue($uriLang)) {
@@ -260,7 +260,7 @@ class WebApplication extends ApplicationAbstract
         }
 
         // check config
-        $appName = $config['domains'][$uri->getHost()]['app'] ?? $config['default']['app'];
+        $appName = $config['domains'][$uri->host]['app'] ?? $config['default']['app'];
 
         return $this->getApplicationNameFromString($appName);
     }
@@ -297,7 +297,7 @@ class WebApplication extends ApplicationAbstract
      */
     private function getApplicationTheme(HttpRequest $request, array $config) : string
     {
-        return $config[$request->getUri()->getHost()]['theme'] ?? 'Backend';
+        return $config[$request->uri->host]['theme'] ?? 'Backend';
     }
 
     /**

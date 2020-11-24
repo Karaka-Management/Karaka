@@ -117,7 +117,7 @@ final class Application
             function() use ($request, $response) {
                 $view = new View($this->app->l11nManager, $request, $response);
                 $view->setTemplate('/Web/Backend/Error/403_inline');
-                $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+                $response->header->status = RequestStatusCode::R_403;
 
                 return $view;
             },
@@ -128,7 +128,7 @@ final class Application
         if ($request->getData('CSRF') !== null
             && !\hash_equals($this->app->sessionManager->get('CSRF'), $request->getData('CSRF'))
         ) {
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            $response->header->status = RequestStatusCode::R_403;
 
             return;
         }
@@ -145,21 +145,21 @@ final class Application
         $this->app->orgId          = $this->getApplicationOrganization($request, $this->config['app']);
 
         $aid = Auth::authenticate($this->app->sessionManager);
-        $request->getHeader()->setAccount($aid);
-        $response->getHeader()->setAccount($aid);
+        $request->header->account = $aid;
+        $response->header->account = $aid;
 
         $account = $this->loadAccount($request);
 
         if (!($account instanceof NullAccount)) {
-            $response->getHeader()->setL11n($account->getL11n());
+            $response->header->l11n = $account->l11n;
         } elseif ($this->app->sessionManager->get('language') !== null) {
-            $response->getHeader()->getL11n()
+            $response->header->l11n
                 ->loadFromLanguage(
                     $this->app->sessionManager->get('language'),
                     $this->app->sessionManager->get('country') ?? '*'
                 );
         } elseif ($this->app->cookieJar->get('language') !== null) {
-            $response->getHeader()->getL11n()
+            $response->header->l11n
                 ->loadFromLanguage(
                     $this->app->cookieJar->get('language'),
                     $this->app->cookieJar->get('country') ?? '*'
@@ -167,7 +167,7 @@ final class Application
         }
 
         if (!\in_array($response->getLanguage(), $this->config['language'])) {
-            $response->getHeader()->getL11n()->setLanguage($this->app->l11nServer->getLanguage());
+            $response->header->l11n->setLanguage($this->app->l11nServer->getLanguage());
         }
 
         $pageView = new BackendView($this->app->l11nManager, $request, $response);
@@ -198,13 +198,13 @@ final class Application
             __DIR__ . '/lang/' . $response->getLanguage() . '.lang.php'
         );
 
-        $response->getHeader()->set('content-language', $response->getLanguage(), true);
+        $response->header->set('content-language', $response->getLanguage(), true);
 
         /* Create html head */
         $this->initResponseHead($head, $request, $response);
 
         /* Handle not logged in */
-        if (\in_array($request->getUri()->getPathElement(0), ['forgot', 'privacy', 'imprint', 'terms'])) {
+        if (\in_array($request->uri->getPathElement(0), ['forgot', 'privacy', 'imprint', 'terms'])) {
             $this->createBaseLoggedOutResponse($request, $response, $head, $pageView);
 
             return;
@@ -229,7 +229,7 @@ final class Application
 
         $dispatched = $this->app->dispatcher->dispatch(
             $this->app->router->route(
-                $request->getUri()->getRoute(),
+                $request->uri->getRoute(),
                 $request->getData('CSRF'),
                 $request->getRouteVerb(),
                 $this->app->appName,
@@ -257,7 +257,7 @@ final class Application
     {
         return (int) (
             $request->getData('u') ?? (
-                $config['domains'][$request->getUri()->getHost()]['org'] ?? $config['default']['org']
+                $config['domains'][$request->uri->host]['org'] ?? $config['default']['org']
             )
         );
     }
@@ -274,7 +274,7 @@ final class Application
      */
     private function create406Response(HttpResponse $response, View $pageView) : void
     {
-        $response->getHeader()->setStatusCode(RequestStatusCode::R_406);
+        $response->header->status = RequestStatusCode::R_406;
         $pageView->setTemplate('/Web/Backend/Error/406');
         $this->app->loadLanguageFromPath(
             $response->getLanguage(),
@@ -294,7 +294,7 @@ final class Application
      */
     private function create503Response(HttpResponse $response, View $pageView) : void
     {
-        $response->getHeader()->setStatusCode(RequestStatusCode::R_503);
+        $response->header->status = RequestStatusCode::R_503;
         $pageView->setTemplate('/Web/Backend/Error/503');
         $this->app->loadLanguageFromPath(
             $response->getLanguage(),
@@ -313,7 +313,7 @@ final class Application
      */
     private function loadAccount(HttpRequest $request) : Account
     {
-        $account = AccountMapper::getWithPermissions($request->getHeader()->getAccount());
+        $account = AccountMapper::getWithPermissions($request->header->account);
         $this->app->accountManager->add($account);
 
         return $account;
@@ -331,7 +331,7 @@ final class Application
      */
     private function create403Response(HttpResponse $response, View $pageView) : void
     {
-        $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+        $response->header->status = RequestStatusCode::R_403;
         $pageView->setTemplate('/Web/Backend/Error/403');
         $this->app->loadLanguageFromPath(
             $response->getLanguage(),
@@ -364,7 +364,7 @@ final class Application
         $head->addAsset(AssetType::JSLATE, 'Modules/Navigation/Controller.js', ['type' => 'module']);
 
         $script = '';
-        $response->getHeader()->set(
+        $response->header->set(
             'content-security-policy',
             'base-uri \'self\'; script-src \'self\' blob: \'sha256-'
             . \base64_encode(\hash('sha256', $script, true))
@@ -383,7 +383,7 @@ final class Application
 
         $css = \preg_replace('!\s+!', ' ', $css);
         $head->setStyle('core', $css ?? '');
-        $head->setTitle('Orange Management Backend');
+        $head->title = 'Orange Management Backend';
     }
 
     /**
@@ -400,8 +400,8 @@ final class Application
      */
     private function createBaseLoggedOutResponse(HttpRequest $request, HttpResponse $response, Head $head, View $pageView) : void
     {
-        $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-        $pageView->setTemplate('/Web/Backend/' . $request->getUri()->getPathElement(0));
+        $response->header->status = RequestStatusCode::R_403;
+        $pageView->setTemplate('/Web/Backend/' . $request->uri->getPathElement(0));
 
         $css = \file_get_contents(__DIR__ . '/css/logout-small.css');
         if ($css === false) {
@@ -425,7 +425,7 @@ final class Application
      */
     private function createLoggedOutResponse(HttpResponse $response, Head $head, View $pageView) : void
     {
-        $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+        $response->header->status = RequestStatusCode::R_403;
         $pageView->setTemplate('/Web/Backend/login');
 
         $css = \file_get_contents(__DIR__ . '/css/logout-small.css');
@@ -451,7 +451,7 @@ final class Application
     private function createDefaultPageView(HttpRequest $request, HttpResponse $response, BackendView $pageView) : void
     {
         $pageView->setOrganizations(UnitMapper::getAll());
-        $pageView->setProfile(ProfileMapper::getFor($request->getHeader()->getAccount(), 'account'));
+        $pageView->setProfile(ProfileMapper::getFor($request->header->account, 'account'));
         $pageView->setData('nav', $this->getNavigation($request, $response));
 
         $pageView->setTemplate('/Web/Backend/index');

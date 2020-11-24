@@ -29,8 +29,8 @@ $head = $this->getData('head');
     <link rel="manifest" href="<?= UriFactory::build('Web/Backend/manifest.json'); ?>">
     <link rel="manifest" href="<?= UriFactory::build('Web/Backend/manifest.webmanifest'); ?>">
     <link rel="shortcut icon" href="<?= UriFactory::build('Web/Backend/img/favicon.ico'); ?>" type="image/x-icon">
-    <?= $head->getMeta()->render(); ?>
-    <title><?= $this->printHtml($head->getTitle()); ?></title>
+    <?= $head->meta->render(); ?>
+    <title><?= $this->printHtml($head->title); ?></title>
     <style><?= $head->renderStyle(); ?></style>
     <script><?= $head->renderScript(); ?></script>
     <?= $head->renderAssets(); ?>

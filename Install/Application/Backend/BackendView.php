@@ -92,11 +92,11 @@ class BackendView extends View
      */
     public function getProfileImage() : string
     {
-        if ($this->profile === null || $this->profile->getImage()->getPath() === '') {
+        if ($this->profile === null || $this->profile->image->getPath() === '') {
             return UriFactory::build('Web/Backend/img/user_default_' . \mt_rand(1, 6) . '.png');
         }
 
-        return UriFactory::build($this->profile->getImage()->getPath());
+        return UriFactory::build($this->profile->image->getPath());
     }
 
     /**

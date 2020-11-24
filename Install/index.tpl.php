@@ -178,7 +178,7 @@
             <div>
                 <p>Please create a database this WebApp can use and configure every field.</p>
 
-                <form id="installForm" name="installForm" method="put" action="<?= $this->request->getUri()->__toString(); ?>">
+                <form id="installForm" name="installForm" method="put" action="<?= $this->request->uri->__toString(); ?>">
                     <ul>
                         <li><label for="iDbHost">Address</label>
                         <li><input id="iDbHost" name="dbhost" type="text" value="127.0.0.1" required>
@@ -278,9 +278,9 @@
                     <li><label for="iAdminEmail">Admin Email</label>
                     <li><input id="iAdminEmail" name="adminemail" type="email" form="installForm" required>
                     <li><label for="iDomain">Top Level domain</label>
-                    <li><input id="iDomain" name="domain" type="text" value="<?= $this->request->getUri()->getHost(); ?>" form="installForm" placeholder="demo.com" pattern="^((?!(www\.|http)).)*$" required>
+                    <li><input id="iDomain" name="domain" type="text" value="<?= $this->request->uri->host; ?>" form="installForm" placeholder="demo.com" pattern="^((?!(www\.|http)).)*$" required>
                     <li><label for="iWebSubdir">Web Subdirectory</label>
-                    <li><input id="iWebSubdir" name="websubdir" type="text" value="/<?= \substr($this->request->getUri()->getPath(), \stripos($this->request->getUri()->getPath(), 'Install/') + 8); ?>" form="installForm" required>
+                    <li><input id="iWebSubdir" name="websubdir" type="text" value="/<?= \substr($this->request->uri->getPath(), \stripos($this->request->uri->getPath(), 'Install/') + 8); ?>" form="installForm" required>
                     <li><label for="iDefaultLang">Default Language</label>
                     <li><select id="iDefaultLang" name="defaultlang" form="installForm">
                             <option value="en" selected>English

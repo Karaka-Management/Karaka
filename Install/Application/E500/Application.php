@@ -81,7 +81,7 @@ final class Application
         $pageView = new View($this->app->l11nManager, $request, $response);
         $pageView->setTemplate('/Web/E500/index');
         $response->set('Content', $pageView);
-        $response->getHeader()->setStatusCode(RequestStatusCode::R_500);
+        $response->header->setStatusCode(RequestStatusCode::R_500);
 
         /* Load theme language */
         if (($path = \realpath($oldPath = __DIR__ . '/lang/' . $response->getLanguage() . '.lang.php')) === false) {
@@ -95,7 +95,7 @@ final class Application
         $this->app->l11nManager->loadLanguage($response->getLanguage(), '0', $themeLanguage);
 
         $head    = new Head();
-        $baseUri = $request->getUri()->getBase();
+        $baseUri = $request->uri->getBase();
         $head->addAsset(AssetType::CSS, $baseUri . 'cssOMS/styles.css');
 
         $pageView->setData('head', $head);

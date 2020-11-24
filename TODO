@@ -363,61 +363,50 @@ Workflow:
 
 Demo Tickets
 Demo HR
+Demo Kanban
 Demo HR Timerecording
 Demo Application (e.g. website, clocking, wiki, ticket, Q&A)
-Demo Kanban
-Demo Clients
-Demo Suppliers
-Demo Items
 Demo Risk management
-Demo profile contacts
 Think about moving contact to contact module??? I'm not sure if I want that!
 
-/////////////////////////////////////////////////////////////////////////////////////////////////
-////
-//// Working on
-////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-//// spl1nes:
-
-  Fix media upload form element
-  Implement default elements for tags
-  Implement task media upload
-  Implement task element edit
-  Implement automatic binding of added ui elements
-  Implement Email/Messaging
-  Implement Calendar
-  Implement clocking
-  Implement profile editing
-  Implement content loading with API (e.g. api/tpl/{app}/route)
-    Done
-    JS now needs to hijack page loads and redirect to /tpl/ or should overwrite all links to /tpl/ during loading
-    Then JS needs to exchange the main content
-  Implement basic ticket module
-  Implement basic customer management
-  Implement basic supplier management
-  Implement basic invoicing
-  Implement Comments
-    Create
-    Edit
-    Response
-    Delete
-    Block by moderator
-  Implement News comments
-  Implement News editing
-    Tags
-    Permissions
-  Load alternative language to local language (load language, else load en, else load any)
-  Implement News creation
-    Tags
-    Favorite
-    Permissions/Groups
-    Make news edit textarea higher (automatically fit to content size)
-    Implement favorites on dashboard
-    Implement headlines on dashboard
-    Implement links hide textarea, other elements show textarea
-  Implement Media hard drive directory add
+Remove most getter/setter ?!?!?!?!?!
+Fix media upload form element
+Implement default elements for tags
+Implement task media upload
+Implement task element edit
+Implement automatic binding of added ui elements
+Implement Email/Messaging
+Implement Calendar
+Implement clocking
+Implement profile editing
+Implement content loading with API (e.g. api/tpl/{app}/route)
+  Done
+  JS now needs to hijack page loads and redirect to /tpl/ or should overwrite all links to /tpl/ during loading
+  Then JS needs to exchange the main content
+Implement basic ticket module
+Implement basic customer management
+Implement basic supplier management
+Implement basic invoicing
+Implement Comments
+  Create
+  Edit
+  Response
+  Delete
+  Block by moderator
+Implement News comments
+Implement News editing
+  Tags
+  Permissions
+Load alternative language to local language (load language, else load en, else load any)
+Implement News creation
+  Tags
+  Favorite
+  Permissions/Groups
+  Make news edit textarea higher (automatically fit to content size)
+  Implement favorites on dashboard
+  Implement headlines on dashboard
+  Implement links hide textarea, other elements show textarea
+Implement Media hard drive directory add
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 ////

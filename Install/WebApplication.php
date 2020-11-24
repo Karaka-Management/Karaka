@@ -59,11 +59,11 @@ final class WebApplication extends InstallAbstract
         $request      = $this->initRequest($config['page']['root'], $config['language'][0]);
         $response     = $this->initResponse($request, $config['language']);
 
-        UriFactory::setupUriBuilder($request->getUri());
+        UriFactory::setupUriBuilder($request->uri);
 
         $this->run($request, $response);
 
-        $response->getHeader()->push();
+        $response->header->push();
         echo $response->getBody();
     }
 
@@ -84,11 +84,11 @@ final class WebApplication extends InstallAbstract
         $subDirDepth = \substr_count($rootPath, '/');
 
         $request->createRequestHashs($subDirDepth);
-        $request->getUri()->setRootPath($rootPath);
-        UriFactory::setupUriBuilder($request->getUri());
+        $request->uri->setRootPath($rootPath);
+        UriFactory::setupUriBuilder($request->uri);
 
-        $langCode = \strtolower($request->getUri()->getPathElement(0));
-        $request->getHeader()->getL11n()->setLanguage(
+        $langCode = \strtolower($request->uri->getPathElement(0));
+        $request->header->l11n->setLanguage(
             empty($langCode) || !ISO639x1Enum::isValidValue($langCode) ? $language : $langCode
         );
         UriFactory::setQuery('/lang', $request->getLanguage());
@@ -110,17 +110,17 @@ final class WebApplication extends InstallAbstract
     private function initResponse(HttpRequest $request, array $languages) : HttpResponse
     {
         $response = new HttpResponse(new Localization());
-        $response->getHeader()->set('content-type', 'text/html; charset=utf-8');
-        $response->getHeader()->set('x-xss-protection', '1; mode=block');
-        $response->getHeader()->set('x-content-type-options', 'nosniff');
-        $response->getHeader()->set('x-frame-options', 'SAMEORIGIN');
-        $response->getHeader()->set('referrer-policy', 'same-origin');
+        $response->header->set('content-type', 'text/html; charset=utf-8');
+        $response->header->set('x-xss-protection', '1; mode=block');
+        $response->header->set('x-content-type-options', 'nosniff');
+        $response->header->set('x-frame-options', 'SAMEORIGIN');
+        $response->header->set('referrer-policy', 'same-origin');
 
         if ($request->isHttps()) {
-            $response->getHeader()->set('strict-transport-security', 'max-age=31536000');
+            $response->header->set('strict-transport-security', 'max-age=31536000');
         }
 
-        $response->getHeader()->getL11n()->setLanguage(
+        $response->header->l11n->setLanguage(
             !\in_array($request->getLanguage(), $languages) ? 'en' : $request->getLanguage()
         );
 
@@ -144,12 +144,12 @@ final class WebApplication extends InstallAbstract
         $this->router     = new WebRouter();
 
         $this->setupRoutes();
-        $response->getHeader()->set('content-language', $response->getLanguage(), true);
+        $response->header->set('content-language', $response->getLanguage(), true);
         UriFactory::setQuery('/lang', $response->getLanguage());
 
         $this->dispatcher->dispatch(
             $this->router->route(
-                $request->getUri()->getRoute(),
+                $request->uri->getRoute(),
                 $request->getData('CSRF'),
                 $request->getRouteVerb()
             ),
@@ -204,10 +204,10 @@ final class WebApplication extends InstallAbstract
      */
     public static function installRequest(HttpRequest $request, HttpResponse $response) : void
     {
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
+        $response->header->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
 
         if (!empty($valid = self::validateRequest($request))) {
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_400);
+            $response->header->status = RequestStatusCode::R_400;
             return;
         }
 
@@ -215,7 +215,7 @@ final class WebApplication extends InstallAbstract
         $db->connect();
 
         if ($db->getStatus() !== DatabaseStatus::OK) {
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_400);
+            $response->header->status = RequestStatusCode::R_400;
             return;
         }
 
@@ -231,7 +231,7 @@ final class WebApplication extends InstallAbstract
         self::installSettings($request, $db);
         self::configureCoreModules($request, $db);
 
-        $response->getHeader()->setStatusCode(RequestStatusCode::R_200);
+        $response->header->status = RequestStatusCode::R_200;
     }
 
     /**
