@@ -1,418 +1,247 @@
-v0.1.0-alpha:
-  #10 [Tasks] Implement tags and tag modification
-  #1 [CMS] Allow content creation and modification
-  #2 [CMS] Make all files modifiable in a file overview instead of a view for every type of file (e.g. template, theme, controller)
-  #3 [News] Allow tag modification
-  #2 [Profiles] Implement basic profile view
-  #1 [Knowledgebase] Allow wiki creation and modification
-  #2 [Knowledgebase] Implement draft view
-  #3 [Editor] Allow editor creation and modification
-  #94 [AdvancedInput] Allow pre-defined values/text
-  #95 [AdvancedInput] Allow mandatory and optional pre-defined values/text
-
-Orange-Management:
-  #70 [Permission] Handling permissions for returning models
-  #69 [VoiceCommand] Add a real way to turn off/on voice recognition with a button
-  #68 [VoiceCommand] Add visual information if the microphone is recording or not
-  #67 [Install] Check install and file path permissions
-  #66 [Build] Create static-tests and unit tests for modules
-  #65 [LazyLoading] Replace own image lazy loading with official solution
-  #64 [Localization] Implement setting which lets user see all content no matter the language
-  #52 [Tests] Create Bootstrap and PHPUnit config files for modules
-  #51 [GithubTemplates] Create github templates for modules
-  #50 [ErrorApplication Create error socket on failure
-  #53 [UML] Create UML diagrams for all modules
-  #54 [Modules] Implement online database and downloading api for modules and updates
-  #55 [Approval] Implement Approval module
-  #56 [TemplateCreator] Implement
-  #58 [Documents,Articles,...] Allow directory like structure
-  #59 [Module ID] Don't use name but id for identification
-  #60 [Blockchain] Implement blockchain for audited elements
-  #62 [Event, Project, Promotion] Goal definition
-  #61 [MarketingAnalysis] Implement
-  #63 [ProductionAnalysis] Add module
-  #? [Pagination] Bug: If pagination (next/previous) is implemented in a tab (e.g. second tab) the newly loaded page after clicking on next shows the first tab instead of the tab which contains the list.
-  #? Make forgotten page use the router instead of the manual routing. The problem is that this was using the backend default base template. As a work around we could use the default backend template and an "empty" template for login/forgotten/ and other pages like privacy policy etc.
-  #? Create a unit test which tests if a controller function properly checks for the user permissions. This could be done with specific test method names (e.g. apiFunctionNameWithoutPermission())
+General:
+    * [easy] Find uncovered lines of code and write unit tests for these uncovered lines
+    * [easy] Implement covariance for function parameters once it is available (in many places it's already hinted in the docblock)
+    * [easy] Replace the custom lazy loading for images with the browser supported lazy loading version
+    * [easy] Create a bootstrap file and config file for every module in order to individually test them
+    * [easy] Create database UML diagrams for every module
+    * [easy] Make the `forgotten` page use the router file (maybe of Dashboard) instead of a hard-coded route in the Application
+    * [medium] When returning models (backend and api requests) the permission should be checked
+    * [medium] Add a good way to turn on/off voice recognition (probably a button somewhere)
+    * [medium] Add a visual indication if the microphone is on (maybe an icon in the search bar or next to the user profile icon)
+    * [medium] During the install process check the correct permissions for the directories and files, if they are missing set them. this requires the install script (termina, web, etc.) to be executed with the correct permissions
+    * [medium] Implement a setting which lets users see all content no matter the content language
+    * [medium] Implement an approval module which only runs a module/user specific action once it is approved. This functionality might be part of the Workflow module or at least smoothly interact with this module.
+    * [medium] The modules use the module name for identification in many places where the module id should be used for performance reasons
+    * [medium] Bug: If the pagination (next/previous) is implemented in a tab (e.g. second tab) the newly loaded page after clicking on 'next' shows the first tab instead of the tab which contains the list
+    * [medium] Many models would benefit from unit and app association. Sometimes models should only be available/associated with a specific unit (e.g. news article for website, backend, shop etc.)
+    * [medium] After completely figuring out permissions every API function needs to be checked if it behaves correctly depending on the different permissions (e.g. user created the model, user who is allowed to access the model but not change it, ...).
+    * [medium] Activating/Deactivating/Removing modules should immediately effect the routing of the application accordingly
+    * [hard] Implement ServiceWorkers
 
 phpOMS:
-  #245 [ApplicationManager] Implement test for invalid source and invalid destination
-  #244 [JobScheduling] Implement test for Jobs with same value
-  #243 [JobScheduling] Implement sortByEnd test coverage
-  #242 [DataMapper] Conditional queries bugs/problems
-  #241 [DataMapper] Consider global conditionals
-  #233 [DataMapper] On delete the relations and relation tables need to be deleted first
-  #232 [DataMapper] Relations get updated even if they didn't change
-  #231 [TaskSchedule] Use the interval for generating a schedule
-  #230 [SocketSession] Create socket session
-  #229 [Kmeans] Invalid center coodinate value
-  #228 [Module Activate/Deactivate/Uninstall] Remove/Add routes on module status change
-  #227 [DataMapper] Implement unserialize and unJsonSerialize
-  #226 [DataMapper] Test the update of a model with relations
-  #225 [DataMapper] Test the deletion of a model with relations
-  #223 [ArrayUtils] Combine power functions with union types
-  #221 [DataMapper] Create deleteArray, deleteArrayModel
-  #218 [ApplicationAbstract] Replace magic methods with readonly once available
-  #215 Covariance for function parameters
-  #206 [ItemClustering] Implement
-  #204 [BusinessWarehouse] Implement warehouse picking algorithm
-  #190 [OAuth 2.0] Implement
-  #? [HttpRequest] Fragments should be an array since there can be multiple combined with '&'
-  #? [UriFactory] Fragments should be accessible via {#0} = specific and {#} = all joined with '&'
-  #? [TextSearch] Create full text search for files/in-memory texts and return the best matched files and the matched phrases
-  #? [ClusterAnalysis] Create the different cluster analysis implementations
-  #? [Markdown] Create a substr function which returns a substring without parsing issues. This could be implemented by defining a soft and hard limit for the text length. Or by forcing closing tags at the end.
-  #? [DataMapperAbstract] When using getQuery() and then making a ->where(...) the where will often fail because the table name is suffixed with an integer e.g. `_3`. This means you need to know the depth of the query in order to manually write it. The query builder should figure this out by himself. It knows the _INT value from the `FROM` clause and should just overwrite in the where clause where needed. See the GSD Importer from the exchange module for reference.
-  #? Implement iterable fetch. Currently all models are returned in one go, additionally an iterator should be returned for iterable access in case of MANY results (e.g. Exchange module)
-  #? implement attributes for addAssets. This way we could add the `integrity` attribute for external asset loading
+    * [easy] [HttpUrl] $fragments should be an array since it can be multiple values (separated by commas)
+    * [easy] [UriFactory] UriFactory fragments should be accessed with `{#0}` for specific elements and `{#}` for all elements
+    * [easy] [Cache] Add cache interface functions and their implementations (exists, getLike, removeLike, getMult, removeMult, setMult, updateExpiration, increment, decrement, rename, save=to harddrive or somewhere else)
+    * [medium] [FileCache] Create file locking when saving logs to the file (maybe only save after reaching a certain log chunk size)
+    * [medium] [Matrix] Create unit test for `inverse()`
+    * [medium] [Graph] Implement missing functionality (see `Graph.php` for details)
+    * [medium] [KMeans] In some weird cases the Cluster test fails. This happpens approximately 1 / 100 test runs (invalid center coodinate value)
+    * [hard] Implement a decent full text search which finds texts that are similar (e.g. similar spelling, only some words in between, maybe different word order, etc.)
+    * [medium] [QueryBuilder] Implement missing functions such as sum, count, ...
+    * [medium] [DataMapper] Reconsider the order of the `get(*)` parameters (e.g.depths/fill)
+    * [medium] Once read only variables become available many models can remove getter/setter function (e.g. ApplicationAbstract, ConnectionAbstract and various models)
+    * [hard] [DataMapper] In the DataMapper when using getQuery() and then making a ->where(...) the where will often fail because the table name is suffixed with an integer e.g. `_3`. This means you need to know the depth of the query in order to manually write it. The query builder should figure this out by himself. It knows the `_INT` value from the `FROM` clause and should just overwrite in the where clause where needed. See the GSD Importer from the exchange module for reference.
+    * [hard] [DataMapper] In the DataMapper implement iterable fetch. Currently all models are returned in one go, additionally an iterator should be returned for iterable access in case of MANY results (e.g. Exchange module)
+    * [hard] [DataMapper] Only update changed relations (e.g. allow coder to tell the datamapper what changed)
+    * [hard] [DataMapper] Implement get() where the coder can tell the datampper which fields and relations to fill.
+    * [hard] [DataMapper] Implement `::withConditional()` results with a default alternative if the primary conditional is not met, and also a catch-all clause where optionally any result is returned if neither the primary or the alternative condition is met (this is extremely helpful for localization e.g. news article = show local language, alternatively english, alternatively any other first/best match).
+    * [hard] [Email] Implement email sending and receiving
+    * [hard] [Grammar] Implement schema modification grammar (alter tables)
 
 jsOMS:
-  #99 [VoiceCommand] Implement voice pause/continue command
-  #98 [VoiceCommand] Implement table navigation
-  #97 [VoiceManager] Pull out backend request
-  #96 [VoiceManager] Submit complete recognition to callback
-  #95 [AdvancedInput] Allow mandatory and optional pre-defined values/text
-  #94 [AdvancedInput] Allow pre-defined values/text
-  #90 [Table] Implement export
-  #89 [Table] Implement local and remote filtering
-  #88 [Table] If a filter is active it should be highlighted/marked in the table
-  #87 [Form] On edit highlight the data which is changed
-  #86 [Form] On edit replace add button with save and cancel
-  #85 [Form] Invalid backend/api responses (!201) should undo/stop UI changes
-  #84 [Form] Remote data responses need to be parsed
-  #83 [Form] Removing a dynamically added form from the dom should also be removed and unbound from the FormManager
-  #82 [Form] The container element for inline adding isn't always tbody
-  #81 [Form] Adding templates to the dom should adjust ids
-  #80 [Form] Do UI actions (e.g. add) as success injection after the backend response (optional)
-  #79 [Form] After adding a new element some require a binding for editing
-  #78 [Form] After adding a new element some require a binding for removal
-  #77 [Form] Re-consider collecting the value-paths for adding data
-  #75 [Form] Allow multiple/different add buttons in a form
-  #74 [AdvanceSelect] Auto filtering client side data
-  #73 [AdvancedSelect] Consider none-element
-  #72 [AdvancedInput] Allow duplication
-  #70 [AdvancedInput] Implement external styles for selections instead of inline css
-  #69 [ActionManager] Implement listener for child elements if selector is specified
-  #68 [Action] Dom/Remove
-  #67 [Logger] Implement UI logging
-  #66 [Speech] Remove speech recognition wrapper
-  #64 [Library] Get nearest element(s) based on selector
-  #? [Tabs] Fragments should be joined with '&' instead of ','
-  #? [UriFactory] Fragments should be accessible via {#0} = specific and {#} = all joined with '&'
-  #? [UriFactory] Consider to parse EVERY url in the uri factory (see bug with auditlog pagination)
-  #? [Tabs] Slow change of tabs on load if a tab is provided. Before the page is ready the correct tabs should be activated. This way the user doesn't see the tab jumping from the first tab to the n-th tab. Currently the backend rendering is kind of fixing this.
-  #? Highlight currently filtered columns (maybe blue background for easy identification)
-  #? If a form has unsaved content ask the user if he want's to leave the page "beforeunload"-Event
+    * [easy] [Speech] Remove the speech recognition wrapper once it becomes standard
+    * [easy] [UriFactory] Fragments should be joined by `&` instead of `,`? Check if this is actually the prefered way and implement if this is true
+    * [medium] [AdvancedInput] In the AdvancedInput, implement pre-defined values (e.g. pre-defined/default tags)
+    * [medium] [AdvancedInput] In the AdvancedInput, implement mandatory pre-defined values (e.g. tags which cannot be deleted)
+    * [medium] [VoiceCommand] Implement table/link navigation
+    * [medium] [Table] Implement export (local=visible data, external=all data)
+    * [medium] [Table] Implement filtering (local=visible data, external=all data)
+    * [medium] [Table] Highlight filtering of the filtered columns
+    * [medium] [Form] On change highlight the data/element that got changed
+    * [medium] [Form] Invalid API responses should undo the UI changes
+    * [medium] [Form] Removing a form from the dom should unbind it
+    * [medium] [Form] Adding a template to the dom should modify its id/generate a custom/random id for the added element
+    * [medium] [Form] Add/bind UI elements after adding them to the dom
+    * [medium] [Form] Consider to allow multiple/different add buttons which behave a little bit different
+    * [medium] [Form] If a form has unsaved content the browser should ask if the user really wants to change the page or close it ("beforeunload"-Event)
+    * [medium] [AdvancedSelect] Implement (with auto filtering, none-element, multi-select, default-selects, must-have selects)
+    * [medium] [ActionManager] Implement listeners for child elements if the selector is specified
+    * [medium] [Action] Create a action which adds/removs dom elements
+    * [medium] [Logger] Log dom changes to the user
+    * [medium] [Libary] Consider to create a library function which finds the nearest element based on a select (horizontal and vertical search, `*.nearest()` does not work this way)
+    * [medium] [UriFactory] Consider to parse EVERY url with the uri factory. This however might cause double parsing and therfore bugs
+    * [medium] The frontend loads the correct tab based on the provided fragment, but it is slow. Doing this in the backend can already fix this but the frontend implementation should be fixes, because this should be the job of the frontend.
 
 cssOMS:
-  #14 Create drop down with search field
-  #12 Create slider element
-  #4 Nicer visual input validation (e.g. show checkmark and x in input fields *optional*)
+    * Create dropdown = select with search field
+    * Create a slider element with two elements which the user can slide (optionally also only one slider should be possible)
+    * Implement nicer input validation (e.g. show checmark and x in the input fields / optionally)
 
-Build:
-  #11 [Language Files] Create language file manager
-  #10 [CI/CD] Create the following CI/CD workflows
-  #? replace phar usage with composer usage
-
-Developer-Guide:
-  #8 Improve layout
+Build/Website:
+    * Module page/build
+        * Text file with all the module git links
+        * Download and install
+        * Default inspections/tests (unit tests, info.json, language files used, language files in all languages same content, amount of languages, routes in controller available, dependencies valid, code coverage, phpstan, phpcs)
+        * Add to database
 
 Admin:
-  #11 [AccountMapper] Create test for getWithPermission()
-  #3 [UserAnalytics] Implement
-  #1 [Admin] Add user & group settings
-  #2 [Admin] Allow Admin to login as user
-  #4 [Admin] Add account group removal
-  #5 [Admin] Add account log tab
-  #6 [Admin] Add group log tab for audits
-  #9 [Admin] Add group permission removal
-  #8 [Admin] Add group permission adjustment
-  #7 [Admin] Add group account removal
-  #10 [Admin] Create update functionality
-  #? Consider to move the name1 - name3 into their own name table. This would make it easier to search for names at the cost of ?
-  #? Add some way to hide addresses and contacts from other modules (e.g. we don't want all modules to see all addresses etc. because some of the information might be module specific and should not be allowed to change from another module e.g. shipping address, private phone etc.)
+    * [easy] A faild login/auth attempt should increment the login tries, a successful login should reset the tries to 0. Currently the AccountMapper only checks if tries are available
+    * [easy] Allow other users (e.g. admin) to login as a specific user. Therfore the user needs to randomly generate a password which can be sent to another user. This password is only valid for a certain amount of time (the database field for such a password already exists and the auth handler also has some first steps implemented for this).
+    * [medium] [UI] Add user & group settings
+    * [medium] [UI] Add account/group removal from each other
+    * [medium] [UI] Add permission removal from accounts/groups
+    * [medium] [UI] Add permission modification for accounts/groups
+    * [medium] [Contacts] Find a way to hide some contact/address information for some modules. Some information are only meant for specific modules (e.g. private address)
 
 Auditor:
-  #? Create printable reports based on specific changes (print specific changes for auditors)
-  #? Create audit logs for base elements (e.g. 3 base groups etc. from the installer)
-
-CMS:
-  #2 [CMS] Make all files modifiable in a file overview instead of a view for every type of file
-  #1 [CMS] Allow content creation and modification
-  #? Application ideas
-    clocking
-    support / ticket
-    calendar
-    dashboard / presentation slider (weather, news, images ...)
-    sales dashboard
-    monitor / log dashboard
-    production dashboard
-    shop
-    website
-    wiki
-    Q&A
+    * [medium] Implement blockchain for the auditor. This either requires database locking (slow), modification of audit logs after inserts (slow) or a background process which calculates the blockchain (ok).
+    * [medium] Create printable reports based on specific changes
 
 Calendar:
-  #1 [Calendar] Limit event loading to a fixed amount of months
-  #2 [Calendar] Event popup
-  #3 [Calendar] Interval templates
-  #4 [Calendar] Allow user to define start of week
-  #? [Calendar] Implement table
-  #? [Calendar] Implement layouts (daily, weekly, monthly, annual view)
-  #? [Chart] Create Gantt chart from calenders (specify duration)
-  #? [Chart] Create Gantt chart from events with specific tag
-  #? [Tag] Implement tags for events
+    * [easy] [Tags] Implement tags for events
+    * [medium] Load event loading to a fixed amount of months (e.g. current month, previous month and next month)
+    * [medium] Implement event popup in the ui on click
+    * [medium] Create different interval templates (year, quarter, month, week, day)
+    * [medium] Allow user to define the start of the week (e.g. Sunday, Monday)
+    * [medium] [Chart] Implement gantt chart
+
+Chat:
 
 Checklist:
-  #? Create job which automatically creates checklists
+    * Create job which can automatically create checklists (e.g. end of month checklists)
 
 ClientManagement:
-  #? Geo map for customer in customer profile
-  #? Geo map of all customers
-  #? Geo map of sales rep areas
+    * [medium] [Map] Add a geo map of the customers location (either on a real map or on the already added svg maps)
+    * [medium] [Map] Create a map of all customers (maybe as datapoints or as heatmaps)
+    * [medium] [Map] Create a map of sales (meybe as datapoints or as heatmaps)
+
+CMS:
+    * [easy] Make file content view 100% container height
+    * [easy] Allow content changes and saving
+    * [easy] Ideas for applications based on modules (e.g. monitor/log dashboard, sales dashboard, calendar, support/ticket, clocking, Q&A, Wiki, shop)
+    * [medium] Implement line numbers
 
 Comments:
-  #? Implement
-  #? Allow configuration options for comment list (allow response, allow upvote, max length, allow edit, ...)
-
-Contact:
-  #? Impl. in own profile
-  #? Impl. contact sync/sharing between profiles
+    * [medium] Add configuration options (allow/disallow responses, upvotes, max length, edits)
 
 Dashboard:
-  #4 [Bug] Drag&Drop element sometimes disappear on drop
-  #1 [Dashboard] Default dashboard styles
-  #2 [Dashboard] Customization
-  #3 [Dashboard] Dynamic providing should be handled in the DB
-
-Database:
-  #1 [Database] Create query module
+    * [medium] [Bug] Drag&Drop element sometimes disappear on drop
+    * [medium] Create default dashboard templates
+    * [medium] Allow people to modify a dashboard and automatically save it / reload it
+    * [medium] Implement a way for other modules to provide dashboard components (allow modules to register themselves in a database table)
 
 DatabaseEditor:
-  #1 [DatabaseEditor] Consider storing queries
-
-Draw:
-
-Finance:
-  #? Accounting forensics (Benfords Law, cent values, amount of bookings between specified amounts, amount * bookings between specified amounts)
+    * [easy] Allow to store queries
 
 Editor:
-  #3 [Editor] Allow editor creation and modification
-  #1 [Editor] Implement tools
-  #2 [Editor] Versioning
-  #? Auto recognize csv files and create table view editor
+    * [medium] Implement versioning
+    * [medium] Auto recognize csv files and create table view editor
+    * [hard] Create special markdown content (calendar, chart, task, news, comment, media, ...)
 
 EventManagement:
+    * [medium] Implement goal definition. Goals could be based on tasks (every completed task represents x%), linear timeline (every day represents x%), value based (a calculated value represents x%), manual input based (the user decides the completion %)
+    * [medium] Add milestones
 
 Exchange:
-  #? Remove Dashboard
-  #? Save and show information about the last export/import in order to prevent duplicated imports in the same period
+    * Save and show information about the last export/import in order to prevent duplicated imports
+    * Create a job which automatically runs a import/export script
+    * Create a language exporter/importer for language files for creating/managing static translation files
 
-Help:
+Finance:
+    * [medium] Implement accounting forensics (Benfords Law, cent value distribution analysis, amount of bookings between specific amounts, amount * bookings between specific amounts, etc.)
 
 Helper:
-  #? Create job which executes a helper (create new entry and potentially export)
-  #? Create JS Helper module, in here the download and print should be handled (e.g. document.getElementById('iHelperFrame').contentWindow.print();)
-
-Home:
+    * [medium] Implement direct print instead of opening a new window with `document.getElementById('iHelperFrame').contentWindow.print();`
 
 HumanResourceManagement:
-  #1 [HumanResourceManagement] Employee work history
-  #2 [HumanResourceManagement] Employee education history
-  #3 [HumanResourceApplication] Create module
+    * [medium] Employee work history
+    * [medium] Employee education history
 
 HumanResourceTimeRecording:
-  #1 [HumanResourceTimeRecording] Implement session delete
-  #2 [HumanResourceTimeRecording] Allow session element update
-  #3 [HumanResourceTimeRecording] Allow session update
-  #4 [HumanResourceTimeManagement] Limit employee session list
-
-ItemManagement:
-  #1 [ItemManagement] Re-structure item views
+    * [medium] Allow session delete/modification/creation afterwards
+    * [medium] Create approval process for delete/modification/creation afterwards (with logging)
 
 Job:
+    * [medium] Checklist creation job
+    * [medium] Exchange job
 
 Kanban:
-  #1 [Kanban]
-  Board: Column width depending amount of columns
-  #2 [Kanban] Edit functionality
-  #3 [Kanban] Styles
-
-Knowledgebase:
-  #2 [Knowledgebase] Implement draft view
-  #1 [Knowledgebase] Allow wiki creation and modification
-  #? Add app and category selection on create
-
-Marketing:
+    * [easy] Implement Kanban specific styles
 
 Media:
-  #16 [Directory/Collection] Create a directory/collection table for all modules
-  #15 [Download] Allow to download collections
-  #14 [Download] Allow to download files
-  #3 [MultiUpload] Allow to create a collection when uploading multiple files
-  #5 [Media] Validate file type and file size on the frontend before uploading
-  #6 [Media] Automatically change the file encoding of text files
-  #7 [Media] Automatically enable image interlacing
-  #8 [Media] Encrypt/Decrypt media file
-  #9 [Media] Fix media upload
-  #10 [Media] Allow to create new files (not only upload)
-  #11 [Media] Implement resumable uploads
-  #12 [Media] Implement drag/drop upload
-  #13 [Media] Allow collection modification
-  #? Implement external resources (e.g. link to resource, api specific end-points from dropbox etc.)
-  #? Allow to reference a file (e.g. like a symlink) directly
-  #? Account directories should contain the name of the account not just the id (at least in the DB name)
-  #? Create a home link either as first list element or as part of the breadcrumb navigation which directly links to the logged-in user directory
-  #? Allow to manually overwrite the breadcrumb navigation with a text field. Maybe add a edit button at the end which replaces the breadcrumb with a textfield which then can be edited for faster navigation.
+    * [medium] Allow to download a collection/directory
+    * [medium] Allow to download files (single files and by checkmarking multiple files)
+    * [medium] Allow to create a collection when uploading multiple files
+    * [medium] Validate file size on the frontend before uploading
+    * [medium] Automatically change the file encoding of text files
+    * [medium] Enable image interlacing (in the past there was a bug)
+    * [medium] Implement media encryption/decryption (optionally)
+    * [medium] Implement media password protection for read (optionally)
+    * [medium] Implement resumable uploads
+    * [medium] Implement drag & drop uploads
+    * [medium] Implement drag & drop moving of files/directories in the frontend
+    * [medium] Implement path changes in the frontend
+    * [medium] Allow the modification of collections
+    * [medium] Implement external resources (urls, dropbox, aws, ...)
+    * [medium] Create a home link to the user folder as a first element or as a button at the top of the media list
+    * [medium] Allow to edit the breadcrumbs, which replaces them with a text field which can be changed then than automatically loads the new path
 
 Messages:
-  #? Add notification component for creating and timing push notifications
+    * [hard] Implement push notification
+    * [hard] Implement email sending/receiving
+    * [hard] Implement internal message/conversion storage
+    * [hard] Users may be invited to old conversations
 
 Monitoring:
-  #1 [Monitoring] Implement code integrity
-
-MyPrivate:
-  #? Consider to remove???
+    * [medium] Implement code integrity check based on file version and file hash against a yet to create API which has the original file hashs
 
 Navigation:
-  #5 [Goto Command] Match navigation command based on approximate matches
-  #1 [Navigation] Improve sidebar navigation
-  #2 [Navigation] Improve slow language loading
-  #3 [Navigation] Cache/optimize navigation language
-  #4 [Navigation] Make navigation modifiable
+    * [easy] Improve goto command to match based on proximity and only based on visible links
+    * [medium] Consider to create on navigation language file (same as routing files) during the installation process
+    * [medium] Create settings page which allows to modify the navigation in the module settings
 
 News:
-  #4 Implement optional email notification
-  #3 [News] Allow tag modification
-  #? [Create/Edit] Fix visual bug where content overflows because of fixed size?
+    * [easy] Implement email/message notification on create
+    * [medium] Allow tag modification
+    * [medium] Fix bug where content overflows
 
 Organization:
-  #? [Organigram] Create more recognizable grouping
-  #? [Organigram] Create organigram in SVG with connection lines
-  #? [Organigram] Create printable version
-  #? [Organigram] Create approval/versioning (e.g. for ISO)
+    * [medium] [Organigram] Create better organigram (better grouping, maybe as svg)
+    * [medium] [Organigram] Make the organigram printable
+    * [medium] [Organigram] Make the organigram versioned/approved (e.g. for ISO)
 
 Profile:
-  #1 [Profile] Define account types to show
-  #2 [Profiles] Implement basic profile view
+    * [medium] Create sub-profiles for profiles (e.g. user profiles which belong to organization profiles)
+    * [medium] A user may belong to many profiles
+    * [hard] A user may have specific parent profile permissions
 
 ProjectManagement:
-  #1 [ProjectManagement] Add Gantt chart
-  #2 [ProjectManagement] Add Milestones
+    * [medium] Implement goal definition. Goals could be based on tasks (every completed task represents x%), linear timeline (every day represents x%), value based (a calculated value represents x%), manual input based (the user decides the completion %)
+    * [medium] Add milestones
 
-Purchase:
+Promotion:
+    * [medium] Implement goal definition. Goals could be based on tasks (every completed task represents x%), linear timeline (every day represents x%), value based (a calculated value represents x%), manual input based (the user decides the completion %)
 
 QA:
-  #1 [QA] Edit functionality
-  #2 [QA] Profile pics
-  #3 [QA] Voting testing
-
-RiskManagement:
-
-Sales:
-  #1 [Analysis] Create dashboard
+    * [easy] Implement QA specific styles
+    * [easy] Implement user profile pictures
+    * [easy] Implement voting
+    * [easy] Implement accepting answers
 
 Search:
-  #? Implement module specific search (e.g. :tasks title....)
-  #? Implement global search hook
-  #? Implement tag search hook = mix of global and module specific hook
-
-SupplierManagement:
+    * [medium] Implement a tag search hook which finds content based on tags
+    * [medium] Implement module specific search (e.g. :tasks title ...)
+    * [medium] Implement global search hook (every module performs a search based on the search)
 
 Support:
-  #? Implement
-  #? Allow to move a support request to the Q&A
-  #? Create account for new email address
+    * [easy] Allow support/tickets to be transformed to Q&A question and answers
 
 Tag:
-  #? Add icon to tags
-  #? Create default color set
-  #? Create optional hook which creates tags whenever a group is created
+    * [easy] Implement tag icons
+    * [medium] Create a settings with a set of default colors
+    * [medium] Create a hook which gets triggered if a group is created. This hook also creates a tag
 
 Tasks:
-  #18 [Analysis] Tasks per user
-  #17 [TaskCompletion] Add task completion information
-  #16 Implement optional email notification
-  #15 Implement real unread task count
-  #14 [Tasks] Create groups
-  #10 [Tasks] Implement tags and tag modification
-  #1 [Tasks] Implement has seen feature
-  #2 [Tasks] Update task status depending on the new task element or updated task element
-  #3 [Tasks] Validate that the user is allowed to create a task element for a specific task
-  #4 [Tasks] Batch handle tasks in the dashboard list
-  #5 [Tasks] Add a calender like task view
-  #6 [Tasks] Add tags
-  #7 [Tasks] Implement dashboard statistics
-  #8 [Task] Implement schedule
-  #9 Create task/calendar reference
-
-TestModule:
-
-Tools:
-  #? Create tool to create/modify language files in a more human readable way
+    * [easy] [Analyzer] Implement analyzing functionality (tasks created, answered, time required to finish task, always in time?)
+    * [easy] Allow users to specify the completion ratio (e.g. 0-100%)
+    * [medium] Implement email notification on progress/changes (new task, forwarded, ...)
+    * [medium] The unread task count is currently not really correct and needs to be fixed
+    * [medium] Allow batch handling of tasks in the dashboard/overview for faster interaction (e.g. select and close)
+    * [medium] Create a user calender for tasks which only shows when tasks are due
+    * [hard] Implement has seen and unseen
 
 Workflow:
-  #2 [Workflow] Request/approval workflow
-  #1 [Workflow] Create module
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
-////
-//// Demo TODO
-////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-Demo Tickets
-Demo HR
-Demo Kanban
-Demo HR Timerecording
-Demo Application (e.g. website, clocking, wiki, ticket, Q&A)
-Demo Risk management
-Think about moving contact to contact module??? I'm not sure if I want that!
-
-Remove most getter/setter ?!?!?!?!?!
-Fix media upload form element
-Implement default elements for tags
-Implement task media upload
-Implement task element edit
-Implement automatic binding of added ui elements
-Implement Email/Messaging
-Implement Calendar
-Implement clocking
-Implement profile editing
-Implement content loading with API (e.g. api/tpl/{app}/route)
-  Done
-  JS now needs to hijack page loads and redirect to /tpl/ or should overwrite all links to /tpl/ during loading
-  Then JS needs to exchange the main content
-Implement basic ticket module
-Implement basic customer management
-Implement basic supplier management
-Implement basic invoicing
-Implement Comments
-  Create
-  Edit
-  Response
-  Delete
-  Block by moderator
-Implement News comments
-Implement News editing
-  Tags
-  Permissions
-Load alternative language to local language (load language, else load en, else load any)
-Implement News creation
-  Tags
-  Favorite
-  Permissions/Groups
-  Make news edit textarea higher (automatically fit to content size)
-  Implement favorites on dashboard
-  Implement headlines on dashboard
-  Implement links hide textarea, other elements show textarea
-Implement Media hard drive directory add
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
-////
-//// Draft ideas
-////
-/////////////////////////////////////////////////////////////////////////////////////////////////
+    * [medium] Create approval process which can be used by many modules (modules are allowed to provide their own approval templates)
 
 //// Database permission handling
 
@@ -446,5 +275,3 @@ where ...
 Option2:
 1. Check if generall permission exists -> just do query
 2. Check for specific element exists -> just do query but with column_id IN (... elements ...)
-
-/////////////////////////////////////////////////////////////////////////////////////////////////

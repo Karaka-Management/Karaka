@@ -35,19 +35,6 @@ use Web\Exception\UnexpectedApplicationException;
  * @link    https://orange-management.org
  * @since   1.0.0
  *
- * @todo Ornage-Management/phpOMS#202
- *  Dynamic string handling
- *  Implement a parsing system which allows to output dynamic strings (sprintf might help)
- *
- * @todo Orange-Management/Modules#98
- *  Add unit id to all models
- *  All models are bound to a specific unit or 0/null in case of no unit.
- *  This is important since not everyone should be allowed to create models for all units (unless permissions say so).
- *
- * @todo Orange-Management/Orange-Management#65
- *  [LazyLoading] Replace own image lazy loading with official solution
- *  Once the majority of all browsers support `loading="lazy"` this should be used instead of the currently implemented lazy loading version.
- *
  * @codeCoverageIgnore
  */
 class WebApplication extends ApplicationAbstract
