@@ -21,6 +21,7 @@ General:
 phpOMS:
     * [easy] [HttpUrl] $fragments should be an array since it can be multiple values (separated by commas)
     * [easy] [UriFactory] UriFactory fragments should be accessed with `{#0}` for specific elements and `{#}` for all elements
+    * [easy] [UriFactory] Bug: If a uri only contains a query with `&` and no initial `?` it doesn't replace the first `&` with `?`. Check if `&` exists and no `?` then replace first `&` with `?`. This needs to happen as the first thing in the `unique()` function.
     * [easy] [Cache] Add cache interface functions and their implementations (exists, getLike, removeLike, getMult, removeMult, setMult, updateExpiration, increment, decrement, rename, save=to harddrive or somewhere else)
     * [medium] [FileCache] Create file locking when saving logs to the file (maybe only save after reaching a certain log chunk size)
     * [medium] [Matrix] Create unit test for `inverse()`
