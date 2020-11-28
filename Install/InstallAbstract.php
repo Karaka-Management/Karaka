@@ -250,7 +250,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $app->dbPool->add('update', $db);
         $app->dbPool->add('schema', $db);
 
-        self::$mManager     = new ModuleManager($app, __DIR__ . '/../Modules');
+        self::$mManager     = new ModuleManager($app, __DIR__ . '/../Modules/');
         $app->moduleManager = self::$mManager;
         $app->appSettings   = new CoreSettings($db);
 
@@ -308,7 +308,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $app->dbPool->add('update', $db);
         $app->dbPool->add('schema', $db);
 
-        self::$mManager     = new ModuleManager($app, __DIR__ . '/../Modules');
+        self::$mManager     = new ModuleManager($app, __DIR__ . '/../Modules/');
         $app->moduleManager = self::$mManager;
         $app->appSettings   = new CoreSettings($db);
 

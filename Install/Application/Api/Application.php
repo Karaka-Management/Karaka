@@ -108,7 +108,7 @@ final class Application
 
         $this->app->sessionManager = new HttpSession(36000);
         $this->app->cookieJar      = new CookieJar();
-        $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+        $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
         $this->app->dispatcher     = new Dispatcher($this->app);
 
         $this->app->dbPool->create('core', $this->config['db']['core']['masters']['admin']);
@@ -190,7 +190,7 @@ final class Application
                 $app->accountManager = $this->app->accountManager;
                 $app->appSettings    = $this->app->appSettings;
                 $app->l11nManager    = new L11nManager($app->appName);
-                $app->moduleManager  = new ModuleManager($app, __DIR__ . '/../../Modules');
+                $app->moduleManager  = new ModuleManager($app, __DIR__ . '/../../Modules/');
                 $app->dispatcher     = new Dispatcher($app);
                 $app->eventManager   = new EventManager($app->dispatcher);
                 $app->router         = new WebRouter();

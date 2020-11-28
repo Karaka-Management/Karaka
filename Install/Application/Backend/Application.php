@@ -105,7 +105,7 @@ final class Application
         $this->app->dbPool         = new DatabasePool();
         $this->app->sessionManager = new HttpSession(36000);
         $this->app->cookieJar      = new CookieJar();
-        $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+        $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
         $this->app->dispatcher     = new Dispatcher($this->app);
 
         $this->app->dbPool->create('select', $this->config['db']['core']['masters']['select']);

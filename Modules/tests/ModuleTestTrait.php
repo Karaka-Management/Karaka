@@ -53,7 +53,7 @@ trait ModuleTestTrait
      */
     public function testModuleIntegration() : void
     {
-        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
         $moduleManager->install(self::MODULE_NAME);
 
         self::assertTrue($moduleManager->deactivate(self::MODULE_NAME));
@@ -69,7 +69,7 @@ trait ModuleTestTrait
      */
     public function testMembers() : void
     {
-        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
         $module        = $moduleManager->get(self::MODULE_NAME);
 
         if ($module instanceof NullModule) {
@@ -344,7 +344,7 @@ trait ModuleTestTrait
      */
     public function testJson() : void
     {
-        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
         $sampleInfo    = \json_decode(\file_get_contents(__DIR__ . '/../TestModule/info.json'), true);
         $infoTemplate  = \json_decode(\file_get_contents(__DIR__ . '/../../phpOMS/Module/infoLayout.json'), true);
 
@@ -366,7 +366,7 @@ trait ModuleTestTrait
      */
     public function testDependency() : void
     {
-        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
         $module        = $moduleManager->get(self::MODULE_NAME);
 
         if ($module instanceof NullModule) {
@@ -384,7 +384,7 @@ trait ModuleTestTrait
      */
     public function testRoutes() : void
     {
-        $moduleManager      = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+        $moduleManager      = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
         $totalBackendRoutes = \is_file(__DIR__ . '/../../Web/Backend/Routes.php') ? include __DIR__ . '/../../Web/Backend/Routes.php' : [];
         $totalApiRoutes     = \is_file(__DIR__ . '/../../Web/Api/Routes.php') ? include __DIR__ . '/../../Web/Api/Routes.php' : [];
 
@@ -413,7 +413,7 @@ trait ModuleTestTrait
      */
     public function testHooks() : void
     {
-        $moduleManager     = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+        $moduleManager     = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
         $totalBackendHooks = \is_file(__DIR__ . '/../../Web/Backend/Hooks.php') ? include __DIR__ . '/../../Web/Backend/Hooks.php' : [];
         $totalApiHooks     = \is_file(__DIR__ . '/../../Web/Api/Hooks.php') ? include __DIR__ . '/../../Web/Api/Hooks.php' : [];
 
@@ -443,7 +443,7 @@ trait ModuleTestTrait
      */
     public function testNavigation() : void
     {
-        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
         $module        = $moduleManager->get(self::MODULE_NAME);
 
         if (($module instanceof NullModule)
@@ -587,7 +587,7 @@ trait ModuleTestTrait
             return;
         }
 
-        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
 
         $request = new HttpRequest(new HttpUri(self::URI_LOAD));
         $request->createRequestHashs(2);
