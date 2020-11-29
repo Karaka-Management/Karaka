@@ -38,6 +38,7 @@ phpOMS:
     * [hard] [DataMapper] Implement `::withConditional()` results with a default alternative if the primary conditional is not met, and also a catch-all clause where optionally any result is returned if neither the primary or the alternative condition is met (this is extremely helpful for localization e.g. news article = show local language, alternatively english, alternatively any other first/best match).
     * [hard] [Email] Implement email sending and receiving
     * [hard] [Grammar] Implement schema modification grammar (alter tables)
+    * [hard] [DataMapperAbstract] Performance improvement (intHash, ->getValue() vs. direct access for public members, allow transactions)
 
 jsOMS:
     * [easy] [Speech] Remove the speech recognition wrapper once it becomes standard
