@@ -94,7 +94,7 @@ final class CoreSettings implements SettingsInterface
         string $module = null,
         int $group = null,
         int $account = null
-    ) {
+    ) : mixed {
         $options = [];
 
         // get by ids
