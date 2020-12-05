@@ -31,11 +31,12 @@ jobs:
     - name: Push changes
       if: steps.git-check.outputs.modified == 'true'
       run: |
-        echo $(git diff-index HEAD --)
         git config --global user.name 'Build Bot'
         git config --global user.email 'build.bot@orange-management.email'
         git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-        git commit -am "Automatic css build"
+        git add *.css
+        git add *.scss
+        git commit -m "Automatic css build"
         git push
   code-tests:
     runs-on: ubuntu-latest
