@@ -87,5 +87,4 @@ export const KEYBOARD_EVENTS = [
 
             document.dispatchEvent(new KeyboardEvent('keypress', {keyCode: 9}));
         }
-    }
-];
+    }];

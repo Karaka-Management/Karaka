@@ -15,5 +15,4 @@ export const MOUSE_EVENTS = [
         'button': ClickType.LEFT,
         'callback': function () {console.log('left clicked');},
         'exact': false
-    }
-];
+    }];

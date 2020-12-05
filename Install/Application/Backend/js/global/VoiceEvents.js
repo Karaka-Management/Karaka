@@ -54,5 +54,4 @@ export const VOICE_EVENTS = {
         });
 
         request.send();
-     },
-};
+    }};
