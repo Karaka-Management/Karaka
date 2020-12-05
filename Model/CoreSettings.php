@@ -89,8 +89,8 @@ final class CoreSettings implements SettingsInterface
      * {@inheritdoc}
      */
     public function get(
-        $ids = null,
-        $names = null,
+        mixed $ids = null,
+        string|array $names = null,
         string $module = null,
         int $group = null,
         int $account = null
@@ -166,6 +166,10 @@ final class CoreSettings implements SettingsInterface
             }
 
             $sth = $this->connection->con->prepare($query->toSql());
+            if ($sth === false) {
+                return null;
+            }
+
             $sth->execute();
 
             $dbOptions = $sth->fetchAll(\PDO::FETCH_ASSOC);
@@ -285,6 +289,10 @@ final class CoreSettings implements SettingsInterface
         }
 
         $sth = $this->connection->con->prepare($query->toSql());
+        if ($sth === false) {
+            return;
+        }
+
         $sth->execute();
     }
 
@@ -319,6 +327,10 @@ final class CoreSettings implements SettingsInterface
 
         $sql = $query->toSql();
         $sth = $this->connection->con->prepare($sql);
+        if ($sth === false) {
+            return;
+        }
+
         $sth->execute();
     }
 }
