@@ -106,6 +106,8 @@ ClientManagement:
     * [medium] [Map] Add a geo map of the customers location (either on a real map or on the already added svg maps)
     * [medium] [Map] Create a map of all customers (maybe as datapoints or as heatmaps)
     * [medium] [Map] Create a map of sales (meybe as datapoints or as heatmaps)
+    * [medium] [Doc] Create default letter Doc (with/without letter head)
+    * [medium] [Receivable] Print receivable
 
 CMS:
     * [easy] Make file content view 100% container height
@@ -152,6 +154,10 @@ HumanResourceManagement:
 HumanResourceTimeRecording:
     * [medium] Allow session delete/modification/creation afterwards
     * [medium] Create approval process for delete/modification/creation afterwards (with logging)
+
+ItemManagement:
+    * [medium] [Label] Create default label layout
+    * [medium] [Label] Create item specific label layout
 
 Job:
     * [medium] Checklist creation job
@@ -224,6 +230,10 @@ Search:
     * [medium] Implement a tag search hook which finds content based on tags
     * [medium] Implement module specific search (e.g. :tasks title ...)
     * [medium] Implement global search hook (every module performs a search based on the search)
+
+SupplierManagement:
+    * [medium] [Doc] Create default letter Doc (with/without letter head)
+    * [medium] [Payable] Print payable
 
 Support:
     * [easy] Allow support/tickets to be transformed to Q&A question and answers
