@@ -1,4 +1,9 @@
 General:
+    * [easy] Make maskable icon with transparent background
+    * [easy] Add more translation components which are currently hard coded
+    * [easy] Map for Macao is missing or named wrong
+    * [easy] Map for Kosovo is missing or named wrong
+    * [easy] Map for AlandIsland is missing or named wrong
     * [easy] Find uncovered lines of code and write unit tests for these uncovered lines
     * [easy] Implement covariance for function parameters once it is available (in many places it's already hinted in the docblock)
     * [easy] Replace the custom lazy loading for images with the browser supported lazy loading version
@@ -86,6 +91,10 @@ Admin:
     * [medium] [Contacts] Find a way to hide some contact/address information for some modules. Some information are only meant for specific modules (e.g. private address)
 
 Auditor:
+    * [easy] Create link in audit report to module
+    * [easy] Create link in audit report to account
+    * [easy] Instead of using a "subtype" save the trigger which triggered the change. The trigger should be a module specific enum (int), currently it is a string.
+    * [easy] Remove Old/New from the audit list since it doesn't provide any value in this list (the space isn't sufficient anyways)
     * [medium] Implement blockchain for the auditor. This either requires database locking (slow), modification of audit logs after inserts (slow) or a background process which calculates the blockchain (ok).
     * [medium] Create printable reports based on specific changes
 
@@ -103,6 +112,7 @@ Checklist:
     * Create job which can automatically create checklists (e.g. end of month checklists)
 
 ClientManagement:
+    * [easy] Add client images (similar to item image)
     * [medium] [Map] Add a geo map of the customers location (either on a real map or on the already added svg maps)
     * [medium] [Map] Create a map of all customers (maybe as datapoints or as heatmaps)
     * [medium] [Map] Create a map of sales (meybe as datapoints or as heatmaps)
@@ -117,6 +127,9 @@ CMS:
 
 Comments:
     * [medium] Add configuration options (allow/disallow responses, upvotes, max length, edits)
+
+ContractManagement:
+    * [easy] Implement basic setup
 
 Dashboard:
     * [medium] [Bug] Drag&Drop element sometimes disappear on drop
@@ -137,9 +150,9 @@ EventManagement:
     * [medium] Add milestones
 
 Exchange:
-    * Save and show information about the last export/import in order to prevent duplicated imports
-    * Create a job which automatically runs a import/export script
-    * Create a language exporter/importer for language files for creating/managing static translation files
+    * [medium] Save and show information about the last export/import in order to prevent duplicated imports
+    * [medium] Create a language exporter/importer for language files for creating/managing static translation files
+    * [hard] Create a job which automatically runs a import/export script
 
 Finance:
     * [medium] Implement accounting forensics (Benfords Law, cent value distribution analysis, amount of bookings between specific amounts, amount * bookings between specific amounts, etc.)
@@ -148,6 +161,7 @@ Helper:
     * [medium] Implement direct print instead of opening a new window with `document.getElementById('iHelperFrame').contentWindow.print();`
 
 HumanResourceManagement:
+    * [medium] Fix employee list
     * [medium] Employee work history
     * [medium] Employee education history
 
@@ -156,6 +170,7 @@ HumanResourceTimeRecording:
     * [medium] Create approval process for delete/modification/creation afterwards (with logging)
 
 ItemManagement:
+    * [easy] Create item list for purchasing
     * [medium] [Label] Create default label layout
     * [medium] [Label] Create item specific label layout
 
@@ -165,8 +180,24 @@ Job:
 
 Kanban:
     * [easy] Implement Kanban specific styles
+    * [easy] Implement board tags (also in demoSetup script)
+    * [easy] Implement board description
+    * [easy] Improve dashboard with description and tags and "Open" to open the board, similar to the News "More" button
+    * [easy] Allow board templates? maybe at least colors?
+    * [easy] Implement card tags and "Open" to open the card (shows comments), similar to the News "More" button
+    * [easy] Show comment count for card in board
+    * [easy] Allow card templates? maybe at least colors?
+    * [easy] Implement archive list for boards
+    * [easy] Implement board status (archive, public, inactive)
+    * [easy] Implement card status (archive, public, inactive)
+    * [medium] Implement unread cards/comments notification/highlight
+
+Knowledgebase:
+    * [easy] Implement category create/edit view
+    * [easy] Implement doc create/edit view (similar to news/editor)
 
 Media:
+    * [easy] Create a home link to the user folder as a first element or as a button at the top of the media list
     * [medium] Allow to download a collection/directory
     * [medium] Allow to download files (single files and by checkmarking multiple files)
     * [medium] Allow to create a collection when uploading multiple files
@@ -181,7 +212,6 @@ Media:
     * [medium] Implement path changes in the frontend
     * [medium] Allow the modification of collections
     * [medium] Implement external resources (urls, dropbox, aws, ...)
-    * [medium] Create a home link to the user folder as a first element or as a button at the top of the media list
     * [medium] Allow to edit the breadcrumbs, which replaces them with a text field which can be changed then than automatically loads the new path
 
 Messages:
@@ -199,6 +229,8 @@ Navigation:
     * [medium] Create settings page which allows to modify the navigation in the module settings
 
 News:
+    * [easy] Show created date
+    * [easy] Show created by with link to profile
     * [easy] Implement email/message notification on create
     * [medium] Allow tag modification
     * [medium] Fix bug where content overflows
@@ -222,9 +254,14 @@ Promotion:
 
 QA:
     * [easy] Implement QA specific styles
-    * [easy] Implement user profile pictures
     * [easy] Implement voting
     * [easy] Implement accepting answers
+    * [easy] Implement QA question raw
+    * [easy] Implement QA answer raw
+    * [easy] Implement question create view
+    * [easy] Add question answer component/like comment in question
+    * [medium] Implement user profile pictures
+    * [medium] Implement QA specific css
 
 Search:
     * [medium] Implement a tag search hook which finds content based on tags
@@ -232,6 +269,7 @@ Search:
     * [medium] Implement global search hook (every module performs a search based on the search)
 
 SupplierManagement:
+    * [easy] Add supplier images (similar to item image)
     * [medium] [Doc] Create default letter Doc (with/without letter head)
     * [medium] [Payable] Print payable
 
