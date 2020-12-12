@@ -59,14 +59,14 @@ $head = $this->getData('head');
                 <input id="iLoginButton" name="loginButton" type="submit" value="<?= $this->getHtml('Login', '0', '0'); ?>" tabindex="3">
             </form>
         </div>
-        <div id="below-form"><a href="<?= UriFactory::build('{/prefix}forgot?{?}'); ?>" tabindex="4"><?= $this->getHtml('ForgotPassword', '0', '0'); ?></a></div>
+        <div id="below-form"><a href="<?= UriFactory::build('{/prefix}forgot'); ?>" tabindex="4"><?= $this->getHtml('ForgotPassword', '0', '0'); ?></a></div>
     </div>
 </main>
 <footer>
     <ul>
-        <li><a href="<?= UriFactory::build('{/prefix}privacy?{?}'); ?>"><?= $this->getHtml('PrivacyPolicy', '0', '0'); ?></a>
-        <li><a href="<?= UriFactory::build('{/prefix}terms?{?}'); ?>"><?= $this->getHtml('Terms', '0', '0'); ?></a>
-        <li><a href="<?= UriFactory::build('{/prefix}imprint?{?}'); ?>"><?= $this->getHtml('Imprint', '0', '0'); ?></a>
+        <li><a href="<?= UriFactory::build('{/prefix}privacy'); ?>"><?= $this->getHtml('PrivacyPolicy', '0', '0'); ?></a>
+        <li><a href="<?= UriFactory::build('{/prefix}terms'); ?>"><?= $this->getHtml('Terms', '0', '0'); ?></a>
+        <li><a href="<?= UriFactory::build('{/prefix}imprint'); ?>"><?= $this->getHtml('Imprint', '0', '0'); ?></a>
     </ul>
 </footer>
 
