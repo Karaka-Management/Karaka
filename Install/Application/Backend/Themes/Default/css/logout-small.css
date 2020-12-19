@@ -88,6 +88,7 @@ form {
     color: var(--text-on-background-color);
     cursor: pointer; }
 
+form select,
 form input[type=text],
 form input[type=password] {
   margin-bottom: .5rem;
