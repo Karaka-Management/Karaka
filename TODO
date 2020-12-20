@@ -1,5 +1,4 @@
 General:
-    * [easy] Make maskable icon with transparent background
     * [easy] Add more translation components which are currently hard coded
     * [easy] Map for Macao is missing or named wrong
     * [easy] Map for Kosovo is missing or named wrong
@@ -7,9 +6,8 @@ General:
     * [easy] Find uncovered lines of code and write unit tests for these uncovered lines
     * [easy] Implement covariance for function parameters once it is available (in many places it's already hinted in the docblock)
     * [easy] Replace the custom lazy loading for images with the browser supported lazy loading version
-    * [easy] Create a bootstrap file and config file for every module in order to individually test them
+#    * [easy] Create a bootstrap file and config file for every module in order to individually test them
     * [easy] Create database UML diagrams for every module
-    * [easy] Make the `forgotten` page use the router file (maybe of Dashboard) instead of a hard-coded route in the Application
     * [medium] When returning models (backend and api requests) the permission should be checked
     * [medium] Add a good way to turn on/off voice recognition (probably a button somewhere)
     * [medium] Add a visual indication if the microphone is on (maybe an icon in the search bar or next to the user profile icon)
@@ -20,15 +18,14 @@ General:
     * [medium] Bug: If the pagination (next/previous) is implemented in a tab (e.g. second tab) the newly loaded page after clicking on 'next' shows the first tab instead of the tab which contains the list
     * [medium] Many models would benefit from unit and app association. Sometimes models should only be available/associated with a specific unit (e.g. news article for website, backend, shop etc.)
     * [medium] After completely figuring out permissions every API function needs to be checked if it behaves correctly depending on the different permissions (e.g. user created the model, user who is allowed to access the model but not change it, ...).
-    * [medium] Activating/Deactivating/Removing modules should immediately effect the routing of the application accordingly
+    * [hard] Implement oauth2 client
+    * [hard] Implement oauth2 server
     * [hard] Implement ServiceWorkers
+    * [hard] Implement QR code generator
+    * [hard] Implement datamatrix generator
+    * [hard] Implement code reader (barcode, datamatrix, qr)
 
 phpOMS:
-    * [easy] [HttpUrl] $fragments should be an array since it can be multiple values (separated by commas)
-    * [easy] [UriFactory] UriFactory fragments should be accessed with `{#0}` for specific elements and `{#}` for all elements
-    * [easy] [UriFactory] Bug: If a uri only contains a query with `&` and no initial `?` it doesn't replace the first `&` with `?`. Check if `&` exists and no `?` then replace first `&` with `?`. This needs to happen as the first thing in the `unique()` function.
-    * [easy] [Cache] Add cache interface functions and their implementations (exists, getLike, removeLike, getMult, removeMult, setMult, updateExpiration, increment, decrement, rename, save=to harddrive or somewhere else)
-    * [medium] [FileCache] Create file locking when saving logs to the file (maybe only save after reaching a certain log chunk size)
     * [medium] [Matrix] Create unit test for `inverse()`
     * [medium] [Graph] Implement missing functionality (see `Graph.php` for details)
     * [medium] [KMeans] In some weird cases the Cluster test fails. This happpens approximately 1 / 100 test runs (invalid center coodinate value)
@@ -47,7 +44,6 @@ phpOMS:
 
 jsOMS:
     * [easy] [Speech] Remove the speech recognition wrapper once it becomes standard
-    * [easy] [UriFactory] Fragments should be joined by `&` instead of `,`? Check if this is actually the prefered way and implement if this is true
     * [medium] [AdvancedInput] In the AdvancedInput, implement pre-defined values (e.g. pre-defined/default tags)
     * [medium] [AdvancedInput] In the AdvancedInput, implement mandatory pre-defined values (e.g. tags which cannot be deleted)
     * [medium] [VoiceCommand] Implement table/link navigation
@@ -70,9 +66,9 @@ jsOMS:
     * [medium] The frontend loads the correct tab based on the provided fragment, but it is slow. Doing this in the backend can already fix this but the frontend implementation should be fixes, because this should be the job of the frontend.
 
 cssOMS:
-    * Create dropdown = select with search field
-    * Create a slider element with two elements which the user can slide (optionally also only one slider should be possible)
-    * Implement nicer input validation (e.g. show checmark and x in the input fields / optionally)
+    * [medium] Create dropdown = select with search field
+    * [medium] Create a slider element with two elements which the user can slide (optionally also only one slider should be possible)
+    * [medium] Implement nicer input validation (e.g. show checmark and x in the input fields / optionally)
 
 Build/Website:
     * Module page/build
@@ -81,9 +77,11 @@ Build/Website:
         * Default inspections/tests (unit tests, info.json, language files used, language files in all languages same content, amount of languages, routes in controller available, dependencies valid, code coverage, phpstan, phpcs)
         * Add to database
 
+Orange-Management:
+    * [medium] Implement forgott password incl. rate limit for "send forgotten password"
+
 Admin:
-    * [easy] A faild login/auth attempt should increment the login tries, a successful login should reset the tries to 0. Currently the AccountMapper only checks if tries are available
-    * [easy] Allow other users (e.g. admin) to login as a specific user. Therfore the user needs to randomly generate a password which can be sent to another user. This password is only valid for a certain amount of time (the database field for such a password already exists and the auth handler also has some first steps implemented for this).
+#    * [easy] Make the temp password only viable for a limited amount of time, store the date time
     * [medium] [UI] Add user & group settings
     * [medium] [UI] Add account/group removal from each other
     * [medium] [UI] Add permission removal from accounts/groups
@@ -91,12 +89,8 @@ Admin:
     * [medium] [Contacts] Find a way to hide some contact/address information for some modules. Some information are only meant for specific modules (e.g. private address)
 
 Auditor:
-    * [easy] Create link in audit report to module
-    * [easy] Create link in audit report to account
-    * [easy] Instead of using a "subtype" save the trigger which triggered the change. The trigger should be a module specific enum (int), currently it is a string.
-    * [easy] Remove Old/New from the audit list since it doesn't provide any value in this list (the space isn't sufficient anyways)
     * [medium] Implement blockchain for the auditor. This either requires database locking (slow), modification of audit logs after inserts (slow) or a background process which calculates the blockchain (ok).
-    * [medium] Create printable reports based on specific changes
+#    * [medium] Create printable reports based on specific changes
 
 Calendar:
     * [easy] [Tags] Implement tags for events
@@ -105,14 +99,15 @@ Calendar:
     * [medium] Create different interval templates (year, quarter, month, week, day)
     * [medium] Allow user to define the start of the week (e.g. Sunday, Monday)
     * [medium] [Chart] Implement gantt chart
+    * [hard] Create iCal parser/reader and builder
+    * [hard] Create database, models and mappers
 
 Chat:
 
 Checklist:
-    * Create job which can automatically create checklists (e.g. end of month checklists)
+    * [medium] Create job which can automatically create checklists (e.g. end of month checklists)
 
 ClientManagement:
-    * [easy] Add client images (similar to item image)
     * [medium] [Map] Add a geo map of the customers location (either on a real map or on the already added svg maps)
     * [medium] [Map] Create a map of all customers (maybe as datapoints or as heatmaps)
     * [medium] [Map] Create a map of sales (meybe as datapoints or as heatmaps)
@@ -120,8 +115,9 @@ ClientManagement:
     * [medium] [Receivable] Print receivable
 
 CMS:
+#    * [easy] Create a link to the app/page in the application view
     * [easy] Make file content view 100% container height
-    * [easy] Allow content changes and saving
+#    * [easy] Allow content changes and saving
     * [easy] Ideas for applications based on modules (e.g. monitor/log dashboard, sales dashboard, calendar, support/ticket, clocking, Q&A, Wiki, shop)
     * [medium] Implement line numbers
 
@@ -138,11 +134,13 @@ Dashboard:
     * [medium] Implement a way for other modules to provide dashboard components (allow modules to register themselves in a database table)
 
 DatabaseEditor:
-    * [easy] Allow to store queries
+#    * [easy] Allow to store queries
+#    * [easy] Allow to store results
+#    * [easy] Implement basic functionality / queries
 
 Editor:
     * [medium] Implement versioning
-    * [medium] Auto recognize csv files and create table view editor
+#    * [medium] Auto recognize csv files and create table view editor
     * [hard] Create special markdown content (calendar, chart, task, news, comment, media, ...)
 
 EventManagement:
@@ -150,8 +148,9 @@ EventManagement:
     * [medium] Add milestones
 
 Exchange:
+#    * [medium] The dashboard should show the last imports/export log list
     * [medium] Save and show information about the last export/import in order to prevent duplicated imports
-    * [medium] Create a language exporter/importer for language files for creating/managing static translation files
+#    * [medium] Create a language exporter/importer for language files for creating/managing static translation files
     * [hard] Create a job which automatically runs a import/export script
 
 Finance:
@@ -161,9 +160,9 @@ Helper:
     * [medium] Implement direct print instead of opening a new window with `document.getElementById('iHelperFrame').contentWindow.print();`
 
 HumanResourceManagement:
-    * [medium] Fix employee list
     * [medium] Employee work history
     * [medium] Employee education history
+#    * [hard] Fix employee list
 
 HumanResourceTimeRecording:
     * [medium] Allow session delete/modification/creation afterwards
@@ -180,24 +179,23 @@ Job:
 
 Kanban:
     * [easy] Implement Kanban specific styles
-    * [easy] Implement board tags (also in demoSetup script)
-    * [easy] Implement board description
     * [easy] Improve dashboard with description and tags and "Open" to open the board, similar to the News "More" button
     * [easy] Allow board templates? maybe at least colors?
-    * [easy] Implement card tags and "Open" to open the card (shows comments), similar to the News "More" button
     * [easy] Show comment count for card in board
     * [easy] Allow card templates? maybe at least colors?
     * [easy] Implement archive list for boards
     * [easy] Implement board status (archive, public, inactive)
     * [easy] Implement card status (archive, public, inactive)
     * [medium] Implement unread cards/comments notification/highlight
+    * [medium] Consider to replace card comments with normal comments from the Comments module
 
 Knowledgebase:
     * [easy] Implement category create/edit view
-    * [easy] Implement doc create/edit view (similar to news/editor)
+#    * [easy] Implement doc create/edit view (similar to news/editor)
+#    * [easy] Add category back/up button when in a subcategory
 
 Media:
-    * [easy] Create a home link to the user folder as a first element or as a button at the top of the media list
+#    * [easy] Create a home link to the user folder as a first element or as a button at the top of the media list
     * [medium] Allow to download a collection/directory
     * [medium] Allow to download files (single files and by checkmarking multiple files)
     * [medium] Allow to create a collection when uploading multiple files
@@ -229,8 +227,8 @@ Navigation:
     * [medium] Create settings page which allows to modify the navigation in the module settings
 
 News:
-    * [easy] Show created date
-    * [easy] Show created by with link to profile
+#    * [easy] Show created date
+#    * [easy] Show created by with link to profile
     * [easy] Implement email/message notification on create
     * [medium] Allow tag modification
     * [medium] Fix bug where content overflows
@@ -254,13 +252,13 @@ Promotion:
 
 QA:
     * [easy] Implement QA specific styles
-    * [easy] Implement voting
-    * [easy] Implement accepting answers
-    * [easy] Implement QA question raw
-    * [easy] Implement QA answer raw
+#    * [easy] Implement voting
+#    * [easy] Implement accepting answers
+#    * [easy] Implement QA question raw
+#    * [easy] Implement QA answer raw
     * [easy] Implement question create view
-    * [easy] Add question answer component/like comment in question
-    * [medium] Implement user profile pictures
+#    * [easy] Add question answer component/like comment in question
+#    * [medium] Implement user profile pictures
     * [medium] Implement QA specific css
 
 Search:
@@ -269,7 +267,6 @@ Search:
     * [medium] Implement global search hook (every module performs a search based on the search)
 
 SupplierManagement:
-    * [easy] Add supplier images (similar to item image)
     * [medium] [Doc] Create default letter Doc (with/without letter head)
     * [medium] [Payable] Print payable
 
@@ -277,8 +274,7 @@ Support:
     * [easy] Allow support/tickets to be transformed to Q&A question and answers
 
 Tag:
-    * [easy] Implement tag icons
-    * [medium] Create a settings with a set of default colors
+    * [medium] Create settings with a set of default colors
     * [medium] Create a hook which gets triggered if a group is created. This hook also creates a tag
 
 Tasks:

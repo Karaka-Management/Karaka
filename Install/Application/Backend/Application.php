@@ -204,15 +204,8 @@ final class Application
         $this->initResponseHead($head, $request, $response);
 
         /* Handle not logged in */
-        if (\in_array($request->uri->getPathElement(0), ['forgot', 'privacy', 'imprint', 'terms'])) {
-            $this->createBaseLoggedOutResponse($request, $response, $head, $pageView);
-
-            return;
-        }
-
-        /* Handle not logged in */
         if ($account->getId() < 1) {
-            $this->createLoggedOutResponse($response, $head, $pageView);
+            $this->createBaseLoggedOutResponse($request, $response, $head, $pageView);
 
             return;
         }
@@ -400,8 +393,12 @@ final class Application
      */
     private function createBaseLoggedOutResponse(HttpRequest $request, HttpResponse $response, Head $head, View $pageView) : void
     {
+        $file = \in_array($request->uri->getPathElement(0), ['forgot', 'privacy', 'imprint', 'terms'])
+            ? $request->uri->getPathElement(0)
+            : 'login';
+
         $response->header->status = RequestStatusCode::R_403;
-        $pageView->setTemplate('/Web/Backend/' . $request->uri->getPathElement(0));
+        $pageView->setTemplate('/Web/Backend/' . $file);
 
         $css = \file_get_contents(__DIR__ . '/css/logout-small.css');
         if ($css === false) {

@@ -476,7 +476,7 @@ abstract class InstallAbstract extends ApplicationAbstract
     {
         $account = new Account();
         $account->setStatus(AccountStatus::ACTIVE);
-        $account->setLoginTries(3);
+        $account->tries = 0;
         $account->setType(AccountType::USER);
         $account->login = (string) $request->getData('adminname');
         $account->name1 = (string) $request->getData('adminname');
