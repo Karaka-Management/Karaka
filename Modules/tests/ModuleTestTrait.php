@@ -205,12 +205,12 @@ trait ModuleTestTrait
 
         foreach ($db as $name => $table) {
             if ($name !== ($table['name'] ?? false)) {
-                self::assertTrue(false);
+                self::assertTrue(false, 'Schema "' . $schemaPath . '" name "' . $name . '" is invalid');
             }
 
             foreach ($table['fields'] as $cName => $column) {
                 if ($cName !== ($column['name'] ?? false)) {
-                    self::assertTrue(false);
+                    self::assertTrue(false, 'Schema "' . $schemaPath . '" name "' . $cName . '" is invalid');
                 }
 
                 if (!(\stripos($column['type'] ?? '', 'TINYINT') === 0

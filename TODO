@@ -134,9 +134,7 @@ Dashboard:
     * [medium] Implement a way for other modules to provide dashboard components (allow modules to register themselves in a database table)
 
 DatabaseEditor:
-#    * [easy] Allow to store queries
-#    * [easy] Allow to store results
-#    * [easy] Implement basic functionality / queries
+#    * [easy] Implement basic functionality / queries in UI
 
 Editor:
     * [medium] Implement versioning
