@@ -64,6 +64,7 @@ jsOMS:
     * [medium] [Libary] Consider to create a library function which finds the nearest element based on a select (horizontal and vertical search, `*.nearest()` does not work this way)
     * [medium] [UriFactory] Consider to parse EVERY url with the uri factory. This however might cause double parsing and therfore bugs
     * [medium] The frontend loads the correct tab based on the provided fragment, but it is slow. Doing this in the backend can already fix this but the frontend implementation should be fixes, because this should be the job of the frontend.
+    * [medium] Implement drag sortable table rows (https://htmldom.dev/drag-and-drop-table-row/). Implement the same concept for other elements, maybe abstract it straight away!
 
 cssOMS:
     * [medium] Create dropdown = select with search field
@@ -89,8 +90,16 @@ Admin:
     * [medium] [Contacts] Find a way to hide some contact/address information for some modules. Some information are only meant for specific modules (e.g. private address)
 
 Auditor:
+#    * [easy] Create foldable/tree view for json logs
     * [medium] Implement blockchain for the auditor. This either requires database locking (slow), modification of audit logs after inserts (slow) or a background process which calculates the blockchain (ok).
 #    * [medium] Create printable reports based on specific changes
+
+Billing:
+#    * [easy] Create default invoice layout
+#    * [easy] Create pdf creation function
+#    * [medium] Show invoice pdf in preview?
+#    * [medium] Only create pdf preview if preview is visible?
+#    * [medium] [Analysis] Gross profit
 
 Calendar:
     * [easy] [Tags] Implement tags for events
@@ -113,6 +122,11 @@ ClientManagement:
     * [medium] [Map] Create a map of sales (meybe as datapoints or as heatmaps)
     * [medium] [Doc] Create default letter Doc (with/without letter head)
     * [medium] [Receivable] Print receivable
+#    * [medium] [Analysis] Sales + Gross profit
+#    * [medium] [Analysis] Quantity orders + quantity articles
+#    * [medium] [Analysis] Segment sales
+#    * [medium] [Analysis] Top articles
+#    * [medium] [Analysis] Cross selling
 
 CMS:
 #    * [easy] Create a link to the app/page in the application view
@@ -170,6 +184,10 @@ ItemManagement:
     * [easy] Create item list for purchasing
     * [medium] [Label] Create default label layout
     * [medium] [Label] Create item specific label layout
+#    * [medium] [Analysis] Sales + gross profit
+#    * [medium] [Analysis] quantity sales, quantity customers
+#    * [medium] [Analysis] Cross selling
+#    * [medium] [Analysis] Top customers
 
 Job:
     * [medium] Checklist creation job
@@ -184,6 +202,7 @@ Kanban:
     * [easy] Implement archive list for boards
     * [easy] Implement board status (archive, public, inactive)
     * [easy] Implement card status (archive, public, inactive)
+    * [easy] Bug:
     * [medium] Implement unread cards/comments notification/highlight
     * [medium] Consider to replace card comments with normal comments from the Comments module
 
@@ -194,6 +213,7 @@ Knowledgebase:
 
 Media:
 #    * [easy] Create a home link to the user folder as a first element or as a button at the top of the media list
+#    * [easy] Create foldable/tree view for json files
     * [medium] Allow to download a collection/directory
     * [medium] Allow to download files (single files and by checkmarking multiple files)
     * [medium] Allow to create a collection when uploading multiple files
@@ -267,6 +287,11 @@ Search:
 SupplierManagement:
     * [medium] [Doc] Create default letter Doc (with/without letter head)
     * [medium] [Payable] Print payable
+#    * [medium] [Analysis] Purchase EUR + gross profit
+#    * [medium] [Analysis] Quantity order, quantity articles
+#    * [medium] [Analysis] Segment purchase
+#    * [medium] [Analysis] Top articles
+#    * [medium] [Analysis] Cross selling
 
 Support:
     * [easy] Allow support/tickets to be transformed to Q&A question and answers
