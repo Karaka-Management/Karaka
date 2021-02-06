@@ -100,6 +100,10 @@ Billing:
 #    * [medium] Show invoice pdf in preview?
 #    * [medium] Only create pdf preview if preview is visible?
 #    * [medium] [Analysis] Gross profit
+    * [medium] Create a performance 'past' and 'future' limit to prevent going too far into the past or future
+    * [medium] Save number-format and the rendered number in the bill, currently only the format is saved and rendered on the fly which is bad for searching and performance. Maybe even ONLY save the number?
+    * [medium] Save original net value and discounted net value (currently only discounted net value is stored)
+    * [medium] Save discounts
 
 Calendar:
     * [easy] [Tags] Implement tags for events
@@ -188,6 +192,10 @@ ItemManagement:
 #    * [medium] [Analysis] quantity sales, quantity customers
 #    * [medium] [Analysis] Cross selling
 #    * [medium] [Analysis] Top customers
+    * [medium] Show different prices on item profile frontpage (e.g. domestic, export, quantity discount)
+    * [medium] Show additional important item information for sales/purchase, currently too controlling/stats focused
+    * [medium] Consider to add a purchased analysis, used analysis and manufactured analysis (currently only sales focused = e.g. monthly sales)
+    * [medium] It probably makes more sense to create analysis tabs instead of putting the charts on the frontpage (e.g. sales analysis, purchase analysis, production analysis)
 
 Job:
     * [medium] Checklist creation job
@@ -229,6 +237,7 @@ Media:
     * [medium] Allow the modification of collections
     * [medium] Implement external resources (urls, dropbox, aws, ...)
     * [medium] Allow to edit the breadcrumbs, which replaces them with a text field which can be changed then than automatically loads the new path
+    * [medium] There is a Media "type" in order to identify media for specific purposes (the name could be different, don't remember). This should be a relation table because a media element may be used for different purposes
 
 Messages:
     * [hard] Implement push notification
