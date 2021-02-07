@@ -41,6 +41,7 @@ phpOMS:
     * [hard] [Email] Implement email sending and receiving
     * [hard] [Grammar] Implement schema modification grammar (alter tables)
     * [hard] [DataMapperAbstract] Performance improvement (intHash, ->getValue() vs. direct access for public members, allow transactions)
+    * [hard] [DataMapperAbstract] In some cases the array is required in the ::withConditional() function. This seems to be the case if a model doesn't have the condition but a sub-model has it. The mapper should simply not use the conditional if it doesn't exist in the mapper (see ItemManagement::BackendController or ClientManagement::BackendController with the BillMapper, this is a stupid fix)
 
 jsOMS:
     * [easy] [Speech] Remove the speech recognition wrapper once it becomes standard
@@ -97,6 +98,8 @@ Auditor:
 Billing:
 #    * [easy] Create default invoice layout
 #    * [easy] Create pdf creation function
+#    * [medium] Install bill templates
+#    * [medium] Create bill_pdf_create api call which is called in the demoSetup
 #    * [medium] Show invoice pdf in preview?
 #    * [medium] Only create pdf preview if preview is visible?
 #    * [medium] [Analysis] Gross profit
@@ -131,6 +134,8 @@ ClientManagement:
 #    * [medium] [Analysis] Segment sales
 #    * [medium] [Analysis] Top articles
 #    * [medium] [Analysis] Cross selling
+#    * [medium] [Analysis] Amount of invoices
+#    * [medium] [Analysis] Amount of different articles
 
 CMS:
 #    * [easy] Create a link to the app/page in the application view
@@ -186,16 +191,23 @@ HumanResourceTimeRecording:
 
 ItemManagement:
     * [easy] Create item list for purchasing
+    * [easy] Add validation pattern to atributes (regex)
+    * [easy] Use name for attribute identification (currently only used for localization)
     * [medium] [Label] Create default label layout
     * [medium] [Label] Create item specific label layout
 #    * [medium] [Analysis] Sales + gross profit
 #    * [medium] [Analysis] quantity sales, quantity customers
 #    * [medium] [Analysis] Cross selling
 #    * [medium] [Analysis] Top customers
+#    * [medium] [Analysis] Amount of customers
+#    * [medium] [Analysis] Amount of article sales
+#    * [medium] [Analysis] Amount of new customers
+#    * [medium] [Analysis] Cross selling articles
     * [medium] Show different prices on item profile frontpage (e.g. domestic, export, quantity discount)
     * [medium] Show additional important item information for sales/purchase, currently too controlling/stats focused
     * [medium] Consider to add a purchased analysis, used analysis and manufactured analysis (currently only sales focused = e.g. monthly sales)
     * [medium] It probably makes more sense to create analysis tabs instead of putting the charts on the frontpage (e.g. sales analysis, purchase analysis, production analysis)
+    * [hard] Make attributes mandatory (e.g. HC-code/tariff code number)
 
 Job:
     * [medium] Checklist creation job
