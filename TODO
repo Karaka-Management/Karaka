@@ -84,6 +84,7 @@ Orange-Management:
 
 Admin:
 #    * [easy] Make the temp password only viable for a limited amount of time, store the date time
+#    * [easy] [Groups] Count members per group for groups list
     * [medium] [UI] Add user & group settings
     * [medium] [UI] Add account/group removal from each other
     * [medium] [UI] Add permission removal from accounts/groups
@@ -92,6 +93,7 @@ Admin:
 
 Auditor:
 #    * [easy] Create foldable/tree view for json logs
+#    * [easy] Show type in list (CREATE, READ, UPDATE, ...)
     * [medium] Implement blockchain for the auditor. This either requires database locking (slow), modification of audit logs after inserts (slow) or a background process which calculates the blockchain (ok).
 #    * [medium] Create printable reports based on specific changes
 
@@ -214,10 +216,10 @@ Job:
     * [medium] Exchange job
 
 Kanban:
-    * [easy] Implement Kanban specific styles
-    * [easy] Improve dashboard with description and tags and "Open" to open the board, similar to the News "More" button
+#    * [easy] Implement Kanban specific styles
+#    * [easy] Improve dashboard with description and tags and "Open" to open the board, similar to the News "More" button
     * [easy] Allow board templates? maybe at least colors?
-    * [easy] Show comment count for card in board
+#    * [easy] Show comment count for card in board
     * [easy] Allow card templates? maybe at least colors?
     * [easy] Implement archive list for boards
     * [easy] Implement board status (archive, public, inactive)
@@ -227,21 +229,21 @@ Kanban:
     * [medium] Consider to replace card comments with normal comments from the Comments module
 
 Knowledgebase:
-    * [easy] Implement category create/edit view
+#    * [easy] Implement category create/edit view
 #    * [easy] Implement doc create/edit view (similar to news/editor)
 #    * [easy] Add category back/up button when in a subcategory
 
 Media:
 #    * [easy] Create a home link to the user folder as a first element or as a button at the top of the media list
 #    * [easy] Create foldable/tree view for json files
-    * [medium] Allow to download a collection/directory
+#    * [medium] Allow to download a collection/directory as zip
     * [medium] Allow to download files (single files and by checkmarking multiple files)
     * [medium] Allow to create a collection when uploading multiple files
     * [medium] Validate file size on the frontend before uploading
     * [medium] Automatically change the file encoding of text files
     * [medium] Enable image interlacing (in the past there was a bug)
-    * [medium] Implement media encryption/decryption (optionally)
-    * [medium] Implement media password protection for read (optionally)
+#    * [medium] Implement media encryption/decryption (optionally)
+#    * [medium] Implement media password protection for read (optionally)
     * [medium] Implement resumable uploads
     * [medium] Implement drag & drop uploads
     * [medium] Implement drag & drop moving of files/directories in the frontend
@@ -250,6 +252,7 @@ Media:
     * [medium] Implement external resources (urls, dropbox, aws, ...)
     * [medium] Allow to edit the breadcrumbs, which replaces them with a text field which can be changed then than automatically loads the new path
     * [medium] There is a Media "type" in order to identify media for specific purposes (the name could be different, don't remember). This should be a relation table because a media element may be used for different purposes
+ #   * [medium] Implement temporary file storage (very useful for making files downloadable for a limited time). Maybe create a new temp file directory or database collection where a available_until timedate gets defined (must be handled in the database)
 
 Messages:
     * [hard] Implement push notification
