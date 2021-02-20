@@ -1,21 +1,18 @@
 General:
-    * [easy] Add more translation components which are currently hard coded
+    * [easy] Table sort should be highlighted if active (e.g. use radio + background color like tag or different color like blue for active and grey/black for inactive)
     * [easy] Map for Macao is missing or named wrong
     * [easy] Map for Kosovo is missing or named wrong
     * [easy] Map for AlandIsland is missing or named wrong
     * [easy] Find uncovered lines of code and write unit tests for these uncovered lines
     * [easy] Implement covariance for function parameters once it is available (in many places it's already hinted in the docblock)
-    * [easy] Replace the custom lazy loading for images with the browser supported lazy loading version
-#    * [easy] Create a bootstrap file and config file for every module in order to individually test them
     * [easy] Create database UML diagrams for every module
     * [medium] When returning models (backend and api requests) the permission should be checked
     * [medium] Add a good way to turn on/off voice recognition (probably a button somewhere)
     * [medium] Add a visual indication if the microphone is on (maybe an icon in the search bar or next to the user profile icon)
-    * [medium] During the install process check the correct permissions for the directories and files, if they are missing set them. this requires the install script (termina, web, etc.) to be executed with the correct permissions
     * [medium] Implement a setting which lets users see all content no matter the content language
     * [medium] Implement an approval module which only runs a module/user specific action once it is approved. This functionality might be part of the Workflow module or at least smoothly interact with this module.
     * [medium] The modules use the module name for identification in many places where the module id should be used for performance reasons
-    * [medium] Bug: If the pagination (next/previous) is implemented in a tab (e.g. second tab) the newly loaded page after clicking on 'next' shows the first tab instead of the tab which contains the list
+    * [medium] Bug: If the pagination (next/previous) is implemented in a tab (e.g. second tab) the newly loaded page after clicking on 'next' shows the first tab instead of the tab which contains the list. The next/previous button/link should contain the # from the url
     * [medium] Many models would benefit from unit and app association. Sometimes models should only be available/associated with a specific unit (e.g. news article for website, backend, shop etc.)
     * [medium] After completely figuring out permissions every API function needs to be checked if it behaves correctly depending on the different permissions (e.g. user created the model, user who is allowed to access the model but not change it, ...).
     * [hard] Implement oauth2 client
@@ -47,6 +44,7 @@ jsOMS:
     * [easy] [Speech] Remove the speech recognition wrapper once it becomes standard
     * [medium] [AdvancedInput] In the AdvancedInput, implement pre-defined values (e.g. pre-defined/default tags)
     * [medium] [AdvancedInput] In the AdvancedInput, implement mandatory pre-defined values (e.g. tags which cannot be deleted)
+    * [medium] [Table] If column is numeric sort numerically, not by character (1,2,3 vs, 1, 10, 11, 12)
     * [medium] [VoiceCommand] Implement table/link navigation
     * [medium] [Table] Implement export (local=visible data, external=all data)
     * [medium] [Table] Implement filtering (local=visible data, external=all data)
@@ -83,8 +81,6 @@ Orange-Management:
     * [medium] Implement forgott password incl. rate limit for "send forgotten password"
 
 Admin:
-#    * [easy] Make the temp password only viable for a limited amount of time, store the date time
-#    * [easy] [Groups] Count members per group for groups list
     * [medium] [UI] Add user & group settings
     * [medium] [UI] Add account/group removal from each other
     * [medium] [UI] Add permission removal from accounts/groups
@@ -92,19 +88,17 @@ Admin:
     * [medium] [Contacts] Find a way to hide some contact/address information for some modules. Some information are only meant for specific modules (e.g. private address)
 
 Auditor:
-#    * [easy] Create foldable/tree view for json logs
-#    * [easy] Show type in list (CREATE, READ, UPDATE, ...)
+    * [easy] Create foldable/tree view for json logs
     * [medium] Implement blockchain for the auditor. This either requires database locking (slow), modification of audit logs after inserts (slow) or a background process which calculates the blockchain (ok).
 #    * [medium] Create printable reports based on specific changes
 
 Billing:
 #    * [easy] Create default invoice layout
 #    * [easy] Create pdf creation function
-#    * [medium] Install bill templates
 #    * [medium] Create bill_pdf_create api call which is called in the demoSetup
 #    * [medium] Show invoice pdf in preview?
 #    * [medium] Only create pdf preview if preview is visible?
-#    * [medium] [Analysis] Gross profit
+#    * [medium] [Analysis] Gross profit (total bill and elements)
     * [medium] Create a performance 'past' and 'future' limit to prevent going too far into the past or future
     * [medium] Save number-format and the rendered number in the bill, currently only the format is saved and rendered on the fly which is bad for searching and performance. Maybe even ONLY save the number?
     * [medium] Save original net value and discounted net value (currently only discounted net value is stored)
@@ -126,11 +120,16 @@ Checklist:
     * [medium] Create job which can automatically create checklists (e.g. end of month checklists)
 
 ClientManagement:
+    * [easy] [Attributes] Clients should have attributes like items (e.g. tax-id, etc.)
+    * [easy] Add validation pattern to attributes (regex)
+    * [easy] Some attributes should be mandatory for every client
     * [medium] [Map] Add a geo map of the customers location (either on a real map or on the already added svg maps)
     * [medium] [Map] Create a map of all customers (maybe as datapoints or as heatmaps)
     * [medium] [Map] Create a map of sales (meybe as datapoints or as heatmaps)
     * [medium] [Doc] Create default letter Doc (with/without letter head)
     * [medium] [Receivable] Print receivable
+    * [medium] [Permission] Make customers only visable/readable to authorized people (e.g. sales rep may only see his own clients)
+    * [medium] [Permission] Client view should be customizable since different groups have different interests and read permissions (e.g. sales reps, finance, etc.)
 #    * [medium] [Analysis] Sales + Gross profit
 #    * [medium] [Analysis] Quantity orders + quantity articles
 #    * [medium] [Analysis] Segment sales
@@ -138,6 +137,7 @@ ClientManagement:
 #    * [medium] [Analysis] Cross selling
 #    * [medium] [Analysis] Amount of invoices
 #    * [medium] [Analysis] Amount of different articles
+    * [medium] Allow to specifiy the accounting account (e.g. a customer who is a supplier may have the same account)
 
 CMS:
 #    * [easy] Create a link to the app/page in the application view
@@ -147,7 +147,8 @@ CMS:
     * [medium] Implement line numbers
 
 Comments:
-    * [medium] Add configuration options (allow/disallow responses, upvotes, max length, edits)
+#    * [easy] Show comment createdAt and createdBy
+    * [medium] Implement active, comment, voting, editing flags in UI and backend
 
 ContractManagement:
     * [easy] Implement basic setup
@@ -159,11 +160,11 @@ Dashboard:
     * [medium] Implement a way for other modules to provide dashboard components (allow modules to register themselves in a database table)
 
 DatabaseEditor:
-#    * [easy] Implement basic functionality / queries in UI
+    * [medium] Implement basic functionality / queries in UI
 
 Editor:
     * [medium] Implement versioning
-#    * [medium] Auto recognize csv files and create table view editor
+    * [hard] Auto recognize csv files and create table view editor
     * [hard] Create special markdown content (calendar, chart, task, news, comment, media, ...)
 
 EventManagement:
@@ -171,9 +172,6 @@ EventManagement:
     * [medium] Add milestones
 
 Exchange:
-#    * [medium] The dashboard should show the last imports/export log list
-    * [medium] Save and show information about the last export/import in order to prevent duplicated imports
-#    * [medium] Create a language exporter/importer for language files for creating/managing static translation files
     * [hard] Create a job which automatically runs a import/export script
 
 Finance:
@@ -189,14 +187,18 @@ HumanResourceManagement:
 
 HumanResourceTimeRecording:
     * [medium] Allow session delete/modification/creation afterwards
-    * [medium] Create approval process for delete/modification/creation afterwards (with logging)
+    * [medium] Create approval process for delete/modification/creation afterwards (with logging) (e.g. HR department or head of department)
+    * [medium] Create overview for HR or head of department
+    * [medium] Create overview for employee
 
 ItemManagement:
     * [easy] Create item list for purchasing
-    * [easy] Add validation pattern to atributes (regex)
+    * [easy] Add validation pattern to attributes (regex)
+    * [easy] Some attributes should be mandatory for every item
     * [easy] Use name for attribute identification (currently only used for localization)
     * [medium] [Label] Create default label layout
     * [medium] [Label] Create item specific label layout
+    * [medium] [Permission] Item view should be customizable since different groups have different interests and read permissions (e.g. sales reps, finance, etc.)
 #    * [medium] [Analysis] Sales + gross profit
 #    * [medium] [Analysis] quantity sales, quantity customers
 #    * [medium] [Analysis] Cross selling
@@ -217,15 +219,14 @@ Job:
 
 Kanban:
 #    * [easy] Implement Kanban specific styles
-#    * [easy] Improve dashboard with description and tags and "Open" to open the board, similar to the News "More" button
     * [easy] Allow board templates? maybe at least colors?
-#    * [easy] Show comment count for card in board
     * [easy] Allow card templates? maybe at least colors?
     * [easy] Implement archive list for boards
     * [easy] Implement board status (archive, public, inactive)
     * [easy] Implement card status (archive, public, inactive)
     * [easy] Bug:
     * [medium] Implement unread cards/comments notification/highlight
+    * [medium] Highlight card with new comments (e.g. make comment count background red?)
     * [medium] Consider to replace card comments with normal comments from the Comments module
 
 Knowledgebase:
@@ -234,8 +235,9 @@ Knowledgebase:
 #    * [easy] Add category back/up button when in a subcategory
 
 Media:
+#    * [easy] Create zip/gz view which allows to see the content of the zip file
 #    * [easy] Create a home link to the user folder as a first element or as a button at the top of the media list
-#    * [easy] Create foldable/tree view for json files
+#    * [easy] Create tags for media files
 #    * [medium] Allow to download a collection/directory as zip
     * [medium] Allow to download files (single files and by checkmarking multiple files)
     * [medium] Allow to create a collection when uploading multiple files
@@ -252,7 +254,7 @@ Media:
     * [medium] Implement external resources (urls, dropbox, aws, ...)
     * [medium] Allow to edit the breadcrumbs, which replaces them with a text field which can be changed then than automatically loads the new path
     * [medium] There is a Media "type" in order to identify media for specific purposes (the name could be different, don't remember). This should be a relation table because a media element may be used for different purposes
- #   * [medium] Implement temporary file storage (very useful for making files downloadable for a limited time). Maybe create a new temp file directory or database collection where a available_until timedate gets defined (must be handled in the database)
+ #   * [medium] Implement temporary file storage (very useful for making files downloadable for a limited time). Maybe create a new temp file directory or database collection where a available_until timedate gets defined (must be handled in the database). The biggest problem is how to delete them, this requires a background process/task scheduler. Additionally, these files must have permissions because they may be only for one user or a group of users.
 
 Messages:
     * [hard] Implement push notification
@@ -269,8 +271,6 @@ Navigation:
     * [medium] Create settings page which allows to modify the navigation in the module settings
 
 News:
-#    * [easy] Show created date
-#    * [easy] Show created by with link to profile
     * [easy] Implement email/message notification on create
     * [medium] Allow tag modification
     * [medium] Fix bug where content overflows
@@ -309,6 +309,9 @@ Search:
     * [medium] Implement global search hook (every module performs a search based on the search)
 
 SupplierManagement:
+    * [easy] [Attributes] Suppliers should have attributes like items (e.g. tax-id, etc.)
+    * [easy] Add validation pattern to attributes (regex)
+    * [easy] Some attributes should be mandatory for every supplier
     * [medium] [Doc] Create default letter Doc (with/without letter head)
     * [medium] [Payable] Print payable
 #    * [medium] [Analysis] Purchase EUR + gross profit
@@ -316,6 +319,7 @@ SupplierManagement:
 #    * [medium] [Analysis] Segment purchase
 #    * [medium] [Analysis] Top articles
 #    * [medium] [Analysis] Cross selling
+    * [medium] Allow to specifiy the accounting account (e.g. a customer who is a supplier may have the same account)
 
 Support:
     * [easy] Allow support/tickets to be transformed to Q&A question and answers

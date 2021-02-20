@@ -166,3 +166,6 @@
 [submodule "Modules/Billing"]
 	path = Modules/Billing
 	url = https://github.com/Orange-Management/oms-Billing.git
+[submodule "Modules/WarehouseManagement"]
+	path = Modules/WarehouseManagement
+	url = https://github.com/Orange-Management/oms-WarehouseManagement.git

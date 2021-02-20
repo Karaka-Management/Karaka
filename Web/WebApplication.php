@@ -96,7 +96,9 @@ class WebApplication extends ApplicationAbstract
                 $this->sessionManager->save();
             }
 
-            $response->header->push();
+            if (!$response->header->isLocked()) {
+                $response->header->push();
+            }
 
             if (isset($this->sessionManager)) {
                 $this->sessionManager->lock();

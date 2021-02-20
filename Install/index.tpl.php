@@ -93,7 +93,7 @@
                 features. All critical elements must be fixed before you can continue with the installation.</p>
 
                 <p>For help please check our <a href="https://orange-management.org">Installation Guide</a>.</p>
-                <?php $isOK = \version_compare('7.2.0', \PHP_VERSION) < 1 && \extension_loaded('pdo'); ?>
+                <?php $isOK = \version_compare('8.0.0', \PHP_VERSION) < 1 && \extension_loaded('pdo'); ?>
                 <table>
                     <thead>
                         <tr>
@@ -103,10 +103,17 @@
                             <th>Your Environment
                     <tbody>
                         <tr>
-                            <td class="<?= \version_compare('7.2.0', \PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>"><?= \version_compare('7.2.0', \PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \version_compare('8.0.0', \PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>"><?= \version_compare('8.0.0', \PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>
                             <td>Critcal
-                            <td>PHP version >= 7.2.0
+                            <td>PHP version >= 8.0.0
                             <td><?= \PHP_VERSION; ?>
+                        <tr>
+                            <td class="<?= \is_writable(__DIR__ . '/../') && \is_writable(__DIR__ . '/../Modules') && \is_writable(__DIR__ . '/../Web') ? 'OK' : 'FAILED'; ?>"><?= \is_writable(__DIR__ . '/../') && \is_writable(__DIR__ . '/../Modules') && \is_writable(__DIR__ . '/../Web') ? 'OK' : 'FAILED'; ?>
+                            <td>Critcal
+                            <td>File permissions
+                            <td>Install (<?= \decoct(\fileperms(__DIR__ . '/../') & 0777); ?>),
+                                Web (<?= \decoct(\fileperms(__DIR__ . '/../Web') & 0777); ?>),
+                                Modules (<?= \decoct(\fileperms(__DIR__ . '/../Modules') & 0777); ?>),
                         <tr>
                             <td class="<?= \extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>
                             <td>Critcal

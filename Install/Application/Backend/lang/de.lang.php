@@ -40,6 +40,7 @@ return [[
     'More'                  => 'Mehr',
     'Navigation'            => 'Navigation',
     'Next'                  => 'Weiter',
+    'Open'                  => 'Oeffnen',
     'Password'              => 'Passwort',
     'Previous'              => 'Zurück',
     'PrivacyPolicy'         => 'Datenschutzerklärung',
