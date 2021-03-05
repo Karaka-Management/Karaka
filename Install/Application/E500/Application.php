@@ -81,7 +81,7 @@ final class Application
         $pageView = new View($this->app->l11nManager, $request, $response);
         $pageView->setTemplate('/Web/E500/index');
         $response->set('Content', $pageView);
-        $response->header->setStatusCode(RequestStatusCode::R_500);
+        $response->header->status = RequestStatusCode::R_500;
 
         /* Load theme language */
         if (($path = \realpath($oldPath = __DIR__ . '/lang/' . $response->getLanguage() . '.lang.php')) === false) {
