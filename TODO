@@ -1,3 +1,13 @@
+NEXT:
+    * show stock in item list
+    * show all lots and quantities in item
+    * consider to directly assign lots/serial numbers to items instead of only having movements keeping track of it?
+    * implement eventBillElementUpdate
+    * create accounts
+    * create account structure
+    * create account structure formula and conditional handling
+    * create booking of sales and purchase bills
+
 General:
     * [easy] Table sort should be highlighted if active (e.g. use radio + background color like tag or different color like blue for active and grey/black for inactive)
     * [easy] Map for Macao is missing or named wrong
@@ -21,6 +31,7 @@ General:
     * [hard] Implement QR code generator
     * [hard] Implement datamatrix generator
     * [hard] Implement code reader (barcode, datamatrix, qr)
+    * [hard] [Hooks] Loading hooks is too slow since all hooks are loaded for every request. Find a way to only load hooks if necessary and only the hooks we need (somewhat similar to navigation loading)
 
 phpOMS:
     * [medium] [Matrix] Create unit test for `inverse()`
@@ -30,6 +41,7 @@ phpOMS:
     * [medium] [QueryBuilder] Implement missing functions such as sum, count, ...
     * [medium] [DataMapper] Reconsider the order of the `get(*)` parameters (e.g.depths/fill)
     * [medium] Once read only variables become available many models can remove getter/setter function (e.g. ApplicationAbstract, ConnectionAbstract and various models)
+#    * [medium] [DataMapper] Implement hasMany default parameters in mappers (e.g. limit, sortBy, sortOrder). This is useful for Item profile, Customer profile, Supplier profile etc. Alternatively find a way to implement it in ::withConditionals ?! Or do we need a new function ::withParameters('memberName/columnName?', [options]). Or just a ::with() function which we also need to specify for the future for which relations need to be loaded at all e.g. ::with('files', ['limit' => 5, 'sortBy' => 'createdAt', 'sortOrder' => 'ASC'], [Client::class]). I think the ::with(...) makes the most sense. Maybe this can also be combined with the withConditional. This way we can remove/merge withConditional. There is one problem, maybe we need a ::onlyWith function, because we don't want to load all relations
     * [hard] [DataMapper] In the DataMapper when using getQuery() and then making a ->where(...) the where will often fail because the table name is suffixed with an integer e.g. `_3`. This means you need to know the depth of the query in order to manually write it. The query builder should figure this out by himself. It knows the `_INT` value from the `FROM` clause and should just overwrite in the where clause where needed. See the GSD Importer from the exchange module for reference.
     * [hard] [DataMapper] In the DataMapper implement iterable fetch. Currently all models are returned in one go, additionally an iterator should be returned for iterable access in case of MANY results (e.g. Exchange module)
     * [hard] [DataMapper] Only update changed relations (e.g. allow coder to tell the datamapper what changed)
@@ -39,6 +51,7 @@ phpOMS:
     * [hard] [Grammar] Implement schema modification grammar (alter tables)
     * [hard] [DataMapperAbstract] Performance improvement (intHash, ->getValue() vs. direct access for public members, allow transactions)
     * [hard] [DataMapperAbstract] In some cases the array is required in the ::withConditional() function. This seems to be the case if a model doesn't have the condition but a sub-model has it. The mapper should simply not use the conditional if it doesn't exist in the mapper (see ItemManagement::BackendController or ClientManagement::BackendController with the BillMapper, this is a stupid fix)
+    * [hard] [Router+EventManager] Instead of doing 100% regex matching, combine it with a tree search, this should be faster
 
 jsOMS:
     * [easy] [Speech] Remove the speech recognition wrapper once it becomes standard
@@ -123,6 +136,7 @@ ClientManagement:
     * [easy] [Attributes] Clients should have attributes like items (e.g. tax-id, etc.)
     * [easy] Add validation pattern to attributes (regex)
     * [easy] Some attributes should be mandatory for every client
+    * [medium] [Notes] Add note types (e.g. phone, email, meeting, ...)
     * [medium] [Map] Add a geo map of the customers location (either on a real map or on the already added svg maps)
     * [medium] [Map] Create a map of all customers (maybe as datapoints or as heatmaps)
     * [medium] [Map] Create a map of sales (meybe as datapoints or as heatmaps)
@@ -149,6 +163,7 @@ CMS:
 Comments:
 #    * [easy] Show comment createdAt and createdBy
     * [medium] Implement active, comment, voting, editing flags in UI and backend
+    * [medium] Consider to implement Media files (e.g. attach files)
 
 ContractManagement:
     * [easy] Implement basic setup
@@ -163,7 +178,10 @@ DatabaseEditor:
     * [medium] Implement basic functionality / queries in UI
 
 Editor:
+    * [medium] Consider to add media to document?! e.g. images, ...
+    * [medium] Add document type (e.g. phone, meeting, email). Maybe use tags? Or are tags something else?!
     * [medium] Implement versioning
+    * [medium] Allow download as markdown, text, pdf, word
     * [hard] Auto recognize csv files and create table view editor
     * [hard] Create special markdown content (calendar, chart, task, news, comment, media, ...)
 
@@ -172,6 +190,7 @@ EventManagement:
     * [medium] Add milestones
 
 Exchange:
+    * [medium] Check if key is used in module templates, if not prefix with * (trim * on import)
     * [hard] Create a job which automatically runs a import/export script
 
 Finance:
@@ -196,6 +215,8 @@ ItemManagement:
     * [easy] Add validation pattern to attributes (regex)
     * [easy] Some attributes should be mandatory for every item
     * [easy] Use name for attribute identification (currently only used for localization)
+    * [medium] [Notes] Add note types (e.g. phone, email, meeting, ...)
+    * [medium] Impl. optional fixed number length by impl. fixed id length with left padding.
     * [medium] [Label] Create default label layout
     * [medium] [Label] Create item specific label layout
     * [medium] [Permission] Item view should be customizable since different groups have different interests and read permissions (e.g. sales reps, finance, etc.)
@@ -312,6 +333,7 @@ SupplierManagement:
     * [easy] [Attributes] Suppliers should have attributes like items (e.g. tax-id, etc.)
     * [easy] Add validation pattern to attributes (regex)
     * [easy] Some attributes should be mandatory for every supplier
+    * [medium] [Notes] Add note types (e.g. phone, email, meeting, ...)
     * [medium] [Doc] Create default letter Doc (with/without letter head)
     * [medium] [Payable] Print payable
 #    * [medium] [Analysis] Purchase EUR + gross profit
@@ -336,6 +358,9 @@ Tasks:
     * [medium] Allow batch handling of tasks in the dashboard/overview for faster interaction (e.g. select and close)
     * [medium] Create a user calender for tasks which only shows when tasks are due
     * [hard] Implement has seen and unseen
+
+WarehouseManagement:
+    * [easy] Create stock sub-locations (e.g. a location/shelf has different racks/compartments)
 
 Workflow:
     * [medium] Create approval process which can be used by many modules (modules are allowed to provide their own approval templates)
