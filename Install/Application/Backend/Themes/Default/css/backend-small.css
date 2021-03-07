@@ -1,7 +1,7 @@
 :root {
   --main-background: rgb(246, 246, 246);
   --main-background-highlight: #3697db;
-  --input-border: rgba(218, 218, 218, 0.4);
+  --input-border: rgba(218, 218, 218, 1);
   --input-border-active: rgba(54, 150, 219, 0.7);
   --input-color: rgba(0, 0, 0, 0.7);
   --input-color-active: rgba(0, 0, 0, 0.8);
