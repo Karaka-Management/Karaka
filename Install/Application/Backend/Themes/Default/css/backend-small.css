@@ -1,7 +1,7 @@
 :root {
   --main-background: rgb(246, 246, 246);
   --main-background-highlight: #3697db;
-  --input-border: rgba(218, 218, 218, 1);
+  --input-border: rgba(218, 218, 218, 0.4);
   --input-border-active: rgba(54, 150, 219, 0.7);
   --input-color: rgba(0, 0, 0, 0.7);
   --input-color-active: rgba(0, 0, 0, 0.8);
@@ -74,7 +74,7 @@ main {
     flex-flow: row;
     flex-shrink: 0;
     height: 65px;
-    box-shadow: 0 0 5px 1px rgba(72, 71, 114, 0.2); }
+    box-shadow: 0 0 3px 1px rgba(72, 71, 114, 0.3); }
     main > header > form {
       display: flex;
       flex: 1;
