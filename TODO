@@ -1,9 +1,89 @@
+Next:
+        Clients/Suppliers
+    [medium]    [Doc] Create default letter Doc (with/without letter head)
+        Comments
+    [medium]    Implement active, comment, voting, editing flags in UI and backend
+    [medium]    Consider to implement Media files (e.g. attach files)
+        Kanban
+    [easy]      Implement Kanban specific styles
+    [easy]      Allow board templates? maybe at least colors?
+    [easy]      Allow card templates? maybe at least colors?
+    [easy]      Implement archive list for boards
+    [easy]      Implement board status (archive, public, inactive)
+    [easy]      Implement card status (archive, public, inactive)
+    [medium]    Implement unread cards/comments notification/highlight
+    [medium]    Highlight card with new comments (e.g. make comment count background red?)
+    [medium]    Consider to create on navigation language file (same as routing files) during the installation process
+    [medium]    Create settings page which allows to modify the navigation in the module settings
+        Auditor
+    [medium]   Create printable reports based on specific changes
+        Client
+    [medium]    [List] Create a second optional list view where the item is shown at the bottom of the list which allows the user to the the item list at the top and the item itself below. Either create a custom view or somehow append an iframe below the list which is loaded based on the selected item
+    [medium]    [Analysis] Sales + gross profit
+    [medium]    [Analysis] quantity sales, quantity customers
+    [medium]    [Analysis] Cross selling
+    [medium]    [Analysis] Top customers
+    [medium]    [Analysis] Amount of customers
+    [medium]    [Analysis] Amount of article sales
+    [medium]    [Analysis] Amount of new customers
+    [medium]    [Analysis] Cross selling articles
+    [medium]    It probably makes more sense to create analysis tabs instead of putting the charts on the frontpage
+                    (e.g. sales analysis, purchase analysis, production analysis)
+    [hard]      Make attributes mandatory (e.g. HC-code/tariff code number)
+        Suppliers
+    [medium]    [List] Create a second optional list view where the item is shown at the bottom of the list which allows the user to the the item list at the top and the item itself below. Either create a custom view or somehow append an iframe below the list which is loaded based on the selected item
+    [medium]    [Analysis] Sales + gross profit
+    [medium]    [Analysis] quantity sales, quantity customers
+    [medium]    [Analysis] Cross selling
+    [medium]    [Analysis] Top customers
+    [medium]    [Analysis] Amount of customers
+    [medium]    [Analysis] Amount of article sales
+    [medium]    [Analysis] Amount of new customers
+    [medium]    [Analysis] Cross selling articles
+    [medium]    It probably makes more sense to create analysis tabs instead of putting the charts on the frontpage
+                    (e.g. sales analysis, purchase analysis, production analysis)
+    [hard]      Make attributes mandatory (e.g. HC-code/tariff code number)
+        Item
+    [medium]    [List] Create a second optional list view where the item is shown at the bottom of the list which allows the user to the the item list at the top and the item itself below. Either create a custom view or somehow append an iframe below the list which is loaded based on the selected item
+    [medium]    [Analysis] Sales + gross profit
+    [medium]    [Analysis] quantity sales, quantity customers
+    [medium]    [Analysis] Cross selling
+    [medium]    [Analysis] Top customers
+    [medium]    [Analysis] Amount of customers
+    [medium]    [Analysis] Amount of article sales
+    [medium]    [Analysis] Amount of new customers
+    [medium]    [Analysis] Cross selling articles
+    [medium]    It probably makes more sense to create analysis tabs instead of putting the charts on the frontpage
+                    (e.g. sales analysis, purchase analysis, production analysis)
+    [hard]      Make attributes mandatory (e.g. HC-code/tariff code number)
+        ContractManagement:
+    [easy]      Implement basic setup
+        Editor:
+    [medium]    Consider to add media to document?! e.g. images, ...
+    [medium]    Add document type (e.g. phone, meeting, email). Maybe use tags? Or are tags something else?!
+    [medium]    Allow download as markdown, text, PDF, word
+        QA:
+    [easy]      Implement QA specific styles
+    [easy]      Implement voting
+    [easy]      Implement accepting answers
+    [easy]      Implement QA question raw
+    [easy]      Implement QA answer raw
+    [easy]      Implement question create view
+    [easy]      Add question answer component/like comment in question
+    [medium]    Implement user profile pictures
+    [medium]    Implement QA specific CSS
+        Support:
+    [easy]      Allow support/tickets to be transformed to Q&A question and answers
+    [easy]      Allow Q&A to be transformed to support
+        Tasks:
+    [easy]      [Analyzer] Implement analyzing functionality (tasks created, answered, time required to finish task,
+                    always in time?)
+
 General:
     [easy]      Map for Macao is missing or named wrong
     [easy]      Map for Kosovo is missing or named wrong
     [easy]      Map for AlandIsland is missing or named wrong
     [easy]      Find uncovered lines of code and write unit tests for these uncovered lines
-    [easy]      Implement covariance for function parameters once it is available (in many places it's already hinted
                     in the docblock)
     [easy]      Create database UML diagrams for every module
     [medium]    When returning models (backend and API requests) the permission should be checked
@@ -31,52 +111,51 @@ General:
     [hard]      Implement code reader (bar code, data matrix, qr)
     [hard]      [hooks] Loading hooks is too slow since all hooks are loaded for every request. Find a way to only load
                     hooks if necessary and only the hooks we need (somewhat similar to navigation loading)
+        Monitoring:
+    [easy]      Implement integrity check based on installed version and remote hash list (see monitoring-security.tpl.php)
 
 phpOMS:
-    [medium]    [Matrix] Create unit test for `inverse()`
     [medium]    [Graph] Implement missing functionality (see `Graph.php` for details)
-    [medium]    [KMeans] In some weird cases the Cluster test fails. This happens approximately 1 / 100 test runs
+    [medium]    [KMeans] In some weird cases the Cluster test fails. This happens approximately 5 / 100 test runs
                     (invalid center coordinate value)
-    [hard]      Implement a decent full text search which finds texts that are similar (e.g. similar spelling, only some
-                    words in between, maybe different word order, etc.)
     [medium]    [QueryBuilder] Implement missing functions such as sum, count, ...
     [medium]    [DataMapper] Reconsider the order of the `get(*)` parameters (e.g.depths/fill)
     [medium]    Once read only variables become available many models can remove getter/setter function
                     (e.g. ApplicationAbstract, ConnectionAbstract and various models)
     [medium]    [DataMapper] Implement hasMany default parameters in mappers (e.g. limit, sortBy, sortOrder).
-                    This is useful for Item profile, Customer profile, Supplier profile etc. Alternatively find a way to
-                    implement it in ::withConditionals ?! Or do we need a new function
-                    ::withParameters('memberName/columnName?', [options]). Or just a ::with() function which we also need
-                    to specify for the future for which relations need to be loaded at all
-                    e.g. ::with('files', ['limit' => 5, 'sortBy' => 'createdAt', 'sortOrder' => 'ASC'], [Client::class]).
-                    I think the ::with(...) makes the most sense. Maybe this can also be combined with the withConditional.
-                    This way we can remove/merge withConditional. There is one problem, maybe we need a ::onlyWith
-                    function, because we don't want to load all relations
-    [hard]      [DataMapper] In the DataMapper when using getQuery() and then making a ->where(...) the where will often
-                    fail because the table name is suffixed with an integer e.g. `_3`. This means you need to know the
-                    depth of the query in order to manually write it. The query builder should figure this out by himself.
-                    It knows the `_INT` value from the `FROM` clause and should just overwrite in the where clause where
-                    needed. See the GSD Importer from the exchange module for reference.
+                    This is useful for Item profile, Customer profile, Supplier profile etc. Alternatively find a way
+                    to implement it in ::withConditionals ?! Or do we need a new function
+                    ::withParameters('memberName/columnName?', [options]). Or just a ::with() function which we also
+                    need  to specify for the future for which relations need to be loaded at all
+                    e.g. ::with('files', ['limit' => 5, 'sortBy' => 'createdAt', 'sortOrder' => 'ASC'], [Client::class])
+                    I think the ::with(...) makes the most sense. Maybe this can also be combined with the
+                    withConditional. This way we can remove/merge withConditional. There is one problem, maybe we need
+                    a ::onlyWith function, because we don't want to load all relations
+    [hard]      [DataMapper] In the DataMapper when using getQuery() and then making a ->where(...) the where will
+                    often fail because the table name is suffixed with an integer e.g. `_3`. This means you need to
+                    know the depth of the query in order to manually write it. The query builder should figure this out
+                    by himself. It knows the `_INT` value from the `FROM` clause and should just overwrite in the where
+                    clause where needed. See the GSD Importer from the exchange module for reference.
     [hard]      [DataMapper] In the DataMapper implement iterable fetch. Currently all models are returned in one go,
                     additionally an iterator should be returned for iterable access in case of MANY results
                     (e.g. Exchange module)
     [hard]      [DataMapper] Only update changed relations (e.g. allow coder to tell the datamapper what changed)
     [hard]      [DataMapper] Implement get() where the coder can tell the datamapper which fields and relations to fill.
-    [hard]      [DataMapper] Implement `::withConditional()` results with a default alternative if the primary conditional
-                    is not met, and also a catch-all clause where optionally any result is returned if neither the primary
-                    or the alternative condition is met (this is extremely helpful for localization
-                    e.g. news article = show local language, alternatively English, alternatively any other first/best
-                    match).
+    [hard]      [DataMapper] The ::with() function uses blacklisting it should be changed to whitelisting for
+                    relations
     [hard]      [Email] Implement email sending and receiving
     [hard]      [Grammar] Implement schema modification grammar (alter tables)
-    [hard]      [DataMapperAbstract] Performance improvement (intHash, ->getValue() vs. direct access for public members,
-                    allow transactions)
-    [hard]      [DataMapperAbstract] In some cases the array is required in the ::withConditional() function. This seems
-                    to be the case if a model doesn't have the condition but a sub-model has it. The mapper should simply
-                    not use the conditional if it doesn't exist in the mapper (see ItemManagement::BackendController
-                    or ClientManagement::BackendController with the BillMapper, this is a stupid fix)
+    [hard]      [DataMapperAbstract] Performance improvement (intHash, ->getValue() vs. direct access for public
+                    members, allow transactions)
+    [hard]      [DataMapperAbstract] In some cases the array is required in the ::withConditional() function. This
+                    seems to be the case if a model doesn't have the condition but a sub-model has it. The mapper
+                    should simply not use the conditional if it doesn't exist in the mapper
+                    (see ItemManagement::BackendController or ClientManagement::BackendController with the BillMapper,
+                    this is a stupid fix)
     [hard]      [Router+EventManager] Instead of doing 100% regex matching, combine it with a tree search, this should
                     be faster
+    [hard]      Implement a decent full text search which finds texts that are similar (e.g. similar spelling, only
+                    some words in between, maybe different word order, etc.)
 
 jsOMS:
     [easy]      [Speech] Remove the speech recognition wrapper once it becomes standard
@@ -84,7 +163,8 @@ jsOMS:
     [medium]    [AdvancedInput] In the AdvancedInput, implement mandatory predefined values (e.g. tags which cannot be
                     deleted)
     [medium]    [Table] If column is numeric sort numerically, not by character (1,2,3 vs, 1, 10, 11, 12)
-    [medium]    [Table] If column is datetime sort by datetime, not by character (careful, datetime formats can be different)
+    [medium]    [Table] If column is datetime sort by datetime, not by character (careful, datetime formats can be
+                    different)
     [medium]    [Table] The table sort is WAY too slow!!! (e.g. editor-list by title).
                     One problem might be a bad algorithm (e.g. get content, and use sort() of js instead, check new
                     order and re-sort the table rows based on the ordered array).
@@ -112,19 +192,22 @@ jsOMS:
     [medium]    [UriFactory] Consider to parse EVERY URL with the Uri factory. This however might cause double parsing
                     and therefore bugs
     [medium]    The frontend loads the correct tab based on the provided fragment, but it is slow. Doing this in the
-                    backend can already fix this but the frontend implementation should be fixes, because this should be
-                    the job of the frontend.
+                    backend can already fix this but the frontend implementation should be fixed, because this should
+                    be the job of the frontend.
     [medium]    Implement drag sortable table rows (https://htmldom.dev/drag-and-drop-table-row/).
                     Implement the same concept for other elements, maybe abstract it straight away!
 
 cssOMS:
+    [easy]      Create a style for links in a table which should look like content links (e.g. for links to a
+                    different content then the row link)
     [medium]    Create drop down = select with search field
     [medium]    Create a slider element with two elements which the user can slide (optionally also only one slider
                     should be possible)
     [medium]    Implement nicer input validation (e.g. show check mark and x in the input fields / optionally)
     [medium]    Create a "more" foldable content area similar to the accordion which is closed by default
-                    e.g. for "hiding" advanced/detailed configuration options which are rarely used. A design could be a
-                    line where at the beginning or end is a downwards arrow? Maybe put a text somewhere reading "more"?
+                    e.g. for "hiding" advanced/detailed configuration options which are rarely used. A design could be
+                    a line where at the beginning or end is a downwards arrow? Maybe put a text somewhere reading
+                    "more"?
 
 Build/Website:
     * Module page/build
@@ -136,7 +219,6 @@ Build/Website:
         * Add to database
 
 Orange-Management:
-    [medium]    Implement forgot password incl. rate limit for "send forgotten password"
     [medium]    The "Log" tabs in many models should have a separate permission which hides them.
                     Maybe a user needs to have read permissions of the monitoring module in order to see them?
                     Alternatively it could be a *_MONITOR permission for the specific model in every module.
@@ -145,17 +227,17 @@ Orange-Management:
                     login logo. One solution would be via the Media module, another via the CMS module or another via
                     the settings.
     [medium]    sections/portlets with a footer sometimes have problems with floated elements.
-                    e.g. a right floated button will break the layout if the left element(s) are too long causing wrapping
+                    e.g. a right floated button will break the layout if the left element(s) are too long causing
+                    wrapping
 
 Admin:
+    [medium]    Implement password reset
     [medium]    [UI] Add user & group settings
     [medium]    [UI] Add account/group removal from each other
     [medium]    [UI] Add permission removal from accounts/groups
     [medium]    [UI] Add permission modification for accounts/groups
     [medium]    [Contacts] Find a way to hide some contact/address information for some modules.
                     Some information are only meant for specific modules (e.g. private address)
-    [medium]    Create a settings view in the admin shows all settings (application settings, user settings,
-                    module settings = 3-4 different lists/views).
 
 Auditor:
     [easy]      Create foldable/tree view for json logs
@@ -165,19 +247,21 @@ Auditor:
     [medium]   Create printable reports based on specific changes
 
 Billing:
-    [easy]      Create default invoice layout
-    [easy]      Create pdf creation function
-    [medium]    Create bill_pdf_create API call which is called in the demoSetup
-    [medium]    Show invoice pdf in preview?
+    [medium]    Show invoice pdf in preview on change.
     [medium]    Only create pdf preview if preview is visible?
     [medium]    [Analysis] Gross profit (total bill and elements)
+    [medium]    Show bill relations (on tab which shows all related bills)
     [medium]    Create send as email button inside the bill. this opens the send email view where the email is
                     pre-written with the attached pdf.
-    [medium]    In the supplier and client view you should be able to select multiple bills and click print for printing
+    [medium]    In the supplier and client view you should be able to select multiple bills and click print for
+                    printing
     [medium]    In the supplier and client view you should be able to select multiple bills and click send as email
                     for email sending
     [medium]    The send bill as email should have a global settings where you can either define a global email or
                     empty = user specific email
+    [medium]    Sending emails should have a default email format and a default invoice naming convention, additionally
+                    there should be the option to define a user specific email text and pdf naming convention
+    [medium]    Clients should have a invoice_email address which is stored in the client
     [medium]    Create a performance 'past' and 'future' limit to prevent going too far into the past or future
     [medium]    Save number-format and the rendered number in the bill, currently only the format is saved and rendered
                     on the fly which is bad for searching and performance. Maybe even ONLY save the number?
@@ -191,6 +275,9 @@ Billing:
                     this means you would need some indication which shows which approval is still outstanding.
                     Of course a less detailed visual indication would be a red, yellow, green marker at the beginning
                     of the invoice/element or background highlight
+    [hard]      Allow to import existing bills (e.g. order -> invoice, offer -> confirmation -> delivery note ...)
+    [hard]      Share media files between imported bills for easier searching. Maybe do this by creating a root element
+                    which all bills reference and show files of this root bill?
 
 Calendar:
     [easy]      [Tags] Implement tags for events
@@ -208,9 +295,10 @@ Checklist:
     [medium]    Create job which can automatically create checklists (e.g. end of month checklists)
 
 ClientManagement:
-    [easy]      [Attributes] Clients should have attributes like items (e.g. tax-id, etc.)
-    [easy]      Add validation pattern to attributes (regex)
-    [easy]      Some attributes should be mandatory for every client
+    [easy]      Create a view where you can see all bills of the customer
+    [easy]      Create a view where you can see all items of the customer
+    [medium]    Create a simple button to send an email to a customer, this also should have the option to change the
+                    mail address (e.g. drop down with all available email addresses and option to manually write it)
     [medium]    [Notes] Add note types (e.g. phone, email, meeting, ...)
     [medium]    [Map] Add a geo map of the customers location (either on a real map or on the already added SVG maps)
     [medium]    [Map] Create a map of all customers (maybe as data points or as heat maps)
@@ -219,27 +307,26 @@ ClientManagement:
     [medium]    [Receivable] Print receivable
     [medium]    [Permission] Make customers only visible/readable to authorized people (e.g. sales rep may only see
                     his own clients)
-    [medium]    [Permission] Client view should be customizable since different groups have different interests and read
-                    permissions (e.g. sales reps, finance, etc.)
+    [medium]    [Permission] Client view should be customizable since different groups have different interests and
+                    read permissions (e.g. sales reps, finance, etc.)
     [medium]    [Analysis] Sales + Gross profit
     [medium]    [Analysis] Quantity orders + quantity articles
     [medium]    [Analysis] Segment sales
     [medium]    [Analysis] Top articles
-    [medium]    [Analysis] Cross selling
+    [medium]    [Analysis] Cross selling (bought as well)
     [medium]    [Analysis] Amount of invoices
     [medium]    [Analysis] Amount of different articles
     [medium]    Allow to specify the accounting account (e.g. a customer who is a supplier may have the same account)
 
 CMS:
-    [easy]      Create a link to the app/page in the application view
     [easy]      Make file content view 100% container height
     [easy]      Allow content changes and saving
-    [easy]      Ideas for applications based on modules (e.g. monitor/log dashboard, sales dashboard, calendar,
+    [medium]    Ideas for applications based on modules (e.g. monitor/log dashboard, sales dashboard, calendar,
                     support/ticket, clocking, Q&A, Wiki, shop)
     [medium]    Implement line numbers
+    [medium]    Implement code formatting / syntax highlighting
 
 Comments:
-    [easy]      Show comment createdAt and createdBy
     [medium]    Implement active, comment, voting, editing flags in UI and backend
     [medium]    Consider to implement Media files (e.g. attach files)
 
@@ -271,7 +358,6 @@ EventManagement:
     [medium]    Add milestones
 
 Exchange:
-    [medium]    Check if key is used in module templates, if not prefix with * (trim * on import)
     [hard]      Create a job which automatically runs a import/export script
 
 Finance:
@@ -283,9 +369,7 @@ Helper:
                     `document.getElementById('iHelperFrame').contentWindow.print();`
 
 HumanResourceManagement:
-    [medium]    Employee work history
-    [medium]    Employee education history
-    [hard]        Fix employee list
+    [hard]      Fix employee list (see comment at the bottom, query builder bug)
 
 HumanResourceTimeRecording:
     [medium]    Allow session delete/modification/creation afterwards
@@ -296,13 +380,11 @@ HumanResourceTimeRecording:
 
 ItemManagement:
     [easy]      Create item list for purchasing
-    [easy]      Add validation pattern to attributes (regex)
-    [easy]      Some attributes should be mandatory for every item
-    [easy]      Use name for attribute identification (currently only used for localization)
+    [easy]      Use name for attribute identification (currently only used for localization). Is this really required? id might be fine?
     [medium]    Add an area for markers (e.g. not sold for a x month, not purchased for x month, bad margin... etc.)
                     Similar to an alarm system (maybe green, yellow, red markers?)
+    [medium]    [List] Create a second optional list view where the item is shown at the bottom of the list which allows the user to the the item list at the top and the item itself below. Either create a custom view or somehow append an iframe below the list which is loaded based on the selected item
     [medium]    [Notes] Add note types (e.g. phone, email, meeting, ...)
-    [medium]    Impl. optional fixed number length by impl. fixed id length with left padding.
     [medium]    [Label] Create default label layout
     [medium]    [Label] Create item specific label layout
     [medium]    [Permission] Item view should be customizable since different groups have different interests and
@@ -345,9 +427,7 @@ Knowledgebase:
     [easy]      Add category back/up button when in a subcategory
 
 Media:
-    [easy]      Create zip/gz view which allows to see the content of the zip file
-    [easy]      Create a home link to the user folder as a first element or as a button at the top of the media list
-    [easy]      Create tags for media files
+    [medium]    Allow links as media files (e.g. use path). If a link is detected it should forward to that link, this would also allow other modules to create pseudo media elements e.g. helper/editor. Upon clicking on it e.g. the editor is opened. This would mean the editor needs to create this media model whenever the user creates a document. The path needs to be the same as in the moduel itself e.g. Accounts/... or whatever the user defined as path in the module itself. The url should be relative e.g. /editor?id={id} which makes it domain name independent.
     [medium]    Allow to download a collection/directory as zip
     [medium]    Create preview option for images (e.g. ctrl+mouse hover or a different "list-view" like in explorer)
     [medium]    Allow to download files (single files and by checkmarking multiple files)
@@ -368,21 +448,21 @@ Media:
     [medium]    There is a Media "type" in order to identify media for specific purposes (the name could be different,
                     don't remember). This should be a relation table because a media element may be used for
                     different purposes
- #   [medium]   Implement temporary file storage (very useful for making files downloadable for a limited time).
+    [medium]    Implement temporary file storage (very useful for making files downloadable for a limited time).
                     Maybe create a new temp file directory or database collection where a available_until timedate gets
                     defined (must be handled in the database). The biggest problem is how to delete them,
                     this requires a background process/task scheduler. Additionally, these files must have permissions
                     because they may be only for one user or a group of users.
 
 Messages:
+    [medium]    Allow to transform a message as task
     [hard]      Implement push notification
     [hard]      Implement email sending/receiving
     [hard]      Implement internal message/conversion storage
     [hard]      Users may be invited to old conversations
 
 Monitoring:
-    [medium]    Implement code integrity check based on file version and file hash against a yet to create API which
-                    has the original file hashs
+    [easy]      Implement integrity check based on installed version and remote hash list (see monitoring-security.tpl.php)
 
 Navigation:
     [easy]      Improve goto command to match based on proximity and only based on visible links
@@ -390,11 +470,9 @@ Navigation:
     [medium]    Create settings page which allows to modify the navigation in the module settings
 
 News:
-    [easy]      Disable title suggestion in news-create
     [easy]      Implement email/message notification on create
     [medium]    Allow tag modification
     [medium]    Fix bug where content overflows
-    [medium]    [bug] Editing a news article shows additional empty lines in the edit textarea, why? fix!
 
 Organization:
     [medium]    [Organigram] Create better organigram (better grouping, maybe as SVG)
@@ -403,7 +481,7 @@ Organization:
 
 Profile:
     [medium]    Create sub-profiles for profiles (e.g. user profiles which belong to organization profiles)
-    [medium]    A user may belong to many profiles
+    [medium]    A user may belong to many profiles. Why? I don't remember! Maybe for child profiles e.g. many sub-accounts for a customer.
     [hard]      A user may have specific parent profile permissions
 
 ProjectManagement:
@@ -434,9 +512,8 @@ Search:
     [medium]    Implement global search hook (every module performs a search based on the search)
 
 SupplierManagement:
-    [easy]      [Attributes] Suppliers should have attributes like items (e.g. tax-id, etc.)
-    [easy]      Add validation pattern to attributes (regex)
-    [easy]      Some attributes should be mandatory for every supplier
+    [easy]      Create a view where you can see all bills of the supplier
+    [easy]      Create a view where you can see all items of the supplier
     [medium]    [Notes] Add note types (e.g. phone, email, meeting, ...)
     [medium]    [Doc] Create default letter Doc (with/without letter head)
     [medium]    [Payable] Print payable
@@ -449,6 +526,7 @@ SupplierManagement:
 
 Support:
     [easy]      Allow support/tickets to be transformed to Q&A question and answers
+    [easy]      Allow Q&A to be transformed to support
 
 Tag:
     [medium]    Create settings with a set of default colors
@@ -457,15 +535,15 @@ Tag:
 Tasks:
     [easy]      [Analyzer] Implement analyzing functionality (tasks created, answered, time required to finish task,
                     always in time?)
-    [easy]      Allow users to specify the completion ratio (e.g. 0-100%)
+    [medium]    Make answer box on the right scroll down with the content, this way you can immediately respond without
+                    scrolling.
     [medium]    Implement email notification on progress/changes (new task, forwarded, ...)
     [medium]    The unread task count is currently not really correct and needs to be fixed
     [medium]    Allow batch handling of tasks in the dashboard/overview for faster interaction (e.g. select and close)
     [medium]    Create a user calender for tasks which only shows when tasks are due
-    [hard]      Implement has seen and unseen
+    [hard]      Implement has seen and unseen (use system where every task has a seen flag for a user if it is seen)
 
 WarehouseManagement:
-    [easy]      Create stock sub-locations (e.g. a location/shelf has different racks/compartments)
 
 Workflow:
     [medium]    Create approval process which can be used by many modules (modules are allowed to provide their own
@@ -503,3 +581,34 @@ where ...
 Option2:
 1. Check if general permission exists -> just do query
 2. Check for specific element exists -> just do query but with column_id IN (... elements ...)
+
+::with(PermissionAbstractMapper::class, $permissions)
+
+// this will create a where condition generated by the PermissionAbstractMapper::class e.g. call PermissionAbstractMapper::createWith($query)
+
+///
+
+Problem if joins on same tables (e.g. staff-list)
+(The tabbed join is the problem, the second query is the solution. The problem is that you need a different alias which is hard to created since th alias usally is suffixed with the depths which is a problem in this case since the alias has nothing to do with the depth)
+
+a solution coult be to index the joins by depths+join count e.g. account_2_1, account_2_2
+
+SELECT `account_2`.`account_name1` as account_name1_2, `account_2`.`account_name2` as account_name2_2, `account_2`.`account_name3` as account_name3_2
+FROM `hr_staff` as hr_staff_4
+LEFT JOIN `media` as media_3 ON `hr_staff_4`.`hr_staff_image` = `media_3`.`media_id`
+LEFT JOIN `profile_account` as profile_account_3 ON `hr_staff_4`.`hr_staff_profile` = `profile_account_3`.`profile_account_id`
+                        LEFT JOIN `account` as account_2 ON `media_3`.`media_created_by` = `account_2`.`account_id`
+AND `profile_account_3`.`profile_account_account` = `account_2`.`account_id`
+LEFT JOIN `l11n` as l11n_1 ON `account_2`.`account_localization` = `l11n_1`.`l11n_id`
+LEFT JOIN `media` as media_2 ON `profile_account_3`.`profile_account_image` = `media_2`.`media_id`
+LEFT JOIN `account` as account_1 ON `media_2`.`media_created_by` = `account_1`.`account_id`;
+
+SELECT `account_2`.`account_name1` as account_name1_2, `account_2`.`account_name2` as account_name2_2, `account_2`.`account_name3` as account_name3_2
+FROM `hr_staff` as hr_staff_4
+LEFT JOIN `media` as media_3 ON `hr_staff_4`.`hr_staff_image` = `media_3`.`media_id`
+LEFT JOIN `profile_account` as profile_account_3 ON `hr_staff_4`.`hr_staff_profile` = `profile_account_3`.`profile_account_id`
+LEFT JOIN `account` as account_2 ON `profile_account_3`.`profile_account_account` = `account_2`.`account_id`
+LEFT JOIN `account` as account_3 ON `media_3`.`media_created_by` = `account_3`.`account_id`
+LEFT JOIN `l11n` as l11n_1 ON `account_2`.`account_localization` = `l11n_1`.`l11n_id`
+LEFT JOIN `media` as media_2 ON `profile_account_3`.`profile_account_image` = `media_2`.`media_id`
+LEFT JOIN `account` as account_1 ON `media_2`.`media_created_by` = `account_1`.`account_id`;

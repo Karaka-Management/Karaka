@@ -367,6 +367,7 @@ final class Application
 
         if ($request->hasData('debug')) {
             $head->addAsset(AssetType::CSS, 'cssOMS/debug.css');
+            \phpOMS\DataStorage\Database\Query\Builder::$log = true;
         }
 
         $css = \file_get_contents(__DIR__ . '/css/backend-small.css');

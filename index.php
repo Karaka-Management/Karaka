@@ -22,5 +22,5 @@ $config = require_once __DIR__ . '/config.php';
 $App = new \Web\WebApplication($config);
 
 if (\ob_get_level() > 0) {
-	\ob_end_flush();
+    \ob_end_flush();
 }
