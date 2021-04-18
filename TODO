@@ -78,6 +78,7 @@ Next:
         Tasks:
     [easy]      [Analyzer] Implement analyzing functionality (tasks created, answered, time required to finish task,
                     always in time?)
+    [easy]      Replace the tables inside forms with the new <div class="form-group"> (see task-create.tpl.php as example)
 
 General:
     [easy]      Map for Macao is missing or named wrong
