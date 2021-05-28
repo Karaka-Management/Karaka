@@ -1,94 +1,8 @@
-Next:
-        Clients/Suppliers
-    [medium]    [Doc] Create default letter Doc (with/without letter head)
-        Comments
-    [medium]    Implement active, comment, voting, editing flags in UI and backend
-    [medium]    Consider to implement Media files (e.g. attach files)
-        Kanban
-    [easy]      Implement Kanban specific styles
-    [easy]      Allow board templates? maybe at least colors?
-    [easy]      Allow card templates? maybe at least colors?
-    [easy]      Implement archive list for boards
-    [easy]      Implement board status (archive, public, inactive)
-    [easy]      Implement card status (archive, public, inactive)
-    [medium]    Implement unread cards/comments notification/highlight
-    [medium]    Highlight card with new comments (e.g. make comment count background red?)
-    [medium]    Consider to create on navigation language file (same as routing files) during the installation process
-    [medium]    Create settings page which allows to modify the navigation in the module settings
-        Auditor
-    [medium]   Create printable reports based on specific changes
-        Client
-    [medium]    [List] Create a second optional list view where the item is shown at the bottom of the list which allows the user to the the item list at the top and the item itself below. Either create a custom view or somehow append an iframe below the list which is loaded based on the selected item
-    [medium]    [Analysis] Sales + gross profit
-    [medium]    [Analysis] quantity sales, quantity customers
-    [medium]    [Analysis] Cross selling
-    [medium]    [Analysis] Top customers
-    [medium]    [Analysis] Amount of customers
-    [medium]    [Analysis] Amount of article sales
-    [medium]    [Analysis] Amount of new customers
-    [medium]    [Analysis] Cross selling articles
-    [medium]    It probably makes more sense to create analysis tabs instead of putting the charts on the frontpage
-                    (e.g. sales analysis, purchase analysis, production analysis)
-    [hard]      Make attributes mandatory (e.g. HC-code/tariff code number)
-        Suppliers
-    [medium]    [List] Create a second optional list view where the item is shown at the bottom of the list which allows the user to the the item list at the top and the item itself below. Either create a custom view or somehow append an iframe below the list which is loaded based on the selected item
-    [medium]    [Analysis] Sales + gross profit
-    [medium]    [Analysis] quantity sales, quantity customers
-    [medium]    [Analysis] Cross selling
-    [medium]    [Analysis] Top customers
-    [medium]    [Analysis] Amount of customers
-    [medium]    [Analysis] Amount of article sales
-    [medium]    [Analysis] Amount of new customers
-    [medium]    [Analysis] Cross selling articles
-    [medium]    It probably makes more sense to create analysis tabs instead of putting the charts on the frontpage
-                    (e.g. sales analysis, purchase analysis, production analysis)
-    [hard]      Make attributes mandatory (e.g. HC-code/tariff code number)
-        Item
-    [medium]    [List] Create a second optional list view where the item is shown at the bottom of the list which allows the user to the the item list at the top and the item itself below. Either create a custom view or somehow append an iframe below the list which is loaded based on the selected item
-    [medium]    [Analysis] Sales + gross profit
-    [medium]    [Analysis] quantity sales, quantity customers
-    [medium]    [Analysis] Cross selling
-    [medium]    [Analysis] Top customers
-    [medium]    [Analysis] Amount of customers
-    [medium]    [Analysis] Amount of article sales
-    [medium]    [Analysis] Amount of new customers
-    [medium]    [Analysis] Cross selling articles
-    [medium]    It probably makes more sense to create analysis tabs instead of putting the charts on the frontpage
-                    (e.g. sales analysis, purchase analysis, production analysis)
-    [hard]      Make attributes mandatory (e.g. HC-code/tariff code number)
-        ContractManagement:
-    [easy]      Implement basic setup
-        Editor:
-    [medium]    Consider to add media to document?! e.g. images, ...
-    [medium]    Add document type (e.g. phone, meeting, email). Maybe use tags? Or are tags something else?!
-    [medium]    Allow download as markdown, text, PDF, word
-        QA:
-    [easy]      Implement QA specific styles
-    [easy]      Implement voting
-    [easy]      Implement accepting answers
-    [easy]      Implement QA question raw
-    [easy]      Implement QA answer raw
-    [easy]      Implement question create view
-    [easy]      Add question answer component/like comment in question
-    [medium]    Implement user profile pictures
-    [medium]    Implement QA specific CSS
-        Support:
-    [easy]      Allow support/tickets to be transformed to Q&A question and answers
-    [easy]      Allow Q&A to be transformed to support
-        Tasks:
-    [easy]      [Analyzer] Implement analyzing functionality (tasks created, answered, time required to finish task,
-                    always in time?)
-    [easy]      Replace the tables inside forms with the new <div class="form-group"> (see task-create.tpl.php as example)
-
 General:
-    [easy]      Map for Macao is missing or named wrong
-    [easy]      Map for Kosovo is missing or named wrong
-    [easy]      Map for AlandIsland is missing or named wrong
     [easy]      Find uncovered lines of code and write unit tests for these uncovered lines
                     in the docblock)
     [easy]      Create database UML diagrams for every module
     [medium]    When returning models (backend and API requests) the permission should be checked
-    [medium]    Add a good way to turn on/off voice recognition (probably a button somewhere)
     [medium]    Add a visual indication if the microphone is on (maybe an icon in the search bar or next to the user
                     profile icon)
     [medium]    Implement a setting which lets users see all content no matter the content language
@@ -226,7 +140,7 @@ Orange-Management:
                     This is a little bit finer but also expands the permission complexity
     [medium]    Create a login logo entry in the settings or somewhere else. The admin should be able to change the
                     login logo. One solution would be via the Media module, another via the CMS module or another via
-                    the settings.
+                    the settings. The user should also be able to disable animations for the login logo.
     [medium]    sections/portlets with a footer sometimes have problems with floated elements.
                     e.g. a right floated button will break the layout if the left element(s) are too long causing
                     wrapping
@@ -296,6 +210,9 @@ Checklist:
     [medium]    Create job which can automatically create checklists (e.g. end of month checklists)
 
 ClientManagement:
+    [easy]      Add list for top articles on profile page... important for customer calls
+    [easy]      Add list for recommended purchase items + type tags e.g. re-order because empty,
+                    cross selling, promotion (if promotion already used, don't offer any longer)
     [easy]      Create a view where you can see all bills of the customer
     [easy]      Create a view where you can see all items of the customer
     [medium]    Create a simple button to send an email to a customer, this also should have the option to change the
@@ -414,8 +331,6 @@ Kanban:
     [easy]      Implement Kanban specific styles
     [easy]      Allow board templates? maybe at least colors?
     [easy]      Allow card templates? maybe at least colors?
-    [easy]      Implement archive list for boards
-    [easy]      Implement board status (archive, public, inactive)
     [easy]      Implement card status (archive, public, inactive)
     [medium]    The comment count/badge in the card (in the board) title looks bad if the title is too long/wraps
     [medium]    Implement unread cards/comments notification/highlight
