@@ -113,8 +113,6 @@ jsOMS:
                     Implement the same concept for other elements, maybe abstract it straight away!
 
 cssOMS:
-    [easy]      Create a style for links in a table which should look like content links (e.g. for links to a
-                    different content then the row link)
     [medium]    Create drop down = select with search field
     [medium]    Create a slider element with two elements which the user can slide (optionally also only one slider
                     should be possible)
@@ -151,8 +149,6 @@ Admin:
     [medium]    [UI] Add account/group removal from each other
     [medium]    [UI] Add permission removal from accounts/groups
     [medium]    [UI] Add permission modification for accounts/groups
-    [medium]    [Contacts] Find a way to hide some contact/address information for some modules.
-                    Some information are only meant for specific modules (e.g. private address)
 
 Auditor:
     [easy]      Create foldable/tree view for json logs
@@ -396,9 +392,12 @@ Organization:
     [medium]    [Organigram] Make the organigram versioned/approved (e.g. for ISO)
 
 Profile:
-    [medium]    Create sub-profiles for profiles (e.g. user profiles which belong to organization profiles)
-    [medium]    A user may belong to many profiles. Why? I don't remember! Maybe for child profiles e.g. many sub-accounts for a customer.
-    [hard]      A user may have specific parent profile permissions
+    [hard]      [Contacts] Find a way to hide some contact/address information for some modules.
+                    Some information are only meant for specific modules (e.g. private address, phone number e.g. HR module)
+                    The reason why this is difficult is that this information should not be part of the model table
+                    but in the relation (many-to-many). At the moment the information in the relation table is not used
+                    apart from the relations it self. A solution could be to specify a filter in the relation in the mapper.
+                    Empty = all relations, filter = only populate the model array with relations which match the filter.
 
 ProjectManagement:
     [medium]    Implement goal definition. Goals could be based on tasks (every completed task represents x%),
@@ -415,8 +414,6 @@ QA:
     [easy]      Implement QA specific styles
     [easy]      Implement voting
     [easy]      Implement accepting answers
-    [easy]      Implement QA question raw
-    [easy]      Implement QA answer raw
     [easy]      Implement question create view
     [easy]      Add question answer component/like comment in question
     [medium]    Implement user profile pictures
