@@ -23,6 +23,6 @@ $config = require_once __DIR__ . '/../config.php';
 $App = new \Install\WebApplication($config);
 
 if (\ob_get_level() > 0) {
-	\ob_end_flush();
+    \ob_end_flush();
 }
 // @codeCoverageIgnoreEnd
