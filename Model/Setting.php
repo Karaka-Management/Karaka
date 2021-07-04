@@ -105,7 +105,8 @@ class Setting
         string $module = null,
         int $group = null,
         int $account = null
-    ) : self {
+    ) : self
+    {
         $this->id      = $id;
         $this->name    = $name;
         $this->content = $content;

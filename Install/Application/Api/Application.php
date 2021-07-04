@@ -178,7 +178,8 @@ final class Application
         // add tpl loading
         $this->app->router->add(
             '/api/tpl/.*',
-            function() use ($account, $request, $response) : void {
+            function() use ($account, $request, $response) : void
+            {
                 $appName = \ucfirst($request->getData('app') ?? 'Backend');
                 $app     = new class() extends ApplicationAbstract
                 {
