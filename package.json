@@ -2,14 +2,28 @@
   "name": "oms",
   "version": "1.0.0",
   "hash": "",
-  "description": "",
-  "directories": {},
-  "dependencies": {
-    "node-sass": "^4.14.1"
+  "description": "<p align=\"center\"><img src=\"https://raw.githubusercontent.com/Orange-Management/Assets/master/art/logo.png\" width=\"256\" alt=\"Logo\"></p>",
+  "directories": {
+    "test": "tests"
   },
-  "devDependencies": {},
+  "dependencies": {
+    "chromedriver": "^91.0.1",
+    "geckodriver": "^2.0.1",
+    "node-sass": "^6.0.1",
+    "selenium-webdriver": "^4.0.0-beta.4"
+  },
   "scripts": {
     "scss": "node-sass Install/Application/Backend/Themes/Default/css/backend_vars.scss > Install/Application/Backend/Themes/Default/css/backend_vars.css && node-sass Install/Application/Backend/Themes/Default/css/backend-small.scss > Install/Application/Backend/Themes/Default/css/backend-small.css"
   },
-  "author": "Dennis Eichhorn"
+  "author": "Dennis Eichhorn",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Orange-Management/Orange-Management.git"
+  },
+  "license": "OMS",
+  "bugs": {
+    "url": "https://github.com/Orange-Management/Orange-Management/issues"
+  },
+  "homepage": "https://github.com/Orange-Management/Orange-Management#readme"
 }
