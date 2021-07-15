@@ -61,13 +61,63 @@ main {
 }
 
 #logo {
+    height: 100%;
     flex: 1;
     text-align: right;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding-left: 1rem;
 
     select {
         background: var(--nav-category-background);
         color: rgba(255, 255, 255, 0.8);
         font-size: .8rem;
+    }
+}
+
+#nav-side-settings {
+    margin-bottom: .3rem;
+
+    label {
+        color: rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+
+        .fa-volume-up {
+            display: none;
+        }
+
+        .fa-volume-down {
+            display: inherit;
+        }
+    }
+
+    i {
+        font-size: 1rem;
+    }
+
+    label+input+label {
+        margin-left: .3rem;
+    }
+
+    input {
+        display: none;
+
+        &:checked {
+            & + label {
+                color: var(--nav-sub-background-highlight);
+
+                .fa-volume-up {
+                    display: inherit;
+                }
+
+                .fa-volume-down {
+                    display: none;
+                }
+            }
+        }
     }
 }
 

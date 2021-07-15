@@ -63,6 +63,7 @@ $dispatch = $this->getData('dispatch') ?? [];
                 <img alt="<?= $this->getHtml('User', '0', '0'); ?>" loading="lazy" src="<?= $this->getProfileImage(); ?>">
             </a>
             <span id="logo" itemscope itemtype="http://schema.org/Organization">
+                <div>&nbsp;</div>
                 <select
                     class="plain" id="unit-selector" name="unit"
                     data-action='[{"listener": "change", "action": [{"key": 1, "type": "redirect", "uri": "{%}&u={!#unit-selector}", "target": "self"}]}]'
@@ -71,6 +72,13 @@ $dispatch = $this->getData('dispatch') ?? [];
                         <option value="<?= $this->printHtml((string) $organization->getId()); ?>"<?= $this->getData('orgId') == $organization->getId() ? ' selected' : ''; ?>><?= $this->printHtml($organization->name); ?>
                     <?php endforeach; ?>
                 </select>
+                <div id="nav-side-settings">
+                    <input id="audio-output" type="checkbox">
+                    <label for="audio-output"><i class="fa fa-volume-up"></i><i class="fa fa-volume-down"></i></label>
+
+                    <input id="speech-recognition" type="checkbox">
+                    <label for="speech-recognition"><i class="fa fa-microphone"></i>
+                </div>
             </span>
             <label class="ham-trigger" for="nav-trigger"><i class="fa fa-bars p"></i></label>
         </span>

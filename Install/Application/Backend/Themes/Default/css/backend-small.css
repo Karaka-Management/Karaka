@@ -94,12 +94,39 @@ main {
       padding-left: 2rem; }
 
 #logo {
+  height: 100%;
   flex: 1;
-  text-align: right; }
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 1rem; }
   #logo select {
     background: var(--nav-category-background);
     color: rgba(255, 255, 255, 0.8);
     font-size: .8rem; }
+
+#nav-side-settings {
+  margin-bottom: .3rem; }
+  #nav-side-settings label {
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer; }
+    #nav-side-settings label .fa-volume-up {
+      display: none; }
+    #nav-side-settings label .fa-volume-down {
+      display: inherit; }
+  #nav-side-settings i {
+    font-size: 1rem; }
+  #nav-side-settings label + input + label {
+    margin-left: .3rem; }
+  #nav-side-settings input {
+    display: none; }
+    #nav-side-settings input:checked + label {
+      color: var(--nav-sub-background-highlight); }
+      #nav-side-settings input:checked + label .fa-volume-up {
+        display: inherit; }
+      #nav-side-settings input:checked + label .fa-volume-down {
+        display: none; }
 
 .ham-trigger {
   display: flex;
@@ -188,7 +215,6 @@ img.profile-image {
 @media only screen and (max-width: 500px) {
   nav .ham-trigger {
     display: flex; } }
-
 @media only screen and (max-width: 600px) {
   main > header {
     flex-flow: column;
@@ -196,10 +222,10 @@ img.profile-image {
     padding: 1rem; }
     main > header form {
       width: 100%; }
+
   #t-nav-container {
     order: -1;
     margin-bottom: .5rem; } }
-
 @media only screen and (max-width: 1000px) {
   #t-nav .link {
     display: none; } }
