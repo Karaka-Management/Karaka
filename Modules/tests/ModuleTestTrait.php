@@ -290,6 +290,7 @@ trait ModuleTestTrait
             $class = $this->getMapperFromPath($mapper);
 
             if (\defined('self::MAPPER_TO_IGNORE') && \in_array(\ltrim($class, '\\'), self::MAPPER_TO_IGNORE)
+                || empty($class::$columns)
                 || $class === '\Modules\Admin\Models\ModuleMapper'
             ) {
                 continue;
