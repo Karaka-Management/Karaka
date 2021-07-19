@@ -1,6 +1,5 @@
 General:
     [easy]      Find uncovered lines of code and write unit tests for these uncovered lines.
-                    - [phpOMS] ResponseAbstract->getLanguage()
                     - [phpOMS] ModuleManager->installApplications
                     - [phpOMS] StatusAbstract->installRoutes
                     - [phpOMS] StatusAbstract->installHooks
@@ -14,6 +13,13 @@ General:
                     - [phpOMS] InstallerAbstract->installSettings
                     - [phpOMS] InstallerAbstract->createTables
                     - [phpOMS] InstallerAbstract->reInit
+                    - [phpOMS] Graph->findAllReachableNodesDFS
+                    - [phpOMS] Graph->getAllPathsBetweenNodes
+                    - [phpOMS] Graph->countAllPathsBetweenNodes
+                    - [phpOMS] Graph->longestPathBetweenNodes
+                    - [phpOMS] Graph->shortestPathBetweenNodes
+                    - [phpOMS] Graph->isConnected
+                    - [phpOMS] Node->getEdgeByNeighbor
                     - [Model] CoreSettings->create
                     - .... Basically all Modules/Models, Modules/Controller
     [easy]      Create database ER diagrams for every module (use DBeaver ER functionality)
@@ -31,9 +37,6 @@ General:
                     Additionally, it should probably make use of the Tasks module.
     [medium]    The modules use the module name for identification in many places where the module id should be used
                     for performance reasons
-    [medium]    [bug] If the pagination (next/previous) is implemented in a tab (e.g. second tab) the newly loaded page
-                    after clicking on 'next' shows the first tab instead of the tab which contains the list. The
-                    next/previous button/link should contain the # from the URL
     [medium]    Many models would benefit from unit and app association. Sometimes models should only be
                     available/associated with a specific unit (e.g. news article for website, backend, shop etc.)
     [medium]    After completely figuring out permissions every API function needs to be checked if it behaves
@@ -48,25 +51,17 @@ General:
 
 phpOMS:
     [medium]    [Graph] Implement missing functionality
-                    - Count all paths between 2 nodes
-                    - Return all paths between 2 nodes
                     - Find cycles using graph coloring
                     - Find a negative cycle
                     - Find cycles with n length
                     - Find cycles with odd length
-                    - Find shortest path between 2 nodes
-                    - Find longest path between 2 nodes
                     - Find islands
-                    - Find all unreachable nodes
                     - Check if strongly connected
-                    - Find longest path between 2 nodes
                     - Find longest path
                     - Get the girth
                     - Get the circuit rank
                     - Get the node connectivity
                     - Get the edge connectivity
-                    - Is the graph connected
-                    - Get the unconnected nodes as their own graph
                     - Check if bipartite
                     - Check if triangle free
     [medium]    [KMeans] In some weird cases the Cluster test fails. This happens approximately 5 / 100 test runs
