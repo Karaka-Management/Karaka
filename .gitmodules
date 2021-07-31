@@ -175,3 +175,6 @@
 [submodule "Modules/Shop"]
 	path = Modules/Shop
 	url = https://github.com/Orange-Management/oms-Shop.git
+[submodule "Modules/Surveys"]
+	path = Modules/Surveys
+	url = https://github.com/Orange-Management/oms-Surveys.git

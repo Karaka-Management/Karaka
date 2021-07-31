@@ -6,24 +6,6 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <script src="../jsOMS/Utils/oLib.js"></script>
-    <script src="../jsOMS/Asset/AssetManager.js"></script>
-    <script src="../jsOMS/Autoloader.js"></script>
-    <script src="../jsOMS/Log/Logger.js"></script>
-    <script src="../jsOMS/Log/LogLevel.js"></script>
-    <script src="../jsOMS/Uri/Http.js"></script>
-    <script src="../jsOMS/Uri/UriFactory.js"></script>
-    <script src="../jsOMS/Event/EventManager.js"></script>
-    <script src="../jsOMS/Message/Request/BrowserType.js"></script>
-    <script src="../jsOMS/Message/Request/OSType.js"></script>
-    <script src="../jsOMS/Message/Request/RequestMethod.js"></script>
-    <script src="../jsOMS/Message/Request/RequestType.js"></script>
-    <script src="../jsOMS/Message/Request/Request.js"></script>
-    <script src="../jsOMS/Message/Response/ResponseType.js"></script>
-    <script src="../jsOMS/Message/Response/ResponseManager.js"></script>
-    <script src="../jsOMS/Message/Response/Response.js"></script>
-    <script src="../jsOMS/UI/Component/Form.js"></script>
-    <script src="../jsOMS/Views/FormView.js"></script>
-    <script src="../jsOMS/Model/Message/Redirect.js"></script>
 </head>
 <body>
 <main>
@@ -108,12 +90,30 @@
                             <td>PHP version >= 8.0.0
                             <td><?= \PHP_VERSION; ?>
                         <tr>
-                            <td class="<?= \is_writable(__DIR__ . '/../') && \is_writable(__DIR__ . '/../Modules') && \is_writable(__DIR__ . '/../Web') ? 'OK' : 'FAILED'; ?>"><?= \is_writable(__DIR__ . '/../') && \is_writable(__DIR__ . '/../Modules') && \is_writable(__DIR__ . '/../Web') ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \is_writable(__DIR__ . '/../') && \is_writable(__DIR__ . '/../Modules') && \is_writable(__DIR__ . '/../Web') && \is_writable(__DIR__ . '/../Console') ? 'OK' : 'FAILED'; ?>"><?= \is_writable(__DIR__ . '/../') && \is_writable(__DIR__ . '/../Modules') && \is_writable(__DIR__ . '/../Web') && \is_writable(__DIR__ . '/../Console') ? 'OK' : 'FAILED'; ?>
                             <td>Critcal
-                            <td>File permissions
-                            <td>Install (<?= \decoct(\fileperms(__DIR__ . '/../') & 0777); ?>),
-                                Web (<?= \decoct(\fileperms(__DIR__ . '/../Web') & 0777); ?>),
-                                Modules (<?= \decoct(\fileperms(__DIR__ . '/../Modules') & 0777); ?>),
+                            <td><strong>File permissions</strong>
+                            <td>
+                        <tr>
+                            <td>
+                            <td>Critcal
+                            <td>/Install
+                            <td class="<?= \is_writable(__DIR__ . '/../') ? 'OK' : 'FAILED'; ?>"><?= \decoct(\fileperms(__DIR__ . '/../') & 0777); ?>
+                        <tr>
+                            <td>
+                            <td>Critcal
+                            <td>/Modules
+                            <td class="<?= \is_writable(__DIR__ . '/../Modules') ? 'OK' : 'FAILED'; ?>"><?= \decoct(\fileperms(__DIR__ . '/../Modules') & 0777); ?>
+                        <tr>
+                            <td>
+                            <td>Critcal
+                            <td>/Web
+                            <td class="<?= \is_writable(__DIR__ . '/../Web') ? 'OK' : 'FAILED'; ?>"><?= \decoct(\fileperms(__DIR__ . '/../Web') & 0777); ?>
+                        <tr>
+                            <td>
+                            <td>Critcal
+                            <td>/Console
+                            <td class="<?= \is_writable(__DIR__ . '/../Console') ? 'OK' : 'FAILED'; ?>"><?= \decoct(\fileperms(__DIR__ . '/../Console') & 0777); ?>
                         <tr>
                             <td class="<?= \extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>
                             <td>Critcal
@@ -294,6 +294,7 @@
                         </select>
                 </ul>
                 <p><button class="prev">Previous</button><button class="install" type="submit" form="installForm">Install</button></p>
+                <input id="iApps" name="apps" type="hidden" value="Install/Application/Api, Install/Application/Backend, Install/Application/E404, Install/Application/E500, Install/Application/E503" form="installForm">
             </div>
         </section>
     </div>
@@ -308,13 +309,19 @@
         </section>
     </div>
 </main>
-<script>
+<script type="module">
+import { ResponseManager } from '../jsOMS/Message/Response/ResponseManager.js';
+import { EventManager } from '../jsOMS/Event/EventManager.js'
+import { Form } from '../jsOMS/UI/Component/Form.js'
+import { redirectMessage } from '../jsOMS/Model/Message/Redirect.js';
+import { Logger } from '../jsOMS/Log/Logger.js';
+
 jsOMS.ready(function ()
 {
     /* navigation */
     const nextButtons     = Array.prototype.slice.call(document.getElementsByClassName('next')),
         prevButtons       = Array.prototype.slice.call(document.getElementsByClassName('prev')),
-        nextButtonsLength = nextButtons.length;
+        nextButtonsLength = nextButtons.length,
         prevButtonsLength = prevButtons.length;
 
     for (let i = 0; i < nextButtonsLength; ++i) {
@@ -341,14 +348,14 @@ jsOMS.ready(function ()
 
     /* setup App */
     const app = {
-        responseManager: new jsOMS.Message.Response.ResponseManager(),
-        eventManager: new jsOMS.Event.EventManager()
+        responseManager: new ResponseManager(),
+        eventManager: new EventManager()
     };
 
     app.responseManager.add('redirect', redirectMessage);
 
-    const formManager = new jsOMS.UI.Component.Form(app),
-        logger        = jsOMS.Log.Logger.getInstance();
+    const formManager = new Form(app),
+        logger        = Logger.getInstance();
 
     window.logger = logger;
     formManager.bind('installForm');
@@ -360,16 +367,17 @@ jsOMS.ready(function ()
                 'style',
                 'margin-left: ' + (5 * -100) + '%;'
             );
+
+            app.eventManager.trigger(e.id);
         } else {
             window.alert('You didn\'t fill out all required configuration fields. Please check your settings also on the previous pages.');
         }
 
-        app.eventManager.trigger(e.id);
-
         return valid;
     });
+
     formManager.get('installForm').setSuccess(function(e) {
-        window.location.replace('http://' + document.getElementById('iDomain').value + document.getElementById('iWebSubdir').value + 'en/backend');
+        window.location.replace('http://' + document.getElementById('iDomain').value + document.getElementById('iWebSubdir').value + '/backend');
     });
 });
 </script>
