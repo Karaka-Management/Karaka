@@ -45,6 +45,7 @@ use phpOMS\Router\WebRouter;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
 use Web\WebApplication;
+use Modules\Media\Models\MediaMapper;
 
 /**
  * Application class.
@@ -451,6 +452,10 @@ final class Application
         $pageView->setOrganizations(UnitMapper::getAll());
         $pageView->setProfile(ProfileMapper::getFor($request->header->account, 'account'));
         $pageView->setData('nav', $this->getNavigation($request, $response));
+
+        $profileImage = $this->app->appSettings->get(null, 'default_profile_image', 'Profile');
+        $image        = MediaMapper::get((int) $profileImage['content']);
+        $pageView->defaultProfileImage = $image;
 
         $pageView->setTemplate('/Web/Backend/index');
     }

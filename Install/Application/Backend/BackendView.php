@@ -16,6 +16,7 @@ namespace Web\Backend;
 
 use Modules\Organization\Models\Unit;
 use Modules\Profile\Models\Profile;
+use Modules\Media\Models\Media;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
 
@@ -44,6 +45,14 @@ class BackendView extends View
      * @since 1.0.0
      */
     protected $profile = null;
+
+    /**
+     * User profile image.
+     *
+     * @var Media
+     * @since 1.0.0
+     */
+    public ?Media $defaultProfileImage = null;
 
     /**
      * Organizations.
@@ -93,10 +102,10 @@ class BackendView extends View
     public function getProfileImage() : string
     {
         if ($this->profile === null || $this->profile->image->getPath() === '') {
-            return UriFactory::build('Web/Backend/img/user_default_' . \mt_rand(1, 6) . '.png');
+            return UriFactory::build('{/prefix}' . $this->defaultProfileImage->getPath());
         }
 
-        return UriFactory::build($this->profile->image->getPath());
+        return UriFactory::build('{/prefix}' . $this->profile->image->getPath());
     }
 
     /**
