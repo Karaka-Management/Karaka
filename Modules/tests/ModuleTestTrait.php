@@ -32,6 +32,9 @@ trait ModuleTestTrait
 {
     protected ApplicationAbstract $app;
 
+    /**
+     * {@inheritdoc}
+     */
     protected function setUp() : void
     {
         $this->app = new class() extends ApplicationAbstract
@@ -108,6 +111,13 @@ trait ModuleTestTrait
         self::assertTrue(true);
     }
 
+    /**
+     * Get mapper from file path
+     *
+     * @param string $mapper Mapper path
+     *
+     * @return string
+     */
     private function getMapperFromPath(string $mapper) : string
     {
         $name = \substr($mapper, \strlen(__DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Models/'), -4);
@@ -467,6 +477,15 @@ trait ModuleTestTrait
         );
     }
 
+    /**
+     * Test if all navigation links are in the database
+     *
+     * @param mixed  $db     Database connection
+     * @param array  $links  Navigation links from install file
+     * @param string $module Module name
+     *
+     * @return bool
+     */
     private function navLinksTest($db, array $links, string $module) : bool
     {
         $query = new Builder($db);
@@ -486,6 +505,14 @@ trait ModuleTestTrait
         return true;
     }
 
+    /**
+     * Test if all dependencies got installed
+     *
+     * @param array $info    Module info array/file
+     * @param array $modules Installed modules
+     *
+     * @return bool
+     */
     private function dependencyTest(array $info, array $modules) : bool
     {
         foreach ($info['dependencies'] as $module => $version) {
@@ -497,6 +524,14 @@ trait ModuleTestTrait
         return true;
     }
 
+    /**
+     * Test if route destinations exist (in the *Controller and global application route file)
+     *
+     * @param array $module Routes of the module from the respective app and module route file
+     * @param array $total  Routing file of the respective application which contains all app routes
+     *
+     * @return int
+     */
     private function routesTest(array $module, array $total) : int
     {
         foreach ($module as $route => $dests) {
@@ -526,6 +561,14 @@ trait ModuleTestTrait
         return 1;
     }
 
+    /**
+     * Test if hook destinations exist (in the *Controller and global application hook file)
+     *
+     * @param array $module Hooks of the module from the respective app and module hook file
+     * @param array $total  Routing file of the respective application which contains all app routes
+     *
+     * @return int
+     */
     private function hooksTest(array $module, array $total) : int
     {
         foreach ($module as $route => $dests) {
@@ -552,6 +595,14 @@ trait ModuleTestTrait
         return 1;
     }
 
+    /**
+     * Test if the module info file has the correct types
+     *
+     * @param array $module Module info file
+     * @param array $samle  Sample info file (as basis for checking the data types)
+     *
+     * @return bool
+     */
     private function infoJsonTest(array $module, array $sample) : bool
     {
         try {
