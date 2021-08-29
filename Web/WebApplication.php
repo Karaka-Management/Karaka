@@ -141,7 +141,12 @@ class WebApplication extends ApplicationAbstract
         $defaultLang = $config['domains'][$request->uri->host]['lang'] ?? $config['default']['lang'];
         $uriLang     = \strtolower($request->uri->getPathElement($subDirDepth + 0));
         $requestLang = $request->getRequestLanguage();
-        $langCode    = ISO639x1Enum::isValidValue($uriLang) ? $uriLang : (ISO639x1Enum::isValidValue($requestLang) ? $requestLang : $defaultLang);
+        $langCode    = ISO639x1Enum::isValidValue($uriLang)
+            ? $uriLang
+            : (ISO639x1Enum::isValidValue($requestLang)
+                ? $requestLang
+                : $defaultLang
+            );
 
         $pathOffset = $subDirDepth
             + (ISO639x1Enum::isValidValue($uriLang)
