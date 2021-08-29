@@ -30,6 +30,9 @@ General:
                     - Messages
                     - Monitoring
                     - Shop
+    [easy]      Many modules still have unnecessary getters/setters. This should be replaced with puplic members. Check the Developer-Guide on when to use getters/setters.
+    [easy]      [Template] Fix tab indeces. On many pages the tab indeces are broken (tabs, table/list, links, forms)
+    [easy]      Currently the demo only uses one language (en). Generate surveys with multiple langauges similar to other module demos (e.g. Wiki, News). In that case also prefix the text with the language so it's easy to see which language is loaded e.g. `EN:` (like in the tag module demo)
     [medium]    When returning models (backend and API requests) the permission should be checked
     [medium]    Implement a setting which lets users see all content no matter the content language (e.g. all News)
     [medium]    Implement an approval module which only runs a module/user specific action once it is approved. This
@@ -42,14 +45,10 @@ General:
     [medium]    After completely figuring out permissions every API function needs to be checked if it behaves
                     correctly depending on the different permissions (e.g. user created the model, user who is allowed
                     to access the model but not change it, ...).
-    [hard]      Implement OAUTH2 client
-    [hard]      Implement OAUTH2 server
-    [hard]      Implement ServiceWorkers
-    [hard]      Implement QR code generator
-    [hard]      Implement data matrix generator
-    [hard]      Implement code reader (bar code, data matrix, qr)
+    [medium]    In many places where permissions are used bad and different names are used. Sometimes the term "type" is used, sometimes the term "state" (PermissionState). Both actually represent a superficial category every module can define for permissions. (e.g. a state could be account, task, profile, tag, ...). The term "state" makes no sense since it isn't a state. The term "type" is also bad because in another place it is used to define (read, write, change, ...). Maybe we should simply call it PermissionCategory/category?! (files to change: NavElement, PermissionAbstract, PermissionState)
 
 phpOMS:
+    [easy]      [Logger] The logger is somehow *sometimes* logging in the main directory of OMS. Why? Debug!
     [medium]    [Graph] Implement missing functionality
                     - Find cycles using graph coloring
                     - Find a negative cycle
@@ -106,13 +105,20 @@ phpOMS:
                     be faster
     [hard]      Implement a decent full text search which finds texts that are similar (e.g. similar spelling, only
                     some words in between, maybe different word order, etc.)
+    [hard]      Implement OAUTH2 client
+    [hard]      Implement OAUTH2 server
+    [hard]      Implement ServiceWorkers
+    [hard]      Implement QR code generator
+    [hard]      Implement data matrix generator
+    [hard]      Implement code reader (bar code, data matrix, qr)
 
 jsOMS:
     [easy]      [Speech] Remove the speech recognition wrapper once it becomes standard
     [medium]    [AdvancedInput] In the AdvancedInput, implement predefined values (e.g. predefined/default tags)
+    [medium]    Find a way to load a different page after a successful form result (e.g. reload account creation page)
     [medium]    [AdvancedInput] In the AdvancedInput, implement mandatory predefined values (e.g. tags which cannot be
                     deleted)
-    [medium]    [Table] If column is numeric sort numerically, not by character (1,2,3 vs, 1, 10, 11, 12)
+    [medium]    [Table] If column is numeric sort numerically, not by character (1,2,3 vs, 1, 10, 11, 2)
     [medium]    [Table] If column is datetime sort by datetime, not by character (careful, datetime formats can be
                     different)
     [medium]    [Table] The table sort is WAY too slow!!! (e.g. editor-list by title).
@@ -177,11 +183,14 @@ Orange-Management:
                     -------> Solution: create flexbox with margin
 
 Admin:
+    [easy]      [css] In the Settings->Localization->Numeric the number format (decimal, thousands) don't have a spacer in between. Margin left doesn't work.
     [medium]    Implement password reset
     [medium]    [UI] Add user & group settings
     [medium]    [UI] Add account/group removal from each other
     [medium]    [UI] Add permission removal from accounts/groups
     [medium]    [UI] Add permission modification for accounts/groups
+    [medium]    [AccountMapper] The default Account mapper should not have a password reference, there should be a AccountLoginMapper which is used if anything needs to be done regarding the account password. Alternatively, think about a private field modifier which requires the programmer to specifically request the read/write permission for that field (password field). The reason for this is that otherwise the password hash might be dumped in case of an error
+    [medium]    [ModuleSettings] The module settings should have two tabs/pages. One containing a list of all settings for the module and the other a custom settings page where it's possible to give the impression of a customized setting view. The template itself is individual for the module but in the backend the list is still used. The reason for this customized settings template is that this allows to create a nicer input and form layout (e.g. media selector if a setting references a media file, show a preview output for images, custom input validation, ...)
 
 Auditor:
     [easy]      Create foldable/tree view for json logs e.g. https://www.cssscript.com/json-data-tree-view/
@@ -191,6 +200,7 @@ Auditor:
     [medium]   Create printable reports based on specific changes
 
 Billing:
+    [easy]      Bill expenses such as insurance, freight, etc. also need VAT percentages. Best would be to create cost types, this would allow to add multiple freight expenses and print them below the invoice
     [medium]    Show invoice pdf in preview on change.
     [medium]    Only create pdf preview if preview is visible?
     [medium]    [Analysis] Gross profit (total bill and elements)
@@ -279,6 +289,7 @@ CMS:
 Comments:
 
 ContractManagement:
+    [easy]      Create a new media type "contract"
     [medium]    Allow to specify how many month in advance you want to be notified
     [medium]    Contracts can have a different date of expiration and last renewal. (e.g. renewal needs to happen 1
                     month before contract end)
@@ -316,11 +327,14 @@ Finance:
     [medium]    Implement accounting forensics (Benfords Law, cent value distribution analysis, amount of bookings
                     between specific amounts, amount * bookings between specific amounts, etc.)
 
+Fleet Management:
+
 Helper:
     [medium]    Implement direct print instead of opening a new window with
                     `document.getElementById('iHelperFrame').contentWindow.print();`
 
 HumanResourceManagement:
+    [medium]    List of assets and documents handed over to employees (to be returned on leave)
     [hard]      Fix employee list (see comment at the bottom, query builder bug)
 
 HumanResourceTimeRecording:
@@ -329,6 +343,8 @@ HumanResourceTimeRecording:
                     (e.g. HR department or head of department)
     [medium]    Create overview for HR or head of department
     [medium]    Create overview for employee
+
+Investment Approval:
 
 ItemManagement:
     [easy]      Create item list for purchasing
@@ -380,6 +396,10 @@ Knowledgebase:
     [easy]      Add category back/up button when in a subcategory
 
 Media:
+    [easy]      Change media_type from string to foreign key and create a media_type table where it's possible to create media types (this should have a localized table for type name). This allows us to upload media types such as contracts.
+    [easy]      Create a installExternal binding for media_types (currently collections and uploads exist)
+    [medium]    Allow to actually replace media files (same DB id but replaced the file on the hard drive)
+    [medium]    After installing the Media module the admin account directory should be created, this is not done at the moment like other new accounts since the admin account is created before the media module is installed
     [medium]    Allow links as media files (e.g. use path). If a link is detected it should forward to that link,
                     this would also allow other modules to create pseudo media elements e.g. helper/editor.
                     Upon clicking on it e.g. the editor is opened. This would mean the editor needs to create this
@@ -434,6 +454,7 @@ Navigation:
     [medium]    Consider to implement childelements on hover (sidebar and content)
 
 News:
+    [medium]    Find a way to handle optional modules (e.g. comment module) in the past the Mapper was modified (comments were removed) if the comment module was installed. Somehow this is no longer available but maybe another solution could be a different Mapper which is replaced if the comment module is installed. But instead of replacing a complete file, a diff should be generated between the files and the ADDED lines should be merged. How to handle uninstall because here it doesn't work? I would need to know exactly what to remove.
     [easy]      Implement email/message notification on create
     [medium]    Allow tag modification
     [medium]    Fix bug where content overflows
@@ -444,6 +465,7 @@ Organization:
     [medium]    [Organigram] Make the organigram versioned/approved (e.g. for ISO)
 
 Profile:
+    [medium]    [Settings] Define a default image for new profiles. However, don't create a new media file whenever a new profile is created but instead define one global image which than is loaded for all profiles which don't have a custom image. This makes it easy to replace the default image for all existing profiles and saves a lot of space.
     [hard]      [Contacts] Find a way to hide some contact/address information for some modules.
                     Some information are only meant for specific modules (e.g. private address, phone number
                     e.g. HR module) The reason why this is difficult is that this information should not be part of the
@@ -474,6 +496,10 @@ QA:
     [easy]      Create different QA Apps (check out WikiApp)
     [easy]      Make Questions QA App specific (check out WikiDoc)
     [hard]      Create QA app with login
+
+Quality Management:
+
+Quality Assurance:
 
 Search:
     [medium]    Implement a tag search hook which finds content based on tags
@@ -509,6 +535,10 @@ Support:
                     a value can be created for an attribute type (check validation pattern, datatype, is required)
     [hard]      Create support app with login
 
+Surveys:
+    [easy]      Consider to add a closing paragrah. The description comes at the end, but maybe a paragraph at the end of the survey should be added?!
+    [easy]      Currently the demo only uses one language (en). Generate surveys with multiple langauges similar to other module demos (e.g. Wiki, News). In that case also prefix the text with the language so it's easy to see which language is loaded e.g. `EN:` (like in the tag module demo)
+
 Tag:
     [medium]    Create settings with a set of default colors
     [medium]    Create a hook which gets triggered if a group is created. This hook also creates a tag
@@ -520,6 +550,7 @@ Tasks:
                     link to the UI where it can be handled (e.g. ticket)
     [medium]    Make answer box on the right scroll down with the content, this way you can immediately respond without
                     scrolling.
+    [medium]    Attach custom event, if status is changed (e.g. trigger checklist event). Maybe don't do it, maybe other modules should instead check the status of the task!!!
     [medium]    Implement email notification on progress/changes (new task, forwarded, ...)
     [medium]    The unread task count is currently not really correct and needs to be fixed
     [medium]    Allow batch handling of tasks in the dashboard/overview for faster interaction (e.g. select and close)
@@ -529,8 +560,14 @@ Tasks:
 WarehouseManagement:
 
 Workflow:
-    [medium]    Create approval process which can be used by many modules (modules are allowed to provide their own
-                approval templates)
+    [medium]    Customer shipments/offers/invoices can be created
+    [medium]    New article is created
+    [medium]    New customer is created (e.g. validate fields or ask different departments to fill)
+    [medium]    New supplier is created (e.g. validate fields or ask different departments to fill)
+    [medium]    Customer data can be adjusted (prices, address, ...)
+    [medium]    Supplier data can be adjusted (prices, address, ...)
+    [medium]    Item data can be adjusted (prices, supplier, ...)
+    [medium]    New invoice is scanned (approval, booking, payment)
 
 Database permission handling:
 
