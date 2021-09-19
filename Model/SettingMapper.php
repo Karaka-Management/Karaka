@@ -36,6 +36,7 @@ final class SettingMapper extends DataMapperAbstract
         'settings_id'             => ['name' => 'settings_id',           'type' => 'int',      'internal' => 'id'],
         'settings_name'           => ['name' => 'settings_name',        'type' => 'string',   'internal' => 'name'],
         'settings_content'        => ['name' => 'settings_content',        'type' => 'string',   'internal' => 'content'],
+        'settings_pattern'        => ['name' => 'settings_pattern',        'type' => 'string',   'internal' => 'pattern'],
         'settings_module'         => ['name' => 'settings_module',        'type' => 'string',   'internal' => 'module'],
         'settings_group'          => ['name' => 'settings_group',        'type' => 'int',   'internal' => 'group'],
         'settings_account'        => ['name' => 'settings_account',        'type' => 'int',   'internal' => 'account'],

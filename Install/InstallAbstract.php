@@ -45,6 +45,9 @@ use phpOMS\Message\RequestAbstract;
 use phpOMS\Module\ModuleManager;
 use phpOMS\System\File\Local\Directory;
 use phpOMS\Uri\HttpUri;
+use phpOMS\Dispatcher\Dispatcher;
+use phpOMS\Event\EventManager;
+use Modules\Admin\Models\ModuleStatusUpdateType;
 
 /**
  * Application class.
@@ -308,14 +311,34 @@ abstract class InstallAbstract extends ApplicationAbstract
         $app->dbPool->add('update', $db);
         $app->dbPool->add('schema', $db);
 
+        $app->dispatcher   = new Dispatcher($app);
+        $app->eventManager = new EventManager($app->dispatcher);
+        $app->eventManager->importFromFile(__DIR__ . '/../Web/Api/Hooks.php');
+
+        $app->appSettings   = new CoreSettings($db);
         self::$mManager     = new ModuleManager($app, __DIR__ . '/../Modules/');
         $app->moduleManager = self::$mManager;
-        $app->appSettings   = new CoreSettings($db);
 
-        self::$mManager->install('Organization');
-        self::$mManager->install('Help');
-        self::$mManager->install('Profile');
-        self::$mManager->install('Navigation');
+        $toInstall = [
+            'Organization',
+            'Help',
+            'Profile',
+            'Navigation',
+            'Dashboard',
+            'CMS',
+        ];
+
+        $module = $app->moduleManager->get('Admin');
+
+        $response                 = new HttpResponse();
+        $request                  = new HttpRequest(new HttpUri(''));
+        $request->header->account = 1;
+        $request->setData('status', ModuleStatusUpdateType::INSTALL);
+
+        foreach ($toInstall as $install) {
+            $request->setData('module', $install, true);
+            $module->apiModuleStatusUpdate($request, $response);
+        }
     }
 
     /**
@@ -449,16 +472,27 @@ abstract class InstallAbstract extends ApplicationAbstract
         $theme = 'Default';
 
         /** @var ApiController $module */
-        $module = self::$mManager->get('Admin');
+        $module = self::$mManager->get('CMS');
 
         foreach ($apps as $app) {
             $temp                  = new HttpRequest(new HttpUri(''));
             $temp->header->account = 1;
-            $temp->setData('appSrc', $app);
-            $temp->setData('appDest', 'Web/' . \basename($app));
+            $temp->setData('name', \basename($app));
             $temp->setData('theme', $theme);
 
-            $module->apiInstallApplication($temp, new HttpResponse());
+            Zip::pack(__DIR__ . '/../' . $app, __DIR__ . '/' . \basename($app) . '.zip');
+
+            TestUtils::setMember($temp, 'files', [
+                [
+                    'name'     => \basename($app),
+                    'type'     => 'zip',
+                    'tmp_name' => __DIR__ . '/' . \basename($app) . '.zip',
+                    'error'    => \UPLOAD_ERR_OK,
+                    'size'     => \filesize(__DIR__ . '/' . \basename($app) . '.zip'),
+                ],
+            ]);
+
+            $module->apiApplicationInstall($temp, new HttpResponse());
         }
     }
 
@@ -514,16 +548,16 @@ abstract class InstallAbstract extends ApplicationAbstract
     {
         $setting = new Setting();
         SettingMapper::create($setting->with(0, SettingsEnum::PASSWORD_PATTERN, ''));
-        SettingMapper::create($setting->with(0, SettingsEnum::LOGIN_TRIES, '3'));
-        SettingMapper::create($setting->with(0, SettingsEnum::LOGIN_TIMEOUT, '3'));
-        SettingMapper::create($setting->with(0, SettingsEnum::PASSWORD_INTERVAL, '90'));
-        SettingMapper::create($setting->with(0, SettingsEnum::PASSWORD_HISTORY, '3'));
-        SettingMapper::create($setting->with(0, SettingsEnum::LOGGING_STATUS, '1'));
+        SettingMapper::create($setting->with(0, SettingsEnum::LOGIN_TRIES, '3', '\\d+'));
+        SettingMapper::create($setting->with(0, SettingsEnum::LOGIN_TIMEOUT, '3', '\\d+'));
+        SettingMapper::create($setting->with(0, SettingsEnum::PASSWORD_INTERVAL, '90', '\\d+'));
+        SettingMapper::create($setting->with(0, SettingsEnum::PASSWORD_HISTORY, '3', '\\d+'));
+        SettingMapper::create($setting->with(0, SettingsEnum::LOGGING_STATUS, '1', '[0-3]'));
         SettingMapper::create($setting->with(0, SettingsEnum::LOGGING_PATH, ''));
-        SettingMapper::create($setting->with(0, SettingsEnum::DEFAULT_ORGANIZATION, '1'));
-        SettingMapper::create($setting->with(0, SettingsEnum::LOGIN_STATUS, '1'));
-        SettingMapper::create($setting->with(0, SettingsEnum::DEFAULT_LOCALIZATION, '1'));
-        SettingMapper::create($setting->with(0, SettingsEnum::ADMIN_MAIL, 'admin@orange-management.org'));
+        SettingMapper::create($setting->with(0, SettingsEnum::DEFAULT_ORGANIZATION, '1', '\\d+'));
+        SettingMapper::create($setting->with(0, SettingsEnum::LOGIN_STATUS, '1', '[0-3]'));
+        SettingMapper::create($setting->with(0, SettingsEnum::DEFAULT_LOCALIZATION, '1', '\\d+'));
+        SettingMapper::create($setting->with(0, SettingsEnum::ADMIN_MAIL, 'admin@orange-management.org', "(?:[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])"));
 
         $l11n = Localization::fromLanguage($request->getData('defaultlang'), $request->getData('defaultcountry') ?? '*');
         LocalizationMapper::create($l11n);

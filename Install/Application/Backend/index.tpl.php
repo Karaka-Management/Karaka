@@ -102,10 +102,16 @@ $dispatch = $this->getData('dispatch') ?? [];
 
         <div id="content" class="container-fluid" role="main">
             <?php
+            $c = 0;
             foreach ($dispatch as $view) {
                 if ($view instanceof \phpOMS\Contract\RenderableInterface) {
+                    ++$c;
                     echo $view->render();
                 }
+            }
+
+            if ($c === 0) {
+                echo '<div class="emptyPage"></div>';
             }
             ?>
 

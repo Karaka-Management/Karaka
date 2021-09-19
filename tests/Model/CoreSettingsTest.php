@@ -155,7 +155,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
     public function testSetWithSave() : void
     {
         $setting = new Setting();
-        $setting->with(0, 'name', 'content', 'Admin', 1, 1);
+        $setting->with(0, 'name', 'content', '', 'Admin', 1, 1);
         $testId = SettingMapper::create($setting);
 
         $this->settings->set([
@@ -163,6 +163,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
                 'id'      => $testId,
                 'name'    => 'name',
                 'content' => 'new content',
+                'pattern' => '',
                 'module'  => 'Admin',
                 'group'   => 1,
                 'account' => 1,

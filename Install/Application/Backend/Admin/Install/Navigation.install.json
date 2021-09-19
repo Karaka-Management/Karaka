@@ -1,0 +1,63 @@
+[
+	{
+        "id": 100201001,
+        "pid": "/",
+        "type": 2,
+        "subtype": 0,
+        "name": "Legal",
+        "uri": null,
+        "target": "self",
+        "icon": "fa fa-gavel",
+        "order": 999999,
+        "from": "",
+        "permission": { "permission": 2, "type": null, "element": null },
+        "parent": 0,
+        "children": [
+            {
+                "id": 100201002,
+                "pid": "/",
+                "type": 2,
+                "subtype": 1,
+                "name": "PrivacyPolicy",
+                "uri": "{/prefix}legal/privacy",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "",
+                "permission": { "permission": 2, "type": null, "element": null },
+                "parent": 100201001,
+                "children": []
+            },
+            {
+                "id": 100201003,
+                "pid": "/",
+                "type": 2,
+                "subtype": 1,
+                "name": "Terms",
+                "uri": "{/prefix}legal/terms",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "",
+                "permission": { "permission": 2, "type": null, "element": null },
+                "parent": 100201001,
+                "children": []
+            },
+            {
+                "id": 100201004,
+                "pid": "/",
+                "type": 2,
+                "subtype": 1,
+                "name": "Imprint",
+                "uri": "{/prefix}legal/imprint",
+                "target": "self",
+                "icon": null,
+                "order": 10,
+                "from": "",
+                "permission": { "permission": 2, "type": null, "element": null },
+                "parent": 100201001,
+                "children": []
+            }
+        ]
+    }
+]

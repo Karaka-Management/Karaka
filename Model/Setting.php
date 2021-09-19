@@ -49,6 +49,14 @@ class Setting
     public string $content = '';
 
     /**
+     * Pattern
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    public string $pattern = '';
+
+    /**
      * Module name
      *
      * @var null|string
@@ -90,6 +98,7 @@ class Setting
      * @param int      $id      Id
      * @param string   $name    Name
      * @param string   $content Content
+     * @param string   $pattern Pattern
      * @param string   $module  Module
      * @param null|int $group   Group
      * @param null|int $account Account
@@ -102,6 +111,7 @@ class Setting
         int $id = 0,
         string $name = '',
         string $content = '',
+        string $pattern = '',
         string $module = null,
         int $group = null,
         int $account = null
@@ -110,6 +120,7 @@ class Setting
         $this->id      = $id;
         $this->name    = $name;
         $this->content = $content;
+        $this->pattern = $pattern;
         $this->module  = $module;
         $this->group   = $group;
         $this->account = $account;

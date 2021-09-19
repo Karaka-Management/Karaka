@@ -15,7 +15,7 @@
             <h1>Welcome</h1>
             <div>
                 <p>Orange Management is a WebApp written in PHP and JavaScript supporting various database
-                and caching technologies. Many Modules/Extensions provide functionality for businesses,
+                and caching technologies. Many modules/extensions provide functionality for businesses,
                 education facilities, healthcare facilities and organizations in general.<p>
 
                 <p>In the following pages you'll be guided through the installation process for the WebApp.
@@ -90,20 +90,30 @@
                             <td>PHP version >= 8.0.0
                             <td><?= \PHP_VERSION; ?>
                         <tr>
-                            <td class="<?= \is_writable(__DIR__ . '/../') && \is_writable(__DIR__ . '/../Modules') && \is_writable(__DIR__ . '/../Web') && \is_writable(__DIR__ . '/../Console') ? 'OK' : 'FAILED'; ?>"><?= \is_writable(__DIR__ . '/../') && \is_writable(__DIR__ . '/../Modules') && \is_writable(__DIR__ . '/../Web') && \is_writable(__DIR__ . '/../Console') ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= ($filePerm = \is_writable(__DIR__ . '/../Install')
+                                && \is_writable(__DIR__ . '/../Modules')
+                                && \is_writable(__DIR__ . '/../Modules/Media/Files')
+                                && \is_writable(__DIR__ . '/../Web')
+                                && \is_writable(__DIR__ . '/../Console')) ? 'OK' : 'FAILED'; ?>">
+                                <?= $filePerm ? 'OK' : 'FAILED'; ?>
                             <td>Critcal
-                            <td><strong>File permissions</strong>
+                            <td><strong>File permissions <?php if ($filePerm) : ?><?php else : ?>(<span class="FAILED">write permissions required!</span>)<?php endif; ?></strong>
                             <td>
                         <tr>
                             <td>
                             <td>Critcal
                             <td>/Install
-                            <td class="<?= \is_writable(__DIR__ . '/../') ? 'OK' : 'FAILED'; ?>"><?= \decoct(\fileperms(__DIR__ . '/../') & 0777); ?>
+                            <td class="<?= \is_writable(__DIR__ . '/../Install') ? 'OK' : 'FAILED'; ?>"><?= \decoct(\fileperms(__DIR__ . '/../Install') & 0777); ?>
                         <tr>
                             <td>
                             <td>Critcal
                             <td>/Modules
                             <td class="<?= \is_writable(__DIR__ . '/../Modules') ? 'OK' : 'FAILED'; ?>"><?= \decoct(\fileperms(__DIR__ . '/../Modules') & 0777); ?>
+                        <tr>
+                            <td>
+                            <td>Critcal
+                            <td>/Modules
+                            <td class="<?= \is_writable(__DIR__ . '/../Modules/Media/Files') ? 'OK' : 'FAILED'; ?>"><?= \decoct(\fileperms(__DIR__ . '/../Modules/Media/Files') & 0777); ?>
                         <tr>
                             <td>
                             <td>Critcal
@@ -198,6 +208,7 @@
                         <li><label for="iDbPort">Port</label>
                         <li><input id="iDbPort" name="dbport" type="number" value="3306" required>
                         <li><label for="iDbName">Database</label>
+                        <li><strong class="FAILED">Please make sure that you have created this database. Please also make sure that this database is empty!</strong>
                         <li><input id="iDbName" name="dbname" type="text" value="oms" required>
                     </ul>
                 </form>

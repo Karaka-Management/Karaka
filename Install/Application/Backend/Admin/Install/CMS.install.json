@@ -1,0 +1,28 @@
+[
+    {
+    	"type": "page",
+		"id": "imprint",
+		"name": "Imprint",
+		"src": "Application/Pages/Imprint",
+		"template": ""
+	},
+	{
+		"type": "page",
+		"id": "privacy",
+		"name": "PrivacyPolicy",
+		"src": "Application/Pages/PrivacyPolicy",
+		"template": ""
+	},
+	{
+		"type": "page",
+		"id": "terms",
+		"name": "Terms",
+		"src": "Application/Pages/Terms",
+		"template": ""
+	},
+	{
+		"type": "route",
+		"src": "Application",
+		"dest": "Backend"
+	}
+]

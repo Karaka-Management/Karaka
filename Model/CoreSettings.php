@@ -60,6 +60,8 @@ final class CoreSettings implements SettingsInterface
         'id'      => 'settings_id',
         'name'    => 'settings_name',
         'content' => 'settings_content',
+        'pattern' => 'settings_pattern',
+        'app'     => 'settings_app',
         'module'  => 'settings_module',
         'group'   => 'settings_group',
         'account' => 'settings_account',
@@ -91,6 +93,7 @@ final class CoreSettings implements SettingsInterface
     public function get(
         mixed $ids = null,
         string|array $names = null,
+        int $app = null,
         string $module = null,
         int $group = null,
         int $account = null
@@ -120,6 +123,7 @@ final class CoreSettings implements SettingsInterface
 
             foreach ($names as $i => $name) {
                 $key = ($name ?? '')
+                    . ':' . ($app ?? '')
                     . ':' . ($module ?? '')
                     . ':' . ($group ?? '')
                     . ':' . ($account ?? '');
@@ -154,6 +158,10 @@ final class CoreSettings implements SettingsInterface
                 $query->andWhere(static::$columns['name'], 'in', $names);
             }
 
+            if (!empty($app)) {
+                $query->andWhere(static::$columns['app'], '=', $app);
+            }
+
             if (!empty($module)) {
                 $query->andWhere(static::$columns['module'], '=', $module);
             }
@@ -181,6 +189,7 @@ final class CoreSettings implements SettingsInterface
 
             foreach ($dbOptions as $option) {
                 $key = ($option[static::$columns['name']] ?? '')
+                    . ':' . ($option[static::$columns['app']] ?? '')
                     . ':' . ($option[static::$columns['module']] ?? '')
                     . ':' . ($option[static::$columns['group']] ?? '')
                     . ':' . ($option[static::$columns['account']] ?? '');
@@ -194,6 +203,8 @@ final class CoreSettings implements SettingsInterface
                             'id'      => $option[static::$columns['id']] ?? null,
                             'name'    => $option[static::$columns['name']] ?? null,
                             'content' => $option[static::$columns['content']] ?? null,
+                            'pattern' => $option[static::$columns['pattern']] ?? null,
+                            'app'     => $option[static::$columns['app']] ?? null,
                             'module'  => $option[static::$columns['module']] ?? null,
                             'group'   => $option[static::$columns['group']] ?? null,
                             'account' => $option[static::$columns['account']] ?? null,
@@ -223,6 +234,7 @@ final class CoreSettings implements SettingsInterface
         /** @var array $option */
         foreach ($options as $option) {
             $key = ($option['name'] ?? '')
+                . ':' . ($option['app'] ?? '')
                 . ':' . ($option['module'] ?? '')
                 . ':' . ($option['group'] ?? '')
                 . ':' . ($option['account'] ?? '');
@@ -236,6 +248,8 @@ final class CoreSettings implements SettingsInterface
                         'id'      => $option['id'] ?? null,
                         'name'    => $option['name'] ?? null,
                         'content' => $option['content'] ?? null,
+                        'pattern' => $option['pattern'] ?? null,
+                        'app'     => $option['app'] ?? null,
                         'module'  => $option['module'] ?? null,
                         'group'   => $option['group'] ?? null,
                         'account' => $option['account'] ?? null,
@@ -275,6 +289,10 @@ final class CoreSettings implements SettingsInterface
 
         if (!empty($option['name'])) {
             $query->andWhere(static::$columns['name'], '=', $option['name']);
+        }
+
+        if (!empty($option['app'])) {
+            $query->andWhere(static::$columns['app'], '=', $option['app']);
         }
 
         if (!empty($option['module'])) {

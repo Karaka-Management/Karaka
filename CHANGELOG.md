@@ -1,24 +1,41 @@
 # Changelog
 
-## v0.1.0-alpha
+## September 2021 - v0.1.0-alpha
 
-This release is for internal testing purposes only. The following modules and features are the main focus of this beta release:
+### New
 
-* Installation through a setup script
-*
+#### Admin
 
-### New Features
+* Module settings can have a custom settings page by defining it in the module routing file. The template file should be stored in `\Modules\{Module}\Admin\Settings`.
+* Settings now can have a regex pattern for validation. If it is not empty, setting changes must meet the pattern.
 
-* None (initial release)
+#### Media
 
-### Enhancements
+* The media_type is now a table for custom media types.
+* The media_type has a installExternal binding similar to uploading media files during module installation or collection creation.
 
-* None (initial release)
+#### phpOMS Framework
 
-### Bug Fixes
+* Created `deleteRelation` function as opposite to `createRelation`
+* Created `deleteModelRelation` as opposite to `createModelRelation`
 
-* None (initial release)
+#### Bug fixes
 
-### BC Breaks
+#### UI
 
-* None (initial release)
+* Tables are now overflowing with scroll bars below if the horizontal screen size is smaller than the table.
+
+#### Auditor
+
+* Audit logs are created during module status changes incl. module installation.
+
+#### Other
+
+#### Admin
+
+* The admin group permissions can no longer get modified, which ensures there is always a admin group with sufficient permissions.
+* A user can no longer remove himself from the admin group in order to prevent mistakes.
+
+#### UI
+
+* The install script has improved highlighting for mandatory input fields.

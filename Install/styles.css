@@ -104,7 +104,8 @@ input, select {
 
 input:invalid {
     transition: all 0.5s;
-    border: 1px solid #b85450;
+    border: 1px solid #a5302a;
+    background: #ff7d79;
 }
 
 ul, li {

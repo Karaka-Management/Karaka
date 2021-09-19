@@ -14,7 +14,9 @@ declare(strict_types=1);
 
 namespace Web\Api;
 
+use Model\AppStatus;
 use Model\CoreSettings;
+use Model\SettingsEnum;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\LocalizationMapper;
 use Modules\Admin\Models\NullAccount;
@@ -166,6 +168,19 @@ final class Application
 
         UriFactory::setQuery('/lang', $response->getLanguage());
         $response->header->set('content-language', $response->getLanguage(), true);
+
+        if (!$account->hasGroup(3)
+            && ((($appStatus = (int) ($this->app->appSettings->get(null, SettingsEnum::LOGIN_STATUS)['content'] ?? 0)) === AppStatus::READ_ONLY
+            && $request->getRouteVerb() !== RouteVerb::GET)
+            || $appStatus === AppStatus::DISABLED)
+        ) {
+            // Application is in read only mode or completely disabled
+            // If read only mode is active only GET requests are allowed
+            // A user who is part of the admin group is excluded from this rule
+            $response->header->status = RequestStatusCode::R_405;
+
+            return;
+        }
 
         if (!empty($uris = $request->uri->getQuery('r'))) {
             $this->handleBatchRequest($uris, $request, $response);
