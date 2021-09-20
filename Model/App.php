@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Model;
 
+use phpOMS\Application\ApplicationStatus;
+
 /**
  * App model.
  *
@@ -54,5 +56,5 @@ class App
      * @var int
      * @since 1.0.0
      */
-    public int $status = AppStatus::NORMAL;
+    public int $status = ApplicationStatus::NORMAL;
 }

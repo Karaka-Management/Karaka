@@ -188,7 +188,6 @@ Todos/tasks which are not important enough to be part of the milestones.
 | low      |      | **Templates**<br />In some forms there are 2 buttons which a user shouldn't accidentally press (a save and create button or delete button). Position them far apart by using flexbox positioning (e.g. Module->Support->Settings). |
 | low      |      | **ModuleMapper**<br />Create a `::limit()` function which is similar in concept to the existing function `::sortBy()`. As a result the limit can be removed from most other functions. |
 | low      |      | **ModuleInstaller**<br />In most module *Installer.php* scripts the `installExternal()` re-implements Api functionality. Instead of creating new functions maybe the installer scripts should mock the API requests? (e.g. CMS is using the API while Media is re-implementing many functions) |
-| low      |      | **Application**<br />The application install should be defined in a similar class as the module installation (see `StatusAbstract.php` which is implemented by `Install.php` scripts in modules). This means Applications should have their own `Install.php` script! At the moment the CMS module, Admin Module and ApplicationManager are doing this. |
 | low      |      | **CMS**<br />Make pages editable<br />Make posts editable    |
 
 #### Archived
@@ -202,6 +201,7 @@ Todos/tasks which are not important enough to be part of the milestones.
 | high     | 2021.09.09 | **Table**<br />If column is numeric sort numerically, not by character (1,2,3 vs, 1, 10, 11, 2)<br />The table sort is WAY too slow!!! (e.g. editor-list by title).One problem might be a bad algorithm (e.g. get content, and use sort() of js instead, check new order and re-sort the table rows based on the ordered array). Another problem could be that the browser is doing some stupid stuff because of UI calls?<br />If column is datetime sort by datetime, not by character (careful, datetime formats can be different) |
 | medium   | 2021.09.13 | **DataMapper**<br />Implement hasMany default parameters in mappers (e.g. sortBy, sortOrder).<br />Remove the `orderBy` functionality from the `::with()` function since this is now replaced with the `::sortBy()` function |
 | low      | 2021.09.18 | **Application**<br />Applications should be able to define module dependencies which are installed/checked during the installation process. |
+| low      | 2021.09.20 | **Application**<br />The application install should be defined in a similar class as the module installation (see `StatusAbstract.php` which is implemented by `Install.php` scripts in modules). This means Applications should have their own `Install.php` script! At the moment the CMS module, Admin Module and ApplicationManager are doing this. |
 
 ## Features
 
@@ -376,6 +376,7 @@ where ...
 * Applications can install navigation elements.
 * Applications can install pages.
 * Applications can have their own controllers
+* Applications have their own install scripts
 
 #### Bug fixes
 

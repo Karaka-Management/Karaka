@@ -4,7 +4,7 @@
  *
  * PHP Version 8.0
  *
- * @package   Model
+ * @package   Web\E500\Admin
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -12,23 +12,18 @@
  */
 declare(strict_types=1);
 
-namespace Model;
+namespace Web\E500\Admin;
 
-use phpOMS\Stdlib\Base\Enum;
+use phpOMS\Application\StatusAbstract;
 
 /**
- * App status enum.
+ * Status class.
  *
- * @package Model
+ * @package Web\E500\Admin
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-abstract class AppStatus extends Enum
+final class Status extends StatusAbstract
 {
-    public const NORMAL = 1;
-
-    public const READ_ONLY = 2;
-
-    public const DISABLED = 3;
 }
