@@ -49,13 +49,13 @@ Based on the pilot candidate with whom the functionality will be implemented.
 
 The estimated costs in the milestones are based on the total annual costs from the software from the pilot candidate. These total costs are then subjectively distributed to the different software aspects.
 
-| Type      | License | Customization | Total          |
-| --------- | ------- | ------------- | -------------- |
-| Z*        |         |               | 2,000 EUR      |
-| G*        |         |               | 40,000 EUR     |
-| L*        |         |               | 1,000 EUR      |
-| CRM       |         |               | 10,000 EUR     |
-| **Total** | **EUR** | **EUR**       | **63,000 EUR** |
+| Type      | License        | Customization  | Total          |
+| --------- | -------------- | -------------- | -------------- |
+| Z*        | 7,200 EUR      |                | 7,200 EUR      |
+| G*        | 26,600 EUR     | 8,400 EUR      | 35,000 EUR     |
+| L*        | 4,200 EUR      |                | 4,200 EUR      |
+| CRM       |                | 9,200 EUR      | 9,200 EUR      |
+| **Total** | **38,000 EUR** | **17,600 EUR** | **55,600 EUR** |
 
 ### Tasks & decisions
 
