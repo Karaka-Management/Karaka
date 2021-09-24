@@ -40,7 +40,7 @@ Based on the pilot candidate with whom the functionality will be implemented.
 | 2023.03.31 |      | Replace billing from G*                                | 15,000 EUR | 20,000 EUR |
 | 2023.03.31 |      | Replace stock from G*                                  | 7,500 EUR  | 8,000 EUR  |
 | 2023.03.31 |      | Replace inventory from G*                              | 500 EUR    | 1,000 EUR  |
-| 2023.03.31 |      | Replace manufacturing from G*                          | 500 EUR    | 10,000 EUR |
+| 2023.03.31 |      | Replace manufacturing from G* + QC                     | 500 EUR    | 10,000 EUR |
 | 2023.09.30 |      | Replace accounting from G*                             | 10,000 EUR | 12,000 EUR |
 | 2023.09.30 |      | Replace asset management from G* EUR                   | 500 EUR    | 500 EUR    |
 | 2023.09.30 |      | Replace reporting from L*                              | 4,200 EUR  | 5,000 EUR  |
