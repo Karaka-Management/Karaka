@@ -26,24 +26,27 @@ Continue with milestone task implementation.
 
 Based on the pilot candidate with whom the functionality will be implemented.
 
-| Deadline   | Done | Milestone                                              | Costs      | Value      |
-| ---------- | ---- | ------------------------------------------------------ | ---------- | ---------- |
-| 2021.10.31 |      | Replace ticket system from Z*                          | 7,200 EUR  | 8,000 EUR  |
-| 2021.12.31 |      | Replace document/contract management from CRM          | 3,000 EUR  | 6,000 EUR  |
-| 2022.02.28 |      | Implement invoice management process                   | 0 EUR      | 5,000 EUR  |
-| 2022.03.31 |      | Replace QM from CRM                                    | 700 EUR    | 1,500 EUR  |
-| 2022.04.30 |      | Replace workflows from CRM                             | 1,000 EUR  | 3,000 EUR  |
-| 2022.06.30 |      | Move sales reps from CRM                               | 3,000 EUR  | 6,000 EUR  |
-| 2022.07.31 |      | Replace Marketing events, seminars, shop data from CRM | 1,500 EUR  | 2,000 EUR  |
-| 2022.08.31 |      | Sales analysis (replace D* from G*)                    | 1,000 EUR  | 2,000 EUR  |
-| 2022.10.31 |      | Digitalizing human resource Human Resource Management  | 0 EUR      | 500 EUR    |
-| 2023.03.31 |      | Replace billing from G*                                | 15,000 EUR | 20,000 EUR |
-| 2023.03.31 |      | Replace stock from G*                                  | 7,500 EUR  | 8,000 EUR  |
-| 2023.03.31 |      | Replace inventory from G*                              | 500 EUR    | 1,000 EUR  |
-| 2023.03.31 |      | Replace manufacturing from G* + QC                     | 500 EUR    | 10,000 EUR |
-| 2023.09.30 |      | Replace accounting from G*                             | 10,000 EUR | 12,000 EUR |
-| 2023.09.30 |      | Replace asset management from G* EUR                   | 500 EUR    | 500 EUR    |
-| 2023.09.30 |      | Replace reporting from L*                              | 4,200 EUR  | 5,000 EUR  |
+| Deadline   | Done | Milestone                                              | Costs          | Value          |
+| ---------- | ---- | ------------------------------------------------------ | -------------- | -------------- |
+| 2021.10.31 |      | Replace ticket system from Z*                          | 7,200 EUR      | 8,000 EUR      |
+| 2021.12.31 |      | Replace document/contract management from CRM          | 3,000 EUR      | 6,000 EUR      |
+| 2022.02.28 |      | Implement invoice management process                   | 0 EUR          | 5,000 EUR      |
+| 2022.03.31 |      | Replace QM from CRM                                    | 700 EUR        | 1,500 EUR      |
+| 2022.04.30 |      | Replace workflows from CRM                             | 1,000 EUR      | 3,000 EUR      |
+| 2022.06.30 |      | Move sales reps from CRM                               | 3,000 EUR      | 6,000 EUR      |
+| 2022.07.31 |      | Replace Marketing events, seminars, shop data from CRM | 1,500 EUR      | 2,000 EUR      |
+| 2022.08.31 |      | Sales analysis (replace D* from G*)                    | 1,000 EUR      | 2,000 EUR      |
+| 2022.10.31 |      | Digitalizing human resource Human Resource Management  | 0 EUR          | 500 EUR        |
+| 2023.03.31 |      | Replace billing from G*                                | 15,000 EUR     | 20,000 EUR     |
+| 2023.03.31 |      | Replace stock from G*                                  | 7,500 EUR      | 8,000 EUR      |
+| 2023.03.31 |      | Replace inventory from G*                              | 500 EUR        | 1,000 EUR      |
+| 2023.03.31 |      | Replace manufacturing from G* + R&D + Quality control  | 500 EUR        | 10,000 EUR     |
+| 2023.09.30 |      | Replace accounting from G*                             | 10,000 EUR     | 12,000 EUR     |
+| 2023.09.30 |      | Replace asset management from G* EUR                   | 500 EUR        | 500 EUR        |
+| 2023.09.30 |      | Replace reporting from L*                              | 4,200 EUR      | 5,000 EUR      |
+|            |      |                                                        | **55,600 EUR** | **90,500 EUR** |
+
+*The value is the relative value for the pilot candidate based on the current cost structure.*
 
 ### Cost basis
 
