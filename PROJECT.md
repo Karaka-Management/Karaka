@@ -232,7 +232,7 @@ Features to be implemented at a later stage *nice to haves*.
 | low      |      | **Support**<br />Allow support/tickets to be transformed to Q&A question and answers<br />Allow Q&A to be transformed to support<br />Create support app with login<br />TicketAttributeTypes should specify which datatype they expect. The ApiController needs to validate if a value can be created for an attribute type (check validation pattern, datatype, is required) |
 | low      |      | **Tag**<br />Create settings with a set of default colors<br />Create a hook which gets triggered if a group is created. This hook also creates a tag |
 | low      |      | **Settings**<br />Implement a setting which lets users see all content no matter the content language (e.g. all News) |
-| low      |      | **Templates**<br />Allow custom templates, which don't get replaced during updates (e.g. for ItemManagement, CustomerManagement, HR, ...) |
+| low      |      | **Templates, Controllers, Views and Models**<br />Allow custom templates, controllers, views and models, which don't get replaced during updates (e.g. for ItemManagement, CustomerManagement, HR, ...). These should be stored in a directory called `Customized` in the parent directories *Controller*, *Themes*, *Views* and *Models*. Whenever a custom controller is uploaded/changed the routes of all the applications need to be checked and adjusted. |
 
 #### Archived
 

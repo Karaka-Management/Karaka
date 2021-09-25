@@ -19,8 +19,8 @@
                 "type": "VARCHAR(50)",
                 "null": false
             },
-            "module_active": {
-                "name": "module_active",
+            "module_status": {
+                "name": "module_status",
                 "type": "TINYINT",
                 "default": 1,
                 "null": false

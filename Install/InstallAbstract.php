@@ -48,6 +48,9 @@ use phpOMS\Uri\HttpUri;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
 use Modules\Admin\Models\ModuleStatusUpdateType;
+use phpOMS\System\MimeType;
+use phpOMS\Utils\TestUtils;
+use phpOMS\Utils\IO\Zip\Zip;
 
 /**
  * Application class.
@@ -257,8 +260,25 @@ abstract class InstallAbstract extends ApplicationAbstract
         $app->moduleManager = self::$mManager;
         $app->appSettings   = new CoreSettings($db);
 
-        self::$mManager->install('Admin');
-        self::$mManager->install('Auditor');
+        $app->dispatcher   = new Dispatcher($app);
+        $app->eventManager = new EventManager($app->dispatcher);
+
+        $toInstall = [
+            'Admin',
+            'Auditor',
+        ];
+
+        $module = $app->moduleManager->get('Admin');
+
+        $response                 = new HttpResponse();
+        $request                  = new HttpRequest(new HttpUri(''));
+        $request->header->account = 1;
+        $request->setData('status', ModuleStatusUpdateType::INSTALL);
+
+        foreach ($toInstall as $install) {
+            $request->setData('module', $install, true);
+            $module->apiModuleStatusUpdate($request, $response);
+        }
     }
 
     /**
@@ -484,8 +504,8 @@ abstract class InstallAbstract extends ApplicationAbstract
 
             TestUtils::setMember($temp, 'files', [
                 [
-                    'name'     => \basename($app),
-                    'type'     => 'zip',
+                    'name'     => \basename($app) . '.zip',
+                    'type'     => MimeType::M_ZIP,
                     'tmp_name' => __DIR__ . '/' . \basename($app) . '.zip',
                     'error'    => \UPLOAD_ERR_OK,
                     'size'     => \filesize(__DIR__ . '/' . \basename($app) . '.zip'),
