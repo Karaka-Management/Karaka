@@ -14,6 +14,13 @@ declare(strict_types=1);
 
 namespace Web\Backend\Controller;
 
+use phpOMS\Message\RequestAbstract;
+use Modules\CMS\Models\PageMapper;
+use phpOMS\Views\View;
+use phpOMS\Message\ResponseAbstract;
+use phpOMS\Contract\RenderableInterface;
+use phpOMS\Module\ModuleAbstract;
+
 /**
  * Home class.
  *
@@ -22,9 +29,9 @@ namespace Web\Backend\Controller;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class PageController extends Controller
+final class PageController extends ModuleAbstract
 {
-	/**
+    /**
      * Routing end-point for application behaviour.
      *
      * @param RequestAbstract  $request  Request
@@ -38,11 +45,13 @@ final class PageController extends Controller
      */
     public function viewLegalDocuments(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-    	$view = new View($this->app->l11nManager, $request, $response);
-    	$view->setTemplate('/Web/Backend/Theme/legal');
+        $view = new View($this->app->l11nManager, $request, $response);
+        $view->setTemplate('/Web/Backend/Themes/legal');
 
-    	$page = PageMapper::with('app', 2)::getBy($request->getPath(1), 'name');
+        $page = PageMapper::with('language', $response->getLanguage())::with('app', 2)::getBy($request->uri->getPathElement(1), 'name');
 
-    	return $view;
+        $view->setData('content', $page);
+
+        return $view;
     }
 }

@@ -177,21 +177,14 @@ trait ModuleTestTrait
                 }
             }
 
-            // test correct hasMany model variable type
-            /*
-            @todo: this is a propblem for uninitialized member variables. Find a way to accept uninitialized member variables. getDefaultProperties() doesn't recognize uninitialized member variables
+            // test hasMany variable exists in model
             $rel = $mapperReflection->getDefaultProperties()['hasMany'];
             foreach ($rel as $pName => $def) {
-                $property = $defaultProperties[$pName] ?? null;
-                if (!\array_key_exists($pName, $defaultProperties)) {
+                $property = $classReflection->getProperty($pName) ?? null;
+                if (!\array_key_exists($pName, $defaultProperties) && $property === null) {
                     self::assertTrue(false, 'Mapper "' . $class . '" property "' . $pName . '" doesn\'t exist in model');
                 }
-
-                if (!\is_array($property) && !isset($def['column'])) {
-                    self::assertTrue(false, 'Mapper "' . $class . '" column "' . $pName . '" has invalid type compared to model definition');
-                }
             }
-            */
         }
 
         self::assertTrue(true);

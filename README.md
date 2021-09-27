@@ -42,7 +42,7 @@ For more detailed information please checkout the [Installation Guide](https://o
 
 #### Developer
 
-https://github.com/Orange-Management/Developer-Guide/blob/master/setup/installation.md
+https://github.com/Orange-Management/Developer-Guide/blob/develop/general/setup.md
 
 ## Philosophy
 
