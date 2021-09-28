@@ -29,7 +29,7 @@ class SettingMapperTest extends \PHPUnit\Framework\TestCase
     public function testCR() : void
     {
         $setting = new Setting();
-        $setting->with(0, 'name', 'content', 'pattern', 'Admin', 1, 1);
+        $setting->with(0, 'name', 'content', 'pattern', 1, 'Admin', 1, 1);
         $id = SettingMapper::create($setting);
 
         $settingR = SettingMapper::get($setting->getId());
@@ -39,6 +39,7 @@ class SettingMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($setting->name, $settingR->name);
         self::assertEquals($setting->content, $settingR->content);
         self::assertEquals($setting->pattern, $settingR->pattern);
+        self::assertEquals($setting->app, $settingR->app);
         self::assertEquals($setting->module, $settingR->module);
         self::assertEquals($setting->group, $settingR->group);
         self::assertEquals($setting->account, $settingR->account);

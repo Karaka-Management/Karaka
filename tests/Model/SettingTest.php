@@ -43,11 +43,13 @@ class SettingTest extends \PHPUnit\Framework\TestCase
      */
     public function testWithInitailization() : void
     {
-        $this->setting->with(1, 'name', 'content', 'module', 2, 3);
+        $this->setting->with(1, 'name', 'content', 'pattern', 1, 'module', 2, 3);
         self::assertEquals(1, $this->setting->getId());
         self::assertEquals('name', $this->setting->name);
         self::assertEquals('content', $this->setting->content);
+        self::assertEquals('pattern', $this->setting->pattern);
         self::assertEquals('module', $this->setting->module);
+        self::assertEquals(1, $this->setting->app);
         self::assertEquals(2, $this->setting->group);
         self::assertEquals(3, $this->setting->account);
     }

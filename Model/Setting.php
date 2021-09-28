@@ -57,6 +57,14 @@ class Setting
     public string $pattern = '';
 
     /**
+     * App id
+     *
+     * @var null|int
+     * @since 1.0.0
+     */
+    public ?int $app = null;
+
+    /**
      * Module name
      *
      * @var null|string
@@ -95,13 +103,14 @@ class Setting
     /**
      * Create setting with data
      *
-     * @param int      $id      Id
-     * @param string   $name    Name
-     * @param string   $content Content
-     * @param string   $pattern Pattern
-     * @param string   $module  Module
-     * @param null|int $group   Group
-     * @param null|int $account Account
+     * @param int         $id      Id
+     * @param string      $name    Name
+     * @param string      $content Content
+     * @param string      $pattern Pattern
+     * @param null|int    $app     App
+     * @param null|string $module  Module
+     * @param null|int    $group   Group
+     * @param null|int    $account Account
      *
      * @return self
      *
@@ -112,6 +121,7 @@ class Setting
         string $name = '',
         string $content = '',
         string $pattern = '',
+        int $app = null,
         string $module = null,
         int $group = null,
         int $account = null
@@ -121,6 +131,7 @@ class Setting
         $this->name    = $name;
         $this->content = $content;
         $this->pattern = $pattern;
+        $this->app     = $app;
         $this->module  = $module;
         $this->group   = $group;
         $this->account = $account;

@@ -26,4 +26,5 @@ use phpOMS\Application\StatusAbstract;
  */
 final class Status extends StatusAbstract
 {
+    public const PATH = __DIR__;
 }

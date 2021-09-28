@@ -17,6 +17,8 @@ namespace Web\Backend;
 use Modules\Organization\Models\Unit;
 use Modules\Profile\Models\Profile;
 use Modules\Media\Models\Media;
+use Modules\Media\Models\NullMedia;
+use Modules\Profile\Models\NullProfile;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
 
@@ -36,7 +38,7 @@ class BackendView extends View
      * @var View
      * @since 1.0.0
      */
-    protected $nav = null;
+    protected ?View $nav = null;
 
     /**
      * User profile.
@@ -44,7 +46,7 @@ class BackendView extends View
      * @var Profile
      * @since 1.0.0
      */
-    protected $profile = null;
+    protected Profile $profile;
 
     /**
      * User profile image.
@@ -52,7 +54,7 @@ class BackendView extends View
      * @var Media
      * @since 1.0.0
      */
-    public ?Media $defaultProfileImage = null;
+    public Media $defaultProfileImage;
 
     /**
      * Organizations.
@@ -60,7 +62,18 @@ class BackendView extends View
      * @var Unit[]
      * @since 1.0.0
      */
-    protected $organizations = null;
+    protected array $organizations = [];
+
+    /**
+     * Constructor
+     *
+     * @since 1.0.0
+     */
+    public function __construct()
+    {
+        $this->profile = new NullProfile();
+        $this->defaultProfileImage = new NullMedia();
+    }
 
     /**
      * Set navigation view.
@@ -101,7 +114,7 @@ class BackendView extends View
      */
     public function getProfileImage() : string
     {
-        if ($this->profile === null || $this->profile->image->getPath() === '') {
+        if (($this->profile instanceof NullProfile) || $this->profile->image->getPath() === '') {
             return UriFactory::build('{/prefix}' . $this->defaultProfileImage->getPath());
         }
 
