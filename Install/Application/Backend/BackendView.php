@@ -80,7 +80,7 @@ class BackendView extends View
     {
         parent::__construct($l11n, $request, $response);
 
-        $this->profile = new NullProfile();
+        $this->profile             = new NullProfile();
         $this->defaultProfileImage = new NullMedia();
     }
 

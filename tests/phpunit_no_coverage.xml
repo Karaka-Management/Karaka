@@ -4,7 +4,7 @@
     <include>
       <directory suffix=".php">../phpOMS</directory>
       <directory suffix=".php">../Model</directory>
-      <directory suffix=".php">../Web</directory>
+      <directory suffix=".php">../Web/Exception</directory>
       <directory suffix=".php">../Install</directory>
       <directory suffix=".php">../Modules</directory>
       <directory suffix=".php">../Socket</directory>
@@ -29,6 +29,7 @@
       <directory>../Modules/**/test*</directory>
       <directory>../Modules/**/Theme*</directory>
       <directory>../Modules/**/Admin/Routes*</directory>
+      <directory>../Modules/**/Admin/Hooks*</directory>
       <directory>../Modules/**/Admin/Install*</directory>
       <directory>../Modules/Media/Files*</directory>
     </exclude>

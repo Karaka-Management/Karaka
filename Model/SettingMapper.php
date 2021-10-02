@@ -116,7 +116,16 @@ final class SettingMapper extends DataMapperAbstract
         $sth->execute();
     }
 
-    public static function getSettings(array $where) : mixed
+    /**
+     * Get setting / option from database
+     *
+     * @param array $where Where conditions
+     *
+     * @return array
+     *
+     * @since 1.0.0
+     */
+    public static function getSettings(array $where) : array
     {
         $depth = 3;
         $query = self::getQuery();

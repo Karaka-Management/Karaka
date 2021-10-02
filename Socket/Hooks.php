@@ -325,6 +325,11 @@
             322 => '\Modules\TestModule\Controller\Controller:testHook',
             323 => '\Modules\TestModule\Controller\Controller:testHook',
             324 => '\Modules\TestModule\Controller\Controller:testHook',
+            325 => '\Modules\TestModule\Controller\Controller:testHook',
+            326 => '\Modules\TestModule\Controller\Controller:testHook',
+            327 => '\Modules\TestModule\Controller\Controller:testHook',
+            328 => '\Modules\TestModule\Controller\Controller:testHook',
+            329 => '\Modules\TestModule\Controller\Controller:testHook',
         ],
     ],
 ];
