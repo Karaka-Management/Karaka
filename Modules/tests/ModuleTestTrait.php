@@ -26,10 +26,6 @@ use phpOMS\Uri\HttpUri;
 use phpOMS\Utils\ArrayUtils;
 use phpOMS\Validation\Base\Json;
 use phpOMS\Version\Version;
-use Modules\Admin\Models\Module;
-use Modules\Admin\Models\NullModule as DbNullModule;
-use Modules\Admin\Models\ModuleMapper;
-use phpOMS\Module\ModuleStatus;
 use phpOMS\Module\NullModule;
 use Modules\Admin\Models\ModuleStatusUpdateType;
 use phpOMS\Event\EventManager;
@@ -44,6 +40,12 @@ trait ModuleTestTrait
      */
     protected function setUp() : void
     {
+        if (self::NAME === 'TestModule') {
+            $this->markTestSkipped(
+                'The TestModule is not tested'
+            );
+        }
+
         $this->app = new class() extends ApplicationAbstract
         {
             protected string $appName = 'Api';

@@ -454,7 +454,7 @@ final class Application
         $pageView->setData('nav', $this->getNavigation($request, $response));
 
         $profileImage = $this->app->appSettings->get(names: 'default_profile_image', module: 'Profile');
-        $image        = MediaMapper::get((int) $profileImage['content']);
+        $image        = MediaMapper::get((int) $profileImage->content);
         $pageView->defaultProfileImage = $image;
 
         $pageView->setTemplate('/Web/Backend/index');

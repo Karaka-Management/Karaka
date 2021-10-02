@@ -170,7 +170,7 @@ final class Application
         $response->header->set('content-language', $response->getLanguage(), true);
 
         if (!$account->hasGroup(3)
-            && ((($appStatus = (int) ($this->app->appSettings->get(null, SettingsEnum::LOGIN_STATUS)['content'] ?? 0)) === ApplicationStatus::READ_ONLY
+            && ((($appStatus = (int) ($this->app->appSettings->get(null, SettingsEnum::LOGIN_STATUS)->content ?? 0)) === ApplicationStatus::READ_ONLY
             && $request->getRouteVerb() !== RouteVerb::GET)
             || $appStatus === ApplicationStatus::DISABLED)
         ) {

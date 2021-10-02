@@ -34,10 +34,20 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Model\CoreSettings
+     * @covers Model\Setting
+     * @covers Model\SettingMapper
      * @group framework
      */
     public function testSettingsGet() : void
     {
+        $this->settings->set([
+            [
+                'name'    => SettingsEnum::PASSWORD_INTERVAL,
+                'content' => '60',
+            ],
+        ], false);
+        self::assertEquals('60', $this->settings->get(SettingsEnum::PASSWORD_INTERVAL)->content); // get from cache
+
         self::assertCount(2,
             $this->settings->get(null, [
                 SettingsEnum::DEFAULT_ORGANIZATION,
@@ -48,12 +58,14 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         self::assertEmpty($this->settings->get(null, ['12345678', '123456789']));
         self::assertEquals(
             '1',
-            $this->settings->get(null, SettingsEnum::DEFAULT_ORGANIZATION)['content']
+            $this->settings->get(null, SettingsEnum::DEFAULT_ORGANIZATION)->content
         );
     }
 
     /**
      * @covers Model\CoreSettings
+     * @covers Model\Setting
+     * @covers Model\SettingMapper
      * @group framework
      */
     public function testSettingsSet() : void
@@ -69,7 +81,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals(
             '60',
-            $this->settings->get(null, SettingsEnum::PASSWORD_INTERVAL)['content']
+            $this->settings->get(null, SettingsEnum::PASSWORD_INTERVAL)->content
         );
 
         self::assertEmpty(
@@ -83,12 +95,36 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals(
             '90',
-            $this->settings->get(null, SettingsEnum::PASSWORD_INTERVAL)['content']
+            $this->settings->get(null, SettingsEnum::PASSWORD_INTERVAL)->content
         );
     }
 
     /**
      * @covers Model\CoreSettings
+     * @covers Model\Setting
+     * @covers Model\SettingMapper
+     * @group framework
+     */
+    public function testSettingsCreate() : void
+    {
+        self::assertEmpty(
+            $this->settings->create([
+                'name'    => 'test_name',
+                'content' => '60',
+            ])
+        );
+
+        $settings = new CoreSettings($GLOBALS['dbpool']->get());
+        self::assertEquals(
+            '60',
+            $settings->get(null, 'test_name')->content
+        );
+    }
+
+    /**
+     * @covers Model\CoreSettings
+     * @covers Model\Setting
+     * @covers Model\SettingMapper
      * @group framework
      */
     public function testSettingsSetWithoutStore() : void
@@ -105,19 +141,21 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         // Stored in settings
         self::assertEquals(
             '60',
-            $this->settings->get(null, SettingsEnum::PASSWORD_INTERVAL)['content']
+            $this->settings->get(null, SettingsEnum::PASSWORD_INTERVAL)->content
         );
 
         // But not stored in database
         $settings2 = new CoreSettings($GLOBALS['dbpool']->get());
         self::assertEquals(
             '90',
-            $settings2->get(null, SettingsEnum::PASSWORD_INTERVAL)['content']
+            $settings2->get(null, SettingsEnum::PASSWORD_INTERVAL)->content
         );
     }
 
     /**
      * @covers Model\CoreSettings
+     * @covers Model\Setting
+     * @covers Model\SettingMapper
      * @group framework
      */
     public function testSettingsSave() : void
@@ -131,7 +169,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals(
             '60',
-            $this->settings->get(null, SettingsEnum::PASSWORD_INTERVAL)['content']
+            $this->settings->get(null, SettingsEnum::PASSWORD_INTERVAL)->content
         );
 
         $this->settings->set([
@@ -144,18 +182,20 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         $this->settings->save();
         self::assertEquals(
             '90',
-            $this->settings->get(null, SettingsEnum::PASSWORD_INTERVAL)['content']
+            $this->settings->get(null, SettingsEnum::PASSWORD_INTERVAL)->content
         );
     }
 
     /**
      * @covers Model\CoreSettings
+     * @covers Model\Setting
+     * @covers Model\SettingMapper
      * @group framework
      */
     public function testSetWithSave() : void
     {
         $setting = new Setting();
-        $setting->with(0, 'name', 'content', '', null, 'Admin', 1, 1);
+        $setting->with(0, 'name', 'content', '', 1, 'Admin', 1, 1);
         $testId = SettingMapper::create($setting);
 
         $this->settings->set([
@@ -164,7 +204,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
                 'name'    => 'name',
                 'content' => 'new content',
                 'pattern' => '',
-                'app' => null,
+                'app'     => 1,
                 'module'  => 'Admin',
                 'group'   => 1,
                 'account' => 1,
@@ -174,19 +214,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         $settingR = SettingMapper::get($testId);
         self::assertEquals('new content', $settingR->content);
 
-        $settingR2 = $this->settings->get($testId, 'name', null, 'Admin', 1, 1);
-        self::assertEquals('new content', $settingR2['content']);
-    }
-
-    /**
-     * @covers Model\CoreSettings
-     * @group framework
-     */
-    public function testDbException() : void
-    {
-        $this->expectException(\Throwable::class);
-
-        $this->settings = new CoreSettings(new NullConnection());
-        $this->settings->get(null, [SettingsEnum::DEFAULT_ORGANIZATION, SettingsEnum::PASSWORD_INTERVAL]);
+        $settingR2 = $this->settings->get($testId, 'name', 1, 'Admin', 1, 1);
+        self::assertEquals('new content', $settingR2->content);
     }
 }

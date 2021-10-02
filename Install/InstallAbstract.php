@@ -293,9 +293,8 @@ abstract class InstallAbstract extends ApplicationAbstract
     protected static function createBaseTables(ConnectionAbstract $db) : void
     {
         $path = __DIR__ . '/db.json';
-
         if (!\is_file($path)) {
-            return;
+            return; // @codeCoverageIgnore
         }
 
         $content = \file_get_contents($path);
@@ -455,7 +454,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         );
 
         if ($sth === false) {
-            return;
+            return; // @codeCoverageIgnore
         }
 
         $sth->execute();
@@ -548,7 +547,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         );
 
         if ($sth === false) {
-            return;
+            return; // @codeCoverageIgnore
         }
 
         $sth->execute();

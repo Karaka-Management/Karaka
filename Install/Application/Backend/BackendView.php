@@ -21,6 +21,9 @@ use Modules\Media\Models\NullMedia;
 use Modules\Profile\Models\NullProfile;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
+use phpOMS\Localization\L11nManager;
+use phpOMS\Message\RequestAbstract;
+use phpOMS\Message\ResponseAbstract;
 
 /**
  * List view.
@@ -67,10 +70,16 @@ class BackendView extends View
     /**
      * Constructor
      *
+     * @param L11nManager      $l11n     Localization manager
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Request
+     *
      * @since 1.0.0
      */
-    public function __construct()
+    public function __construct(L11nManager $l11n = null, RequestAbstract $request = null, ResponseAbstract $response = null)
     {
+        parent::__construct($l11n, $request, $response);
+
         $this->profile = new NullProfile();
         $this->defaultProfileImage = new NullMedia();
     }
