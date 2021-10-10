@@ -134,7 +134,7 @@ final class Application
         DataMapperAbstract::setConnection($con);
 
         $this->app->cachePool    = new CachePool();
-        $this->app->appSettings  = new CoreSettings($con);
+        $this->app->appSettings  = new CoreSettings();
         $this->app->eventManager = new EventManager($this->app->dispatcher);
         $this->app->eventManager->importFromFile(__DIR__ . '/Hooks.php');
 

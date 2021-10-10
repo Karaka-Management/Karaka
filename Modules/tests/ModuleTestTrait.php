@@ -54,7 +54,7 @@ trait ModuleTestTrait
         $this->app->dbPool        = $GLOBALS['dbpool'];
         $this->app->router        = new WebRouter();
         $this->app->dispatcher    = new Dispatcher($this->app);
-        $this->app->appSettings   = new CoreSettings($this->app->dbPool->get('admin'));
+        $this->app->appSettings   = new CoreSettings();
         $this->app->moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
         $this->app->eventManager  = new EventManager($this->app->dispatcher);
     }

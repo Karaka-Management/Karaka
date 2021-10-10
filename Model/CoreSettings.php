@@ -43,26 +43,6 @@ final class CoreSettings implements SettingsInterface
     protected ?CachePool $cache = null;
 
     /**
-     * Database connection instance.
-     *
-     * @var ConnectionAbstract
-     * @since 1.0.0
-     */
-    protected ConnectionAbstract $connection;
-
-    /**
-     * Constructor.
-     *
-     * @param ConnectionAbstract $connection Database connection
-     *
-     * @since 1.0.0
-     */
-    public function __construct(ConnectionAbstract $connection)
-    {
-        $this->connection = $connection;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function get(

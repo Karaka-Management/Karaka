@@ -29,7 +29,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp() : void
     {
-        $this->settings = new CoreSettings($GLOBALS['dbpool']->get());
+        $this->settings = new CoreSettings();
     }
 
     /**
@@ -114,7 +114,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
             ])
         );
 
-        $settings = new CoreSettings($GLOBALS['dbpool']->get());
+        $settings = new CoreSettings();
         self::assertEquals(
             '60',
             $settings->get(null, 'test_name')->content
@@ -145,7 +145,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         );
 
         // But not stored in database
-        $settings2 = new CoreSettings($GLOBALS['dbpool']->get());
+        $settings2 = new CoreSettings();
         self::assertEquals(
             '90',
             $settings2->get(null, SettingsEnum::PASSWORD_INTERVAL)->content

@@ -100,7 +100,7 @@ class Application
          */
         $this->app->sessionManager = new HttpSession(36000);
         $this->app->cachePool      = new CachePool($this->app->dbPool);
-        $this->app->appSettings    = new CoreSettings($this->app->dbPool->get());
+        $this->app->appSettings    = new CoreSettings();
         $this->app->eventManager   = new EventManager($this->app->dispatcher);
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
 

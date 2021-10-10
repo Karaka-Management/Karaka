@@ -139,7 +139,7 @@ final class Application
         DataMapperAbstract::setConnection($con);
 
         $this->app->cachePool      = new CachePool();
-        $this->app->appSettings    = new CoreSettings($con);
+        $this->app->appSettings    = new CoreSettings();
         $this->app->eventManager   = new EventManager($this->app->dispatcher);
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
         $this->app->l11nServer     = LocalizationMapper::get(1);

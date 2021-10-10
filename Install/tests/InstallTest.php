@@ -88,6 +88,8 @@ class InstallTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Install\WebApplication<extended>
+     * @covers phpOMS\Application\ApplicationManager
+     * @covers phpOMS\Module\ModuleManager
      * @group admin
      */
     public function testInstall() : void

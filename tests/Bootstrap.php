@@ -25,6 +25,7 @@ $CONFIG = [
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'insert'  => [
                     'db'       => 'mysql', /* db type */
@@ -34,6 +35,7 @@ $CONFIG = [
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'select'  => [
                     'db'       => 'mysql', /* db type */
@@ -43,6 +45,7 @@ $CONFIG = [
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'update'  => [
                     'db'       => 'mysql', /* db type */
@@ -52,6 +55,7 @@ $CONFIG = [
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'delete'  => [
                     'db'       => 'mysql', /* db type */
@@ -61,6 +65,7 @@ $CONFIG = [
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'schema'  => [
                     'db'       => 'mysql', /* db type */
@@ -70,6 +75,7 @@ $CONFIG = [
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
             ],
             'postgresql' => [
@@ -81,6 +87,7 @@ $CONFIG = [
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'insert'  => [
                     'db'       => 'pgsql', /* db type */
@@ -90,6 +97,7 @@ $CONFIG = [
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'select'  => [
                     'db'       => 'pgsql', /* db type */
@@ -99,6 +107,7 @@ $CONFIG = [
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'update'  => [
                     'db'       => 'pgsql', /* db type */
@@ -108,6 +117,7 @@ $CONFIG = [
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'delete'  => [
                     'db'       => 'pgsql', /* db type */
@@ -117,6 +127,7 @@ $CONFIG = [
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'schema'  => [
                     'db'       => 'pgsql', /* db type */
@@ -126,6 +137,7 @@ $CONFIG = [
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
             ],
             'sqlite' => [
@@ -133,31 +145,37 @@ $CONFIG = [
                     'db'       => 'sqlite', /* db type */
                     'database' => __DIR__ . '/test.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'insert'  => [
                     'db'       => 'sqlite', /* db type */
                     'database' => __DIR__ . '/test.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'select'  => [
                     'db'       => 'sqlite', /* db type */
                     'database' => __DIR__ . '/test.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'update'  => [
                     'db'       => 'sqlite', /* db type */
                     'database' => __DIR__ . '/test.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'delete'  => [
                     'db'       => 'sqlite', /* db type */
                     'database' => __DIR__ . '/test.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'schema'  => [
                     'db'       => 'sqlite', /* db type */
                     'database' => __DIR__ . '/test.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
             ],
             'mssql' => [
@@ -169,6 +187,7 @@ $CONFIG = [
                     'password' => 'R00troot', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'insert'  => [
                     'db'       => 'mssql', /* db type */
@@ -178,6 +197,7 @@ $CONFIG = [
                     'password' => 'R00troot', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'select'  => [
                     'db'       => 'mssql', /* db type */
@@ -187,6 +207,7 @@ $CONFIG = [
                     'password' => 'R00troot', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'update'  => [
                     'db'       => 'mssql', /* db type */
@@ -196,6 +217,7 @@ $CONFIG = [
                     'password' => 'R00troot', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'delete'  => [
                     'db'       => 'mssql', /* db type */
@@ -205,6 +227,7 @@ $CONFIG = [
                     'password' => 'R00troot', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'schema'  => [
                     'db'       => 'mssql', /* db type */
@@ -214,6 +237,7 @@ $CONFIG = [
                     'password' => 'R00troot', /* db login password */
                     'database' => 'oms', /* db name */
                     'weight'   => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s'
                 ],
             ],
         ],

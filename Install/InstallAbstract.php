@@ -258,7 +258,7 @@ abstract class InstallAbstract extends ApplicationAbstract
 
         self::$mManager     = new ModuleManager($app, __DIR__ . '/../Modules/');
         $app->moduleManager = self::$mManager;
-        $app->appSettings   = new CoreSettings($db);
+        $app->appSettings   = new CoreSettings();
 
         $app->dispatcher   = new Dispatcher($app);
         $app->eventManager = new EventManager($app->dispatcher);
@@ -334,7 +334,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $app->eventManager = new EventManager($app->dispatcher);
         $app->eventManager->importFromFile(__DIR__ . '/../Web/Api/Hooks.php');
 
-        $app->appSettings   = new CoreSettings($db);
+        $app->appSettings   = new CoreSettings();
         self::$mManager     = new ModuleManager($app, __DIR__ . '/../Modules/');
         $app->moduleManager = self::$mManager;
 
