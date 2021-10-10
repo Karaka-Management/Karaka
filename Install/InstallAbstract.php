@@ -490,7 +490,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $apps  = $request->getDataList('apps');
         $theme = 'Default';
 
-        /** @var ApiController $module */
+        /** @var \Modules\CMS\Controller\ApiController $module */
         $module = self::$mManager->get('CMS');
 
         foreach ($apps as $app) {

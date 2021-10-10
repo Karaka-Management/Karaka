@@ -26,7 +26,7 @@ use phpOMS\Application\StatusAbstract;
  */
 final class Status extends StatusAbstract
 {
-	/**
+    /**
      * Path of the file
      *
      * @var string
