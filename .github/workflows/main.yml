@@ -198,7 +198,14 @@ jobs:
           extensions: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
           ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
     - name: PHP linting
-      run: find ./Web ./phpOMS ./Build ./Modules -type f -name '*.php' -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v "No syntax errors detected" )
+      run: |
+        find ./Web ./phpOMS ./Build ./Modules -type f \
+        -not -path "./Install/Application/*" \
+        -not -path "./phpOMS/tests/Application/Testapp/*" \
+        -not -path "./Modules/Shop/Admin/Install/Application/*" \
+        -not -path "./Modules/Support/Admin/Install/Application/*" \
+        -not -path "./Modules/QA/Admin/Install/Application/*" \
+        -name '*.php' -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v "No syntax errors detected" )
     - name: Php strict
       run: if [[ $(grep -r -L "declare(strict_types=1);" --include=*.php --exclude={*.tpl.php,*Hooks.php,*Routes.php,*SearchCommands.php} ./phpOMS ./Web ./Modules ./Model) -ne "" ]]; then exit 1; fi
     - name: Html inspection

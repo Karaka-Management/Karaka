@@ -4,7 +4,7 @@
     <include>
       <directory suffix=".php">../phpOMS</directory>
       <directory suffix=".php">../Model</directory>
-      <directory suffix=".php">../Web</directory>
+      <directory suffix=".php">../Web/Exception</directory>
       <directory suffix=".php">../Install</directory>
       <directory suffix=".php">../Modules</directory>
       <directory suffix=".php">../Socket</directory>
