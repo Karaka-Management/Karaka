@@ -59,7 +59,9 @@ final class ConsoleApplication extends ApplicationAbstract
         $this->logger  = FileLogger::getInstance($config['log']['file']['path'], true);
 
         $this->setupHandlers();
-        $this->initRequest($arg, __DIR__, \locale_get_default());
+
+        $request  = $this->initRequest($arg, __DIR__, 'en');
+        $response = $this->initResponse($request, ['en']);
     }
 
     /**

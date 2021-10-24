@@ -63,7 +63,6 @@ trait ModuleTestTrait
      * @group admin
      * @slowThreshold 5000
      * @group module
-     * @coversNothing
      */
     public function testModuleIntegration() : void
     {
@@ -273,7 +272,7 @@ trait ModuleTestTrait
 
         foreach ($db as $name => $table) {
             if (!\in_array($name, $tables)) {
-                self::assertTrue(false);
+                self::assertTrue(false, 'Table ' . $name . ' doesn\'t exist in the database.');
             }
 
             $field  = new SchemaBuilder($this->app->dbPool->get());
@@ -660,7 +659,7 @@ trait ModuleTestTrait
             }
         }
 
-        self::assertTrue($found);
+        self::assertTrue($found, 'Module ' . self::NAME . ' is not loaded at ' . self::URI_LOAD . '. The module info.json file ("load" section for type: 4 loads) and the routing files paths should match.');
         self::assertGreaterThan(0, \count($this->app->moduleManager->getLanguageFiles($request)));
         self::assertTrue(\in_array(self::NAME, $this->app->moduleManager->getRoutedModules($request)));
 

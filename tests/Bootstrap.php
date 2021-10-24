@@ -143,37 +143,37 @@ $CONFIG = [
             'sqlite' => [
                 'admin'  => [
                     'db'       => 'sqlite', /* db type */
-                    'database' => __DIR__ . '/test.sqlite', /* db name */
+                    'database' => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'insert'  => [
                     'db'       => 'sqlite', /* db type */
-                    'database' => __DIR__ . '/test.sqlite', /* db name */
+                    'database' => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'select'  => [
                     'db'       => 'sqlite', /* db type */
-                    'database' => __DIR__ . '/test.sqlite', /* db name */
+                    'database' => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'update'  => [
                     'db'       => 'sqlite', /* db type */
-                    'database' => __DIR__ . '/test.sqlite', /* db name */
+                    'database' => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'delete'  => [
                     'db'       => 'sqlite', /* db type */
-                    'database' => __DIR__ . '/test.sqlite', /* db name */
+                    'database' => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s'
                 ],
                 'schema'  => [
                     'db'       => 'sqlite', /* db type */
-                    'database' => __DIR__ . '/test.sqlite', /* db name */
+                    'database' => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s'
                 ],
