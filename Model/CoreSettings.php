@@ -17,8 +17,6 @@ namespace Model;
 use phpOMS\Config\OptionsTrait;
 use phpOMS\Config\SettingsInterface;
 use phpOMS\DataStorage\Cache\CachePool;
-use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
-use phpOMS\DataStorage\Database\Query\Builder;
 
 /**
  * Core settings class.
@@ -98,11 +96,11 @@ final class CoreSettings implements SettingsInterface
         }
 
         $dbOptions = SettingMapper::getSettings([
-            'ids' => $ids,
-            'names' => $names,
-            'app' => $app,
-            'module' => $module,
-            'group' => $group,
+            'ids'     => $ids,
+            'names'   => $names,
+            'app'     => $app,
+            'module'  => $module,
+            'group'   => $group,
             'account' => $account,
         ]);
 

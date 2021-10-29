@@ -41,7 +41,7 @@ class Navigation
         \Modules\Navigation\Admin\Installer::installExternal($app,
             [
                 'path' => __DIR__ . '/Navigation.install.json',
-                'app' => 2,
+                'app'  => 2,
             ]
         );
     }

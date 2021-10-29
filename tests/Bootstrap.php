@@ -12,232 +12,236 @@ require_once __DIR__ . '/Autoloader.php';
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Session\HttpSession;
+use phpOMS\System\File\Local\Directory;
+
+Directory::delete(__DIR__ . '/../../Files');
+Directory::create(__DIR__ . '/../../Files');
 
 $CONFIG = [
     'db'       => [
         'core' => [
             'masters' => [
                 'admin'  => [
-                    'db'       => 'mysql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '3306', /* db host port */
-                    'login'    => 'root', /* db login name */
-                    'password' => 'root', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'mysql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '3306', /* db host port */
+                    'login'          => 'root', /* db login name */
+                    'password'       => 'root', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'insert'  => [
-                    'db'       => 'mysql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '3306', /* db host port */
-                    'login'    => 'root', /* db login name */
-                    'password' => 'root', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'mysql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '3306', /* db host port */
+                    'login'          => 'root', /* db login name */
+                    'password'       => 'root', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'select'  => [
-                    'db'       => 'mysql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '3306', /* db host port */
-                    'login'    => 'root', /* db login name */
-                    'password' => 'root', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'mysql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '3306', /* db host port */
+                    'login'          => 'root', /* db login name */
+                    'password'       => 'root', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'update'  => [
-                    'db'       => 'mysql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '3306', /* db host port */
-                    'login'    => 'root', /* db login name */
-                    'password' => 'root', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'mysql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '3306', /* db host port */
+                    'login'          => 'root', /* db login name */
+                    'password'       => 'root', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'delete'  => [
-                    'db'       => 'mysql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '3306', /* db host port */
-                    'login'    => 'root', /* db login name */
-                    'password' => 'root', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'mysql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '3306', /* db host port */
+                    'login'          => 'root', /* db login name */
+                    'password'       => 'root', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'schema'  => [
-                    'db'       => 'mysql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '3306', /* db host port */
-                    'login'    => 'root', /* db login name */
-                    'password' => 'root', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'mysql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '3306', /* db host port */
+                    'login'          => 'root', /* db login name */
+                    'password'       => 'root', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
             ],
             'postgresql' => [
                 'admin'  => [
-                    'db'       => 'pgsql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '5432', /* db host port */
-                    'login'    => 'postgres', /* db login name */
-                    'password' => 'root', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'pgsql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '5432', /* db host port */
+                    'login'          => 'postgres', /* db login name */
+                    'password'       => 'root', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'insert'  => [
-                    'db'       => 'pgsql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '5432', /* db host port */
-                    'login'    => 'postgres', /* db login name */
-                    'password' => 'root', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'pgsql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '5432', /* db host port */
+                    'login'          => 'postgres', /* db login name */
+                    'password'       => 'root', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'select'  => [
-                    'db'       => 'pgsql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '5432', /* db host port */
-                    'login'    => 'postgres', /* db login name */
-                    'password' => 'root', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'pgsql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '5432', /* db host port */
+                    'login'          => 'postgres', /* db login name */
+                    'password'       => 'root', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'update'  => [
-                    'db'       => 'pgsql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '5432', /* db host port */
-                    'login'    => 'postgres', /* db login name */
-                    'password' => 'root', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'pgsql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '5432', /* db host port */
+                    'login'          => 'postgres', /* db login name */
+                    'password'       => 'root', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'delete'  => [
-                    'db'       => 'pgsql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '5432', /* db host port */
-                    'login'    => 'postgres', /* db login name */
-                    'password' => 'root', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'pgsql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '5432', /* db host port */
+                    'login'          => 'postgres', /* db login name */
+                    'password'       => 'root', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'schema'  => [
-                    'db'       => 'pgsql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '5432', /* db host port */
-                    'login'    => 'postgres', /* db login name */
-                    'password' => 'root', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'pgsql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '5432', /* db host port */
+                    'login'          => 'postgres', /* db login name */
+                    'password'       => 'root', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
             ],
             'sqlite' => [
                 'admin'  => [
-                    'db'       => 'sqlite', /* db type */
-                    'database' => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'sqlite', /* db type */
+                    'database'       => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'insert'  => [
-                    'db'       => 'sqlite', /* db type */
-                    'database' => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'sqlite', /* db type */
+                    'database'       => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'select'  => [
-                    'db'       => 'sqlite', /* db type */
-                    'database' => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'sqlite', /* db type */
+                    'database'       => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'update'  => [
-                    'db'       => 'sqlite', /* db type */
-                    'database' => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'sqlite', /* db type */
+                    'database'       => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'delete'  => [
-                    'db'       => 'sqlite', /* db type */
-                    'database' => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'sqlite', /* db type */
+                    'database'       => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'schema'  => [
-                    'db'       => 'sqlite', /* db type */
-                    'database' => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'sqlite', /* db type */
+                    'database'       => __DIR__ . '/../phpOMS/Localization/Defaults/localization.sqlite', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
             ],
             'mssql' => [
                 'admin'  => [
-                    'db'       => 'mssql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '1433', /* db host port */
-                    'login'    => 'sa', /* db login name */
-                    'password' => 'R00troot', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'mssql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '1433', /* db host port */
+                    'login'          => 'sa', /* db login name */
+                    'password'       => 'R00troot', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'insert'  => [
-                    'db'       => 'mssql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '1433', /* db host port */
-                    'login'    => 'sa', /* db login name */
-                    'password' => 'R00troot', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'mssql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '1433', /* db host port */
+                    'login'          => 'sa', /* db login name */
+                    'password'       => 'R00troot', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'select'  => [
-                    'db'       => 'mssql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '1433', /* db host port */
-                    'login'    => 'sa', /* db login name */
-                    'password' => 'R00troot', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'mssql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '1433', /* db host port */
+                    'login'          => 'sa', /* db login name */
+                    'password'       => 'R00troot', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'update'  => [
-                    'db'       => 'mssql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '1433', /* db host port */
-                    'login'    => 'sa', /* db login name */
-                    'password' => 'R00troot', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'mssql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '1433', /* db host port */
+                    'login'          => 'sa', /* db login name */
+                    'password'       => 'R00troot', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'delete'  => [
-                    'db'       => 'mssql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '1433', /* db host port */
-                    'login'    => 'sa', /* db login name */
-                    'password' => 'R00troot', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'mssql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '1433', /* db host port */
+                    'login'          => 'sa', /* db login name */
+                    'password'       => 'R00troot', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
                 'schema'  => [
-                    'db'       => 'mssql', /* db type */
-                    'host'     => '127.0.0.1', /* db host address */
-                    'port'     => '1433', /* db host port */
-                    'login'    => 'sa', /* db login name */
-                    'password' => 'R00troot', /* db login password */
-                    'database' => 'oms', /* db name */
-                    'weight'   => 1000, /* db table prefix */
-                    'datetimeformat' => 'Y-m-d H:i:s'
+                    'db'             => 'mssql', /* db type */
+                    'host'           => '127.0.0.1', /* db host address */
+                    'port'           => '1433', /* db host port */
+                    'login'          => 'sa', /* db login name */
+                    'password'       => 'R00troot', /* db login password */
+                    'database'       => 'oms', /* db name */
+                    'weight'         => 1000, /* db table prefix */
+                    'datetimeformat' => 'Y-m-d H:i:s',
                 ],
             ],
         ],
@@ -414,4 +418,4 @@ function phpServe() : void
     });
 }
 
-phpServe();
+\phpServe();

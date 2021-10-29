@@ -14,12 +14,12 @@ declare(strict_types=1);
 
 namespace Web\Backend\Controller;
 
-use phpOMS\Message\RequestAbstract;
 use Modules\CMS\Models\PageMapper;
-use phpOMS\Views\View;
-use phpOMS\Message\ResponseAbstract;
 use phpOMS\Contract\RenderableInterface;
+use phpOMS\Message\RequestAbstract;
+use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
+use phpOMS\Views\View;
 
 /**
  * Home class.

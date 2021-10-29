@@ -15,21 +15,21 @@ declare(strict_types=1);
 namespace Modules\tests;
 
 use Model\CoreSettings;
+use Modules\Admin\Models\ModuleStatusUpdateType;
 use phpOMS\Application\ApplicationAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
 use phpOMS\Dispatcher\Dispatcher;
+use phpOMS\Event\EventManager;
 use phpOMS\Message\Http\HttpRequest;
+use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Module\ModuleManager;
+use phpOMS\Module\NullModule;
 use phpOMS\Router\WebRouter;
 use phpOMS\Uri\HttpUri;
 use phpOMS\Utils\ArrayUtils;
 use phpOMS\Validation\Base\Json;
 use phpOMS\Version\Version;
-use phpOMS\Module\NullModule;
-use Modules\Admin\Models\ModuleStatusUpdateType;
-use phpOMS\Event\EventManager;
-use phpOMS\Message\Http\HttpResponse;
 
 trait ModuleTestTrait
 {
@@ -403,8 +403,8 @@ trait ModuleTestTrait
     public function testRoutes() : void
     {
         $this->app->moduleManager      = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
-        $totalBackendRoutes = \is_file(__DIR__ . '/../../Web/Backend/Routes.php') ? include __DIR__ . '/../../Web/Backend/Routes.php' : [];
-        $totalApiRoutes     = \is_file(__DIR__ . '/../../Web/Api/Routes.php') ? include __DIR__ . '/../../Web/Api/Routes.php' : [];
+        $totalBackendRoutes            = \is_file(__DIR__ . '/../../Web/Backend/Routes.php') ? include __DIR__ . '/../../Web/Backend/Routes.php' : [];
+        $totalApiRoutes                = \is_file(__DIR__ . '/../../Web/Api/Routes.php') ? include __DIR__ . '/../../Web/Api/Routes.php' : [];
 
         $module = $this->app->moduleManager->get(self::NAME);
 
@@ -432,8 +432,8 @@ trait ModuleTestTrait
     public function testHooks() : void
     {
         $this->app->moduleManager     = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
-        $totalBackendHooks = \is_file(__DIR__ . '/../../Web/Backend/Hooks.php') ? include __DIR__ . '/../../Web/Backend/Hooks.php' : [];
-        $totalApiHooks     = \is_file(__DIR__ . '/../../Web/Api/Hooks.php') ? include __DIR__ . '/../../Web/Api/Hooks.php' : [];
+        $totalBackendHooks            = \is_file(__DIR__ . '/../../Web/Backend/Hooks.php') ? include __DIR__ . '/../../Web/Backend/Hooks.php' : [];
+        $totalApiHooks                = \is_file(__DIR__ . '/../../Web/Api/Hooks.php') ? include __DIR__ . '/../../Web/Api/Hooks.php' : [];
 
         $module = $this->app->moduleManager->get(self::NAME);
 
@@ -644,7 +644,6 @@ trait ModuleTestTrait
         if (!\defined('self::URI_LOAD') || empty(self::URI_LOAD)) {
             return;
         }
-
 
         $request = new HttpRequest(new HttpUri(self::URI_LOAD));
         $request->createRequestHashs(2);

@@ -14,16 +14,16 @@ declare(strict_types=1);
 
 namespace Web\Backend;
 
-use Modules\Organization\Models\Unit;
-use Modules\Profile\Models\Profile;
 use Modules\Media\Models\Media;
 use Modules\Media\Models\NullMedia;
+use Modules\Organization\Models\Unit;
 use Modules\Profile\Models\NullProfile;
-use phpOMS\Uri\UriFactory;
-use phpOMS\Views\View;
+use Modules\Profile\Models\Profile;
 use phpOMS\Localization\L11nManager;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Uri\UriFactory;
+use phpOMS\Views\View;
 
 /**
  * List view.

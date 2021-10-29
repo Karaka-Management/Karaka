@@ -18,7 +18,6 @@ use Model\CoreSettings;
 use Model\Setting;
 use Model\SettingMapper;
 use Model\SettingsEnum;
-use phpOMS\DataStorage\Database\Connection\NullConnection;
 
 /**
  * @internal

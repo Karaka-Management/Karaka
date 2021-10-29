@@ -14,9 +14,9 @@ declare(strict_types=1);
 
 return [
     'en' => [
-        'PrivacyPolicy' => 'Privacy Policy'
+        'PrivacyPolicy' => 'Privacy Policy',
     ],
     'de' => [
-        'PrivacyPolicy' => 'Datenschutz'
-    ]
+        'PrivacyPolicy' => 'Datenschutz',
+    ],
 ];

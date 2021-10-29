@@ -14,9 +14,9 @@ declare(strict_types=1);
 
 return [
     'en' => [
-        'Terms' => 'Terms'
+        'Terms' => 'Terms',
     ],
     'de' => [
-        'Terms' => 'AGB'
-    ]
+        'Terms' => 'AGB',
+    ],
 ];

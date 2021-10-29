@@ -18,12 +18,12 @@ use Model\CoreSettings;
 use Model\Setting;
 use Model\SettingMapper;
 use Model\SettingsEnum;
-use Modules\Admin\Controller\ApiController;
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\Group;
 use Modules\Admin\Models\GroupMapper;
 use Modules\Admin\Models\LocalizationMapper;
+use Modules\Admin\Models\ModuleStatusUpdateType;
 use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
@@ -38,19 +38,18 @@ use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
+use phpOMS\Dispatcher\Dispatcher;
+use phpOMS\Event\EventManager;
 use phpOMS\Localization\Localization;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Module\ModuleManager;
 use phpOMS\System\File\Local\Directory;
-use phpOMS\Uri\HttpUri;
-use phpOMS\Dispatcher\Dispatcher;
-use phpOMS\Event\EventManager;
-use Modules\Admin\Models\ModuleStatusUpdateType;
 use phpOMS\System\MimeType;
-use phpOMS\Utils\TestUtils;
+use phpOMS\Uri\HttpUri;
 use phpOMS\Utils\IO\Zip\Zip;
+use phpOMS\Utils\TestUtils;
 
 /**
  * Application class.

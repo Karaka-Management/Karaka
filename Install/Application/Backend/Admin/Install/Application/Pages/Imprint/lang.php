@@ -14,9 +14,9 @@ declare(strict_types=1);
 
 return [
     'en' => [
-        'Imprint' => 'Imprint'
+        'Imprint' => 'Imprint',
     ],
     'de' => [
-        'Imprint' => 'Impressum'
-    ]
+        'Imprint' => 'Impressum',
+    ],
 ];
