@@ -15,14 +15,10 @@ declare(strict_types=1);
 namespace Install;
 
 use Model\CoreSettings;
-use Model\Setting;
-use Model\SettingMapper;
-use Model\SettingsEnum;
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\Group;
 use Modules\Admin\Models\GroupMapper;
-use Modules\Admin\Models\LocalizationMapper;
 use Modules\Admin\Models\ModuleStatusUpdateType;
 use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Collection;
@@ -40,7 +36,6 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
-use phpOMS\Localization\Localization;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\RequestAbstract;
@@ -550,34 +545,5 @@ abstract class InstallAbstract extends ApplicationAbstract
         }
 
         $sth->execute();
-    }
-
-    /**
-     * Setup basic settings
-     *
-     * @param RequestAbstract    $request Request
-     * @param ConnectionAbstract $db      Database connection
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    protected static function installSettings(RequestAbstract $request, ConnectionAbstract $db) : void
-    {
-        $setting = new Setting();
-        SettingMapper::create($setting->with(0, SettingsEnum::PASSWORD_PATTERN, ''));
-        SettingMapper::create($setting->with(0, SettingsEnum::LOGIN_TRIES, '3', '\\d+'));
-        SettingMapper::create($setting->with(0, SettingsEnum::LOGIN_TIMEOUT, '3', '\\d+'));
-        SettingMapper::create($setting->with(0, SettingsEnum::PASSWORD_INTERVAL, '90', '\\d+'));
-        SettingMapper::create($setting->with(0, SettingsEnum::PASSWORD_HISTORY, '3', '\\d+'));
-        SettingMapper::create($setting->with(0, SettingsEnum::LOGGING_STATUS, '1', '[0-3]'));
-        SettingMapper::create($setting->with(0, SettingsEnum::LOGGING_PATH, ''));
-        SettingMapper::create($setting->with(0, SettingsEnum::DEFAULT_ORGANIZATION, '1', '\\d+'));
-        SettingMapper::create($setting->with(0, SettingsEnum::LOGIN_STATUS, '1', '[0-3]'));
-        SettingMapper::create($setting->with(0, SettingsEnum::DEFAULT_LOCALIZATION, '1', '\\d+'));
-        SettingMapper::create($setting->with(0, SettingsEnum::ADMIN_MAIL, 'admin@orange-management.org', "(?:[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])"));
-
-        $l11n = Localization::fromLanguage($request->getData('defaultlang'), $request->getData('defaultcountry') ?? '*');
-        LocalizationMapper::create($l11n);
     }
 }

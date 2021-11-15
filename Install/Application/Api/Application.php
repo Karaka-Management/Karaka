@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Orange Management
  *
@@ -10,6 +11,7 @@
  * @version   1.0.0
  * @link      https://orange-management.org
  */
+
 declare(strict_types=1);
 
 namespace Web\Api;
@@ -19,8 +21,11 @@ use Model\SettingsEnum;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\LocalizationMapper;
 use Modules\Admin\Models\NullAccount;
+use Modules\Admin\Models\PermissionState;
+use Mpdf\Tag\P;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
+use phpOMS\Account\PermissionType;
 use phpOMS\Application\ApplicationAbstract;
 use phpOMS\Application\ApplicationStatus;
 use phpOMS\Auth\Auth;
@@ -98,7 +103,7 @@ final class Application
      *
      * @since 1.0.0
      */
-    public function run(HttpRequest $request, HttpResponse $response) : void
+    public function run(HttpRequest $request, HttpResponse $response): void
     {
         $response->header->set('Content-Type', 'text/plain; charset=utf-8');
         $pageView = new View($this->app->l11nManager, $request, $response);
@@ -121,7 +126,8 @@ final class Application
         $this->app->dbPool->create('schema', $this->config['db']['core']['masters']['schema']);
 
         /* Checking csrf token, if a csrf token is required at all has to be decided in the route or controller */
-        if ($request->getData('CSRF') !== null
+        if (
+            $request->getData('CSRF') !== null
             && !\hash_equals($this->app->sessionManager->get('CSRF'), $request->getData('CSRF'))
         ) {
             $response->header->status = RequestStatusCode::R_403;
@@ -169,17 +175,24 @@ final class Application
         UriFactory::setQuery('/lang', $response->getLanguage());
         $response->header->set('content-language', $response->getLanguage(), true);
 
-        if (!$account->hasGroup(3)
-            && ((($appStatus = (int) ($this->app->appSettings->get(null, SettingsEnum::LOGIN_STATUS)->content ?? 0)) === ApplicationStatus::READ_ONLY
-            && $request->getRouteVerb() !== RouteVerb::GET)
-            || $appStatus === ApplicationStatus::DISABLED)
-        ) {
-            // Application is in read only mode or completely disabled
-            // If read only mode is active only GET requests are allowed
-            // A user who is part of the admin group is excluded from this rule
-            $response->header->status = RequestStatusCode::R_405;
+        $appStatus = (int) ($this->app->appSettings->get(null, SettingsEnum::LOGIN_STATUS)->content ?? 0);
+        if ($appStatus === ApplicationStatus::READ_ONLY ||  $appStatus === ApplicationStatus::DISABLED) {
+            if (!$account->hasPermission(PermissionType::CREATE | PermissionType::MODIFY, module: 'Admin', type: PermissionState::APP)) {
+                if ($request->getRouteVerb() !== RouteVerb::GET) {
+                    // Application is in read only mode or completely disabled
+                    // If read only mode is active only GET requests are allowed
+                    // A user who is part of the admin group is excluded from this rule
+                    $response->header->status = RequestStatusCode::R_405;
 
-            return;
+                    return;
+                }
+
+                $this->app->dbPool->remove('admin');
+                $this->app->dbPool->remove('insert');
+                $this->app->dbPool->remove('update');
+                $this->app->dbPool->remove('delete');
+                $this->app->dbPool->remove('schema');
+            }
         }
 
         if (!empty($uris = $request->uri->getQuery('r'))) {
@@ -193,8 +206,7 @@ final class Application
         // add tpl loading
         $this->app->router->add(
             '/api/tpl/.*',
-            function() use ($account, $request, $response) : void
-            {
+            function () use ($account, $request, $response): void {
                 $appName = \ucfirst($request->getData('app') ?? 'Backend');
                 $app     = new class() extends ApplicationAbstract
                 {
@@ -278,7 +290,7 @@ final class Application
      *
      * @since 1.0.0
      */
-    private function loadAccount(HttpRequest $request) : Account
+    private function loadAccount(HttpRequest $request): Account
     {
         $account = AccountMapper::getWithPermissions($request->header->account);
         $this->app->accountManager->add($account);
@@ -297,7 +309,7 @@ final class Application
      *
      * @since 1.0.0
      */
-    private function handleBatchRequest(string $uris, HttpRequest $request, HttpResponse $response) : void
+    private function handleBatchRequest(string $uris, HttpRequest $request, HttpResponse $response): void
     {
         $request_r = clone $request;
         $uris      = \json_decode($uris, true);
@@ -312,7 +324,9 @@ final class Application
                 $this->app->router->route(
                     $request->uri->getRoute(),
                     $request->getData('CSRF') ?? null
-                ), $request, $response
+                ),
+                $request,
+                $response
             );
         }
     }
@@ -327,13 +341,9 @@ final class Application
      *
      * @since 1.0.0
      */
-    private function getApplicationOrganization(HttpRequest $request, array $config) : int
+    private function getApplicationOrganization(HttpRequest $request, array $config): int
     {
-        return (int) (
-            $request->getData('u') ?? (
-                $config['domains'][$request->uri->host]['org'] ?? $config['default']['org']
-            )
-        );
+        return (int) ($request->getData('u') ?? ($config['domains'][$request->uri->host]['org'] ?? $config['default']['org']));
     }
 
     /**
@@ -346,7 +356,7 @@ final class Application
      *
      * @since 1.0.0
      */
-    private function loadLanguageFromPath(string $language, string $path) : void
+    private function loadLanguageFromPath(string $language, string $path): void
     {
         /* Load theme language */
         if (($absPath = \realpath($path)) === false) {

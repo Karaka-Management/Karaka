@@ -228,7 +228,6 @@ final class WebApplication extends InstallAbstract
         self::installUsers($request, $db);
         self::installApplications($request, $db);
         self::installCoreModules($db);
-        self::installSettings($request, $db);
         self::configureCoreModules($request, $db);
 
         $response->header->status = RequestStatusCode::R_200;
