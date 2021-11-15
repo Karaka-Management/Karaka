@@ -15,7 +15,7 @@ declare(strict_types=1);
 
 use phpOMS\Uri\UriFactory;
 
-/** @var web\Backend\BackendView $this */
+/** @var Web\Backend\BackendView $this */
 $nav = $this->getData('nav');
 
 $nav->setTemplate('/Modules/Navigation/Theme/Backend/top');
@@ -123,7 +123,7 @@ $dispatch = $this->getData('dispatch') ?? [];
 <div id="app-message-container">
     <template id="app-message-tpl">
         <div class="log-msg">
-            <h1 class="log-msg-title"></h1>
+            <h1 class="log-msg-title"></h1><i class="close fa fa-times"></i>
             <div class="log-msg-content"></div>
         </div>
     </template>

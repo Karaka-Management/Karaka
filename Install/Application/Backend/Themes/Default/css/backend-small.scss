@@ -218,9 +218,9 @@ img.profile-image {
 #app-message-container {
     position: absolute;
     margin: 0 auto;
-    right: 0;
-    top: 0;
-    padding: 85px 10px 0 0;
+    right: 10px;
+    top: 85px;
+    padding: 0;
 
     .log-msg {
         z-index: 11;
@@ -229,6 +229,12 @@ img.profile-image {
         right: 0;
         top: 0;
         margin-bottom: 10px;
+    }
+
+    .close {
+        position: absolute;
+        top: 3px;
+        right: 3px;
     }
 }
 

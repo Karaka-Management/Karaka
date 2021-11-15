@@ -395,7 +395,7 @@ final class Application
      */
     private function createBaseLoggedOutResponse(HttpRequest $request, HttpResponse $response, Head $head, View $pageView) : void
     {
-        $file = \in_array($request->uri->getPathElement(0), ['forgot', 'privacy', 'imprint', 'terms'])
+        $file = \in_array($request->uri->getPathElement(0), ['forgot', 'reset', 'privacy', 'imprint', 'terms'])
             ? $request->uri->getPathElement(0)
             : 'login';
 

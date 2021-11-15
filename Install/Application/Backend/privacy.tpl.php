@@ -12,29 +12,8 @@
  */
 declare(strict_types=1);
 
-use phpOMS\Uri\UriFactory;
-
-$head = $this->getData('head');
 ?>
-<!DOCTYPE HTML>
-<html lang="<?= $this->printHtml($this->response->getLanguage()); ?>">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <base href="<?= UriFactory::build('{/base}'); ?>/">
-    <meta name="theme-color" content="#343a40">
-    <meta name="msapplication-navbutton-color" content="#343a40">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#343a40">
-    <meta name="description" content="<?= $this->getHtml(':meta', '0', '0'); ?>">
-    <link rel="manifest" href="<?= UriFactory::build('Web/Backend/manifest.json'); ?>">
-    <link rel="manifest" href="<?= UriFactory::build('Web/Backend/manifest.webmanifest'); ?>">
-    <link rel="shortcut icon" href="<?= UriFactory::build('Web/Backend/img/favicon.ico'); ?>" type="image/x-icon">
-    <?= $head->meta->render(); ?>
-    <title><?= $this->printHtml($head->title); ?></title>
-    <style><?= $head->renderStyle(); ?></style>
-    <script><?= $head->renderScript(); ?></script>
-    <?= $head->renderAssets(); ?>
-</head>
+<?php include __DIR__ . '/head.tpl.php'; ?>
 <body>
 <main>
     <article>
@@ -116,13 +95,4 @@ $head = $this->getData('head');
     <p>For questions regarding these POLICIES please feel free to contact us at info@orange-management.email</p>
     </article>
 </main>
-<footer>
-    <ul>
-        <li><a href="<?= UriFactory::build('{/backend}?{?}'); ?>"><?= $this->getHtml('Login', '0', '0'); ?></a>
-        <li><a href="<?= UriFactory::build('{/prefix}privacy?{?}'); ?>"><?= $this->getHtml('PrivacyPolicy', '0', '0'); ?></a>
-        <li><a href="<?= UriFactory::build('{/prefix}terms?{?}'); ?>"><?= $this->getHtml('Terms', '0', '0'); ?></a>
-        <li><a href="<?= UriFactory::build('{/prefix}imprint?{?}'); ?>"><?= $this->getHtml('Imprint', '0', '0'); ?></a>
-    </ul>
-</footer>
-
-<?= $head->renderAssetsLate(); ?>
+<?php include __DIR__ . '/foot.tpl.php'; ?>
