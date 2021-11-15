@@ -92,6 +92,8 @@ class WebApplication extends ApplicationAbstract
 
             $sub->run($request ?? new HttpRequest(), $response);
 
+            $body = $response->getBody(true);
+
             if (isset($this->sessionManager)) {
                 $this->sessionManager->save();
             }
@@ -104,7 +106,7 @@ class WebApplication extends ApplicationAbstract
                 $this->sessionManager->lock();
             }
 
-            echo $response->getBody(true);
+            echo $body;
         }
     }
 

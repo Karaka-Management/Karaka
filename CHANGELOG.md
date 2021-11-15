@@ -1,5 +1,23 @@
 # Changelog
 
+## October 2021
+
+### New
+
+* Improved settings handling by using `Setting` and `SettingMapper` in the `CoreSettings` file
+
+#### Media
+
+* It is possible to define the media title separately from the file name.
+
+### Bug fixes
+
+### Other
+
+#### Tests
+
+* Added various tests. The total code coverage is at approx. 84%
+
 ## September 2021
 
 ### New

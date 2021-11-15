@@ -36,6 +36,12 @@ abstract class SettingsEnum extends Enum
 
     public const LOGIN_TRIES = '1000000005';
 
+    public const LOGIN_FORGOTTEN_COUNT = '1000000010';
+
+    public const LOGIN_FORGOTTEN_DATE = '1000000011';
+
+    public const LOGIN_FORGOTTEN_TOKEN = '1000000012';
+
     public const LOGGING_STATUS = '1000000006';
 
     public const LOGGING_PATH = '1000000007';
@@ -46,5 +52,19 @@ abstract class SettingsEnum extends Enum
 
     public const DEFAULT_LOCALIZATION = '1000000014';
 
-    public const ADMIN_MAIL = '1000000015';
+    public const MAIL_SERVER_ADDR = '1000000015';
+
+    public const MAIL_SERVER_TYPE = '1000000016';
+
+    public const MAIL_SERVER_USER = '1000000017';
+
+    public const MAIL_SERVER_PASS = '1000000018';
+
+    public const MAIL_SERVER_CERT = '1000000019';
+
+    public const MAIL_SERVER_KEY = '1000000020';
+
+    public const MAIL_SERVER_KEYPASS = '1000000021';
+
+    public const MAIL_SERVER_TLS = '1000000022';
 }

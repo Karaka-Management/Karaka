@@ -13,9 +13,13 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\System\File\Local\Directory;
+use phpOMS\Log\FileLogger;
 
-Directory::delete(__DIR__ . '/../../Files');
-Directory::create(__DIR__ . '/../../Files');
+Directory::delete(__DIR__ . '/../Modules/Media/Files');
+Directory::create(__DIR__ . '/../Modules/Media/Files');
+
+// Initialize file logger with correct path
+$tmp = FileLogger::getInstance(__DIR__ . '/../Logs');
 
 $CONFIG = [
     'db'       => [

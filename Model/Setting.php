@@ -138,4 +138,40 @@ class Setting
 
         return $this;
     }
+
+    /**
+     * Constructor.
+     *
+     * @param int         $id      Id
+     * @param string      $name    Name
+     * @param string      $content Content
+     * @param string      $pattern Pattern
+     * @param null|int    $app     App
+     * @param null|string $module  Module
+     * @param null|int    $group   Group
+     * @param null|int    $account Account
+     *
+     * @return self
+     *
+     * @since 1.0.0
+     */
+    public function __construct(
+        int $id = 0,
+        string $name = '',
+        string $content = '',
+        string $pattern = '',
+        int $app = null,
+        string $module = null,
+        int $group = null,
+        int $account = null
+    ) {
+        $this->id      = $id;
+        $this->name    = $name;
+        $this->content = $content;
+        $this->pattern = $pattern;
+        $this->app     = $app;
+        $this->module  = $module;
+        $this->group   = $group;
+        $this->account = $account;
+    }
 }

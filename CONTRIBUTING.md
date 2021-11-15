@@ -12,7 +12,7 @@ If you have a good idea for improvement feel free to create a new issue with all
 
 ### Issues
 
-Feel free to grab any open issue implement it and create a new pull request. Most issues can be found in TODO file.
+Feel free to grab any open issue implement it and create a new pull request. Most issues can be found in the code marked with `@todo` or in the [PROJECT.md](https://github.com/Orange-Management/Docs/blob/master/Project/PROJECT.md) file.
 
 ### Code Style
 
