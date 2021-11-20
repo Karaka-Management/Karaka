@@ -396,36 +396,11 @@ final class Application
     private function createBaseLoggedOutResponse(HttpRequest $request, HttpResponse $response, Head $head, View $pageView) : void
     {
         $file = \in_array($request->uri->getPathElement(0), ['forgot', 'reset', 'privacy', 'imprint', 'terms'])
-            ? $request->uri->getPathElement(0)
+            ? 'Themes/login/' . $request->uri->getPathElement(0)
             : 'login';
 
         $response->header->status = RequestStatusCode::R_403;
         $pageView->setTemplate('/Web/Backend/' . $file);
-
-        $css = \file_get_contents(__DIR__ . '/css/logout-small.css');
-        if ($css === false) {
-            $css = '';
-        }
-
-        $css = \preg_replace('!\s+!', ' ', $css);
-        $head->setStyle('core', $css ?? '');
-    }
-
-    /**
-     * Create logged out response
-     *
-     * @param HttpResponse $response Response
-     * @param Head         $head     Head to fill
-     * @param View         $pageView View
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    private function createLoggedOutResponse(HttpResponse $response, Head $head, View $pageView) : void
-    {
-        $response->header->status = RequestStatusCode::R_403;
-        $pageView->setTemplate('/Web/Backend/login');
 
         $css = \file_get_contents(__DIR__ . '/css/logout-small.css');
         if ($css === false) {

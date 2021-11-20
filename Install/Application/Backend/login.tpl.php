@@ -16,7 +16,7 @@ use phpOMS\Uri\UriFactory;
 
 $head = $this->getData('head');
 ?>
-<?php include __DIR__ . '/head.tpl.php'; ?>
+<?php include __DIR__ . '/Themes/login/head.tpl.php'; ?>
 <main>
     <div id="login-container">
         <div id="login-logo">
@@ -43,4 +43,4 @@ $head = $this->getData('head');
         <div id="below-form"><a href="<?= UriFactory::build('{/prefix}forgot'); ?>" tabindex="4"><?= $this->getHtml('ForgotPassword', '0', '0'); ?></a></div>
     </div>
 </main>
-<?php include __DIR__ . '/foot.tpl.php'; ?>
+<?php include __DIR__ . '/Themes/login/foot.tpl.php'; ?>
