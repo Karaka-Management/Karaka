@@ -204,9 +204,9 @@ img.profile-image {
 #app-message-container {
   position: absolute;
   margin: 0 auto;
-  right: 0;
-  top: 0;
-  padding: 85px 10px 0 0; }
+  right: 10px;
+  top: 85px;
+  padding: 0; }
   #app-message-container .log-msg {
     z-index: 11;
     position: relative;
@@ -214,6 +214,10 @@ img.profile-image {
     right: 0;
     top: 0;
     margin-bottom: 10px; }
+  #app-message-container .close {
+    position: absolute;
+    top: 3px;
+    right: 3px; }
 
 @media only screen and (max-width: 500px) {
   nav .ham-trigger {
