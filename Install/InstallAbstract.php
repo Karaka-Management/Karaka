@@ -367,11 +367,12 @@ abstract class InstallAbstract extends ApplicationAbstract
     protected static function configureCoreModules(RequestAbstract $request, ConnectionAbstract $db) : void
     {
         // setup basic units
-        $default       = UnitMapper::get(1);
+        /** @var Unit $default */
+        $default       = UnitMapper::get()->where('id', 1)->execute();
         $default->name = (string) ($request->getData('orgname') ?? '');
         $default->setStatus(Status::ACTIVE);
 
-        UnitMapper::update($default);
+        UnitMapper::update()->execute($default);
 
         // setup basic collections
         $collection       = new Collection();
@@ -380,7 +381,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $collection->setPath('/Modules/Media/Files/Modules');
         $collection->createdBy = new NullAccount(1);
 
-        CollectionMapper::create($collection);
+        CollectionMapper::create()->execute($collection);
 
         $collection       = new Collection();
         $collection->name = 'Accounts';
@@ -388,7 +389,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $collection->setPath('/Modules/Media/Files/Accounts');
         $collection->createdBy = new NullAccount(1);
 
-        CollectionMapper::create($collection);
+        CollectionMapper::create()->execute($collection);
     }
 
     /**
@@ -419,15 +420,15 @@ abstract class InstallAbstract extends ApplicationAbstract
     {
         $guest = new Group('guest');
         $guest->setStatus(GroupStatus::ACTIVE);
-        GroupMapper::create($guest);
+        GroupMapper::create()->execute($guest);
 
         $user = new Group('user');
         $user->setStatus(GroupStatus::ACTIVE);
-        GroupMapper::create($user);
+        GroupMapper::create()->execute($user);
 
         $admin = new Group('admin');
         $admin->setStatus(GroupStatus::ACTIVE);
-        GroupMapper::create($admin);
+        GroupMapper::create()->execute($admin);
     }
 
     /**
@@ -533,7 +534,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $l11n = $account->l11n;
         $l11n->loadFromLanguage($request->getData('defaultlang') ?? 'en', $request->getData('defaultcountry') ?? 'us');
 
-        AccountMapper::create($account);
+        AccountMapper::create()->execute($account);
 
         $sth = $db->con->prepare(
             'INSERT INTO `account_group` (`account_group_group`, `account_group_account`) VALUES

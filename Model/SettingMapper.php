@@ -14,9 +14,8 @@ declare(strict_types=1);
 
 namespace Model;
 
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\RelationType;
 
 /**
  * Account mapper class.
@@ -26,7 +25,7 @@ use phpOMS\DataStorage\Database\RelationType;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class SettingMapper extends DataMapperAbstract
+final class SettingMapper extends DataMapperFactory
 {
     /**
      * Columns.
@@ -34,7 +33,7 @@ final class SettingMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string|array>>
      * @since 1.0.0
      */
-    protected static array $columns = [
+    public const COLUMNS = [
         'settings_id'             => ['name' => 'settings_id',           'type' => 'int',      'internal' => 'id'],
         'settings_name'           => ['name' => 'settings_name',        'type' => 'string',   'internal' => 'name'],
         'settings_content'        => ['name' => 'settings_content',        'type' => 'string',   'internal' => 'content'],
@@ -51,7 +50,7 @@ final class SettingMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $model = Setting::class;
+    public const MODEL = Setting::class;
 
     /**
      * Primary table.
@@ -59,7 +58,7 @@ final class SettingMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $table = 'settings';
+    public const TABLE = 'settings';
 
     /**
      * Primary field name.
@@ -67,7 +66,7 @@ final class SettingMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $primaryField = 'settings_id';
+    public const PRIMARYFIELD ='settings_id';
 
     /**
      * Save setting / option to database
@@ -81,7 +80,7 @@ final class SettingMapper extends DataMapperAbstract
     public static function saveSetting(Setting $option) : void
     {
         $query = new Builder(self::$db);
-        $query->update(self::$table)
+        $query->update(self::TABLE)
             ->set(['settings_content' => $option->content]);
 
         if (!empty($option->getId())) {
@@ -127,7 +126,6 @@ final class SettingMapper extends DataMapperAbstract
      */
     public static function getSettings(array $where) : array
     {
-        $depth = 3;
         $query = self::getQuery();
 
         if (!empty($where['ids'])) {
@@ -154,6 +152,6 @@ final class SettingMapper extends DataMapperAbstract
             $query->andWhere('settings_account', '=', $where['account']);
         }
 
-        return self::getAllByQuery($query, RelationType::ALL, $depth);
+        return self::getAll()->execute($query);
     }
 }

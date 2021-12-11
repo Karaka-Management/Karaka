@@ -109,9 +109,8 @@ trait ModuleTestTrait
         $mappers = \glob(__DIR__ . '/../../Modules/' . self::NAME . '/Models/*Mapper.php');
 
         foreach ($mappers as $mapper) {
-            $class           = $this->getMapperFromPath($mapper);
-            $classReflection = new \ReflectionClass($class);
-            $columns         = $classReflection->getDefaultProperties()['columns'];
+            $class   = $this->getMapperFromPath($mapper);
+            $columns = $class::COLUMNS;
 
             foreach ($columns as $cName => $column) {
                 if (!\in_array($column['type'], ['int', 'string', 'DateTime', 'DateTimeImmutable', 'Json', 'Serializable', 'bool', 'float'])) {
@@ -151,16 +150,14 @@ trait ModuleTestTrait
 
         foreach ($mappers as $mapper) {
             $class = $this->getMapperFromPath($mapper);
-
             if ($class === '\Modules\Admin\Models\ModuleMapper'
                 || !Autoloader::exists(\substr($class, 0, -6))
             ) {
                 continue;
             }
 
-            $mapperReflection = new \ReflectionClass($class);
-            $columns          = $mapperReflection->getDefaultProperties()['columns'];
-            $ownsOne          = $mapperReflection->getDefaultProperties()['ownsOne'];
+            $columns = $class::COLUMNS;
+            $ownsOne = $class::OWNS_ONE;
 
             $classReflection   = new \ReflectionClass(\substr($class, 0, -6));
             $defaultProperties = $classReflection->getDefaultProperties();
@@ -194,7 +191,7 @@ trait ModuleTestTrait
             }
 
             // test hasMany variable exists in model
-            $rel = $mapperReflection->getDefaultProperties()['hasMany'];
+            $rel = $class::HAS_MANY;
             foreach ($rel as $pName => $def) {
                 $property = $classReflection->getProperty($pName) ?? null;
                 if (!\array_key_exists($pName, $defaultProperties) && $property === null) {
@@ -309,15 +306,14 @@ trait ModuleTestTrait
             $class = $this->getMapperFromPath($mapper);
 
             if (\defined('self::MAPPER_TO_IGNORE') && \in_array(\ltrim($class, '\\'), self::MAPPER_TO_IGNORE)
-                || empty($class::$columns)
+                || empty($class::COLUMNS)
                 || $class === '\Modules\Admin\Models\ModuleMapper'
             ) {
                 continue;
             }
 
-            $mapperReflection = new \ReflectionClass($class);
-            $table            = $mapperReflection->getDefaultProperties()['table'];
-            $columns          = $mapperReflection->getDefaultProperties()['columns'];
+            $table   = $class::TABLE;
+            $columns = $class::COLUMNS;
 
             foreach ($columns as $cName => $column) {
                 // testing existence of field name in schema
@@ -349,7 +345,7 @@ trait ModuleTestTrait
             }
 
             // testing schema/mapper same primary key definition
-            $primary = $mapperReflection->getDefaultProperties()['primaryField'];
+            $primary = $class::PRIMARYFIELD;
             if (!($db[$table]['fields'][$primary]['primary'] ?? false)) {
                 self::assertTrue(false, 'Field "' . $primary . '" from mapper "' . $class . '" is not defined as primary key in table "' . $table . '"');
             }

@@ -10,7 +10,7 @@ require_once __DIR__ . '/Autoloader.php';
 $CONFIG = require_once __DIR__ . '/../../config.php';
 
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 use phpOMS\DataStorage\Session\HttpSession;
 
 // Reset database
@@ -33,4 +33,4 @@ $GLOBALS['dbpool']->create('admin', $CONFIG['db']['core']['masters']['admin']);
 $GLOBALS['dbpool']->create('select', $CONFIG['db']['core']['masters']['select']);
 $GLOBALS['dbpool']->create('schema', $CONFIG['db']['core']['masters']['schema']);
 
-DataMapperAbstract::setConnection($GLOBALS['dbpool']->get());
+DataMapperFactory::db($GLOBALS['dbpool']->get());

@@ -10,7 +10,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/Autoloader.php';
 
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\System\File\Local\Directory;
 use phpOMS\Log\FileLogger;
@@ -359,7 +359,7 @@ $GLOBALS['dbpool']->create('delete', $CONFIG['db']['core']['masters']['delete'])
 $GLOBALS['dbpool']->create('insert', $CONFIG['db']['core']['masters']['insert']);
 $GLOBALS['dbpool']->create('schema', $CONFIG['db']['core']['masters']['schema']);
 
-DataMapperAbstract::setConnection($GLOBALS['dbpool']->get());
+DataMapperFactory::db($GLOBALS['dbpool']->get());
 
 $GLOBALS['frameworkpath'] = '/phpOMS/';
 

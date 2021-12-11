@@ -32,7 +32,7 @@ use phpOMS\Auth\Auth;
 use phpOMS\DataStorage\Cache\CachePool;
 use phpOMS\DataStorage\Cookie\CookieJar;
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
@@ -137,7 +137,7 @@ final class Application
 
         /** @var \phpOMS\DataStorage\Database\Connection\ConnectionAbstract $con */
         $con = $this->app->dbPool->get();
-        DataMapperAbstract::setConnection($con);
+        DataMapperFactory::db($con);
 
         $this->app->cachePool    = new CachePool();
         $this->app->appSettings  = new CoreSettings();
@@ -145,7 +145,7 @@ final class Application
         $this->app->eventManager->importFromFile(__DIR__ . '/Hooks.php');
 
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
-        $this->app->l11nServer     = LocalizationMapper::get(1);
+        $this->app->l11nServer     = LocalizationMapper::get()->where('id', 1)->execute();
 
         $this->app->orgId = $this->getApplicationOrganization($request, $this->config['app']);
         $pageView->setData('orgId', $this->app->orgId);

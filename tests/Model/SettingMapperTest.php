@@ -30,9 +30,9 @@ class SettingMapperTest extends \PHPUnit\Framework\TestCase
     {
         $setting = new Setting();
         $setting->with(0, 'name', 'content', 'pattern', 1, 'Admin', 1, 1);
-        $id = SettingMapper::create($setting);
+        $id = SettingMapper::create()->execute($setting);
 
-        $settingR = SettingMapper::get($setting->getId());
+        $settingR = SettingMapper::get()->where('id', $setting->getId())->execute();
         self::assertGreaterThan(0, $id);
         self::assertEquals($id, $settingR->getId());
         self::assertEquals($setting->getId(), $settingR->getId());

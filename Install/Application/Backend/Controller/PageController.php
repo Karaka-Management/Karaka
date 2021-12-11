@@ -48,7 +48,12 @@ final class PageController extends ModuleAbstract
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Web/Backend/Themes/legal');
 
-        $page = PageMapper::with('language', $response->getLanguage())::with('app', 2)::getBy($request->uri->getPathElement(1), 'name');
+        $page = PageMapper::get()
+            ->with('l11n')
+            ->where('app', 2)
+            ->where('name', $request->uri->getPathElement(1))
+            ->where('l11n/language', $response->getLanguage())
+            ->execute();
 
         $view->setData('content', $page);
 

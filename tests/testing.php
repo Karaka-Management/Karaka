@@ -19,7 +19,7 @@ require_once __DIR__ . '/Autoloader.php';
 use Modules\Helper\Models\TemplateMapper;
 use Modules\Media\Models\CollectionMapper;
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 use phpOMS\DataStorage\Session\HttpSession;
 
 $CONFIG = [
@@ -288,9 +288,9 @@ $GLOBALS['dbpool']->create('delete', $CONFIG['db']['core']['masters']['delete'])
 $GLOBALS['dbpool']->create('insert', $CONFIG['db']['core']['masters']['insert']);
 $GLOBALS['dbpool']->create('schema', $CONFIG['db']['core']['masters']['schema']);
 
-DataMapperAbstract::setConnection($GLOBALS['dbpool']->get());
+DataMapperFactory::db($GLOBALS['dbpool']->get());
 
-$template   = TemplateMapper::get(1);
+$template   = TemplateMapper::get()->where('id', 1)->execute();
 $collection = CollectionMapper::get($template->getSource()->getId());
 
 $end = true;

@@ -195,7 +195,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
     {
         $setting = new Setting();
         $setting->with(0, 'name', 'content', '', 1, 'Admin', 1, 1);
-        $testId = SettingMapper::create($setting);
+        $testId = SettingMapper::create()->execute($setting);
 
         $this->settings->set([
             [
@@ -210,7 +210,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
             ],
         ], true);
 
-        $settingR = SettingMapper::get($testId);
+        $settingR = SettingMapper::get()->where('id', $testId)->execute();
         self::assertEquals('new content', $settingR->content);
 
         $settingR2 = $this->settings->get($testId, 'name', 1, 'Admin', 1, 1);

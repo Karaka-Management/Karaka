@@ -1,5 +1,85 @@
 # Changelog
 
+## November 2021
+
+### New
+
+#### Framework
+
+* Sending basic emails with `mail`, `sendmail` and `SMTP` is possible
+* Sending signed emails is possible.
+* Reading and creating mailboxes with `IMAP` is possible
+* Reading mailboxes with `POP3` is possible
+
+#### Frontend
+
+* Frontend messages can be manually closed with a close button (x)
+* Frontend messages can be defined sticky
+* Frontend messages may omit the title
+
+#### Admin
+
+* Implemented basic server/admin email settings
+* Implemented password reset with reset emails
+* Implemented read-only/maintenance mode (configurable in the `Admin` settings)
+
+#### Billing
+
+* Bill can have notes (very helpful for additional remarks later on e.g. from accounting/sales/purchasing)
+* Bills have net/gross profit, sales, costs and discount as unnormalized values
+* Bills store the bill number and the number format in the model
+
+#### ContractManagement
+
+* Create a new media type "contract" during installation
+* Contracts can have  a renewal time in months set when the contract renewal must be done (latest).
+* Contracts can have a flag which indicates if the contract auto renews.
+* Added a global warning deadline until when users are informed before the renewal deadline runs out.
+* Contracts can be assigned to a unit.
+
+#### Editor
+
+* Implemented editor doc types (similar to media types)
+
+#### EventManagement
+
+* Events have planned and actual costs/earnings.
+* Accounts can be assigned to events with different purposes.
+* Events can have attributes (incl. default attributes)
+
+#### Job
+
+* Jobs can be created in the Job module
+* Created three jobs which run `monthly`, `weekly` and `daily` and execute some default tasks (e.g. email error logs to admin). These also have placeholders to run additional tasks (e.g. run exchange scripts)
+
+#### Marketing
+
+* Promotions have planned and actual costs/earnings.
+* Accounts can be assigned to promotions with different purposes.
+* Promotions can have attributes (incl. default attributes)
+
+#### ProjectManagement
+
+* Projects have planned and actual costs/earnings
+* Projects can have attributes (incl. default attributes)
+
+### Bug fixes
+
+* Fixed a bug where the tests created a log file in the main directory
+* Fixed a bug where changing headers during the rendering process would conflict with already sent header information in the `WebApplication`. The response is now rendered independently, without sending it (first render data, then push the headers, then send the response).
+
+#### QA
+
+* Fixed a bug where the question and answer content where shorter than the score content on the side resulting in portlets without background color.
+
+### Other
+
+* Removed many unnecessary getters and setters
+
+#### Tests
+
+* The overall code coverage improved to 91.8% (mid of November, this will go down as now additional functionality will be implemented)
+
 ## October 2021
 
 ### New

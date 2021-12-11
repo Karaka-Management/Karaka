@@ -120,7 +120,6 @@ final class CoreSettings implements SettingsInterface
                 $options[$key] = $option;
             }
         } catch (\Throwable $e) {
-            \var_dump($query->toSql()); // @codeCoverageIgnore
             throw $e; // @codeCoverageIgnore
         }
 
@@ -200,6 +199,6 @@ final class CoreSettings implements SettingsInterface
             $setting->{$column} = $option;
         }
 
-        SettingMapper::create($setting);
+        SettingMapper::create()->execute($setting);
     }
 }

@@ -17,7 +17,7 @@ declare(strict_types=1);
 namespace Install;
 
 use phpOMS\DataStorage\Database\DatabaseStatus;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Localization\Localization;
@@ -219,7 +219,7 @@ final class WebApplication extends InstallAbstract
             return;
         }
 
-        DataMapperAbstract::setConnection($db);
+        DataMapperFactory::db($db);
 
         self::clearOld();
         self::installConfigFile($request);
