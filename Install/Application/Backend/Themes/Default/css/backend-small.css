@@ -213,10 +213,6 @@ img.profile-image {
     right: 0;
     top: 0;
     margin-bottom: 10px; }
-  #app-message-container .close {
-    position: absolute;
-    top: 3px;
-    right: 3px; }
 
 .log-msg {
   position: relative; }
@@ -228,6 +224,7 @@ img.profile-image {
 @media only screen and (max-width: 500px) {
   nav .ham-trigger {
     display: flex; } }
+
 @media only screen and (max-width: 600px) {
   main > header {
     flex-flow: column;
@@ -235,10 +232,10 @@ img.profile-image {
     padding: 1rem; }
     main > header form {
       width: 100%; }
-
   #t-nav-container {
     order: -1;
     margin-bottom: .5rem; } }
+
 @media only screen and (max-width: 1000px) {
   #t-nav .link {
     display: none; } }
