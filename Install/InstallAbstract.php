@@ -367,7 +367,7 @@ abstract class InstallAbstract extends ApplicationAbstract
     protected static function configureCoreModules(RequestAbstract $request, ConnectionAbstract $db) : void
     {
         // setup basic units
-        /** @var Unit $default */
+        /** @var \Modules\Organization\Models\Unit $default */
         $default       = UnitMapper::get()->where('id', 1)->execute();
         $default->name = (string) ($request->getData('orgname') ?? '');
         $default->setStatus(Status::ACTIVE);

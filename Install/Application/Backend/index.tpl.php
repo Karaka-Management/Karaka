@@ -114,10 +114,6 @@ $dispatch = $this->getData('dispatch') ?? [];
                 echo '<div class="emptyPage"></div>';
             }
             ?>
-
-            <template id="table-filter-tpl">
-                <div id="table-filter">some table filter</div>
-            </template>
         </div>
     </main>
 <div id="app-message-container">

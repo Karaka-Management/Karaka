@@ -30,8 +30,7 @@ import { VOICE_EVENTS } from './global/VoiceEvents.js';
  * @version   1.0.0
  * @since     1.0.0
  *
- * @todo Orange-Management/jsOMS#5
- *  Replace current page content with api response content
+ * @todo Replace current page content with api response content
  *  Instead of loading the whole page again maybe use JS to only load specific content elements and replace them (main content) like youtube etc.
  *  Maybe even make this smart enough to fully load a page and then only replace the html that is different from the current page?
  *  This way the api doesn't have to respond with very specific content elements.

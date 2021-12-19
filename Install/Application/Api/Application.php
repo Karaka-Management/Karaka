@@ -22,7 +22,6 @@ use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\LocalizationMapper;
 use Modules\Admin\Models\NullAccount;
 use Modules\Admin\Models\PermissionState;
-use Mpdf\Tag\P;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\PermissionType;
@@ -126,8 +125,7 @@ final class Application
         $this->app->dbPool->create('schema', $this->config['db']['core']['masters']['schema']);
 
         /* Checking csrf token, if a csrf token is required at all has to be decided in the route or controller */
-        if (
-            $request->getData('CSRF') !== null
+        if ($request->getData('CSRF') !== null
             && !\hash_equals($this->app->sessionManager->get('CSRF'), $request->getData('CSRF'))
         ) {
             $response->header->status = RequestStatusCode::R_403;

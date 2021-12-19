@@ -6,8 +6,7 @@
  * @version    1.0.0
  * @since      1.0.0
  *
- * @todo Orange-Management/jsOMS#16
- *  Implement
+ * @todo Implement
  */
 const CACHE_VERSION = 'static-v1';
 

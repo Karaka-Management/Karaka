@@ -204,21 +204,26 @@ img.profile-image {
 #app-message-container {
   position: absolute;
   margin: 0 auto;
-  right: 0;
-  top: 0;
-  padding: 85px 10px 0 0; }
+  right: 10px;
+  top: 85px;
+  padding: 0; }
   #app-message-container .log-msg {
     z-index: 11;
-    position: relative;
     margin: 0 auto;
     right: 0;
     top: 0;
     margin-bottom: 10px; }
 
+.log-msg {
+  position: relative; }
+  .log-msg .close {
+    position: absolute;
+    top: 5px;
+    right: 5px; }
+
 @media only screen and (max-width: 500px) {
   nav .ham-trigger {
     display: flex; } }
-
 @media only screen and (max-width: 600px) {
   main > header {
     flex-flow: column;
@@ -226,10 +231,10 @@ img.profile-image {
     padding: 1rem; }
     main > header form {
       width: 100%; }
+
   #t-nav-container {
     order: -1;
     margin-bottom: .5rem; } }
-
 @media only screen and (max-width: 1000px) {
   #t-nav .link {
     display: none; } }
