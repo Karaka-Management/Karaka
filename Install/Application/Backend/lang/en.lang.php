@@ -57,6 +57,7 @@ return [[
     'Thursday'              => 'Thursday',
     'Tuesday'               => 'Tuesday',
     'User'                  => 'User',
+    'Update'                => 'Update',
     'Username'              => 'Username',
     'Wednesday'             => 'Wednesday',
 ]];

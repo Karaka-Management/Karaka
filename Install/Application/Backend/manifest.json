@@ -3,9 +3,9 @@
     "dir": "ltr",
     "start_url": "../../en/backend",
     "type": "privileged",
-    "name": "Orange Management Backend",
-    "description": "OMS backend application.",
-    "short_name": "OMS Backend",
+    "name": "OMS Backend",
+    "description": "Orange Management backend application.",
+    "short_name": "OMS",
     "icons": [
         {
             "src": "img/maskable_icon-72x72.png",

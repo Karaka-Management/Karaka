@@ -44,6 +44,7 @@ class SocketApplication extends ApplicationAbstract
         $sub = null;
 
         try {
+            /** @var class-string $app */
             $app = '\Socket\\' . $type . '\Application';
             $sub = new $app($this, $config);
         } catch (\Throwable $e) {
@@ -54,6 +55,10 @@ class SocketApplication extends ApplicationAbstract
              */
             $sub = '';
         } finally {
+            if ($sub === null) {
+                $sub = new \Socket\E500\Application($this, $config);
+            }
+
             $sub->run();
         }
     }

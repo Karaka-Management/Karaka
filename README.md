@@ -36,7 +36,7 @@ Some of the following requirements are only necessary for developers and not for
 
 #### End-User
 
-After installing the requirements and configuring the webserver for the correct path navigate to https://your_url.com/Install and follow the installation process. Afterwards you will be redirected to the installed backend.
+After installing the requirements and configuring the web server for the correct path navigate to https://your_url.com/Install and follow the installation process. Afterwards you will be redirected to the installed backend.
 
 For more detailed information please checkout the [Installation Guide](https://orange-management.org/dev/guide?page=setup/installation).
 

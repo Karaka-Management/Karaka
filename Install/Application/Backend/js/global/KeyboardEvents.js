@@ -2,14 +2,18 @@
 export const KEYBOARD_EVENTS = [
     {
         'element': '', // jump into search bar
-        'keys': [17, 80],
+        'keys': [17, 80], // ctrl+p
         'callback': function (e) {document.getElementById('iSearchBox').focus();}
     }, {
-        'element': '', // submit currently focused form
-        'keys': [17, 13],
+        'element': 'form, input, textarea, select', // submit currently focused form with the first found submit element (add, update, save)
+        'keys': [17, 13], // ctrl+enter
         'callback': function (e) {
             const focused = document.activeElement;
             let formId    = focused.closest('form');
+
+            if (formId !== null) {
+                formId = formId.id;
+            }
 
             if (formId === null) {
                 formId = focused.getAttribute('form');
@@ -23,21 +27,43 @@ export const KEYBOARD_EVENTS = [
                 return;
             }
 
-            window.omsApp.uiManager.getFormManager().submit(
-                window.omsApp.uiManager.getFormManager().get(formId)
-            );
+            const form    = window.omsApp.uiManager.getFormManager().get(formId);
+            const buttons = form.getSubmit(),
+                length    = buttons.length;
+
+            let defaultSubmit = -1;
+
+            for (let i = 0; i < length; ++i) {
+                if (jsOMS.hasClass(buttons[i], 'hidden')) {
+                    continue;
+                }
+
+                if (jsOMS.hasClass(buttons[i], 'add-form')
+                    || jsOMS.hasClass(buttons[i], 'update-form')
+                    || jsOMS.hasClass(buttons[i], 'save-form')
+                ) {
+                    buttons[i].click();
+                    break;
+                }
+
+                defaultSubmit = i;
+            }
+
+            if (defaultSubmit !== -1) {
+                buttons[defaultSubmit].click();
+            }
         }
     }, {
         'element': 'label, tr', // click label
-        'keys': [13],
+        'keys': [13], // enter
         'callback': function (e) {document.activeElement.click();}
     }, {
         'element': '', // previous page
-        'keys': [17, 66],
+        'keys': [17, 66], // ctrl+b
         'callback': function (e) {window.history.back();}
     }, {
         'element': '', // next tabindex
-        'keys': [17, 40],
+        'keys': [17, 40], // ctrl+down
         'callback': function (e) {
             const focusable = document.querySelectorAll('button, input, select, textarea, [tabindex]:not([tabindex="-1"])'),
                 length      = focusable.length;
@@ -63,7 +89,7 @@ export const KEYBOARD_EVENTS = [
         }
     }, {
         'element': '', // previous tab index
-        'keys': [17, 38],
+        'keys': [17, 38], // ctrl+up
         'callback': function (e) {
             const focusable = document.querySelectorAll('button, input, select, textarea, [tabindex]:not([tabindex="-1"])'),
                 length      = focusable.length;

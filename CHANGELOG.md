@@ -1,5 +1,14 @@
 # Changelog
 
+## December 2021
+
+### New
+
+#### Framework
+
+* Implemented the new `DataMapper` / `DataMapperFactory`  pattern
+  * This solved various issues and todos (see archived todos for details)
+
 ## November 2021
 
 ### New
