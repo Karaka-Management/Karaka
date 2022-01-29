@@ -15,7 +15,7 @@ export const VOICE_EVENTS = {
         const request = new Request();
         request.setData({});
         request.setType(RequestType.FORM_DATA);
-        request.setUri('api/search?app=Backend&search=:goto+' + speech);
+        request.setUri('api/navigation/goto?app=Backend&search=' + speech);
         request.setMethod(RequestMethod.GET);
         request.setSuccess(function (xhr)
         {
