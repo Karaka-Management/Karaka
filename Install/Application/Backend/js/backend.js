@@ -42,7 +42,7 @@ export class Application
     {
         //jsOMS.Autoloader.initPreloaded();
 
-        this.logger   = Logger.getInstance();
+        this.logger   = Logger.getInstance(true, false, false);
         window.logger = this.logger;
 
         this.cacheManager    = new CacheManager();
