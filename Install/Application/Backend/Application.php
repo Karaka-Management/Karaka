@@ -347,9 +347,9 @@ final class Application
     private function initResponseHead(Head $head, HttpRequest $request, HttpResponse $response) : void
     {
         /* Load assets */
-        $head->addAsset(AssetType::CSS, 'Resources/fontawesome/css/font-awesome.min.css');
+        $head->addAsset(AssetType::CSS, 'Resources/fonts/fontawesome/css/font-awesome.min.css');
         $head->addAsset(AssetType::CSS, 'cssOMS/styles.css');
-        $head->addAsset(AssetType::CSS, 'Web/Backend/css/fonts.css');
+        $head->addAsset(AssetType::CSS, 'Resources/fonts/Roboto/roboto.css');
 
         // Framework
         $head->addAsset(AssetType::JS, 'jsOMS/Utils/oLib.js');
