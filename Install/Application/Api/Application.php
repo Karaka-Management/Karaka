@@ -112,7 +112,7 @@ final class Application
         $this->app->router      = new WebRouter();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
 
-        $this->app->sessionManager = new HttpSession(36000);
+        $this->app->sessionManager = new HttpSession(0);
         $this->app->cookieJar      = new CookieJar();
         $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
         $this->app->dispatcher     = new Dispatcher($this->app);

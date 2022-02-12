@@ -104,7 +104,7 @@ final class Application
     {
         $this->app->l11nManager    = new L11nManager($this->app->appName);
         $this->app->dbPool         = new DatabasePool();
-        $this->app->sessionManager = new HttpSession(36000);
+        $this->app->sessionManager = new HttpSession(0);
         $this->app->cookieJar      = new CookieJar();
         $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
         $this->app->dispatcher     = new Dispatcher($this->app);

@@ -13,8 +13,6 @@
 declare(strict_types=1);
 
 use phpOMS\Uri\UriFactory;
-
-$head = $this->getData('head');
 ?>
 <?php include __DIR__ . '/Themes/login/head.tpl.php'; ?>
 <main>
