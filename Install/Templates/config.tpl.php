@@ -165,7 +165,7 @@ return [
         ],
     ],
     'language' => [
-        'en', 'de',
+        'en', 'de', 'it',
     ],
 ];
 
