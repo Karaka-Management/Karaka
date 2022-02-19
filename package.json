@@ -19,11 +19,11 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.comkaraka-management/Orange-Management.git"
+    "url": "git+https://github.comkaraka-management/Karaka.git"
   },
   "license": "OMS",
   "bugs": {
-    "url": "https://github.comkaraka-management/Orange-Management/issues"
+    "url": "https://github.com/karaka-management/Karaka/issues"
   },
-  "homepage": "https://github.comkaraka-management/Orange-Management#readme"
+  "homepage": "https://github.com/karaka-management/Karaka#readme"
 }

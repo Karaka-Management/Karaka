@@ -1,180 +1,180 @@
 [submodule "Docs"]
 	path = Docs
-	url = https://github.com/Orange-Management/Docs.git
+	url = https://github.com/Karaka-Management/Docs.git
 [submodule "phpOMS"]
 	path = phpOMS
-	url = https://github.com/Orange-Management/phpOMS.git
+	url = https://github.com/Karaka-Management/phpOMS.git
 [submodule "jsOMS"]
 	path = jsOMS
-	url = https://github.com/Orange-Management/jsOMS.git
+	url = https://github.com/Karaka-Management/jsOMS.git
 [submodule "cssOMS"]
 	path = cssOMS
-	url = https://github.com/Orange-Management/cssOMS.git
+	url = https://github.com/Karaka-Management/cssOMS.git
 [submodule "Documentation"]
 	path = Documentation
-	url = https://github.com/Orange-Management/Documentation.git
+	url = https://github.com/Karaka-Management/Documentation.git
 [submodule "Build"]
 	path = Build
-	url = https://github.com/Orange-Management/Build.git
+	url = https://github.com/Karaka-Management/Build.git
 [submodule "Developer-Guide"]
 	path = Developer-Guide
-	url = https://github.com/Orange-Management/Developer-Guide.git
+	url = https://github.com/Karaka-Management/Developer-Guide.git
 [submodule "Resources"]
 	path = Resources
-	url = https://github.com/Orange-Management/Resources.git
+	url = https://github.com/Karaka-Management/Resources.git
 [submodule "Modules/Admin"]
 	path = Modules/Admin
-	url = https://github.com/Orange-Management/oms-Admin.git
+	url = https://github.com/Karaka-Management/oms-Admin.git
 [submodule "Modules/Tools"]
 	path = Modules/Tools
-	url = https://github.com/Orange-Management/oms-Tools.git
+	url = https://github.com/Karaka-Management/oms-Tools.git
 [submodule "Modules/Tag"]
 	path = Modules/Tag
-	url = https://github.com/Orange-Management/oms-Tag.git
+	url = https://github.com/Karaka-Management/oms-Tag.git
 [submodule "Modules/Organization"]
 	path = Modules/Organization
-	url = https://github.com/Orange-Management/oms-Organization.git
+	url = https://github.com/Karaka-Management/oms-Organization.git
 [submodule "Modules/Editor"]
 	path = Modules/Editor
-	url = https://github.com/Orange-Management/oms-Editor.git
+	url = https://github.com/Karaka-Management/oms-Editor.git
 [submodule "Modules/Navigation"]
 	path = Modules/Navigation
-	url = https://github.com/Orange-Management/oms-Navigation.git
+	url = https://github.com/Karaka-Management/oms-Navigation.git
 [submodule "Modules/Auditor"]
 	path = Modules/Auditor
-	url = https://github.com/Orange-Management/oms-Auditor.git
+	url = https://github.com/Karaka-Management/oms-Auditor.git
 [submodule "Modules/News"]
 	path = Modules/News
-	url = https://github.com/Orange-Management/oms-News.git
+	url = https://github.com/Karaka-Management/oms-News.git
 [submodule "Modules/Knowledgebase"]
 	path = Modules/Knowledgebase
-	url = https://github.com/Orange-Management/oms-Knowledgebase.git
+	url = https://github.com/Karaka-Management/oms-Knowledgebase.git
 [submodule "Modules/Help"]
 	path = Modules/Help
-	url = https://github.com/Orange-Management/oms-Help.git
+	url = https://github.com/Karaka-Management/oms-Help.git
 [submodule "Modules/Helper"]
 	path = Modules/Helper
-	url = https://github.com/Orange-Management/oms-Helper.git
+	url = https://github.com/Karaka-Management/oms-Helper.git
 [submodule "Modules/Monitoring"]
 	path = Modules/Monitoring
-	url = https://github.com/Orange-Management/oms-Monitoring.git
+	url = https://github.com/Karaka-Management/oms-Monitoring.git
 [submodule "Modules/Tasks"]
 	path = Modules/Tasks
-	url = https://github.com/Orange-Management/oms-Tasks.git
+	url = https://github.com/Karaka-Management/oms-Tasks.git
 [submodule "Modules/Dashboard"]
 	path = Modules/Dashboard
-	url = https://github.com/Orange-Management/oms-Dashboard.git
+	url = https://github.com/Karaka-Management/oms-Dashboard.git
 [submodule "Modules/Profile"]
 	path = Modules/Profile
-	url = https://github.com/Orange-Management/oms-Profile.git
+	url = https://github.com/Karaka-Management/oms-Profile.git
 [submodule "Modules/Search"]
 	path = Modules/Search
-	url = https://github.com/Orange-Management/oms-Search.git
+	url = https://github.com/Karaka-Management/oms-Search.git
 [submodule "Modules/Calendar"]
 	path = Modules/Calendar
-	url = https://github.com/Orange-Management/oms-Calendar.git
+	url = https://github.com/Karaka-Management/oms-Calendar.git
 [submodule "Modules/Checklist"]
 	path = Modules/Checklist
-	url = https://github.com/Orange-Management/oms-Checklist.git
+	url = https://github.com/Karaka-Management/oms-Checklist.git
 [submodule "Modules/Kanban"]
 	path = Modules/Kanban
-	url = https://github.com/Orange-Management/oms-Kanban.git
+	url = https://github.com/Karaka-Management/oms-Kanban.git
 [submodule "Modules/MyPrivate"]
 	path = Modules/MyPrivate
-	url = https://github.com/Orange-Management/oms-MyPrivate.git
+	url = https://github.com/Karaka-Management/oms-MyPrivate.git
 [submodule "Modules/Marketing"]
 	path = Modules/Marketing
-	url = https://github.com/Orange-Management/oms-Marketing.git
+	url = https://github.com/Karaka-Management/oms-Marketing.git
 [submodule "Modules/EventManagement"]
 	path = Modules/EventManagement
-	url = https://github.com/Orange-Management/oms-EventManagement.git
+	url = https://github.com/Karaka-Management/oms-EventManagement.git
 [submodule "Modules/ProjectManagement"]
 	path = Modules/ProjectManagement
-	url = https://github.com/Orange-Management/oms-ProjectManagement.git
+	url = https://github.com/Karaka-Management/oms-ProjectManagement.git
 [submodule "Modules/RiskManagement"]
 	path = Modules/RiskManagement
-	url = https://github.com/Orange-Management/oms-RiskManagement.git
+	url = https://github.com/Karaka-Management/oms-RiskManagement.git
 [submodule "Modules/HumanResourceTimeRecording"]
 	path = Modules/HumanResourceTimeRecording
-	url = https://github.com/Orange-Management/oms-HumanResourceTimeRecording.git
+	url = https://github.com/Karaka-Management/oms-HumanResourceTimeRecording.git
 [submodule "Modules/HumanResourceManagement"]
 	path = Modules/HumanResourceManagement
-	url = https://github.com/Orange-Management/oms-HumanResourceManagement.git
+	url = https://github.com/Karaka-Management/oms-HumanResourceManagement.git
 [submodule "Modules/Workflow"]
 	path = Modules/Workflow
-	url = https://github.com/Orange-Management/oms-Workflow.git
+	url = https://github.com/Karaka-Management/oms-Workflow.git
 [submodule "Modules/Job"]
 	path = Modules/Job
-	url = https://github.com/Orange-Management/oms-Job.git
+	url = https://github.com/Karaka-Management/oms-Job.git
 [submodule "Modules/Media"]
 	path = Modules/Media
-	url = https://github.com/Orange-Management/oms-Media.git
+	url = https://github.com/Karaka-Management/oms-Media.git
 [submodule "Modules/Home"]
 	path = Modules/Home
-	url = https://github.com/Orange-Management/oms-Home.git
+	url = https://github.com/Karaka-Management/oms-Home.git
 [submodule "Modules/Database"]
 	path = Modules/Database
-	url = https://github.com/Orange-Management/oms-Database.git
+	url = https://github.com/Karaka-Management/oms-Database.git
 [submodule "Modules/DatabaseEditor"]
 	path = Modules/DatabaseEditor
-	url = https://github.com/Orange-Management/oms-DatabaseEditor.git
+	url = https://github.com/Karaka-Management/oms-DatabaseEditor.git
 [submodule "Modules/Draw"]
 	path = Modules/Draw
-	url = https://github.com/Orange-Management/oms-Draw.git
+	url = https://github.com/Karaka-Management/oms-Draw.git
 [submodule "Modules/Contact"]
 	path = Modules/Contact
-	url = https://github.com/Orange-Management/oms-Contact.git
+	url = https://github.com/Karaka-Management/oms-Contact.git
 [submodule "Modules/Comments"]
 	path = Modules/Comments
-	url = https://github.com/Orange-Management/oms-Comments.git
+	url = https://github.com/Karaka-Management/oms-Comments.git
 [submodule "Modules/Exchange"]
 	path = Modules/Exchange
-	url = https://github.com/Orange-Management/oms-Exchange.git
+	url = https://github.com/Karaka-Management/oms-Exchange.git
 [submodule "Modules/QA"]
 	path = Modules/QA
-	url = https://github.com/Orange-Management/oms-QA.git
+	url = https://github.com/Karaka-Management/oms-QA.git
 [submodule "Modules/TestModule"]
 	path = Modules/TestModule
-	url = https://github.com/Orange-Management/oms-TestModule.git
+	url = https://github.com/Karaka-Management/oms-TestModule.git
 [submodule "Modules/CMS"]
 	path = Modules/CMS
-	url = https://github.com/Orange-Management/oms-CMS.git
+	url = https://github.com/Karaka-Management/oms-CMS.git
 [submodule "Modules/Messages"]
 	path = Modules/Messages
-	url = https://github.com/Orange-Management/oms-Messages.git
+	url = https://github.com/Karaka-Management/oms-Messages.git
 [submodule "Modules/Support"]
 	path = Modules/Support
-	url = https://github.com/Orange-Management/oms-Support.git
+	url = https://github.com/Karaka-Management/oms-Support.git
 [submodule "Modules/ClientManagement"]
 	path = Modules/ClientManagement
-	url = https://github.com/Orange-Management/oms-ClientManagement.git
+	url = https://github.com/Karaka-Management/oms-ClientManagement.git
 [submodule "Modules/SupplierManagement"]
 	path = Modules/SupplierManagement
-	url = https://github.com/Orange-Management/oms-SupplierManagement.git
+	url = https://github.com/Karaka-Management/oms-SupplierManagement.git
 [submodule "Modules/ItemManagement"]
 	path = Modules/ItemManagement
-	url = https://github.com/Orange-Management/oms-ItemManagement.git
+	url = https://github.com/Karaka-Management/oms-ItemManagement.git
 [submodule "Modules/Purchase"]
 	path = Modules/Purchase
-	url = https://github.com/Orange-Management/oms-Purchase.git
+	url = https://github.com/Karaka-Management/oms-Purchase.git
 [submodule "Modules/Sales"]
 	path = Modules/Sales
-	url = https://github.com/Orange-Management/oms-Sales.git
+	url = https://github.com/Karaka-Management/oms-Sales.git
 [submodule "Modules/Accounting"]
 	path = Modules/Accounting
-	url = https://github.com/Orange-Management/oms-Accounting.git
+	url = https://github.com/Karaka-Management/oms-Accounting.git
 [submodule "Modules/Billing"]
 	path = Modules/Billing
-	url = https://github.com/Orange-Management/oms-Billing.git
+	url = https://github.com/Karaka-Management/oms-Billing.git
 [submodule "Modules/WarehouseManagement"]
 	path = Modules/WarehouseManagement
-	url = https://github.com/Orange-Management/oms-WarehouseManagement.git
+	url = https://github.com/Karaka-Management/oms-WarehouseManagement.git
 [submodule "Modules/ContractManagement"]
 	path = Modules/ContractManagement
-	url = https://github.com/Orange-Management/oms-ContractManagement.git
+	url = https://github.com/Karaka-Management/oms-ContractManagement.git
 [submodule "Modules/Shop"]
 	path = Modules/Shop
-	url = https://github.com/Orange-Management/oms-Shop.git
+	url = https://github.com/Karaka-Management/oms-Shop.git
 [submodule "Modules/Surveys"]
 	path = Modules/Surveys
-	url = https://github.com/Orange-Management/oms-Surveys.git
+	url = https://github.com/Karaka-Management/oms-Surveys.git

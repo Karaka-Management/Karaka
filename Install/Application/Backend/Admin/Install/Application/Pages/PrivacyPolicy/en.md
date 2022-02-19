@@ -1,6 +1,6 @@
 # Privacy Policy
 
-This privacy policy ("POLICY") will help you understand how [name] ("us", "we", "our") uses and protects the data you provide to us when you visit and use Orange-Management ("website", "service" and "application").
+This privacy policy ("POLICY") will help you understand how [name] ("us", "we", "our") uses and protects the data you provide to us when you visit and use Karaka ("website", "service" and "application").
 
 ## Definitions
 For the purposes of these POLICIES:
@@ -33,7 +33,7 @@ We are collecting your data for several reasons:
 * To customize our WEBSITE according to your online behavior and personal preferences.
 
 ## Safeguarding and Securing the Data
-Orange-Management is committed to securing your data and keeping it confidential. Orange-Management has done all in its power to prevent data theft, unauthorized access, and disclosure by implementing the latest technologies and software, which help us safeguard all the information we collect online.
+Karaka is committed to securing your data and keeping it confidential. Karaka has done all in its power to prevent data theft, unauthorized access, and disclosure by implementing the latest technologies and software, which help us safeguard all the information we collect online.
 
 ## Our Cookie Policy
 Once you agree to allow our WEBSITE or APPLICATION to use cookies, you also agree to these POLICIES.
@@ -54,7 +54,7 @@ At some point, you might wish to restrict the use and collection of your persona
 * Don't accept cookies from our WEBSITE and APPLICATION
 * If you have already agreed to share your information with us, feel free to contact us via email and we will be more than happy to change this for you.
 
-Orange-Management will not lease, sell or distribute your personal information to any third parties, unless we have your permission. We might do so if the law forces us. Your personal information will be used when we need to send you promotional materials if you agree to this privacy policy.
+Karaka will not lease, sell or distribute your personal information to any third parties, unless we have your permission. We might do so if the law forces us. Your personal information will be used when we need to send you promotional materials if you agree to this privacy policy.
 
 ## Governing Law
 The laws of the COUNTRY, excluding its conflicts of law rules, shall govern this POLICY and Your use of the SERVICE. Your use of the APPLICATION may also be subject to other local, state, national, or international laws.

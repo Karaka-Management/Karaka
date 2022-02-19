@@ -1,5 +1,5 @@
 # Impressum
-Orange-Management
+Karaka
 
 ## Vertreten durch
 Dennis Eichhorn
@@ -14,7 +14,7 @@ Nicht vorhanden
 Nicht vorhanden
 
 ## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
-Orange-Management
+Karaka
 Dennis Eichhorn
 
 ## Datenschutzbeauftragter
