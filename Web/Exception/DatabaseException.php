@@ -8,7 +8,7 @@
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
- * @link      https://karaka.org
+ * @link      https://karaka.app
  */
 declare(strict_types=1);
 
@@ -19,7 +19,7 @@ namespace Web\Exception;
  *
  * @package Web\Exception
  * @license OMS License 1.0
- * @link    https://karaka.org
+ * @link    https://karaka.app
  * @since   1.0.0
  */
 class DatabaseException extends \RuntimeException
