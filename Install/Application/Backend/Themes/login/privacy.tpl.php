@@ -1,6 +1,6 @@
 <?php
 /**
- * Orange Management
+ * Karaka
  *
  * PHP Version 8.0
  *
@@ -8,7 +8,7 @@
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
- * @link      https://orange-management.org
+ * @link      https://karaka.app
  */
 declare(strict_types=1);
 
@@ -26,12 +26,12 @@ declare(strict_types=1);
     <ul>
         <li>AFFILIATED means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>
         <li>COUNTRY refers to Germany</li>
-        <li>COMPANY (referred to as either "the Company", "We", "Us" or "Our" in this AGREEMENT) refers to Orange Management, Gartenstr. 26, 61206 Woellstadt.</li>
+        <li>COMPANY (referred to as either "the Company", "We", "Us" or "Our" in this AGREEMENT) refers to Karaka, Gartenstr. 26, 61206 Woellstadt.</li>
         <li>DEVICE means any device that can access the SERVICE such as a computer, a cellphone or a digital tablet.</li>
         <li>SERVICE refers to the Website</li>
         <li>POLICY or AGREEMENT mean these policies that form the entire agreement between You and the COMPANY regarding the use of the SERVICE.</li>
         <li>Third-party Social Media SERVICE means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the SERVICE.</li>
-        <li>WEBSITE refers to orange-management.org (.net, .app, .service, .support, .email, .de, .solutions)</li>
+        <li>WEBSITE refers to karaka.app (.net, .app, .service, .support, .email, .de, .solutions)</li>
         <li>APPLICATION refers to all downloadable or installable content which can therfore be used on an a given DEVICE.</li>
         <li>You means the individual accessing or using the SERVICE, or the company, or other legal entity on behalf of which such individual is accessing or using the SERVICE, as applicable.</li>
     </ul>
@@ -92,7 +92,7 @@ declare(strict_types=1);
     <p>By continuing to access or use Our SERVICE after those revisions become effective, You agree to be bound by the revised policies. If You do not agree to the new policies, in whole or in part, please stop using the WEBSITE and the SERVICE.</p>
 
     <h2>Contact</h2>
-    <p>For questions regarding these POLICIES please feel free to contact us at info@orange-management.email</p>
+    <p>For questions regarding these POLICIES please feel free to contact us at info@karaka.email</p>
     </article>
 </main>
 <?php include __DIR__ . '/foot.tpl.php'; ?>

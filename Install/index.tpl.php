@@ -1,6 +1,6 @@
 <?php
 /**
- * Orange Management
+ * Karaka
  *
  * PHP Version 8.0
  *
@@ -8,7 +8,7 @@
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
- * @link      https://orange-management.org
+ * @link      https://karaka.app
  */
 declare(strict_types=1);
 
@@ -27,7 +27,7 @@ declare(strict_types=1);
             <img alt="Logo" src="img/logo.png" class="logo" width="50">
             <h1>Welcome</h1>
             <div>
-                <p>Orange Management is a WebApp written in PHP and JavaScript supporting various database
+                <p>Karaka is a WebApp written in PHP and JavaScript supporting various database
                 and caching technologies. Many modules/extensions provide functionality for businesses,
                 education facilities, healthcare facilities and organizations in general.<p>
 
@@ -41,7 +41,7 @@ declare(strict_types=1);
 
                 <p>In case you encounter any problems during the installation process please feel free to
                 ask for help on our website or contact our support email at
-                <strong>test.email@orange-management.de</strong></p>
+                <strong>test.email@karaka.de</strong></p>
 
                 <p><button class="next">Next</button></p>
             </div>
@@ -87,7 +87,7 @@ declare(strict_types=1);
                 <p>All non critical elements can be fixed after installation if you find yourself in need of one of the
                 features. All critical elements must be fixed before you can continue with the installation.</p>
 
-                <p>For help please check our <a href="https://orange-management.org">Installation Guide</a>.</p>
+                <p>For help please check our <a href="https://karaka.app">Installation Guide</a>.</p>
                 <?php $isOK = \version_compare('8.0.0', \PHP_VERSION) < 1 && \extension_loaded('pdo'); ?>
                 <table>
                     <thead>

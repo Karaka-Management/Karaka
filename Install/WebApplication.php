@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Orange Management
+ * Karaka
  *
  * PHP Version 8.0
  *
@@ -9,7 +9,7 @@
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
- * @link      https://orange-management.org
+ * @link      https://karaka.app
  */
 
 declare(strict_types=1);
@@ -36,7 +36,7 @@ use phpOMS\Views\View;
  *
  * @package Install
  * @license OMS License 1.0
- * @link    https://orange-management.org
+ * @link    https://karaka.app
  * @since   1.0.0
  *
  * @property \phpOMS\Router\WebRouter $router

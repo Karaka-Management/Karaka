@@ -5,12 +5,12 @@ For the purposes of these TERMS:
 
 * AFFILIATED means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.
 * COUNTRY refers to Germany
-* COMPANY (referred to as either "the Company", "We", "Us" or "Our" in this AGREEMENT) refers to Orange Management, Gartenstr. 26, 61206 Woellstadt.
+* COMPANY (referred to as either "the Company", "We", "Us" or "Our" in this AGREEMENT) refers to Karaka, Gartenstr. 26, 61206 Woellstadt.
 * DEVICE means any device that can access the Service such as a computer, a cellphone or a digital tablet.
 * SERVICE refers to the Website
 * TERMS or AGREEMENT mean these terms that form the entire agreement between You and the COMPANY regarding the use of the SERVICE.
 * Third-party Social Media Service means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the SERVICE.
-* WEBSITE refers to orange-management.org (.net, .app, .service, .support, .email, .de, .solutions)
+* WEBSITE refers to karaka.app (.net, .app, .service, .support, .email, .de, .solutions)
 * APPLICATION refers to all downloadable or installable content which can therfore be used on an a given DEVICE.
 * You means the individual accessing or using the SERVICES, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.
 
@@ -57,7 +57,7 @@ We reserve the right, at Our sole discretion, to modify or replace these TERMS a
 By continuing to access or use Our SERVICE after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the WEBSITE and the SERVICE.
 
 ## Contact
-For questions regarding these TERMS please feel free to contact us at info@orange-management.email, privacy policies, or practices of any third party websites or services. You further acknowledge and agree that the COMPANY shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such websites or services.
+For questions regarding these TERMS please feel free to contact us at info@karaka.email, privacy policies, or practices of any third party websites or services. You further acknowledge and agree that the COMPANY shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such websites or services.
 We strongly advise You to read the terms and conditions and privacy policies of any third-party web sites or services that You visit.
 
 ## Termination
@@ -89,4 +89,4 @@ We reserve the right, at Our sole discretion, to modify or replace these TERMS a
 By continuing to access or use Our SERVICE after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the WEBSITE and the SERVICE.
 
 ## Contact
-For questions regarding these TERMS please feel free to contact us at info@orange-management.email
+For questions regarding these TERMS please feel free to contact us at info@karaka.email

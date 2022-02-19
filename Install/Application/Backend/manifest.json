@@ -4,7 +4,7 @@
     "start_url": "../../en/backend",
     "type": "privileged",
     "name": "OMS Backend",
-    "description": "Orange Management backend application.",
+    "description": "Karaka backend application.",
     "short_name": "OMS",
     "icons": [
         {

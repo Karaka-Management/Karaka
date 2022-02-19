@@ -1,6 +1,6 @@
 <?php
 /**
- * Orange Management
+ * Karaka
  *
  * PHP Version 8.0
  *
@@ -8,12 +8,12 @@
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
- * @link      https://orange-management.org
+ * @link      https://karaka.app
  */
 declare(strict_types=1);
 
 return [[
-    ':meta'                 => 'Orange Management backend application for businesses including EPR, CRM, Intranet, Office and much more.',
+    ':meta'                 => 'Karaka backend application for businesses including EPR, CRM, Intranet, Office and much more.',
     'Add'                   => 'Hinzufügen',
     'Back'                  => 'Zurück',
     'CurrencyB'             => 'B',

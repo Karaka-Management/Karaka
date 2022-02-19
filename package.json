@@ -9,7 +9,7 @@
   "dependencies": {
     "chromedriver": "^91.0.1",
     "geckodriver": "^2.0.1",
-    "node-sass": "^7.0.0",
+    "node-sass": "^6.0.1",
     "selenium-webdriver": "^4.0.0-beta.4"
   },
   "scripts": {
@@ -19,11 +19,11 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Orange-Management/Orange-Management.git"
+    "url": "git+https://github.comkaraka-management/Orange-Management.git"
   },
   "license": "OMS",
   "bugs": {
-    "url": "https://github.com/Orange-Management/Orange-Management/issues"
+    "url": "https://github.comkaraka-management/Orange-Management/issues"
   },
-  "homepage": "https://github.com/Orange-Management/Orange-Management#readme"
+  "homepage": "https://github.comkaraka-management/Orange-Management#readme"
 }

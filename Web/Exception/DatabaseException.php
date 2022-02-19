@@ -1,6 +1,6 @@
 <?php
 /**
- * Orange Management
+ * Karaka
  *
  * PHP Version 8.0
  *
@@ -8,7 +8,7 @@
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
- * @link      https://orange-management.org
+ * @link      https://karaka.org
  */
 declare(strict_types=1);
 
@@ -19,7 +19,7 @@ namespace Web\Exception;
  *
  * @package Web\Exception
  * @license OMS License 1.0
- * @link    https://orange-management.org
+ * @link    https://karaka.org
  * @since   1.0.0
  */
 class DatabaseException extends \RuntimeException

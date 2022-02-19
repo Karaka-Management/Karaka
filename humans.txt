@@ -1,6 +1,6 @@
 /* TEAM */
-Orange Management
-Site: https://orange-management.org
+Karaka
+Site: https://karaka.app
 Location: Frankfurt, Germany
 
 /* SITE */

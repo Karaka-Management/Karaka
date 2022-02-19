@@ -1,6 +1,6 @@
 <?php
 /**
- * Orange Management
+ * Karaka
  *
  * PHP Version 8.0
  *
@@ -8,7 +8,7 @@
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
- * @link       http://orange-management.com
+ * @link       http://karaka.com
  */
 declare(strict_types=1);
 
@@ -27,7 +27,7 @@ use phpOMS\Uri\Argument;
  *
  * @package    Console
  * @license    OMS License 1.0
- * @link       http://orange-management.com
+ * @link       http://karaka.com
  * @since      1.0.0
  *
  * @property \phpOMS\Router\SocketRouter $router
