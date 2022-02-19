@@ -28,7 +28,7 @@ If applicable, add screenshots to help explain your problem.
  - System: [e.g. PC or iPhone11, ...]
  - OS: [e.g. iOS]
  - Browser [e.g. chrome, safari]
- - Orange Management Version [e.g. 22]
+ - KarakaVersion [e.g. 22]
 
 # Additional Information
 Add any other context about the problem here.

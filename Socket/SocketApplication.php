@@ -49,7 +49,7 @@ class SocketApplication extends ApplicationAbstract
             $sub = new $app($this, $config);
         } catch (\Throwable $e) {
             /**
-             * @todo Orange-Management/Orange-Management#50
+             * @todo Karaka/Karaka#50
              *  Create error socket on failure
              *  If the socket creation fails an error application should be created which outputs the socket initialization failure.
              */

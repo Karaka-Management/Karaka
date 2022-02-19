@@ -64,7 +64,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         $request->setData('deleteuser', 'invalid');
         $request->setData('deletepassword', 'invalid');
 
-        $request->setData('orgname', 'Orange-Management');
+        $request->setData('orgname', 'Karaka');
         $request->setData('adminname', 'admin');
         $request->setData('adminpassword', 'orange');
         $request->setData('adminemail', 'admin@oms.com');
@@ -226,7 +226,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         $request->setData('deleteuser', $config['db']['core']['masters']['admin']['login']);
         $request->setData('deletepassword', $config['db']['core']['masters']['admin']['password']);
 
-        $request->setData('orgname', 'Orange-Management');
+        $request->setData('orgname', 'Karaka');
         $request->setData('adminname', 'admin');
         $request->setData('adminpassword', 'orange');
         $request->setData('adminemail', 'admin@oms.com');

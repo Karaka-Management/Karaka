@@ -4,7 +4,7 @@
  *
  * PHP Version 8.0
  *
- * @package   Orange-Management
+ * @package   Karaka
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0

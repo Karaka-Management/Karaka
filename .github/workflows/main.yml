@@ -34,7 +34,7 @@ jobs:
         pwd
         echo $(git diff-index HEAD --)
         git config --global user.name 'Build Bot'
-        git config --global user.email 'build.bot@orange-management.email'
+        git config --global user.email 'build.bot@karaka.app'
         git remote set-url origin https://x-access-token:${{ secrets.GITHUB }}@github.com/${{ github.repository }}
         git add *.css
         git add *.scss

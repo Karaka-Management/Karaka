@@ -94,7 +94,7 @@ class Application
         }
 
         /**
-         * @todo Orange-Management/phpOMS#230
+         * @todo Karaka/phpOMS#230
          *  Create socket session
          *  Maybe use the ConsoleSocket
          */

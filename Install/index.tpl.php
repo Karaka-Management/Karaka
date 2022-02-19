@@ -301,7 +301,7 @@ declare(strict_types=1);
                 <p>The following configuration options are general WebApp settings.</p>
                 <ul>
                     <li><label for="iOrgName">Organization Name</label>
-                    <li><input id="iOrgName" name="orgname" type="text" value="Orange-Management" form="installForm" required>
+                    <li><input id="iOrgName" name="orgname" type="text" value="Karaka" form="installForm" required>
                     <li><label for="iAdminName">Admin Login</label>
                     <li><input id="iAdminName" name="adminname" type="text" value="admin" form="installForm" required>
                     <li><label for="iAdminPassword">Admin Password</label>

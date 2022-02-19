@@ -2,7 +2,7 @@
 
 ## Code Style & Best Practices
 
-For the code style and best practices please have a look at the developer-guide [https://github.comkaraka-management/Developer-Guide](https://github.comkaraka-management/Developer-Guide). Especially the `standards` should be followed for a successful pull request.
+For the code style and best practices please have a look at the developer-guide [https://github.com/karaka-management/Developer-Guide](https://github.com/karaka-management/Developer-Guide). Especially the `standards` should be followed for a successful pull request.
 
 ## How Can I Contribute
 
@@ -12,7 +12,7 @@ If you have a good idea for improvement feel free to create a new issue with all
 
 ### Issues
 
-Feel free to grab any open issue implement it and create a new pull request. Most issues can be found in the code marked with `@todo` or in the [PROJECT.md](https://github.comkaraka-management/Docs/blob/master/Project/PROJECT.md) file.
+Feel free to grab any open issue implement it and create a new pull request. Most issues can be found in the code marked with `@todo` or in the [PROJECT.md](https://github.com/karaka-management/Docs/blob/master/Project/PROJECT.md) file.
 
 ### Code Style
 
