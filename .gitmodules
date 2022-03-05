@@ -178,3 +178,6 @@
 [submodule "Modules/Surveys"]
 	path = Modules/Surveys
 	url = https://github.com/Karaka-Management/oms-Surveys.git
+[submodule "cOMS"]
+	path = cOMS
+	url = https://github.com/Karaka-Management/cOMS.git

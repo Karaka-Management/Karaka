@@ -6,6 +6,7 @@ cache
 vendor
 bower_components
 node_modules
+Libraries
 puphpet
 .vagrant
 private.php
