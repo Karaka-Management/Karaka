@@ -90,7 +90,8 @@ class WebApplication extends ApplicationAbstract
                 $response = new HttpResponse();
             }
 
-            $sub->run($request ?? new HttpRequest(), $response);
+            $request ??= HttpRequest::createFromSuperglobals();
+            $sub->run($request, $response);
 
             $body = $response->getBody(true);
 
