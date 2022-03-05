@@ -1,5 +1,22 @@
 # Changelog
 
+## January 2022
+
+### New
+
+#### Media
+
+* Added the reference media type (similar to collections) which allows to create references to existing media. This is ideal for showing the same media file in different places while making sure that deleting or changing the reference doesn't effect the actual media file.
+* Create collection directories recursively (similar to `mkdir` with a recursion flag set to true)
+
+### Other
+
+#### Installer
+
+* Added command line to developer documentation for generating cachegrind output during installation
+* The demo setup script now uses the correct row counts instead of estimations
+* Added API call counter to demo installer script
+
 ## December 2021
 
 ### New
