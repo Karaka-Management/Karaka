@@ -19,6 +19,8 @@ use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\Group;
 use Modules\Admin\Models\GroupMapper;
+use Modules\Admin\Models\GroupPermission;
+use Modules\Admin\Models\GroupPermissionMapper;
 use Modules\Admin\Models\ModuleStatusUpdateType;
 use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Collection;
@@ -89,8 +91,8 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function clearOld() : void
     {
-        \file_put_contents(__DIR__ . '/../Console/Routes.php', '<?php return [];');
-        \file_put_contents(__DIR__ . '/../Console/Hooks.php', '<?php return [];');
+        \file_put_contents(__DIR__ . '/../Cli/Routes.php', '<?php return [];');
+        \file_put_contents(__DIR__ . '/../Cli/Hooks.php', '<?php return [];');
 
         $dirs = \scandir(__DIR__ . '/../Web');
         if ($dirs === false) {
@@ -442,17 +444,11 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function installGroupPermissions(ConnectionAbstract $db) : void
     {
-        $sth = $db->con->prepare(
-            'INSERT INTO `group_permission` (`group_permission_group`, `group_permission_unit`, `group_permission_app`, `group_permission_module`, `group_permission_from`, `group_permission_type`, `group_permission_element`, `group_permission_component`, `group_permission_permission`) VALUES
-                (2, null, null, NULL, NULL, ' . \Modules\Admin\Models\PermissionState::SEARCH . ', NULL, NULL, ' . (PermissionType::READ) . '),
-                (3, null, null, NULL, NULL, NULL, NULL, NULL, ' . (PermissionType::READ | PermissionType::CREATE | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION) . ');'
-        );
+        $searchPermission = new GroupPermission(2, null, null, null, null, \Modules\Admin\Models\PermissionState::SEARCH, null, null, PermissionType::READ);
+        $adminPermission = new GroupPermission(3, null, null, null, null, null, null, null, PermissionType::READ | PermissionType::CREATE | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION);
 
-        if ($sth === false) {
-            return; // @codeCoverageIgnore
-        }
-
-        $sth->execute();
+        GroupPermissionMapper::create()->execute($searchPermission);
+        GroupPermissionMapper::create()->execute($adminPermission);
     }
 
     /**

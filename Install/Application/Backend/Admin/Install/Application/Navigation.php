@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Web\Backend\Admin\Install;
+namespace Web\Backend\Admin\Install\Application;
 
 use phpOMS\Application\ApplicationAbstract;
 

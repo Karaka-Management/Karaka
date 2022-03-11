@@ -277,7 +277,7 @@ final class Application
     }
 
     /**
-     * Create 406 response.
+     * Create 503 response.
      *
      * @param HttpResponse $response Response
      * @param View         $pageView View

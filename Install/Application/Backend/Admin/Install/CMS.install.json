@@ -24,5 +24,10 @@
         "type": "route",
         "src": "Application",
         "dest": "Backend"
+    },
+    {
+        "type": "nav",
+        "src": "Application",
+        "dest": "Backend"
     }
 ]
