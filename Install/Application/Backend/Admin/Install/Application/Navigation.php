@@ -29,14 +29,14 @@ class Navigation
     /**
      * Install navigation providing
      *
-     * @param string              $path Module path
      * @param ApplicationAbstract $app  Application
+     * @param string              $path Module path
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public static function install(string $path, ApplicationAbstract $app) : void
+    public static function install(ApplicationAbstract $app, string $path) : void
     {
         \Modules\Navigation\Admin\Installer::installExternal($app,
             [
