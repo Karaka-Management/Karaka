@@ -21,7 +21,7 @@ use Model\SettingsEnum;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\LocalizationMapper;
 use Modules\Admin\Models\NullAccount;
-use Modules\Admin\Models\PermissionState;
+use Modules\Admin\Models\PermissionCategory;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\PermissionType;
@@ -175,7 +175,7 @@ final class Application
 
         $appStatus = (int) ($this->app->appSettings->get(null, SettingsEnum::LOGIN_STATUS)->content ?? 0);
         if ($appStatus === ApplicationStatus::READ_ONLY ||  $appStatus === ApplicationStatus::DISABLED) {
-            if (!$account->hasPermission(PermissionType::CREATE | PermissionType::MODIFY, module: 'Admin', type: PermissionState::APP)) {
+            if (!$account->hasPermission(PermissionType::CREATE | PermissionType::MODIFY, module: 'Admin', type: PermissionCategory::APP)) {
                 if ($request->getRouteVerb() !== RouteVerb::GET) {
                     // Application is in read only mode or completely disabled
                     // If read only mode is active only GET requests are allowed
