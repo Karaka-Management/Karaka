@@ -1462,7 +1462,7 @@ f74eda18d4897e488a543da2b93e6f23  ./Modules/RiskManagement/Models/ProjectMapper.
 b51a9a43a16355f1b7d34ac642c11ecc  ./Modules/RiskManagement/Models/RiskObjectScore.php
 59739bd9984c97c07bf150dbd5198f36  ./Modules/RiskManagement/Models/NullCategory.php
 cccff879f6a96afbfaaa644b7f7cfca0  ./Modules/RiskManagement/Models/RiskMapper.php
-978f5bb923a278defb5b1b5fa35649c0  ./Modules/RiskManagement/Models/PermissionState.php
+978f5bb923a278defb5b1b5fa35649c0  ./Modules/RiskManagement/Models/PermissionCategory.php
 bbb6c95ecb33d3c64afbca795f4e95d4  ./Modules/RiskManagement/Models/RiskScore.php
 b57a9a48e6066b8f7b43acba3a5d2a0e  ./Modules/RiskManagement/Models/Project.php
 ecca8b032cdf6cb950d9e35b2e1bfb40  ./Modules/RiskManagement/Models/SolutionMapper.php
@@ -1497,7 +1497,7 @@ f3e41e1649ad5613f4837b24c73a8bfe  ./Modules/Dashboard/Admin/Routes/Web/Backend.p
 0ef168c8ef1554bd358ce431bff3ee87  ./Modules/Dashboard/Admin/Installer.php
 64857c6dcc0b96d2cdd5e78abcfe878e  ./Modules/Dashboard/Models/DashboardBoardStatus.php
 2dac032c38e23fed78f315ec964852a5  ./Modules/Dashboard/Models/DashboardComponent.php
-50cc3261529754507ce7c0101d1035a8  ./Modules/Dashboard/Models/PermissionState.php
+50cc3261529754507ce7c0101d1035a8  ./Modules/Dashboard/Models/PermissionCategory.php
 deb71a9c8063ab4c86587d8d0c952dea  ./Modules/Dashboard/Models/DashboardBoardMapper.php
 cea9291109f1657009eff4d9866a77dd  ./Modules/Dashboard/Models/NullDashboardComponent.php
 410ed472fcac096f1ecc6c3d1995f58a  ./Modules/Dashboard/Models/DashboardComponentMapper.php
@@ -1560,7 +1560,7 @@ c6d15c9d0533ea2471e4f077f47c81b1  ./Modules/Helper/Admin/Routes/Web/Backend.php
 a4fb24ed9fb9715955cf2a115d5a7e28  ./Modules/Helper/Admin/Installer.php
 16172466da88652e0a1696265419d384  ./Modules/Helper/Models/ReportMapper.php
 231df9d5682af5b9a61e0c9c57e832a7  ./Modules/Helper/Models/Report.php
-1ceba0f69153a56a88c78605b500e885  ./Modules/Helper/Models/PermissionState.php
+1ceba0f69153a56a88c78605b500e885  ./Modules/Helper/Models/PermissionCategory.php
 7bf625fb06178792eb649f76468c70db  ./Modules/Helper/Models/NullReport.php
 99b89aa21a70c653b1372705c03e736c  ./Modules/Helper/Models/TemplateDataType.php
 5ca6a0d8bac6a4f9e819fe12cf79d3d4  ./Modules/Helper/Models/NullTemplate.php
@@ -1619,7 +1619,7 @@ a4235f79781f7b42197d970f88e7c680  ./Modules/Tag/Admin/Routes/Web/Backend.php
 4064606f764246b9764746a42bf20648  ./Modules/Tag/Models/TagType.php
 285517b5902897f8d1fdbfd32b66f1bd  ./Modules/Tag/Models/Tag.php
 1519462fe083c857bfc806169f607de1  ./Modules/Tag/Models/TagL11nMapper.php
-b42f653163ece7df351cdd669423d2f0  ./Modules/Tag/Models/PermissionState.php
+b42f653163ece7df351cdd669423d2f0  ./Modules/Tag/Models/PermissionCategory.php
 196a59edd323701880076a6d42d57c0d  ./Modules/Tag/Models/NullTag.php
 4741fec1dcda2d0555ba17c8b86b5b68  ./Modules/Tag/Models/TagMapper.php
 2f4dfd9fb28bf42653821d0dcf3f8970  ./Modules/Tag/Models/NullTagL11n.php
@@ -1674,7 +1674,7 @@ ecd681418c8a00aed6b0f1905c339374  ./Modules/Billing/Models/BillElement.php
 e3e2a29d18a152b7453426d6fe91fd5c  ./Modules/Billing/Models/BillTypeMapper.php
 d606eded8e4428db50d34839a61b0bd9  ./Modules/Billing/Models/SalesBillMapper.php
 67e5c9f5f22271676c731994ca84a567  ./Modules/Billing/Models/BillMapper.php
-396f38d1f92087c075f69e7dba32fccc  ./Modules/Billing/Models/PermissionState.php
+396f38d1f92087c075f69e7dba32fccc  ./Modules/Billing/Models/PermissionCategory.php
 5dee6676ce97878d6619c7ed60ffb841  ./Modules/Billing/Models/BillElementMapper.php
 484b94c75367b7429b9b4a902ff11613  ./Modules/Billing/Models/StockBillMapper.php
 0f4e13513bdc732e7dfc700ffa19fc2a  ./Modules/Billing/Models/BillType.php
@@ -1726,7 +1726,7 @@ d5c76590478cfe4e872b949b2b50ee88  ./Modules/EventManagement/Theme/Backend/Lang/r
 5169501b48701cd1bd15fabdb8bc325f  ./Modules/EventManagement/Admin/Routes/Web/Backend.php
 5af2070eb760951d71bb14745d7038e8  ./Modules/EventManagement/Admin/Installer.php
 1d32a882b1a5783684b84cfddcc8d519  ./Modules/EventManagement/Models/EventMapper.php
-69d73c6cbe1926250057eb2a77c8597d  ./Modules/EventManagement/Models/PermissionState.php
+69d73c6cbe1926250057eb2a77c8597d  ./Modules/EventManagement/Models/PermissionCategory.php
 2ae628ce1d83eed6a3e641178d6301ed  ./Modules/EventManagement/Models/EventType.php
 c46cc9d21daa83524a13a688b8f538be  ./Modules/EventManagement/Models/Event.php
 12d547f533eb81fc44c997959bc42f9c  ./Modules/EventManagement/Models/ProgressType.php
@@ -1782,7 +1782,7 @@ e794f55ca2490e472ff22ab45e125a26  ./Modules/Knowledgebase/Admin/Routes/Web/Backe
 b95e5d0cb60c586c5fe7445de2e3b1e7  ./Modules/Knowledgebase/Admin/Installer.php
 00c3d814bdccba86e818aeaf78308aea  ./Modules/Knowledgebase/Models/WikiDocMapper.php
 508175c45ad71fa17cd972d56bd290ee  ./Modules/Knowledgebase/Models/NullWikiApp.php
-2a9fb5e71922ea1aa3f03ed3a0ec0edb  ./Modules/Knowledgebase/Models/PermissionState.php
+2a9fb5e71922ea1aa3f03ed3a0ec0edb  ./Modules/Knowledgebase/Models/PermissionCategory.php
 9d6adc652db478dc98478e7f20981b46  ./Modules/Knowledgebase/Models/NullWikiDoc.php
 5453aa414a3f8a8358e63f9fc9cbd1d0  ./Modules/Knowledgebase/Models/WikiCategoryL11n.php
 e344bc16cc17f055a42cc0140fb1dcf5  ./Modules/Knowledgebase/Models/WikiCategoryL11nMapper.php
@@ -1839,7 +1839,7 @@ b764356f817f7d8c9139fe915dd50e19  ./Modules/Purchase/Theme/Backend/Lang/tr.lang.
 59cfe8c3b33c7efc9a14f338ca1d551b  ./Modules/Purchase/Admin/Routes/Web/Backend.php
 eb7d95987fba90af7e8df53a3123bec3  ./Modules/Purchase/Admin/Installer.php
 6c0c9229a7354e5a8088741bfb32ad4c  ./Modules/Purchase/Models/Article.php
-b62e032a11b13dcc473a01a747fa1627  ./Modules/Purchase/Models/PermissionState.php
+b62e032a11b13dcc473a01a747fa1627  ./Modules/Purchase/Models/PermissionCategory.php
 e17cebca8e5304ac516fb667a9b96fff  ./Modules/Purchase/Models/OrderSuggestion.php
 fcd67b972725281b32ae54b6f18eef4f  ./Modules/Purchase/Models/Invoice.php
 698c7bc8d38061127161e3492a70025d  ./Modules/Purchase/Controller/BackendController.php
@@ -1894,7 +1894,7 @@ c51d6bb63b8043efa21553b44e63af78  ./Modules/HumanResourceManagement/Admin/Instal
 8c58ed33aa1fa43213649aeec31602f5  ./Modules/HumanResourceManagement/Admin/Installer.php
 3538e19680aa948de9f3f7c6538346f5  ./Modules/HumanResourceManagement/Models/EmployeeEducationHistory.php
 4aa89dba168c2ca63c94133baa2438e0  ./Modules/HumanResourceManagement/Models/EmployeeHistoryMapper.php
-7d805528d3b36104fb8f7d3f6fbf7f36  ./Modules/HumanResourceManagement/Models/PermissionState.php
+7d805528d3b36104fb8f7d3f6fbf7f36  ./Modules/HumanResourceManagement/Models/PermissionCategory.php
 ac4bff3207b8aa740c97ac916e3122fa  ./Modules/HumanResourceManagement/Models/NullEmployeeHistory.php
 d48a8a4e2cc3afae2516d263a06ede7e  ./Modules/HumanResourceManagement/Models/Employee.php
 fb3f850d716eff136b175075c8a84be5  ./Modules/HumanResourceManagement/Models/EmployeeWorkHistory.php
@@ -1948,7 +1948,7 @@ ea63f25b2f8df82c818b607abf611979  ./Modules/Monitoring/Theme/Backend/Lang/el.lan
 5ad7e75f5306ecbae0e99abbba13ff8d  ./Modules/Monitoring/Admin/Uninstaller.php
 700fcdda50841e5ff3f4df779cb204d3  ./Modules/Monitoring/Admin/Routes/Web/Backend.php
 894a423560fa00ccb9991ff79e69af57  ./Modules/Monitoring/Admin/Installer.php
-cef5f0f589733d9efcd4f76985a272ba  ./Modules/Monitoring/Models/PermissionState.php
+cef5f0f589733d9efcd4f76985a272ba  ./Modules/Monitoring/Models/PermissionCategory.php
 bb2319870c584a3ec957b8ba37dc57f1  ./Modules/Monitoring/Controller/BackendController.php
 38c35646933b4e73c6a44736cde7bbd2  ./Modules/Monitoring/Controller/Controller.php
 7b4e41403fe958a182c1b0f2ecd8221a  ./Modules/Calendar/tests/Admin/AdminTest.php
@@ -2004,7 +2004,7 @@ d43d88c7c284262529f6a1b79be08b33  ./Modules/Calendar/Models/ScheduleMapper.php
 5d55f9c6fae9058841054fbf09b5af7a  ./Modules/Calendar/Models/EventTemplate.php
 2eee719103c01d14b58658aa3e955028  ./Modules/Calendar/Models/NullCalendar.php
 7a16a81515aa0e833a9c60e002c043d4  ./Modules/Calendar/Models/NullEvent.php
-719401e424da6e62667ce6804bde1caa  ./Modules/Calendar/Models/PermissionState.php
+719401e424da6e62667ce6804bde1caa  ./Modules/Calendar/Models/PermissionCategory.php
 862dfae43eb141a36ad0dc5ab99a0cea  ./Modules/Calendar/Models/AvailableStatus.php
 c83e0b1c0aec5b9b96a3a46f01c2571a  ./Modules/Calendar/Models/EventStatus.php
 7b2c9cb4de22385a3dfc3cedd5083076  ./Modules/Calendar/Models/FrequencyRelative.php
@@ -2100,7 +2100,7 @@ db25d3f6341aa3f5e98ef88ab399cd08  ./Modules/Admin/Models/ModuleMapper.php
 c394b04ab9c340131bc1862baaddd983  ./Modules/Admin/Models/NullGroup.php
 41c1db20fdcd62ff28c0fc6d6179e193  ./Modules/Admin/Models/AddressMapper.php
 878edf860380afda742d0f95c2a38476  ./Modules/Admin/Models/NullGroupPermission.php
-8f7d36071f3003f35b343885a65c234d  ./Modules/Admin/Models/PermissionState.php
+8f7d36071f3003f35b343885a65c234d  ./Modules/Admin/Models/PermissionCategory.php
 f581135e3313a39549d50a74b728f453  ./Modules/Admin/Models/AccountPermission.php
 8d915c5d15fddf7386b1a598cdbfea71  ./Modules/Admin/Models/AccountPermissionMapper.php
 59050bffb1d6353423ce1508360d285a  ./Modules/Admin/Models/Group.php
@@ -2167,7 +2167,7 @@ a75282d87a62b5f5d1774f15237362d5  ./Modules/Profile/Admin/Installer.php
 05d70137ffa69e96189d0cfff51a1543  ./Modules/Profile/Models/ContactElement.php
 ff66738127e65829be3416927ff8266f  ./Modules/Profile/Models/SexType.php
 2a1c0d98423b416258facef382759938  ./Modules/Profile/Models/NullContact.php
-169fa4a644dda285662ccadc3dbfe0bd  ./Modules/Profile/Models/PermissionState.php
+169fa4a644dda285662ccadc3dbfe0bd  ./Modules/Profile/Models/PermissionCategory.php
 b24f38b981ccf0bd6f3f89d56478c3b5  ./Modules/Profile/Models/GenderType.php
 5c0ee7242cb83d660e59c7cc3b2f3014  ./Modules/Profile/Models/Contact.php
 974dba8942f70028dfbdd659da71845a  ./Modules/Profile/Models/ContactType.php
@@ -2217,7 +2217,7 @@ f7fb33968d8a051b8aa3f10cefed32cd  ./Modules/Messages/Admin/Updater.php
 c72bf594592a5cfdcfb85b95e811d752  ./Modules/Messages/Admin/Uninstaller.php
 a78991636df8b9af36755fa4c90ecb8e  ./Modules/Messages/Admin/Routes/Web/Backend.php
 0d5444609b6161c296aed1ea7d362d3a  ./Modules/Messages/Admin/Installer.php
-3913454522297fc1925d548700186b2a  ./Modules/Messages/Models/PermissionState.php
+3913454522297fc1925d548700186b2a  ./Modules/Messages/Models/PermissionCategory.php
 f814165ddf9639a2552d69833bdf5b9f  ./Modules/Messages/Controller/BackendController.php
 e38e505f3aa5630b6bee2cc5505c4cfc  ./Modules/Messages/Controller/Controller.php
 d3209c4fe42817a8d5b0a408a82e8691  ./Modules/Tasks/tests/ControllerTest.php
@@ -2282,7 +2282,7 @@ d01ff009ee0412f42570baee9604de3e  ./Modules/Tasks/Models/TaskMapper.php
 0abd72e4128a1278c5c704e692825dac  ./Modules/Tasks/Models/TaskType.php
 8776f35f21465697302bd9d9eba90bce  ./Modules/Tasks/Models/TaskTemplate.php
 857f7e68c0f2f75adfea48d53afc9c19  ./Modules/Tasks/Models/Task.php
-3197a10a188a7774d32d448a9d8d5658  ./Modules/Tasks/Models/PermissionState.php
+3197a10a188a7774d32d448a9d8d5658  ./Modules/Tasks/Models/PermissionCategory.php
 b1b5eae65623a740cfaff4bfff15aaac  ./Modules/Tasks/Models/DutyType.php
 f52646d25c1ec78230c32641d8b6908d  ./Modules/Tasks/Models/NullTask.php
 2f92e4c385f0cfbc59a3a4ed716aef6d  ./Modules/Tasks/Models/AccountRelationMapper.php
@@ -2338,7 +2338,7 @@ f8036df8227162f8a2f8bba9be67dd87  ./Modules/Support/Admin/Routes/Web/Api.php
 8864a74bca85a99786b2071c10ec338d  ./Modules/Support/Admin/Installer.php
 d805a914a750c0618fd24674955f3a1b  ./Modules/Support/Models/Ticket.php
 1a60aa8570d55c46938cef37889fd515  ./Modules/Support/Models/Message.php
-29f10beabef26f2ece2c76e593ba6dd1  ./Modules/Support/Models/PermissionState.php
+29f10beabef26f2ece2c76e593ba6dd1  ./Modules/Support/Models/PermissionCategory.php
 60b8b46a8bce25f9d0db25ea0a06e48d  ./Modules/Support/Models/Issue.php
 1e2c5648eae23cd8402ac352819261d4  ./Modules/Support/Models/TicketMapper.php
 609768cb30baf11394c4410825a21a20  ./Modules/Support/Models/SupportStatus.php
@@ -2362,7 +2362,7 @@ e47a29eefacbf050a3251beaf087e944  ./Modules/WarehouseManagement/Admin/Updater.ph
 641d7fab43a6495165b9783388e96024  ./Modules/WarehouseManagement/Admin/Routes/Web/Backend.php
 e776e63e00fe9664918e89bd8f490b3c  ./Modules/WarehouseManagement/Admin/Installer.php
 d41d8cd98f00b204e9800998ecf8427e  ./Modules/WarehouseManagement/Models/StockMovementMapper.php
-e9491fc4a425c0c3d08735f9b0feec38  ./Modules/WarehouseManagement/Models/PermissionState.php
+e9491fc4a425c0c3d08735f9b0feec38  ./Modules/WarehouseManagement/Models/PermissionCategory.php
 4356e67ce38fe81587873ff32505ab65  ./Modules/WarehouseManagement/Models/StockLocationMapper.php
 9f70f7237857d928724d279405a201b9  ./Modules/WarehouseManagement/Models/StockMovementType.php
 3f7a80d317feabb7134acc849e464efb  ./Modules/WarehouseManagement/Models/StockMapper.php
@@ -2418,7 +2418,7 @@ c46812d4520cf5301f065e9a2f3fe7a7  ./Modules/ClientManagement/Models/NullClient.p
 99f2d611ea036c70c65581c088a12ce8  ./Modules/ClientManagement/Models/ClientAttributeType.php
 7f7eb5e94ed9630dc84fd61fa0cde6a1  ./Modules/ClientManagement/Models/ClientAttributeTypeL11n.php
 a7ef6bdf379e9e1befe61ee3ea01a205  ./Modules/ClientManagement/Models/NullClientAttributeTypeL11n.php
-2761c8a0847fb41dc766c71e29916d3c  ./Modules/ClientManagement/Models/PermissionState.php
+2761c8a0847fb41dc766c71e29916d3c  ./Modules/ClientManagement/Models/PermissionCategory.php
 b54e323f0f06d0ef1857ad33870ceb0f  ./Modules/ClientManagement/Models/NullClientAttribute.php
 7b67c8e9cefdc357296c15fe81cee082  ./Modules/ClientManagement/Models/AttributeValueType.php
 4555625aa5be9ecd6818407fc0fc0b37  ./Modules/ClientManagement/Models/Client.php
@@ -2539,7 +2539,7 @@ cefab06b210646fe7f150fd789a075b7  ./Modules/HumanResourceTimeRecording/Admin/Rou
 b1026cfd1819aae4e3ac6a226fb4825c  ./Modules/HumanResourceTimeRecording/Admin/Installer.php
 96cb77fa74bc2424bced0bdd275eabc5  ./Modules/HumanResourceTimeRecording/Models/SessionElement.php
 0895013d37dc6ddb0fec9098a565e4b0  ./Modules/HumanResourceTimeRecording/Models/ClockingStatus.php
-04002ab947a676de091c75445080ff3d  ./Modules/HumanResourceTimeRecording/Models/PermissionState.php
+04002ab947a676de091c75445080ff3d  ./Modules/HumanResourceTimeRecording/Models/PermissionCategory.php
 c4b04b1336fc1ac1feac1591c02f5979  ./Modules/HumanResourceTimeRecording/Models/SessionElementMapper.php
 019770a221bbe293f343087c7da1ee88  ./Modules/HumanResourceTimeRecording/Models/Session.php
 0f6667f16390f5fb142b4ec83308ab83  ./Modules/HumanResourceTimeRecording/Models/ClockingType.php
@@ -2596,7 +2596,7 @@ c4d77e6bb06daa9d9bc6457f88ec21e4  ./Modules/CMS/Theme/Backend/Lang/en.lang.php
 ec6c9ab062c7f8f87fbd1061c313d623  ./Modules/CMS/Admin/Routes/Web/Backend.php
 9b8461bf972ca8662cb12f9a25c63ce1  ./Modules/CMS/Admin/Installer.php
 c67ba902ac89f60b4449825ba59c8d8b  ./Modules/CMS/Models/NullApplication.php
-9ad868c2941dc7447f4405a5e51b3887  ./Modules/CMS/Models/PermissionState.php
+9ad868c2941dc7447f4405a5e51b3887  ./Modules/CMS/Models/PermissionCategory.php
 ea5b0cfb95e09a981c8fefbe81b3e5ee  ./Modules/CMS/Models/Application.php
 c59b02747bd856d5e4a015ceb0fba216  ./Modules/CMS/Models/ApplicationMapper.php
 124f76dc8aa462258ed4ba7eb4f1b690  ./Modules/CMS/Controller/BackendController.php
@@ -2672,7 +2672,7 @@ d3feb5080e34b13a7bdcf5df5b56342b  ./Modules/Organization/Admin/Routes/Web/Backen
 aa14861d7840cf8098f0ece152b7b7b2  ./Modules/Organization/Models/PositionMapper.php
 d176077cc6f134506c378e121321b903  ./Modules/Organization/Models/NullPosition.php
 cc2614e11999ef64b92bcac1d259dfb5  ./Modules/Organization/Models/Status.php
-f78ab009c70063f737f2676da1fb29df  ./Modules/Organization/Models/PermissionState.php
+f78ab009c70063f737f2676da1fb29df  ./Modules/Organization/Models/PermissionCategory.php
 d384cd21efe7c130ca3d0f66c8d1f08d  ./Modules/Organization/Models/Unit.php
 fe8e1dfa41b5c9ef4253f4938002e7be  ./Modules/Organization/Models/NullDepartment.php
 ef6474979048caba33f6a9b695192868  ./Modules/Organization/Models/SettingsEnum.php
@@ -2725,7 +2725,7 @@ d9815badf9a48fc5368182aba24e80f9  ./Modules/Auditor/Admin/Install/Navigation.php
 c1fe6bc6cb7386b4cfaf6208e0ebd603  ./Modules/Auditor/Admin/Routes/Web/Api.php
 c8c8aa5efa590b4f4d463fd58e27be03  ./Modules/Auditor/Admin/Routes/Web/Backend.php
 56e65c47b1f27fe0584a29b4258dd8df  ./Modules/Auditor/Admin/Installer.php
-88d1b83e51e52aad34543427a4c863e0  ./Modules/Auditor/Models/PermissionState.php
+88d1b83e51e52aad34543427a4c863e0  ./Modules/Auditor/Models/PermissionCategory.php
 d20d16e44127bf76f4374513a8288585  ./Modules/Auditor/Models/NullAudit.php
 64f7d65d77fa27c1a82137a76a0a9ea3  ./Modules/Auditor/Models/Audit.php
 f631d440618659334ebb0438e5cdb01f  ./Modules/Auditor/Models/AuditMapper.php
@@ -2773,7 +2773,7 @@ e2c9722c82af92727ee4acfbc0310409  ./Modules/Marketing/Admin/Status.php
 8b1fe74ef4bf7ed2520e9a87cd9c9ffd  ./Modules/Marketing/Admin/Uninstaller.php
 d34feab705582c7c8814689e44f85908  ./Modules/Marketing/Admin/Routes/Web/Backend.php
 17a21bc98563d565a567b109ccd159fe  ./Modules/Marketing/Admin/Installer.php
-25e11021190d47529a264b1551f181a5  ./Modules/Marketing/Models/PermissionState.php
+25e11021190d47529a264b1551f181a5  ./Modules/Marketing/Models/PermissionCategory.php
 2fdff7e140de3a0cf34c1b72f0dc3d75  ./Modules/Marketing/Models/Promotion.php
 3fb0433b93fadf6bc7319bb9ee861340  ./Modules/Marketing/Models/PromotionMapper.php
 95ff4a03c40a9d2dd70b0e2387fd2981  ./Modules/Marketing/Models/ProgressType.php
@@ -2818,7 +2818,7 @@ f839b566fab5af2bea23334fb7ce3f5d  ./Modules/Draw/Admin/Uninstaller.php
 a95ec679e39a93461807f2bf851ed0fe  ./Modules/Draw/Admin/Routes/Web/Backend.php
 12b7395a6026da27f9bffc7d6995fd1d  ./Modules/Draw/Admin/Installer.php
 7c67517d07563ff09ae9a25a9b5fdfe0  ./Modules/Draw/Models/DrawImageMapper.php
-cd529354207b99b049650bd828705ebd  ./Modules/Draw/Models/PermissionState.php
+cd529354207b99b049650bd828705ebd  ./Modules/Draw/Models/PermissionCategory.php
 b231e96e1158d01bcc251ee93c1d2d5b  ./Modules/Draw/Models/DrawImage.php
 8279218cac7fafceef88beb1690e5e42  ./Modules/Draw/Models/NullDrawImage.php
 790570a435acbcd77157943c01dd90d6  ./Modules/Draw/Controller/BackendController.php
@@ -2861,7 +2861,7 @@ ee555fd058a2a394f3c1aea436e65244  ./Modules/Checklist/Admin/Install/Navigation.p
 12b8f29526ec76c09bd056980c7d74fa  ./Modules/Checklist/Admin/Uninstaller.php
 417f9a7e3ae7e7c511f7ce45b1bef661  ./Modules/Checklist/Admin/Routes/Web/Backend.php
 d92de43358227912351c0821665b44d7  ./Modules/Checklist/Admin/Installer.php
-75506e9e5d070ebbc31d2f110ca4dc3f  ./Modules/Checklist/Models/PermissionState.php
+75506e9e5d070ebbc31d2f110ca4dc3f  ./Modules/Checklist/Models/PermissionCategory.php
 a348ffdec8a2d0eaa04d0f10c31498ed  ./Modules/Checklist/Controller/BackendController.php
 171dc80aa33b7ba5496c6fb628925607  ./Modules/Checklist/Controller/Controller.php
 440eb212f8d990448659f5411ac343c5  ./Modules/Help/tests/Admin/AdminTest.php
@@ -2905,7 +2905,7 @@ d58b2f3ba4e39c887a7edb253ddca1f0  ./Modules/Help/Theme/Backend/Lang/fr.lang.php
 7f9b19f6ae39d0b644f07ac731c6e75d  ./Modules/Help/Admin/Uninstaller.php
 786ecec7de493e6a38d5b84a151dff2c  ./Modules/Help/Admin/Routes/Web/Backend.php
 c70a3fca20c36c51e3726ddd8550a268  ./Modules/Help/Admin/Installer.php
-3adf66d7e1043a20d21d9fe8d3f19ee4  ./Modules/Help/Models/PermissionState.php
+3adf66d7e1043a20d21d9fe8d3f19ee4  ./Modules/Help/Models/PermissionCategory.php
 242389ce104f7393e8fce6759246287b  ./Modules/Help/Controller/BackendController.php
 d60cca8c3049a551caca324d19d7757e  ./Modules/Help/Controller/SearchController.php
 64b7a1679024806fb6ec411e3a1e76fb  ./Modules/Help/Controller/Controller.php
@@ -2950,7 +2950,7 @@ ee9874bd75f89f6c17e096792f924c17  ./Modules/SupplierManagement/Models/SupplierAt
 4bbe5f6d429eb089178ed6f1bcd93834  ./Modules/SupplierManagement/Models/NullSupplierAttributeValue.php
 7fe63c220da0d3da6bfbd7e5bdb5dab6  ./Modules/SupplierManagement/Models/SupplierAttributeType.php
 f05a6c79e3381bf154b6a43502108c26  ./Modules/SupplierManagement/Models/SupplierAttribute.php
-f6fda6be9829f796c58d7efb82c0c024  ./Modules/SupplierManagement/Models/PermissionState.php
+f6fda6be9829f796c58d7efb82c0c024  ./Modules/SupplierManagement/Models/PermissionCategory.php
 9ef6d258fc53799774f0c6e379a8e340  ./Modules/SupplierManagement/Models/SupplierAttributeTypeMapper.php
 1e5fc1b321f14e989cc1cc1305abc013  ./Modules/SupplierManagement/Models/SupplierAttributeTypeL11nMapper.php
 9ba5274b281e09f283455c31c4e969a1  ./Modules/SupplierManagement/Models/SupplierMapper.php
@@ -2976,7 +2976,7 @@ f6a9cbe51e02ac7ffc04c1ca367b91fb  ./Modules/Search/tests/Autoloader.php
 346b96f2947f18b34256e15b66c66271  ./Modules/Search/Admin/Routes/Web/Api.php
 cc30532062098c6c44bdbc086794d48b  ./Modules/Search/Admin/Routes/Web/Backend.php
 1ff3073aa759add78b22b09fc643dd9b  ./Modules/Search/Admin/Installer.php
-3fed6620567efd82f99c92655f3e81fd  ./Modules/Search/Models/PermissionState.php
+3fed6620567efd82f99c92655f3e81fd  ./Modules/Search/Models/PermissionCategory.php
 3cf48a48b9562588263c6b70f2a200ac  ./Modules/Search/Controller/Controller.php
 754ba34e81df0a005547293d6fd13e61  ./Modules/Search/Controller/ApiController.php
 678dd2c8c5bb549046b866b8dae2dec1  ./Modules/Editor/tests/Admin/AdminTest.php
@@ -3027,7 +3027,7 @@ eb4ed16057a5b71b1a61e0712b6686c9  ./Modules/Editor/Admin/Routes/Web/Backend.php
 31edf7816f135833a48250245a5ad312  ./Modules/Editor/Admin/Installer.php
 44635acbbef17faa9d72138b50b825c1  ./Modules/Editor/Models/EditorDoc.php
 789a69614f29d939cdf40b6229051e0d  ./Modules/Editor/Models/NullEditorDoc.php
-d9a3ba19dd737bd4693034d26b71bc17  ./Modules/Editor/Models/PermissionState.php
+d9a3ba19dd737bd4693034d26b71bc17  ./Modules/Editor/Models/PermissionCategory.php
 c951c1d7dd656238512442c197619aa5  ./Modules/Editor/Models/EditorDocMapper.php
 3e67633c34f41fa6b13d5031e140f6e8  ./Modules/Editor/Controller/BackendController.php
 1d187e24f5e1dbd506d4510acfa60aa7  ./Modules/Editor/Controller/Controller.php
@@ -3094,7 +3094,7 @@ f016ff1e47a1a814709b1070fa51c044  ./Modules/DatabaseEditor/Admin/Uninstaller.php
 61b2255b9bcf468f5a0611f5fc9ec569  ./Modules/DatabaseEditor/Admin/Routes/Web/Backend.php
 ce9726fb696dc2ca3dae352887d19ff1  ./Modules/DatabaseEditor/Admin/Installer.php
 1c88d8bc3a1bbd463312a92c0ca1f556  ./Modules/DatabaseEditor/Models/Query.php
-915b38e57652dd13b709e286cc83f7d8  ./Modules/DatabaseEditor/Models/PermissionState.php
+915b38e57652dd13b709e286cc83f7d8  ./Modules/DatabaseEditor/Models/PermissionCategory.php
 18055dd188089156ca9d8940d3b3e3c2  ./Modules/DatabaseEditor/Models/Table.php
 0bcb7829159b9524841d7d47b15551d6  ./Modules/DatabaseEditor/Models/QueryMapper.php
 f5c32845b0d01366b908b4daf927ee22  ./Modules/DatabaseEditor/Models/NullQuery.php
@@ -3149,7 +3149,7 @@ e25a30d8b33c1864062d88ed73749a81  ./Modules/News/Admin/Install/Comments.php
 3974457a6d600509a523857660d082cf  ./Modules/News/Admin/Routes/Web/Backend.php
 1b08926d3c707885a2d7720f8afa511c  ./Modules/News/Admin/Installer.php
 6c520540cf9768569f52f953a62e9d4a  ./Modules/News/Models/NullNewsSeen.php
-1fd86f7ee4d01819426b5ae0ea99afb6  ./Modules/News/Models/PermissionState.php
+1fd86f7ee4d01819426b5ae0ea99afb6  ./Modules/News/Models/PermissionCategory.php
 1e82693bbc11797515f964d1db2e3b2e  ./Modules/News/Models/NewsSeenMapper.php
 f2077fe88cfdd51f5b19d0c757b14ccc  ./Modules/News/Models/NewsSeen.php
 a1f801f69110e4a448a1ce35d28ae4fa  ./Modules/News/Models/NewsArticleMapper.php
@@ -3257,7 +3257,7 @@ dba52a7c8e2770e7290e2cde989bd1de  ./Modules/Exchange/Admin/Installer.php
 9f3d09cf41f242125b6618ffb81b157c  ./Modules/Exchange/Models/ExporterAbstract.php
 8acea3757b8491e3501d9ce8a9bce93c  ./Modules/Exchange/Models/ExchangeType.php
 226cfc9f690d7d16ca351ce4ab3477c2  ./Modules/Exchange/Models/NullInterfaceManager.php
-d7faef603368d5999656d7333f64068e  ./Modules/Exchange/Models/PermissionState.php
+d7faef603368d5999656d7333f64068e  ./Modules/Exchange/Models/PermissionCategory.php
 5f71724fb2f6db9a4a4f4469bd39f806  ./Modules/Exchange/Models/InterfaceManager.php
 aab1c5ad1e0345db39c90c8dae92f7bd  ./Modules/Exchange/Models/InterfaceManagerMapper.php
 1955dcf19f9605864c680b360a371fc3  ./Modules/Exchange/Models/ExchangeLog.php
@@ -3328,7 +3328,7 @@ ef96e595126472549b7556b4536348aa  ./Modules/Kanban/Admin/Install/Navigation.php
 de5ce5106d1057c61465d7754875cad4  ./Modules/Kanban/Admin/Routes/Web/Backend.php
 449fb35db76ad9e3dbaf6367df7a605c  ./Modules/Kanban/Admin/Installer.php
 a53409ab6863782ea431d8cd9b43777c  ./Modules/Kanban/Models/KanbanCardCommentMapper.php
-3ad54dca5a51cd686b5c834f6074cf4d  ./Modules/Kanban/Models/PermissionState.php
+3ad54dca5a51cd686b5c834f6074cf4d  ./Modules/Kanban/Models/PermissionCategory.php
 90a23fa50cf2e087b8d2fba59a7b9255  ./Modules/Kanban/Models/KanbanCardComment.php
 a445c0ebc3c5a25ae88c4f79591e895e  ./Modules/Kanban/Models/KanbanCardMapper.php
 033874e5fed7381bce2260a1e79823bc  ./Modules/Kanban/Models/KanbanBoard.php
@@ -3430,7 +3430,7 @@ eebbd5946d6cfe51407fb6a2a6083d26  ./Modules/Accounting/Models/L11nCostObject.php
 1d9749fbf54fb859d92d01db6353782b  ./Modules/Accounting/Models/AccountType.php
 82b5be9d8ef40d7178c2f918300fc859  ./Modules/Accounting/Models/CostCenterMapper.php
 2db986bff3b3f9482c1b8e1349234e50  ./Modules/Accounting/Models/InvoicePosting.php
-4bafef77428f50abbb5c98349e57e2cf  ./Modules/Accounting/Models/PermissionState.php
+4bafef77428f50abbb5c98349e57e2cf  ./Modules/Accounting/Models/PermissionCategory.php
 4afdc2d5b53ea9a5ccf509371e74418e  ./Modules/Accounting/Models/PostingInterface.php
 8870dafcbc103db85cc003100f95a24b  ./Modules/Accounting/Models/NullCostObject.php
 80860f2793c5b2e368f87aefc5de8988  ./Modules/Accounting/Models/L11nCostObjectMapper.php
@@ -3495,7 +3495,7 @@ d41d8cd98f00b204e9800998ecf8427e  ./Modules/Workflow/Models/Components/Task.php
 d41d8cd98f00b204e9800998ecf8427e  ./Modules/Workflow/Models/Components/UserInput.php
 d41d8cd98f00b204e9800998ecf8427e  ./Modules/Workflow/Models/Components/Email.php
 d41d8cd98f00b204e9800998ecf8427e  ./Modules/Workflow/Models/Components/Event.php
-f5f11a9e064a7b1a0f17c0669bfccb3e  ./Modules/Workflow/Models/PermissionState.php
+f5f11a9e064a7b1a0f17c0669bfccb3e  ./Modules/Workflow/Models/PermissionCategory.php
 6568cdbe92477c90ada3b3ac86951e64  ./Modules/Workflow/Models/WorkflowInterface.php
 af0545f054879cf6196f91f69665f629  ./Modules/Workflow/Models/WorkflowStatus.php
 8ff9192f257f4da061f924b6061f2096  ./Modules/Workflow/Models/Template.php
@@ -3537,7 +3537,7 @@ d3f135aabdd825754ad0e00fdac593fa  ./Modules/Job/Theme/Backend/Lang/ru.lang.php
 acdd426436a26449776304345a2dbcef  ./Modules/Job/Admin/Routes/Web/Api.php
 f328cc5293e97d3452808db6a7422e63  ./Modules/Job/Admin/Routes/Web/Backend.php
 41e6b14cdfeac74558cabb78fce0c5a0  ./Modules/Job/Admin/Installer.php
-e2e8c5e89372938b74fe4b762723fc49  ./Modules/Job/Models/PermissionState.php
+e2e8c5e89372938b74fe4b762723fc49  ./Modules/Job/Models/PermissionCategory.php
 3badb4012f131d7500234fa83ed06cba  ./Modules/Job/Models/Job.php
 d0f3bac1f9f28073f86c6c61c59bbf33  ./Modules/Job/Models/JobStatus.php
 aefe36dcd5161878bea85401a60275c1  ./Modules/Job/Controller/BackendController.php
@@ -3591,7 +3591,7 @@ ff2d5e9e5fa275b8dd86d579a6e0d113  ./Modules/ItemManagement/Models/NullItemAttrib
 1d070784afe8b110df1bfc257b033968  ./Modules/ItemManagement/Models/ItemAttributeTypeL11nMapper.php
 6570b36704fbb95dec65c2758529c450  ./Modules/ItemManagement/Models/ItemAttributeTypeMapper.php
 af9c6d6077360ad43342c25ce867eecc  ./Modules/ItemManagement/Models/ItemAttributeType.php
-c66a36d62ec800cc62285ea6e777218c  ./Modules/ItemManagement/Models/PermissionState.php
+c66a36d62ec800cc62285ea6e777218c  ./Modules/ItemManagement/Models/PermissionCategory.php
 c28ef954176cda93d50c6f5f282dc458  ./Modules/ItemManagement/Models/StockManagementType.php
 f6c9a60a237f81ad6fefee9d60c7784e  ./Modules/ItemManagement/Models/NullItem.php
 840a92ef04e52250418d4b76bb1b882a  ./Modules/ItemManagement/Models/ItemL11nMapper.php
@@ -3645,7 +3645,7 @@ fbc0324f75b75e8c660f0ce2049001fb  ./Modules/Database/Admin/Install/Navigation.ph
 99f392cca3efb24b7fb21786db2ba90c  ./Modules/Database/Admin/Uninstaller.php
 5d03a1d727d5bae930d0ca1ade61f100  ./Modules/Database/Admin/Routes/Web/Backend.php
 48fbbd78a6bad70ad952ce1e2cfafcd5  ./Modules/Database/Admin/Installer.php
-97305168fc434fa9c43e71f4da3a5261  ./Modules/Database/Models/PermissionState.php
+97305168fc434fa9c43e71f4da3a5261  ./Modules/Database/Models/PermissionCategory.php
 b1c8c9aa4e45bbaf99feed6f0d171c38  ./Modules/Database/Models/DatabaseRequest.php
 cd485645c13f40b9c792df9ea0c8e727  ./Modules/Database/Controller/BackendController.php
 ecc80022f62a76cbeaadaa0e9b17b90c  ./Modules/Database/Controller/Controller.php
@@ -3746,7 +3746,7 @@ d4e62be09310df47e8b5b5ea73c1ee33  ./Modules/QA/Models/QAAnswerStatus.php
 ebff152e07cc55dda63427cc31d34579  ./Modules/QA/Models/QAAnswerMapper.php
 2343fd99f6da2a441065381412e85f4f  ./Modules/QA/Models/QAQuestionStatus.php
 1923fd2a67702de10ad216b3f796bd72  ./Modules/QA/Models/QAAnswer.php
-ad0b2c1941aaabdcd205a1b936d7de89  ./Modules/QA/Models/PermissionState.php
+ad0b2c1941aaabdcd205a1b936d7de89  ./Modules/QA/Models/PermissionCategory.php
 2a67a6ad08b60d71d44ccea8bab00ef9  ./Modules/QA/Models/QAQuestionMapper.php
 a4e74ad7dd04b6cc59d7124b1f6e2c5e  ./Modules/QA/Models/QACategoryL11n.php
 119a96075b5fdb0b32596960b07f9157  ./Modules/QA/Models/NullQAQuestion.php
@@ -3865,7 +3865,7 @@ ec0888797aed69a92574d930963e24c7  ./Modules/Media/Admin/Install/Navigation.php
 b97688b1c3fc6b8d265cf1232d708225  ./Modules/Media/Admin/Routes/Web/Backend.php
 7e683ae41737e6144732ebb044aabd0e  ./Modules/Media/Admin/Installer.php
 69b4cdb0a2c48428498f2ac9f921d639  ./Modules/Media/Models/Collection.php
-83c2fee69b3e81ca48d213cd6de1cd18  ./Modules/Media/Models/PermissionState.php
+83c2fee69b3e81ca48d213cd6de1cd18  ./Modules/Media/Models/PermissionCategory.php
 5d296bbad2b70e642bf6566adadaac9f  ./Modules/Media/Models/PathSettings.php
 cbc2b8ecb1450cfd6693ff136904fce4  ./Modules/Media/Models/UploadStatus.php
 d8ff4af7bc52bc23f26107a184d76d84  ./Modules/Media/Models/UploadFile.php
@@ -3931,7 +3931,7 @@ e5c803d81671ce0d0cb492f6c4f6bd99  ./Modules/ProjectManagement/Admin/Uninstaller.
 4e4c81232b9f7135ea688edf8416316a  ./Modules/ProjectManagement/Admin/Routes/Web/Backend.php
 bd3743bffd123b2a0f317e01e6583742  ./Modules/ProjectManagement/Admin/Installer.php
 3cd3b373f1f1a0e1461dd42112e78fec  ./Modules/ProjectManagement/Models/ProjectMapper.php
-348bb2c2ecb939477527d63f0e658a5f  ./Modules/ProjectManagement/Models/PermissionState.php
+348bb2c2ecb939477527d63f0e658a5f  ./Modules/ProjectManagement/Models/PermissionCategory.php
 4c8b225b544f111b9e7de99ecc4aa90a  ./Modules/ProjectManagement/Models/Project.php
 e6f6ad951de56ff38bc2971d43afef7e  ./Modules/ProjectManagement/Models/ProjectStatus.php
 b821e4d77417b58d43b311a1d895d843  ./Modules/ProjectManagement/Models/ProjectResponsibility.php
