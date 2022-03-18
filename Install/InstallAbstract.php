@@ -16,6 +16,7 @@ namespace Install;
 
 use Model\CoreSettings;
 use Modules\Admin\Models\Account;
+use Modules\Admin\Models\AccountCredentialMapper;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\Group;
 use Modules\Admin\Models\GroupMapper;
@@ -444,7 +445,7 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function installGroupPermissions(ConnectionAbstract $db) : void
     {
-        $searchPermission = new GroupPermission(2, null, null, null, null, \Modules\Admin\Models\PermissionState::SEARCH, null, null, PermissionType::READ);
+        $searchPermission = new GroupPermission(2, null, null, null, null, \Modules\Admin\Models\PermissionCategory::SEARCH, null, null, PermissionType::READ);
         $adminPermission = new GroupPermission(3, null, null, null, null, null, null, null, PermissionType::READ | PermissionType::CREATE | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION);
 
         GroupPermissionMapper::create()->execute($searchPermission);
@@ -530,7 +531,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $l11n = $account->l11n;
         $l11n->loadFromLanguage($request->getData('defaultlang') ?? 'en', $request->getData('defaultcountry') ?? 'us');
 
-        AccountMapper::create()->execute($account);
+        AccountCredentialMapper::create()->execute($account);
 
         $sth = $db->con->prepare(
             'INSERT INTO `account_group` (`account_group_group`, `account_group_account`) VALUES
