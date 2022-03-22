@@ -11,13 +11,16 @@
  * @link      https://karaka.app
  */
 declare(strict_types=1);
+
+use phpOMS\Contract\RenderableInterface;
+
 $dispatch = $this->getData('dispatch') ?? [];
 
 echo \PHP_EOL;
 
 /** @var \phpOMS\Views\ViewAbstract $view */
 foreach ($dispatch as $view) {
-    if ($view instanceof \Serializable) {
+    if ($view instanceof RenderableInterface) {
         echo $view->render();
     }
 }
