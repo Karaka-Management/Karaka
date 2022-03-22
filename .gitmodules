@@ -181,3 +181,15 @@
 [submodule "cOMS"]
 	path = cOMS
 	url = https://github.com/Karaka-Management/cOMS.git
+[submodule "Modules/QualityAssurance"]
+	path = Modules/QualityAssurance
+	url = https://github.com/Karaka-Management/oms-QualityAssurance.git
+[submodule "Modules/QualityManagement"]
+	path = Modules/QualityManagement
+	url = https://github.com/Karaka-Management/oms-QualityManagement.git
+[submodule "Modules/FleetManagement"]
+	path = Modules/FleetManagement
+	url = https://github.com/Karaka-Management/oms-FleetManagement.git
+[submodule "Modules/QualityControl"]
+	path = Modules/QualityControl
+	url = https://github.com/Karaka-Management/oms-QualityControl.git
