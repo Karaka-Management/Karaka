@@ -26,6 +26,7 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class SettingsEnum extends Enum
 {
+    /* Logging settings */
     public const PASSWORD_PATTERN = '1000000001';
 
     public const LOGIN_TIMEOUT = '1000000002';
@@ -36,22 +37,26 @@ abstract class SettingsEnum extends Enum
 
     public const LOGIN_TRIES = '1000000005';
 
+    public const LOGGING_STATUS = '1000000006';
+
+    public const LOGGING_PATH = '1000000007';
+
+    /* Organization settings */
+    public const DEFAULT_ORGANIZATION = '1000000009';
+
+    /* Login settings */
     public const LOGIN_FORGOTTEN_COUNT = '1000000010';
 
     public const LOGIN_FORGOTTEN_DATE = '1000000011';
 
     public const LOGIN_FORGOTTEN_TOKEN = '1000000012';
 
-    public const LOGGING_STATUS = '1000000006';
-
-    public const LOGGING_PATH = '1000000007';
-
-    public const DEFAULT_ORGANIZATION = '1000000009';
-
     public const LOGIN_STATUS = '1000000013';
 
+    /* Localization settings */
     public const DEFAULT_LOCALIZATION = '1000000014';
 
+    /* Mail settings */
     public const MAIL_SERVER_ADDR = '1000000015';
 
     public const MAIL_SERVER_TYPE = '1000000016';
@@ -67,4 +72,7 @@ abstract class SettingsEnum extends Enum
     public const MAIL_SERVER_KEYPASS = '1000000021';
 
     public const MAIL_SERVER_TLS = '1000000022';
+
+    /* Cli settings */
+    public const CLI_ACTIVE = '1000000023';
 }
