@@ -17,7 +17,6 @@ namespace Install;
 use Model\CoreSettings;
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountCredentialMapper;
-use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\Group;
 use Modules\Admin\Models\GroupMapper;
 use Modules\Admin\Models\GroupPermission;

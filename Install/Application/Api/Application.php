@@ -173,6 +173,11 @@ final class Application
         UriFactory::setQuery('/lang', $response->getLanguage());
         $response->header->set('content-language', $response->getLanguage(), true);
 
+        // Cache general settings
+        $this->app->appSettings->get(null, [
+            SettingsEnum::LOGGING_STATUS, SettingsEnum::CLI_ACTIVE,
+        ]);
+
         $appStatus = (int) ($this->app->appSettings->get(null, SettingsEnum::LOGIN_STATUS)->content ?? 0);
         if ($appStatus === ApplicationStatus::READ_ONLY ||  $appStatus === ApplicationStatus::DISABLED) {
             if (!$account->hasPermission(PermissionType::CREATE | PermissionType::MODIFY, module: 'Admin', type: PermissionCategory::APP)) {
