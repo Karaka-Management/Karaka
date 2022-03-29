@@ -159,7 +159,7 @@ nav .ham-trigger {
 #t-nav {
   font-size: .8rem;
   color: #000;
-  font-weight: bold; }
+  font-weight: 300; }
   #t-nav a {
     padding: 0 5px 0 5px;
     line-height: 25px; }

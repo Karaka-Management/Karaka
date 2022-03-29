@@ -20,7 +20,7 @@ html, body {
   width: 100%;
   height: 100%;
   flex-direction: column;
-  font-weight: 300;
+  font-weight: 100;
   scrollbar-color: var(--button-main-background) var(--main-background);
   scrollbar-width: thin; }
   html::-webkit-scrollbar, body::-webkit-scrollbar {
