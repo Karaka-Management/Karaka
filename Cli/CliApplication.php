@@ -62,7 +62,8 @@ final class CliApplication extends ApplicationAbstract
     /**
      * Temp config.
      *
-     * @var array{log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string}, insert:array{db:string, database:string}, select:array{db:string, database:string}, update:array{db:string, database:string}, delete:array{db:string, database:string}, schema:array{db:string, database:string}}}}}
+     * @var array{log:array{file:array{path:string}}, app:array{path:string, default:array{id:string, app:string, org:int, lang:string}, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string}, insert:array{db:string, database:string}, select:array{db:string, database:string}, update:array{db:string, database:string}, delete:array{db:string, database:string}, schema:array{db:string, database:string}}}}}
+     *
      * @since 1.0.0
      */
     private array $config;
@@ -70,8 +71,7 @@ final class CliApplication extends ApplicationAbstract
     /**
      * Constructor.
      *
-     * @param string[]                                                                                                                                                                                                                                                                                                                                                                                                                                                 $arg    Call argument
-     * @param array{log:array{file:array{path:string}}, app:array{path:string, default:string, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string}, insert:array{db:string, database:string}, select:array{db:string, database:string}, update:array{db:string, database:string}, delete:array{db:string, database:string}, schema:array{db:string, database:string}}}}} $config Core config
+     * @param array{log:array{file:array{path:string}}, app:array{path:string, default:array{id:string, app:string, org:int, lang:string}, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string}, insert:array{db:string, database:string}, select:array{db:string, database:string}, update:array{db:string, database:string}, delete:array{db:string, database:string}, schema:array{db:string, database:string}}}}} $config Application config
      *
      * @throws \Exception
      *
@@ -126,7 +126,7 @@ final class CliApplication extends ApplicationAbstract
         $request->header->account  = $aid;
         $response->header->account = $aid;
 
-        $this->orgId = $request->getData('u') ?? $this->config['app']['default']['org'];
+        $this->orgId = $request->getData('u') ?? ($this->config['app']['default']['org'] ?? 1);
 
         $this->router->add(
             '/cli/e403',
@@ -242,8 +242,8 @@ final class CliApplication extends ApplicationAbstract
      * Initialize current application request
      *
      * @param array  $arg      Cli arguments
-     * @param string $rootPath Web root path
-     * @param string $language Fallback language
+     * @param array  $config   Application config
+     * @param string $rootPath Cli root path
      *
      * @return ConsoleRequest Initial client request
      *
@@ -251,7 +251,7 @@ final class CliApplication extends ApplicationAbstract
      */
     private function initRequest(array $arg, array $config, string $rootPath) : ConsoleRequest
     {
-        $start = \stripos($arg[1] ?? '', ':');
+        $start  = \stripos($arg[1] ?? '', ':');
         $method = RequestMethod::GET;
 
         if ($start !== false) {
@@ -293,8 +293,8 @@ final class CliApplication extends ApplicationAbstract
     /**
      * Initialize basic response
      *
-     * @param ConsoleRequest $request   Client request
-     * @param array{app:array{domains:array, default:array{id:string, app:string, org:int, lang:string}}, language:string[]} $config  App config
+     * @param ConsoleRequest $request Client request
+     * @param array          $config  App config
      *
      * @return ConsoleResponse Initial client request
      *
@@ -363,7 +363,7 @@ final class CliApplication extends ApplicationAbstract
      * Create 503 response.
      *
      * @param ConsoleResponse $response Response
-     * @param View           $pageView View
+     * @param View            $pageView View
      *
      * @return void
      *
@@ -383,7 +383,7 @@ final class CliApplication extends ApplicationAbstract
      * Create 403 response.
      *
      * @param ConsoleResponse $response Response
-     * @param View           $pageView View
+     * @param View            $pageView View
      *
      * @return void
      *
@@ -400,11 +400,10 @@ final class CliApplication extends ApplicationAbstract
     }
 
     /**
-     * Create forgot response
+     * Create logged out response
      *
      * @param ConsoleResponse $response Response
-     * @param Head         $head     Head to fill
-     * @param View         $pageView View
+     * @param View            $pageView View
      *
      * @return void
      *
@@ -425,7 +424,7 @@ final class CliApplication extends ApplicationAbstract
      *
      * @param ConsoleRequest  $request  Request
      * @param ConsoleResponse $response Response
-     * @param BackendView  $pageView View
+     * @param CliView         $pageView View
      *
      * @return void
      *

@@ -444,8 +444,16 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function installGroupPermissions(ConnectionAbstract $db) : void
     {
-        $searchPermission = new GroupPermission(2, null, null, null, null, \Modules\Admin\Models\PermissionCategory::SEARCH, null, null, PermissionType::READ);
-        $adminPermission = new GroupPermission(3, null, null, null, null, null, null, null, PermissionType::READ | PermissionType::CREATE | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION);
+        $searchPermission = new GroupPermission(
+            group: 2,
+            category: \Modules\Admin\Models\PermissionCategory::SEARCH,
+            permission: PermissionType::READ
+        );
+
+        $adminPermission = new GroupPermission(
+            group: 3,
+            permission: PermissionType::READ | PermissionType::CREATE | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION
+        );
 
         GroupPermissionMapper::create()->execute($searchPermission);
         GroupPermissionMapper::create()->execute($adminPermission);

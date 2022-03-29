@@ -10,7 +10,7 @@
         "icon": "fa fa-gavel",
         "order": 999999,
         "from": "",
-        "permission": { "permission": 2, "type": null, "element": null },
+        "permission": { "permission": 2, "category": null, "element": null },
         "parent": 0,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "",
-                "permission": { "permission": 2, "type": null, "element": null },
+                "permission": { "permission": 2, "category": null, "element": null },
                 "parent": 100201001,
                 "children": []
             },
@@ -39,7 +39,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "",
-                "permission": { "permission": 2, "type": null, "element": null },
+                "permission": { "permission": 2, "category": null, "element": null },
                 "parent": 100201001,
                 "children": []
             },
@@ -54,7 +54,7 @@
                 "icon": null,
                 "order": 10,
                 "from": "",
-                "permission": { "permission": 2, "type": null, "element": null },
+                "permission": { "permission": 2, "category": null, "element": null },
                 "parent": 100201001,
                 "children": []
             }
