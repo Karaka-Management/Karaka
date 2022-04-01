@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "chromedriver": "^91.0.1",
+    "eslint": "^8.12.0",
     "geckodriver": "^2.0.1",
     "node-sass": "^7.0.0",
     "selenium-webdriver": "^4.0.0-beta.4"
@@ -25,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/karaka-management/Karaka/issues"
   },
-  "homepage": "https://github.com/karaka-management/Karaka#readme"
+  "homepage": "https://github.com/karaka-management/Karaka#readme",
+  "devDependencies": {
+    "eslint-plugin-import": "^2.25.4"
+  }
 }
