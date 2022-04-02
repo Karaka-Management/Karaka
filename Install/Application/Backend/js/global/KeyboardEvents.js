@@ -28,8 +28,8 @@ export const KEYBOARD_EVENTS = [
             }
 
             const form    = window.omsApp.uiManager.getFormManager().get(formId);
-            const buttons = form.getSubmit(),
-                length    = buttons.length;
+            const buttons = form.getSubmit();
+            const length  = buttons.length;
 
             let defaultSubmit = -1;
 
@@ -65,8 +65,8 @@ export const KEYBOARD_EVENTS = [
         'element': '', // next tabindex
         'keys': [17, 40], // ctrl+down
         'callback': function (e) {
-            const focusable = document.querySelectorAll('button, input, select, textarea, [tabindex]:not([tabindex="-1"])'),
-                length      = focusable.length;
+            const focusable = document.querySelectorAll('button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const length    = focusable.length;
 
             for (let i = 0; i < length; ++i) {
                 if (document.activeElement === focusable[i]) {
@@ -91,8 +91,8 @@ export const KEYBOARD_EVENTS = [
         'element': '', // previous tab index
         'keys': [17, 38], // ctrl+up
         'callback': function (e) {
-            const focusable = document.querySelectorAll('button, input, select, textarea, [tabindex]:not([tabindex="-1"])'),
-                length      = focusable.length;
+            const focusable = document.querySelectorAll('button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const length    = focusable.length;
 
             for (let i = 0; i < length; ++i) {
                 if (document.activeElement === focusable[i]) {

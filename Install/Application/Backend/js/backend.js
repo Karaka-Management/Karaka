@@ -4,7 +4,6 @@ import { CacheManager } from '../../../jsOMS/DataStorage/CacheManager.js';
 import { StorageManager } from '../../../jsOMS/DataStorage/StorageManager.js';
 import { EventManager } from '../../../jsOMS/Event/EventManager.js';
 import { ResponseManager } from '../../../jsOMS/Message/Response/ResponseManager.js';
-import { Dispatcher } from '../../../jsOMS/Dispatcher/Dispatcher.js';
 import { AccountManager } from '../../../jsOMS/Account/AccountManager.js';
 import { UIManager } from '../../../jsOMS/UI/UIManager.js';
 import { InputManager } from '../../../jsOMS/UI/Input/InputManager.js';
@@ -29,15 +28,14 @@ import { VOICE_EVENTS } from './global/VoiceEvents.js';
  * @license   OMS License 1.0
  * @version   1.0.0
  * @since     1.0.0
- *
- * @todo Replace current page content with api response content
- *  Instead of loading the whole page again maybe use JS to only load specific content elements and replace them (main content) like youtube etc.
- *  Maybe even make this smart enough to fully load a page and then only replace the html that is different from the current page?
- *  This way the api doesn't have to respond with very specific content elements.
- *  At the same time specific content elements could be served way faster! Don't know which is better for now?!
  */
 export class Application
 {
+    /**
+     * @constructor
+     *
+     * @since 1.0.0
+     */
     constructor ()
     {
         //jsOMS.Autoloader.initPreloaded();
@@ -49,7 +47,6 @@ export class Application
         this.storageManager  = new StorageManager();
         this.eventManager    = new EventManager();
         this.responseManager = new ResponseManager();
-        this.dispatcher      = new Dispatcher();
         this.assetManager    = new AssetManager();
         this.accountManager  = new AccountManager();
         this.uiManager       = new UIManager(this);
@@ -80,6 +77,13 @@ export class Application
         this.setupServiceWorker();
     };
 
+    /**
+     * Setup the service worker
+     *
+     * @return {void}
+     *
+     * @sicne 1.0.0
+     */
     setupServiceWorker ()
     {
         /** global: navigator */
@@ -91,6 +95,13 @@ export class Application
         }
     };
 
+    /**
+     * Setup the response manager
+     *
+     * @return {void}
+     *
+     * @sicne 1.0.0
+     */
     setResponseMessages ()
     {
         /** global: RESPONSE_EVENTS */
@@ -101,6 +112,13 @@ export class Application
         }
     };
 
+    /**
+     * Setup the action manager
+     *
+     * @return {void}
+     *
+     * @sicne 1.0.0
+     */
     setActions ()
     {
         /** global: ACTION_EVENTS */
@@ -111,6 +129,13 @@ export class Application
         }
     };
 
+    /**
+     * Setup the keyboard manager
+     *
+     * @return {void}
+     *
+     * @sicne 1.0.0
+     */
     setKeyboardActions ()
     {
         /** global: KEYBOARD_EVENTS */
@@ -125,6 +150,13 @@ export class Application
         }
     };
 
+    /**
+     * Setup the mouse manager
+     *
+     * @return {void}
+     *
+     * @sicne 1.0.0
+     */
     setMouseActions ()
     {
         /** global: MOUSE_EVENTS */
@@ -141,6 +173,13 @@ export class Application
         }
     };
 
+    /**
+     * Setup the voice manager
+     *
+     * @return {void}
+     *
+     * @sicne 1.0.0
+     */
     setVoiceActions ()
     {
         /** global: VOICE_EVENTS */
@@ -155,10 +194,12 @@ export class Application
     };
 };
 
+/**
+ * Create the application after loading the page
+ */
 jsOMS.ready(function ()
 {
     "use strict";
 
-    /** global: jsOMS */
     window.omsApp = new Application();
 });

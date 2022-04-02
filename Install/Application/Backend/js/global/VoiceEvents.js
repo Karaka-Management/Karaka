@@ -22,8 +22,8 @@ export const VOICE_EVENTS = {
             console.log(xhr.response);
 
             try {
-                const o      = JSON.parse(xhr.response)[0],
-                    response = new Response(o);
+                const o        = JSON.parse(xhr.response)[0];
+                const response = new Response(o);
 
                 if (typeof response.get('type') !== 'undefined') {
                     window.omsApp.responseManager.run(response.get('type'), response.get(), request);
