@@ -1,5 +1,96 @@
 # Changelog
 
+## March 2022
+
+### New
+
+#### Application
+
+* Created basic `ConsoleApplication` which will be used for example to create async. code executions from web requests
+* Renamed the console application to `CliApplication` and the Cli interface to `cli.php`
+* The account mapper no longer auto-loads the password since it got removed from the mapper. In order to load an account with password or change the password, one must use the `AccountCredentialMapper`
+* Improved naming conventions in permissions. "Type" is replaced by "Category"
+* The `installExternal` scripts are now mostly using the Api end points through internal Api requests
+* During the installation the application checks if the Cli application is callable and sets the settings accordingly
+  * This is for example used by the event offloading/asynchronous event handling
+
+#### Framework
+
+* Started to create C++ framework
+* Created a `pdf2text` parser function
+* Turned permission flag internally into booleans for read, create, change delete, permission. This allows faster DB reads in certain cases
+  * Externally it still uses flags
+
+#### Billing
+
+* Allow to upload invoices as Pdfs for invoice recognition
+  * Invoice pre-processing 75% completed, can be used as is but improvements are recommended
+  * Invoice layout recognition and parsing still need to get implemented as well as manual layout definition
+
+#### Media
+
+* Reduced middle-man function for multiple file uploads and replaced it with loops (removed: `createDbEntries`)
+  * File uploads can no optionally be related to accounts. This is not always wanted/necessary
+* Automatically save the contents of a text file (txt, md), word file (doc, docx) or pdf in the database
+  * Pdfs either use the text which is stored inside of them or if the pdf is an "image" OCR is used with pre-processing
+* Media files can have a status (hidden, active/normal, deleted)
+* The media view now shows the virtual path as a directory path, similar to the list view
+
+#### Dashboard
+
+* The dashboard can receive data from other modules. This way new components automatically get added to the default board (board id 1).
+
+#### Editor
+
+* Support text versioning by creating a history table and custom version field
+
+#### Knowledgebase
+
+* Support text versioning by creating a history table and custom version field
+
+#### Q&A
+
+* Implemented basic voting
+* Implemented basic answer accepting
+* Optimized score table by adding who a vote is cast for, not just the answer/question id (= easier score calculation per account)
+
+#### Frontend
+
+* Created a tool which pre-processes invoice images
+
+#### Demo setup
+
+* Created async. install option for the demo application.
+  * Cli command:`php demoSetup/setup.php -a 0`
+  * Remark: This most likely maxes out the CPU usage at 100% for 1 hour since almost all setup scripts are execute in parallel.
+
+### Bug fixes
+
+#### Framework
+
+* Fixed limit and sort bug for has many elements
+* Uri query parameters where no value could be found are removed. Query parameters where no value is specified remain.
+  * `?para1=123&para2={?NOT_FOUND}` => `?para1=123`
+  * `?para1=123&para2` => `?para1=123&para2`
+
+#### Media
+
+* Implemented `\urlencode` to fix file path bug for Pdf viewer + adjusted `viewer.js` url decoding in Resources
+
+#### Dashboard
+
+* Fixed bug where the admin didn't have a dashboard. Now the default dashboard is created during the install process (see changelog above).
+
+#### CMS
+
+* Created reserved application names `cli`, `backend`, `api`.
+
+#### Other
+
+#### Installer
+
+* Implemented `GroupPermissionMapper` to create default permissions instead of hard coded permission setup
+
 ## January 2022
 
 ### New
