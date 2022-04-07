@@ -1,6 +1,3 @@
-[submodule "Docs"]
-	path = Docs
-	url = https://github.com/Karaka-Management/Docs.git
 [submodule "phpOMS"]
 	path = phpOMS
 	url = https://github.com/Karaka-Management/phpOMS.git
