@@ -92,7 +92,8 @@ Check out https://karaka.app/career and our developer section https://karaka.app
 
 ## Misc
 
-* Languages: PHP, JS, HTML, CSS
+* End-User documentation: https://github.com/Karaka-Management/Documentation
+* Developer documentation: https://github.com/Karaka-Management/Developer-Guide
 * Website: [https://karaka.app](https://karaka.app)
 * Demo: [https://karaka.app](https://karaka.app) (user: admin, pass: orange)
 * Dev: [https://karaka.app/dev](https://karaka.app/dev)
