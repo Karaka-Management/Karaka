@@ -9,17 +9,23 @@ With Karaka you have one partner who can provide many tools and software solutio
 ## Table of contents
 
 - [Karaka](#karaka)
-  - [Table of content](#table-of-content)
+  - [Table of contents](#table-of-contents)
   - [Installation](#installation)
     - [Requirements](#requirements)
     - [Setup](#setup)
-  - [Philosophy](#philosophy)
+  - [Philosophy & Demo](#philosophy--demo)
   - [Development Status](#development-status)
-  - [Unit Tests](#unit-tests)
+  - [Tech stack](#tech-stack)
   - [Become a contributor](#become-a-contributor)
   - [Misc](#misc)
 
 ## Installation
+
+Currently only possible for developers:
+
+```sh
+git clone -b develop --recurse-submodules -j8 https://github.com/Karaka-Management/Karaka.git
+```
 
 ### Requirements
 
@@ -94,6 +100,7 @@ Check out https://karaka.app/career and our developer section https://karaka.app
 
 * End-User documentation: https://github.com/Karaka-Management/Documentation
 * Developer documentation: https://github.com/Karaka-Management/Developer-Guide
+* Project documentation: https://github.com/Karaka-Management/Docs
 * Website: [https://karaka.app](https://karaka.app)
 * Demo: [https://karaka.app](https://karaka.app) (user: admin, pass: orange)
 * Dev: [https://karaka.app/dev](https://karaka.app/dev)
