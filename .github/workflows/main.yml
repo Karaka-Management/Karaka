@@ -104,10 +104,6 @@ jobs:
       run: composer install
     - name: phpunit
       run: vendor/bin/phpunit --coverage-clover tests/coverage.xml --configuration tests/phpunit_no_coverage.xml
-    - name: codecov
-      env:
-         CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
-      run: "bash <(curl -s https://codecov.io/bash) -f tests/coverage.xml"
   cpp-tests:
     if: "!contains(github.event.head_commit.message, 'NO_CI')"
     strategy:
@@ -121,6 +117,7 @@ jobs:
         uses: actions/checkout@master
         with:
           fetch-depth: 1
+          submodules: recursive
           token: ${{ secrets.GITHUB }}
       - name: Set up GCC
         uses: ./
