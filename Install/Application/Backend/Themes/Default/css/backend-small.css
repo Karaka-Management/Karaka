@@ -225,7 +225,6 @@ img.profile-image {
 @media only screen and (max-width: 500px) {
   nav .ham-trigger {
     display: flex; } }
-
 @media only screen and (max-width: 600px) {
   main > header {
     flex-flow: column;
@@ -233,10 +232,10 @@ img.profile-image {
     padding: 1rem; }
     main > header form {
       width: 100%; }
+
   #t-nav-container {
     order: -1;
     margin-bottom: .5rem; } }
-
 @media only screen and (max-width: 1000px) {
   #t-nav .link {
     display: none; } }
