@@ -108,6 +108,29 @@ jobs:
       env:
          CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
       run: "bash <(curl -s https://codecov.io/bash) -f tests/coverage.xml"
+  cpp-tests:
+    if: "!contains(github.event.head_commit.message, 'NO_CI')"
+    strategy:
+      matrix:
+        platform: [x86, x64]
+        os: [ubuntu-latest]
+    runs-on: '${{ matrix.os }}'
+    name: 'Test: ${{ matrix.os }} / ${{ matrix.platform }}'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB }}
+      - name: Set up GCC
+        uses: ./
+        with:
+          platform: '${{ matrix.platform }}'
+          cc: 1
+    - name: tests
+      run: |
+        chmod +x ./cOMS/tests/test.sh
+        ./cOMS/tests/test.sh
   static-tests:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'NO_CI')"
@@ -218,8 +241,13 @@ jobs:
       run: if [[ $(grep -r -L "declare(strict_types=1);" --include=*.php --exclude={*.tpl.php,*Hooks.php,*Routes.php,*SearchCommands.php} ./phpOMS ./Web ./Modules ./Model) -ne "" ]]; then exit 1; fi
     - name: Html inspection
       run: |
-        if [[ $(find ./Web ./phpOMS ./Build ./Modules -name "*tpl.php" | xargs grep -E '=\"[\#\$\%\^\&\*\(\)\\/\ ]*\"') -ne "" ]]; then exit 1; fi
-        if [[ $(find ./Web ./phpOMS ./Build ./Modules -name "*tpl.php" | xargs grep -P '(\<img)((?!.*?alt=).)*(>)') -ne "" ]]; then exit 1; fi
+        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -E '=\"[\#\$\%\^\&\*\(\)\\/\ ]*\"') -ne "" ]]; then exit 1; fi
+        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(\<img)((?!.*?alt=).)*(>)') -ne "" ]]; then exit 1; fi
+        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(<input)((?!.*?type=).)*(>)') -ne "" ]]; then exit 1; fi
+        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(<input|<select|<textarea)((?!.*?name=).)*(>)') -ne "" ]]; then exit 1; fi
+        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(style=)') -ne "" ]]; then exit 1; fi
+        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(value|title|alt|aria\-label)(=\")((?!\<\?).)*(>)') -ne "" ]]; then exit 1; fi
+        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(\<td\>|\<th\>|\<caption\>|\<label.*?(\"|l)\>)) -ne "" ]]; then exit 1; fi
     - name: Js strict
       run: if [[ $(grep -r -L "\"use strict\";" --include=*.js ./jsOMS ./Modules ./Model) -ne "" ]]; then exit 1; fi
     - name: Js inspection
