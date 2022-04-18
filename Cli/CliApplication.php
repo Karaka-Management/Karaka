@@ -255,7 +255,7 @@ final class CliApplication extends ApplicationAbstract
         $method = RequestMethod::GET;
 
         if ($start !== false) {
-            $method = \strtoupper(\substr($arg[1], 0, $start - 1));
+            $method = \strtoupper(\substr($arg[1], 0, $start));
 
             $end = \stripos($arg[1], ' ', $start + 1);
 
@@ -412,7 +412,7 @@ final class CliApplication extends ApplicationAbstract
     private function createBaseLoggedOutResponse(ConsoleResponse $response, View $pageView) : void
     {
         $response->header->status = RequestStatusCode::R_401;
-        $pageView->setTemplate('/Web/Backend/Error/401');
+        $pageView->setTemplate('/Cli/Error/401');
         $this->loadLanguageFromPath(
             $response->getLanguage(),
             __DIR__ . '/Error/lang/' . $response->getLanguage() . '.lang.php'

@@ -79,7 +79,7 @@ jobs:
         php-versions: ['8.0']
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@master
+      uses: actions/checkout@main
       with:
         fetch-depth: 1
         submodules: recursive
@@ -114,7 +114,7 @@ jobs:
     name: 'Test: ${{ matrix.os }} / ${{ matrix.platform }}'
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@main
       with:
         fetch-depth: 1
         submodules: recursive
@@ -138,7 +138,7 @@ jobs:
         php-versions: ['8.0']
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@master
+      uses: actions/checkout@main
       with:
         fetch-depth: 1
         submodules: recursive
@@ -172,7 +172,7 @@ jobs:
         php-versions: ['8.0']
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@master
+      uses: actions/checkout@main
       with:
         fetch-depth: 1
         submodules: recursive
@@ -204,6 +204,25 @@ jobs:
     - run: npm install
     - name: eslint
       run: npx eslint ./jsOMS -c Build/Config/.eslintrc.json
+  linting:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'NO_CI')"
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@main
+      with:
+        fetch-depth: 0
+        submodules: recursive
+        token: ${{ secrets.GH_PAT }}
+    - name: Lint Code Base
+      uses: github/super-linter@v4
+      env:
+        VALIDATE_ALL_CODEBASE: false
+        DEFAULT_BRANCH: develop
+        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
   custom:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'NO_CI')"
@@ -214,7 +233,7 @@ jobs:
         php-versions: ['8.0']
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@master
+      uses: actions/checkout@main
       with:
         fetch-depth: 1
         submodules: recursive
@@ -225,15 +244,6 @@ jobs:
           php-version: ${{ matrix.php-versions }}
           extensions: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
           ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
-    - name: PHP linting
-      run: |
-        find ./Web ./phpOMS ./Build ./Modules -type f \
-        -not -path "./Install/Application/*" \
-        -not -path "./phpOMS/tests/Application/Testapp/*" \
-        -not -path "./Modules/Shop/Admin/Install/Application/*" \
-        -not -path "./Modules/Support/Admin/Install/Application/*" \
-        -not -path "./Modules/QA/Admin/Install/Application/*" \
-        -name '*.php' -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v "No syntax errors detected" )
     - name: Php strict
       run: if [[ $(grep -r -L "declare(strict_types=1);" --include=*.php --exclude={*.tpl.php,*Hooks.php,*Routes.php,*SearchCommands.php} ./phpOMS ./Web ./Modules ./Model) -ne "" ]]; then exit 1; fi
     - name: Html inspection

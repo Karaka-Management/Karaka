@@ -27,6 +27,7 @@ use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Organization\Models\Status;
 use Modules\Organization\Models\UnitMapper;
+use phpOMS\Account\AccountManager;
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use phpOMS\Account\GroupStatus;
@@ -36,8 +37,10 @@ use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
+use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
+use phpOMS\Localization\Localization;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\RequestAbstract;
@@ -61,10 +64,10 @@ abstract class InstallAbstract extends ApplicationAbstract
     /**
      * Module manager
      *
-     * @var ModuleManager
+     * @var null|ModuleManager
      * @since 1.0.0
      */
-    protected static ModuleManager $mManager;
+    protected static ?ModuleManager $mManager = null;
 
     /**
      * Setup general handlers for the application.
@@ -252,12 +255,14 @@ abstract class InstallAbstract extends ApplicationAbstract
         $app->dbPool->add('update', $db);
         $app->dbPool->add('schema', $db);
 
-        self::$mManager     = new ModuleManager($app, __DIR__ . '/../Modules/');
-        $app->moduleManager = self::$mManager;
-        $app->appSettings   = new CoreSettings();
-
-        $app->dispatcher   = new Dispatcher($app);
-        $app->eventManager = new EventManager($app->dispatcher);
+        self::$mManager      = self::$mManager ?? new ModuleManager($app, __DIR__ . '/../Modules/');
+        $app->moduleManager  = self::$mManager;
+        $app->appSettings    = new CoreSettings();
+        $app->orgId          = 1;
+        $app->accountManager = new AccountManager(new HttpSession());
+        $app->l11nServer     = new Localization();
+        $app->dispatcher     = new Dispatcher($app);
+        $app->eventManager   = new EventManager($app->dispatcher);
 
         $toInstall = [
             'Admin',
@@ -326,15 +331,18 @@ abstract class InstallAbstract extends ApplicationAbstract
         $app->dbPool->add('update', $db);
         $app->dbPool->add('schema', $db);
 
-        $app->dispatcher   = new Dispatcher($app);
-        $app->eventManager = new EventManager($app->dispatcher);
+        self::$mManager      = self::$mManager ?? new ModuleManager($app, __DIR__ . '/../Modules/');
+        $app->moduleManager  = self::$mManager;
+        $app->appSettings    = new CoreSettings();
+        $app->orgId          = 1;
+        $app->accountManager = new AccountManager(new HttpSession());
+        $app->l11nServer     = new Localization();
+        $app->dispatcher     = new Dispatcher($app);
+        $app->eventManager   = new EventManager($app->dispatcher);
         $app->eventManager->importFromFile(__DIR__ . '/../Web/Api/Hooks.php');
 
-        $app->appSettings   = new CoreSettings();
-        self::$mManager     = new ModuleManager($app, __DIR__ . '/../Modules/');
-        $app->moduleManager = self::$mManager;
-
         $toInstall = [
+            'Workflow',
             'Organization',
             'Help',
             'Profile',

@@ -20,7 +20,9 @@ echo \PHP_EOL;
 
 /** @var \phpOMS\Views\ViewAbstract $view */
 foreach ($dispatch as $view) {
-    if ($view instanceof RenderableInterface) {
+    if (!($view instanceof \phpOMS\Views\NullView)
+        && $view instanceof \phpOMS\Contract\RenderableInterface
+    ) {
         echo $view->render();
     }
 }

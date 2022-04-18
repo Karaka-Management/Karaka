@@ -104,7 +104,9 @@ $dispatch = $this->getData('dispatch') ?? [];
             <?php
             $c = 0;
             foreach ($dispatch as $view) {
-                if ($view instanceof \phpOMS\Contract\RenderableInterface) {
+                if (!($view instanceof \phpOMS\Views\NullView)
+                    && $view instanceof \phpOMS\Contract\RenderableInterface
+                ) {
                     ++$c;
                     echo $view->render();
                 }

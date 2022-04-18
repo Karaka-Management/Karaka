@@ -206,7 +206,7 @@ final class WebApplication extends InstallAbstract
     {
         $response->header->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
 
-        if (!empty($valid = self::validateRequest($request))) {
+        if (!empty(self::validateRequest($request))) {
             $response->header->status = RequestStatusCode::R_400;
             return;
         }

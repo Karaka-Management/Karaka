@@ -33,6 +33,7 @@ return [[
     'Imprint'               => 'Imprint',
     'CurrencyK'             => 'K',
     'Language'              => 'Language',
+    'Load'                  => 'Load',
     'Login'                 => 'Login',
     'Logo'                  => 'Logo',
     'CurrencyM'             => 'M',
