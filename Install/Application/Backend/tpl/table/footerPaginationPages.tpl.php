@@ -2,7 +2,7 @@
 /**
  * Karaka
  *
- * PHP Version 8.0
+ * PHP Version 8.1
  *
  * @package   Template
  * @copyright Dennis Eichhorn
@@ -15,7 +15,7 @@ declare(strict_types=1);
 /**
  * Karaka
  *
- * PHP Version 8.0
+ * PHP Version 8.1
  *
  * @package   Web\Backend\tpl
  * @copyright Dennis Eichhorn

@@ -255,8 +255,6 @@ jobs:
         if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(style=)') -ne "" ]]; then exit 1; fi
         if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(value|title|alt|aria\-label)(=\")((?!\<\?).)*(>)') -ne "" ]]; then exit 1; fi
         if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(\<td\>|\<th\>|\<caption\>|\<label.*?(\"|l)\>)) -ne "" ]]; then exit 1; fi
-    - name: Js strict
-      run: if [[ $(grep -r -L "\"use strict\";" --include=*.js ./jsOMS ./Modules ./Model) -ne "" ]]; then exit 1; fi
     - name: Js inspection
       run: |
         if [[ $(grep -rlni "onafterprint=\|onbeforeprint=\|onbeforeunload=\|onerror=\|onhaschange=\|onload=\|onmessage=\|onoffline=\|ononline=\|onpagehide=\|onpageshow=\|onpopstate=\|onredo=\|onresize=\|onstorage=\|onund=o\|onunload=\|onblur=\|onchage=\|oncontextmenu=\|onfocus=\|onformchange=\|onforminput=\|oninput=\|oninvalid=\|onreset=\|onselect=\|onsubmit=\|onkeydown=\|onkeypress=\|onkeyup=\|onclick=\|ondblclic=k\|ondrag=\|ondragend=\|ondragenter=\|ondragleave=\|ondragover=\|ondragstart=\|ondrop=\|onmousedown=\|onmousemove=\|onmouseout=\|onmouseover=\|onmouseup=\|onmousewheel=\|onscroll=\|onabor=t\|oncanplay=\|oncanplaythrough=\|ondurationchange=\|onemptied=\|onended=\|onerror=\|onloadeddata=\|onloadedmetadata=\|onloadstart=\|onpause=\|onplay=\|onplaying=\|onprogress=\|onratechange=\|onreadystatechange=\|onseeked=\|onseeking=\|onstalled=\|onsuspend=\|ontimeupdate=\|onvolumechange=" --include=*.js ./jsOMS ./Modules ./Web) -ne "" ]]; then exit 1; fi

@@ -30,7 +30,7 @@ git clone -b develop --recurse-submodules -j8 https://github.com/Karaka-Manageme
 ### Requirements
 
 * PHP 8.0
-* PHP extension: php8.0 php8.0-dev php8.0-cli php8.0-common php8.0-mysql php8.0-pgsql php8.0-xdebug php8.0-opcache php8.0-pdo php8.0-sqlite php8.0-mbstring php8.0-curl php8.0-imap php8.0-bcmath php8.0-zip php8.0-dom php8.0-xml php8.0-phar php8.0-gd php-pear
+* PHP extension: php8.1 php8.1-dev php8.1-cli php8.1-common php8.1-mysql php8.1-pgsql php8.1-xdebug php8.1-opcache php8.1-pdo php8.1-sqlite php8.1-mbstring php8.1-curl php8.1-imap php8.1-bcmath php8.1-zip php8.1-dom php8.1-xml php8.1-phar php8.1-gd php-pear
 * apache2 (recommended) or nginx
 * mysql-server (recommended) or postgresql postgresql-contrib
 * Make sure that URL rewriting is active!
