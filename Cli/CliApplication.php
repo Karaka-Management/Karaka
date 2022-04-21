@@ -62,7 +62,7 @@ final class CliApplication extends ApplicationAbstract
     /**
      * Temp config.
      *
-     * @var array{log:array{file:array{path:string}}, app:array{path:string, default:array{id:string, app:string, org:int, lang:string}, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string}, insert:array{db:string, database:string}, select:array{db:string, database:string}, update:array{db:string, database:string}, delete:array{db:string, database:string}, schema:array{db:string, database:string}}}}}
+     * @var array{log:array{file:array{path:string}}, app:array{path:string, default:array{id:string, app:string, org:int, lang:string, user?:int}, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string}, insert:array{db:string, database:string}, select:array{db:string, database:string}, update:array{db:string, database:string}, delete:array{db:string, database:string}, schema:array{db:string, database:string}}}}}
      *
      * @since 1.0.0
      */
@@ -71,7 +71,7 @@ final class CliApplication extends ApplicationAbstract
     /**
      * Constructor.
      *
-     * @param array{log:array{file:array{path:string}}, app:array{path:string, default:array{id:string, app:string, org:int, lang:string}, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string}, insert:array{db:string, database:string}, select:array{db:string, database:string}, update:array{db:string, database:string}, delete:array{db:string, database:string}, schema:array{db:string, database:string}}}}} $config Application config
+     * @param array{log:array{file:array{path:string}}, app:array{path:string, default:array{id:string, app:string, org:int, lang:string, user?:int}, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string}, insert:array{db:string, database:string}, select:array{db:string, database:string}, update:array{db:string, database:string}, delete:array{db:string, database:string}, schema:array{db:string, database:string}}}}} $config Application config
      *
      * @throws \Exception
      *
@@ -122,7 +122,7 @@ final class CliApplication extends ApplicationAbstract
         $request  = $this->initRequest($arg, $this->config['app'], __DIR__);
         $response = $this->initResponse($request, $this->config);
 
-        $aid                       = (int) ($request->getData('uid') ?? $this->config['app']['default']['user'] ?? 1);
+        $aid                       = (int) ($request->getData('uid') ?? ($this->config['app']['default']['user'] ?? 1));
         $request->header->account  = $aid;
         $response->header->account = $aid;
 

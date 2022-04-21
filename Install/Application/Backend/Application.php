@@ -21,6 +21,7 @@ use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\MediaMapper;
 use Modules\Organization\Models\UnitMapper;
 use Modules\Profile\Models\ProfileMapper;
+use Modules\Profile\Models\SettingsEnum;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\PermissionType;
@@ -428,7 +429,7 @@ final class Application
         $pageView->setProfile(ProfileMapper::get()->where('account', $request->header->account)->execute());
         $pageView->setData('nav', $this->getNavigation($request, $response));
 
-        $profileImage                  = $this->app->appSettings->get(names: 'default_profile_image', module: 'Profile');
+        $profileImage                  = $this->app->appSettings->get(names: SettingsEnum::DEFAULT_PROFILE_IMAGE, module: 'Profile');
         $image                         = MediaMapper::get()->where('id', (int) $profileImage->content)->execute();
         $pageView->defaultProfileImage = $image;
 

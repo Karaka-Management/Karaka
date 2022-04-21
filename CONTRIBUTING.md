@@ -16,7 +16,7 @@ Generally, the development philosophy is result orientated. This means that anyo
 
 Developers  are encouraged to pick open tasks with high priorities according to their own skill level. Senior developers may  directly assign tasks to developers based on their importance. New  developers may find it easier to start with a task that has a low  priority as they often also have a lower difficulty.
 
-Open tasks can be found in the project overview: [PROJECT.md](../Project/PROJECT.md)
+Open tasks can be found in the project overview: [PROJECT.md](https://github.com/Karaka-Management/Organization-Guide/blob/master/Project/PROJECT.md)
 
 Tasks  currently in development are prefixed in the priority column with an  asterisk `*` and a name tag in the task description of the developer who is working on the task.
 

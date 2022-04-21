@@ -95,6 +95,7 @@ final class CoreSettings implements SettingsInterface
             return \count($options) > 1 ? $options : \reset($options);
         }
 
+        /** @var \Model\Setting[] $dbOptions */
         $dbOptions = SettingMapper::getSettings([
             'ids'     => $ids,
             'names'   => $names,

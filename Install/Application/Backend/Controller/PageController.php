@@ -43,11 +43,12 @@ final class PageController extends ModuleAbstract
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewLegalDocuments(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewLegalDocuments(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Web/Backend/Themes/legal');
 
+        /** @var \Modules\CMS\Models\Page $page */
         $page = PageMapper::get()
             ->with('l11n')
             ->where('app', 2)

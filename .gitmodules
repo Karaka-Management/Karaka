@@ -7,9 +7,9 @@
 [submodule "cssOMS"]
 	path = cssOMS
 	url = https://github.com/Karaka-Management/cssOMS.git
-[submodule "Documentation"]
-	path = Documentation
-	url = https://github.com/Karaka-Management/Documentation.git
+[submodule "User-Guide"]
+	path = User-Guide
+	url = https://github.com/Karaka-Management/User-Guide.git
 [submodule "Build"]
 	path = Build
 	url = https://github.com/Karaka-Management/Build.git

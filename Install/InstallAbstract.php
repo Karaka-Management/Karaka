@@ -494,6 +494,10 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function installApplications(RequestAbstract $request, ConnectionAbstract $db) : void
     {
+        if (self::$mManager === null) {
+            return;
+        }
+
         $apps  = $request->getDataList('apps');
         $theme = 'Default';
 
