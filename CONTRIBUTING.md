@@ -31,7 +31,7 @@ In rare  cases errors, failures or warnings during the automatic inspection are 
 Automated checks which are run during the review process:
 
 ```sh
-php ./vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml"
+php ./vendor/bin/phpcs --severity=1 ./ --standard="Build/Config/phpcs.xml"
 npx eslint ./ -c ./Build/Config/.eslintrc.json
 ```
 

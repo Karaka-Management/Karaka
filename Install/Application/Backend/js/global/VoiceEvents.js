@@ -19,7 +19,7 @@ export const VOICE_EVENTS = {
         request.setMethod(RequestMethod.GET);
         request.setSuccess(function (xhr)
         {
-            console.log(xhr.response);
+            window.omsApp.logger.log(xhr.response);
 
             try {
                 const o        = JSON.parse(xhr.response)[0];
@@ -33,7 +33,7 @@ export const VOICE_EVENTS = {
                     );
                 }
             } catch (e) {
-                console.log(e);
+                window.omsApp.logger.log(e);
 
                 Logger.instance.error('Invalid form response. \n'
                     + 'Request: ' + JSON.stringify(speech) + '\n'

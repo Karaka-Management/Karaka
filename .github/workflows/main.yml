@@ -195,7 +195,7 @@ jobs:
     - name: Setup Composer
       run: composer install
     - name: phpcs
-      run: vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report=full
+      run: vendor/bin/phpcs --severity=1 ./ --standard="Build/Config/phpcs.xml" -s --report=full
     - name: Install NPM
       uses: actions/setup-node@v3
       with:
@@ -248,7 +248,6 @@ jobs:
       run: if [[ $(grep -r -L "declare(strict_types=1);" --include=*.php --exclude={*.tpl.php,*Hooks.php,*Routes.php,*SearchCommands.php} ./phpOMS ./Web ./Modules ./Model) -ne "" ]]; then exit 1; fi
     - name: Html inspection
       run: |
-        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -E '=\"[\#\$\%\^\&\*\(\)\\/\ ]*\"') -ne "" ]]; then exit 1; fi
         if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(\<img)((?!.*?alt=).)*(>)') -ne "" ]]; then exit 1; fi
         if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(<input)((?!.*?type=).)*(>)') -ne "" ]]; then exit 1; fi
         if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(<input|<select|<textarea)((?!.*?name=).)*(>)') -ne "" ]]; then exit 1; fi
