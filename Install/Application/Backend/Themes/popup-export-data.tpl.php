@@ -1,39 +1,24 @@
+<?php
+
+use phpOMS\Uri\UriFactory;
+?>
 <span class="clickPopup floatRight">
-    <label for="exportDropdown"><i class="fa fa-download download btn"></i></label>
-    <input id="exportDropdown" name="exportDropdown" type="checkbox">
-    <div class="popup">
-        <ul>
-            <li>
-                <input id="id1" type="checkbox">
-                <ul>
-                    <li>
-                        <label for="id1">
-                            <a href="" class="button">Print</a>
-                            <span></span>
-                            <i class="fa fa-chevron-right expand"></i>
-                        </label>
-                    <li>Template1
-                    <li>Template2 is a long name
-                    <li>Template3
-                </ul>
-            <li><a href="" class="button">PDF</a>
-            <li><a href="" class="button">Word</a>
-            <li>
-                <input id="id2" type="checkbox">
-                <ul>
-                    <li>
-                        <label for="id2">
-                            <a href="" class="button">Excel</a>
-                            <span></span>
-                            <i class="fa fa-chevron-right expand"></i>
-                        </label>
-                    <li>Template2
-                    <li>Template3
-                </ul>
-            <li><a href="" class="button">Csv</a>
-            <li><a href="" class="button">E-Mail</a>
-            <li><a href="" class="button">Download</a>
-            <li><label class="button cancel" for="exportDropdown">Cancel</label>
-        </ul>
+    <label for="<?= $this->id; ?>-export"><i class="fa fa-download download btn"></i></label>
+    <input id="<?= $this->id; ?>-export" name="<?= $this->id; ?>-export" type="checkbox">
+    <div class="portlet popup">
+            <div class="portlet-head"><?= $this->getHtml('Export', '0', '0'); ?></div>
+            <table class="default">
+                <thead>
+                    <tr>
+                        <td><?= $this->getHtml('Name', '0', '0'); ?>
+                <tbody>
+                    <?php foreach ($this->exportTemplates as $template) : ?>
+                    <tr data-href="<?= $url = UriFactory::build($this->exportUri . '{?}&template=' . $template->getId()); ?>">
+                        <td><a href="<?= $url; ?>"><?= $this->printHtml($template->name); ?></a>
+                    <?php endforeach; ?>
+            </table>
+            <div class="portlet-foot">
+                <label class="button cancel" for="<?= $this->id; ?>-export"><?= $this->getHtml('Cancel', '0', '0'); ?></label>
+            </div>
     </div>
 </span>

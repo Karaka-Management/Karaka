@@ -1,32 +1,51 @@
 <span class="clickPopup">
-    <label for="filterDropdown"><i class="filter fa fa-filter btn"></i></label>
-    <input id="filterDropdown" name="filterDropdown" type="checkbox">
+    <input id="<?= $this->id; ?>-filter-<?= $this->counter; ?>" name="<?= $this->id; ?>-filter-<?= $this->counter; ?>" type="checkbox">
+    <label for="<?= $this->id; ?>-filter-<?= $this->counter; ?>"><i class="filter fa fa-filter btn"></i></label>
     <div class="popup">
-        <input type="text" name="filterText">
-
-        <select name="valueList">
-            <option>greater
-            <option>greater equals
-            <option>smaller equals
-            <option>smaller
-        </select>
-
-        <label class="button cancel" for="filterDropdown">Cancel</label>
-        <label class="button cancel" for="filterDropdown">Filter</label>
-        <label class="button cancel" for="filterDropdown">Reset</label>
+        <ul>
+            <li><?= $this->getHtml('Filter', '0', '0'); ?>
+            <?php if ($data[1] === 'text') : ?>
+            <li>
+                <input type="text" name="<?= $this->id; ?>-filter-<?= $this->counter; ?>-f1">
+            <?php elseif ($data[1] === 'select') : ?>
+            <li>
+                <select name="<?= $this->id; ?>-filter-<?= $this->counter; ?>-f2" multiple>
+                    <?php foreach ($data[2] as $value => $option) : ?>
+                        <option value="<?= $value; ?>"><?= $option; ?>
+                    <?php endforeach; ?>
+                </select>
+            <?php elseif ($data[1] === 'number' || $data[1] === 'date'): ?>
+            <li>
+                <select name="<?= $this->id; ?>-filter-<?= $this->counter; ?>-o1">
+                    <option>=
+                    <option>>
+                    <option>>=
+                    <option><=
+                    <option><
+                </select>
+                <?php if ($data[1] === 'number') : ?>
+                    <input type="text" name="<?= $this->id; ?>-filter-<?= $this->counter; ?>-f3">
+                <?php else : ?>
+                    <input type="date" name="<?= $this->id; ?>-filter-<?= $this->counter; ?>-f4">
+                <?php endif; ?>
+            <li><?= $this->getHtml('AND'); ?>
+            <li>
+                <select name="<?= $this->id; ?>-filter-<?= $this->counter; ?>-o2">
+                    <option>=
+                    <option>>
+                    <option>>=
+                    <option><=
+                    <option><
+                </select>
+                <?php if ($data[1] === 'number') : ?>
+                    <input type="text" name="<?= $this->id; ?>-filter-<?= $this->counter; ?>-f5">
+                <?php else : ?>
+                    <input type="date" name="<?= $this->id; ?>-filter-<?= $this->counter; ?>-f6">
+                <?php endif; ?>
+            <?php endif; ?>
+            <li><label class="button close" for="<?= $this->id; ?>-filter-<?= $this->counter; ?>"><?= $this->getHtml('Cancel', '0', '0'); ?></label>
+            <li><label class="button save" for="<?= $this->id; ?>-filter-<?= $this->counter; ?>"><?= $this->getHtml('Filter', '0', '0'); ?></label>
+            <li><label class="button cancel" for="<?= $this->id; ?>-filter-<?= $this->counter; ?>"><?= $this->getHtml('Reset', '0', '0'); ?></label>
+        </ul>
     </div>
 </span>
-
-<!--
->10 & <12
->10 | <12
-
->10 and <12
->10 or <12
-
-=11
-
-11 // finds also 111
-
-also handle date, numerics, text, tags,
--->

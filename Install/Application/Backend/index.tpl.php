@@ -89,6 +89,7 @@ $dispatch = $this->getData('dispatch') ?? [];
             <form id="s-bar" method="GET" action="<?= UriFactory::build('{/api}search?{?}&app=Backend&csrf={$CSRF}'); ?>&search={!#iSearchBox}">
                 <label class="ham-trigger" for="nav-trigger"><i class="fa fa-bars p"></i></label>
                 <span role="search" class="inputWrapper">
+                    <button type="button"><i class="fa fa-map-marker"></i></button>
                     <span class="textWrapper">
                         <input id="iSearchBox" name="search" type="text" autocomplete="off" autofocus>
                         <i class="frontIcon fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
@@ -126,4 +127,17 @@ $dispatch = $this->getData('dispatch') ?? [];
         </div>
     </template>
 </div>
+
+<template id="table-context-menu-tpl">
+    <div id="table-context-menu" class="context-menu">
+        <ul>
+            <li class="context-line">
+                <label class="checkbox" for="itable1-visibile-">
+                    <input type="checkbox" id="itable1-visibile-" name="itable1-visible" checked>
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+        </ul>
+    </div>
+</template>
 <?= $head->renderAssetsLate(); ?>

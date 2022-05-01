@@ -17,7 +17,7 @@ declare(strict_types=1);
 namespace Web\Api;
 
 use Model\CoreSettings;
-use Model\SettingsEnum;
+use Modules\Admin\Models\SettingsEnum;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\LocalizationMapper;
 use Modules\Admin\Models\NullAccount;
