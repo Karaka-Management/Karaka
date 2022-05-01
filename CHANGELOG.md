@@ -1,5 +1,20 @@
 # Changelog
 
+## April 2022
+
+### New
+
+#### Application
+
+* Add default export scripts (no API calls implemented yet)
+* Create filter UI draft (text, number, select, radio, checkbox) (no API calls and frontend logic implemented)
+
+#### Framework
+
+* Form inline and external save, update, add implemented (no API calls implemented yet)
+* Allow users to edit table column visibility (e.g. hide information they are not interested in) (no API calls necessary)
+
+
 ## March 2022
 
 ### New
