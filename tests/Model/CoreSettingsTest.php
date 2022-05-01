@@ -17,7 +17,7 @@ namespace tests\Model;
 use Model\CoreSettings;
 use Model\Setting;
 use Model\SettingMapper;
-use Model\SettingsEnum;
+use Modules\Admin\Models\SettingsEnum;
 
 /**
  * @internal
