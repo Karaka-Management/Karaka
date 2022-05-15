@@ -5,7 +5,7 @@
         name="<?= $this->id; ?>-primary-<?= $this->counter; ?>"
         value="1" checked>
     <span class="checkmark"></span>
-    <?= $data[0]; ?>
+    <?= $data[1]; ?>
 </label>
-<?= $this->renderSort(...$data); ?>
-<?= $this->renderFilter(...$data); ?>
+<?= $data[2] !== '' ? $this->renderSort(...$data) : ''; ?>
+<?= $data[4] ? $this->renderFilter(...$data) : ''; ?>

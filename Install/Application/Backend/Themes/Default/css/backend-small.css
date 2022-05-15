@@ -9,8 +9,8 @@
   --input-background-active: rgba(255, 255, 255);
   --input-icon-color: rgba(54, 150, 219, .6);
   --input-icon-color-active: rgba(54, 150, 219, 1);
-  --button-main-background: rgba(166, 135, 232, .6);
-  --button-main-background-active: rgba(166, 135, 232, .8);
+  --button-main-background: #3697db;
+  --button-main-background-active: #4aabf0;
   --button-main-color: rgba(255, 255, 255, .9);
   --text-on-background-color: rgba(255, 255, 255, 0.7);
   --text-on-background-color-2: rgba(255, 255, 255, 0.85);
@@ -20,9 +20,6 @@
   --nav-sub-background: #343A40;
   --nav-sub-background-highlight: #3697db;
   --nav-sub-background-hover: rgb(42, 43, 48);
-  --nav-header-background: rgb(72, 39, 102);
-  --nav-header-background-highlight: #343A40;
-  --nav-header-background-hover: rgb(116, 67, 161);
   --nav-content-hover: #3697db;
   --font-family: 'Roboto', sans-serif;
   --button-colored-background: #3697db;
@@ -201,6 +198,29 @@ img.profile-image {
   height: 40px;
   border-radius: 50%;
   border: 2px solid #fff; }
+
+#iSearchType {
+  min-width: 50px;
+  background: var(--button-colored-background);
+  color: var(--text-on-background-color-2);
+  width: auto;
+  height: 32px;
+  border: none; }
+  #iSearchType::-moz-focus-inner {
+    border: 0; }
+  #iSearchType:hover, #iSearchType:focus {
+    background: var(--button-colored-background-hover); }
+  #iSearchType label {
+    color: var(--text-on-background-color-2); }
+  #iSearchType .dropdown-closed {
+    justify-content: center;
+    padding: 0 1rem 0 1rem; }
+  #iSearchType .dropdown-container {
+    background: var(--button-colored-background);
+    border: 0;
+    white-space: nowrap; }
+    #iSearchType .dropdown-container label:hover, #iSearchType .dropdown-container label:focus {
+      background: var(--button-colored-background-hover); }
 
 #app-message-container {
   position: absolute;

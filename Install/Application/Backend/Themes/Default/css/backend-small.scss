@@ -216,6 +216,44 @@ img.profile-image {
     border: 2px solid #fff;
 }
 
+#iSearchType {
+    min-width: 50px;
+    background: var(--button-colored-background);
+    color: var(--text-on-background-color-2);
+    width: auto;
+    height: 32px;
+    border: none;
+
+    &::-moz-focus-inner {
+        border: 0;
+    }
+
+    &:hover, &:focus {
+        background: var(--button-colored-background-hover);
+    }
+
+    label {
+        color: var(--text-on-background-color-2);
+    }
+
+    .dropdown-closed {
+        justify-content: center;
+        padding: 0 1rem 0 1rem;
+    }
+
+    .dropdown-container {
+        background: var(--button-colored-background);
+        border: 0;
+        white-space: nowrap;
+
+        label {
+            &:hover, &:focus {
+                background: var(--button-colored-background-hover);
+            }
+        }
+    }
+}
+
 #app-message-container {
     position: absolute;
     margin: 0 auto;

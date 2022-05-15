@@ -4,17 +4,17 @@
     <div class="popup">
         <ul>
             <li><?= $this->getHtml('Filter', '0', '0'); ?>
-            <?php if ($data[1] === 'text') : ?>
+            <?php if ($data[2] === 'text') : ?>
             <li>
                 <input type="text" name="<?= $this->id; ?>-filter-<?= $this->counter; ?>-f1">
-            <?php elseif ($data[1] === 'select') : ?>
+            <?php elseif ($data[2] === 'select') : ?>
             <li>
                 <select name="<?= $this->id; ?>-filter-<?= $this->counter; ?>-f2" multiple>
-                    <?php foreach ($data[2] as $value => $option) : ?>
+                    <?php foreach ($data[3] as $value => $option) : ?>
                         <option value="<?= $value; ?>"><?= $option; ?>
                     <?php endforeach; ?>
                 </select>
-            <?php elseif ($data[1] === 'number' || $data[1] === 'date'): ?>
+            <?php elseif ($data[2] === 'number' || $data[2] === 'date'): ?>
             <li>
                 <select name="<?= $this->id; ?>-filter-<?= $this->counter; ?>-o1">
                     <option>=
@@ -23,7 +23,7 @@
                     <option><=
                     <option><
                 </select>
-                <?php if ($data[1] === 'number') : ?>
+                <?php if ($data[2] === 'number') : ?>
                     <input type="text" name="<?= $this->id; ?>-filter-<?= $this->counter; ?>-f3">
                 <?php else : ?>
                     <input type="date" name="<?= $this->id; ?>-filter-<?= $this->counter; ?>-f4">
@@ -37,7 +37,7 @@
                     <option><=
                     <option><
                 </select>
-                <?php if ($data[1] === 'number') : ?>
+                <?php if ($data[2] === 'number') : ?>
                     <input type="text" name="<?= $this->id; ?>-filter-<?= $this->counter; ?>-f5">
                 <?php else : ?>
                     <input type="date" name="<?= $this->id; ?>-filter-<?= $this->counter; ?>-f6">

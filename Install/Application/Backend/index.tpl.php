@@ -89,7 +89,25 @@ $dispatch = $this->getData('dispatch') ?? [];
             <form id="s-bar" method="GET" action="<?= UriFactory::build('{/api}search?{?}&app=Backend&csrf={$CSRF}'); ?>&search={!#iSearchBox}">
                 <label class="ham-trigger" for="nav-trigger"><i class="fa fa-bars p"></i></label>
                 <span role="search" class="inputWrapper">
-                    <button type="button"><i class="fa fa-map-marker"></i></button>
+                    <label id="iSearchType" for="iSearchType-check" class="dropdown search-type">
+                        <div class="dropdown-closed">
+                            <input id="iSearchType-e1" name="dropdown" type="radio" checked>
+                            <label for="iSearchType-check"><i class="fa fa-map-marker"></i></label>
+
+                            <input id="iSearchType-e2" name="dropdown" type="radio">
+                            <label for="iSearchType-check"><i class="fa fa-globe"></i></label>
+                        </div>
+                        <input id="iSearchType-check" type="checkbox">
+                        <div class="dropdown-container">
+                            <div class="dropdown-search"></div>
+                            <div class="dropdown-content">
+                                <label for="iSearchType-e1"><i class="fa fa-map-marker"></i> Page</label>
+                                <label for="iSearchType-e2"><i class="fa fa-globe"></i> Global</label>
+                                <label for="iSearchType-check">Close</label>
+                            </div>
+                        </div>
+                    </label>
+
                     <span class="textWrapper">
                         <input id="iSearchBox" name="search" type="text" autocomplete="off" autofocus>
                         <i class="frontIcon fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
