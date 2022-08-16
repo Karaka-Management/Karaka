@@ -190,6 +190,6 @@
 [submodule "Modules/QualityControl"]
 	path = Modules/QualityControl
 	url = https://github.com/Karaka-Management/oms-QualityControl.git
-[submodule "Tools/OCRImageOptimizer"]
-	path = Tools/OCRImageOptimizer
-	url = https://github.com/Karaka-Management/OCRImageOptimizer.git
+[submodule "Tools/OCRImageOptimizerApp"]
+	path = Tools/OCRImageOptimizerApp
+	url = https://github.com/Karaka-Management/OCRImageOptimizerApp.git
