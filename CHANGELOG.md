@@ -14,7 +14,6 @@
 * Form inline and external save, update, add implemented (no API calls implemented yet)
 * Allow users to edit table column visibility (e.g. hide information they are not interested in) (no API calls necessary)
 
-
 ## March 2022
 
 ### New

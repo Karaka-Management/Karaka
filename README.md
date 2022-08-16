@@ -56,7 +56,7 @@ General updates can be found in our info section at https://karaka.app/info and 
 ## Tech stack
 
 * Language: php, js, c++, html, css, markdown, shell script
-* Database: Maria/MySQL, PostgreSQL, MSSQL, SQLite
+* Database: Maria/MySQL, PostgreSQL, MSSQL/SQLSrv, SQLite
 * Webserver: apache2, nginx
 * Cache: Redis, Memcached
 
