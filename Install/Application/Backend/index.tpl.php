@@ -45,7 +45,7 @@ $dispatch = $this->getData('dispatch') ?? [];
 
     <link rel="manifest" href="<?= UriFactory::build('Web/Backend/manifest.json'); ?>">
     <link rel="manifest" href="<?= UriFactory::build('Web/Backend/manifest.webmanifest'); ?>">
-    <link rel="shortcut icon" href="<?= UriFactory::build('Web/Backend/img/favicon.ico'); ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= UriFactory::build('Web/Backend/img/favicon.ico?v=1.0.0'); ?>" type="image/x-icon">
 
     <title><?= $this->printHtml($head->title); ?></title>
 
@@ -110,8 +110,8 @@ $dispatch = $this->getData('dispatch') ?? [];
 
                     <span class="textWrapper">
                         <input id="iSearchBox" name="search" type="text" autocomplete="off" autofocus>
-                        <i class="frontIcon fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
-                        <i class="endIcon fa fa-times fa-lg fa-fw" aria-hidden="true"></i>
+                        <i class="frontIcon lni lni-search-alt" aria-hidden="true"></i>
+                        <i class="endIcon lni lni-close" aria-hidden="true"></i>
                     </span>
                     <input type="submit" id="iSearchButton" name="searchButton" value="<?= $this->getHtml('Search', '0', '0'); ?>">
                 </span>

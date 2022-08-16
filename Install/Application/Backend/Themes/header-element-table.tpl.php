@@ -1,11 +1,14 @@
-<label class="checkbox" for="<?= $this->id; ?>-primary-<?= $this->counter; ?>">
-    <input id="<?= $this->id; ?>-primary-<?= $this->counter; ?>"
+<label class="checkbox" for="<?= $this->id; ?>-p-<?= $this->counter; ?>">
+    <?php if ($data[6]) : ?>
+    <input id="<?= $this->id; ?>-p-<?= $this->counter; ?>"
         class="oms-ui-state"
         type="checkbox"
-        name="<?= $this->id; ?>-primary-<?= $this->counter; ?>"
+        name="<?= $this->id; ?>-p-<?= $data[0]; ?>"
+        form="<?= $this->id; ?>-search"
         value="1" checked>
-    <span class="checkmark"></span>
+        <span class="checkmark"></span>
+    <?php endif; ?>
     <?= $data[1]; ?>
 </label>
-<?= $data[2] !== '' ? $this->renderSort(...$data) : ''; ?>
-<?= $data[4] ? $this->renderFilter(...$data) : ''; ?>
+<?= $data[4] ? $this->renderSort(...$data) : ''; ?>
+<?= $data[5] ? $this->renderFilter(...$data) : ''; ?>

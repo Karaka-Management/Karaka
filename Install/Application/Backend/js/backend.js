@@ -55,7 +55,22 @@ export class Application
         this.readManager     = new ReadManager();
         this.voiceManager    = new VoiceManager(this);
         this.notifyManager   = new NotificationManager();
-        this.request         = new HttpUri(window.location.href);
+        this.request         = null;
+
+        this.reInit();
+
+        this.setupServiceWorker();
+        this.setResponseMessages();
+        this.setVoiceActions();
+        this.setActions();
+        this.setKeyboardActions();
+        this.setMouseActions();
+        this.setPopstate();
+    };
+
+    reInit()
+    {
+        this.request = new HttpUri(window.location.href);
 
         this.request.setRootPath(
             HttpUri.parseUrl(
@@ -63,18 +78,17 @@ export class Application
             ).path
         );
 
-        this.setResponseMessages();
-
-        this.setActions();
-        this.setKeyboardActions();
-        this.setMouseActions();
-        this.setVoiceActions();
-
         UriFactory.setupUriBuilder(this.request);
         UriFactory.setQuery('/lang', window.location.href.substr(this.request.getBase().length).split('/')[0]);
 
         this.uiManager.bind();
-        this.setupServiceWorker();
+    };
+
+    setPopstate()
+    {
+        window.addEventListener('popstate', function (event, state) {
+            window.location.href = window.location.href;
+        });
     };
 
     /**

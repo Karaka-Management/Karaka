@@ -34,7 +34,7 @@
   --badge-size: .55rem;
   --badge-color: rgb(255, 255, 255);
   --badge-background: #3697db;
-  --box-border: #ebedf2;
+  --box-border: rgba(72, 71, 114, 0.3);
   --box-highlight: #3697db;
   --color-blue: #3697db;
   --color-red: #e74c3c;
@@ -74,8 +74,7 @@ main {
     align-items: center;
     flex-flow: row;
     flex-shrink: 0;
-    height: 65px;
-    box-shadow: 0 0 3px 1px rgba(72, 71, 114, 0.3); }
+    height: 65px; }
     main > header > form {
       display: flex;
       flex: 1;

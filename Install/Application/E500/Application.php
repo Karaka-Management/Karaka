@@ -96,7 +96,7 @@ final class Application
 
         $head    = new Head();
         $baseUri = $request->uri->getBase();
-        $head->addAsset(AssetType::CSS, $baseUri . 'cssOMS/styles.css');
+        $head->addAsset(AssetType::CSS, $baseUri . 'cssOMS/styles.css?v=1.0.0');
 
         $pageView->setData('head', $head);
     }

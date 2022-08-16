@@ -349,14 +349,16 @@ final class Application
     private function initResponseHead(Head $head, HttpRequest $request, HttpResponse $response) : void
     {
         /* Load assets */
-        $head->addAsset(AssetType::CSS, 'Resources/fonts/fontawesome/css/font-awesome.min.css');
-        $head->addAsset(AssetType::CSS, 'cssOMS/styles.css');
-        $head->addAsset(AssetType::CSS, 'Resources/fonts/Roboto/roboto.css');
+        $head->addAsset(AssetType::CSS, 'Resources/fonts/fontawesome/css/font-awesome.min.css?v=1.0.0');
+        $head->addAsset(AssetType::CSS, 'Resources/fonts/linearicons/css/style.css?v=1.0.0');
+        $head->addAsset(AssetType::CSS, 'Resources/fonts/lineicons/css/lineicons.css?v=1.0.0');
+        $head->addAsset(AssetType::CSS, 'cssOMS/styles.css?v=1.0.0');
+        $head->addAsset(AssetType::CSS, 'Resources/fonts/Roboto/roboto.css?v=1.0.0');
 
         // Framework
-        $head->addAsset(AssetType::JS, 'jsOMS/Utils/oLib.js');
-        $head->addAsset(AssetType::JS, 'jsOMS/UnhandledException.js');
-        $head->addAsset(AssetType::JS, 'Web/Backend/js/backend.js', ['type' => 'module']);
+        $head->addAsset(AssetType::JS, 'jsOMS/Utils/oLib.js?v=1.0.0');
+        $head->addAsset(AssetType::JS, 'jsOMS/UnhandledException.js?v=1.0.0');
+        $head->addAsset(AssetType::JS, 'Web/Backend/js/backend.js?v=1.0.0', ['type' => 'module']);
 
         $script = '';
         $response->header->set(
@@ -368,7 +370,7 @@ final class Application
         );
 
         if ($request->hasData('debug')) {
-            $head->addAsset(AssetType::CSS, 'cssOMS/debug.css');
+            $head->addAsset(AssetType::CSS, 'cssOMS/debug.css?v=1.0.0');
             \phpOMS\DataStorage\Database\Query\Builder::$log = true;
         }
 

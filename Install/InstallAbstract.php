@@ -342,7 +342,6 @@ abstract class InstallAbstract extends ApplicationAbstract
         $app->eventManager->importFromFile(__DIR__ . '/../Web/Api/Hooks.php');
 
         $toInstall = [
-            'Workflow',
             'Organization',
             'Help',
             'Profile',

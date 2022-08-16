@@ -46,6 +46,13 @@ class TableView extends View
 
     protected int $counter = 0;
 
+    protected array $objects = [];
+
+    public function setObjects(array $objects) : void
+    {
+        $this->objects = $objects;
+    }
+
     public function setTitleTemplate(string $template, string $extension = 'tpl.php') : void
     {
         $this->titleTemplate = self::BASE_PATH . $template . '.' . $extension;
@@ -86,14 +93,9 @@ class TableView extends View
         $this->columns = $columns;
     }
 
-    public function getPreviousLink(
-        string $base,
-        RequestAbstract $request,
-        object $obj = null,
-        bool $hasPrevious = false
-    ) : string
+    public function getPreviousLink(RequestAbstract $request, object $obj = null, bool $hasPrevious = false) : string
     {
-        return $base . (
+        return $this->baseUri . (
             $obj === null
             ? '?element={?element}&sort_by={?sort_by}&sort_order={?sort_order}'
                 . (!empty($request->getData('search'))
@@ -111,14 +113,9 @@ class TableView extends View
         );
     }
 
-    public function getNextLink(
-        string $base,
-        RequestAbstract $request,
-        object $obj = null,
-        $hasNext = false
-    ) : string
+    public function getNextLink(RequestAbstract $request, object $obj = null, $hasNext = false) : string
     {
-        return $base . (
+        return $this->baseUri . (
             $obj === null
             ? '?element={?element}&sort_by={?sort_by}&sort_order={?sort_order}'
                 . (!empty($request->getData('search'))
@@ -137,11 +134,10 @@ class TableView extends View
     }
 
     public function getSearchLink(
-        string $base,
         string $id
     ) : string
     {
-        return $base . '?sort_by={?sort_by}&sort_order={?sort_order}';
+        return $this->baseUri . '?sort_by={?sort_by}&sort_order={?sort_order}';
     }
 
     /**
@@ -153,11 +149,10 @@ class TableView extends View
         return parent::render();
     }
 
-    public function renderTableTitle(...$data) : string
+    public function renderTitle(...$data) : string
     {
         $data[0] ??= 'ERROR'; // string
-        $data[1] ??= false; // has search
-        $data[2] ??= false; // has export
+        $data[1] ??= true; // render search
 
         return $this->renderTemplate($this->titleTemplate, ...$data);
     }
@@ -170,7 +165,9 @@ class TableView extends View
         $data[1] ??= 'ERROR'; // string
         $data[2] ??= 'text'; // filter type, '' = don't render
         $data[3] ??= []; // filter options
-        $data[4] ??= true;
+        $data[4] ??= true; // render sort
+        $data[5] ??= true; // render filter
+        $data[6] ??= true; // render search
 
         return $this->renderTemplate($this->columnHeaderElementTemplate, ...$data);
     }
