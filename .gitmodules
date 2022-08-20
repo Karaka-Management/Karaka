@@ -193,3 +193,6 @@
 [submodule "Tools/OCRImageOptimizerApp"]
 	path = Tools/OCRImageOptimizerApp
 	url = https://github.com/Karaka-Management/OCRImageOptimizerApp.git
+[submodule "Tools/TestReportGenerator"]
+	path = Tools/TestReportGenerator
+	url = https://github.com/Karaka-Management/TestReportGenerator.git
