@@ -12,7 +12,7 @@
         "friendsofphp/php-cs-fixer": ">=3.8",
         "squizlabs/php_codesniffer": ">=3.6",
         "phpmd/phpmd": ">=2.9",
-        "phpstan/phpstan": ">=1.5.4",
+        "phpstan/phpstan": ">=1.8.6",
         "phan/phan": ">=3.2.6",
         "phploc/phploc": "^7.0",
         "phpmetrics/phpmetrics": "^2.8"

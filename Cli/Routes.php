@@ -11,4 +11,10 @@
             'verb' => 16,
         ],
     ],
+    '^.*/admin/monitoring/log.*$' => [
+        0 => [
+            'dest' => '\Modules\Monitoring\Controller\CliController:cliLogReport',
+            'verb' => 2,
+        ],
+    ],
 ];

@@ -143,13 +143,13 @@ class TableView extends View
     /**
      * {@inheritdoc}
      */
-    public function render(...$data) : string
+    public function render(mixed ...$data) : string
     {
         $this->id = $data[0];
         return parent::render();
     }
 
-    public function renderTitle(...$data) : string
+    public function renderTitle(mixed ...$data) : string
     {
         $data[0] ??= 'ERROR'; // string
         $data[1] ??= true; // render search
@@ -157,7 +157,7 @@ class TableView extends View
         return $this->renderTemplate($this->titleTemplate, ...$data);
     }
 
-    public function renderHeaderElement(...$data) : string
+    public function renderHeaderElement(mixed ...$data) : string
     {
         ++$this->counter;
 
@@ -172,17 +172,17 @@ class TableView extends View
         return $this->renderTemplate($this->columnHeaderElementTemplate, ...$data);
     }
 
-    public function renderExport(...$data) : string
+    public function renderExport(mixed ...$data) : string
     {
         return $this->renderTemplate($this->exportTemplate, ...$data);
     }
 
-    public function renderFilter(...$data) : string
+    public function renderFilter(mixed ...$data) : string
     {
         return $this->renderTemplate($this->filterTemplate, ...$data);
     }
 
-    public function renderSort(...$data) : string
+    public function renderSort(mixed ...$data) : string
     {
         return $this->renderTemplate($this->sortTemplate, ...$data);
     }
