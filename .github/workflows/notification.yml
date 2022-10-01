@@ -1,6 +1,6 @@
 name: Notification
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   notification:

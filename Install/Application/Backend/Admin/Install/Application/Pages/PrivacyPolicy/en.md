@@ -70,4 +70,4 @@ We reserve the right, at Our sole discretion, to modify or replace these POLICIE
 By continuing to access or use Our SERVICE after those revisions become effective, You agree to be bound by the revised policies. If You do not agree to the new policies, in whole or in part, please stop using the WEBSITE and the SERVICE.
 
 ## Contact
-For questions regarding these POLICIES please feel free to contact us at info@karaka.email
+For questions regarding these POLICIES please feel free to contact us at info@jingga.app

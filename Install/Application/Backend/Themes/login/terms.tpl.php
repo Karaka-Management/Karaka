@@ -77,7 +77,7 @@ declare(strict_types=1);
     <p>By continuing to access or use Our SERVICE after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the WEBSITE and the SERVICE.</p>
 
     <h2>Contact</h2>
-    <p>For questions regarding these TERMS, privacy policies, or practices of any third party websites or services please feel free to contact us at info@karaka.email. You further acknowledge and agree that the COMPANY shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such websites or services.</p>
+    <p>For questions regarding these TERMS, privacy policies, or practices of any third party websites or services please feel free to contact us at info@jingga.app. You further acknowledge and agree that the COMPANY shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such websites or services.</p>
     <p>We strongly advise You to read the terms and conditions and privacy policies of any third-party web sites or services that You visit.</p>
 
     <h2>Termination</h2>
@@ -109,7 +109,7 @@ declare(strict_types=1);
     <p>By continuing to access or use Our SERVICE after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the WEBSITE and the SERVICE.</p>
 
     <h2>Contact</h2>
-    <p>For questions regarding these TERMS please feel free to contact us at info@karaka.email</p>
+    <p>For questions regarding these TERMS please feel free to contact us at info@jingga.app</p>
 </article>
 </main>
 <?php include __DIR__ . '/foot.tpl.php'; ?>

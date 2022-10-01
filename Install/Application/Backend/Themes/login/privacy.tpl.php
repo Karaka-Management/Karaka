@@ -92,7 +92,7 @@ declare(strict_types=1);
     <p>By continuing to access or use Our SERVICE after those revisions become effective, You agree to be bound by the revised policies. If You do not agree to the new policies, in whole or in part, please stop using the WEBSITE and the SERVICE.</p>
 
     <h2>Contact</h2>
-    <p>For questions regarding these POLICIES please feel free to contact us at info@karaka.email</p>
+    <p>For questions regarding these POLICIES please feel free to contact us at info@jingga.app</p>
     </article>
 </main>
 <?php include __DIR__ . '/foot.tpl.php'; ?>
