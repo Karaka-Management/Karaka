@@ -51,7 +51,7 @@ class BaseView extends View
     /**
      * Add exporter to the table
      *
-     * @param string     $type Exporter type
+     * @param string     $type  Exporter type
      * @param Collection $media Media to the exporter
      *
      * @return void
