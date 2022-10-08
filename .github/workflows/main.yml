@@ -31,14 +31,10 @@ jobs:
     - name: Push changes
       if: steps.git-check.outputs.modified == 'true'
       run: |
-        pwd
-        echo $(git diff-index HEAD --)
         git config --global user.name 'Build Bot'
         git config --global user.email 'build.bot@karaka.app'
         git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }}
         git add *.css
-        git add *.scss
-        git status
         git commit -m "Automatic css build" || true
         git push || true
   code-tests:
@@ -111,7 +107,7 @@ jobs:
         platform: [x86, x64]
         os: [ubuntu-latest]
     runs-on: '${{ matrix.os }}'
-    name: 'Test: ${{ matrix.os }} / ${{ matrix.platform }}'
+    name: 'cOMS Test: ${{ matrix.os }} / ${{ matrix.platform }}'
     steps:
     - name: Checkout
       uses: actions/checkout@main
@@ -120,11 +116,11 @@ jobs:
         submodules: recursive
         token: ${{ secrets.GH_PAT }}
     - name: Set up GCC
-      uses: ./
+      uses: egor-tensin/setup-gcc@v1
       with:
+        version: latest
         platform: '${{ matrix.platform }}'
-        cc: 1
-    - name: tests
+    - name: Run tests
       run: |
         chmod +x ./cOMS/tests/test.sh
         ./cOMS/tests/test.sh
@@ -248,12 +244,12 @@ jobs:
       run: if [[ $(grep -r -L "declare(strict_types=1);" --include=*.php --exclude={*.tpl.php,*Hooks.php,*Routes.php,*SearchCommands.php} ./phpOMS ./Web ./Modules ./Model) -ne "" ]]; then exit 1; fi
     - name: Html inspection
       run: |
-        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(\<img)((?!.*?alt=).)*(>)') -ne "" ]]; then exit 1; fi
-        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(<input)((?!.*?type=).)*(>)') -ne "" ]]; then exit 1; fi
-        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(<input|<select|<textarea)((?!.*?name=).)*(>)') -ne "" ]]; then exit 1; fi
-        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(style=)') -ne "" ]]; then exit 1; fi
-        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(value|title|alt|aria\-label)(=\")((?!\<\?).)*(>)') -ne "" ]]; then exit 1; fi
-        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs grep -P '(\<td\>|\<th\>|\<caption\>|\<label.*?(\"|l)\>)) -ne "" ]]; then exit 1; fi
+        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs sed -z 's/\n/,/g;s/,$/\n/' | grep -zoP '(\<img)((?!.*?alt=).){0,1000}(\"|>|d)(>)') -ne "" ]]; then exit 1; fi
+        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs sed -z 's/\n/,/g;s/,$/\n/' | grep -zoP '(<input)((?!.*?type=).){0,1000}(\"|>|d)(>)') -ne "" ]]; then exit 1; fi
+        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs sed -z 's/\n/,/g;s/,$/\n/' | grep -zoP '(<input|<select|<textarea)((?!.*?name=).){0,1000}(\"|>|d)(>)') -ne "" ]]; then exit 1; fi
+        if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs sed -z 's/\n/,/g;s/,$/\n/' | grep -zoP '(\<td\\>|\<th\\>|\<caption\\>|\<label.*?(\"|l)\\>)') -ne "" ]]; then exit 1; fi
+      #  if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs sed -z 's/\n/,/g;s/,$/\n/' | grep -zoP '(style=)') -ne "" ]]; then exit 1; fi
+      #  if [[ $(find ./Web ./Install ./Modules -name "*tpl.php" | xargs sed -z 's/\n/,/g;s/,$/\n/' | grep -zoP '(value|title|alt|aria\-label)(=\")((?!\<\?).){0,1000}("|>|d)(>)') -ne "" ]]; then exit 1; fi
     - name: Js inspection
       run: |
         if [[ $(grep -rlni "onafterprint=\|onbeforeprint=\|onbeforeunload=\|onerror=\|onhaschange=\|onload=\|onmessage=\|onoffline=\|ononline=\|onpagehide=\|onpageshow=\|onpopstate=\|onredo=\|onresize=\|onstorage=\|onund=o\|onunload=\|onblur=\|onchage=\|oncontextmenu=\|onfocus=\|onformchange=\|onforminput=\|oninput=\|oninvalid=\|onreset=\|onselect=\|onsubmit=\|onkeydown=\|onkeypress=\|onkeyup=\|onclick=\|ondblclic=k\|ondrag=\|ondragend=\|ondragenter=\|ondragleave=\|ondragover=\|ondragstart=\|ondrop=\|onmousedown=\|onmousemove=\|onmouseout=\|onmouseover=\|onmouseup=\|onmousewheel=\|onscroll=\|onabor=t\|oncanplay=\|oncanplaythrough=\|ondurationchange=\|onemptied=\|onended=\|onerror=\|onloadeddata=\|onloadedmetadata=\|onloadstart=\|onpause=\|onplay=\|onplaying=\|onprogress=\|onratechange=\|onreadystatechange=\|onseeked=\|onseeking=\|onstalled=\|onsuspend=\|ontimeupdate=\|onvolumechange=" --include=*.js ./jsOMS ./Modules ./Web) -ne "" ]]; then exit 1; fi

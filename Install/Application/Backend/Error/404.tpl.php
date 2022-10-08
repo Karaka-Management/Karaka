@@ -21,7 +21,7 @@ use phpOMS\Uri\UriFactory;
 
 <!--
 <div class="centerText box">
-    <div><img src="<?= UriFactory::build('Web/Backend/img/inline_404.svg'); ?>" width="30%"></div>
+    <div><img alt="404 error image" src="<?= UriFactory::build('Web/Backend/img/inline_404.svg'); ?>" width="30%"></div>
 </div>
 -->
 <div class="centerText box">

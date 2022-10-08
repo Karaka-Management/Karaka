@@ -4,7 +4,7 @@
     <div class="popup">
         <ul>
             <li>
-                <input id="id1" type="checkbox">
+                <input id="id1" type="checkbox" name="">
                 <ul>
                     <li>
                         <label for="id1">
@@ -19,7 +19,7 @@
             <li><a href="" class="button">PDF</a>
             <li><a href="" class="button">Word</a>
             <li>
-                <input id="id2" type="checkbox">
+                <input id="id2" type="checkbox" name="">
                 <ul>
                     <li>
                         <label for="id2">

@@ -23,7 +23,7 @@
             <label for="<?= $dropdownId; ?>"><?= $element['text']; ?></label>
         <?php endforeach; ?>
     </div>
-    <input id="<?= $dropdownId; ?>" type="checkbox">
+    <input id="<?= $dropdownId; ?>" type="checkbox" name="dropdown-visibility-<?= $dropdownId; ?>">
     <div class="dropdown-container">
         <div class="dropdown-search"></div>
         <div class="dropdown-content">

@@ -48,7 +48,17 @@ class BaseView extends View
         $this->setTemplate('/Web/Backend/Themes/Backend/popup-additional-function');
     }
 
-    public function addExporter(string $type, Collection $media)
+    /**
+     * Add exporter to the table
+     *
+     * @param string     $type Exporter type
+     * @param Collection $media Media to the exporter
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function addExporter(string $type, Collection $media) : void
     {
         $this->exporter[$type][] = $media;
     }

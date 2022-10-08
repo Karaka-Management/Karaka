@@ -97,7 +97,7 @@ $dispatch = $this->getData('dispatch') ?? [];
                             <input id="iSearchType-e2" name="dropdown" type="radio">
                             <label for="iSearchType-check"><i class="fa fa-globe"></i></label>
                         </div>
-                        <input id="iSearchType-check" type="checkbox">
+                        <input id="iSearchType-check" type="checkbox" name="dropdown-visibility-iSearchType-check">
                         <div class="dropdown-container">
                             <div class="dropdown-search"></div>
                             <div class="dropdown-content">
