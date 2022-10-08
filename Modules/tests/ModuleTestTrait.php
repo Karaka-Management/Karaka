@@ -113,7 +113,7 @@ trait ModuleTestTrait
             $columns = $class::COLUMNS;
 
             foreach ($columns as $cName => $column) {
-                if (!\in_array($column['type'], ['int', 'string', 'DateTime', 'DateTimeImmutable', 'Json', 'Serializable', 'bool', 'float'])) {
+                if (!\in_array($column['type'], ['int', 'string', 'compress', 'DateTime', 'DateTimeImmutable', 'Json', 'Serializable', 'bool', 'float'])) {
                     self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" has invalid type');
                 }
 
@@ -177,7 +177,7 @@ trait ModuleTestTrait
                 // testing correct mapper/model variable type definition
                 $property = $defaultProperties[$column['internal']] ?? null;
                 if (!($property === null /* not every value is allowed to be null but this just has to be correctly implemented in the mapper, no additional checks for this case! */
-                    || (\is_string($property) && $column['type'] === 'string')
+                    || (\is_string($property) && ($column['type'] === 'string' || $column['type'] === 'compress'))
                     || (\is_int($property) && $column['type'] === 'int')
                     || (\is_array($property) && ($column['type'] === 'Json' || $column['type'] === 'Serializable' || $isArray))
                     || (\is_bool($property) && $column['type'] === 'bool')
@@ -236,6 +236,8 @@ trait ModuleTestTrait
                     || \stripos($column['type'] ?? '', 'VARCHAR') === 0
                     || \stripos($column['type'] ?? '', 'VARBINARY') === 0
                     || \stripos($column['type'] ?? '', 'TEXT') === 0
+                    || \stripos($column['type'] ?? '', 'LONGTEXT') === 0
+                    || \stripos($column['type'] ?? '', 'BLOB') === 0
                     || \stripos($column['type'] ?? '', 'DATETIME') === 0
                     || \stripos($column['type'] ?? '', 'DECIMAL') === 0
                 )) {
@@ -325,7 +327,9 @@ trait ModuleTestTrait
                 if (!(($column['type'] === 'string'
                         && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
                             || \stripos($db[$table]['fields'][$cName]['type'], 'VARBINARY') === 0
-                            || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0))
+                            || \stripos($db[$table]['fields'][$cName]['type'], 'BLOB') === 0
+                            || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0
+                            || \stripos($db[$table]['fields'][$cName]['type'], 'LONGTEXT') === 0))
                     || ($column['type'] === 'int'
                         && (\stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0
                             || \stripos($db[$table]['fields'][$cName]['type'], 'SMALLINT') === 0
@@ -333,7 +337,10 @@ trait ModuleTestTrait
                             || \stripos($db[$table]['fields'][$cName]['type'], 'BIGINT') === 0))
                     || ($column['type'] === 'Json'
                         && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
+                            || \stripos($db[$table]['fields'][$cName]['type'], 'LONGTEXT') === 0
                             || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0))
+                    || ($column['type'] === 'compress'
+                        && (\stripos($db[$table]['fields'][$cName]['type'], 'BLOB') === 0))
                     || ($column['type'] === 'Serializable')
                     || ($column['type'] === 'bool' && \stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0)
                     || ($column['type'] === 'float' && \stripos($db[$table]['fields'][$cName]['type'], 'DECIMAL') === 0)
