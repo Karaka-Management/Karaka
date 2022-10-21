@@ -240,9 +240,9 @@ class WebApplication extends ApplicationAbstract
 
         if ($appName !== 'E500') {
             UriFactory::setQuery(
-                '/prefix', 
-                empty(UriFactory::getQuery('/prefix') 
-                    ? '' 
+                '/prefix',
+                empty(UriFactory::getQuery('/prefix')
+                    ? ''
                     : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement($subDirDepth + 1) . '/'
             );
 
@@ -256,10 +256,10 @@ class WebApplication extends ApplicationAbstract
 
             if ($appName !== 'E500') {
                 UriFactory::setQuery(
-                    '/prefix', 
-                    empty(UriFactory::getQuery('/prefix') 
-                          ? '' 
-                          : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement($subDirDepth + 1) . '/'
+                    '/prefix',
+                    empty(UriFactory::getQuery('/prefix')
+                        ? ''
+                        : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement($subDirDepth + 1) . '/'
                 );
 
                 return $appName;
