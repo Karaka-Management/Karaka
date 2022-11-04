@@ -15,6 +15,18 @@ body {
     display: flex;
 }
 
+body > nav {
+    width: 250px;
+    overflow-y: auto;
+    font-size: 0.8em;
+    background: var(--nav-category-background);
+    color: rgba(255, 255, 255, 0.8);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+}
+
 main {
     display: flex;
     flex-direction: column;
