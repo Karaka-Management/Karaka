@@ -46,18 +46,20 @@ final class WebApplication extends InstallAbstract
     /**
      * Constructor.
      *
-     * @param array $config Core config
-     *
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function __construct(array $config)
+    public function __construct()
     {
         $this->setupHandlers();
 
-        $this->logger = FileLogger::getInstance($config['log']['file']['path'], false);
-        $request      = $this->initRequest($config['page']['root'], $config['language'][0]);
-        $response     = $this->initResponse($request, $config['language']);
+        if (!\is_dir(__DIR__ . '/../Logs')) {
+            \mkdir(__DIR__ . '/../Logs');
+        }
+
+        $this->logger = FileLogger::getInstance(__DIR__ . '/../Logs', false);
+        $request      = $this->initRequest();
+        $response     = $this->initResponse($request, ['en', 'de']);
 
         UriFactory::setupUriBuilder($request->uri);
 
@@ -70,17 +72,19 @@ final class WebApplication extends InstallAbstract
     /**
      * Initialize current application request
      *
-     * @param string $rootPath Web root path
-     * @param string $language Fallback language
-     *
      * @return HttpRequest Initial client request
      *
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    private function initRequest(string $rootPath, string $language) : HttpRequest
+    private function initRequest() : HttpRequest
     {
-        $request     = HttpRequest::createFromSuperglobals();
+        $request = HttpRequest::createFromSuperglobals();
+
+        $rootPath = $request->uri->getPath();
+        $offset   = \strripos($rootPath, '/');
+        $rootPath = \substr($rootPath, -$offset);
+
         $subDirDepth = \substr_count($rootPath, '/');
 
         $request->createRequestHashs($subDirDepth);
@@ -89,7 +93,7 @@ final class WebApplication extends InstallAbstract
 
         $langCode = \strtolower($request->uri->getPathElement(0));
         $request->header->l11n->setLanguage(
-            empty($langCode) || !ISO639x1Enum::isValidValue($langCode) ? $language : $langCode
+            empty($langCode) || !ISO639x1Enum::isValidValue($langCode) ? 'en' : $langCode
         );
         UriFactory::setQuery('/lang', $request->getLanguage());
 
