@@ -55,7 +55,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     <script><?= $head->renderScript(); ?></script>
 </head>
 <body>
-<div class="vh" id="dim"></div>
+    <div class="vh" id="dim"></div>
     <input type="checkbox" id="nav-trigger" name="nav-hamburger" class="nav-trigger">
     <nav id="nav-side">
         <span id="u-box">
@@ -137,14 +137,14 @@ $dispatch = $this->getData('dispatch') ?? [];
             ?>
         </div>
     </main>
-<div id="app-message-container">
-    <template id="app-message-tpl">
-        <div class="log-msg">
-            <h1 class="log-msg-title"></h1><i class="close fa fa-times"></i>
-            <div class="log-msg-content"></div>
-        </div>
-    </template>
-</div>
+    <div id="app-message-container">
+        <template id="app-message-tpl">
+            <div class="log-msg">
+                <h1 class="log-msg-title"></h1><i class="close fa fa-times"></i>
+                <div class="log-msg-content"></div>
+            </div>
+        </template>
+    </div>
 
 <template id="table-context-menu-tpl">
     <div id="table-context-menu" class="context-menu">
