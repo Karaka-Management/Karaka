@@ -17,10 +17,9 @@ declare(strict_types=1);
 
 //<editor-fold desc="Require/Include">
 require_once __DIR__ . '/../phpOMS/Autoloader.php';
-$config = require_once __DIR__ . '/../config.php';
 //</editor-fold>
 
-$App = new \Install\WebApplication($config);
+$App = new \Install\WebApplication();
 
 if (\ob_get_level() > 0) {
     \ob_end_flush();
