@@ -80,6 +80,11 @@ jobs:
         fetch-depth: 1
         submodules: recursive
         token: ${{ secrets.GH_PAT }}
+    - name: Create mssql/sqlsrv
+      uses: potatoqualitee/mssqlsuite@v1.5.1
+      with:
+        install: sqlengine, sqlclient, sqlpackage, localdb
+        sa-password: c0MplicatedP@ssword
     - name: Setup PHP, with composer and extensions
       uses: shivammathur/setup-php@master
       with:
