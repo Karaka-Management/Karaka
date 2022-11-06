@@ -56,8 +56,8 @@ class WebApplication extends ApplicationAbstract
 
             $this->logger = FileLogger::getInstance($config['log']['file']['path'], false);
 
-            UriFactory::setQuery('/prefix', '');
-            UriFactory::setQuery('/api', 'api/');
+            UriFactory::setQuery('/prefix', '', true);
+            UriFactory::setQuery('/api', 'api/', true);
             $applicationName = $this->getApplicationName(HttpUri::fromCurrent(), $config['app'], $config['page']['root']);
             $request         = $this->initRequest($config['page']['root'], $config['app']);
             $response        = $this->initResponse($request, $config);
@@ -191,21 +191,26 @@ class WebApplication extends ApplicationAbstract
         }
 
         $defaultLang = $config['app']['domains'][$request->uri->host]['lang'] ?? $config['app']['default']['lang'];
-        $uriLang     = \strtolower($request->uri->getPathElement(0));
+
+        $uriLang = \strtolower($request->uri->getPathElement(0));
+        $uriLang = ISO639x1Enum::isValidValue($uriLang) && \in_array($uriLang, $config['language'])
+            ? $uriLang
+            : \strtolower($request->uri->getPathElement(0, false));
+
         $requestLang = $request->getLanguage();
-        $langCode    = ISO639x1Enum::isValidValue($requestLang) && \in_array($requestLang, $config['language'])
-            ? $requestLang
-            : (ISO639x1Enum::isValidValue($uriLang) && \in_array($uriLang, $config['language'])
-                ? $uriLang
+        $langCode    = ISO639x1Enum::isValidValue($uriLang) && \in_array($uriLang, $config['language'])
+            ? $uriLang
+            : (ISO639x1Enum::isValidValue($requestLang) && \in_array($requestLang, $config['language'])
+                ? $requestLang
                 : $defaultLang
             );
 
         $response->header->l11n->loadFromLanguage($langCode, \explode('_', $request->getLocale())[1] ?? '*');
-        UriFactory::setQuery('/lang', $request->getLanguage());
+        UriFactory::setQuery('/lang', $request->getLanguage(), true);
 
         if (ISO639x1Enum::isValidValue($uriLang)) {
-            UriFactory::setQuery('/prefix',  $uriLang . '/' . (empty(UriFactory::getQuery('/prefix')) ? '' : UriFactory::getQuery('/prefix')));
-            UriFactory::setQuery('/api',  $uriLang . '/' . (empty(UriFactory::getQuery('/api')) ? '' : UriFactory::getQuery('/api')));
+            UriFactory::setQuery('/prefix',  $uriLang . '/' . (empty(UriFactory::getQuery('/prefix')) ? '' : UriFactory::getQuery('/prefix')), true);
+            UriFactory::setQuery('/api',  $uriLang . '/' . (empty(UriFactory::getQuery('/api')) ? '' : UriFactory::getQuery('/api')), true);
         }
 
         return $response;
@@ -243,7 +248,8 @@ class WebApplication extends ApplicationAbstract
                 '/prefix',
                 empty(UriFactory::getQuery('/prefix')
                     ? ''
-                    : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement($subDirDepth + 1) . '/'
+                    : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement($subDirDepth + 1) . '/',
+                true
             );
 
             return $appName;
@@ -259,7 +265,8 @@ class WebApplication extends ApplicationAbstract
                     '/prefix',
                     empty(UriFactory::getQuery('/prefix')
                         ? ''
-                        : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement($subDirDepth + 1) . '/'
+                        : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement($subDirDepth + 1) . '/',
+                    true
                 );
 
                 return $appName;

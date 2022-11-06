@@ -59,6 +59,13 @@ jobs:
         ports:
         - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
+      mssql:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        env:
+          SA_PASSWORD: c0MplicatedP@ssword
+          ACCEPT_EULA: 'Y'
+        ports:
+          - 1433:1433
       redis:
         image: redis
         ports:
@@ -80,16 +87,11 @@ jobs:
         fetch-depth: 1
         submodules: recursive
         token: ${{ secrets.GH_PAT }}
-    - name: Create mssql/sqlsrv
-      uses: potatoqualitee/mssqlsuite@v1.5.1
-      with:
-        install: sqlengine, sqlclient, sqlpackage, localdb
-        sa-password: c0MplicatedP@ssword
     - name: Setup PHP, with composer and extensions
       uses: shivammathur/setup-php@master
       with:
           php-version: ${{ matrix.php-versions }}
-          extensions: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached
+          extensions: mbstring, gd, zip, dom, mysql, pgsql, sqlite, imap, bcmath, redis, memcached, sqlsrv
           ini-values: opcache.jit_buffer_size=256M, opcache.jit=1235, pcre.jit=1
           coverage: pcov
     - name: Get Composer Cache Directory
