@@ -18,5 +18,6 @@
     },
     "description": "The api application.",
     "directory": "Api",
-    "dependencies": {}
+    "dependencies": {
+    }
 }

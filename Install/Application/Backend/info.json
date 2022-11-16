@@ -19,5 +19,6 @@
     },
     "description": "The backend application.",
     "directory": "Backend",
-    "dependencies": {}
+    "dependencies": {
+    }
 }

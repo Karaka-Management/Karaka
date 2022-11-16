@@ -56,7 +56,6 @@ class WebApplication extends ApplicationAbstract
 
             $this->logger = FileLogger::getInstance($config['log']['file']['path'], false);
 
-            UriFactory::setQuery('/prefix', '', true);
             UriFactory::setQuery('/api', 'api/', true);
             $applicationName = $this->getApplicationName(HttpUri::fromCurrent(), $config['app'], $config['page']['root']);
             $request         = $this->initRequest($config['page']['root'], $config['app']);
@@ -209,7 +208,6 @@ class WebApplication extends ApplicationAbstract
         UriFactory::setQuery('/lang', $request->getLanguage(), true);
 
         if (ISO639x1Enum::isValidValue($uriLang)) {
-            UriFactory::setQuery('/prefix',  $uriLang . '/' . (empty(UriFactory::getQuery('/prefix')) ? '' : UriFactory::getQuery('/prefix')), true);
             UriFactory::setQuery('/api',  $uriLang . '/' . (empty(UriFactory::getQuery('/api')) ? '' : UriFactory::getQuery('/api')), true);
         }
 
@@ -244,14 +242,6 @@ class WebApplication extends ApplicationAbstract
         $appName = $this->getApplicationNameFromString($appName);
 
         if ($appName !== 'E500') {
-            UriFactory::setQuery(
-                '/prefix',
-                empty(UriFactory::getQuery('/prefix')
-                    ? ''
-                    : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement($subDirDepth + 1) . '/',
-                true
-            );
-
             return $appName;
         }
 
@@ -261,14 +251,6 @@ class WebApplication extends ApplicationAbstract
             $appName = $this->getApplicationNameFromString($appName);
 
             if ($appName !== 'E500') {
-                UriFactory::setQuery(
-                    '/prefix',
-                    empty(UriFactory::getQuery('/prefix')
-                        ? ''
-                        : UriFactory::getQuery('/prefix') . '/') . $uri->getPathElement($subDirDepth + 1) . '/',
-                    true
-                );
-
                 return $appName;
             }
         }

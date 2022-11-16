@@ -78,6 +78,8 @@ final class Application
      */
     public function run(HttpRequest $request, HttpResponse $response) : void
     {
+        $this->app->l11nManager = new L11nManager($this->app->appName);
+
         $pageView = new View($this->app->l11nManager, $request, $response);
         $pageView->setTemplate('/Web/E500/index');
         $response->set('Content', $pageView);
@@ -88,15 +90,12 @@ final class Application
             throw new PathException($oldPath);
         }
 
-        $this->app->l11nManager = new L11nManager($this->app->appName);
-
         /** @noinspection PhpIncludeInspection */
         $themeLanguage = include $path;
         $this->app->l11nManager->loadLanguage($response->getLanguage(), '0', $themeLanguage);
 
-        $head    = new Head();
-        $baseUri = $request->uri->getBase();
-        $head->addAsset(AssetType::CSS, $baseUri . 'cssOMS/styles.css?v=1.0.0');
+        $head = new Head();
+        $head->addAsset(AssetType::CSS, 'cssOMS/styles.css?v=1.0.0');
 
         $pageView->setData('head', $head);
     }

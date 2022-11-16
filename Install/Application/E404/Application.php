@@ -14,10 +14,12 @@ declare(strict_types=1);
 
 namespace Web\E404;
 
+use phpOMS\Asset\AssetType;
 use phpOMS\Localization\L11nManager;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\Http\RequestStatusCode;
+use phpOMS\Model\Html\Head;
 use phpOMS\System\File\PathException;
 use phpOMS\Views\View;
 use Web\WebApplication;
@@ -76,6 +78,8 @@ final class Application
      */
     public function run(HttpRequest $request, HttpResponse $response) : void
     {
+        $this->app->l11nManager = new L11nManager($this->app->appName);
+
         $pageView = new View($this->app->l11nManager, $request, $response);
         $pageView->setTemplate('/Web/E404/index');
 
@@ -84,13 +88,16 @@ final class Application
             throw new PathException($oldPath);
         }
 
-        $this->app->l11nManager = new L11nManager($this->app->appName);
-
         /** @noinspection PhpIncludeInspection */
         $themeLanguage = include $path;
         $this->app->l11nManager->loadLanguage($response->getLanguage(), '0', $themeLanguage);
 
         $response->set('Content', $pageView);
         $response->header->status = RequestStatusCode::R_404;
+
+        $head = new Head();
+        $head->addAsset(AssetType::CSS, 'cssOMS/styles.css?v=1.0.0');
+
+        $pageView->setData('head', $head);
     }
 }

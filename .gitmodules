@@ -196,3 +196,6 @@
 [submodule "Tools/TestReportGenerator"]
 	path = Tools/TestReportGenerator
 	url = https://github.com/Karaka-Management/TestReportGenerator.git
+[submodule "Modules/OnlineResourceWatcher"]
+	path = Modules/OnlineResourceWatcher
+	url = https://github.com/Karaka-Management/oms-OnlineResourceWatcher.git

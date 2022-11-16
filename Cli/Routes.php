@@ -17,4 +17,10 @@
             'verb' => 2,
         ],
     ],
+    '^.*/workflow/instance.*$' => [
+        0 => [
+            'dest' => '\Modules\Workflow\Controller\CliController:cliWorkflowInstanceCreate',
+            'verb' => 2,
+        ],
+    ],
 ];

@@ -41,6 +41,7 @@ use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Model\Html\Head;
 use phpOMS\Module\ModuleManager;
+use phpOMS\Router\RouteStatus;
 use phpOMS\Router\RouteVerb;
 use phpOMS\Router\WebRouter;
 use phpOMS\System\File\PathException;
@@ -153,7 +154,7 @@ final class Application
         $request->header->account  = $aid;
         $response->header->account = $aid;
 
-        $account = $this->loadAccount($request);
+        $account = $this->loadAccount($aid);
 
         if (!($account instanceof NullAccount)) {
             $response->header->l11n = $account->l11n;
@@ -259,17 +260,7 @@ final class Application
             RouteVerb::GET
         );
 
-        $routed = $this->app->router->route(
-            $request->uri->getRoute(),
-            $request->getData('CSRF'),
-            $request->getRouteVerb(),
-            $this->app->appName,
-            $this->app->orgId,
-            $account,
-            $request->getData()
-        );
-
-        $dispatched = $this->app->dispatcher->dispatch($routed, $request, $response);
+        $dispatched = $this->routeDispatching($request, $response, $account);
 
         if (empty($dispatched)) {
             $response->header->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
@@ -286,17 +277,64 @@ final class Application
     }
 
     /**
+     * Initialize response head
+     *
+     * @param HttpRequest  $request  Request
+     * @param HttpResponse $response Response
+     * @param Account      $account  Account
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    private function routeDispatching(HttpRequest $request, HttpResponse $response, Account $account) : array
+    {
+        $routes = $this->app->router->route(
+            $request->uri->getRoute(),
+            $request->getData('CSRF'),
+            $request->getRouteVerb(),
+            $this->app->appName,
+            $this->app->orgId,
+            $account,
+            $request->getData()
+        );
+
+        if ($routes === ['dest' => RouteStatus::INVALID_CSRF]
+            || $routes === ['dest' => RouteStatus::INVALID_PERMISSIONS]
+            || $routes === ['dest' => RouteStatus::INVALID_DATA]
+        ) {
+            return $this->app->dispatcher->dispatch(
+                $this->app->router->route(
+                    '/' . \strtolower($this->app->appName) . '/e403',
+                    $request->getData('CSRF'),
+                    $request->getRouteVerb()
+                ),
+                $request, $response);
+        } elseif ($routes === ['dest' => RouteStatus::NOT_LOGGED_IN]) {
+            return $this->app->dispatcher->dispatch(
+                $this->app->router->route(
+                    '/' . \strtolower($this->app->appName) . '/login',
+                    $request->getData('CSRF'),
+                    $request->getRouteVerb()
+                ),
+                $request, $response);
+        } else {
+            return $this->app->dispatcher->dispatch($routes, $request, $response);
+        }
+    }
+
+    /**
      * Load permission
      *
-     * @param HttpRequest $request Current request
+     * @param int $uid User id
      *
      * @return Account
      *
      * @since 1.0.0
      */
-    private function loadAccount(HttpRequest $request): Account
+    private function loadAccount(int $uid): Account
     {
-        $account = AccountMapper::getWithPermissions($request->header->account);
+        $account = AccountMapper::getWithPermissions($uid);
         $this->app->accountManager->add($account);
 
         return $account;
