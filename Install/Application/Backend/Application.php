@@ -17,7 +17,8 @@ namespace Web\Backend;
 use Model\CoreSettings;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\LocalizationMapper;
-use Modules\Admin\Models\NullAccount;
+use Modules\Admin\Models\NullAccount as ModelsNullAccount;
+use phpOMS\Account\NullAccount;
 use Modules\Media\Models\MediaMapper;
 use Modules\Organization\Models\UnitMapper;
 use Modules\Profile\Models\ProfileMapper;
@@ -346,6 +347,11 @@ final class Application
     private function loadAccount(int $uid) : Account
     {
         $account = AccountMapper::getWithPermissions($uid);
+
+        if ($account instanceof ModelsNullAccount) {
+            $account = new NullAccount();
+        }
+
         $this->app->accountManager->add($account);
 
         return $account;

@@ -20,7 +20,8 @@ use Model\CoreSettings;
 use Modules\Admin\Models\SettingsEnum;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\LocalizationMapper;
-use Modules\Admin\Models\NullAccount;
+use Modules\Admin\Models\NullAccount as ModelsNullAccount;
+use phpOMS\Account\NullAccount;
 use Modules\Admin\Models\PermissionCategory;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
@@ -335,6 +336,11 @@ final class Application
     private function loadAccount(int $uid): Account
     {
         $account = AccountMapper::getWithPermissions($uid);
+
+        if ($account instanceof ModelsNullAccount) {
+            $account = new NullAccount();
+        }
+
         $this->app->accountManager->add($account);
 
         return $account;
