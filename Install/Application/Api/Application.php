@@ -17,14 +17,14 @@ declare(strict_types=1);
 namespace Web\Api;
 
 use Model\CoreSettings;
-use Modules\Admin\Models\SettingsEnum;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\LocalizationMapper;
 use Modules\Admin\Models\NullAccount as ModelsNullAccount;
-use phpOMS\Account\NullAccount;
 use Modules\Admin\Models\PermissionCategory;
+use Modules\Admin\Models\SettingsEnum;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
+use phpOMS\Account\NullAccount;
 use phpOMS\Account\PermissionType;
 use phpOMS\Application\ApplicationAbstract;
 use phpOMS\Application\ApplicationStatus;
@@ -105,7 +105,7 @@ final class Application
      *
      * @since 1.0.0
      */
-    public function run(HttpRequest $request, HttpResponse $response): void
+    public function run(HttpRequest $request, HttpResponse $response) : void
     {
         $response->header->set('Content-Type', 'text/plain; charset=utf-8');
         $pageView = new View($this->app->l11nManager, $request, $response);
@@ -182,7 +182,7 @@ final class Application
         ]);
 
         $appStatus = (int) ($this->app->appSettings->get(null, SettingsEnum::LOGIN_STATUS)->content ?? 0);
-        if ($appStatus === ApplicationStatus::READ_ONLY ||  $appStatus === ApplicationStatus::DISABLED) {
+        if ($appStatus === ApplicationStatus::READ_ONLY || $appStatus === ApplicationStatus::DISABLED) {
             if (!$account->hasPermission(PermissionType::CREATE | PermissionType::MODIFY, module: 'Admin', type: PermissionCategory::APP)) {
                 if ($request->getRouteVerb() !== RouteVerb::GET) {
                     // Application is in read only mode or completely disabled
@@ -212,7 +212,7 @@ final class Application
         // add tpl loading
         $this->app->router->add(
             '/api/tpl/.*',
-            function () use ($account, $request, $response): void {
+            function () use ($account, $request, $response) : void {
                 $appName = \ucfirst($request->getData('app') ?? 'Backend');
                 $app     = new class() extends ApplicationAbstract
                 {
@@ -333,7 +333,7 @@ final class Application
      *
      * @since 1.0.0
      */
-    private function loadAccount(int $uid): Account
+    private function loadAccount(int $uid) : Account
     {
         $account = AccountMapper::getWithPermissions($uid);
 
@@ -357,7 +357,7 @@ final class Application
      *
      * @since 1.0.0
      */
-    private function handleBatchRequest(string $uris, HttpRequest $request, HttpResponse $response): void
+    private function handleBatchRequest(string $uris, HttpRequest $request, HttpResponse $response) : void
     {
         $request_r = clone $request;
         $uris      = \json_decode($uris, true);
@@ -389,7 +389,7 @@ final class Application
      *
      * @since 1.0.0
      */
-    private function getApplicationOrganization(HttpRequest $request, array $config): int
+    private function getApplicationOrganization(HttpRequest $request, array $config) : int
     {
         return (int) ($request->getData('u') ?? ($config['domains'][$request->uri->host]['org'] ?? $config['default']['org']));
     }
@@ -404,7 +404,7 @@ final class Application
      *
      * @since 1.0.0
      */
-    private function loadLanguageFromPath(string $language, string $path): void
+    private function loadLanguageFromPath(string $language, string $path) : void
     {
         /* Load theme language */
         if (($absPath = \realpath($path)) === false) {
