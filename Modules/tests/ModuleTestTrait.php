@@ -53,14 +53,14 @@ trait ModuleTestTrait
             protected string $appName = 'Api';
         };
 
-        $this->app->dbPool        = $GLOBALS['dbpool'];
-        $this->app->router        = new WebRouter();
-        $this->app->dispatcher    = new Dispatcher($this->app);
-        $this->app->appSettings   = new CoreSettings();
-        $this->app->moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
+        $this->app->dbPool         = $GLOBALS['dbpool'];
+        $this->app->router         = new WebRouter();
+        $this->app->dispatcher     = new Dispatcher($this->app);
+        $this->app->appSettings    = new CoreSettings();
+        $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
         $this->app->sessionManager = new HttpSession(0);
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
-        $this->app->eventManager  = new EventManager($this->app->dispatcher);
+        $this->app->eventManager   = new EventManager($this->app->dispatcher);
     }
 
     /**
