@@ -13,8 +13,8 @@ require_once __DIR__ . '/Autoloader.php';
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 use phpOMS\DataStorage\Session\HttpSession;
-use phpOMS\System\File\Local\Directory;
 use phpOMS\Log\FileLogger;
+use phpOMS\System\File\Local\Directory;
 
 Directory::delete(__DIR__ . '/../Modules/Media/Files');
 Directory::create(__DIR__ . '/../Modules/Media/Files');
