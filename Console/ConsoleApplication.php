@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Console;
 
 use phpOMS\Application\ApplicationAbstract;
-use phpOMS\Autoloader;
 
 /**
  * Application class.
