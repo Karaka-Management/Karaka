@@ -16,9 +16,11 @@ namespace Modules\tests;
 
 use Model\CoreSettings;
 use Modules\Admin\Models\ModuleStatusUpdateType;
+use phpOMS\Account\AccountManager;
 use phpOMS\Application\ApplicationAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
+use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
 use phpOMS\Message\Http\HttpRequest;
@@ -56,6 +58,8 @@ trait ModuleTestTrait
         $this->app->dispatcher    = new Dispatcher($this->app);
         $this->app->appSettings   = new CoreSettings();
         $this->app->moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
+        $this->app->sessionManager = new HttpSession(0);
+        $this->app->accountManager = new AccountManager($this->app->sessionManager);
         $this->app->eventManager  = new EventManager($this->app->dispatcher);
     }
 
