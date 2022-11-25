@@ -23,7 +23,7 @@ $IS_GITHUB = false;
 
 $temp = \array_keys($_SERVER);
 foreach ($temp as $key) {
-    if (\stripos(\strtolower($key), 'github') !== false) {
+    if (\is_string($key) && \stripos(\strtolower($key), 'github') !== false) {
         $IS_GITHUB = true;
 
         break;
@@ -32,7 +32,7 @@ foreach ($temp as $key) {
 
 if (!$IS_GITHUB) {
     foreach ($_SERVER as $value) {
-        if (\stripos(\strtolower($value), 'github') !== false) {
+        if (\is_string($value) && \stripos(\strtolower($value), 'github') !== false) {
             $IS_GITHUB = true;
 
             break;
@@ -43,7 +43,7 @@ if (!$IS_GITHUB) {
 $temp = \array_keys(\getenv());
 if (!$IS_GITHUB) {
     foreach ($temp as $key) {
-        if (\stripos(\strtolower($key), 'github') !== false) {
+        if (\is_string($key) && \stripos(\strtolower($key), 'github') !== false) {
             $IS_GITHUB = true;
 
             break;
@@ -54,7 +54,7 @@ if (!$IS_GITHUB) {
 $temp = \array_values(\getenv());
 if (!$IS_GITHUB) {
     foreach ($temp as $value) {
-        if (\stripos(\strtolower($value), 'github') !== false) {
+        if (\is_string($value) && \stripos(\strtolower($value), 'github') !== false) {
             $IS_GITHUB = true;
 
             break;

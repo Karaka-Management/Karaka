@@ -54,6 +54,9 @@
       <group>maybe</group>
     </exclude>
   </groups>
+  <extensions>
+    <extension class="tests\SlowTestsAlert" />
+  </extensions>
   <php>
     <const name="WEB_SERVER_HOST" value="localhost"/>
     <const name="WEB_SERVER_PORT" value="1234"/>
