@@ -124,10 +124,10 @@ class BackendView extends View
     public function getProfileImage() : string
     {
         if (($this->profile instanceof NullProfile) || $this->profile->image->getPath() === '') {
-            return UriFactory::build('' . $this->defaultProfileImage->getPath());
+            return UriFactory::build($this->defaultProfileImage->getPath());
         }
 
-        return UriFactory::build('' . $this->profile->image->getPath());
+        return UriFactory::build($this->profile->image->getPath());
     }
 
     /**

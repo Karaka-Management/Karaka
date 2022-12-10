@@ -1,10 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 use phpOMS\Uri\UriFactory;
+
 ?>
 <label for="<?= $this->id; ?>-sort-<?= $this->counter; ?>-up">
     <?php if ($this->exportUri !== '') : ?>
-        <a href="<?= UriFactory::build('{/base}{/}{?}&element=' . $this->id . '&sort_by=' . $data[1] . '&sort_order=ASC'); ?>">
+        <a href="<?= UriFactory::build('{/lang}/{/app}/{/base}{/}{?}&element=' . $this->id . '&sort_by=' . $data[1] . '&sort_order=ASC'); ?>">
     <?php endif; ?>
         <input
         id="<?= $this->id; ?>-sort-<?= $this->counter; ?>-up"
@@ -23,7 +24,7 @@ use phpOMS\Uri\UriFactory;
 
     <label for="<?= $this->id; ?>-sort-<?= $this->counter; ?>-down">
     <?php if ($this->exportUri !== '') : ?>
-        <a href="<?= UriFactory::build('{/base}{/}{?}&element=' . $this->id . '&sort_by=' . $data[1] . '&sort_order=DESC'); ?>">
+        <a href="<?= UriFactory::build('{/lang}/{/app}/{/base}{/}{?}&element=' . $this->id . '&sort_by=' . $data[1] . '&sort_order=DESC'); ?>">
     <?php endif; ?>
         <input
         id="<?= $this->id; ?>-sort-<?= $this->counter; ?>-down"

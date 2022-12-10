@@ -423,7 +423,7 @@ final class Application
 
         $css = \preg_replace('!\s+!', ' ', $css);
         $head->setStyle('core', $css ?? '');
-        $head->title = 'Karaka Backend';
+        $head->title = 'Jingga Backend';
     }
 
     /**

@@ -3,9 +3,9 @@
     "dir": "ltr",
     "start_url": "../../en/backend",
     "type": "privileged",
-    "name": "OMS Backend",
+    "name": "Jingga Backend",
     "description": "Karaka backend application.",
-    "short_name": "OMS",
+    "short_name": "Jingga",
     "icons": [
         {
             "src": "img/icon-72x72.png",

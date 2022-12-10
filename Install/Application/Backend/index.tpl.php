@@ -59,7 +59,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     <input type="checkbox" id="nav-trigger" name="nav-hamburger" class="nav-trigger">
     <nav id="nav-side">
         <span id="u-box">
-            <a href="<?= UriFactory::build('profile/single?{?}&id=' . $this->profile->getId()); ?>">
+            <a href="<?= UriFactory::build('{/lang}/{/app}/profile/single?{?}&id=' . $this->profile->getId()); ?>">
                 <img alt="<?= $this->getHtml('User', '0', '0'); ?>" loading="lazy" src="<?= $this->getProfileImage(); ?>">
             </a>
             <span id="logo" itemscope itemtype="http://schema.org/Organization">
