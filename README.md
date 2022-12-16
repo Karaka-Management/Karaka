@@ -49,7 +49,7 @@ You can find a freely available online demo at https://demo.karaka.app (user: ad
 
 Currently Karaka is still developing the first Alpha version. As soon as we have a running Beta version we are allowing external testers to use our software and a selected amount of inhouse developed modules.
 
-General updates can be found in our info section at https://karaka.app/info and developer updates can be found in our developer section at https://karaka.app/dev. In our developer section you can also check out the automatically generated reports such as code coverage, code style, static analysis etc. as well as our code style guide lines and developer documentation.
+General updates can be found in our info section at https://jingga.app/info and developer updates can be found in our developer section at https://jingga.app/dev. In our developer section you can also check out the automatically generated reports such as code coverage, code style, static analysis etc. as well as our code style guide lines and developer documentation.
 
 * [Project Status](https://github.com/Karaka-Management/Organization-Guide/blob/master/Project/PROJECT.md)
 
@@ -69,7 +69,7 @@ Karaka has a very open culture and we always welcome new people who share our ph
 * End-User documentation: https://github.com/Karaka-Management/Documentation
 * Developer documentation: https://github.com/Karaka-Management/Developer-Guide
 * Organization documentation: https://github.com/Karaka-Management/Organization-Guide
-* Website: [https://karaka.app](https://karaka.app)
-* Demo: [https://karaka.app](https://karaka.app) (user: admin, pass: orange)
-* Dev: [https://karaka.app/dev](https://karaka.app/dev)
+* Website: [https://jingga.app](https://jingga.app)
+* Demo: [https://jingga.app](https://jingga.app) (user: admin, pass: orange)
+* Dev: [https://jingga.app/dev](https://jingga.app/dev)
 * Contact: dennis@karaka.app

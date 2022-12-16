@@ -1,6 +1,6 @@
 /* TEAM */
 Karaka
-Site: https://karaka.app
+Site: https://jingga.app
 Location: Frankfurt, Germany
 
 /* SITE */

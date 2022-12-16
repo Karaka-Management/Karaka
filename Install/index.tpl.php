@@ -8,7 +8,7 @@
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
- * @link      https://karaka.app
+ * @link      https://jingga.app
  */
 declare(strict_types=1);
 
@@ -87,7 +87,7 @@ declare(strict_types=1);
                 <p>All non critical elements can be fixed after installation if you find yourself in need of one of the
                 features. All critical elements must be fixed before you can continue with the installation.</p>
 
-                <p>For help please check our <a href="https://karaka.app">Installation Guide</a>.</p>
+                <p>For help please check our <a href="https://jingga.app">Installation Guide</a>.</p>
                 <?php $isOK = \version_compare('8.0.0', \PHP_VERSION) < 1 && \extension_loaded('pdo'); ?>
                 <table>
                     <thead>
