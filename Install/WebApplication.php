@@ -228,7 +228,7 @@ final class WebApplication extends InstallAbstract
         self::clearOld();
         self::installConfigFile($request);
         self::installCore($db);
-        self::installGroups($db);
+        self::installGroups();
         self::installUsers($request, $db);
         self::installApplications($request, $db);
         self::installCoreModules($db);
@@ -263,7 +263,6 @@ final class WebApplication extends InstallAbstract
             //|| ($valid['iSelectPassword'] = empty($request->getData('selectpassword')))
             || ($valid['iDeleteUser'] = empty($request->getData('deleteuser')))
             //|| ($valid['iDeletePassword'] = empty($request->getData('deletepassword')))
-            || ($valid['iDbName'] = !self::testDbConnection($request))
             || ($valid['iOrgName'] = empty($request->getData('orgname')))
             || ($valid['iAdminName'] = empty($request->getData('adminname')))
             //|| ($valid['iAdminPassword'] = empty($request->getData('adminpassword')))

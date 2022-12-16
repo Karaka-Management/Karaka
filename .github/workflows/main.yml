@@ -59,13 +59,6 @@ jobs:
         ports:
         - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
-      mssql:
-        image: mcr.microsoft.com/mssql/server:2019-latest
-        env:
-          SA_PASSWORD: c0MplicatedP@ssword
-          ACCEPT_EULA: 'Y'
-        ports:
-          - 1433:1433
       redis:
         image: redis
         ports:
@@ -87,6 +80,16 @@ jobs:
         fetch-depth: 1
         submodules: recursive
         token: ${{ secrets.GH_PAT }}
+    - name: Setup mssql
+      uses: potatoqualitee/mssqlsuite@v1.7
+      with:
+        install: sqlengine, sqlpackage
+        version: 2017
+        sa-password: c0MplicatedP@ssword
+        show-log: true
+        collation: Latin1_General_BIN
+    - name: Run sqlcmd
+      run: sqlcmd -S localhost -U sa -P c0MplicatedP@ssword -Q "CREATE DATABASE oms;"
     - name: Setup PHP, with composer and extensions
       uses: shivammathur/setup-php@master
       with:
@@ -127,6 +130,10 @@ jobs:
       with:
         version: latest
         platform: '${{ matrix.platform }}'
+    - name: Install packages
+      run: |
+        sudo apt-get update
+        sudo apt-get install curl libcurl4-openssl-dev
     - name: Run tests
       run: |
         chmod +x ./cOMS/tests/test.sh

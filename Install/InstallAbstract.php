@@ -128,20 +128,6 @@ abstract class InstallAbstract extends ApplicationAbstract
     }
 
     /**
-     * Check if database connection is correct and working
-     *
-     * @param RequestAbstract $request Request
-     *
-     * @return bool
-     *
-     * @since 1.0.0
-     */
-    protected static function testDbConnection(RequestAbstract $request) : bool
-    {
-        return true;
-    }
-
-    /**
      * Create database connection
      *
      * @param RequestAbstract $request Request
@@ -404,28 +390,24 @@ abstract class InstallAbstract extends ApplicationAbstract
     /**
      * Install basic groups
      *
-     * @param ConnectionAbstract $db Database connection
-     *
      * @return void
      *
      * @since 1.0.0
      */
-    protected static function installGroups(ConnectionAbstract $db) : void
+    protected static function installGroups() : void
     {
-        self::installMainGroups($db);
-        self::installGroupPermissions($db);
+        self::installMainGroups();
+        self::installGroupPermissions();
     }
 
     /**
      * Create basic groups in db
      *
-     * @param ConnectionAbstract $db Database connection
-     *
      * @return void
      *
      * @since 1.0.0
      */
-    protected static function installMainGroups(ConnectionAbstract $db) : void
+    protected static function installMainGroups() : void
     {
         $guest = new Group('guest');
         $guest->setStatus(GroupStatus::ACTIVE);
@@ -443,13 +425,11 @@ abstract class InstallAbstract extends ApplicationAbstract
     /**
      * Set permissions of basic groups
      *
-     * @param ConnectionAbstract $db Database connection
-     *
      * @return void
      *
      * @since 1.0.0
      */
-    protected static function installGroupPermissions(ConnectionAbstract $db) : void
+    protected static function installGroupPermissions() : void
     {
         $searchPermission = new GroupPermission(
             group: 2,
