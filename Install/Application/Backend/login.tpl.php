@@ -13,6 +13,7 @@
 declare(strict_types=1);
 
 use phpOMS\Uri\UriFactory;
+
 ?>
 <?php include __DIR__ . '/Themes/login/head.tpl.php'; ?>
 <main>
