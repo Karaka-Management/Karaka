@@ -37,7 +37,7 @@ class BaseView extends View
      * @var array
      * @since 1.0.0
      */
-    private array $exporter;
+    protected array $exporter;
 
     /**
      * {@inheritdoc}

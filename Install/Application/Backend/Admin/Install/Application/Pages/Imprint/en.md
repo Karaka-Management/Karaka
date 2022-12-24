@@ -1,21 +1,28 @@
 # Imprint
-Karaka
 
-## Vertreten durch
+jingga
+
+**Represented by**
+
 Dennis Eichhorn
 
-## Kontakt
+**Contact**
+
 spl1nes.com@googlemail.com
 
-## Registereintrag
-Nicht vorhanden
+**Commercial register**
 
-## Umsatzsteuer-ID gemäß §27 a Umsatzsteuergesetz
-Nicht vorhanden
+Not available
 
-## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
-Karaka
+**VAT-ID according §27 a value added tax (Umsatzsteuergesetz)**
+
+Not available
+
+**Responsible for the content according to § 55 Abs. 2 RStV**
+
+jingga
 Dennis Eichhorn
 
-## Datenschutzbeauftragter
+**Data protection officer**
+
 spl1nes.com@googlemail.com

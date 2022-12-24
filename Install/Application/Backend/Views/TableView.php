@@ -45,6 +45,14 @@ class TableView extends View
     protected string $titleTemplate = '';
 
     /**
+     * Table base uri
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    protected string $baseUri = '';
+
+    /**
      * Table export template
      *
      * @var string
@@ -55,7 +63,7 @@ class TableView extends View
     /**
      * Table export templates for different exports
      *
-     * @var string
+     * @var array
      * @since 1.0.0
      */
     protected array $exportTemplates = [];
@@ -95,7 +103,7 @@ class TableView extends View
     /**
      * Table header counter template
      *
-     * @var string
+     * @var int
      * @since 1.0.0
      */
     protected int $counter = 0;
@@ -103,10 +111,18 @@ class TableView extends View
     /**
      * Table objects template
      *
-     * @var string
+     * @var array
      * @since 1.0.0
      */
     protected array $objects = [];
+
+    /**
+     * Table columns
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    protected array $columns = [];
 
     /**
      * Set objects for the table
@@ -154,7 +170,7 @@ class TableView extends View
     /**
      * Add export template
      *
-     * @param array $template Export template
+     * @param Media $template Export template
      *
      * @return void
      *
@@ -314,7 +330,7 @@ class TableView extends View
         string $id
     ) : string
     {
-        return $this->baseUri . '?sort_by={?sort_by}&sort_order={?sort_order}';
+        return $this->baseUri . '?sort_by={?sort_by}&sort_order={?sort_order}&element=' . $id;
     }
 
     /**

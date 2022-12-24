@@ -236,7 +236,7 @@ final class Application
      * @param HttpResponse $response Response
      * @param Account      $account  Account
      *
-     * @return void
+     * @return array
      *
      * @since 1.0.0
      */

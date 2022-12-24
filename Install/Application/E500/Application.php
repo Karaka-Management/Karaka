@@ -80,6 +80,10 @@ final class Application
     {
         $this->app->l11nManager = new L11nManager($this->app->appName);
 
+        if (!\in_array($response->getLanguage(), $this->config['language'])) {
+            $response->header->l11n->setLanguage('en');
+        }
+
         $pageView = new View($this->app->l11nManager, $request, $response);
         $pageView->setTemplate('/Web/E500/index');
         $response->set('Content', $pageView);

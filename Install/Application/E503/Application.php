@@ -76,6 +76,12 @@ final class Application
      */
     public function run(HttpRequest $request, HttpResponse $response) : void
     {
+        $this->app->l11nManager = new L11nManager($this->app->appName);
+
+        if (!\in_array($response->getLanguage(), $this->config['language'])) {
+            $response->header->l11n->setLanguage('en');
+        }
+
         $pageView = new View($this->app->l11nManager, $request, $response);
         $pageView->setTemplate('/Web/E503/index');
 
@@ -83,8 +89,6 @@ final class Application
         if (($path = \realpath($oldPath = __DIR__ . '/lang/' . $response->getLanguage() . '.lang.php')) === false) {
             throw new PathException($oldPath);
         }
-
-        $this->app->l11nManager = new L11nManager($this->app->appName);
 
         /** @noinspection PhpIncludeInspection */
         $themeLanguage = include $path;

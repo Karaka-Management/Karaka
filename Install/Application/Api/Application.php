@@ -174,6 +174,11 @@ final class Application
         }
 
         UriFactory::setQuery('/lang', $response->getLanguage());
+        $this->app->loadLanguageFromPath(
+            $response->getLanguage(),
+            __DIR__ . '/lang/' . $response->getLanguage() . '.lang.php'
+        );
+
         $response->header->set('content-language', $response->getLanguage(), true);
 
         // Cache general settings
@@ -183,7 +188,7 @@ final class Application
 
         $appStatus = (int) ($this->app->appSettings->get(null, SettingsEnum::LOGIN_STATUS)->content ?? 0);
         if ($appStatus === ApplicationStatus::READ_ONLY || $appStatus === ApplicationStatus::DISABLED) {
-            if (!$account->hasPermission(PermissionType::CREATE | PermissionType::MODIFY, module: 'Admin', type: PermissionCategory::APP)) {
+            if (!$account->hasPermission(PermissionType::CREATE | PermissionType::MODIFY, module: 'Admin', category: PermissionCategory::APP)) {
                 if ($request->getRouteVerb() !== RouteVerb::GET) {
                     // Application is in read only mode or completely disabled
                     // If read only mode is active only GET requests are allowed
@@ -284,7 +289,7 @@ final class Application
      * @param HttpResponse $response Response
      * @param Account      $account  Account
      *
-     * @return void
+     * @return array
      *
      * @since 1.0.0
      */
@@ -392,27 +397,5 @@ final class Application
     private function getApplicationOrganization(HttpRequest $request, array $config) : int
     {
         return (int) ($request->getData('u') ?? ($config['domains'][$request->uri->host]['org'] ?? $config['default']['org']));
-    }
-
-    /**
-     * Load theme language from path
-     *
-     * @param string $language Language name
-     * @param string $path     Language path
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    private function loadLanguageFromPath(string $language, string $path) : void
-    {
-        /* Load theme language */
-        if (($absPath = \realpath($path)) === false) {
-            throw new PathException($path);
-        }
-
-        /** @noinspection PhpIncludeInspection */
-        $themeLanguage = include $absPath;
-        $this->app->l11nManager->loadLanguage($language, '0', $themeLanguage);
     }
 }
