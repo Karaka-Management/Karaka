@@ -30,8 +30,7 @@ class ConsoleApplicationTest extends \PHPUnit\Framework\TestCase
     public function testConsoleApplication() : void
     {
         $console = new ConsoleApplication(
-        	[],
-        	$GLOBALS['CONFIG']
+            $GLOBALS['CONFIG']
         );
 
         self::assertInstanceOf('\Console\ConsoleApplication', $console);

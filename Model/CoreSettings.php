@@ -75,7 +75,7 @@ final class CoreSettings implements SettingsInterface
             }
 
             foreach ($names as $i => $name) {
-                $key = ($name ?? '')
+                $key = $name
                     . ':' . ($app ?? '')
                     . ':' . ($module ?? '')
                     . ':' . ($group ?? '')

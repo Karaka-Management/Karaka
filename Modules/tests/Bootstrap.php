@@ -265,6 +265,25 @@ $CONFIG = [
         'root'  => '/',
         'https' => false,
     ],
+    'app'      => [
+        'path'    => __DIR__,
+        'default' => [
+            'app'   => 'Backend',
+            'id'    => 'backend',
+            'lang'  => 'en',
+            'theme' => 'Backend',
+            'org'   => 1,
+        ],
+        'domains' => [
+            '127.0.0.1' => [
+                'app'   => 'Backend',
+                'id'    => 'backend',
+                'lang'  => 'en',
+                'theme' => 'Backend',
+                'org'   => 1,
+            ],
+        ],
+    ],
     'socket'   => [
         'master' => [
             'host'  => '127.0.0.1',
