@@ -19,6 +19,8 @@ Web/E[0-9]*
 Console/Routes.php
 Console/Hooks.php
 build
+temp
+tmp
 cookie.txt
 config.php
 coverage.xml
