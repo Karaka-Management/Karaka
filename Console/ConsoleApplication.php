@@ -82,11 +82,11 @@ class ConsoleApplication extends ApplicationAbstract
         $this->cookieJar      = new CookieJar();
         $this->cachePool      = new CachePool();
         $this->appSettings    = new CoreSettings();
+        $this->dispatcher     = new Dispatcher($this);
         $this->eventManager   = new EventManager($this->dispatcher);
         $this->accountManager = new AccountManager($this->sessionManager);
         $this->l11nServer     = LocalizationMapper::get()->where('id', 1)->execute();
         $this->moduleManager  = new ModuleManager($this, __DIR__ . '/../../Modules/');
-        $this->dispatcher     = new Dispatcher($this);
 
         $this->dbPool->create('select', $this->config['db']['core']['masters']['select']);
 

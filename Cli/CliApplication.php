@@ -205,6 +205,7 @@ final class CliApplication extends ApplicationAbstract
         $dispatched = $this->dispatcher->dispatch(
             $this->router->route(
                 $request->uri->getRoute(),
+                null,
                 $request->getRouteVerb(),
                 $this->appName,
                 $this->orgId,
