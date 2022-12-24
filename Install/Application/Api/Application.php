@@ -45,7 +45,6 @@ use phpOMS\Module\ModuleManager;
 use phpOMS\Router\RouteStatus;
 use phpOMS\Router\RouteVerb;
 use phpOMS\Router\WebRouter;
-use phpOMS\System\File\PathException;
 use phpOMS\System\MimeType;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
