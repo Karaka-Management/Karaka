@@ -185,7 +185,10 @@ final class Application
             SettingsEnum::LOGGING_STATUS, SettingsEnum::CLI_ACTIVE,
         ]);
 
-        $appStatus = (int) ($this->app->appSettings->get(null, SettingsEnum::LOGIN_STATUS)->content ?? 0);
+        /** @var \Model\Setting $setting */
+        $setting   = $this->app->appSettings->get(null, SettingsEnum::LOGIN_STATUS);
+        $appStatus = (int) ($setting->content ?? 0);
+
         if ($appStatus === ApplicationStatus::READ_ONLY || $appStatus === ApplicationStatus::DISABLED) {
             if (!$account->hasPermission(PermissionType::CREATE | PermissionType::MODIFY, module: 'Admin', category: PermissionCategory::APP)) {
                 if ($request->getRouteVerb() !== RouteVerb::GET) {
@@ -366,6 +369,11 @@ final class Application
         $request_r = clone $request;
         $uris      = \json_decode($uris, true);
 
+        if ($uris === false) {
+            return;
+        }
+
+        /** @var array $uris */
         foreach ($uris as $key => $uri) {
             //$request_r->init($uri);
 

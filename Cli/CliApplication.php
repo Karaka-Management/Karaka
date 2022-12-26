@@ -126,7 +126,7 @@ final class CliApplication extends ApplicationAbstract
         $request->header->account  = $aid;
         $response->header->account = $aid;
 
-        $this->orgId = $request->getData('u') ?? ($this->config['app']['default']['org'] ?? 1);
+        $this->orgId = (int) ($request->getData('u') ?? ($this->config['app']['default']['org'] ?? 1));
 
         $this->router->add(
             '/cli/e403',

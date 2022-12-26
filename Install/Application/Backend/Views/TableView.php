@@ -338,7 +338,9 @@ class TableView extends View
      */
     public function render(mixed ...$data) : string
     {
+        /** @var array{0:string} $data */
         $this->id = $data[0];
+
         return parent::render();
     }
 

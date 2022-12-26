@@ -290,6 +290,11 @@ abstract class InstallAbstract extends ApplicationAbstract
         }
 
         $definitions = \json_decode($content, true);
+        if ($definitions === false) {
+            return;
+        }
+
+        /** @var array $definitions */
         foreach ($definitions as $definition) {
             SchemaBuilder::createFromSchema($definition, $db)->execute();
         }

@@ -473,7 +473,10 @@ final class Application
         $pageView->setProfile(ProfileMapper::get()->where('account', $request->header->account)->execute());
         $pageView->setData('nav', $this->getNavigation($request, $response));
 
-        $profileImage                  = $this->app->appSettings->get(names: SettingsEnum::DEFAULT_PROFILE_IMAGE, module: 'Profile');
+        /** @var \Model\Setting $profileImage */
+        $profileImage = $this->app->appSettings->get(names: SettingsEnum::DEFAULT_PROFILE_IMAGE, module: 'Profile');
+
+        /** @var \Modules\Media\Models\Media $image */
         $image                         = MediaMapper::get()->where('id', (int) $profileImage->content)->execute();
         $pageView->defaultProfileImage = $image;
 
