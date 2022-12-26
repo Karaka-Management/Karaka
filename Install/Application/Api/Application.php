@@ -245,7 +245,7 @@ final class Application
                 $view->setTemplate('/Web/Api/index');
 
                 $response->set('Content', $view);
-                $response->get('Content')->setData('head', new Head());
+                $view->setData('head', new Head());
 
                 $app->l11nManager->loadLanguage(
                     $response->getLanguage(),
@@ -263,7 +263,7 @@ final class Application
                     $request->getData()
                 );
 
-                $response->get('Content')->setData('dispatch', $app->dispatcher->dispatch($routed, $request, $response));
+                $view->setData('dispatch', $app->dispatcher->dispatch($routed, $request, $response));
             },
             RouteVerb::GET
         );
