@@ -117,7 +117,7 @@ class ConsoleApplication extends ApplicationAbstract
 
         $routes = $this->router->route(
             $request->uri->getRoute(),
-            $request->getData('CSRF'),
+            $request->getData('CSRF', 'string'),
             $request->getRouteVerb(),
             $this->appName,
             $this->orgId,
