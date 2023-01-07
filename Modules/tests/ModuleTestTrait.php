@@ -696,7 +696,7 @@ trait ModuleTestTrait
                 }
 
                 $parts = \explode('.', $file);
-                $type = '';
+                $type  = '';
 
                 if (\strlen($parts[0]) === 2) {
                     $type = '';
@@ -707,7 +707,7 @@ trait ModuleTestTrait
                 if (!isset($langKeys[$type])) {
                     $langKeys[$type] = [
                         'required' => null,
-                        'keys' => [],
+                        'keys'     => [],
                     ];
                 }
 
