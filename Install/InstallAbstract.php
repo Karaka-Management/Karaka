@@ -50,6 +50,7 @@ use phpOMS\System\MimeType;
 use phpOMS\Uri\HttpUri;
 use phpOMS\Utils\IO\Zip\Zip;
 use phpOMS\Utils\TestUtils;
+use phpOMS\Application\ApplicationType;
 
 /**
  * Application class.
@@ -476,7 +477,39 @@ abstract class InstallAbstract extends ApplicationAbstract
      *
      * @since 1.0.0
      */
-    protected static function installApplications(RequestAbstract $request, ConnectionAbstract $db) : void
+    protected static function installLocalApplications(RequestAbstract $request, ConnectionAbstract $db) : void
+    {
+        if (self::$mManager === null) {
+            return;
+        }
+
+        $apps  = ['Console'];
+        $theme = 'Default';
+
+        /** @var \Modules\Admin\Controller\ApiController $module */
+        $module = self::$mManager->get('Admin');
+
+        foreach ($apps as $app) {
+            $temp                  = new HttpRequest(new HttpUri(''));
+            $temp->header->account = 1;
+            $temp->setData('name', $app);
+            $temp->setData('type', ApplicationType::CONSOLE);
+
+            $module->apiApplicationCreate($temp, new HttpResponse());
+        }
+    }
+
+    /**
+     * Install applications
+     *
+     * @param RequestAbstract    $request Request
+     * @param ConnectionAbstract $db      Database connection
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    protected static function installWebApplications(RequestAbstract $request, ConnectionAbstract $db) : void
     {
         if (self::$mManager === null) {
             return;
@@ -492,6 +525,7 @@ abstract class InstallAbstract extends ApplicationAbstract
             $temp                  = new HttpRequest(new HttpUri(''));
             $temp->header->account = 1;
             $temp->setData('name', \basename($app));
+            $temp->setData('type', ApplicationType::WEB);
             $temp->setData('theme', $theme);
 
             Zip::pack(__DIR__ . '/../' . $app, __DIR__ . '/' . \basename($app) . '.zip');

@@ -20,6 +20,7 @@ import { MOUSE_EVENTS } from './global/MouseEvents.js';
 import { RESPONSE_EVENTS } from './global/ResponseEvents.js';
 import { TOUCH_EVENTS } from './global/TouchEvents.js';
 import { VOICE_EVENTS } from './global/VoiceEvents.js';
+import { DEFAULT_EVENTS } from './global/DefaultEvents.js';
 
 /**
  * Application entry point
@@ -56,6 +57,10 @@ export class Application
         this.voiceManager    = new VoiceManager(this);
         this.notifyManager   = new NotificationManager();
         this.request         = null;
+
+        this.state = {
+            hasChanges: false,
+        };
 
         this.reInit();
 

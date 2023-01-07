@@ -230,7 +230,8 @@ final class WebApplication extends InstallAbstract
         self::installCore($db);
         self::installGroups();
         self::installUsers($request, $db);
-        self::installApplications($request, $db);
+        self::installWebApplications($request, $db);
+        self::installLocalApplications($request, $db);
         self::installCoreModules($db);
         self::configureCoreModules($request, $db);
 

@@ -142,6 +142,8 @@ $dispatch = $this->getData('dispatch') ?? [];
             <div class="log-msg">
                 <h1 class="log-msg-title"></h1><i class="close fa fa-times"></i>
                 <div class="log-msg-content"></div>
+                <a class="button primary-button"></a>
+                <a class="button secondary-button"></a>
             </div>
         </template>
     </div>
