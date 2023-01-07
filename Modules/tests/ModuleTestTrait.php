@@ -672,4 +672,81 @@ trait ModuleTestTrait
         $this->app->moduleManager->initRequestModules($request);
         self::assertTrue($this->app->moduleManager->isRunning(self::NAME));
     }
+
+    /**
+     * @group module
+     * @coversNothing
+     */
+    public function testLanguage() : void
+    {
+        $required = ['en', 'de'];
+
+        $langKeys = [];
+
+        $themes = \scandir($module::PATH . '/Theme');
+        foreach ($themes as $theme) {
+            if ($theme === '.' || $theme === '..' || !\is_dir($module::PATH . '/Theme/' . $theme . '/Lang')) {
+                continue;
+            }
+
+            $langFiles = \scandir($module::PATH . '/Theme/' . $theme . '/Lang');
+            foreach ($langFiles as $file) {
+                if ($file === '.' || $file === '..' || \stripos($file, '.lang.') === false) {
+                    continue;
+                }
+
+                $parts = \explode('.', $file);
+                $type = '';
+
+                if (\strlen($parts[0]) === 2) {
+                    $type = '';
+                } else {
+                    $type = $parts[0];
+                }
+
+                if (!isset($langKeys[$type])) {
+                    $langKeys[$type] = [
+                        'required' => null,
+                        'keys' => [],
+                    ];
+                }
+
+                // check if required lanugages files exist IFF any language file of a specific type exists
+                if ($langKeys[$type]['required'] === null) {
+                    $langKeys[$type]['required'] = true;
+
+                    $missingLanguages = [];
+                    foreach ($required as $lang) {
+                        $langKeys[$type]['required'] = $langKeys[$type]['required']
+                            && \in_array(($type !== '' ? $type . '.' : '') . $lang . '.lang.php', $langFiles);
+
+                        $missingLanguages[] = $lang;
+                    }
+
+                    if (!empty($missingLanguages)) {
+                        self::assertTrue(false, 'The language files "' . \implode(', ', $missingLanguages) . '" are missing.');
+                    }
+                }
+
+                // compare key equality
+                // every key in the key list must be present in all other language files of the same type and vice versa
+                $langArray = include $module::PATH . '/Theme/' . $theme . '/Lang/' . $file;
+                $langArray = \reset($langArray);
+
+                $langKeys = \array_keys($langArray);
+
+                if (empty($langKeys[$type]['keys'])) {
+                    $langKeys[$type]['keys'] = $langKeys;
+                } else {
+                    if (!empty($diff1 = \array_diff($langKeys[$type]['keys'], $langKeys))
+                        || !empty($diff2 = \array_diff($langKeys, $langKeys[$type]['keys']))
+                    ) {
+                        self::assertTrue(false, $file . ': The language keys "' . \implode(', ', \array_merge($diff1, $diff2)) . '" are different.');
+                    }
+                }
+            }
+        }
+
+        self::assertTrue(true);
+    }
 }
