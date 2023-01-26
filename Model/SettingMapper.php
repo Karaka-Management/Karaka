@@ -34,14 +34,15 @@ final class SettingMapper extends DataMapperFactory
      * @since 1.0.0
      */
     public const COLUMNS = [
-        'settings_id'             => ['name' => 'settings_id',           'type' => 'int',      'internal' => 'id'],
-        'settings_name'           => ['name' => 'settings_name',        'type' => 'string',   'internal' => 'name'],
-        'settings_content'        => ['name' => 'settings_content',        'type' => 'string',   'internal' => 'content'],
-        'settings_pattern'        => ['name' => 'settings_pattern',        'type' => 'string',   'internal' => 'pattern'],
-        'settings_app'            => ['name' => 'settings_app',        'type' => 'int',   'internal' => 'app'],
-        'settings_module'         => ['name' => 'settings_module',        'type' => 'string',   'internal' => 'module'],
-        'settings_group'          => ['name' => 'settings_group',        'type' => 'int',   'internal' => 'group'],
-        'settings_account'        => ['name' => 'settings_account',        'type' => 'int',   'internal' => 'account'],
+        'settings_id'              => ['name' => 'settings_id',           'type' => 'int',      'internal' => 'id'],
+        'settings_name'            => ['name' => 'settings_name',        'type' => 'string',   'internal' => 'name'],
+        'settings_content'         => ['name' => 'settings_content',        'type' => 'string',   'internal' => 'content'],
+        'settings_pattern'         => ['name' => 'settings_pattern',        'type' => 'string',   'internal' => 'pattern'],
+        'settings_unit'            => ['name' => 'settings_unit',        'type' => 'int',   'internal' => 'unit'],
+        'settings_app'             => ['name' => 'settings_app',        'type' => 'int',   'internal' => 'app'],
+        'settings_module'          => ['name' => 'settings_module',        'type' => 'string',   'internal' => 'module'],
+        'settings_group'           => ['name' => 'settings_group',        'type' => 'int',   'internal' => 'group'],
+        'settings_account'         => ['name' => 'settings_account',        'type' => 'int',   'internal' => 'account'],
     ];
 
     /**
@@ -85,26 +86,30 @@ final class SettingMapper extends DataMapperFactory
 
         if (!empty($option->getId())) {
             $query->where('settings_id', '=', $option->getId());
-        }
+        } else {
+            if (!empty($option->name)) {
+                $query->where('settings_name', '=', $option->name);
+            }
 
-        if (!empty($option->name)) {
-            $query->andWhere('settings_name', '=', $option->name);
-        }
+            if (!empty($option->unit)) {
+                $query->andWhere('settings_unit', '=', $option->unit);
+            }
 
-        if (!empty($option->app)) {
-            $query->andWhere('settings_app', '=', $option->app);
-        }
+            if (!empty($option->app)) {
+                $query->andWhere('settings_app', '=', $option->app);
+            }
 
-        if (!empty($option->module)) {
-            $query->andWhere('settings_module', '=', $option->module);
-        }
+            if (!empty($option->module)) {
+                $query->andWhere('settings_module', '=', $option->module);
+            }
 
-        if (!empty($option->group)) {
-            $query->andWhere('settings_group', '=', $option->group);
-        }
+            if (!empty($option->group)) {
+                $query->andWhere('settings_group', '=', $option->group);
+            }
 
-        if (!empty($option->account)) {
-            $query->andWhere('settings_account', '=', $option->account);
+            if (!empty($option->account)) {
+                $query->andWhere('settings_account', '=', $option->account);
+            }
         }
 
         $sth = self::$db->con->prepare($query->toSql());
@@ -130,26 +135,30 @@ final class SettingMapper extends DataMapperFactory
 
         if (!empty($where['ids'])) {
             $query->where('settings_id', 'in', $where['ids']);
-        }
+        } else {
+            if (!empty($where['names'])) {
+                $query->where('settings_name', 'in', $where['names']);
+            }
 
-        if (!empty($where['names'])) {
-            $query->andWhere('settings_name', 'in', $where['names']);
-        }
+            if (!empty($where['unit'])) {
+                $query->andWhere('settings_unit', '=', $where['unit']);
+            }
 
-        if (!empty($where['app'])) {
-            $query->andWhere('settings_app', '=', $where['app']);
-        }
+            if (!empty($where['app'])) {
+                $query->andWhere('settings_app', '=', $where['app']);
+            }
 
-        if (!empty($where['module'])) {
-            $query->andWhere('settings_module', '=', $where['module']);
-        }
+            if (!empty($where['module'])) {
+                $query->andWhere('settings_module', '=', $where['module']);
+            }
 
-        if (!empty($where['group'])) {
-            $query->andWhere('settings_group', '=', $where['group']);
-        }
+            if (!empty($where['group'])) {
+                $query->andWhere('settings_group', '=', $where['group']);
+            }
 
-        if (!empty($where['account'])) {
-            $query->andWhere('settings_account', '=', $where['account']);
+            if (!empty($where['account'])) {
+                $query->andWhere('settings_account', '=', $where['account']);
+            }
         }
 
         return self::getAll()->execute($query);

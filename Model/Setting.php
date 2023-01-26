@@ -57,6 +57,14 @@ class Setting
     public string $pattern = '';
 
     /**
+     * Unit id
+     *
+     * @var null|int
+     * @since 1.0.0
+     */
+    public ?int $unit = null;
+
+    /**
      * App id
      *
      * @var null|int
@@ -107,6 +115,7 @@ class Setting
      * @param string      $name    Name
      * @param string      $content Content
      * @param string      $pattern Pattern
+     * @param null|int    $unit    Unit
      * @param null|int    $app     App
      * @param null|string $module  Module
      * @param null|int    $group   Group
@@ -121,6 +130,7 @@ class Setting
         string $name = '',
         string $content = '',
         string $pattern = '',
+        int $unit = null,
         int $app = null,
         string $module = null,
         int $group = null,
@@ -131,6 +141,7 @@ class Setting
         $this->name    = $name;
         $this->content = $content;
         $this->pattern = $pattern;
+        $this->unit    = $unit;
         $this->app     = $app;
         $this->module  = $module;
         $this->group   = $group;
@@ -146,6 +157,7 @@ class Setting
      * @param string      $name    Name
      * @param string      $content Content
      * @param string      $pattern Pattern
+     * @param null|int    $unit    Unit
      * @param null|int    $app     App
      * @param null|string $module  Module
      * @param null|int    $group   Group
@@ -160,6 +172,7 @@ class Setting
         string $name = '',
         string $content = '',
         string $pattern = '',
+        int $unit = null,
         int $app = null,
         string $module = null,
         int $group = null,
@@ -169,6 +182,7 @@ class Setting
         $this->name    = $name;
         $this->content = $content;
         $this->pattern = $pattern;
+        $this->unit    = $unit;
         $this->app     = $app;
         $this->module  = $module;
         $this->group   = $group;

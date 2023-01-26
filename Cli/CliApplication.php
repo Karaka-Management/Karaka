@@ -29,7 +29,6 @@ use phpOMS\DataStorage\Cookie\CookieJar;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
-use phpOMS\DataStorage\Session\FileSessionHandler;
 use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
@@ -292,7 +291,7 @@ final class CliApplication extends ApplicationAbstract
      * Initialize basic response
      *
      * @param CliRequest $request Client request
-     * @param array          $config  App config
+     * @param array      $config  App config
      *
      * @return CliResponse Initial client request
      *
@@ -361,7 +360,7 @@ final class CliApplication extends ApplicationAbstract
      * Create 503 response.
      *
      * @param CliResponse $response Response
-     * @param View            $pageView View
+     * @param View        $pageView View
      *
      * @return void
      *
@@ -381,7 +380,7 @@ final class CliApplication extends ApplicationAbstract
      * Create 403 response.
      *
      * @param CliResponse $response Response
-     * @param View            $pageView View
+     * @param View        $pageView View
      *
      * @return void
      *
@@ -401,7 +400,7 @@ final class CliApplication extends ApplicationAbstract
      * Create logged out response
      *
      * @param CliResponse $response Response
-     * @param View            $pageView View
+     * @param View        $pageView View
      *
      * @return void
      *
@@ -422,7 +421,7 @@ final class CliApplication extends ApplicationAbstract
      *
      * @param CliRequest  $request  Request
      * @param CliResponse $response Response
-     * @param CliView         $pageView View
+     * @param CliView     $pageView View
      *
      * @return void
      *

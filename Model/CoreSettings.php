@@ -46,6 +46,7 @@ final class CoreSettings implements SettingsInterface
     public function get(
         mixed $ids = null,
         string|array $names = null,
+        int $unit = null,
         int $app = null,
         string $module = null,
         int $group = null,
@@ -76,6 +77,7 @@ final class CoreSettings implements SettingsInterface
 
             foreach ($names as $i => $name) {
                 $key = $name
+                    . ':' . ($unit ?? '')
                     . ':' . ($app ?? '')
                     . ':' . ($module ?? '')
                     . ':' . ($group ?? '')
@@ -99,6 +101,7 @@ final class CoreSettings implements SettingsInterface
         $dbOptions = SettingMapper::getSettings([
             'ids'     => $ids,
             'names'   => $names,
+            'unit'    => $unit,
             'app'     => $app,
             'module'  => $module,
             'group'   => $group,
@@ -109,6 +112,7 @@ final class CoreSettings implements SettingsInterface
         try {
             foreach ($dbOptions as $option) {
                 $key = ($option->name)
+                    . ':' . ($option->unit ?? '')
                     . ':' . ($option->app ?? '')
                     . ':' . ($option->module ?? '')
                     . ':' . ($option->group ?? '')
@@ -117,6 +121,11 @@ final class CoreSettings implements SettingsInterface
                 $key = \trim($key, ':');
 
                 $this->setOption($key, $option, true);
+
+                // required because the above solution inserts only by string,
+                // this means the next get() call with just the int DB id would not hit the cache.
+                // summary: line 65 would fail
+                $this->setOption($option->getId(), $option, true);
 
                 $options[$key] = $option;
             }
@@ -135,6 +144,7 @@ final class CoreSettings implements SettingsInterface
         /** @var array $option */
         foreach ($options as $option) {
             $key = ($option['name'] ?? '')
+                . ':' . ($option['unit'] ?? '')
                 . ':' . ($option['app'] ?? '')
                 . ':' . ($option['module'] ?? '')
                 . ':' . ($option['group'] ?? '')
@@ -148,6 +158,7 @@ final class CoreSettings implements SettingsInterface
                 $option['name'] ?? '',
                 $option['content'] ?? '',
                 $option['pattern'] ?? '',
+                $option['unit'] ?? null,
                 $option['app'] ?? null,
                 $option['module'] ?? null,
                 $option['group'] ?? null,
@@ -155,6 +166,9 @@ final class CoreSettings implements SettingsInterface
             );
 
             $this->setOption($key, $setting, true);
+            if (isset($option['id'])) {
+                $this->setOption($option['id'], $setting, true);
+            }
 
             if ($store) {
                 SettingMapper::saveSetting($setting);
