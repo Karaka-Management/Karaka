@@ -96,7 +96,7 @@ class Application
         /**
          * @todo Karaka/phpOMS#230
          *  Create socket session
-         *  Maybe use the ConsoleSocket
+         *  Maybe use the CliSocket
          */
         $this->app->sessionManager = new HttpSession(36000);
         $this->app->cachePool      = new CachePool($this->app->dbPool);
