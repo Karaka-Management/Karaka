@@ -199,15 +199,15 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
 
         $this->settings->set([
             [
-                'id'      => $testId,
-                'name'    => 'name',
-                'content' => 'new content',
-                'pattern' => '',
+                'id'       => $testId,
+                'name'     => 'name',
+                'content'  => 'new content',
+                'pattern'  => '',
                 'unit'     => null,
-                'app'     => 1,
-                'module'  => 'Admin',
-                'group'   => 1,
-                'account' => 1,
+                'app'      => 1,
+                'module'   => 'Admin',
+                'group'    => 1,
+                'account'  => 1,
             ],
         ], true);
 
