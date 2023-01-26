@@ -37,7 +37,7 @@ declare(strict_types=1);
 
                 <p>In case you don't want to use this web installation tool you can also use the console
                 installation tool. Just navigate in your shell to the install directory and then into
-                Console the subdirectory. There you simply run the install script and are good to go.</p>
+                Cli the subdirectory. There you simply run the install script and are good to go.</p>
 
                 <p>In case you encounter any problems during the installation process please feel free to
                 ask for help on our website or contact our support email at
@@ -107,7 +107,7 @@ declare(strict_types=1);
                                 && \is_writable(__DIR__ . '/../Modules')
                                 && \is_writable(__DIR__ . '/../Modules/Media/Files')
                                 && \is_writable(__DIR__ . '/../Web')
-                                && \is_writable(__DIR__ . '/../Console')) ? 'OK' : 'FAILED'; ?>">
+                                && \is_writable(__DIR__ . '/../Cli')) ? 'OK' : 'FAILED'; ?>">
                                 <?= $filePerm ? 'OK' : 'FAILED'; ?>
                             <td>Critcal
                             <td><strong>File permissions <?php if ($filePerm) : ?><?php else : ?>(<span class="FAILED">write permissions required!</span>)<?php endif; ?></strong>
@@ -135,8 +135,8 @@ declare(strict_types=1);
                         <tr>
                             <td>
                             <td>Critcal
-                            <td>/Console
-                            <td class="<?= \is_writable(__DIR__ . '/../Console') ? 'OK' : 'FAILED'; ?>"><?= \decoct(\fileperms(__DIR__ . '/../Console') & 0777); ?>
+                            <td>/Cli
+                            <td class="<?= \is_writable(__DIR__ . '/../Cli') ? 'OK' : 'FAILED'; ?>"><?= \decoct(\fileperms(__DIR__ . '/../Cli') & 0777); ?>
                         <tr>
                             <td class="<?= \extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>
                             <td>Critcal

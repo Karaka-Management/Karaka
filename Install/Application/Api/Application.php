@@ -147,10 +147,14 @@ final class Application
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
         $this->app->l11nServer     = LocalizationMapper::get()->where('id', 1)->execute();
 
-        $this->app->orgId = $this->getApplicationOrganization($request, $this->config['app']);
-        $pageView->setData('orgId', $this->app->orgId);
+        $this->app->unitId = $this->getApplicationOrganization($request, $this->config['app']);
+        $pageView->setData('unitId', $this->app->unitId);
 
-        $aid                       = Auth::authenticate($this->app->sessionManager);
+
+        $aid = $request->hasData('api')
+            ? \Modules\Admin\Models\ApiKeyMapper::authenticateApiKey($request->getData('api') ?? '')
+            : Auth::authenticate($this->app->sessionManager);
+
         $request->header->account  = $aid;
         $response->header->account = $aid;
 
@@ -214,8 +218,6 @@ final class Application
             return;
         }
 
-        $this->app->moduleManager->initRequestModules($request);
-
         // add tpl loading
         $this->app->router->add(
             '/api/tpl/.*',
@@ -227,7 +229,7 @@ final class Application
 
                 $app->appName        = $appName;
                 $app->dbPool         = $this->app->dbPool;
-                $app->orgId          = $this->app->orgId;
+                $app->unitId          = $this->app->unitId;
                 $app->accountManager = $this->app->accountManager;
                 $app->appSettings    = $this->app->appSettings;
                 $app->l11nManager    = new L11nManager($app->appName);
@@ -258,7 +260,7 @@ final class Application
                     $request->getData('CSRF'),
                     $request->getRouteVerb(),
                     $appName,
-                    $this->app->orgId,
+                    $this->app->unitId,
                     $account,
                     $request->getData()
                 );
@@ -302,7 +304,7 @@ final class Application
             $request->getData('CSRF'),
             $request->getRouteVerb(),
             $this->app->appName,
-            $this->app->orgId,
+            $this->app->unitId,
             $account,
             $request->getData()
         );
@@ -376,9 +378,6 @@ final class Application
         /** @var array $uris */
         foreach ($uris as $key => $uri) {
             //$request_r->init($uri);
-
-            $modules = $this->app->moduleManager->getRoutedModules($request_r);
-            $this->app->moduleManager->initModule($modules);
 
             $this->app->dispatcher->dispatch(
                 $this->app->router->route(

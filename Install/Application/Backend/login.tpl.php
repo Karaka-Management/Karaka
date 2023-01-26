@@ -28,13 +28,13 @@ use phpOMS\Uri\UriFactory;
                 <div class="inputWithIcon">
                     <input id="iName" type="text" name="user" tabindex="1" value="" autocomplete="off" spellcheck="false" autofocus>
                     <i class="frontIcon fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
-                    <i class="endIcon fa fa-times fa-lg fa-fw" aria-hidden="true"></i>
+                    <i class="endIcon fa fa-times close fa-lg fa-fw" aria-hidden="true"></i>
                 </div>
                 <label for="iPassword"><?= $this->getHtml('Password', '0', '0'); ?>:</label>
                 <div class="inputWithIcon">
                     <input id="iPassword" type="password" name="pass" tabindex="2" value="">
                     <i class="frontIcon fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
-                    <i class="endIcon fa fa-times fa-lg fa-fw" aria-hidden="true"></i>
+                    <i class="endIcon fa fa-times close fa-lg fa-fw" aria-hidden="true"></i>
                 </div>
                 <input id="iLoginButton" name="loginButton" type="submit" value="<?= $this->getHtml('Login', '0', '0'); ?>" tabindex="3">
             </form>

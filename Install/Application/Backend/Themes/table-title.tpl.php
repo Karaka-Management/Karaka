@@ -30,7 +30,7 @@ $search = $this->getSearchLink(
         <span role="search" class="inputWrapper">
             <span class="textWrapper">
                 <input id="<?= $this->id; ?>-searchbox" name="search" type="text" autocomplete="off" value="<?= $this->request->getData('search') ?? ''; ?>" autofocus>
-                <i class="endIcon lni lni-close" aria-hidden="true"></i>
+                <i class="endIcon lni lni-close close" aria-hidden="true"></i>
             </span>
             <button type="submit"><i class="frontIcon lni lni-search-alt" aria-hidden="true"></i></button>
         </span>

@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace Install;
 
 use phpOMS\Localization\Localization;
-use phpOMS\Message\Console\ConsoleRequest;
-use phpOMS\Message\Console\ConsoleResponse;
+use phpOMS\Message\Cli\CliRequest;
+use phpOMS\Message\Cli\CliResponse;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Router\RouteVerb;
 use phpOMS\Router\SocketRouter;
@@ -32,7 +32,7 @@ use phpOMS\Uri\Argument;
  *
  * @property \phpOMS\Router\SocketRouter $router
  */
-final class ConsoleApplication extends InstallAbstract
+final class CliApplication extends InstallAbstract
 {
 
     /**
@@ -65,13 +65,13 @@ final class ConsoleApplication extends InstallAbstract
      * @param string $rootPath Web root path
      * @param string $language Fallback language
      *
-     * @return ConsoleRequest Initial client request
+     * @return CliRequest Initial client request
      *
      * @since 1.0.0
      */
-    private function initRequest(array $arg, string $rootPath, string $language) : ConsoleRequest
+    private function initRequest(array $arg, string $rootPath, string $language) : CliRequest
     {
-        $request = new ConsoleRequest(new Argument($arg[1] ?? ''));
+        $request = new CliRequest(new Argument($arg[1] ?? ''));
 
         return $request;
     }
@@ -79,16 +79,16 @@ final class ConsoleApplication extends InstallAbstract
     /**
      * Initialize basic response
      *
-     * @param ConsoleRequest $request   Client request
+     * @param CliRequest $request   Client request
      * @param array          $languages Supported languages
      *
-     * @return ConsoleResponse Initial client request
+     * @return CliResponse Initial client request
      *
      * @since 1.0.0
      */
-    private function initResponse(ConsoleRequest $request, array $languages) : ConsoleResponse
+    private function initResponse(CliRequest $request, array $languages) : CliResponse
     {
-        $response = new ConsoleResponse(new Localization());
+        $response = new CliResponse(new Localization());
 
         $response->header->l11n->setLanguage(
             !\in_array($request->getLanguage(), $languages) ? 'en' : $request->getLanguage()
@@ -100,14 +100,14 @@ final class ConsoleApplication extends InstallAbstract
     /**
      * Rendering install.
      *
-     * @param ConsoleRequest  $request  Request
-     * @param ConsoleResponse $response Response
+     * @param CliRequest  $request  Request
+     * @param CliResponse $response Response
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function run(ConsoleRequest $request, ConsoleResponse $response) : void
+    private function run(CliRequest $request, CliResponse $response) : void
     {
         $this->dispatcher = new Dispatcher($this);
         $this->router     = new SocketRouter();

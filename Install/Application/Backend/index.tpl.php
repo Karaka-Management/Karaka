@@ -13,6 +13,7 @@
  */
 declare(strict_types=1);
 
+use phpOMS\Application\ApplicationStatus;
 use phpOMS\Uri\UriFactory;
 
 /** @var Web\Backend\BackendView $this */
@@ -56,6 +57,13 @@ $dispatch = $this->getData('dispatch') ?? [];
 </head>
 <body>
     <div class="vh" id="dim"></div>
+    <?php
+        if ($this->getData('appStatus') === ApplicationStatus::READ_ONLY
+            || $this->getData('appStatus') === ApplicationStatus::DISABLED
+        ) :
+    ?>
+        <div id="stickyMessage warning">The application is currently in maintenance mode, you cannot make any changes.</div>
+    <?php endif; ?>
     <input type="checkbox" id="nav-trigger" name="nav-hamburger" class="nav-trigger">
     <nav id="nav-side">
         <span id="u-box">
@@ -69,7 +77,7 @@ $dispatch = $this->getData('dispatch') ?? [];
                     data-action='[{"listener": "change", "action": [{"key": 1, "type": "redirect", "uri": "{%}&u={!#unit-selector}", "target": "self"}]}]'
                     title="Unit selector">
                     <?php foreach ($this->organizations as $organization) : ?>
-                        <option value="<?= $this->printHtml((string) $organization->getId()); ?>"<?= $this->getData('orgId') == $organization->getId() ? ' selected' : ''; ?>><?= $this->printHtml($organization->name); ?>
+                        <option value="<?= $this->printHtml((string) $organization->getId()); ?>"<?= $this->getData('unitId') == $organization->getId() ? ' selected' : ''; ?>><?= $this->printHtml($organization->name); ?>
                     <?php endforeach; ?>
                 </select>
                 <div id="nav-side-settings">

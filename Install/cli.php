@@ -17,5 +17,5 @@ declare(strict_types=1);
 require_once __DIR__ . '/../phpOMS/Autoloader.php';
 //</editor-fold>
 
-$App = new \Install\ConsoleApplication($argv);
+$App = new \Install\CliApplication($argv);
 // @codeCoverageIgnoreEnd

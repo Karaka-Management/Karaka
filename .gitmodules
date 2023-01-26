@@ -199,3 +199,9 @@
 [submodule "Modules/OnlineResourceWatcher"]
 	path = Modules/OnlineResourceWatcher
 	url = https://github.com/Karaka-Management/oms-OnlineResourceWatcher.git
+[submodule "Modules/InvestmentManagement"]
+	path = Modules/InvestmentManagement
+	url = https://github.com/Karaka-Management/oms-InvestmentManagement.git
+[submodule "Modules/Finance"]
+	path = Modules/Finance
+	url = https://github.com/Karaka-Management/oms-Finance.git

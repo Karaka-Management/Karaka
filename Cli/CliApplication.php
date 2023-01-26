@@ -37,8 +37,8 @@ use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Localization\L11nManager;
 use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
-use phpOMS\Message\Console\ConsoleRequest;
-use phpOMS\Message\Console\ConsoleResponse;
+use phpOMS\Message\Cli\CliRequest;
+use phpOMS\Message\Cli\CliResponse;
 use phpOMS\Message\Http\RequestMethod;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Module\ModuleManager;
@@ -126,7 +126,7 @@ final class CliApplication extends ApplicationAbstract
         $request->header->account  = $aid;
         $response->header->account = $aid;
 
-        $this->orgId = (int) ($request->getData('u') ?? ($this->config['app']['default']['org'] ?? 1));
+        $this->unitId = (int) ($request->getData('u') ?? ($this->config['app']['default']['org'] ?? 1));
 
         $this->router->add(
             '/cli/e403',
@@ -162,7 +162,7 @@ final class CliApplication extends ApplicationAbstract
         }
 
         $pageView = new CliView($this->l11nManager, $request, $response);
-        $pageView->setData('orgId', $this->orgId);
+        $pageView->setData('unitId', $this->unitId);
         $response->set('Content', $pageView);
 
         /* Database OK? */
@@ -193,7 +193,7 @@ final class CliApplication extends ApplicationAbstract
         }
 
         /* No reading permission */
-        if (!$account->hasPermission(PermissionType::READ, $this->orgId, $this->appName, 'Dashboard')) {
+        if (!$account->hasPermission(PermissionType::READ, $this->unitId, $this->appName, 'Dashboard')) {
             $this->create403Response($response, $pageView);
 
             return;
@@ -208,7 +208,7 @@ final class CliApplication extends ApplicationAbstract
                 null,
                 $request->getRouteVerb(),
                 $this->appName,
-                $this->orgId,
+                $this->unitId,
                 $account,
                 $request->getData()
             ),
@@ -234,9 +234,6 @@ final class CliApplication extends ApplicationAbstract
         \set_error_handler(['\phpOMS\UnhandledHandler', 'errorHandler']);
         \register_shutdown_function(['\phpOMS\UnhandledHandler', 'shutdownHandler']);
         \mb_internal_encoding('UTF-8');
-
-        $consoleSessionHandler = new FileSessionHandler(__DIR__);
-        \session_set_save_handler($consoleSessionHandler);
     }
 
     /**
@@ -246,11 +243,11 @@ final class CliApplication extends ApplicationAbstract
      * @param array  $config   Application config
      * @param string $rootPath Cli root path
      *
-     * @return ConsoleRequest Initial client request
+     * @return CliRequest Initial client request
      *
      * @since 1.0.0
      */
-    private function initRequest(array $arg, array $config, string $rootPath) : ConsoleRequest
+    private function initRequest(array $arg, array $config, string $rootPath) : CliRequest
     {
         $start  = \stripos($arg[1] ?? '', ':');
         $method = RequestMethod::GET;
@@ -269,7 +266,7 @@ final class CliApplication extends ApplicationAbstract
 
         \array_shift($arg);
 
-        $request = new ConsoleRequest(new Argument(\implode(' ', $arg)));
+        $request = new CliRequest(new Argument(\implode(' ', $arg)));
 
         if (!RequestMethod::isValidValue($method)) {
             $method = RequestMethod::GET;
@@ -294,16 +291,16 @@ final class CliApplication extends ApplicationAbstract
     /**
      * Initialize basic response
      *
-     * @param ConsoleRequest $request Client request
+     * @param CliRequest $request Client request
      * @param array          $config  App config
      *
-     * @return ConsoleResponse Initial client request
+     * @return CliResponse Initial client request
      *
      * @since 1.0.0
      */
-    private function initResponse(ConsoleRequest $request, array $config) : ConsoleResponse
+    private function initResponse(CliRequest $request, array $config) : CliResponse
     {
-        $response = new ConsoleResponse(new Localization());
+        $response = new CliResponse(new Localization());
 
         $defaultLang = $config['app']['domains'][$request->uri->host]['lang'] ?? $config['app']['default']['lang'];
         $uriLang     = \strtolower($request->uri->getPathElement(0));
@@ -346,13 +343,13 @@ final class CliApplication extends ApplicationAbstract
     /**
      * Load permission
      *
-     * @param ConsoleRequest $request Current request
+     * @param CliRequest $request Current request
      *
      * @return Account
      *
      * @since 1.0.0
      */
-    private function loadAccount(ConsoleRequest $request) : Account
+    private function loadAccount(CliRequest $request) : Account
     {
         $account = AccountMapper::getWithPermissions($request->header->account);
         $this->accountManager->add($account);
@@ -363,14 +360,14 @@ final class CliApplication extends ApplicationAbstract
     /**
      * Create 503 response.
      *
-     * @param ConsoleResponse $response Response
+     * @param CliResponse $response Response
      * @param View            $pageView View
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function create503Response(ConsoleResponse $response, View $pageView) : void
+    private function create503Response(CliResponse $response, View $pageView) : void
     {
         $response->header->status = RequestStatusCode::R_503;
         $pageView->setTemplate('/Web/Backend/Error/503');
@@ -383,14 +380,14 @@ final class CliApplication extends ApplicationAbstract
     /**
      * Create 403 response.
      *
-     * @param ConsoleResponse $response Response
+     * @param CliResponse $response Response
      * @param View            $pageView View
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function create403Response(ConsoleResponse $response, View $pageView) : void
+    private function create403Response(CliResponse $response, View $pageView) : void
     {
         $response->header->status = RequestStatusCode::R_403;
         $pageView->setTemplate('/Web/Backend/Error/403');
@@ -403,14 +400,14 @@ final class CliApplication extends ApplicationAbstract
     /**
      * Create logged out response
      *
-     * @param ConsoleResponse $response Response
+     * @param CliResponse $response Response
      * @param View            $pageView View
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function createBaseLoggedOutResponse(ConsoleResponse $response, View $pageView) : void
+    private function createBaseLoggedOutResponse(CliResponse $response, View $pageView) : void
     {
         $response->header->status = RequestStatusCode::R_401;
         $pageView->setTemplate('/Cli/Error/401');
@@ -423,15 +420,15 @@ final class CliApplication extends ApplicationAbstract
     /**
      * Create default page view
      *
-     * @param ConsoleRequest  $request  Request
-     * @param ConsoleResponse $response Response
+     * @param CliRequest  $request  Request
+     * @param CliResponse $response Response
      * @param CliView         $pageView View
      *
      * @return void
      *
      * @since 1.0.0
      */
-    private function createDefaultPageView(ConsoleRequest $request, ConsoleResponse $response, CliView $pageView) : void
+    private function createDefaultPageView(CliRequest $request, CliResponse $response, CliView $pageView) : void
     {
         $pageView->setOrganizations(UnitMapper::getAll()->execute());
         $pageView->setProfile(ProfileMapper::get()->where('account', $request->header->account)->execute());

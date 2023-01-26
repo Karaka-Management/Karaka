@@ -27,7 +27,7 @@
             },
             "module_version": {
                 "name": "module_version",
-                "type": "VARCHAR(10)",
+                "type": "VARCHAR(15)",
                 "default": null,
                 "null": true
             }

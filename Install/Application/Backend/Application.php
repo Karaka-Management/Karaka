@@ -147,7 +147,7 @@ final class Application
         $this->app->eventManager   = new EventManager($this->app->dispatcher);
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
         $this->app->l11nServer     = LocalizationMapper::get()->where('id', 1)->execute();
-        $this->app->orgId          = $this->getApplicationOrganization($request, $this->config['app']);
+        $this->app->unitId          = $this->getApplicationOrganization($request, $this->config['app']);
 
         $aid                       = Auth::authenticate($this->app->sessionManager);
         $request->header->account  = $aid;
@@ -178,7 +178,7 @@ final class Application
         $pageView = new BackendView($this->app->l11nManager, $request, $response);
         $head     = new Head();
 
-        $pageView->setData('orgId', $this->app->orgId);
+        $pageView->setData('unitId', $this->app->unitId);
         $pageView->setData('head', $head);
         $response->set('Content', $pageView);
 
@@ -216,7 +216,7 @@ final class Application
         }
 
         /* No reading permission */
-        if (!$account->hasPermission(PermissionType::READ, $this->app->orgId, $this->app->appName, 'Dashboard')) {
+        if (!$account->hasPermission(PermissionType::READ, $this->app->unitId, $this->app->appName, 'Dashboard')) {
             $this->create403Response($response, $pageView);
 
             return;
@@ -247,7 +247,7 @@ final class Application
             $request->getData('CSRF'),
             $request->getRouteVerb(),
             $this->app->appName,
-            $this->app->orgId,
+            $this->app->unitId,
             $account,
             $request->getData()
         );
@@ -481,6 +481,8 @@ final class Application
         $pageView->defaultProfileImage = $image;
 
         $pageView->setTemplate('/Web/Backend/index');
+        $appStatus = $this->app->appSettings->get(names: \Modules\Admin\Models\SettingsEnum::LOGIN_STATUS);
+        $pageView->setData('appStatus', (int) ($appStatus->content ?? 0));
     }
 
     /**
