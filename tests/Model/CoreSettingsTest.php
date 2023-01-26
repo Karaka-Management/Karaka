@@ -49,7 +49,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
 
         self::assertCount(2,
             $this->settings->get(null, [
-                SettingsEnum::DEFAULT_ORGANIZATION,
+                SettingsEnum::DEFAULT_UNIT,
                 SettingsEnum::PASSWORD_INTERVAL,
             ])
         );
@@ -57,7 +57,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         self::assertEmpty($this->settings->get(null, ['12345678', '123456789']));
         self::assertEquals(
             '1',
-            $this->settings->get(null, SettingsEnum::DEFAULT_ORGANIZATION)->content
+            $this->settings->get(null, SettingsEnum::DEFAULT_UNIT)->content
         );
     }
 
@@ -194,7 +194,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
     public function testSetWithSave() : void
     {
         $setting = new Setting();
-        $setting->with(0, 'name', 'content', '', 1, 'Admin', 1, 1);
+        $setting->with(0, 'name', 'content', '', null, 1, 'Admin', 1, 1);
         $testId = SettingMapper::create()->execute($setting);
 
         $this->settings->set([
@@ -203,6 +203,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
                 'name'    => 'name',
                 'content' => 'new content',
                 'pattern' => '',
+                'unit'     => null,
                 'app'     => 1,
                 'module'  => 'Admin',
                 'group'   => 1,
@@ -213,7 +214,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         $settingR = SettingMapper::get()->where('id', $testId)->execute();
         self::assertEquals('new content', $settingR->content);
 
-        $settingR2 = $this->settings->get($testId, 'name', 1, 'Admin', 1, 1);
+        $settingR2 = $this->settings->get($testId, 'name', null, 1, 'Admin', 1, 1);
         self::assertEquals('new content', $settingR2->content);
     }
 }
