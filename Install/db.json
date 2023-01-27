@@ -8,6 +8,12 @@
                 "null": false,
                 "primary": true
             },
+            "module_name": {
+                "name": "module_name",
+                "type": "VARCHAR(100)",
+                "default": null,
+                "null": true
+            },
             "module_theme": {
                 "name": "module_theme",
                 "type": "VARCHAR(100)",

@@ -679,11 +679,23 @@ trait ModuleTestTrait
      */
     public function testLanguage() : void
     {
-        $required = ['en', 'de'];
+        $module = $this->app->moduleManager->get(self::NAME);
+        if ($module instanceof NullModule) {
+            return;
+        }
 
+        $required = ['en', 'de'];
         $langKeys = [];
 
+        if (!\is_dir($module::PATH . '/Theme')) {
+            return;
+        }
+
         $themes = \scandir($module::PATH . '/Theme');
+        if ($themes === false) {
+            return;
+        }
+
         foreach ($themes as $theme) {
             if ($theme === '.' || $theme === '..' || !\is_dir($module::PATH . '/Theme/' . $theme . '/Lang')) {
                 continue;
@@ -717,14 +729,14 @@ trait ModuleTestTrait
 
                     $missingLanguages = [];
                     foreach ($required as $lang) {
-                        $langKeys[$type]['required'] = $langKeys[$type]['required']
-                            && \in_array(($type !== '' ? $type . '.' : '') . $lang . '.lang.php', $langFiles);
-
-                        $missingLanguages[] = $lang;
+                        if (!\in_array(($type !== '' ? $type . '.' : '') . $lang . '.lang.php', $langFiles)) {
+                            $langKeys[$type]['required'] = false;
+                            $missingLanguages[]          = $lang;
+                        }
                     }
 
                     if (!empty($missingLanguages)) {
-                        self::assertTrue(false, 'The language files "' . \implode(', ', $missingLanguages) . '" are missing.');
+                        self::assertTrue(false, 'The language files "' . \implode(', ', $missingLanguages) . '" are missing with type "' . $type . '".');
                     }
                 }
 
@@ -733,13 +745,13 @@ trait ModuleTestTrait
                 $langArray = include $module::PATH . '/Theme/' . $theme . '/Lang/' . $file;
                 $langArray = \reset($langArray);
 
-                $langKeys = \array_keys($langArray);
+                $keys = \array_keys($langArray);
 
                 if (empty($langKeys[$type]['keys'])) {
-                    $langKeys[$type]['keys'] = $langKeys;
+                    $langKeys[$type]['keys'] = $keys;
                 } else {
-                    if (!empty($diff1 = \array_diff($langKeys[$type]['keys'], $langKeys))
-                        || !empty($diff2 = \array_diff($langKeys, $langKeys[$type]['keys']))
+                    if (!empty($diff1 = \array_diff($langKeys[$type]['keys'], $keys))
+                        || !empty($diff2 = \array_diff($keys, $langKeys[$type]['keys']))
                     ) {
                         self::assertTrue(false, $file . ': The language keys "' . \implode(', ', \array_merge($diff1, $diff2)) . '" are different.');
                     }

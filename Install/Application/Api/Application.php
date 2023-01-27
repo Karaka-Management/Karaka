@@ -229,7 +229,7 @@ final class Application
 
                 $app->appName        = $appName;
                 $app->dbPool         = $this->app->dbPool;
-                $app->unitId          = $this->app->unitId;
+                $app->unitId         = $this->app->unitId;
                 $app->accountManager = $this->app->accountManager;
                 $app->appSettings    = $this->app->appSettings;
                 $app->l11nManager    = new L11nManager($app->appName);

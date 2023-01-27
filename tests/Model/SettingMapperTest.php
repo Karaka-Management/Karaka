@@ -29,7 +29,7 @@ class SettingMapperTest extends \PHPUnit\Framework\TestCase
     public function testCR() : void
     {
         $setting = new Setting();
-        $setting->with(0, 'name', 'content', 'pattern', 1, 'Admin', 1, 1);
+        $setting->with(0, 'name', 'content', 'pattern', 1, module: 'Admin', group: 1, account: 1);
         $id = SettingMapper::create()->execute($setting);
 
         $settingR = SettingMapper::get()->where('id', $setting->getId())->execute();

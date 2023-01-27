@@ -214,7 +214,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         $settingR = SettingMapper::get()->where('id', $testId)->execute();
         self::assertEquals('new content', $settingR->content);
 
-        $settingR2 = $this->settings->get($testId, 'name', null, 1, 'Admin', 1, 1);
+        $settingR2 = $this->settings->get($testId);
         self::assertEquals('new content', $settingR2->content);
     }
 }

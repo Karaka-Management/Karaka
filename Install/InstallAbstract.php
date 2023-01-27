@@ -245,7 +245,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         self::$mManager      = self::$mManager ?? new ModuleManager($app, __DIR__ . '/../Modules/');
         $app->moduleManager  = self::$mManager;
         $app->appSettings    = new CoreSettings();
-        $app->unitId          = 1;
+        $app->unitId         = 1;
         $app->accountManager = new AccountManager(new HttpSession());
         $app->l11nServer     = new Localization();
         $app->dispatcher     = new Dispatcher($app);
@@ -326,7 +326,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         self::$mManager      = self::$mManager ?? new ModuleManager($app, __DIR__ . '/../Modules/');
         $app->moduleManager  = self::$mManager;
         $app->appSettings    = new CoreSettings();
-        $app->unitId          = 1;
+        $app->unitId         = 1;
         $app->accountManager = new AccountManager(new HttpSession());
         $app->l11nServer     = new Localization();
         $app->dispatcher     = new Dispatcher($app);

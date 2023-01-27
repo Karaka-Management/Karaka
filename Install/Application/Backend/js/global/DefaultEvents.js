@@ -22,6 +22,7 @@ export const DEFAULT_EVENTS = {
             delete evt.returnValue;
 
             let message = new NotificationMessage(NotificationLevel.WARNING, 'Unsaved changes', 'Do you want to continue?', true, true);
+
             message.primaryButton = {
                 text: 'Yes',
                 style: 'ok',
@@ -33,6 +34,7 @@ export const DEFAULT_EVENTS = {
                     }
                 },
             };
+
             message.secondaryButton = {
                 text: 'No',
                 style: 'error',

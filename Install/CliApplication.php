@@ -80,7 +80,7 @@ final class CliApplication extends InstallAbstract
      * Initialize basic response
      *
      * @param CliRequest $request   Client request
-     * @param array          $languages Supported languages
+     * @param array      $languages Supported languages
      *
      * @return CliResponse Initial client request
      *
