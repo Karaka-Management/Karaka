@@ -100,9 +100,6 @@
 [submodule "Modules/Workflow"]
 	path = Modules/Workflow
 	url = https://github.com/Karaka-Management/oms-Workflow.git
-[submodule "Modules/Job"]
-	path = Modules/Job
-	url = https://github.com/Karaka-Management/oms-Job.git
 [submodule "Modules/Media"]
 	path = Modules/Media
 	url = https://github.com/Karaka-Management/oms-Media.git

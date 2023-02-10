@@ -23,6 +23,12 @@
             'verb' => 2,
         ],
     ],
+    '^.*/workflow/instance.*$' => [
+        0 => [
+            'dest' => '\Modules\Workflow\Controller\CliController:cliWorkflowInstanceCreate',
+            'verb' => 2,
+        ],
+    ],
     '^.*/orw/check -i all*$' => [
         0 => [
             'dest' => '\Modules\OnlineResourceWatcher\Controller\ApiController:apiCheckResources',
@@ -31,12 +37,6 @@
                 'type' => 4,
                 'state' => 1,
             ],
-        ],
-    ],
-    '^.*/workflow/instance.*$' => [
-        0 => [
-            'dest' => '\Modules\Workflow\Controller\CliController:cliWorkflowInstanceCreate',
-            'verb' => 2,
         ],
     ],
 ];

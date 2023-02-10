@@ -33,6 +33,7 @@ use phpOMS\Account\AccountType;
 use phpOMS\Account\GroupStatus;
 use phpOMS\Account\PermissionType;
 use phpOMS\Application\ApplicationAbstract;
+use phpOMS\Application\ApplicationType;
 use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\DatabasePool;
@@ -40,6 +41,7 @@ use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
 use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
+use phpOMS\Localization\L11nManager;
 use phpOMS\Localization\Localization;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
@@ -50,7 +52,6 @@ use phpOMS\System\MimeType;
 use phpOMS\Uri\HttpUri;
 use phpOMS\Utils\IO\Zip\Zip;
 use phpOMS\Utils\TestUtils;
-use phpOMS\Application\ApplicationType;
 
 /**
  * Application class.
@@ -247,6 +248,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $app->appSettings    = new CoreSettings();
         $app->unitId         = 1;
         $app->accountManager = new AccountManager(new HttpSession());
+        $app->l11nManager    = new L11nManager($app->appName);
         $app->l11nServer     = new Localization();
         $app->dispatcher     = new Dispatcher($app);
         $app->eventManager   = new EventManager($app->dispatcher);

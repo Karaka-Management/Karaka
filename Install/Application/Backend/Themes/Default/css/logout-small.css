@@ -75,6 +75,22 @@ main {
     width: 60%; }
   30%, 100% {
     width: 65%; } }
+#app-message-container {
+  margin-top: 1rem; }
+  #app-message-container .log-msg {
+    z-index: 11;
+    margin: 0 auto;
+    right: 0;
+    top: 0;
+    margin-bottom: 10px; }
+
+.log-msg {
+  position: relative; }
+  .log-msg .close {
+    position: absolute;
+    top: 5px;
+    right: 5px; }
+
 header {
   text-align: left;
   margin-bottom: 1rem; }

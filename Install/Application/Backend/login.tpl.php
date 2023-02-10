@@ -39,7 +39,20 @@ use phpOMS\Uri\UriFactory;
                 <input id="iLoginButton" name="loginButton" type="submit" value="<?= $this->getHtml('Login', '0', '0'); ?>" tabindex="3">
             </form>
         </div>
+
         <div id="below-form"><a href="<?= UriFactory::build('{/lang}/{/app}/forgot'); ?>" tabindex="4"><?= $this->getHtml('ForgotPassword', '0', '0'); ?></a></div>
+
+        <div id="app-message-container">
+            <template id="app-message-tpl">
+                <div class="log-msg">
+                    <h1 class="log-msg-title"></h1><i class="close fa fa-times"></i>
+                    <div class="log-msg-content"></div>
+                    <a class="button primary-button"></a>
+                    <a class="button secondary-button"></a>
+                </div>
+            </template>
+        </div>
     </div>
 </main>
+
 <?php include __DIR__ . '/Themes/login/foot.tpl.php'; ?>
