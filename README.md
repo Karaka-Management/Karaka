@@ -72,4 +72,4 @@ Karaka has a very open culture and we always welcome new people who share our ph
 * Website: [https://jingga.app](https://jingga.app)
 * Demo: [https://jingga.app](https://jingga.app) (user: admin, pass: orange)
 * Dev: [https://jingga.app/dev](https://jingga.app/dev)
-* Contact: dennis@karaka.app
+* Contact: info@jingga.app
