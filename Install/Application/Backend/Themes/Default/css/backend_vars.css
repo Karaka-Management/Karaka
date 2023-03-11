@@ -1,9 +1,9 @@
 :root {
   --main-background: rgb(246, 246, 246);
   --main-background-highlight: #3697db;
-  --input-border: rgba(218, 218, 218, 0.4);
+  --input-border: rgba(140, 140, 140, 0.4);
   --input-border-active: rgba(54, 150, 219, 0.7);
-  --input-color: rgba(0, 0, 0, 0.7);
+  --input-color: rgba(0, 0, 0, 0.8);
   --input-color-active: rgba(0, 0, 0, 0.8);
   --input-background: rgba(255, 255, 255);
   --input-background-active: rgba(255, 255, 255);
