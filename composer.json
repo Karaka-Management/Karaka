@@ -1,6 +1,6 @@
 {
     "name": "karaka-management/karaka",
-    "description": "PHP Framework for Karaka.",
+    "description": "PHP Framework for Jingga.",
     "authors": [
         {
             "name": "Dennis Eichhorn",
@@ -18,5 +18,8 @@
         "phpmetrics/phpmetrics": "^2.8"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "require": {
+        "phpmailer/phpmailer": "^6.7"
+    }
 }

@@ -67,7 +67,7 @@ final class SettingMapper extends DataMapperFactory
      * @var string
      * @since 1.0.0
      */
-    public const PRIMARYFIELD ='settings_id';
+    public const PRIMARYFIELD = 'settings_id';
 
     /**
      * Save setting / option to database
@@ -136,6 +136,7 @@ final class SettingMapper extends DataMapperFactory
         if (!empty($where['ids'])) {
             $query->where('settings_id', 'in', $where['ids']);
         } else {
+            // @todo: maybe remove the empty check because empty means null and null could be a desired request, better use isset?
             if (!empty($where['names'])) {
                 $query->where('settings_name', 'in', $where['names']);
             }

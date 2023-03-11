@@ -47,6 +47,7 @@ use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Module\ModuleManager;
+use phpOMS\Security\EncryptionHelper;
 use phpOMS\System\File\Local\Directory;
 use phpOMS\System\MimeType;
 use phpOMS\Uri\HttpUri;
@@ -163,6 +164,7 @@ abstract class InstallAbstract extends ApplicationAbstract
     {
         self::editConfigFile($request);
         self::editHtaccessFile($request);
+        self::editEnvFile($request);
     }
 
     /**
@@ -197,6 +199,24 @@ abstract class InstallAbstract extends ApplicationAbstract
         $config = include __DIR__ . '/Templates/config.tpl.php';
 
         \file_put_contents(__DIR__ . '/../config.php', $config);
+    }
+
+    /**
+     * Modify secrets environment file
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    protected static function editEnvFile(RequestAbstract $request) : void
+    {
+        $privateKeyI = EncryptionHelper::createSharedKey();
+
+        $secrets = include __DIR__ . '/Templates/secrets.tpl.php';
+
+        \file_put_contents(__DIR__ . '/../secrets.env', $secrets);
     }
 
     /**

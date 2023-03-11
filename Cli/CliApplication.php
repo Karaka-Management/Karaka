@@ -78,7 +78,7 @@ final class CliApplication extends ApplicationAbstract
      */
     public function __construct(array $config)
     {
-        $this->appName = 'CLI';
+        $this->appName = 'Cli';
         $this->config  = $config;
         $this->logger  = FileLogger::getInstance($config['log']['file']['path'], true);
 

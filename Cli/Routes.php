@@ -1,5 +1,4 @@
-<?php declare(strict_types=1);
-return [
+<?php return [
     '^/* .*?$' => [
         0 => [
             'dest' => '\Modules\Admin\Controller\CliController:viewEmptyCommand',
@@ -24,20 +23,26 @@ return [
             'verb' => 2,
         ],
     ],
+    '^.*/orw/check -i all*$' => [
+        0 => [
+            'dest' => '\Modules\OnlineResourceWatcher\Controller\ApiController:apiCheckResources',
+            'permission' => [
+                'module' => 'OnlineResourceWatcher',
+                'type' => 4,
+                'state' => 1,
+            ],
+        ],
+    ],
+    '^/billing/bill/purchase/parse.*$' => [
+        0 => [
+            'dest' => '\Modules\Billing\Controller\CliController:cliParseSupplierBill',
+            'verb' => 16,
+        ],
+    ],
     '^.*/workflow/instance.*$' => [
         0 => [
             'dest' => '\Modules\Workflow\Controller\CliController:cliWorkflowInstanceCreate',
             'verb' => 2,
-        ],
-    ],
-    '^.*/orw/check -i all*$' => [
-        0 => [
-            'dest'       => '\Modules\OnlineResourceWatcher\Controller\ApiController:apiCheckResources',
-            'permission' => [
-                'module' => 'OnlineResourceWatcher',
-                'type'   => 4,
-                'state'  => 1,
-            ],
         ],
     ],
 ];

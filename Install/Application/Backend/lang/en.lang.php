@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 return [[
-    ':meta'                 => 'Karaka backend application for businesses including EPR, CRM, Intranet, Office and much more.',
+    ':meta'                 => 'Jingga backend application for businesses including EPR, CRM, Intranet, Office and much more.',
     'Add'                   => 'Add',
     'Back'                  => 'Back',
     'Cancel'                => 'Cancel',
@@ -64,4 +64,5 @@ return [[
     'User'                  => 'User',
     'Username'              => 'Username',
     'Wednesday'             => 'Wednesday',
+    'PleaseSelect'          => 'Please Select',
 ]];

@@ -4,7 +4,7 @@
     "start_url": "../../en/backend",
     "type": "privileged",
     "name": "Jingga Backend",
-    "description": "Karaka backend application.",
+    "description": "Jingga backend application.",
     "short_name": "Jingga",
     "icons": [
         {

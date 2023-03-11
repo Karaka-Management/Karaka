@@ -202,3 +202,6 @@
 [submodule "Modules/Finance"]
 	path = Modules/Finance
 	url = https://github.com/Karaka-Management/oms-Finance.git
+[submodule "Modules/Payment"]
+	path = Modules/Payment
+	url = https://github.com/Karaka-Management/oms-Payment.git

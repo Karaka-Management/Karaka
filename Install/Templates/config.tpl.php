@@ -46,76 +46,60 @@ return [
         'core' => [
             'masters' => [
                 'admin'  => [
-                    'db'       => '${db}', /* db type */
-                    'host'     => '${host}', /* db host address */
-                    'port'     => '${port}', /* db host port */
+                    'db'       => '{$db}', /* db type */
+                    'host'     => '{$host}', /* db host address */
+                    'port'     => '{$port}', /* db host port */
                     'login'    => '{$admin['login']}', /* db login name */
                     'password' => '{$admin['password']}', /* db login password */
-                    'database' => '${dbname}', /* db name */
+                    'database' => '{$dbname}', /* db name */
                     'weight'   => 1000, /* db table weight */
                 ],
                 'insert'  => [
-                    'db'       => '${db}', /* db type */
-                    'host'     => '${host}', /* db host address */
-                    'port'     => '${port}', /* db host port */
+                    'db'       => '{$db}', /* db type */
+                    'host'     => '{$host}', /* db host address */
+                    'port'     => '{$port}', /* db host port */
                     'login'    => '{$insert['login']}', /* db login name */
                     'password' => '{$insert['password']}', /* db login password */
-                    'database' => '${dbname}', /* db name */
+                    'database' => '{$dbname}', /* db name */
                     'weight'   => 1000, /* db table weight */
                 ],
                 'select'  => [
-                    'db'       => '${db}', /* db type */
-                    'host'     => '${host}', /* db host address */
-                    'port'     => '${port}', /* db host port */
+                    'db'       => '{$db}', /* db type */
+                    'host'     => '{$host}', /* db host address */
+                    'port'     => '{$port}', /* db host port */
                     'login'    => '{$select['login']}', /* db login name */
                     'password' => '{$select['password']}', /* db login password */
-                    'database' => '${dbname}', /* db name */
+                    'database' => '{$dbname}', /* db name */
                     'weight'   => 1000, /* db table weight */
                 ],
                 'update'  => [
-                    'db'       => '${db}', /* db type */
-                    'host'     => '${host}', /* db host address */
-                    'port'     => '${port}', /* db host port */
+                    'db'       => '{$db}', /* db type */
+                    'host'     => '{$host}', /* db host address */
+                    'port'     => '{$port}', /* db host port */
                     'login'    => '{$update['login']}', /* db login name */
                     'password' => '{$update['password']}', /* db login password */
-                    'database' => '${dbname}', /* db name */
+                    'database' => '{$dbname}', /* db name */
                     'weight'   => 1000, /* db table weight */
                 ],
                 'delete'  => [
-                    'db'       => '${db}', /* db type */
-                    'host'     => '${host}', /* db host address */
-                    'port'     => '${port}', /* db host port */
+                    'db'       => '{$db}', /* db type */
+                    'host'     => '{$host}', /* db host address */
+                    'port'     => '{$port}', /* db host port */
                     'login'    => '{$delete['login']}', /* db login name */
                     'password' => '{$delete['password']}', /* db login password */
-                    'database' => '${dbname}', /* db name */
+                    'database' => '{$dbname}', /* db name */
                     'weight'   => 1000, /* db table weight */
                 ],
                 'schema'  => [
-                    'db'       => '${db}', /* db type */
-                    'host'     => '${host}', /* db host address */
-                    'port'     => '${port}', /* db host port */
+                    'db'       => '{$db}', /* db type */
+                    'host'     => '{$host}', /* db host address */
+                    'port'     => '{$port}', /* db host port */
                     'login'    => '{$schema['login']}', /* db login name */
                     'password' => '{$schema['password']}', /* db login password */
-                    'database' => '${dbname}', /* db name */
+                    'database' => '{$dbname}', /* db name */
                     'weight'   => 1000, /* db table weight */
                 ],
             ],
-        ],
-    ],
-    'mail'      => [
-        'imap' => [
-            'host' => '127.0.0.1',
-            'port' => 143,
-            'ssl' => false,
-            'user' => 'test',
-            'password' => '123456',
-        ],
-        'pop3' => [
-            'host' => '127.0.0.1',
-            'port' => 25,
-            'ssl' => false,
-            'user' => 'test',
-            'password' => '123456',
         ],
     ],
     'cache' => [
@@ -135,7 +119,7 @@ return [
         ],
     ],
     'page'     => [
-        'root'  => '${subdir}',
+        'root'  => '{$subdir}',
         'https' => false,
     ],
     'app'      => [
@@ -145,21 +129,21 @@ return [
             'id'    => 'backend',
             'lang'  => 'en',
             'theme' => 'Backend',
-            'org'   => ${defaultOrg},
+            'org'   => {$defaultOrg},
         ],
         'domains' => [
-            '${tld}' => [
+            '{$tld}' => [
                 'app'   => 'Backend',
                 'id'    => 'backend',
                 'lang'  => 'en',
                 'theme' => 'Backend',
-                'org'   => ${tldOrg},
+                'org'   => {$tldOrg},
             ],
         ],
     ],
     'socket'   => [
         'master' => [
-            'host'  => '${tld}',
+            'host'  => '{$tld}',
             'limit' => 300,
             'port'  => 4310,
         ],
