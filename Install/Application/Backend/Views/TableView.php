@@ -6,7 +6,7 @@
  *
  * @package   View
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -22,7 +22,7 @@ use phpOMS\Views\View;
  * Basic view which can be used as basis for specific implementations.
  *
  * @package View
- * @license OMS License 1.0
+ * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  */
@@ -271,16 +271,16 @@ class TableView extends View
         return $this->baseUri . (
             $obj === null
             ? '?element={?element}&sort_by={?sort_by}&sort_order={?sort_order}'
-                . (!empty($request->getData('search'))
-                ? '&search=' . $request->getData('search')
+                . (!empty($request->getDataString('search'))
+                ? '&search=' . $request->getDataString('search')
                 : '')
             : '?{?}&id='
                 . $obj->getId()
-                . (!empty($request->getData('search'))
-                    ? '&search=' . $request->getData('search')
+                . (!empty($request->getDataString('search'))
+                    ? '&search=' . $request->getDataString('search')
                     : '')
-                . ($request->getData('sort_by') !== 'id' && \property_exists($obj, $request->getData('sort_by') ?? '')
-                    ? '&subid=' . $obj->{$request->getData('sort_by')}
+                . ($request->getDataString('sort_by') !== 'id' && \property_exists($obj, $request->getDataString('sort_by') ?? '')
+                    ? '&subid=' . $obj->{$request->getDataString('sort_by')}
                     : '')
                 . '&ptype=p'
         );
@@ -302,16 +302,16 @@ class TableView extends View
         return $this->baseUri . (
             $obj === null
             ? '?element={?element}&sort_by={?sort_by}&sort_order={?sort_order}'
-                . (!empty($request->getData('search'))
-                ? '&search=' . $request->getData('search')
+                . (!empty($request->getDataString('search'))
+                ? '&search=' . $request->getDataString('search')
                 : '')
             : '?{?}&id='
-                . ($hasNext ? $obj->getId() : $request->getData('id'))
-                . (!empty($request->getData('search'))
-                    ? '&search=' . $request->getData('search')
+                . ($hasNext ? $obj->getId() : $request->getDataString('id'))
+                . (!empty($request->getDataString('search'))
+                    ? '&search=' . $request->getDataString('search')
                     : '')
-                . ($request->getData('sort_by') !== 'id' && \property_exists($obj, $request->getData('sort_by') ?? '')
-                    ? '&subid=' . $obj->{$request->getData('sort_by')}
+                . ($request->getDataString('sort_by') !== 'id' && \property_exists($obj, $request->getDataString('sort_by') ?? '')
+                    ? '&subid=' . $obj->{$request->getDataString('sort_by')}
                     : '')
                 . '&ptype=n'
         );

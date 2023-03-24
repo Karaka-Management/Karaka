@@ -6,7 +6,7 @@
  *
  * @package   Model
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -24,7 +24,7 @@ use phpOMS\DataStorage\Cache\CachePool;
  * This is used in order to manage global Framework and Module settings
  *
  * @package Model
- * @license OMS License 1.0
+ * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  */
@@ -86,7 +86,7 @@ final class CoreSettings implements SettingsInterface
                 $key = \trim($key, ':');
 
                 if ($this->exists($key)) {
-                    $options[$key] = $this->getOption($key);
+                    $options[$name] = $this->getOption($key);
                     unset($names[$i]);
                 }
             }
@@ -127,7 +127,7 @@ final class CoreSettings implements SettingsInterface
                 // summary: line 65 would fail
                 $this->setOption($option->getId(), $option, true);
 
-                $options[$key] = $option;
+                $options[$option->name] = $option;
             }
         } catch (\Throwable $e) {
             throw $e; // @codeCoverageIgnore

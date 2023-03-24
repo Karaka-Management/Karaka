@@ -7,7 +7,7 @@
  *
  * @package   Web\Api
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -54,7 +54,7 @@ use Web\WebApplication;
  * Application class.
  *
  * @package Web\Api
- * @license OMS License 1.0
+ * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  * @codeCoverageIgnore
@@ -91,7 +91,6 @@ final class Application
         $this->app          = $app;
         $this->app->appName = 'Api';
         $this->config       = $config;
-        UriFactory::setQuery('/app', \strtolower($this->app->appName));
     }
 
     /**
@@ -109,7 +108,7 @@ final class Application
         $response->header->set('Content-Type', 'text/plain; charset=utf-8');
         $pageView = new View($this->app->l11nManager, $request, $response);
 
-        $this->app->l11nManager = new L11nManager($this->app->appName);
+        $this->app->l11nManager = new L11nManager();
         $this->app->dbPool      = new DatabasePool();
         $this->app->router      = new WebRouter();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
@@ -127,8 +126,8 @@ final class Application
         $this->app->dbPool->create('schema', $this->config['db']['core']['masters']['schema']);
 
         /* Checking csrf token, if a csrf token is required at all has to be decided in the route or controller */
-        if ($request->getData('CSRF') !== null
-            && !\hash_equals($this->app->sessionManager->get('CSRF'), $request->getData('CSRF'))
+        if ($request->hasData('CSRF')
+            && !\hash_equals($this->app->sessionManager->get('CSRF'), $request->getDataString('CSRF'))
         ) {
             $response->header->status = RequestStatusCode::R_403;
 
@@ -150,9 +149,8 @@ final class Application
         $this->app->unitId = $this->getApplicationOrganization($request, $this->config['app']);
         $pageView->setData('unitId', $this->app->unitId);
 
-
         $aid = $request->hasData('api')
-            ? \Modules\Admin\Models\ApiKeyMapper::authenticateApiKey($request->getData('api') ?? '')
+            ? \Modules\Admin\Models\ApiKeyMapper::authenticateApiKey($request->getDataString('api') ?? '')
             : Auth::authenticate($this->app->sessionManager);
 
         $request->header->account  = $aid;
@@ -160,6 +158,7 @@ final class Application
 
         $account = $this->loadAccount($aid);
 
+        // @todo: Why are we loading the language here and in the initResponse?
         if (!($account instanceof NullAccount)) {
             $response->header->l11n = $account->l11n;
         } elseif ($this->app->sessionManager->get('language') !== null) {
@@ -257,7 +256,7 @@ final class Application
 
                 $routed = $app->router->route(
                     $route,
-                    $request->getData('CSRF'),
+                    $request->getDataString('CSRF'),
                     $request->getRouteVerb(),
                     $appName,
                     $this->app->unitId,
@@ -301,7 +300,7 @@ final class Application
     {
         $routes = $this->app->router->route(
             $request->uri->getRoute(),
-            $request->getData('CSRF'),
+            $request->getDataString('CSRF'),
             $request->getRouteVerb(),
             $this->app->appName,
             $this->app->unitId,
@@ -316,7 +315,7 @@ final class Application
             return $this->app->dispatcher->dispatch(
                 $this->app->router->route(
                     '/' . \strtolower($this->app->appName) . '/e403',
-                    $request->getData('CSRF'),
+                    $request->getDataString('CSRF'),
                     $request->getRouteVerb()
                 ),
                 $request, $response);
@@ -324,7 +323,7 @@ final class Application
             return $this->app->dispatcher->dispatch(
                 $this->app->router->route(
                     '/' . \strtolower($this->app->appName) . '/login',
-                    $request->getData('CSRF'),
+                    $request->getDataString('CSRF'),
                     $request->getRouteVerb()
                 ),
                 $request, $response);
@@ -382,7 +381,7 @@ final class Application
             $this->app->dispatcher->dispatch(
                 $this->app->router->route(
                     $request->uri->getRoute(),
-                    $request->getData('CSRF') ?? null
+                    $request->getDataString('CSRF') ?? null
                 ),
                 $request,
                 $response
@@ -402,6 +401,9 @@ final class Application
      */
     private function getApplicationOrganization(HttpRequest $request, array $config) : int
     {
-        return (int) ($request->getData('u') ?? ($config['domains'][$request->uri->host]['org'] ?? $config['default']['org']));
+        return $request->getDataInt('u')
+            ?? ($config['domains'][$request->uri->host]['org']
+                ?? $config['default']['org']
+            );
     }
 }

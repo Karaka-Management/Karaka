@@ -6,7 +6,7 @@
  *
  * @package   Web\Backend
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -21,7 +21,7 @@ $head = $this->getData('head');
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <base href="<?= UriFactory::build('{/base}'); ?>/">
+    <base href="/">
     <meta name="theme-color" content="#343a40">
     <meta name="msapplication-navbutton-color" content="#343a40">
     <meta name="theme-color" content="#343a40">

@@ -6,7 +6,7 @@
  *
  * @package   Install
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -58,7 +58,7 @@ use phpOMS\Utils\TestUtils;
  * Application class.
  *
  * @package Install
- * @license OMS License 1.0
+ * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  */
@@ -231,7 +231,7 @@ abstract class InstallAbstract extends ApplicationAbstract
     protected static function editHtaccessFile(RequestAbstract $request) : void
     {
         $fullTLD = $request->getData('domain');
-        $tld     = \str_replace(['.', 'http://', 'https://'], ['\.', '', ''], $request->getData('domain') ?? '');
+        $tld     = \str_replace(['.', 'http://', 'https://'], ['\.', '', ''], $request->getDataString('domain') ?? '');
         $subPath = $request->getData('websubdir') ?? '/';
 
         $config = include __DIR__ . '/Templates/htaccess.tpl.php';
@@ -392,7 +392,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         // setup basic units
         /** @var \Modules\Organization\Models\Unit $default */
         $default       = UnitMapper::get()->where('id', 1)->execute();
-        $default->name = (string) ($request->getData('orgname') ?? '');
+        $default->name = $request->getDataString('orgname') ?? '';
         $default->setStatus(Status::ACTIVE);
 
         UnitMapper::update()->execute($default);

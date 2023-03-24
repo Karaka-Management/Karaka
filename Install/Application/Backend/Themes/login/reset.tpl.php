@@ -6,7 +6,7 @@
  *
  * @package   Web\Backend
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -29,7 +29,7 @@ $head = $this->getData('head');
                 <input id="iResetButton" name="resetButton" type="submit" value="<?= $this->getHtml('Reset', '0', '0'); ?>" tabindex="3">
             </form>
         </div>
-        <div id="below-form"><a href="<?= UriFactory::build('{/lang}/{/app}/{/backend}'); ?>" tabindex="2"><?= $this->getHtml('Back', '0', '0'); ?></a></div>
+        <div id="below-form"><a href="<?= UriFactory::build('{/base}/{/backend}'); ?>" tabindex="2"><?= $this->getHtml('Back', '0', '0'); ?></a></div>
     </div>
 </main>
 <?php include __DIR__ . '/foot.tpl.php'; ?>

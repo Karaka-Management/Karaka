@@ -6,7 +6,7 @@
  *
  * @package   Web\Error
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -26,7 +26,7 @@ use Web\WebApplication;
  * Application class.
  *
  * @package Web\Error
- * @license OMS License 1.0
+ * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  * @codeCoverageIgnore
@@ -76,7 +76,7 @@ final class Application
      */
     public function run(HttpRequest $request, HttpResponse $response) : void
     {
-        $this->app->l11nManager = new L11nManager($this->app->appName);
+        $this->app->l11nManager = new L11nManager();
 
         if (!\in_array($response->getLanguage(), $this->config['language'])) {
             $response->header->l11n->setLanguage('en');

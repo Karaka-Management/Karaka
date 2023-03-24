@@ -6,7 +6,7 @@
  *
  * @package   Web\Backend
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -40,7 +40,7 @@ use phpOMS\Uri\UriFactory;
             </form>
         </div>
 
-        <div id="below-form"><a href="<?= UriFactory::build('{/lang}/{/app}/forgot'); ?>" tabindex="4"><?= $this->getHtml('ForgotPassword', '0', '0'); ?></a></div>
+        <div id="below-form"><a href="<?= UriFactory::build('{/base}/forgot'); ?>" tabindex="4"><?= $this->getHtml('ForgotPassword', '0', '0'); ?></a></div>
 
         <div id="app-message-container">
             <template id="app-message-tpl">

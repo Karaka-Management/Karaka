@@ -6,7 +6,7 @@
  *
  * @package    Cli
  * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
+ * @license    OMS License 2.0
  * @version    1.0.0
  * @link       http://karaka.com
  */
@@ -50,7 +50,7 @@ use phpOMS\Views\View;
  * Application class.
  *
  * @package    Cli
- * @license    OMS License 1.0
+ * @license    OMS License 2.0
  * @link       http://karaka.com
  * @since      1.0.0
  *
@@ -84,7 +84,7 @@ final class CliApplication extends ApplicationAbstract
 
         $this->setupHandlers();
 
-        $this->l11nManager    = new L11nManager($this->appName);
+        $this->l11nManager    = new L11nManager();
         $this->dbPool         = new DatabasePool();
         $this->sessionManager = new HttpSession(0);
         $this->cookieJar      = new CookieJar();
@@ -121,11 +121,11 @@ final class CliApplication extends ApplicationAbstract
         $request  = $this->initRequest($arg, $this->config['app'], __DIR__);
         $response = $this->initResponse($request, $this->config);
 
-        $aid                       = (int) ($request->getData('uid') ?? ($this->config['app']['default']['user'] ?? 1));
+        $aid                       = $request->getDataInt('uid') ?? ($this->config['app']['default']['user'] ?? 1);
         $request->header->account  = $aid;
         $response->header->account = $aid;
 
-        $this->unitId = (int) ($request->getData('u') ?? ($this->config['app']['default']['org'] ?? 1));
+        $this->unitId = $request->getDataInt('u') ?? ($this->config['app']['default']['org'] ?? 1);
 
         $this->router->add(
             '/cli/e403',
@@ -140,6 +140,7 @@ final class CliApplication extends ApplicationAbstract
 
         $account = $this->loadAccount($request);
 
+        // @todo: Why are we loading the language here and in the initResponse?
         if (!($account instanceof NullAccount)) {
             $response->header->l11n = $account->l11n;
         } elseif ($this->sessionManager->get('language') !== null) {
@@ -182,6 +183,8 @@ final class CliApplication extends ApplicationAbstract
         $response->header->set('content-language', $response->getLanguage(), true);
 
         /* Handle not logged in */
+        /* CLI application is always logged in */
+        /*
         if ($account->getId() < 1) {
             $this->createBaseLoggedOutResponse($response, $pageView);
 
@@ -190,6 +193,7 @@ final class CliApplication extends ApplicationAbstract
 
             return;
         }
+        */
 
         /* No reading permission */
         if (!$account->hasPermission(PermissionType::READ, $this->unitId, $this->appName, 'Dashboard')) {
@@ -429,8 +433,13 @@ final class CliApplication extends ApplicationAbstract
      */
     private function createDefaultPageView(CliRequest $request, CliResponse $response, CliView $pageView) : void
     {
-        $pageView->setOrganizations(UnitMapper::getAll()->execute());
-        $pageView->setProfile(ProfileMapper::get()->where('account', $request->header->account)->execute());
+        /** @var \Modules\Organization\Models\Unit $unit */
+        $unit = UnitMapper::getAll()->execute();
+        $pageView->setOrganizations($unit);
+
+        /** @var \Modules\Profile\Models\Profile $profile */
+        $profile = ProfileMapper::get()->where('account', $request->header->account)->execute();
+        $pageView->setProfile($profile);
 
         $pageView->setTemplate('/Cli/index');
     }

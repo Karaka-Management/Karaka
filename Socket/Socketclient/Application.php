@@ -6,7 +6,7 @@
  *
  * @package    Socket
  * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
+ * @license    OMS License 2.0
  * @version    1.0.0
  * @link       http://karaka.com
  */
@@ -26,7 +26,7 @@ use Socket\SocketApplication;
  * Controller class.
  *
  * @package    Socket
- * @license    OMS License 1.0
+ * @license    OMS License 2.0
  * @link       http://karaka.com
  * @since      1.0.0
  * @codeCoverageIgnore
@@ -78,7 +78,7 @@ class Application
 
         $this->app->moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
         $this->app->dispatcher    = new Dispatcher($this->app);
-        $this->app->l11nManager   = new L11nManager($this->app->appName);
+        $this->app->l11nManager   = new L11nManager();
 
         $this->socket = new Client($this->app);
         $this->socket->create('127.0.0.1', $config['socket']['master']['port']);

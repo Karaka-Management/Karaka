@@ -7,7 +7,7 @@
  *
  * @package   Web\Backend
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -42,7 +42,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     <meta name="description" content="<?= $this->getHtml(':meta', '0', '0'); ?>">
     <?= $head->meta->render(); ?>
 
-    <base href="<?= UriFactory::build('{/base}'); ?>/">
+    <base href="/">
 
     <link rel="manifest" href="<?= UriFactory::build('Web/Backend/manifest.json'); ?>">
     <link rel="manifest" href="<?= UriFactory::build('Web/Backend/manifest.webmanifest'); ?>">
@@ -67,7 +67,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     <input type="checkbox" id="nav-trigger" name="nav-hamburger" class="nav-trigger">
     <nav id="nav-side">
         <span id="u-box">
-            <a href="<?= UriFactory::build('{/lang}/{/app}/profile/single?{?}&id=' . $this->profile->getId()); ?>">
+            <a href="<?= UriFactory::build('{/base}/profile/single?{?}&id=' . $this->profile->getId()); ?>">
                 <img alt="<?= $this->getHtml('User', '0', '0'); ?>" loading="lazy" src="<?= $this->getProfileImage(); ?>">
             </a>
             <span id="logo" itemscope itemtype="http://schema.org/Organization">

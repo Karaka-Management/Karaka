@@ -6,7 +6,7 @@
  *
  * @package   Template
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -55,7 +55,7 @@ declare(strict_types=1);
                 <p>Upon clicking Agree you agree with the following license agreement.</p>
 
                 <blockquote>
-                    <p>The OMS License 1.0</p>
+                    <p>The OMS License 2.0</p>
 
                     <p>Copyright (c) <Dennis Eichhorn> All Rights Reserved</p>
 

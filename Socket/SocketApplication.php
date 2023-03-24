@@ -6,7 +6,7 @@
  *
  * @package    Socket
  * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
+ * @license    OMS License 2.0
  * @version    1.0.0
  * @link       http://karaka.com
  */
@@ -20,7 +20,7 @@ use phpOMS\Application\ApplicationAbstract;
  * Controller class.
  *
  * @package    Socket
- * @license    OMS License 1.0
+ * @license    OMS License 2.0
  * @link       http://karaka.com
  * @since      1.0.0
  * @codeCoverageIgnore

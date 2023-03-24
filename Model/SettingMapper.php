@@ -6,7 +6,7 @@
  *
  * @package   Model
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -21,7 +21,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
  * Account mapper class.
  *
  * @package Model
- * @license OMS License 1.0
+ * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  */
@@ -136,28 +136,27 @@ final class SettingMapper extends DataMapperFactory
         if (!empty($where['ids'])) {
             $query->where('settings_id', 'in', $where['ids']);
         } else {
-            // @todo: maybe remove the empty check because empty means null and null could be a desired request, better use isset?
-            if (!empty($where['names'])) {
+            if (isset($where['names'])) {
                 $query->where('settings_name', 'in', $where['names']);
             }
 
-            if (!empty($where['unit'])) {
+            if (isset($where['unit'])) {
                 $query->andWhere('settings_unit', '=', $where['unit']);
             }
 
-            if (!empty($where['app'])) {
+            if (isset($where['app'])) {
                 $query->andWhere('settings_app', '=', $where['app']);
             }
 
-            if (!empty($where['module'])) {
+            if (isset($where['module'])) {
                 $query->andWhere('settings_module', '=', $where['module']);
             }
 
-            if (!empty($where['group'])) {
+            if (isset($where['group'])) {
                 $query->andWhere('settings_group', '=', $where['group']);
             }
 
-            if (!empty($where['account'])) {
+            if (isset($where['account'])) {
                 $query->andWhere('settings_account', '=', $where['account']);
             }
         }

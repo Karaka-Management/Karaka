@@ -6,7 +6,7 @@
  *
  * @package   Web
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -31,7 +31,7 @@ use Web\Exception\UnexpectedApplicationException;
  * Application class.
  *
  * @package Web
- * @license OMS License 1.0
+ * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  *
@@ -56,18 +56,21 @@ class WebApplication extends ApplicationAbstract
 
             $this->logger = FileLogger::getInstance($config['log']['file']['path'], false);
 
-            UriFactory::setQuery('/api', 'api/', true);
-            foreach ($config['app']['domains'] as $tld => $app) {
-                UriFactory::setQuery('/' . $app['id'], $tld, true);
-
-                // @todo: define {/app} as tld/en or lang/app depending on the domains definition
-                // then we no longer need to write {/lang}/{/app} anywhere but only {/app}
-                // probably needs to happen in the respective app only there the lang and app is known
-            }
-
             $applicationName = $this->getApplicationName(HttpUri::fromCurrent(), $config['app'], $config['page']['root']);
             $request         = $this->initRequest($config['page']['root'], $config['app']);
             $response        = $this->initResponse($request, $config);
+
+            UriFactory::setQuery('/base', $response->getLanguage() . '/' . \strtolower($applicationName), true);
+            UriFactory::setQuery('/api', 'api/', true);
+            UriFactory::setQuery('/app', \strtolower($applicationName), true);
+
+            foreach ($config['app']['domains'] as $tld => $app) {
+                UriFactory::setQuery('/' . $app['id'], $tld . '/' . $response->getLanguage(), true);
+
+                if ($app['app'] === $applicationName) {
+                    UriFactory::setQuery('/base', $response->getLanguage(), true);
+                }
+            }
 
             $this->theme = $this->getApplicationTheme($request, $config['app']['domains']);
 

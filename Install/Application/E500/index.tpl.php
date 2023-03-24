@@ -7,7 +7,7 @@
  *
  * @package   Web\Backend
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -24,7 +24,7 @@ use phpOMS\Uri\UriFactory;
     <meta name="msapplication-navbutton-color" content="#343a40">
     <meta name="apple-mobile-web-app-status-bar-style" content="#343a40">
 
-    <base href="<?= UriFactory::build('{/base}'); ?>/">
+    <base href="/">
 
     <title>Error 500</title>
 

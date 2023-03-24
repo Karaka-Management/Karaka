@@ -6,7 +6,7 @@
  *
  * @package   Web\Backend
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -54,7 +54,7 @@ use Web\WebApplication;
  * Application class.
  *
  * @package Web\Backend
- * @license OMS License 1.0
+ * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  * @codeCoverageIgnore
@@ -91,7 +91,6 @@ final class Application
         $this->app          = $app;
         $this->app->appName = 'Backend';
         $this->config       = $config;
-        UriFactory::setQuery('/app', \strtolower($this->app->appName));
     }
 
     /**
@@ -106,7 +105,7 @@ final class Application
      */
     public function run(HttpRequest $request, HttpResponse $response) : void
     {
-        $this->app->l11nManager    = new L11nManager($this->app->appName);
+        $this->app->l11nManager    = new L11nManager();
         $this->app->dbPool         = new DatabasePool();
         $this->app->sessionManager = new HttpSession(0);
         $this->app->cookieJar      = new CookieJar();
@@ -130,8 +129,8 @@ final class Application
         );
 
         /* CSRF token OK? */
-        if ($request->getData('CSRF') !== null
-            && !\hash_equals($this->app->sessionManager->get('CSRF'), $request->getData('CSRF'))
+        if ($request->hasData('CSRF')
+            && !\hash_equals($this->app->sessionManager->get('CSRF'), $request->getDataString('CSRF'))
         ) {
             $response->header->status = RequestStatusCode::R_403;
 
@@ -155,6 +154,7 @@ final class Application
 
         $account = $this->loadAccount($aid);
 
+        // @todo: Why are we loading the language here and in the initResponse?
         if (!($account instanceof NullAccount)) {
             $response->header->l11n = $account->l11n;
         } elseif ($this->app->sessionManager->get('language') !== null) {
@@ -244,7 +244,7 @@ final class Application
     {
         $routes = $this->app->router->route(
             $request->uri->getRoute(),
-            $request->getData('CSRF'),
+            $request->getDataString('CSRF'),
             $request->getRouteVerb(),
             $this->app->appName,
             $this->app->unitId,
@@ -259,7 +259,7 @@ final class Application
             return $this->app->dispatcher->dispatch(
                 $this->app->router->route(
                     '/' . \strtolower($this->app->appName) . '/e403',
-                    $request->getData('CSRF'),
+                    $request->getDataString('CSRF'),
                     $request->getRouteVerb()
                 ),
                 $request, $response);
@@ -267,7 +267,7 @@ final class Application
             return $this->app->dispatcher->dispatch(
                 $this->app->router->route(
                     '/' . \strtolower($this->app->appName) . '/login',
-                    $request->getData('CSRF'),
+                    $request->getDataString('CSRF'),
                     $request->getRouteVerb()
                 ),
                 $request, $response);

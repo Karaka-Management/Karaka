@@ -6,7 +6,7 @@
  *
  * @package   Web\Backend
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -17,10 +17,10 @@ use phpOMS\Uri\UriFactory;
 ?>
 <footer>
     <ul>
-        <li><a href="<?= UriFactory::build('{/lang}/{/app}/{/backend}?{?}'); ?>"><?= $this->getHtml('Login', '0', '0'); ?></a>
-        <li><a href="<?= UriFactory::build('{/lang}/{/app}/privacy?{?}'); ?>"><?= $this->getHtml('PrivacyPolicy', '0', '0'); ?></a>
-        <li><a href="<?= UriFactory::build('{/lang}/{/app}/terms?{?}'); ?>"><?= $this->getHtml('Terms', '0', '0'); ?></a>
-        <li><a href="<?= UriFactory::build('{/lang}/{/app}/imprint?{?}'); ?>"><?= $this->getHtml('Imprint', '0', '0'); ?></a>
+        <li><a href="<?= UriFactory::build('{/base}/{/backend}?{?}'); ?>"><?= $this->getHtml('Login', '0', '0'); ?></a>
+        <li><a href="<?= UriFactory::build('{/base}/privacy?{?}'); ?>"><?= $this->getHtml('PrivacyPolicy', '0', '0'); ?></a>
+        <li><a href="<?= UriFactory::build('{/base}/terms?{?}'); ?>"><?= $this->getHtml('Terms', '0', '0'); ?></a>
+        <li><a href="<?= UriFactory::build('{/base}/imprint?{?}'); ?>"><?= $this->getHtml('Imprint', '0', '0'); ?></a>
     </ul>
 </footer>
 

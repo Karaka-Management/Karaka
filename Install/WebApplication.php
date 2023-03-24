@@ -7,7 +7,7 @@
  *
  * @package   Install
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -35,7 +35,7 @@ use phpOMS\Views\View;
  * Application class.
  *
  * @package Install
- * @license OMS License 1.0
+ * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  *
@@ -154,7 +154,7 @@ final class WebApplication extends InstallAbstract
         $this->dispatcher->dispatch(
             $this->router->route(
                 $request->uri->getRoute(),
-                $request->getData('CSRF'),
+                $request->getDataString('CSRF'),
                 $request->getRouteVerb()
             ),
             $request,

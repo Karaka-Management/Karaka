@@ -205,3 +205,6 @@
 [submodule "Modules/Payment"]
 	path = Modules/Payment
 	url = https://github.com/Karaka-Management/oms-Payment.git
+[submodule "Modules/Attribute"]
+	path = Modules/Attribute
+	url = https://github.com/Karaka-Management/oms-Attribute.git

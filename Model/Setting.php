@@ -6,7 +6,7 @@
  *
  * @package   Model
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -18,11 +18,11 @@ namespace Model;
  * Setting model.
  *
  * @package Model
- * @license OMS License 1.0
+ * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  */
-class Setting
+class Setting implements \JsonSerializable
 {
     /**
      * Id
@@ -187,5 +187,31 @@ class Setting
         $this->module  = $module;
         $this->group   = $group;
         $this->account = $account;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toArray() : array
+    {
+        return [
+           'id'      => $this->id,
+           'name'    => $this->name,
+           'content' => $this->content,
+           'pattern' => $this->pattern,
+           'unit'    => $this->unit,
+           'app'     => $this->app,
+           'module'  => $this->module,
+           'group'   => $this->group,
+           'account' => $this->account,
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function jsonSerialize() : mixed
+    {
+        return $this->toArray();
     }
 }
