@@ -133,6 +133,12 @@ final class CoreSettings implements SettingsInterface
             throw $e; // @codeCoverageIgnore
         }
 
+        if (empty($options) && !\is_array($ids) && !\is_array($names)) {
+            return [];
+        } elseif (empty($options)) {
+            return null;
+        }
+
         return \count($options) > 1 ? $options : \reset($options);
     }
 
