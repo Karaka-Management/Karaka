@@ -18,6 +18,7 @@ namespace Web\Api;
 
 use Model\CoreSettings;
 use Modules\Admin\Models\AccountMapper;
+use Modules\Admin\Models\AppMapper;
 use Modules\Admin\Models\LocalizationMapper;
 use Modules\Admin\Models\NullAccount as ModelsNullAccount;
 use Modules\Admin\Models\PermissionCategory;
@@ -138,6 +139,13 @@ final class Application
         $con = $this->app->dbPool->get();
         DataMapperFactory::db($con);
 
+        /** @var \Modules\Admin\Models\App $app */
+        $app = AppMapper::get()
+            ->where('name', $this->app->appName)
+            ->execute();
+
+        $this->app->appId = $app->getId();
+
         $this->app->cachePool    = new CachePool();
         $this->app->appSettings  = new CoreSettings();
         $this->app->eventManager = new EventManager($this->app->dispatcher);
@@ -158,20 +166,15 @@ final class Application
 
         $account = $this->loadAccount($aid);
 
-        // @todo: Why are we loading the language here and in the initResponse?
         if (!($account instanceof NullAccount)) {
             $response->header->l11n = $account->l11n;
-        } elseif ($this->app->sessionManager->get('language') !== null) {
+        } elseif ($this->app->sessionManager->get('language') !== null
+            && $response->header->l11n->getLanguage() !== $this->app->sessionManager->get('language')
+        ) {
             $response->header->l11n
                 ->loadFromLanguage(
                     $this->app->sessionManager->get('language'),
                     $this->app->sessionManager->get('country') ?? '*'
-                );
-        } elseif ($this->app->cookieJar->get('language') !== null) {
-            $response->header->l11n
-                ->loadFromLanguage(
-                    $this->app->cookieJar->get('language'),
-                    $this->app->cookieJar->get('country') ?? '*'
                 );
         }
 
@@ -226,6 +229,12 @@ final class Application
                 {
                 };
 
+                /** @var \Modules\Admin\Models\App $appModel */
+                $appModel = AppMapper::get()
+                    ->where('name', $appName)
+                    ->execute();
+
+                $app->appId          = $appModel->getId();
                 $app->appName        = $appName;
                 $app->dbPool         = $this->app->dbPool;
                 $app->unitId         = $this->app->unitId;
@@ -258,7 +267,7 @@ final class Application
                     $route,
                     $request->getDataString('CSRF'),
                     $request->getRouteVerb(),
-                    $appName,
+                    $app->appId,
                     $this->app->unitId,
                     $account,
                     $request->getData()
@@ -302,7 +311,7 @@ final class Application
             $request->uri->getRoute(),
             $request->getDataString('CSRF'),
             $request->getRouteVerb(),
-            $this->app->appName,
+            $this->app->appId,
             $this->app->unitId,
             $account,
             $request->getData()

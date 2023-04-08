@@ -79,7 +79,9 @@ export class Application
 
         this.request.setRootPath(
             HttpUri.parseUrl(
-                document.getElementsByTagName('base')[0].href
+                typeof document.getElementsByTagName('base')[0] !== 'undefined'
+                    ? document.getElementsByTagName('base')[0].href
+                    : ''
             ).path
         );
 

@@ -140,20 +140,15 @@ final class CliApplication extends ApplicationAbstract
 
         $account = $this->loadAccount($request);
 
-        // @todo: Why are we loading the language here and in the initResponse?
         if (!($account instanceof NullAccount)) {
             $response->header->l11n = $account->l11n;
-        } elseif ($this->sessionManager->get('language') !== null) {
+        } elseif ($this->app->sessionManager->get('language') !== null
+            && $response->header->l11n->getLanguage() !== $this->app->sessionManager->get('language')
+        ) {
             $response->header->l11n
                 ->loadFromLanguage(
-                    $this->sessionManager->get('language'),
-                    $this->sessionManager->get('country') ?? '*'
-                );
-        } elseif ($this->cookieJar->get('language') !== null) {
-            $response->header->l11n
-                ->loadFromLanguage(
-                    $this->cookieJar->get('language'),
-                    $this->cookieJar->get('country') ?? '*'
+                    $this->app->sessionManager->get('language'),
+                    $this->app->sessionManager->get('country') ?? '*'
                 );
         }
 

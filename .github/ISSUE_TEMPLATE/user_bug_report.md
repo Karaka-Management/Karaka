@@ -8,9 +8,11 @@ assignees: ''
 ---
 
 # Bug Description
+
 A clear and concise description of what the bug is.
 
 # How to Reproduce
+
 Steps to reproduce the behavior:
 
 1. Go to '...'
@@ -19,16 +21,20 @@ Steps to reproduce the behavior:
 4. See error
 
 # Expected Behavior
+
 A clear and concise description of what you expected to happen.
 
 # Screenshots
+
 If applicable, add screenshots to help explain your problem.
 
 # System Information
- - System: [e.g. PC or iPhone11, ...]
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - KarakaVersion [e.g. 22]
+
+- System: [e.g. PC or iPhone11, ...]
+- OS: [e.g. iOS]
+- Browser [e.g. chrome, safari]
+- KarakaVersion [e.g. 22]
 
 # Additional Information
+
 Add any other context about the problem here.
