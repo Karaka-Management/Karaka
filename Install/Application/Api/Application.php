@@ -224,7 +224,7 @@ final class Application
         $this->app->router->add(
             '/api/tpl/.*',
             function () use ($account, $request, $response) : void {
-                $appName = \ucfirst($request->getData('app') ?? 'Backend');
+                $appName = \ucfirst($request->getDataString('app') ?? 'Backend');
                 $app     = new class() extends ApplicationAbstract
                 {
                 };
@@ -240,7 +240,7 @@ final class Application
                 $app->unitId         = $this->app->unitId;
                 $app->accountManager = $this->app->accountManager;
                 $app->appSettings    = $this->app->appSettings;
-                $app->l11nManager    = new L11nManager($app->appName);
+                $app->l11nManager    = new L11nManager();
                 $app->moduleManager  = new ModuleManager($app, __DIR__ . '/../../Modules/');
                 $app->dispatcher     = new Dispatcher($app);
                 $app->eventManager   = new EventManager($app->dispatcher);
@@ -270,7 +270,7 @@ final class Application
                     $app->appId,
                     $this->app->unitId,
                     $account,
-                    $request->getData()
+                    $request->getDataArray()
                 );
 
                 $view->setData('dispatch', $app->dispatcher->dispatch($routed, $request, $response));
@@ -314,7 +314,7 @@ final class Application
             $this->app->appId,
             $this->app->unitId,
             $account,
-            $request->getData()
+            $request->getDataArray()
         );
 
         if ($routes === ['dest' => RouteStatus::INVALID_CSRF]

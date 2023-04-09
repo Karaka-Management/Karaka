@@ -1,7 +1,29 @@
 <?php
+/**
+ * Karaka
+ *
+ * PHP Version 8.1
+ *
+ * @package   Model
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 2.0
+ * @version   1.0.0
+ * @link      https://jingga.app
+ */
+declare(strict_types=1);
 
-class BusinessStatistics {
+namespace Model;
 
+/**
+ * General business and economic statistics class.
+ *
+ * @package phpOMS\Utils\Parser\Presentation
+ * @license OMS License 2.0
+ * @link    https://jingga.app
+ * @since   1.0.0
+ */
+class GeneralStatistics
+{
     public const _DEU = [
         'sick_time' => [
             'office' => 0,

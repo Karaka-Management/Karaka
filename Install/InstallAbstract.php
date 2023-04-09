@@ -268,7 +268,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $app->appSettings    = new CoreSettings();
         $app->unitId         = 1;
         $app->accountManager = new AccountManager(new HttpSession());
-        $app->l11nManager    = new L11nManager($app->appName);
+        $app->l11nManager    = new L11nManager();
         $app->l11nServer     = new Localization();
         $app->dispatcher     = new Dispatcher($app);
         $app->eventManager   = new EventManager($app->dispatcher);

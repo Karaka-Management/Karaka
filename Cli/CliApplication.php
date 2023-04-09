@@ -100,6 +100,7 @@ final class CliApplication extends ApplicationAbstract
         $con = $this->dbPool->get();
         DataMapperFactory::db($con);
 
+        $this->appId          = 1;
         $this->cachePool      = new CachePool();
         $this->appSettings    = new CoreSettings();
         $this->eventManager   = new EventManager($this->dispatcher);
@@ -142,13 +143,13 @@ final class CliApplication extends ApplicationAbstract
 
         if (!($account instanceof NullAccount)) {
             $response->header->l11n = $account->l11n;
-        } elseif ($this->app->sessionManager->get('language') !== null
-            && $response->header->l11n->getLanguage() !== $this->app->sessionManager->get('language')
+        } elseif ($this->sessionManager->get('language') !== null
+            && $response->header->l11n->getLanguage() !== $this->sessionManager->get('language')
         ) {
             $response->header->l11n
                 ->loadFromLanguage(
-                    $this->app->sessionManager->get('language'),
-                    $this->app->sessionManager->get('country') ?? '*'
+                    $this->sessionManager->get('language'),
+                    $this->sessionManager->get('country') ?? '*'
                 );
         }
 
@@ -191,7 +192,7 @@ final class CliApplication extends ApplicationAbstract
         */
 
         /* No reading permission */
-        if (!$account->hasPermission(PermissionType::READ, $this->unitId, $this->appName, 'Dashboard')) {
+        if (!$account->hasPermission(PermissionType::READ, $this->unitId, $this->appId, 'Dashboard')) {
             $this->create403Response($response, $pageView);
 
             return;
@@ -205,10 +206,10 @@ final class CliApplication extends ApplicationAbstract
                 $request->uri->getRoute(),
                 null,
                 $request->getRouteVerb(),
-                $this->appName,
+                $this->appId,
                 $this->unitId,
                 $account,
-                $request->getData()
+                $request->getDataArray()
             ),
             $request,
             $response
@@ -428,7 +429,7 @@ final class CliApplication extends ApplicationAbstract
      */
     private function createDefaultPageView(CliRequest $request, CliResponse $response, CliView $pageView) : void
     {
-        /** @var \Modules\Organization\Models\Unit $unit */
+        /** @var \Modules\Organization\Models\Unit[] $unit */
         $unit = UnitMapper::getAll()->execute();
         $pageView->setOrganizations($unit);
 

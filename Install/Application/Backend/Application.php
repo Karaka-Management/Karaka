@@ -251,7 +251,7 @@ final class Application
             $this->app->appId,
             $this->app->unitId,
             $account,
-            $request->getData()
+            $request->getDataArray()
         );
 
         if ($routes === ['dest' => RouteStatus::INVALID_CSRF]
@@ -291,7 +291,7 @@ final class Application
     private function getApplicationOrganization(HttpRequest $request, array $config) : int
     {
         return (int) (
-            $request->getData('u') ?? (
+            $request->getDataString('u') ?? (
                 $config['domains'][$request->uri->host]['org'] ?? $config['default']['org']
             )
         );
@@ -471,8 +471,14 @@ final class Application
      */
     private function createDefaultPageView(HttpRequest $request, HttpResponse $response, BackendView $pageView) : void
     {
-        $pageView->setOrganizations(UnitMapper::getAll()->execute());
-        $pageView->setProfile(ProfileMapper::get()->where('account', $request->header->account)->execute());
+        /** @var \Modules\Organization\Models\Unit[] $units */
+        $units = UnitMapper::getAll()->execute();
+        $pageView->setOrganizations($units);
+
+        /** @var \Modules\Profile\Models\Profile $profile */
+        $profile = ProfileMapper::get()->where('account', $request->header->account)->execute();
+        $pageView->setProfile($profile);
+
         $pageView->setData('nav', $this->getNavigation($request, $response));
 
         /** @var \Model\Setting $profileImage */
