@@ -85,7 +85,6 @@ $CONFIG = [
                     'login'    => 'postgres', /* db login name */
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
-                    'prefix'   => 'om_', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
                 ],
                 'insert'  => [
@@ -95,7 +94,6 @@ $CONFIG = [
                     'login'    => 'postgres', /* db login name */
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
-                    'prefix'   => 'om_', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
                 ],
                 'select'  => [
@@ -105,7 +103,6 @@ $CONFIG = [
                     'login'    => 'postgres', /* db login name */
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
-                    'prefix'   => 'om_', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
                 ],
                 'update'  => [
@@ -115,7 +112,6 @@ $CONFIG = [
                     'login'    => 'postgres', /* db login name */
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
-                    'prefix'   => 'om_', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
                 ],
                 'delete'  => [
@@ -125,7 +121,6 @@ $CONFIG = [
                     'login'    => 'postgres', /* db login name */
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
-                    'prefix'   => 'om_', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
                 ],
                 'schema'  => [
@@ -135,7 +130,6 @@ $CONFIG = [
                     'login'    => 'postgres', /* db login name */
                     'password' => 'root', /* db login password */
                     'database' => 'oms', /* db name */
-                    'prefix'   => 'om_', /* db table prefix */
                     'weight'   => 1000, /* db table prefix */
                 ],
             ],
