@@ -23,6 +23,7 @@ use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
 use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
+use phpOMS\Localization\L11nManager;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Module\ModuleManager;
@@ -61,6 +62,7 @@ trait ModuleTestTrait
         $this->app->sessionManager = new HttpSession(0);
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
         $this->app->eventManager   = new EventManager($this->app->dispatcher);
+        $this->app->l11nManager    = new L11nManager();
     }
 
     /**

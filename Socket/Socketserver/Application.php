@@ -109,7 +109,7 @@ class Application
 
         $this->app->moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
         $this->app->dispatcher    = new Dispatcher($this->app);
-        $this->app->l11nManager   = new L11nManager($this->appName);
+        $this->app->l11nManager   = new L11nManager();
 
         $this->app->logger->info('Initializing active modules...');
         /*$modules = $this->moduleManager->getActiveModules();
