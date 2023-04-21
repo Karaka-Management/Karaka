@@ -4016,6 +4016,11 @@
             4013 => '\Modules\TestModule\Controller\Controller:testHook',
             4014 => '\Modules\TestModule\Controller\Controller:testHook',
             4015 => '\Modules\TestModule\Controller\Controller:testHook',
+            4016 => '\Modules\TestModule\Controller\Controller:testHook',
+            4017 => '\Modules\TestModule\Controller\Controller:testHook',
+            4018 => '\Modules\TestModule\Controller\Controller:testHook',
+            4019 => '\Modules\TestModule\Controller\Controller:testHook',
+            4020 => '\Modules\TestModule\Controller\Controller:testHook',
         ],
     ],
 ];
