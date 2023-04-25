@@ -29,6 +29,6 @@
   },
   "homepage": "https://github.com/karaka-management/Jingga#readme",
   "devDependencies": {
-    "eslint-plugin-import": "^2.25.4"
+    "eslint-plugin-import": "^2.27.5"
   }
 }

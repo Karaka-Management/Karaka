@@ -17,6 +17,12 @@
             'verb' => 16,
         ],
     ],
+    '^/billing/bill/purchase/parse.*$' => [
+        0 => [
+            'dest' => '\Modules\Billing\Controller\CliController:cliParseSupplierBill',
+            'verb' => 16,
+        ],
+    ],
     '^.*/admin/monitoring/log.*$' => [
         0 => [
             'dest' => '\Modules\Monitoring\Controller\CliController:cliLogReport',
@@ -31,12 +37,6 @@
                 'type' => 4,
                 'state' => 1,
             ],
-        ],
-    ],
-    '^/billing/bill/purchase/parse.*$' => [
-        0 => [
-            'dest' => '\Modules\Billing\Controller\CliController:cliParseSupplierBill',
-            'verb' => 16,
         ],
     ],
     '^.*/workflow/instance.*$' => [
