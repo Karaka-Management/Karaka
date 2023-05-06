@@ -30,7 +30,7 @@ class Setting implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected int $id = 0;
+    public int $id = 0;
 
     /**
      * Name
@@ -97,6 +97,14 @@ class Setting implements \JsonSerializable
     public ?int $account = null;
 
     /**
+     * Is the data encrypted?
+     *
+     * @var bool
+     * @since 1.0.0
+     */
+    public bool $isEncrypted = false;
+
+    /**
      * Get id
      *
      * @return int
@@ -120,6 +128,7 @@ class Setting implements \JsonSerializable
      * @param null|string $module  Module
      * @param null|int    $group   Group
      * @param null|int    $account Account
+     * @param bool        $isEncrypted Is the data encrypted?
      *
      * @return self
      *
@@ -134,7 +143,8 @@ class Setting implements \JsonSerializable
         int $app = null,
         string $module = null,
         int $group = null,
-        int $account = null
+        int $account = null,
+        bool $isEncrypted = false,
     ) : self
     {
         $this->id      = $id;
@@ -146,6 +156,7 @@ class Setting implements \JsonSerializable
         $this->module  = $module;
         $this->group   = $group;
         $this->account = $account;
+        $this->isEncrypted = $isEncrypted;
 
         return $this;
     }
@@ -162,6 +173,7 @@ class Setting implements \JsonSerializable
      * @param null|string $module  Module
      * @param null|int    $group   Group
      * @param null|int    $account Account
+     * @param bool        $isEncrypted Is the data encrypted?
      *
      * @return self
      *
@@ -176,7 +188,8 @@ class Setting implements \JsonSerializable
         int $app = null,
         string $module = null,
         int $group = null,
-        int $account = null
+        int $account = null,
+        bool $isEncrypted = false
     ) {
         $this->id      = $id;
         $this->name    = $name;
@@ -187,6 +200,7 @@ class Setting implements \JsonSerializable
         $this->module  = $module;
         $this->group   = $group;
         $this->account = $account;
+        $this->isEncrypted = $isEncrypted;
     }
 
     /**
@@ -204,6 +218,7 @@ class Setting implements \JsonSerializable
            'module'  => $this->module,
            'group'   => $this->group,
            'account' => $this->account,
+           'isEncrypted' => $this->isEncrypted,
         ];
     }
 

@@ -147,7 +147,7 @@ final class Application
             ->where('name', $this->app->appName)
             ->execute();
 
-        $this->app->appId = $app->getId();
+        $this->app->appId = $app->id;
 
         $this->app->cachePool      = new CachePool();
         $this->app->appSettings    = new CoreSettings();
@@ -158,10 +158,10 @@ final class Application
 
         $aid                       = Auth::authenticate($this->app->sessionManager);
         $account                   = $this->loadAccount($aid);
-        $request->header->account  = $account->getId();
-        $response->header->account = $account->getId();
+        $request->header->account  = $account->id;
+        $response->header->account = $account->id;
 
-        if (!($account instanceof NullAccount)) {
+        if ($account->id > 0) {
             $response->header->l11n = $account->l11n;
         } elseif ($this->app->sessionManager->get('language') !== null
             && $response->header->l11n->getLanguage() !== $this->app->sessionManager->get('language')
@@ -171,6 +171,8 @@ final class Application
                     $this->app->sessionManager->get('language'),
                     $this->app->sessionManager->get('country') ?? '*'
                 );
+        } else {
+            $this->app->setResponseLanguage($request, $response, $this->config);
         }
 
         if (!\in_array($response->getLanguage(), $this->config['language'])) {
@@ -211,7 +213,7 @@ final class Application
         $this->initResponseHead($head, $request, $response);
 
         /* Handle not logged in */
-        if ($account->getId() < 1) {
+        if ($account->id < 1) {
             $this->createBaseLoggedOutResponse($request, $response, $head, $pageView);
 
             return;

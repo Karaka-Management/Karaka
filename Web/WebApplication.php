@@ -16,6 +16,7 @@ namespace Web;
 
 use phpOMS\Application\ApplicationAbstract;
 use phpOMS\Autoloader;
+use phpOMS\Localization\ISO3166TwoEnum;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
@@ -60,15 +61,16 @@ class WebApplication extends ApplicationAbstract
             $request         = $this->initRequest($config['page']['root'], $config['app']);
             $response        = $this->initResponse($request, $config);
 
-            UriFactory::setQuery('/base', $response->getLanguage() . '/' . \strtolower($applicationName), true);
+            $responseLanguage = $response->getLanguage();
+            UriFactory::setQuery('/base', $responseLanguage . '/' . \strtolower($applicationName), true);
             UriFactory::setQuery('/api', 'api/', true);
             UriFactory::setQuery('/app', \strtolower($applicationName), true);
 
             foreach ($config['app']['domains'] as $tld => $app) {
-                UriFactory::setQuery('/' . $app['id'], $tld . '/' . $response->getLanguage(), true);
+                UriFactory::setQuery('/' . $app['id'], $tld . '/' . $responseLanguage, true);
 
                 if ($app['app'] === $applicationName) {
-                    UriFactory::setQuery('/base', $response->getLanguage(), true);
+                    UriFactory::setQuery('/base', $responseLanguage, true);
                 }
             }
 
@@ -151,7 +153,9 @@ class WebApplication extends ApplicationAbstract
         $request     = HttpRequest::createFromSuperglobals();
         $subDirDepth = \substr_count($rootPath, '/') - 1;
 
-        $defaultLang = $config['domains'][$request->uri->host]['lang'] ?? $config['default']['lang'];
+        $defaultLang = $config['domains'][$request->uri->host]['lang']
+            ?? $config['default']['lang'];
+
         $uriLang     = \strtolower($request->uri->getPathElement($subDirDepth + 0));
         $requestLang = $request->getLanguage();
         $langCode    = ISO639x1Enum::isValidValue($uriLang)
@@ -172,7 +176,11 @@ class WebApplication extends ApplicationAbstract
         $request->uri->setPathOffset($pathOffset);
         UriFactory::setupUriBuilder($request->uri);
 
-        $request->header->l11n->loadFromLanguage($langCode, \explode('_', $request->getLocale())[1] ?? '*');
+        $request->header->l11n->loadFromLanguage(
+            $langCode, $request->getLanguage() === ISO3166TwoEnum::_XXX
+                ? '*'
+                : $request->getLanguage()
+        );
 
         return $request;
     }
@@ -200,29 +208,49 @@ class WebApplication extends ApplicationAbstract
             $response->header->set('strict-transport-security', 'max-age=31536000');
         }
 
-        $defaultLang = $config['app']['domains'][$request->uri->host]['lang'] ?? $config['app']['default']['lang'];
+        return $response;
+    }
+
+    public function setResponseLanguage(HttpRequest $request, HttpResponse $response, array $config) : void
+    {
+        $defaultLang = $config['app']['domains'][$request->uri->host]['lang']
+            ?? $config['app']['default']['lang'];
 
         $uriLang = \strtolower($request->uri->getPathElement(0));
-        $uriLang = ISO639x1Enum::isValidValue($uriLang) && \in_array($uriLang, $config['language'])
+        $uriLang = \in_array($uriLang, $config['language'])
             ? $uriLang
             : \strtolower($request->uri->getPathElement(0, false));
 
         $requestLang = $request->getLanguage();
-        $langCode    = ISO639x1Enum::isValidValue($uriLang) && \in_array($uriLang, $config['language'])
+        $langCode    = \in_array($uriLang, $config['language'])
             ? $uriLang
-            : (ISO639x1Enum::isValidValue($requestLang) && \in_array($requestLang, $config['language'])
+            : (\in_array($requestLang, $config['language'])
                 ? $requestLang
                 : $defaultLang
             );
 
-        $response->header->l11n->loadFromLanguage($langCode, \explode('_', $request->getLocale())[1] ?? '*');
+        $countryCode = $request->getLanguage() === ISO3166TwoEnum::_XXX
+            ? '*'
+            : $request->getLanguage();
+
+        if ($request->getLocale() === $langCode . '_' . $countryCode) {
+            $response->header->l11n = clone $request->header->l11n;
+        } else {
+            $response->header->l11n->loadFromLanguage($langCode, $countryCode);
+        }
+
         UriFactory::setQuery('/lang', $request->getLanguage(), true);
 
         if (ISO639x1Enum::isValidValue($uriLang)) {
-            UriFactory::setQuery('/api',  $uriLang . '/' . (empty(UriFactory::getQuery('/api')) ? '' : UriFactory::getQuery('/api')), true);
+            UriFactory::setQuery(
+                '/api',
+                $uriLang . '/' . (empty(UriFactory::getQuery('/api'))
+                    ? ''
+                    : UriFactory::getQuery('/api')
+                ),
+                true
+            );
         }
-
-        return $response;
     }
 
     /**
@@ -285,7 +313,7 @@ class WebApplication extends ApplicationAbstract
     {
         $applicationName = \ucfirst(\strtolower($app));
 
-        if (empty($applicationName) || !Autoloader::exists('\\Web\\' . $applicationName . '\\Application')) {
+        if (!\is_file(__DIR__ . '/' . $applicationName . '/Application.php')) {
             $applicationName = 'E500';
         }
 

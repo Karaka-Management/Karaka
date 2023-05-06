@@ -46,6 +46,7 @@ final class SettingMapper extends DataMapperFactory
         'settings_module'          => ['name' => 'settings_module',        'type' => 'string',   'internal' => 'module'],
         'settings_group'           => ['name' => 'settings_group',        'type' => 'int',   'internal' => 'group'],
         'settings_account'         => ['name' => 'settings_account',        'type' => 'int',   'internal' => 'account'],
+        'settings_encrypted'         => ['name' => 'settings_encrypted',        'type' => 'bool',   'internal' => 'isEncrypted'],
     ];
 
     /**

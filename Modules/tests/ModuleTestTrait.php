@@ -27,7 +27,6 @@ use phpOMS\Localization\L11nManager;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Module\ModuleManager;
-use phpOMS\Module\NullModule;
 use phpOMS\Router\WebRouter;
 use phpOMS\Uri\HttpUri;
 use phpOMS\Utils\ArrayUtils;
@@ -97,7 +96,7 @@ trait ModuleTestTrait
     {
         $module = $this->app->moduleManager->get(self::NAME);
 
-        if ($module instanceof NullModule) {
+        if ($module::ID === 0) {
             return;
         }
 
@@ -168,6 +167,8 @@ trait ModuleTestTrait
             $classReflection   = new \ReflectionClass(\substr($class, 0, -6));
             $defaultProperties = $classReflection->getDefaultProperties();
 
+            $invalidAcessors = [];
+
             foreach ($columns as $cName => $column) {
                 $isArray = false;
                 // testing existence of member variable in model
@@ -178,6 +179,12 @@ trait ModuleTestTrait
 
                 if (!$classReflection->hasProperty($column['internal'])) {
                     self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" has missing/invalid internal/member');
+                }
+
+
+                $property = $classReflection->getProperty($column['internal']) ?? null;
+                if ($property === null || (!$property->isPublic() && (!isset($column['private']) || !$column['private']))) {
+                    $invalidAcessors[] = $column['internal'];
                 }
 
                 // testing correct mapper/model variable type definition
@@ -194,6 +201,10 @@ trait ModuleTestTrait
                 )) {
                     self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" has invalid type compared to model definition');
                 }
+            }
+
+            if (!empty($invalidAcessors)) {
+                self::assertTrue(false, 'Mapper "' . $class . '" must define private for  "' . \implode(',', $invalidAcessors) . '" or make them public (recommended) in the model');
             }
 
             // test hasMany variable exists in model
@@ -378,7 +389,7 @@ trait ModuleTestTrait
 
         $module = $this->app->moduleManager->get(self::NAME);
 
-        if ($module instanceof NullModule) {
+        if ($module::ID === 0) {
             return;
         }
 
@@ -396,7 +407,7 @@ trait ModuleTestTrait
     {
         $module = $this->app->moduleManager->get(self::NAME);
 
-        if ($module instanceof NullModule) {
+        if ($module::ID === 0) {
             return;
         }
 
@@ -417,7 +428,7 @@ trait ModuleTestTrait
 
         $module = $this->app->moduleManager->get(self::NAME);
 
-        if ($module instanceof NullModule) {
+        if ($module::ID === 0) {
             return;
         }
 
@@ -446,7 +457,7 @@ trait ModuleTestTrait
 
         $module = $this->app->moduleManager->get(self::NAME);
 
-        if ($module instanceof NullModule) {
+        if ($module::ID === 0) {
             return;
         }
 
@@ -472,8 +483,8 @@ trait ModuleTestTrait
     {
         $module = $this->app->moduleManager->get(self::NAME);
 
-        if (($module instanceof NullModule)
-            || ($this->app->moduleManager->get('Navigation') instanceof NullModule)
+        if ($module::ID === 0
+            || $this->app->moduleManager->get('Navigation')::ID === 0
             || !\is_file($module::PATH . '/Admin/Install/Navigation.install.json')
         ) {
             return;
@@ -682,7 +693,7 @@ trait ModuleTestTrait
     public function testLanguage() : void
     {
         $module = $this->app->moduleManager->get(self::NAME);
-        if ($module instanceof NullModule) {
+        if ($module::ID === 0) {
             return;
         }
 

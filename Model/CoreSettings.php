@@ -136,7 +136,7 @@ final class CoreSettings implements SettingsInterface
         if (empty($options) && !\is_array($ids) && !\is_array($names)) {
             return [];
         } elseif (empty($options)) {
-            return null;
+            return new NullSetting();
         }
 
         return \count($options) > 1 ? $options : \reset($options);
@@ -169,6 +169,7 @@ final class CoreSettings implements SettingsInterface
                 $option['module'] ?? null,
                 $option['group'] ?? null,
                 $option['account'] ?? null,
+                $option['isEncrypted'] ?? false,
             );
 
             $this->setOption($key, $setting, true);

@@ -9,6 +9,7 @@ puphpet
 .sass-cache
 .idea
 *.log
+*.xt
 *.jar
 *.cache
 *.phar

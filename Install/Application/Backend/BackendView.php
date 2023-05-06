@@ -123,7 +123,7 @@ class BackendView extends View
      */
     public function getProfileImage() : string
     {
-        if (($this->profile instanceof NullProfile) || $this->profile->image->getPath() === '') {
+        if ($this->profile->getId() || $this->profile->image->getPath() === '') {
             return UriFactory::build($this->defaultProfileImage->getPath());
         }
 

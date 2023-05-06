@@ -141,7 +141,7 @@ final class CliApplication extends ApplicationAbstract
 
         $account = $this->loadAccount($request);
 
-        if (!($account instanceof NullAccount)) {
+        if ($account->getId() > 0) {
             $response->header->l11n = $account->l11n;
         } elseif ($this->sessionManager->get('language') !== null
             && $response->header->l11n->getLanguage() !== $this->sessionManager->get('language')
