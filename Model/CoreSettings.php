@@ -53,7 +53,8 @@ final class CoreSettings implements SettingsInterface
         int $account = null
     ) : mixed
     {
-        $options = [];
+        $options      = [];
+        $expectsArray = \is_array($ids) || \is_array($names);
 
         // get by ids
         if ($ids !== null) {
@@ -133,10 +134,8 @@ final class CoreSettings implements SettingsInterface
             throw $e; // @codeCoverageIgnore
         }
 
-        if (empty($options) && !\is_array($ids) && !\is_array($names)) {
-            return [];
-        } elseif (empty($options)) {
-            return new NullSetting();
+        if (empty($options)) {
+            return $expectsArray ? [] : new NullSetting();
         }
 
         return \count($options) > 1 ? $options : \reset($options);

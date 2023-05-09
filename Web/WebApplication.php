@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Web;
 
 use phpOMS\Application\ApplicationAbstract;
-use phpOMS\Autoloader;
 use phpOMS\Localization\ISO3166TwoEnum;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Localization\Localization;
@@ -59,7 +58,7 @@ class WebApplication extends ApplicationAbstract
 
             $applicationName = $this->getApplicationName(HttpUri::fromCurrent(), $config['app'], $config['page']['root']);
             $request         = $this->initRequest($config['page']['root'], $config['app']);
-            $response        = $this->initResponse($request, $config);
+            $response        = $this->initResponse($request);
 
             $responseLanguage = $response->getLanguage();
             UriFactory::setQuery('/base', $responseLanguage . '/' . \strtolower($applicationName), true);
@@ -195,10 +194,12 @@ class WebApplication extends ApplicationAbstract
      *
      * @since 1.0.0
      */
-    private function initResponse(HttpRequest $request, array $config) : HttpResponse
+    private function initResponse(HttpRequest $request) : HttpResponse
     {
-        $response = new HttpResponse(new Localization());
-        $response->header->set('content-type', 'text/html; charset=utf-8');
+        $contentType = $request->header->get('accept');
+
+        $response = new HttpResponse();
+        $response->header->set('content-type', empty($contentType) ? 'text/html; charset=utf-8' : \reset($contentType));
         $response->header->set('x-xss-protection', '1; mode=block');
         $response->header->set('x-content-type-options', 'nosniff');
         $response->header->set('x-frame-options', 'SAMEORIGIN');
