@@ -208,3 +208,33 @@
 [submodule "Modules/Attribute"]
 	path = Modules/Attribute
 	url = https://github.com/Karaka-Management/oms-Attribute.git
+[submodule "Modules/Labeling"]
+	path = Modules/Labeling
+	url = https://github.com/Karaka-Management/oms-Labeling.git
+[submodule "Modules/AssetManagement"]
+	path = Modules/AssetManagement
+	url = https://github.com/Karaka-Management/oms-AssetManagement.git
+[submodule "Modules/BusinessExpenses"]
+	path = Modules/BusinessExpenses
+	url = https://github.com/Karaka-Management/oms-BusinessExpenses.git
+[submodule "Modules/BudgetManagement"]
+	path = Modules/BudgetManagement
+	url = https://github.com/Karaka-Management/oms-BudgetManagement.git
+[submodule "Modules/CashManagement"]
+	path = Modules/CashManagement
+	url = https://github.com/Karaka-Management/oms-CashManagement.git
+[submodule "Modules/Balance"]
+	path = Modules/Balance
+	url = https://github.com/Karaka-Management/oms-Balance.git
+[submodule "Modules/IncomeStatement"]
+	path = Modules/IncomeStatement
+	url = https://github.com/Karaka-Management/oms-IncomeStatement.git
+[submodule "Modules/BankAccounting"]
+	path = Modules/BankAccounting
+	url = https://github.com/Karaka-Management/oms-BankAccounting.git
+[submodule "Modules/Production"]
+	path = Modules/Production
+	url = https://github.com/Karaka-Management/oms-Production.git
+[submodule "Modules/ResearchDevelopment"]
+	path = Modules/ResearchDevelopment
+	url = https://github.com/Karaka-Management/oms-ResearchDevelopment.git
