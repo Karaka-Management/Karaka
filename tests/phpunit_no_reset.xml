@@ -16,6 +16,7 @@
       <directory>../vendor</directory>
       <directory>../Install/Application</directory>
       <directory>../phpOMS/vendor</directory>
+      <directory>../phpOMS/Localization/LanguageDetection/resources</directory>
       <directory>../Modules/vendor</directory>
       <directory>../*/tests*</directory>
       <directory>../**/tests*</directory>

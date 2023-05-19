@@ -238,3 +238,6 @@
 [submodule "Modules/ResearchDevelopment"]
 	path = Modules/ResearchDevelopment
 	url = https://github.com/Karaka-Management/oms-ResearchDevelopment.git
+[submodule "Modules/Controlling"]
+	path = Modules/Controlling
+	url = https://github.com/Karaka-Management/oms-Controlling.git
