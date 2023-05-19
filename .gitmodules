@@ -241,3 +241,6 @@
 [submodule "Modules/Controlling"]
 	path = Modules/Controlling
 	url = https://github.com/Karaka-Management/oms-Controlling.git
+[submodule "Modules/StockTaking"]
+	path = Modules/StockTaking
+	url = https://github.com/Karaka-Management/oms-StockTaking.git
