@@ -80,8 +80,8 @@ EOT;
     }
 
 $htaccess .= <<<EOT
-    RewriteCond %{HTTP_HOST} ^(.*)\.${tld}
-    RewriteRule ^([a-zA-Z]{2})\/(.*)$ ${fullTLD}/$1/%1/$2 [QSA]
+    RewriteCond %{HTTP_HOST} ^(.*)\.$tld
+    RewriteRule ^([a-zA-Z]{2})\/(.*)$ $fullTLD/$1/%1/$2 [QSA]
 
 EOT;
 }
@@ -107,11 +107,11 @@ $htaccess .= <<< EOT
 # END URL rewrite
 
 # BEGIN Access control
-<Files *.php>
+<FilesMatch "\.(php|pdf)$">
     Order Deny,Allow
     Deny from all
     Allow from 127.0.0.1
-</Files>
+</FilesMatch>
 <Files index.php>
     Allow from all
 </Files>

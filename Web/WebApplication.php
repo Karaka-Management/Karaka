@@ -17,7 +17,6 @@ namespace Web;
 use phpOMS\Application\ApplicationAbstract;
 use phpOMS\Localization\ISO3166TwoEnum;
 use phpOMS\Localization\ISO639x1Enum;
-use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
@@ -62,7 +61,7 @@ class WebApplication extends ApplicationAbstract
 
             $responseLanguage = $response->getLanguage();
             UriFactory::setQuery('/base', $responseLanguage . '/' . \strtolower($applicationName), true);
-            UriFactory::setQuery('/api', 'api/', true);
+            UriFactory::setQuery('/api', \rtrim($request->uri->getBase(), '/') . '/api/', true);
             UriFactory::setQuery('/app', \strtolower($applicationName), true);
 
             foreach ($config['app']['domains'] as $tld => $app) {
@@ -242,6 +241,8 @@ class WebApplication extends ApplicationAbstract
 
         UriFactory::setQuery('/lang', $request->getLanguage(), true);
 
+        /* This would break http://localhost:8000/api/v1/... */
+        /*
         if (ISO639x1Enum::isValidValue($uriLang)) {
             UriFactory::setQuery(
                 '/api',
@@ -252,6 +253,7 @@ class WebApplication extends ApplicationAbstract
                 true
             );
         }
+        */
     }
 
     /**
