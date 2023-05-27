@@ -130,8 +130,8 @@ final class CoreSettings implements SettingsInterface
 
                 $options[$option->name] = $option;
             }
-        } catch (\Throwable $e) {
-            throw $e; // @codeCoverageIgnore
+        } catch (\Throwable $t) {
+            throw $t; // @codeCoverageIgnore
         }
 
         if (empty($options)) {

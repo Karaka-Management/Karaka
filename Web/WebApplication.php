@@ -86,9 +86,9 @@ class WebApplication extends ApplicationAbstract
                 'message' => $e->getMessage(),
                 'line'    => __LINE__, ]);
             $sub = new \Web\E404\Application($this, $config);
-        } catch (\Throwable $e) {
+        } catch (\Throwable $t) {
             $this->logger->critical(FileLogger::MSG_FULL, [
-                'message' => $e->getMessage(),
+                'message' => $t->getMessage(),
                 'line'    => __LINE__, ]);
             $sub = new \Web\E500\Application($this, $config);
         } finally {

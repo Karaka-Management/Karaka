@@ -648,7 +648,7 @@ trait ModuleTestTrait
             ) {
                 return true;
             }
-        } catch (\Throwable $e) {
+        } catch (\Throwable $_) {
             return false;
         }
 

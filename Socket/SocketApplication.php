@@ -47,7 +47,7 @@ class SocketApplication extends ApplicationAbstract
             /** @var class-string $app */
             $app = '\Socket\\' . $type . '\Application';
             $sub = new $app($this, $config);
-        } catch (\Throwable $e) {
+        } catch (\Throwable $_) {
             /**
              * @todo Karaka/Karaka#50
              *  Create error socket on failure

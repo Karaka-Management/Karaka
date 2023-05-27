@@ -17,7 +17,6 @@ namespace Cli;
 use Model\CoreSettings;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\LocalizationMapper;
-use Modules\Admin\Models\NullAccount;
 use Modules\Organization\Models\UnitMapper;
 use Modules\Profile\Models\ProfileMapper;
 use phpOMS\Account\Account;

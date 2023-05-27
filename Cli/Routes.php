@@ -20,7 +20,13 @@
     '^.*/admin/monitoring/log.*$' => [
         0 => [
             'dest' => '\Modules\Monitoring\Controller\CliController:cliLogReport',
-            'verb' => 2,
+            'verb' => 16,
+        ],
+    ],
+    '^.*/workflow/instance.*$' => [
+        0 => [
+            'dest' => '\Modules\Workflow\Controller\CliController:cliWorkflowInstanceCreate',
+            'verb' => 16,
         ],
     ],
     '^.*/orw/check -i all*$' => [
@@ -37,12 +43,6 @@
         0 => [
             'dest' => '\Modules\Billing\Controller\CliController:cliParseSupplierBill',
             'verb' => 16,
-        ],
-    ],
-    '^.*/workflow/instance.*$' => [
-        0 => [
-            'dest' => '\Modules\Workflow\Controller\CliController:cliWorkflowInstanceCreate',
-            'verb' => 2,
         ],
     ],
 ];
