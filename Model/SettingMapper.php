@@ -26,7 +26,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
  * @since   1.0.0
  *
  * @template T of Setting
- * @extends DataMapperFactory<T>
+ * @extends  DataMapperFactory<T>
  */
 final class SettingMapper extends DataMapperFactory
 {
@@ -37,15 +37,15 @@ final class SettingMapper extends DataMapperFactory
      * @since 1.0.0
      */
     public const COLUMNS = [
-        'settings_id'              => ['name' => 'settings_id',           'type' => 'int',      'internal' => 'id'],
-        'settings_name'            => ['name' => 'settings_name',        'type' => 'string',   'internal' => 'name'],
-        'settings_content'         => ['name' => 'settings_content',        'type' => 'string',   'internal' => 'content'],
-        'settings_pattern'         => ['name' => 'settings_pattern',        'type' => 'string',   'internal' => 'pattern'],
-        'settings_unit'            => ['name' => 'settings_unit',        'type' => 'int',   'internal' => 'unit'],
-        'settings_app'             => ['name' => 'settings_app',        'type' => 'int',   'internal' => 'app'],
-        'settings_module'          => ['name' => 'settings_module',        'type' => 'string',   'internal' => 'module'],
-        'settings_group'           => ['name' => 'settings_group',        'type' => 'int',   'internal' => 'group'],
-        'settings_account'         => ['name' => 'settings_account',        'type' => 'int',   'internal' => 'account'],
+        'settings_id'                => ['name' => 'settings_id',           'type' => 'int',      'internal' => 'id'],
+        'settings_name'              => ['name' => 'settings_name',        'type' => 'string',   'internal' => 'name'],
+        'settings_content'           => ['name' => 'settings_content',        'type' => 'string',   'internal' => 'content'],
+        'settings_pattern'           => ['name' => 'settings_pattern',        'type' => 'string',   'internal' => 'pattern'],
+        'settings_unit'              => ['name' => 'settings_unit',        'type' => 'int',   'internal' => 'unit'],
+        'settings_app'               => ['name' => 'settings_app',        'type' => 'int',   'internal' => 'app'],
+        'settings_module'            => ['name' => 'settings_module',        'type' => 'string',   'internal' => 'module'],
+        'settings_group'             => ['name' => 'settings_group',        'type' => 'int',   'internal' => 'group'],
+        'settings_account'           => ['name' => 'settings_account',        'type' => 'int',   'internal' => 'account'],
         'settings_encrypted'         => ['name' => 'settings_encrypted',        'type' => 'bool',   'internal' => 'isEncrypted'],
     ];
 

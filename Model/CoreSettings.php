@@ -51,8 +51,7 @@ final class CoreSettings implements SettingsInterface
         string $module = null,
         int $group = null,
         int $account = null
-    ) : mixed
-    {
+    ) : mixed {
         $options      = [];
         $expectsArray = \is_array($ids) || \is_array($names);
 
@@ -98,8 +97,11 @@ final class CoreSettings implements SettingsInterface
             return \count($options) > 1 ? $options : \reset($options);
         }
 
-        /** @var \Model\Setting[] $dbOptions */
-        $dbOptions = SettingMapper::getSettings([
+        /**
+ * @var \Model\Setting[] $dbOptions
+*/
+        $dbOptions = SettingMapper::getSettings(
+            [
             'ids'     => $ids,
             'names'   => $names,
             'unit'    => $unit,
@@ -107,7 +109,8 @@ final class CoreSettings implements SettingsInterface
             'module'  => $module,
             'group'   => $group,
             'account' => $account,
-        ]);
+            ]
+        );
 
         // remaining from storage
         try {
@@ -146,7 +149,9 @@ final class CoreSettings implements SettingsInterface
      */
     public function set(array $options, bool $store = false) : void
     {
-        /** @var array $option */
+        /**
+ * @var array $option
+*/
         foreach ($options as $option) {
             $key = ($option['name'] ?? '')
                 . ':' . ($option['unit'] ?? '')

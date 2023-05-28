@@ -119,15 +119,15 @@ class Setting implements \JsonSerializable
     /**
      * Create setting with data
      *
-     * @param int         $id      Id
-     * @param string      $name    Name
-     * @param string      $content Content
-     * @param string      $pattern Pattern
-     * @param null|int    $unit    Unit
-     * @param null|int    $app     App
-     * @param null|string $module  Module
-     * @param null|int    $group   Group
-     * @param null|int    $account Account
+     * @param int         $id          Id
+     * @param string      $name        Name
+     * @param string      $content     Content
+     * @param string      $pattern     Pattern
+     * @param null|int    $unit        Unit
+     * @param null|int    $app         App
+     * @param null|string $module      Module
+     * @param null|int    $group       Group
+     * @param null|int    $account     Account
      * @param bool        $isEncrypted Is the data encrypted?
      *
      * @return self
@@ -145,17 +145,16 @@ class Setting implements \JsonSerializable
         int $group = null,
         int $account = null,
         bool $isEncrypted = false,
-    ) : self
-    {
-        $this->id      = $id;
-        $this->name    = $name;
-        $this->content = $content;
-        $this->pattern = $pattern;
-        $this->unit    = $unit;
-        $this->app     = $app;
-        $this->module  = $module;
-        $this->group   = $group;
-        $this->account = $account;
+    ) : self {
+        $this->id          = $id;
+        $this->name        = $name;
+        $this->content     = $content;
+        $this->pattern     = $pattern;
+        $this->unit        = $unit;
+        $this->app         = $app;
+        $this->module      = $module;
+        $this->group       = $group;
+        $this->account     = $account;
         $this->isEncrypted = $isEncrypted;
 
         return $this;
@@ -164,15 +163,15 @@ class Setting implements \JsonSerializable
     /**
      * Constructor.
      *
-     * @param int         $id      Id
-     * @param string      $name    Name
-     * @param string      $content Content
-     * @param string      $pattern Pattern
-     * @param null|int    $unit    Unit
-     * @param null|int    $app     App
-     * @param null|string $module  Module
-     * @param null|int    $group   Group
-     * @param null|int    $account Account
+     * @param int         $id          Id
+     * @param string      $name        Name
+     * @param string      $content     Content
+     * @param string      $pattern     Pattern
+     * @param null|int    $unit        Unit
+     * @param null|int    $app         App
+     * @param null|string $module      Module
+     * @param null|int    $group       Group
+     * @param null|int    $account     Account
      * @param bool        $isEncrypted Is the data encrypted?
      *
      * @return self
@@ -191,15 +190,15 @@ class Setting implements \JsonSerializable
         int $account = null,
         bool $isEncrypted = false
     ) {
-        $this->id      = $id;
-        $this->name    = $name;
-        $this->content = $content;
-        $this->pattern = $pattern;
-        $this->unit    = $unit;
-        $this->app     = $app;
-        $this->module  = $module;
-        $this->group   = $group;
-        $this->account = $account;
+        $this->id          = $id;
+        $this->name        = $name;
+        $this->content     = $content;
+        $this->pattern     = $pattern;
+        $this->unit        = $unit;
+        $this->app         = $app;
+        $this->module      = $module;
+        $this->group       = $group;
+        $this->account     = $account;
         $this->isEncrypted = $isEncrypted;
     }
 
@@ -209,15 +208,15 @@ class Setting implements \JsonSerializable
     public function toArray() : array
     {
         return [
-           'id'      => $this->id,
-           'name'    => $this->name,
-           'content' => $this->content,
-           'pattern' => $this->pattern,
-           'unit'    => $this->unit,
-           'app'     => $this->app,
-           'module'  => $this->module,
-           'group'   => $this->group,
-           'account' => $this->account,
+           'id'          => $this->id,
+           'name'        => $this->name,
+           'content'     => $this->content,
+           'pattern'     => $this->pattern,
+           'unit'        => $this->unit,
+           'app'         => $this->app,
+           'module'      => $this->module,
+           'group'       => $this->group,
+           'account'     => $this->account,
            'isEncrypted' => $this->isEncrypted,
         ];
     }

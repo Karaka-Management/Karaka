@@ -181,7 +181,6 @@ trait ModuleTestTrait
                     self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" has missing/invalid internal/member');
                 }
 
-
                 $property = $classReflection->getProperty($column['internal']) ?? null;
                 if ($property === null || (!$property->isPublic() && (!isset($column['private']) || !$column['private']))) {
                     $invalidAcessors[] = $column['internal'];
