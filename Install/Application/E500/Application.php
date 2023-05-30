@@ -80,7 +80,7 @@ final class Application
     {
         $this->app->l11nManager = new L11nManager();
 
-        if (!\in_array($response->getLanguage(), $this->config['language'])) {
+        if (!\in_array($response->header->l11n->language, $this->config['language'])) {
             $response->header->l11n->setLanguage('en');
         }
 
@@ -90,17 +90,17 @@ final class Application
         $response->header->status = RequestStatusCode::R_500;
 
         /* Load theme language */
-        if (($path = \realpath($oldPath = __DIR__ . '/lang/' . $response->getLanguage() . '.lang.php')) === false) {
+        if (($path = \realpath($oldPath = __DIR__ . '/lang/' . $response->header->l11n->language . '.lang.php')) === false) {
             throw new PathException($oldPath);
         }
 
         /** @noinspection PhpIncludeInspection */
         $themeLanguage = include $path;
-        $this->app->l11nManager->loadLanguage($response->getLanguage(), '0', $themeLanguage);
+        $this->app->l11nManager->loadLanguage($response->header->l11n->language, '0', $themeLanguage);
 
         $head = new Head();
         $head->addAsset(AssetType::CSS, 'cssOMS/styles.css?v=1.0.0');
 
-        $pageView->setData('head', $head);
+        $pageView->data['head'] = $head;
     }
 }

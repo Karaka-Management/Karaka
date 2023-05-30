@@ -24,6 +24,7 @@ use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
+use phpOMS\Model\Html\Head;
 
 /**
  * List view.
@@ -35,6 +36,14 @@ use phpOMS\Views\View;
  */
 class BackendView extends View
 {
+    /**
+     * Head
+     * 
+     * @var Head
+     * @since 1.0.0
+     */
+    public ?Head $head = null;
+
     /**
      * Navigation view
      *
@@ -49,7 +58,7 @@ class BackendView extends View
      * @var Profile
      * @since 1.0.0
      */
-    protected Profile $profile;
+    public Profile $profile;
 
     /**
      * User profile image.
@@ -97,21 +106,6 @@ class BackendView extends View
     public function setNavigation(View $nav) : void
     {
         $this->nav = $nav;
-    }
-
-    /**
-     * Set user profile.
-     *
-     * @param Profile $profile user account
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     * @codeCoverageIgnore
-     */
-    public function setProfile(Profile $profile) : void
-    {
-        $this->profile = $profile;
     }
 
     /**

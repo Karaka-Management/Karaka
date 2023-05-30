@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 use phpOMS\Uri\UriFactory;
 
-$head = $this->getData('head');
+$head = $this->head;
 ?>
 <?php include __DIR__ . '/head.tpl.php'; ?>
 <body>

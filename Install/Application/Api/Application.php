@@ -169,7 +169,7 @@ final class Application
         if ($account->getId() > 0) {
             $response->header->l11n = $account->l11n;
         } elseif ($this->app->sessionManager->get('language') !== null
-            && $response->header->l11n->getLanguage() !== $this->app->sessionManager->get('language')
+            && $response->header->l11n->language !== $this->app->sessionManager->get('language')
         ) {
             $response->header->l11n
                 ->loadFromLanguage(
@@ -180,13 +180,13 @@ final class Application
             $this->app->setResponseLanguage($request, $response, $this->config);
         }
 
-        UriFactory::setQuery('/lang', $response->getLanguage());
+        UriFactory::setQuery('/lang', $response->header->l11n->language);
         $this->app->loadLanguageFromPath(
-            $response->getLanguage(),
-            __DIR__ . '/lang/' . $response->getLanguage() . '.lang.php'
+            $response->header->l11n->language,
+            __DIR__ . '/lang/' . $response->header->l11n->language . '.lang.php'
         );
 
-        $response->header->set('content-language', $response->getLanguage(), true);
+        $response->header->set('content-language', $response->header->l11n->language, true);
 
         // Cache general settings
         $this->app->appSettings->get(null, [
@@ -257,12 +257,12 @@ final class Application
                 $view->setTemplate('/Web/Api/index');
 
                 $response->set('Content', $view);
-                $view->setData('head', new Head());
+                $view->data['head'] = new Head();
 
                 $app->l11nManager->loadLanguage(
-                    $response->getLanguage(),
+                    $response->header->l11n->language,
                     '0',
-                    include __DIR__ . '/../' . $appName . '/lang/' . $response->getLanguage() . '.lang.php'
+                    include __DIR__ . '/../' . $appName . '/lang/' . $response->header->l11n->language . '.lang.php'
                 );
 
                 $routed = $app->router->route(
@@ -272,10 +272,10 @@ final class Application
                     $app->appId,
                     $this->app->unitId,
                     $account,
-                    $request->getDataArray()
+                    $request->data
                 );
 
-                $view->setData('dispatch', $app->dispatcher->dispatch($routed, $request, $response));
+                $view->data['dispatch'] = $app->dispatcher->dispatch($routed, $request, $response);
             },
             RouteVerb::GET
         );
@@ -316,7 +316,7 @@ final class Application
             $this->app->appId,
             $this->app->unitId,
             $account,
-            $request->getDataArray()
+            $request->data
         );
 
         if ($routes === ['dest' => RouteStatus::INVALID_CSRF]

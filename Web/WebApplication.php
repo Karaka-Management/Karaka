@@ -59,7 +59,7 @@ class WebApplication extends ApplicationAbstract
             $request         = $this->initRequest($config['page']['root'], $config['app']);
             $response        = $this->initResponse($request);
 
-            $responseLanguage = $response->getLanguage();
+            $responseLanguage = $response->header->l11n->language;
             UriFactory::setQuery('/base', $responseLanguage . '/' . \strtolower($applicationName), true);
             UriFactory::setQuery('/api', \rtrim($request->uri->getBase(), '/') . '/api/', true);
             UriFactory::setQuery('/app', \strtolower($applicationName), true);
@@ -155,7 +155,7 @@ class WebApplication extends ApplicationAbstract
             ?? $config['default']['lang'];
 
         $uriLang     = \strtolower($request->uri->getPathElement($subDirDepth + 0));
-        $requestLang = $request->getLanguage();
+        $requestLang = $request->header->l11n->language;
         $langCode    = ISO639x1Enum::isValidValue($uriLang)
             ? $uriLang
             : (ISO639x1Enum::isValidValue($requestLang)
@@ -175,9 +175,9 @@ class WebApplication extends ApplicationAbstract
         UriFactory::setupUriBuilder($request->uri);
 
         $request->header->l11n->loadFromLanguage(
-            $langCode, $request->getLanguage() === ISO3166TwoEnum::_XXX
+            $langCode, $request->header->l11n->language === ISO3166TwoEnum::_XXX
                 ? '*'
-                : $request->getLanguage()
+                : $request->header->l11n->language
         );
 
         return $request;
@@ -221,7 +221,7 @@ class WebApplication extends ApplicationAbstract
             ? $uriLang
             : \strtolower($request->uri->getPathElement(0, false));
 
-        $requestLang = $request->getLanguage();
+        $requestLang = $request->header->l11n->language;
         $langCode    = \in_array($uriLang, $config['language'])
             ? $uriLang
             : (\in_array($requestLang, $config['language'])
@@ -229,9 +229,9 @@ class WebApplication extends ApplicationAbstract
                 : $defaultLang
             );
 
-        $countryCode = $request->getLanguage() === ISO3166TwoEnum::_XXX
+        $countryCode = $request->header->l11n->country === ISO639x1Enum::_XXX
             ? '*'
-            : $request->getLanguage();
+            : $request->header->l11n->language;
 
         if ($request->getLocale() === $langCode . '_' . $countryCode) {
             $response->header->l11n = clone $request->header->l11n;
@@ -239,7 +239,7 @@ class WebApplication extends ApplicationAbstract
             $response->header->l11n->loadFromLanguage($langCode, $countryCode);
         }
 
-        UriFactory::setQuery('/lang', $request->getLanguage(), true);
+        UriFactory::setQuery('/lang', $request->header->l11n->language, true);
 
         /* This would break http://localhost:8000/api/v1/... */
         /*

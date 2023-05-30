@@ -53,10 +53,10 @@ final class PageController extends ModuleAbstract
             ->with('l11n')
             ->where('app', 2)
             ->where('name', \strtolower($request->uri->getPathElement(1)))
-            ->where('l11n/language', $response->getLanguage())
+            ->where('l11n/language', $response->header->l11n->language)
             ->execute();
 
-        $view->setData('content', $page->getL11n(\strtolower($request->uri->getPathElement(1)))->content);
+        $view->data['content'] = $page->getL11n(\strtolower($request->uri->getPathElement(1)))->content;
 
         return $view;
     }
