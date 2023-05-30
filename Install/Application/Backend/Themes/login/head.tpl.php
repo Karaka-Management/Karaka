@@ -14,10 +14,10 @@ declare(strict_types=1);
 
 use phpOMS\Uri\UriFactory;
 
-$head = $this->getData('head');
+$head = $this->head;
 ?>
 <!DOCTYPE HTML>
-<html lang="<?= $this->printHtml($this->response->getLanguage()); ?>">
+<html lang="<?= $this->printHtml($this->response->header->l11n->language); ?>">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">

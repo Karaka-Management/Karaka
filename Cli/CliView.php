@@ -46,7 +46,7 @@ class CliView extends View
      * @var Profile
      * @since 1.0.0
      */
-    protected Profile $profile;
+    public Profile $profile;
 
     /**
      * Organizations.
@@ -70,21 +70,6 @@ class CliView extends View
         parent::__construct($l11n, $request, $response);
 
         $this->profile = new NullProfile();
-    }
-
-    /**
-     * Set user profile.
-     *
-     * @param Profile $profile user account
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     * @codeCoverageIgnore
-     */
-    public function setProfile(Profile $profile) : void
-    {
-        $this->profile = $profile;
     }
 
     /**

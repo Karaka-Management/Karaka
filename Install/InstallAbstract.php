@@ -178,20 +178,20 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function editConfigFile(RequestAbstract $request) : void
     {
-        $db     = $request->getData('dbtype');
-        $host   = $request->getData('dbhost');
+        $db     = $request->getDataString('dbtype');
+        $host   = $request->getDataString('dbhost');
         $port   = (int) $request->getData('dbport');
-        $dbname = $request->getData('dbname');
+        $dbname = $request->getDataString('dbname');
 
-        $admin  = ['login' => $request->getData('schemauser'), 'password' => $request->getData('schemapassword')];
-        $insert = ['login' => $request->getData('createuser'), 'password' => $request->getData('createpassword')];
-        $select = ['login' => $request->getData('selectuser'), 'password' => $request->getData('selectpassword')];
-        $update = ['login' => $request->getData('updateuser'), 'password' => $request->getData('updatepassword')];
-        $delete = ['login' => $request->getData('deleteuser'), 'password' => $request->getData('deletepassword')];
-        $schema = ['login' => $request->getData('schemauser'), 'password' => $request->getData('schemapassword')];
+        $admin  = ['login' => $request->getDataString('schemauser'), 'password' => $request->getDataString('schemapassword')];
+        $insert = ['login' => $request->getDataString('createuser'), 'password' => $request->getDataString('createpassword')];
+        $select = ['login' => $request->getDataString('selectuser'), 'password' => $request->getDataString('selectpassword')];
+        $update = ['login' => $request->getDataString('updateuser'), 'password' => $request->getDataString('updatepassword')];
+        $delete = ['login' => $request->getDataString('deleteuser'), 'password' => $request->getDataString('deletepassword')];
+        $schema = ['login' => $request->getDataString('schemauser'), 'password' => $request->getDataString('schemapassword')];
 
-        $subdir = $request->getData('websubdir');
-        $tld    = $request->getData('domain');
+        $subdir = $request->getDataString('websubdir');
+        $tld    = $request->getDataString('domain');
 
         $tldOrg     = 1;
         $defaultOrg = 1;
@@ -230,9 +230,9 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function editHtaccessFile(RequestAbstract $request) : void
     {
-        $fullTLD = $request->getData('domain');
+        $fullTLD = $request->getDataString('domain');
         $tld     = \str_replace(['.', 'http://', 'https://'], ['\.', '', ''], $request->getDataString('domain') ?? '');
-        $subPath = $request->getData('websubdir') ?? '/';
+        $subPath = $request->getDataString('websubdir') ?? '/';
 
         $config = include __DIR__ . '/Templates/htaccess.tpl.php';
 
@@ -514,8 +514,8 @@ abstract class InstallAbstract extends ApplicationAbstract
         foreach ($apps as $app) {
             $temp                  = new HttpRequest(new HttpUri(''));
             $temp->header->account = 1;
-            $temp->setData('name', $app);
-            $temp->setData('type', ApplicationType::CONSOLE);
+            $temp->data['name'] = $app;
+            $temp->data['type'] = ApplicationType::CONSOLE;
 
             $module->apiApplicationCreate($temp, new HttpResponse());
         }
@@ -546,9 +546,9 @@ abstract class InstallAbstract extends ApplicationAbstract
         foreach ($apps as $app) {
             $temp                  = new HttpRequest(new HttpUri(''));
             $temp->header->account = 1;
-            $temp->setData('name', \basename($app));
-            $temp->setData('type', ApplicationType::WEB);
-            $temp->setData('theme', $theme);
+            $temp->data['name'] = \basename($app);
+            $temp->data['type'] = ApplicationType::WEB;
+            $temp->data['theme'] = $theme;
 
             Zip::pack(__DIR__ . '/../' . $app, __DIR__ . '/' . \basename($app) . '.zip');
 
@@ -582,13 +582,13 @@ abstract class InstallAbstract extends ApplicationAbstract
         $account->setStatus(AccountStatus::ACTIVE);
         $account->tries = 0;
         $account->setType(AccountType::USER);
-        $account->login = (string) $request->getData('adminname');
-        $account->name1 = (string) $request->getData('adminname');
-        $account->generatePassword((string) $request->getData('adminpassword'));
-        $account->setEmail((string) $request->getData('adminemail'));
+        $account->login = $request->getDataString('adminname') ?? '';
+        $account->name1 = $request->getDataString('adminname') ?? '';
+        $account->generatePassword($request->getDataString('adminpassword') ?? '');
+        $account->setEmail($request->getDataString('adminemail') ?? '');
 
         $l11n = $account->l11n;
-        $l11n->loadFromLanguage($request->getData('defaultlang') ?? 'en', $request->getData('defaultcountry') ?? 'us');
+        $l11n->loadFromLanguage($request->getDataString('defaultlang') ?? 'en', $request->getDataString('defaultcountry') ?? 'us');
 
         AccountCredentialMapper::create()->execute($account);
 

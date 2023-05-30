@@ -143,7 +143,7 @@ final class CliApplication extends ApplicationAbstract
         if ($account->getId() > 0) {
             $response->header->l11n = $account->l11n;
         } elseif ($this->sessionManager->get('language') !== null
-            && $response->header->l11n->getLanguage() !== $this->sessionManager->get('language')
+            && $response->header->l11n->language !== $this->sessionManager->get('language')
         ) {
             $response->header->l11n
                 ->loadFromLanguage(
@@ -152,7 +152,7 @@ final class CliApplication extends ApplicationAbstract
                 );
         }
 
-        if (!\in_array($response->getLanguage(), $this->config['language'])) {
+        if (!\in_array($response->header->l11n->language, $this->config['language'])) {
             $response->header->l11n->setLanguage($this->l11nServer->getLanguage());
         }
 
@@ -171,11 +171,11 @@ final class CliApplication extends ApplicationAbstract
         }
 
         $this->loadLanguageFromPath(
-            $response->getLanguage(),
-            __DIR__ . '/lang/' . $response->getLanguage() . '.lang.php'
+            $response->header->l11n->language,
+            __DIR__ . '/lang/' . $response->header->l11n->language . '.lang.php'
         );
 
-        $response->header->set('content-language', $response->getLanguage(), true);
+        $response->header->set('content-language', $response->header->l11n->language, true);
 
         /* Handle not logged in */
         /* CLI application is always logged in */
@@ -208,7 +208,7 @@ final class CliApplication extends ApplicationAbstract
                 $this->appId,
                 $this->unitId,
                 $account,
-                $request->getDataArray()
+                $request->data
             ),
             $request,
             $response
@@ -303,7 +303,7 @@ final class CliApplication extends ApplicationAbstract
         $defaultLang = $config['app']['domains'][$request->uri->host]['lang'] ?? $config['app']['default']['lang'];
         $uriLang     = \strtolower($request->uri->getPathElement(0));
 
-        $requestLang = $request->getLanguage();
+        $requestLang = $request->header->l11n->language;
         $langCode    = ISO639x1Enum::isValidValue($requestLang) && \in_array($requestLang, $config['language'])
             ? $requestLang
             : (ISO639x1Enum::isValidValue($uriLang) && \in_array($uriLang, $config['language'])
@@ -370,8 +370,8 @@ final class CliApplication extends ApplicationAbstract
         $response->header->status = RequestStatusCode::R_503;
         $pageView->setTemplate('/Web/Backend/Error/503');
         $this->loadLanguageFromPath(
-            $response->getLanguage(),
-            __DIR__ . '/Error/lang/' . $response->getLanguage() . '.lang.php'
+            $response->header->l11n->language,
+            __DIR__ . '/Error/lang/' . $response->header->l11n->language . '.lang.php'
         );
     }
 
@@ -390,8 +390,8 @@ final class CliApplication extends ApplicationAbstract
         $response->header->status = RequestStatusCode::R_403;
         $pageView->setTemplate('/Web/Backend/Error/403');
         $this->loadLanguageFromPath(
-            $response->getLanguage(),
-            __DIR__ . '/Error/lang/' . $response->getLanguage() . '.lang.php'
+            $response->header->l11n->language,
+            __DIR__ . '/Error/lang/' . $response->header->l11n->language . '.lang.php'
         );
     }
 
@@ -410,8 +410,8 @@ final class CliApplication extends ApplicationAbstract
         $response->header->status = RequestStatusCode::R_401;
         $pageView->setTemplate('/Cli/Error/401');
         $this->loadLanguageFromPath(
-            $response->getLanguage(),
-            __DIR__ . '/Error/lang/' . $response->getLanguage() . '.lang.php'
+            $response->header->l11n->language,
+            __DIR__ . '/Error/lang/' . $response->header->l11n->language . '.lang.php'
         );
     }
 
@@ -434,7 +434,7 @@ final class CliApplication extends ApplicationAbstract
 
         /** @var \Modules\Profile\Models\Profile $profile */
         $profile = ProfileMapper::get()->where('account', $request->header->account)->execute();
-        $pageView->setProfile($profile);
+        $pageView->profile = $profile;
 
         $pageView->setTemplate('/Cli/index');
     }

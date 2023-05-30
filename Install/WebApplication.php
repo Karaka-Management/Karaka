@@ -95,7 +95,7 @@ final class WebApplication extends InstallAbstract
         $request->header->l11n->setLanguage(
             empty($langCode) || !ISO639x1Enum::isValidValue($langCode) ? 'en' : $langCode
         );
-        UriFactory::setQuery('/lang', $request->getLanguage());
+        UriFactory::setQuery('/lang', $request->header->l11n->language);
 
         return $request;
     }
@@ -124,9 +124,9 @@ final class WebApplication extends InstallAbstract
             $response->header->set('strict-transport-security', 'max-age=31536000');
         }
 
-        $response->header->l11n->setLanguage(
-            !\in_array($request->getLanguage(), $languages) ? 'en' : $request->getLanguage()
-        );
+        $response->header->l11n->language = \in_array($request->header->l11n->language, $languages) 
+            ? $request->header->l11n->language
+            : 'en';
 
         return $response;
     }
@@ -148,8 +148,8 @@ final class WebApplication extends InstallAbstract
         $this->router     = new WebRouter();
 
         $this->setupRoutes();
-        $response->header->set('content-language', $response->getLanguage(), true);
-        UriFactory::setQuery('/lang', $response->getLanguage());
+        $response->header->set('content-language', $response->header->l11n->language, true);
+        UriFactory::setQuery('/lang', $response->header->l11n->language);
 
         $this->dispatcher->dispatch(
             $this->router->route(
