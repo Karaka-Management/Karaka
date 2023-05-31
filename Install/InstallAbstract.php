@@ -514,8 +514,8 @@ abstract class InstallAbstract extends ApplicationAbstract
         foreach ($apps as $app) {
             $temp                  = new HttpRequest(new HttpUri(''));
             $temp->header->account = 1;
-            $temp->data['name'] = $app;
-            $temp->data['type'] = ApplicationType::CONSOLE;
+            $temp->data['name']    = $app;
+            $temp->data['type']    = ApplicationType::CONSOLE;
 
             $module->apiApplicationCreate($temp, new HttpResponse());
         }
@@ -546,9 +546,9 @@ abstract class InstallAbstract extends ApplicationAbstract
         foreach ($apps as $app) {
             $temp                  = new HttpRequest(new HttpUri(''));
             $temp->header->account = 1;
-            $temp->data['name'] = \basename($app);
-            $temp->data['type'] = ApplicationType::WEB;
-            $temp->data['theme'] = $theme;
+            $temp->data['name']    = \basename($app);
+            $temp->data['type']    = ApplicationType::WEB;
+            $temp->data['theme']   = $theme;
 
             Zip::pack(__DIR__ . '/../' . $app, __DIR__ . '/' . \basename($app) . '.zip');
 

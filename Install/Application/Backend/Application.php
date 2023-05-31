@@ -183,7 +183,7 @@ final class Application
         $head     = new Head();
 
         $pageView->setData('unitId', $this->app->unitId);
-        $pageView->data['head'] = $head;
+        $pageView->head = $head;
         $response->set('Content', $pageView);
 
         /* Backend only allows GET */
@@ -478,7 +478,7 @@ final class Application
         $pageView->setOrganizations($units);
 
         /** @var \Modules\Profile\Models\Profile $profile */
-        $profile = ProfileMapper::get()->where('account', $request->header->account)->execute();
+        $profile           = ProfileMapper::get()->where('account', $request->header->account)->execute();
         $pageView->profile = $profile;
 
         $pageView->setData('nav', $this->getNavigation($request, $response));

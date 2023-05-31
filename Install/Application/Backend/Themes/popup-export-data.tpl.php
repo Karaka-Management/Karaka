@@ -1,6 +1,7 @@
-<?php
+<?php declare(strict_types=1);
 
 use phpOMS\Uri\UriFactory;
+
 ?>
 <span class="clickPopup end-xs">
     <label for="<?= $this->id; ?>-export"><i class="fa end-xs lni lni-download download btn"></i></label>
@@ -13,7 +14,7 @@ use phpOMS\Uri\UriFactory;
                         <td><?= $this->getHtml('Name', '0', '0'); ?>
                 <tbody>
                     <?php foreach ($this->exportTemplates as $template) : ?>
-                    <tr data-href="<?= $url = UriFactory::build($this->exportUri . '{?}&template=' . $template->getId()); ?>">
+                    <tr data-href="<?= $url = UriFactory::build($this->exportUri . '{?}&template=' . $template->id); ?>">
                         <td><a href="<?= $url; ?>"><?= $this->printHtml($template->name); ?></a>
                     <?php endforeach; ?>
             </table>

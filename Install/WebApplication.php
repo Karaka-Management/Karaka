@@ -124,7 +124,7 @@ final class WebApplication extends InstallAbstract
             $response->header->set('strict-transport-security', 'max-age=31536000');
         }
 
-        $response->header->l11n->language = \in_array($request->header->l11n->language, $languages) 
+        $response->header->l11n->language = \in_array($request->header->l11n->language, $languages)
             ? $request->header->l11n->language
             : 'en';
 

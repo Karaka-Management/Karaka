@@ -433,7 +433,9 @@ final class CliApplication extends ApplicationAbstract
         $pageView->setOrganizations($unit);
 
         /** @var \Modules\Profile\Models\Profile $profile */
-        $profile = ProfileMapper::get()->where('account', $request->header->account)->execute();
+        $profile           = ProfileMapper::get()
+            ->where('account', $request->header->account)
+            ->execute();
         $pageView->profile = $profile;
 
         $pageView->setTemplate('/Cli/index');

@@ -80,8 +80,8 @@ EOT;
     }
 
 $htaccess .= <<<EOT
-    RewriteCond %{HTTP_HOST} ^(.*)\.$tld
-    RewriteRule ^([a-zA-Z]{2})\/(.*)$ $fullTLD/$1/%1/$2 [QSA]
+    RewriteCond %{HTTP_HOST} ^(.*)\.{$tld}
+    RewriteRule ^([a-zA-Z]{2})\/(.*)$ {$fullTLD}/$1/%1/$2 [QSA]
 
 EOT;
 }
@@ -99,7 +99,7 @@ $htaccess .= <<<EOT
 
 EOT;
 
-$htaccess .= <<< EOT
+return $htaccess . <<< EOT
     RewriteCond %{HTTPS} !on
     RewriteCond %{HTTP_HOST} !^(127\.0\.0)|(192\.)|(172\.)
     RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
@@ -149,5 +149,3 @@ php_value memory_limit 128M
 php_value max_input_time 30
 php_value max_execution_time 30
 EOT;
-
-return $htaccess;

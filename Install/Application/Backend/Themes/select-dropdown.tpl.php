@@ -1,5 +1,5 @@
-<?php
-    $dropdownId   ??= '';
+<?php declare(strict_types=1);
+$dropdownId       ??= '';
     $dropdownName ??= '';
 
     /**

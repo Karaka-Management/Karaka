@@ -102,6 +102,6 @@ final class Application
         $head = new Head();
         $head->addAsset(AssetType::CSS, 'cssOMS/styles.css?v=1.0.0');
 
-        $pageView->data['head'] = $head;
+        $pageView->head = $head;
     }
 }

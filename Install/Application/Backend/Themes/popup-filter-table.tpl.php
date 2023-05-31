@@ -1,4 +1,5 @@
-<?php if ($data[5]) : ?>
+<?php declare(strict_types=1);
+if ($data[5]) : ?>
 <span class="clickPopup">
     <input form="<?= $this->id; ?>-search" id="<?= $this->id; ?>-f-<?= $this->counter; ?>" name="<?= $this->id; ?>-f-<?= $data[0]; ?>-t" type="hidden" value="<?= $data[2]; ?>">
     <input id="<?= $this->id; ?>-f-<?= $this->counter; ?>-popup" name="<?= $this->id; ?>-f-<?= $this->counter; ?>-popup" type="checkbox">

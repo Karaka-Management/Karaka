@@ -271,14 +271,14 @@ class TableView extends View
         return $this->baseUri . (
             $obj === null
             ? '?element={?element}&sort_by={?sort_by}&sort_order={?sort_order}'
-                . (!empty($request->getDataString('search'))
-                ? '&search=' . $request->getDataString('search')
-                : '')
+                . (empty($request->getDataString('search'))
+                ? ''
+                : '&search=' . $request->getDataString('search'))
             : '?{?}&id='
                 . $obj->getId()
-                . (!empty($request->getDataString('search'))
-                    ? '&search=' . $request->getDataString('search')
-                    : '')
+                . (empty($request->getDataString('search'))
+                    ? ''
+                    : '&search=' . $request->getDataString('search'))
                 . ($request->getDataString('sort_by') !== 'id' && \property_exists($obj, $request->getDataString('sort_by') ?? '')
                     ? '&subid=' . $obj->{$request->getDataString('sort_by')}
                     : '')
@@ -302,14 +302,14 @@ class TableView extends View
         return $this->baseUri . (
             $obj === null
             ? '?element={?element}&sort_by={?sort_by}&sort_order={?sort_order}'
-                . (!empty($request->getDataString('search'))
-                ? '&search=' . $request->getDataString('search')
-                : '')
+                . (empty($request->getDataString('search'))
+                ? ''
+                : '&search=' . $request->getDataString('search'))
             : '?{?}&id='
                 . ($hasNext ? $obj->getId() : $request->getDataString('id'))
-                . (!empty($request->getDataString('search'))
-                    ? '&search=' . $request->getDataString('search')
-                    : '')
+                . (empty($request->getDataString('search'))
+                    ? ''
+                    : '&search=' . $request->getDataString('search'))
                 . ($request->getDataString('sort_by') !== 'id' && \property_exists($obj, $request->getDataString('sort_by') ?? '')
                     ? '&subid=' . $obj->{$request->getDataString('sort_by')}
                     : '')

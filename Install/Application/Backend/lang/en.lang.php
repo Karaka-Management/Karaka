@@ -19,7 +19,7 @@ return [[
     'Cancel'                => 'Cancel',
     'Close'                 => 'Close',
     'Create'                => 'Create',
-    'New'                => 'New',
+    'New'                   => 'New',
     'CurrencyB'             => 'B',
     'CurrencyK'             => 'K',
     'CurrencyM'             => 'M',

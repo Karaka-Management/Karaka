@@ -22,9 +22,9 @@ use Modules\Profile\Models\Profile;
 use phpOMS\Localization\L11nManager;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Model\Html\Head;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
-use phpOMS\Model\Html\Head;
 
 /**
  * List view.

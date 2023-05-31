@@ -14,11 +14,10 @@ declare(strict_types=1);
 
 namespace Install;
 
+use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Localization\Localization;
 use phpOMS\Message\Cli\CliRequest;
 use phpOMS\Message\Cli\CliResponse;
-use phpOMS\Dispatcher\Dispatcher;
-use phpOMS\Router\RouteVerb;
 use phpOMS\Router\SocketRouter;
 use phpOMS\Uri\Argument;
 
@@ -34,7 +33,6 @@ use phpOMS\Uri\Argument;
  */
 final class CliApplication extends InstallAbstract
 {
-
     /**
      * Constructor.
      *
@@ -71,9 +69,7 @@ final class CliApplication extends InstallAbstract
      */
     private function initRequest(array $arg, string $rootPath, string $language) : CliRequest
     {
-        $request = new CliRequest(new Argument($arg[1] ?? ''));
-
-        return $request;
+        return new CliRequest(new Argument($arg[1] ?? ''));
     }
 
     /**
@@ -91,7 +87,7 @@ final class CliApplication extends InstallAbstract
         $response = new CliResponse(new Localization());
 
         $response->header->l11n->setLanguage(
-            !\in_array($request->header->l11n->language, $languages) ? 'en' : $request->header->l11n->language
+            \in_array($request->header->l11n->language, $languages) ? $request->header->l11n->language : 'en'
         );
 
         return $response;

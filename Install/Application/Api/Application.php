@@ -197,23 +197,20 @@ final class Application
         $setting   = $this->app->appSettings->get(null, SettingsEnum::LOGIN_STATUS);
         $appStatus = (int) ($setting->content ?? 0);
 
-        if ($appStatus === ApplicationStatus::READ_ONLY || $appStatus === ApplicationStatus::DISABLED) {
-            if (!$account->hasPermission(PermissionType::CREATE | PermissionType::MODIFY, module: 'Admin', category: PermissionCategory::APP)) {
-                if ($request->getRouteVerb() !== RouteVerb::GET) {
-                    // Application is in read only mode or completely disabled
-                    // If read only mode is active only GET requests are allowed
-                    // A user who is part of the admin group is excluded from this rule
-                    $response->header->status = RequestStatusCode::R_405;
+        if (($appStatus === ApplicationStatus::READ_ONLY || $appStatus === ApplicationStatus::DISABLED) && !$account->hasPermission(PermissionType::CREATE | PermissionType::MODIFY, module: 'Admin', category: PermissionCategory::APP)) {
+            if ($request->getRouteVerb() !== RouteVerb::GET) {
+                // Application is in read only mode or completely disabled
+                // If read only mode is active only GET requests are allowed
+                // A user who is part of the admin group is excluded from this rule
+                $response->header->status = RequestStatusCode::R_405;
 
-                    return;
-                }
-
-                $this->app->dbPool->remove('admin');
-                $this->app->dbPool->remove('insert');
-                $this->app->dbPool->remove('update');
-                $this->app->dbPool->remove('delete');
-                $this->app->dbPool->remove('schema');
+                return;
             }
+            $this->app->dbPool->remove('admin');
+            $this->app->dbPool->remove('insert');
+            $this->app->dbPool->remove('update');
+            $this->app->dbPool->remove('delete');
+            $this->app->dbPool->remove('schema');
         }
 
         if (!empty($uris = $request->uri->getQuery('r'))) {

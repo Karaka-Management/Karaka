@@ -229,7 +229,7 @@ class WebApplication extends ApplicationAbstract
                 : $defaultLang
             );
 
-        $countryCode = $request->header->l11n->country === ISO639x1Enum::_XXX
+        $countryCode = $request->header->l11n->country === ISO3166TwoEnum::_XXX
             ? '*'
             : $request->header->l11n->language;
 

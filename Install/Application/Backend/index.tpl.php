@@ -67,7 +67,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     <input type="checkbox" id="nav-trigger" name="nav-hamburger" class="nav-trigger">
     <nav id="nav-side">
         <span id="u-box">
-            <a href="<?= UriFactory::build('{/base}/profile/single?{?}&id=' . $this->profile->getId()); ?>">
+            <a href="<?= UriFactory::build('{/base}/profile/single?{?}&id=' . $this->profile->id); ?>">
                 <img alt="<?= $this->getHtml('User', '0', '0'); ?>" loading="lazy" src="<?= $this->getProfileImage(); ?>">
             </a>
             <span id="logo" itemscope itemtype="http://schema.org/Organization">
@@ -77,7 +77,7 @@ $dispatch = $this->getData('dispatch') ?? [];
                     data-action='[{"listener": "change", "action": [{"key": 1, "type": "redirect", "uri": "{%}&u={!#unit-selector}", "target": "self"}]}]'
                     title="Unit selector">
                     <?php foreach ($this->organizations as $organization) : ?>
-                        <option value="<?= $this->printHtml((string) $organization->getId()); ?>"<?= $this->getData('unitId') == $organization->getId() ? ' selected' : ''; ?>><?= $this->printHtml($organization->name); ?>
+                        <option value="<?= $this->printHtml((string) $organization->id); ?>"<?= $this->getData('unitId') == $organization->id ? ' selected' : ''; ?>><?= $this->printHtml($organization->name); ?>
                     <?php endforeach; ?>
                 </select>
                 <div id="nav-side-settings">
