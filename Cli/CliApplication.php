@@ -153,7 +153,7 @@ final class CliApplication extends ApplicationAbstract
         }
 
         if (!\in_array($response->header->l11n->language, $this->config['language'])) {
-            $response->header->l11n->setLanguage($this->l11nServer->getLanguage());
+            $response->header->l11n->setLanguage($this->l11nServer->language);
         }
 
         $pageView = new CliView($this->l11nManager, $request, $response);

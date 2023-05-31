@@ -144,7 +144,7 @@ final class Application
             ->where('name', $this->app->appName)
             ->execute();
 
-        $this->app->appId = $app->getId();
+        $this->app->appId = $app->id;
 
         $this->app->cachePool    = new CachePool();
         $this->app->appSettings  = new CoreSettings();
@@ -166,7 +166,7 @@ final class Application
 
         $account = $this->loadAccount($aid);
 
-        if ($account->getId() > 0) {
+        if ($account->id > 0) {
             $response->header->l11n = $account->l11n;
         } elseif ($this->app->sessionManager->get('language') !== null
             && $response->header->l11n->language !== $this->app->sessionManager->get('language')
@@ -236,7 +236,7 @@ final class Application
                     ->where('name', $appName)
                     ->execute();
 
-                $app->appId          = $appModel->getId();
+                $app->appId          = $appModel->id;
                 $app->appName        = $appName;
                 $app->dbPool         = $this->app->dbPool;
                 $app->unitId         = $this->app->unitId;

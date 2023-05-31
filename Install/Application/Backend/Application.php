@@ -176,7 +176,7 @@ final class Application
         }
 
         if (!\in_array($response->header->l11n->language, $this->config['language'])) {
-            $response->header->l11n->setLanguage($this->app->l11nServer->getLanguage());
+            $response->header->l11n->setLanguage($this->app->l11nServer->language);
         }
 
         $pageView = new BackendView($this->app->l11nManager, $request, $response);
