@@ -140,7 +140,7 @@ final class CliApplication extends ApplicationAbstract
 
         $account = $this->loadAccount($request);
 
-        if ($account->getId() > 0) {
+        if ($account->id > 0) {
             $response->header->l11n = $account->l11n;
         } elseif ($this->sessionManager->get('language') !== null
             && $response->header->l11n->language !== $this->sessionManager->get('language')
@@ -180,7 +180,7 @@ final class CliApplication extends ApplicationAbstract
         /* Handle not logged in */
         /* CLI application is always logged in */
         /*
-        if ($account->getId() < 1) {
+        if ($account->id < 1) {
             $this->createBaseLoggedOutResponse($response, $pageView);
 
             $body = $response->getBody(true);
