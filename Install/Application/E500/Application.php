@@ -81,10 +81,10 @@ final class Application
         $this->app->l11nManager = new L11nManager();
 
         if (!\in_array($response->header->l11n->language, $this->config['language'])) {
-            $response->header->l11n->setLanguage('en');
+            $response->header->l11n->language = 'en';
         }
 
-        $pageView = new View($this->app->l11nManager, $request, $response);
+        $pageView = new ErrorView($this->app->l11nManager, $request, $response);
         $pageView->setTemplate('/Web/E500/index');
         $response->set('Content', $pageView);
         $response->header->status = RequestStatusCode::R_500;

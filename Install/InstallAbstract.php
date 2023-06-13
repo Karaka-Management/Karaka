@@ -164,7 +164,7 @@ abstract class InstallAbstract extends ApplicationAbstract
     {
         self::editConfigFile($request);
         self::editHtaccessFile($request);
-        self::editEnvFile($request);
+        self::editEnvFile();
     }
 
     /**
@@ -204,13 +204,11 @@ abstract class InstallAbstract extends ApplicationAbstract
     /**
      * Modify secrets environment file
      *
-     * @param RequestAbstract $request Request
-     *
      * @return void
      *
      * @since 1.0.0
      */
-    protected static function editEnvFile(RequestAbstract $request) : void
+    protected static function editEnvFile() : void
     {
         $privateKeyI = EncryptionHelper::createSharedKey();
 

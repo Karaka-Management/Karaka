@@ -128,7 +128,7 @@ final class Application
 
         /* Checking csrf token, if a csrf token is required at all has to be decided in the route or controller */
         if ($request->hasData('CSRF')
-            && !\hash_equals($this->app->sessionManager->get('CSRF'), $request->getDataString('CSRF'))
+            && !\hash_equals($this->app->sessionManager->data['CSRF'] ?? '', $request->getDataString('CSRF'))
         ) {
             $response->header->status = RequestStatusCode::R_403;
 
@@ -168,13 +168,13 @@ final class Application
 
         if ($account->id > 0) {
             $response->header->l11n = $account->l11n;
-        } elseif ($this->app->sessionManager->get('language') !== null
-            && $response->header->l11n->language !== $this->app->sessionManager->get('language')
+        } elseif (isset($this->app->sessionManager->data['language'])
+            && $response->header->l11n->language !== $this->app->sessionManager->data['language']
         ) {
             $response->header->l11n
                 ->loadFromLanguage(
-                    $this->app->sessionManager->get('language'),
-                    $this->app->sessionManager->get('country') ?? '*'
+                    $this->app->sessionManager->data['language'],
+                    $this->app->sessionManager->data['country'] ?? '*'
                 );
         } else {
             $this->app->setResponseLanguage($request, $response, $this->config);

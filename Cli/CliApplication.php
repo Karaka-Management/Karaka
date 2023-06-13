@@ -142,13 +142,13 @@ final class CliApplication extends ApplicationAbstract
 
         if ($account->id > 0) {
             $response->header->l11n = $account->l11n;
-        } elseif ($this->sessionManager->get('language') !== null
-            && $response->header->l11n->language !== $this->sessionManager->get('language')
+        } elseif (($this->sessionManager->data['language'] ?? null) !== null
+            && $response->header->l11n->language !== $this->sessionManager->data['language']
         ) {
             $response->header->l11n
                 ->loadFromLanguage(
-                    $this->sessionManager->get('language'),
-                    $this->sessionManager->get('country') ?? '*'
+                    $this->sessionManager->data['language'],
+                    $this->sessionManager->data['country'] ?? '*'
                 );
         }
 
@@ -176,19 +176,6 @@ final class CliApplication extends ApplicationAbstract
         );
 
         $response->header->set('content-language', $response->header->l11n->language, true);
-
-        /* Handle not logged in */
-        /* CLI application is always logged in */
-        /*
-        if ($account->id < 1) {
-            $this->createBaseLoggedOutResponse($response, $pageView);
-
-            $body = $response->getBody(true);
-            echo $body;
-
-            return;
-        }
-        */
 
         /* No reading permission */
         if (!$account->hasPermission(PermissionType::READ, $this->unitId, $this->appId, 'Dashboard')) {
@@ -389,26 +376,6 @@ final class CliApplication extends ApplicationAbstract
     {
         $response->header->status = RequestStatusCode::R_403;
         $pageView->setTemplate('/Web/Backend/Error/403');
-        $this->loadLanguageFromPath(
-            $response->header->l11n->language,
-            __DIR__ . '/Error/lang/' . $response->header->l11n->language . '.lang.php'
-        );
-    }
-
-    /**
-     * Create logged out response
-     *
-     * @param CliResponse $response Response
-     * @param View        $pageView View
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    private function createBaseLoggedOutResponse(CliResponse $response, View $pageView) : void
-    {
-        $response->header->status = RequestStatusCode::R_401;
-        $pageView->setTemplate('/Cli/Error/401');
         $this->loadLanguageFromPath(
             $response->header->l11n->language,
             __DIR__ . '/Error/lang/' . $response->header->l11n->language . '.lang.php'
