@@ -1,6 +1,6 @@
 <?php
 /**
- * Karaka
+ * Jingga
  *
  * PHP Version 8.1
  *
@@ -29,7 +29,7 @@ declare(strict_types=1);
 return <<<EOT
 <?php
 /**
- * Karaka
+ * Jingga
  *
  * PHP Version 8.1
  *
