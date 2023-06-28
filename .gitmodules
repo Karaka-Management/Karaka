@@ -247,3 +247,6 @@
 [submodule "Modules/LoanManagement"]
 	path = Modules/LoanManagement
 	url = https://github.com/Karaka-Management/oms-LoanManagement.git
+[submodule "Modules/EquipmentManagement"]
+	path = Modules/EquipmentManagement
+	url = https://github.com/Karaka-Management/oms-EquipmentManagement.git
