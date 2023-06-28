@@ -40,6 +40,9 @@
   --color-red: #e74c3c;
   --color-green: #2ecc71;
   --color-yellow: #ffde5b;
+  --color-purple: #7f5bff;
+  --color-pink: #ff5bef;
+  --color-orange: #ffa82e;
   --header-background: rgb(255, 255, 255); }
 
 html, body {
