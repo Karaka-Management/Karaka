@@ -98,8 +98,8 @@ final class CoreSettings implements SettingsInterface
         }
 
         /**
- * @var \Model\Setting[] $dbOptions
-*/
+         * @var \Model\Setting[] $dbOptions
+         */
         $dbOptions = SettingMapper::getSettings(
             [
             'ids'     => $ids,
@@ -133,8 +133,8 @@ final class CoreSettings implements SettingsInterface
 
                 $options[$option->name] = $option;
             }
-        } catch (\Throwable $t) {
-            throw $t; // @codeCoverageIgnore
+        } catch (\Throwable $_) {
+            return new NullSetting();
         }
 
         if (empty($options)) {
@@ -150,8 +150,8 @@ final class CoreSettings implements SettingsInterface
     public function set(array $options, bool $store = false) : void
     {
         /**
- * @var array $option
-*/
+         * @var array $option
+        */
         foreach ($options as $option) {
             $key = ($option['name'] ?? '')
                 . ':' . ($option['unit'] ?? '')
