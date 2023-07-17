@@ -184,7 +184,7 @@ form input[type=password] {
         padding: .65rem;
     }
 
-    input[type="text"], input[type="password"] {
+    .frontIcon + input[type="text"], .frontIcon + input[type="password"] {
         padding-left: 2.5rem;
     }
 }

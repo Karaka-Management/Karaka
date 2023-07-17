@@ -135,7 +135,7 @@ form input[type=password] {
     right: 0;
     top: 0;
     padding: .65rem; }
-  .inputWithIcon input[type="text"], .inputWithIcon input[type="password"] {
+  .inputWithIcon .frontIcon + input[type="text"], .inputWithIcon .frontIcon + input[type="password"] {
     padding-left: 2.5rem; }
 
 form input[type=text]:active, form input[type=text]:focus,

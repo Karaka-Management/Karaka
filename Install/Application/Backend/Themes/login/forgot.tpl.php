@@ -26,8 +26,8 @@ use phpOMS\Uri\UriFactory;
             <form id="forgot" method="POST" action="<?= UriFactory::build('{/api}forgot?{?}'); ?>">
                 <label for="iName"><?= $this->getHtml('Username', '0', '0'); ?>:</label>
                 <div class="inputWithIcon">
-                    <input id="iName" type="text" name="user" tabindex="1" value="" autocomplete="off" spellcheck="false" autofocus>
                     <i class="frontIcon fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                    <input id="iName" type="text" name="user" tabindex="1" value="" autocomplete="off" spellcheck="false" autofocus>
                     <i class="endIcon fa fa-times close fa-lg fa-fw" aria-hidden="true"></i>
                 </div>
                 <input id="iForgotButton" name="forgotButton" type="submit" value="<?= $this->getHtml('Submit', '0', '0'); ?>" tabindex="3">
