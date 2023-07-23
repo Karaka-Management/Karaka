@@ -4,7 +4,7 @@
  *
  * PHP Version 8.1
  *
- * @package   Modules\Media
+ * @package   Web\Backend\Views
  * @copyright Dennis Eichhorn
  * @license   OMS License 2.0
  * @version   1.0.0
@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Web\Backend\Views;
 
-use Modules\Media\Models\Collection;
 use phpOMS\Localization\L11nManager;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -23,21 +22,37 @@ use phpOMS\Views\View;
 /**
  * Component view.
  *
- * @package Modules\Media
+ * @package Web\Backend\Views
  * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  * @codeCoverageIgnore
  */
-class BaseView extends View
+class L11nView extends View
 {
     /**
-     * Exporter
+     * L11ns
      *
      * @var array
      * @since 1.0.0
      */
-    protected array $exporter;
+    public array $l11ns = [];
+
+    /**
+     * L11n types
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    public array $l11nTypes = [];
+
+    /**
+     * API Uri for attribute actions
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    public string $apiUri = '';
 
     /**
      * {@inheritdoc}
@@ -45,21 +60,19 @@ class BaseView extends View
     public function __construct(L11nManager $l11n = null, RequestAbstract $request, ResponseAbstract $response)
     {
         parent::__construct($l11n, $request, $response);
-        $this->setTemplate('/Web/Backend/Themes/Backend/popup-additional-function');
+        $this->setTemplate('/Web/Backend/Themes/l11n-list');
     }
 
     /**
-     * Add exporter to the table
-     *
-     * @param string     $type  Exporter type
-     * @param Collection $media Media to the exporter
-     *
-     * @return void
-     *
-     * @since 1.0.0
+     * {@inheritdoc}
      */
-    public function addExporter(string $type, Collection $media) : void
+    public function render(mixed ...$data) : string
     {
-        $this->exporter[$type][] = $media;
+        /** @var array{0:\Modules\L11n\Models\L11n[]} $data */
+        $this->l11ns     = $data[0];
+        $this->l11nTypes = $data[1];
+        $this->apiUri    = $data[2];
+
+        return parent::render();
     }
 }

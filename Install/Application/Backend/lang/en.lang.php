@@ -65,5 +65,9 @@ return [[
     'User'                  => 'User',
     'Username'              => 'Username',
     'Wednesday'             => 'Wednesday',
+    'Localization'             => 'Localization',
+    'Localizations'             => 'Localizations',
+    'Content'             => 'Content',
+    'Type'             => 'Type',
     'PleaseSelect'          => 'Please Select',
 ]];
