@@ -74,6 +74,8 @@ final class Application
      *
      * @return void
      *
+     * @throws PathException
+     *
      * @since 1.0.0
      */
     public function run(HttpRequest $request, HttpResponse $response) : void

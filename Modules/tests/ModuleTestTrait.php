@@ -568,7 +568,7 @@ trait ModuleTestTrait
             // test route class
             foreach ($dests as $verb) {
                 $parts = \explode(':', $verb['dest']);
-                $path  = __DIR__ . '/../../' . \ltrim(\str_replace('\\', '/', $parts[0]), '/') . '.php';
+                $path  = __DIR__ . '/../../' . \ltrim(\strtr($parts[0], '\\', '/'), '/') . '.php';
                 if (!\is_file($path)) {
                     return -2;
                 }
@@ -604,7 +604,7 @@ trait ModuleTestTrait
             // test route class
             foreach ($dests['callback'] as $callback) {
                 $parts = \explode(':', $callback);
-                $path  = __DIR__ . '/../../' . \ltrim(\str_replace('\\', '/', $parts[0]), '/') . '.php';
+                $path  = __DIR__ . '/../../' . \ltrim(\strtr($parts[0], '\\', '/'), '/') . '.php';
                 if (!\is_file($path)) {
                     return -2;
                 }

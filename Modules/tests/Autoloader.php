@@ -35,14 +35,12 @@ class Autoloader
      *
      * @return void
      *
-     * @throws AutoloadException Throws this exception if the class to autoload doesn't exist. This could also be related to a wrong namespace/file path correlation.
-     *
      * @since 1.0.0
      */
     public static function defaultAutoloader(string $class) : void
     {
         $class = \ltrim($class, '\\');
-        $class = \str_replace(['_', '\\'], '/', $class);
+        $class = \strtr($class, '_\\', '//');
 
         if (!\is_file($path = __DIR__ . '/../../' . $class . '.php')) {
             return;
@@ -66,7 +64,7 @@ class Autoloader
     public static function exists(string $class) : bool
     {
         $class = \ltrim($class, '\\');
-        $class = \str_replace(['_', '\\'], '/', $class);
+        $class = \strtr($class, '_\\', '//');
 
         return \is_file(__DIR__ . '/../../' . $class . '.php');
     }

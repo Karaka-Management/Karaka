@@ -71,8 +71,6 @@ final class CliApplication extends ApplicationAbstract
      *
      * @param array{log:array{file:array{path:string}}, app:array{path:string, default:array{id:string, app:string, org:int, lang:string, user?:int}, domains:array}, page:array{root:string, https:bool}, language:string[], db:array{core:array{masters:array{admin:array{db:string, database:string}, insert:array{db:string, database:string}, select:array{db:string, database:string}, update:array{db:string, database:string}, delete:array{db:string, database:string}, schema:array{db:string, database:string}}}}} $config Application config
      *
-     * @throws \Exception
-     *
      * @since 1.0.0
      */
     public function __construct(array $config)
@@ -310,6 +308,8 @@ final class CliApplication extends ApplicationAbstract
      * @param string $path     Language path
      *
      * @return void
+     *
+     * @throws PathException
      *
      * @since 1.0.0
      */

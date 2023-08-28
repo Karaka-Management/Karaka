@@ -38,7 +38,7 @@ $types = $this->l11nTypes;
                     <label for="iLocalizationsLanguage"><?= $this->getHtml('Language', '0', '0'); ?></label>
                     <select id="iLocalizationsLanguage" name="language" data-tpl-text="/language" data-tpl-value="/language">
                         <?php foreach ($languages as $language) : ?>
-                            <option value="<?= $language ?>"<?= $this->response->header->l11n->language === $langauge ? ' selected' : ''; ?>><?= $this->printHtml(ISO639Enum::getBy2Code($language)); ?>
+                            <option value="<?= $language ?>"<?= $this->response->header->l11n->language === $language ? ' selected' : ''; ?>><?= $this->printHtml(ISO639Enum::getBy2Code($language)); ?>
                         <?php endforeach; ?>
                     </select>
                 </div>

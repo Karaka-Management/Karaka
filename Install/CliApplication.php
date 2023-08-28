@@ -38,6 +38,8 @@ final class CliApplication extends InstallAbstract
      *
      * @param array $arg Call argument
      *
+     * @throws \Exception
+     *
      * @since 1.0.0
      */
     public function __construct(array $arg)

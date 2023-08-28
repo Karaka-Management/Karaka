@@ -3,6 +3,8 @@ import { requestAction } from '../../../../jsOMS/Model/Action/Message/Request.js
 import { reloadButtonAction } from '../../../../jsOMS/Model/Action/Dom/Reload.js';
 import { preventEvent } from '../../../../jsOMS/Model/Action/Event/Prevent.js';
 import { domClickAction } from '../../../../jsOMS/Model/Action/Dom/Click.js';
+import { domGetValue } from '../../../../jsOMS/Model/Action/Dom/GetValue.js';
+import { domSetValue } from '../../../../jsOMS/Model/Action/Dom/SetValue.js';
 import { formSubmitAction } from '../../../../jsOMS/Model/Action/Dom/FormSubmit.js';
 
 export const ACTION_EVENTS = {
@@ -12,4 +14,6 @@ export const ACTION_EVENTS = {
     'dom.click': domClickAction, /** global: domClickAction */
     'form.submit': formSubmitAction, /** global: domClickAction */
     'event.prevent': preventEvent, /** global: preventEvent */
+    'dom.get': domGetValue, /** global: domGetValue */
+    'dom.set': domSetValue, /** global: domSetValue */
 };
