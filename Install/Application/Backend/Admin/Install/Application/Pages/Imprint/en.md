@@ -1,6 +1,12 @@
 # Imprint
 
-jingga
+Jingga e. K.
+
+Kirchstr. 33
+
+61191 Rosbach
+
++49 152 04337728
 
 **Represented by**
 
@@ -8,21 +14,28 @@ Dennis Eichhorn
 
 **Contact**
 
-spl1nes.com@googlemail.com
+info@jingga.app
 
 **Commercial register**
 
-Not available
+Amtsgericht Friedberg
 
-**VAT-ID according §27 a value added tax (Umsatzsteuergesetz)**
+HRA 5058
 
-Not available
+**Tax id**
+
+16 814 6253 3
+
+No sales tax will be charged in accordance with §19 (1) UStG.
 
 **Responsible for the content according to § 55 Abs. 2 RStV**
 
-jingga
 Dennis Eichhorn
+
+Kirchstr. 33
+
+61191 Rosbach
 
 **Data protection officer**
 
-spl1nes.com@googlemail.com
+info@jingga.app

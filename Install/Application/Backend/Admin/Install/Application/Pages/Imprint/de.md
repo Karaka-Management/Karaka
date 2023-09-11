@@ -1,6 +1,12 @@
 # Impressum
 
-jingga
+Jingga e. K.
+
+Kirchstr. 33
+
+61191 Rosbach
+
++49 152 04337728
 
 **Vertreten durch**
 
@@ -8,21 +14,28 @@ Dennis Eichhorn
 
 **Kontakt**
 
-spl1nes.com@googlemail.com
+info@jingga.app
 
 **Registereintrag**
 
-Nicht vorhanden
+Amtsgericht Friedberg
 
-**Umsatzsteuer-ID gemäß §27 a Umsatzsteuergesetz**
+HRA 5058
 
-Nicht vorhanden
+**Steuernummer**
 
-**Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV**
+16 814 6253 3
 
-jingga
+Es wird gemäß §19 Abs. 1 UStG keine Umsatzsteuer berechnet.
+
+**Redaktionall Verantwortlicher**
+
 Dennis Eichhorn
+
+Kirchstr. 33
+
+61191 Rosbach
 
 **Datenschutzbeauftragter**
 
-spl1nes.com@googlemail.com
+info@jingga.app

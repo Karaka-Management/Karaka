@@ -113,7 +113,7 @@ $types = $this->l11nTypes;
                             </span>
                             <?php endif; ?>
                         <td data-tpl-text="/id" data-tpl-value="/id"><?= $value->id; ?>
-                        <td data-tpl-text="/language" data-tpl-value="/language"><?= $value->id; ?>
+                        <td data-tpl-text="/language" data-tpl-value="/language"><?= $value->language; ?>
                         <td data-tpl-text="/type" data-tpl-value="/type" data-value="<?= $value->name; ?>"><?= $this->printHtml($value->type->title); ?>
                         <td data-tpl-text="/content" data-tpl-value="/content"><?= $this->printHtml($value->content); ?>
                 <?php endforeach; ?>
