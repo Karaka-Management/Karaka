@@ -24,7 +24,7 @@ declare(strict_types=1);
     <ul>
     <li>AFFILIATED means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>
     <li>COUNTRY refers to Germany</li>
-    <li>COMPANY (referred to as either "the Company", "We", "Us" or "Our" in this AGREEMENT) refers to Karaka, Gartenstr. 26, 61206 Woellstadt.</li>
+    <li>COMPANY (referred to as either "the Company", "We", "Us" or "Our" in this AGREEMENT) refers to Karaka, Kirchstr. 33, 61191 Rosbach.</li>
     <li>DEVICE means any device that can access the Service such as a computer, a cellphone or a digital tablet.</li>
     <li>SERVICE refers to the Website</li>
     <li>TERMS or AGREEMENT mean these terms that form the entire agreement between You and the COMPANY regarding the use of the SERVICE.</li>

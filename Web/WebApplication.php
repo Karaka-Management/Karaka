@@ -276,7 +276,7 @@ class WebApplication extends ApplicationAbstract
         $appName = $this->getApplicationNameFromString($appName);
 
         if ($appName !== 'E500') {
-            return $appName;
+            return $config['domains'][$uri->host]['app'] ?? $appName;
         }
 
         // check uri path 0 (no language is defined)
