@@ -17,26 +17,29 @@ declare(strict_types=1);
 <main>
 <article>
     <h1>Imprint</h1>
-    <p>Karaka</p>
+    <p>Jingga e. K.</p>
+    <p>Kirchstr. 33</p>
+    <p>61191 Rosbach</p>
+    <p>+49 152 04337728</p>
 
-    <h2>Vertreten durch</h2>
+    <h2>Represented by</h2>
     <p>Dennis Eichhorn</p>
 
-    <h2>Kontakt</h2>
-    <p>spl1nes.com@googlemail.com</p>
+    <h2>Commercial register</h2>
+    <p>Amtsgericht Friedberg</p>
+    <p>HRA 5058</p>
 
-    <h2>Registereintrag</h2>
-    <p>Nicht vorhanden</p>
+    <h2>Tax id</h2>
+    <p>DE362646968</p>
+    <p>No sales tax will be charged in accordance with §19 (1) UStG.</p>
 
-    <h2>Umsatzsteuer-ID gemäß §27 a Umsatzsteuergesetz</h2>
-    <p>Nicht vorhanden</p>
-
-    <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
-    <p>Karaka</p>
+    <h2>Responsible for the content according to § 55 Abs. 2 RStV</h2>
     <p>Dennis Eichhorn</p>
+    <p>Kirchstr. 33</p>
+    <p>61191 Rosbach</p>
 
-    <h2>Datenschutzbeauftragter</h2>
-    <p>spl1nes.com@googlemail.com<p>
+    <h2>Data protection officer</h2>
+    <p>info@jingga.app<p>
 </article>
 </main>
 <?php include __DIR__ . '/foot.tpl.php'; ?>

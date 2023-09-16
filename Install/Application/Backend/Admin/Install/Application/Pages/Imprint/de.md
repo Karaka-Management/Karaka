@@ -24,7 +24,7 @@ HRA 5058
 
 **Steuernummer**
 
-16 814 6253 3
+DE362646968
 
 Es wird gemäß §19 Abs. 1 UStG keine Umsatzsteuer berechnet.
 

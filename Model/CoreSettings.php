@@ -141,7 +141,11 @@ final class CoreSettings implements SettingsInterface
             return $expectsArray ? [] : new NullSetting();
         }
 
-        return \count($options) > 1 ? $options : \reset($options);
+        if ($expectsArray) {
+            return \is_array($options) ? $options : [$options];
+        } else {
+            return \is_array($options) ? \reset($options) : $options;
+        }
     }
 
     /**
