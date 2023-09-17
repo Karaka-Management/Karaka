@@ -276,9 +276,12 @@ abstract class InstallAbstract extends ApplicationAbstract
             'Auditor',
         ];
 
-        $module  = $app->moduleManager->get('Admin', 'Api');
-        $auditor = $app->moduleManager->get('Auditor', 'Api');
-        $auditor->active = false;
+        $module     = $app->moduleManager->get('Admin', 'Api');
+        $auditor    = $app->moduleManager->get('Auditor', 'Api');
+        $monitoring = $app->moduleManager->get('Monitoring', '');
+
+        $auditor->active    = false;
+        $monitoring->active = false;
 
         $response                 = new HttpResponse();
         $request                  = new HttpRequest(new HttpUri(''));

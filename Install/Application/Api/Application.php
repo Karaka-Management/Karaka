@@ -139,6 +139,8 @@ final class Application
         $con = $this->app->dbPool->get();
         DataMapperFactory::db($con);
 
+        $this->app->moduleManager->get('Monitoring')->helperLogRequestStat($request);
+
         /** @var \Modules\Admin\Models\App $app */
         $app = AppMapper::get()
             ->where('name', $this->app->appName)
