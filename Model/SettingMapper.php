@@ -165,8 +165,6 @@ final class SettingMapper extends DataMapperFactory
             }
         }
 
-        var_dump($query->toSql());
-
         return self::getAll()->execute($query);
     }
 }
