@@ -54,7 +54,7 @@ $types = $this->l11nTypes;
 
                 <div class="form-group">
                     <label for="iLocalizationContent"><?= $this->getHtml('Content', '0', '0'); ?></label>
-                    <textarea class="textarea contenteditable" id="iLocalizationContent" data-name="content" data-tpl-value="/content" contenteditable></textarea>
+                    <textarea class="textarea contenteditable" id="iLocalizationContent" name="content" data-tpl-value="/content" contenteditable></textarea>
                 </div>
             </div>
             <div class="portlet-foot">

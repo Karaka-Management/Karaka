@@ -106,7 +106,7 @@ class TableView extends View
      * @var int
      * @since 1.0.0
      */
-    protected int $counter = 0;
+    public int $counter = 0;
 
     /**
      * Table objects template
@@ -114,7 +114,7 @@ class TableView extends View
      * @var array
      * @since 1.0.0
      */
-    protected array $objects = [];
+    public array $objects = [];
 
     /**
      * Table columns
@@ -122,7 +122,7 @@ class TableView extends View
      * @var array
      * @since 1.0.0
      */
-    protected array $columns = [];
+    public array $columns = [];
 
     /**
      * Set objects for the table
