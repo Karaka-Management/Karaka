@@ -107,7 +107,7 @@ return $htaccess . <<< EOT
 # END URL rewrite
 
 # BEGIN Access control
-<FilesMatch "\.(php|pdf)$">
+<FilesMatch "\.(php|pdf|log)$">
     Order Deny,Allow
     Deny from all
     Allow from 127.0.0.1
@@ -140,6 +140,17 @@ AddHandler cgi-script .pl .py .jsp .asp .shtml .sh .cgi
         Header set Service-Worker-Allowed "/"
     </FilesMatch>
 </ifmodule>
+
+# Env variables
+# Stripe
+SetEnv OMS_STRIPE_SECRET sk_live_
+SetEnv OMS_STRIPE_PUBLIC pk_live_
+SetEnv OMS_STRIPE_WEBHOOK we_
+
+#Paypal
+
+# Jingga
+SetEnv OMS_PRIVATE_KEY_I {$private_key_i}
 
 # Php config
 # This should be removed from here and adjusted in the php.ini file

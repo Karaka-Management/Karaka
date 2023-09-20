@@ -54,7 +54,7 @@ $types = $this->l11nTypes;
 
                 <div class="form-group">
                     <label for="iLocalizationContent"><?= $this->getHtml('Content', '0', '0'); ?></label>
-                    <textarea class="textarea contenteditable" id="iLocalizationContent" name="content" data-tpl-value="/content" contenteditable></textarea>
+                    <textarea class="textarea contenteditable" id="iLocalizationContent" name="content" data-tpl-value="/content" value="" contenteditable></textarea>
                 </div>
             </div>
             <div class="portlet-foot">
@@ -115,7 +115,7 @@ $types = $this->l11nTypes;
                         <td data-tpl-text="/id" data-tpl-value="/id"><?= $value->id; ?>
                         <td data-tpl-text="/language" data-tpl-value="/language"><?= $value->language; ?>
                         <td data-tpl-text="/type" data-tpl-value="/type" data-value="<?= $value->name; ?>"><?= $this->printHtml($value->type->title); ?>
-                        <td data-tpl-text="/content" data-tpl-value="/content"><?= $this->printHtml($value->content); ?>
+                        <td data-tpl-text="/content" data-tpl-value="/content" data-value="<?= \str_replace(["\r\n", "\n"], ['&#10;', '&#10;'], $this->printHtml($value->content)); ?>"><?= $this->printHtml($value->content); ?>
                 <?php endforeach; ?>
                 <?php if ($c === 0) : ?>
                 <tr>

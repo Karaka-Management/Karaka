@@ -164,7 +164,6 @@ abstract class InstallAbstract extends ApplicationAbstract
     {
         self::editConfigFile($request);
         self::editHtaccessFile($request);
-        self::editEnvFile();
     }
 
     /**
@@ -202,22 +201,6 @@ abstract class InstallAbstract extends ApplicationAbstract
     }
 
     /**
-     * Modify secrets environment file
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    protected static function editEnvFile() : void
-    {
-        $privateKeyI = EncryptionHelper::createSharedKey();
-
-        $secrets = include __DIR__ . '/Templates/secrets.tpl.php';
-
-        \file_put_contents(__DIR__ . '/../secrets.env', $secrets);
-    }
-
-    /**
      * Modify htaccess file
      *
      * @param RequestAbstract $request Request
@@ -228,9 +211,10 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function editHtaccessFile(RequestAbstract $request) : void
     {
-        $fullTLD = $request->getDataString('domain');
-        $tld     = \str_replace(['.', 'http://', 'https://'], ['\.', '', ''], $request->getDataString('domain') ?? '');
-        $subPath = $request->getDataString('websubdir') ?? '/';
+        $fullTLD     = $request->getDataString('domain');
+        $tld         = \str_replace(['.', 'http://', 'https://'], ['\.', '', ''], $request->getDataString('domain') ?? '');
+        $subPath     = $request->getDataString('websubdir') ?? '/';
+        $privateKeyI = EncryptionHelper::createSharedKey();
 
         $config = include __DIR__ . '/Templates/htaccess.tpl.php';
 
