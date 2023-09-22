@@ -206,6 +206,8 @@ jobs:
       run: composer install
     - name: phpcs
       run: vendor/bin/phpcs --severity=1 ./ --standard="Build/Config/phpcs.xml" -s --report=full
+    - name: rector
+      run: vendor/bin/rector process --dry-run --config Build/Config/rector.php ./
     - name: Install NPM
       uses: actions/setup-node@v3
       with:

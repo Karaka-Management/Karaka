@@ -150,7 +150,7 @@ SetEnv OMS_STRIPE_WEBHOOK we_
 #Paypal
 
 # Jingga
-SetEnv OMS_PRIVATE_KEY_I {$private_key_i}
+SetEnv OMS_PRIVATE_KEY_I {$privateKeyI}
 
 # Php config
 # This should be removed from here and adjusted in the php.ini file

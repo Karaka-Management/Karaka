@@ -137,6 +137,7 @@ final class Application
 
         /** @var \phpOMS\DataStorage\Database\Connection\ConnectionAbstract $con */
         $con = $this->app->dbPool->get();
+        $con->connect();
         DataMapperFactory::db($con);
 
         $this->app->moduleManager->get('Monitoring')->helperLogRequestStat($request);

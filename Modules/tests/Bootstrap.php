@@ -317,9 +317,16 @@ $GLOBALS['session'] = $httpSession;
 $GLOBALS['dbpool'] = new DatabasePool();
 $GLOBALS['dbpool']->create('admin', $CONFIG['db']['core']['masters']['admin']);
 $GLOBALS['dbpool']->create('select', $CONFIG['db']['core']['masters']['select']);
+$GLOBALS['dbpool']->create('insert', $CONFIG['db']['core']['masters']['insert']);
 $GLOBALS['dbpool']->create('update', $CONFIG['db']['core']['masters']['update']);
 $GLOBALS['dbpool']->create('delete', $CONFIG['db']['core']['masters']['delete']);
-$GLOBALS['dbpool']->create('insert', $CONFIG['db']['core']['masters']['insert']);
 $GLOBALS['dbpool']->create('schema', $CONFIG['db']['core']['masters']['schema']);
+
+$GLOBALS['dbpool']->get('admin')->connect();
+$GLOBALS['dbpool']->get('select')->connect();
+$GLOBALS['dbpool']->get('insert')->connect();
+$GLOBALS['dbpool']->get('update')->connect();
+$GLOBALS['dbpool']->get('delete')->connect();
+$GLOBALS['dbpool']->get('schema')->connect();
 
 DataMapperFactory::db($GLOBALS['dbpool']->get());
