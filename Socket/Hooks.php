@@ -4220,6 +4220,9 @@
             4217 => '\Modules\TestModule\Controller\Controller:testHook',
             4218 => '\Modules\TestModule\Controller\Controller:testHook',
             4219 => '\Modules\TestModule\Controller\Controller:testHook',
+            4220 => '\Modules\TestModule\Controller\Controller:testHook',
+            4221 => '\Modules\TestModule\Controller\Controller:testHook',
+            4222 => '\Modules\TestModule\Controller\Controller:testHook',
         ],
     ],
 ];
