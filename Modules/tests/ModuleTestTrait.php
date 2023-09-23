@@ -203,7 +203,7 @@ trait ModuleTestTrait
             }
 
             if (!empty($invalidAcessors)) {
-                self::assertTrue(false, 'Mapper "' . $class . '" must define private for  "' . \implode(',', $invalidAcessors) . '" or make them public (recommended) in the model');
+                self::assertTrue(false, 'Mapper "' . $class . '" must define private for "' . \implode(',', $invalidAcessors) . '" or make them public (recommended) in the model');
             }
 
             // test hasMany variable exists in model
