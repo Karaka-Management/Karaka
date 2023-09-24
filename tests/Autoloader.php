@@ -103,7 +103,7 @@ final class Autoloader
         $class = \strtr($class, '_\\', '//');
 
         foreach (self::$paths as $path) {
-            if (\is_file($file = $path . $class . '.php')) {
+            if (\is_file($path . $class . '.php')) {
                 return true;
             }
         }
