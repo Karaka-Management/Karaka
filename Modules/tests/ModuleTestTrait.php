@@ -722,11 +722,7 @@ trait ModuleTestTrait
                 $parts = \explode('.', $file);
                 $type  = '';
 
-                if (\strlen($parts[0]) === 2) {
-                    $type = '';
-                } else {
-                    $type = $parts[0];
-                }
+                $type = \strlen($parts[0]) === 2 ? '' : $parts[0];
 
                 if (!isset($langKeys[$type])) {
                     $langKeys[$type] = [
@@ -761,12 +757,9 @@ trait ModuleTestTrait
 
                 if (empty($langKeys[$type]['keys'])) {
                     $langKeys[$type]['keys'] = $keys;
-                } else {
-                    if (!empty($diff1 = \array_diff($langKeys[$type]['keys'], $keys))
-                        || !empty($diff2 = \array_diff($keys, $langKeys[$type]['keys']))
-                    ) {
-                        self::assertTrue(false, $file . ': The language keys "' . \implode(', ', \array_merge($diff1, $diff2)) . '" are different.');
-                    }
+                } elseif (!empty($diff1 = \array_diff($langKeys[$type]['keys'], $keys))
+                    || !empty($diff2 = \array_diff($keys, $langKeys[$type]['keys']))) {
+                    self::assertTrue(false, $file . ': The language keys "' . \implode(', ', \array_merge($diff1, $diff2)) . '" are different.');
                 }
             }
         }
