@@ -322,11 +322,4 @@ $GLOBALS['dbpool']->create('update', $CONFIG['db']['core']['masters']['update'])
 $GLOBALS['dbpool']->create('delete', $CONFIG['db']['core']['masters']['delete']);
 $GLOBALS['dbpool']->create('schema', $CONFIG['db']['core']['masters']['schema']);
 
-$GLOBALS['dbpool']->get('admin')->connect();
-$GLOBALS['dbpool']->get('select')->connect();
-$GLOBALS['dbpool']->get('insert')->connect();
-$GLOBALS['dbpool']->get('update')->connect();
-$GLOBALS['dbpool']->get('delete')->connect();
-$GLOBALS['dbpool']->get('schema')->connect();
-
 DataMapperFactory::db($GLOBALS['dbpool']->get());
