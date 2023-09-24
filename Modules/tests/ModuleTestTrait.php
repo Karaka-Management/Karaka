@@ -697,8 +697,6 @@ trait ModuleTestTrait
         }
 
         $required = ['en', 'de'];
-        $langKeys = [];
-
         if (!\is_dir($module::PATH . '/Theme')) {
             return;
         }
@@ -712,6 +710,8 @@ trait ModuleTestTrait
             if ($theme === '.' || $theme === '..' || !\is_dir($module::PATH . '/Theme/' . $theme . '/Lang')) {
                 continue;
             }
+
+            $langKeys = [];
 
             $langFiles = \scandir($module::PATH . '/Theme/' . $theme . '/Lang');
             foreach ($langFiles as $file) {
