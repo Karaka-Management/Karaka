@@ -32,7 +32,7 @@ jobs:
       if: steps.git-check.outputs.modified == 'true'
       run: |
         git config --global user.name 'Build Bot'
-        git config --global user.email 'build.bot@karaka.app'
+        git config --global user.email 'build.bot@jingga.app'
         git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }}
         git add *.css
         git commit -m "Automatic css build" || true
