@@ -68,7 +68,7 @@ class L11nView extends View
      */
     public function render(mixed ...$data) : string
     {
-        /** @var array{0:\Modules\L11n\Models\L11n[]} $data */
+        /** @var array{0:\phpOMS\Localization\BaseStringL11n[]} $data */
         $this->l11ns     = $data[0];
         $this->l11nTypes = $data[1];
         $this->apiUri    = $data[2];
