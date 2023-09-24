@@ -456,7 +456,7 @@ function phpServe() : void
 
     // Execute the command and store the process ID
     $output = [];
-    echo \sprintf('Starting server...') . \PHP_EOL;
+    echo 'Starting server...' . \PHP_EOL;
     echo \sprintf(' Current directory: %s', \getcwd()) . \PHP_EOL;
     echo \sprintf(' %s', $command);
     \exec($command, $output);
@@ -481,7 +481,7 @@ function phpServe() : void
 
     // Kill the web server when the process ends
     \register_shutdown_function(function() use ($killCommand, $pid) : void {
-        echo \PHP_EOL . \sprintf('Stopping server...') . \PHP_EOL;
+        echo \PHP_EOL . 'Stopping server...' . \PHP_EOL;
         echo \sprintf(' %s - Killing process with ID %d', \date('r'), $pid) . \PHP_EOL;
         \exec($killCommand . $pid);
     });
