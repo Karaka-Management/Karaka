@@ -21,11 +21,9 @@ jobs:
           node-version: 18
       - name: Software installation
         run: |
-          sudo apt-get update
-          sudo apt-get npm
-          npm -g install svgo
           sudo apt-get jpegoptim
           sudo apt-get optipng
+          sudo npm -g install svgo
       - name: Image optimization
         run: |
           find ./ -type f -name "*.png" -exec optipng '{}' \;
