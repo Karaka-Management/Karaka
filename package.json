@@ -2,7 +2,7 @@
   "name": "oms",
   "version": "1.0.0",
   "hash": "",
-  "description": "<p align=\"center\"><img src=\"https://raw.githubusercontent.com/Jingga-Management/Assets/master/art/logo.png\" width=\"256\" alt=\"Logo\"></p>",
+  "description": "<p align=\"center\"><img src=\"https://raw.githubusercontent.com/Karaka-Management/Assets/master/art/logo.png\" width=\"256\" alt=\"Logo\"></p>",
   "directories": {
     "test": "tests"
   },
@@ -21,13 +21,13 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/karaka-management/Jingga.git"
+    "url": "git+https://github.com/Karaka-Management/Karaka.git"
   },
   "license": "OMS",
   "bugs": {
-    "url": "https://github.com/karaka-management/Jingga/issues"
+    "url": "https://github.com/Karaka-Management/Karaka/issues"
   },
-  "homepage": "https://github.com/karaka-management/Jingga#readme",
+  "homepage": "https://github.com/Karaka-Management/Karaka#readme",
   "devDependencies": {
     "eslint-plugin-import": "^2.27.5"
   }
