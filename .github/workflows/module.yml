@@ -3,7 +3,7 @@ name: CI
 on:
   workflow_call:
     secrets:
-      GITHUB_TOKEN:
+      GH_TOKEN:
         required: true
       GH_PAT:
         required: true
@@ -30,7 +30,7 @@ jobs:
       run: |
         git config --global user.name 'Hash Bot'
         git config --global user.email 'hash.bot@jingga.app'
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+        git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}
         git commit -am "Automated hash generation (NO_CI)"
         git push
   autoformat:
@@ -83,7 +83,7 @@ jobs:
       run: |
         git config --global user.name 'Formatter Bot'
         git config --global user.email 'formatter.bot@jingga.app'
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+        git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}
         git commit -am "Automated formatting changes (NO_CI)"
         git push
   code-tests:
