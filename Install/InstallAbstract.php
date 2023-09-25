@@ -276,6 +276,9 @@ abstract class InstallAbstract extends ApplicationAbstract
             $request->setData('module', $install, true);
             $module->apiModuleStatusUpdate($request, $response);
         }
+
+        $auditor->active    = true;
+        $monitoring->active = true;
     }
 
     /**

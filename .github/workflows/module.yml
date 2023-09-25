@@ -21,7 +21,7 @@ jobs:
       with:
         fetch-depth: 1
     - name: hash
-      run: find ./ -type f -not -path "./vendor/*" -exec md5sum {} \; > hashs.txt
+      run: find ./ -type f -not -path "./vendor/*" -not -path "./Build/*" -not -path "./MainRepository/*" -exec md5sum {} \; > hashs.txt
     - name: Check for modified files
       id: git-check
       run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
@@ -74,7 +74,7 @@ jobs:
       run: |
         vendor/bin/php-cs-fixer fix ./ --config=Build/Config/.php-cs-fixer.php --allow-risky=yes
         vendor/bin/phpcbf --standard=Build/Config/phpcs.xml ./
-        find ./ -type f -not -path "./vendor/*" -exec md5sum {} \; > hashs.txt
+        find ./ -type f -not -path "./vendor/*" -not -path "./Build/*" -not -path "./MainRepository/*" -exec md5sum {} \; > hashs.txt
     - name: Check for modified files
       id: git-check
       run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
