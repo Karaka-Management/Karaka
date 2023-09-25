@@ -133,7 +133,7 @@ jobs:
           fetch-depth: 1
           ref: develop
           repository: Karaka-Management/Karaka
-          path: Karaka
+          path: MainRepository
           submodules: recursive
     - name: Setup PHP, with composer and extensions
       uses: shivammathur/setup-php@master
@@ -183,7 +183,7 @@ jobs:
           fetch-depth: 1
           ref: develop
           repository: Karaka-Management/Karaka
-          path: Karaka
+          path: MainRepository
           submodules: recursive
     - name: Setup PHP, with composer and extensions
       uses: shivammathur/setup-php@master
