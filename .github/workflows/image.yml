@@ -1,15 +1,14 @@
 name: Compress images
 on:
   push:
-    paths:
-      - '**.jpg'
-      - '**.png'
-      - '**.webp'
   pull_request:
-    paths:
-      - '**.jpg'
-      - '**.png'
-      - '**.webp'
+  workflow_call:
+    secrets:
+      GH_TOKEN:
+        required: true
+      GH_PAT:
+        required: true
+
 jobs:
   build:
     name: calibreapp/image-actions
@@ -17,8 +16,27 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@main
-
-      - name: Compress Images
-        uses: calibreapp/image-actions@main
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: Software installation
+        run: |
+          sudo apt-get update
+          sudo apt-get npm
+          npm -g install svgo
+          sudo apt-get jpegoptim
+          sudo apt-get optipng
+      - name: SVG optimization
+        run: |
+          npm -g install svgo
+          find ./ -type f -name "*.png" -exec optipng '{}' \;
+          find ./ -type f -name "*.jpg" -exec jpegoptim '{}' \;
+          find ./ -type f -name "*.svg" -exec svgo {} \;
+      - name: Check for modified files
+        id: git-check
+        run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
+      - name: Push changes
+        if: steps.git-check.outputs.modified == 'true'
+        run: |
+          git config --global user.name 'Image Bot'
+          git config --global user.email 'image.bot@jingga.app'
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}
+          git commit -am "Automated image optimization (NO_CI)"
+          git push
