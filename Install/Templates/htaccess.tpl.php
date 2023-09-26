@@ -43,7 +43,35 @@ AddType application/vnd.ms-fontobject .eot
     ExpiresActive On
     ExpiresDefault A300
 
-    ExpiresByType image/x-icon A2592000
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+
+    ExpiresByType text/javascript "access plus 7 days"
+    ExpiresByType text/x-javascript "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType application/x-javascript "access plus 7 days"
+    ExpiresByType application/json "access plus 7 days"
+
+    <FilesMatch ".(js)$">
+        Header set Cache-Control "public, max-age=604800"
+    </FilesMatch>
+
+    ExpiresByType text/css "access plus 7 days"
+
+    <FilesMatch ".(css)$">
+        Header set Cache-Control "public, max-age=604800"
+    </FilesMatch>
 
     <FilesMatch ".(php)$">
         ExpiresDefault A0

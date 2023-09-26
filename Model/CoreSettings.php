@@ -196,10 +196,11 @@ final class CoreSettings implements SettingsInterface
      */
     public function save(array $options = []) : void
     {
+        // @todo: implement none-database options
         $options = empty($options) ? $this->options : $options;
 
         foreach ($options as $option) {
-            if (\is_array($option)) {
+            if (\is_array($option) && !($option['session'] ?? false)) {
                 $setting = new Setting();
                 $setting->with(
                     $option['id'] ?? 0,
