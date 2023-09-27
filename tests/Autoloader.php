@@ -77,8 +77,18 @@ final class Autoloader
         $class = \ltrim($class, '\\');
         $class = \strtr($class, '_\\', '//');
 
+        if (\stripos($class, 'Web/Backend') !== false || \stripos($class, 'Web/Api') !== false) {
+            $class = \str_replace('Web/', 'Install/Application/', $class);
+        }
+
+        $class2 = $class;
+
         foreach (self::$paths as $path) {
-            if (\is_file($file = $path . $class . '.php')) {
+            if (\is_file($file = $path . $class2 . '.php')) {
+                include_once $file;
+
+                return;
+            } elseif (\is_file($file = $path . $class . '.php')) {
                 include_once $file;
 
                 return;
