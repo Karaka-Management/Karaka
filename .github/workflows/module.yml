@@ -137,8 +137,7 @@ jobs:
           submodules: recursive
     - name: Update repositories
       run: |
-        git config pull.rebase false
-        git -C MainRepository submodule foreach git pull
+        git -C MainRepository submodule foreach git pull --merge
     - name: Setup PHP, with composer and extensions
       uses: shivammathur/setup-php@master
       with:
