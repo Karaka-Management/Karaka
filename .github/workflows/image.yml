@@ -31,10 +31,11 @@ jobs:
           find ./ -type f -name "*.svg" -exec svgo {} \;
       - name: Check for modified files
         id: git-image-check
-        run: echo "modified=$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)" >> $GITHUB_OUTPUT
+        run: echo "modified=$(if git diff-index -G --quiet HEAD --; then echo "false"; else echo "true"; fi)" >> $GITHUB_OUTPUT
       - name: Push changes
         if: steps.git-image-check.outputs.modified == 'true'
         run: |
+          git diff-index -G --quiet HEAD --
           git config --global user.name 'Image Bot'
           git config --global user.email 'image.bot@jingga.app'
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}

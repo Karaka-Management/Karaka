@@ -24,7 +24,7 @@ jobs:
       run: find ./ -type f -not -path "./vendor/*" -not -path "./Build/*" -not -path "./MainRepository/*" -exec md5sum {} \; > hashs.txt
     - name: Check for modified files
       id: git-hash-check
-      run: echo "modified=$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)" >> $GITHUB_OUTPUT
+      run: echo "modified=$(if git diff-index -G --quiet HEAD --; then echo "false"; else echo "true"; fi)" >> $GITHUB_OUTPUT
     - name: Push changes
       if: steps.git-hash-check.outputs.modified == 'true'
       run: |
@@ -77,7 +77,7 @@ jobs:
         find ./ -type f -not -path "./vendor/*" -not -path "./Build/*" -not -path "./MainRepository/*" -exec md5sum {} \; > hashs.txt
     - name: Check for modified files
       id: git-format-check
-      run: echo "modified=$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)" >> $GITHUB_OUTPUT
+      run: echo "modified=$(if git diff-index -G --quiet HEAD --; then echo "false"; else echo "true"; fi)" >> $GITHUB_OUTPUT
     - name: Push changes
       if: steps.git-format-check.outputs.modified == 'true'
       run: |
