@@ -11,7 +11,6 @@
  * @version   1.0.0
  * @link      https://jingga.app
  */
-
 declare(strict_types=1);
 
 namespace Install;
