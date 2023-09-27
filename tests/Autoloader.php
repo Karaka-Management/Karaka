@@ -79,6 +79,8 @@ final class Autoloader
 
         if (\stripos($class, 'Web/Backend') !== false || \stripos($class, 'Web/Api') !== false) {
             $class = \str_replace('Web/', 'Install/Application/', $class);
+        } elseif (\stripos($class, 'Autoloader.php')) {
+            $class = 'tests/Autoloader.php';
         }
 
         $class2 = $class;
