@@ -135,9 +135,6 @@ jobs:
           repository: Karaka-Management/Karaka
           path: MainRepository
           submodules: recursive
-    - name: Update repositories
-      run: |
-        git -C MainRepository submodule foreach "git pull --rebase --allow-unrelated-histories"
     - name: Setup PHP, with composer and extensions
       uses: shivammathur/setup-php@master
       with:
