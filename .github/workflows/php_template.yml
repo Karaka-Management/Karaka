@@ -137,7 +137,7 @@ jobs:
           submodules: recursive
     - name: Update repositories
       run: |
-        git -C MainRepository submodule foreach git pull --merge
+        git -C MainRepository submodule foreach "git pull --merge"
     - name: Setup PHP, with composer and extensions
       uses: shivammathur/setup-php@master
       with:
@@ -250,35 +250,6 @@ jobs:
       run: vendor/bin/phpcs --severity=1 ./ --standard="Build/Config/phpcs.xml" -s --report=full
     - name: rector
       run: vendor/bin/rector process --dry-run --config Build/Config/rector.php ./
-    # - name: Install NPM
-    #   uses: actions/setup-node@v3
-    #   with:
-    #     node-version: '14'
-    #     cache: 'npm'
-    # - run: npm install
-    # - name: eslint
-    #   run: npx eslint ./ -c Build/Config/.eslintrc.json
-#  linting:
-#    runs-on: ubuntu-latest
-#    if: "!contains(github.event.head_commit.message, 'NO_CI')"
-#    strategy:
-#      fail-fast: false
-#      max-parallel: 3
-#    steps:
-#    - name: Checkout Repository
-#      uses: actions/checkout@main
-#      with:
-#        fetch-depth: 0
-#        submodules: recursive
-#        token: ${{ secrets.GH_TOKEN }}
-#    - name: Lint Code Base
-#      uses: github/super-linter/slim@v4
-#      env:
-#        VALIDATE_ALL_CODEBASE: false
-#        VALIDATE_PHP: true
-#        VALIDATE_PHP_BUILTIN: true
-#        DEFAULT_BRANCH: develop
-#        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
   custom:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'NO_CI')"
