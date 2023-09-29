@@ -78,7 +78,7 @@ final class Autoloader
         $class = \strtr($class, '_\\', '//');
 
         if (\stripos($class, 'Web/Backend') !== false || \stripos($class, 'Web/Api') !== false) {
-            $class = \str_replace('Web/', 'Install/Application/', $class);
+            $class = \is_dir(__DIR__ . '/Web') ? $class : \str_replace('Web/', 'Karaka/Web/', $class);
         }
 
         $class2 = $class;
