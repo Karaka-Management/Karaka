@@ -97,6 +97,12 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function clearOld() : void
     {
+        if (!\is_writable(__DIR__ . '/../Cli/Routes.php')
+            || !\is_writable(__DIR__ . '/../Cli/Hooks.php')
+        ) {
+            return;
+        }
+
         \file_put_contents(__DIR__ . '/../Cli/Routes.php', '<?php return [];');
         \file_put_contents(__DIR__ . '/../Cli/Hooks.php', '<?php return [];');
 
