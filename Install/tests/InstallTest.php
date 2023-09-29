@@ -26,6 +26,15 @@ use phpOMS\Uri\HttpUri;
  */
 class InstallTest extends \PHPUnit\Framework\TestCase
 {
+    public function testPermissions() : void
+    {
+        self::assertTrue(\is_writable(__DIR__ . '/../../Cli/Routes.php'));
+        self::assertTrue(\is_writable(__DIR__ . '/../../Cli/Hooks.php'));
+        self::assertTrue(\is_writable(__DIR__ . '/../../Socket/Routes.php'));
+        self::assertTrue(\is_writable(__DIR__ . '/../../Socket/Hooks.php'));
+        self::assertTrue(\is_writable(__DIR__ . '/../../Web'));
+    }
+
     /**
      * @covers Install\WebApplication<extended>
      * @group admin
