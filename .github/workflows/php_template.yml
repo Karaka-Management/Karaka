@@ -7,6 +7,8 @@ on:
         required: true
       GH_PAT:
         required: true
+      CODECOV_TOKEN:
+        required: true
 
 jobs:
   hash_generation:
@@ -158,6 +160,11 @@ jobs:
       run: composer install
     - name: phpunit
       run: vendor/bin/phpunit --coverage-text --coverage-clover tests/coverage.xml --configuration tests/phpunit_default.xml
+    - uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./tests/coverage.xml
+        flags: unittests # optional
   static-tests:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'NO_CI')"
