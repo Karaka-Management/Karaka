@@ -107,8 +107,8 @@ declare(strict_types=1);
                                 && \is_writable(__DIR__ . '/../Modules')
                                 && \is_writable(__DIR__ . '/../Modules/Media/Files')
                                 && \is_writable(__DIR__ . '/../Web')
-                                && \is_writable(__DIR__ . '/../Cli/Routes.php')
-                                && \is_writable(__DIR__ . '/../Cli/Hooks.php')
+                                && (!\is_file(__DIR__ . '/../Cli/Routes.php') || \is_writable(__DIR__ . '/../Cli/Routes.php'))
+                                && (!\is_file(__DIR__ . '/../Cli/Hooks.php') || \is_writable(__DIR__ . '/../Cli/Hooks.php'))
                                 && \is_writable(__DIR__ . '/../Cli')) ? 'OK' : 'FAILED'; ?>">
                                 <?= $filePerm ? 'OK' : 'FAILED'; ?>
                             <td>Critcal
@@ -138,7 +138,10 @@ declare(strict_types=1);
                             <td>
                             <td>Critcal
                             <td>/Cli
-                            <td class="<?= \is_writable(__DIR__ . '/../Cli') && \is_writable(__DIR__ . '/../Cli/Routes.php') && \is_writable(__DIR__ . '/../Cli/Hooks.php') ? 'OK' : 'FAILED'; ?>"><?= \decoct(\fileperms(__DIR__ . '/../Cli') & 0777); ?>
+                            <td class="<?= \is_writable(__DIR__ . '/../Cli')
+                                && (!\is_file(__DIR__ . '/../Cli/Routes.php') || \is_writable(__DIR__ . '/../Cli/Routes.php'))
+                                && (!\is_file(__DIR__ . '/../Cli/Hooks.php') || \is_writable(__DIR__ . '/../Cli/Hooks.php'))
+                                ? 'OK' : 'FAILED'; ?>"><?= \decoct(\fileperms(__DIR__ . '/../Cli') & 0777); ?>
                         <tr>
                             <td class="<?= \extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>"><?= \extension_loaded('pdo') ? 'OK' : 'FAILED'; ?>
                             <td>Critcal

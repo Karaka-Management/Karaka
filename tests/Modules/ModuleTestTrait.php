@@ -311,7 +311,7 @@ trait ModuleTestTrait
     {
 
         $mappers    = \glob(__DIR__ . '/../../Modules/' . self::NAME . '/Models/*Mapper.php');
-        $info       = \json_decode(\file_get_contents(__DIR__ . '/../../Modules/' . self::NAME . '/info.json'));
+        $info       = \json_decode(\file_get_contents(__DIR__ . '/../../Modules/' . self::NAME . '/info.json'), true);
 
         $toCheck = [self::NAME];
         foreach ($info['dependencies'] as $dependency => $version) {
