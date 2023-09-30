@@ -309,16 +309,14 @@ trait ModuleTestTrait
      */
     public function testMapperAgainstDbSchema() : void
     {
-        $schemaPath = __DIR__ . '/../../Modules/' . self::NAME . '/Admin/Install/db.json';
+
         $mappers    = \glob(__DIR__ . '/../../Modules/' . self::NAME . '/Models/*Mapper.php');
+        $info       = \json_decode(\file_get_contents(__DIR__ . '/../../Modules/' . self::NAME . '/info.json'));
 
-        if (!\is_file($schemaPath)) {
-            self::assertTrue(true);
-
-            return;
+        $toCheck = [self::NAME];
+        foreach ($info['dependencies'] as $dependency => $version) {
+            $toCheck[] = $dependency;
         }
-
-        $db = \json_decode(\file_get_contents($schemaPath), true);
 
         foreach ($mappers as $mapper) {
             $class = $this->getMapperFromPath($mapper);
@@ -333,48 +331,85 @@ trait ModuleTestTrait
             $table   = $class::TABLE;
             $columns = $class::COLUMNS;
 
-            foreach ($columns as $cName => $column) {
-                // testing existence of field name in schema
-                if (!isset($db[$table]['fields'][$cName])) {
-                    self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" doesn\'t match schema');
+            foreach ($toCheck as $module) {
+                $schemaPath = __DIR__ . '/../../Modules/' . $module . '/Admin/Install/db.json';
+                if (!\is_file($schemaPath)) {
+                    continue;
                 }
+                $db = \json_decode(\file_get_contents($schemaPath), true);
 
-                // testing schema/mapper same column data type
-                if (!(($column['type'] === 'string'
-                        && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
-                            || \stripos($db[$table]['fields'][$cName]['type'], 'VARBINARY') === 0
-                            || \stripos($db[$table]['fields'][$cName]['type'], 'BLOB') === 0
-                            || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0
-                            || \stripos($db[$table]['fields'][$cName]['type'], 'LONGTEXT') === 0))
-                    || ($column['type'] === 'int'
-                        && (\stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0
-                            || \stripos($db[$table]['fields'][$cName]['type'], 'SMALLINT') === 0
-                            || \stripos($db[$table]['fields'][$cName]['type'], 'INT') === 0
-                            || \stripos($db[$table]['fields'][$cName]['type'], 'BIGINT') === 0))
-                    || ($column['type'] === 'Json'
-                        && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
-                            || \stripos($db[$table]['fields'][$cName]['type'], 'LONGTEXT') === 0
-                            || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0))
-                    || ($column['type'] === 'compress'
-                        && (\stripos($db[$table]['fields'][$cName]['type'], 'BLOB') === 0))
-                    || ($column['type'] === 'Serializable')
-                    || ($column['type'] === 'bool' && \stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0)
-                    || ($column['type'] === 'float' && \stripos($db[$table]['fields'][$cName]['type'], 'DECIMAL') === 0)
-                    || ($column['type'] === 'DateTime' && \stripos($db[$table]['fields'][$cName]['type'], 'DATETIME') === 0)
-                    || ($column['type'] === 'DateTimeImmutable' && \stripos($db[$table]['fields'][$cName]['type'], 'DATETIME') === 0)
-                )) {
-                    self::assertTrue(false, 'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" is incompatible with mapper "' . $class . '" definition "' . $db[$table]['fields'][$cName]['type'] . '" for field "' . $cName . '"');
+                $status = $this->helperMapperAgainstDbSchema($class, $table, $columns, $schemaPath, $db);
+                if ($status === 0 || $status < -1) {
+                    break;
                 }
             }
 
-            // testing schema/mapper same primary key definition
-            $primary = $class::PRIMARYFIELD;
-            if (!($db[$table]['fields'][$primary]['primary'] ?? false)) {
-                self::assertTrue(false, 'Field "' . $primary . '" from mapper "' . $class . '" is not defined as primary key in table "' . $table . '"');
+            if ($status === -1) {
+                self::assertTrue(false, 'Mapper "' . $class . '" table "' . $table . '" doesn\'t match schema');
+            }
+
+            if ($status < 0) {
+                return;
             }
         }
 
         self::assertTrue(true);
+    }
+
+    private function helperMapperAgainstDbSchema(string $class, string $table, array $columns, string $schemaPath, array $db)
+    {
+        // testing existence of table name in schema
+        if (!isset($db[$table])) {
+            return -1;
+        }
+
+        foreach ($columns as $cName => $column) {
+            // testing existence of field name in schema
+            if (!isset($db[$table]['fields'][$cName])) {
+                self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" doesn\'t match schema');
+
+                return -2;
+            }
+
+            // testing schema/mapper same column data type
+            if (!(($column['type'] === 'string'
+                    && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
+                        || \stripos($db[$table]['fields'][$cName]['type'], 'VARBINARY') === 0
+                        || \stripos($db[$table]['fields'][$cName]['type'], 'BLOB') === 0
+                        || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0
+                        || \stripos($db[$table]['fields'][$cName]['type'], 'LONGTEXT') === 0))
+                || ($column['type'] === 'int'
+                    && (\stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0
+                        || \stripos($db[$table]['fields'][$cName]['type'], 'SMALLINT') === 0
+                        || \stripos($db[$table]['fields'][$cName]['type'], 'INT') === 0
+                        || \stripos($db[$table]['fields'][$cName]['type'], 'BIGINT') === 0))
+                || ($column['type'] === 'Json'
+                    && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
+                        || \stripos($db[$table]['fields'][$cName]['type'], 'LONGTEXT') === 0
+                        || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0))
+                || ($column['type'] === 'compress'
+                    && (\stripos($db[$table]['fields'][$cName]['type'], 'BLOB') === 0))
+                || ($column['type'] === 'Serializable')
+                || ($column['type'] === 'bool' && \stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0)
+                || ($column['type'] === 'float' && \stripos($db[$table]['fields'][$cName]['type'], 'DECIMAL') === 0)
+                || ($column['type'] === 'DateTime' && \stripos($db[$table]['fields'][$cName]['type'], 'DATETIME') === 0)
+                || ($column['type'] === 'DateTimeImmutable' && \stripos($db[$table]['fields'][$cName]['type'], 'DATETIME') === 0)
+            )) {
+                self::assertTrue(false, 'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" is incompatible with mapper "' . $class . '" definition "' . $db[$table]['fields'][$cName]['type'] . '" for field "' . $cName . '"');
+
+                return -3;
+            }
+        }
+
+        // testing schema/mapper same primary key definition
+        $primary = $class::PRIMARYFIELD;
+        if (!($db[$table]['fields'][$primary]['primary'] ?? false)) {
+            self::assertTrue(false, 'Field "' . $primary . '" from mapper "' . $class . '" is not defined as primary key in table "' . $table . '"');
+
+            return -4;
+        }
+
+        return 0;
     }
 
     /**
