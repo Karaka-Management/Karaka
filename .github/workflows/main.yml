@@ -45,17 +45,18 @@ jobs:
         image: mysql:5.7
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: false
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: oms
+          MYSQL_USER: test
+          MYSQL_ROOT_PASSWORD: orange
+          MYSQL_DATABASE: omt
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
       postgres:
         image: postgres:10.8
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: root
-          POSTGRES_DB: oms
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: orange
+          POSTGRES_DB: omt
         ports:
         - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
