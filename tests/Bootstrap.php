@@ -7,7 +7,10 @@ declare(strict_types=1);
 \error_reporting(\E_ALL);
 \setlocale(\LC_ALL, 'en_US.UTF-8');
 
-require_once __DIR__ . '/../vendor/autoload.php';
+if (\is_file(__DIR__ . '/../vendor/autoload.php')) {
+    require_once __DIR__ . '/../vendor/autoload.php';
+}
+
 require_once __DIR__ . '/Autoloader.php';
 
 use phpOMS\DataStorage\Database\DatabasePool;
@@ -75,9 +78,9 @@ $CONFIG = [
                     'db'             => 'mysql', /* db type */
                     'host'           => '127.0.0.1', /* db host address */
                     'port'           => '3306', /* db host port */
-                    'login'          => 'root', /* db login name */
-                    'password'       => 'root', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'login'          => 'test', /* db login name */
+                    'password'       => 'orange', /* db login password */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -85,9 +88,9 @@ $CONFIG = [
                     'db'             => 'mysql', /* db type */
                     'host'           => '127.0.0.1', /* db host address */
                     'port'           => '3306', /* db host port */
-                    'login'          => 'root', /* db login name */
-                    'password'       => 'root', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'login'          => 'test', /* db login name */
+                    'password'       => 'orange', /* db login password */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -95,9 +98,9 @@ $CONFIG = [
                     'db'             => 'mysql', /* db type */
                     'host'           => '127.0.0.1', /* db host address */
                     'port'           => '3306', /* db host port */
-                    'login'          => 'root', /* db login name */
-                    'password'       => 'root', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'login'          => 'test', /* db login name */
+                    'password'       => 'orange', /* db login password */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -105,9 +108,9 @@ $CONFIG = [
                     'db'             => 'mysql', /* db type */
                     'host'           => '127.0.0.1', /* db host address */
                     'port'           => '3306', /* db host port */
-                    'login'          => 'root', /* db login name */
-                    'password'       => 'root', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'login'          => 'test', /* db login name */
+                    'password'       => 'orange', /* db login password */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -115,9 +118,9 @@ $CONFIG = [
                     'db'             => 'mysql', /* db type */
                     'host'           => '127.0.0.1', /* db host address */
                     'port'           => '3306', /* db host port */
-                    'login'          => 'root', /* db login name */
-                    'password'       => 'root', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'login'          => 'test', /* db login name */
+                    'password'       => 'orange', /* db login password */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -125,9 +128,9 @@ $CONFIG = [
                     'db'             => 'mysql', /* db type */
                     'host'           => '127.0.0.1', /* db host address */
                     'port'           => '3306', /* db host port */
-                    'login'          => 'root', /* db login name */
-                    'password'       => 'root', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'login'          => 'test', /* db login name */
+                    'password'       => 'orange', /* db login password */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -137,9 +140,9 @@ $CONFIG = [
                     'db'             => 'pgsql', /* db type */
                     'host'           => '127.0.0.1', /* db host address */
                     'port'           => '5432', /* db host port */
-                    'login'          => 'postgres', /* db login name */
-                    'password'       => 'root', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'login'          => 'test', /* db login name */
+                    'password'       => 'orange', /* db login password */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -147,9 +150,9 @@ $CONFIG = [
                     'db'             => 'pgsql', /* db type */
                     'host'           => '127.0.0.1', /* db host address */
                     'port'           => '5432', /* db host port */
-                    'login'          => 'postgres', /* db login name */
-                    'password'       => 'root', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'login'          => 'test', /* db login name */
+                    'password'       => 'orange', /* db login password */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -157,9 +160,9 @@ $CONFIG = [
                     'db'             => 'pgsql', /* db type */
                     'host'           => '127.0.0.1', /* db host address */
                     'port'           => '5432', /* db host port */
-                    'login'          => 'postgres', /* db login name */
-                    'password'       => 'root', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'login'          => 'test', /* db login name */
+                    'password'       => 'orange', /* db login password */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -167,9 +170,9 @@ $CONFIG = [
                     'db'             => 'pgsql', /* db type */
                     'host'           => '127.0.0.1', /* db host address */
                     'port'           => '5432', /* db host port */
-                    'login'          => 'postgres', /* db login name */
-                    'password'       => 'root', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'login'          => 'test', /* db login name */
+                    'password'       => 'orange', /* db login password */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -177,9 +180,9 @@ $CONFIG = [
                     'db'             => 'pgsql', /* db type */
                     'host'           => '127.0.0.1', /* db host address */
                     'port'           => '5432', /* db host port */
-                    'login'          => 'postgres', /* db login name */
-                    'password'       => 'root', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'login'          => 'test', /* db login name */
+                    'password'       => 'orange', /* db login password */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -187,9 +190,9 @@ $CONFIG = [
                     'db'             => 'pgsql', /* db type */
                     'host'           => '127.0.0.1', /* db host address */
                     'port'           => '5432', /* db host port */
-                    'login'          => 'postgres', /* db login name */
-                    'password'       => 'root', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'login'          => 'test', /* db login name */
+                    'password'       => 'orange', /* db login password */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -239,7 +242,7 @@ $CONFIG = [
                     'port'           => '1433', /* db host port */
                     'login'          => 'sa', /* db login name */
                     'password'       => 'c0MplicatedP@ssword', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -249,7 +252,7 @@ $CONFIG = [
                     'port'           => '1433', /* db host port */
                     'login'          => 'sa', /* db login name */
                     'password'       => 'c0MplicatedP@ssword', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -259,7 +262,7 @@ $CONFIG = [
                     'port'           => '1433', /* db host port */
                     'login'          => 'sa', /* db login name */
                     'password'       => 'c0MplicatedP@ssword', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -269,7 +272,7 @@ $CONFIG = [
                     'port'           => '1433', /* db host port */
                     'login'          => 'sa', /* db login name */
                     'password'       => 'c0MplicatedP@ssword', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -279,7 +282,7 @@ $CONFIG = [
                     'port'           => '1433', /* db host port */
                     'login'          => 'sa', /* db login name */
                     'password'       => 'c0MplicatedP@ssword', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
@@ -289,7 +292,7 @@ $CONFIG = [
                     'port'           => '1433', /* db host port */
                     'login'          => 'sa', /* db login name */
                     'password'       => 'c0MplicatedP@ssword', /* db login password */
-                    'database'       => 'oms', /* db name */
+                    'database'       => 'omt', /* db name */
                     'weight'         => 1000, /* db table prefix */
                     'datetimeformat' => 'Y-m-d H:i:s',
                 ],
