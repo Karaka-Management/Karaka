@@ -97,6 +97,7 @@ jobs:
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: false
           MYSQL_USER: test
+          MYSQL_PASSWORD: orange
           MYSQL_ROOT_PASSWORD: orange
           MYSQL_DATABASE: omt
         ports:
