@@ -128,54 +128,54 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'db'       => 'mysql', /* db type */
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
-                            'login'    => 'root', /* db login name */
-                            'password' => 'root', /* db login password */
-                            'database' => 'oms', /* db name */
+                            'login'    => 'test', /* db login name */
+                            'password' => 'orange', /* db login password */
+                            'database' => 'omt', /* db name */
                             'weight'   => 1000, /* db table weight */
                         ],
                         'insert'  => [
                             'db'       => 'mysql', /* db type */
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
-                            'login'    => 'root', /* db login name */
-                            'password' => 'root', /* db login password */
-                            'database' => 'oms', /* db name */
+                            'login'    => 'test', /* db login name */
+                            'password' => 'orange', /* db login password */
+                            'database' => 'omt', /* db name */
                             'weight'   => 1000, /* db table weight */
                         ],
                         'select'  => [
                             'db'       => 'mysql', /* db type */
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
-                            'login'    => 'root', /* db login name */
-                            'password' => 'root', /* db login password */
-                            'database' => 'oms', /* db name */
+                            'login'    => 'test', /* db login name */
+                            'password' => 'orange', /* db login password */
+                            'database' => 'omt', /* db name */
                             'weight'   => 1000, /* db table weight */
                         ],
                         'update'  => [
                             'db'       => 'mysql', /* db type */
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
-                            'login'    => 'root', /* db login name */
-                            'password' => 'root', /* db login password */
-                            'database' => 'oms', /* db name */
+                            'login'    => 'test', /* db login name */
+                            'password' => 'orange', /* db login password */
+                            'database' => 'omt', /* db name */
                             'weight'   => 1000, /* db table weight */
                         ],
                         'delete'  => [
                             'db'       => 'mysql', /* db type */
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
-                            'login'    => 'root', /* db login name */
-                            'password' => 'root', /* db login password */
-                            'database' => 'oms', /* db name */
+                            'login'    => 'test', /* db login name */
+                            'password' => 'orange', /* db login password */
+                            'database' => 'omt', /* db name */
                             'weight'   => 1000, /* db table weight */
                         ],
                         'schema'  => [
                             'db'       => 'mysql', /* db type */
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
-                            'login'    => 'root', /* db login name */
-                            'password' => 'root', /* db login password */
-                            'database' => 'oms', /* db name */
+                            'login'    => 'test', /* db login name */
+                            'password' => 'orange', /* db login password */
+                            'database' => 'omt', /* db name */
                             'weight'   => 1000, /* db table weight */
                         ],
                     ],
