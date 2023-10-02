@@ -163,11 +163,26 @@ trait ModuleTestTrait
 
             $columns = $class::COLUMNS;
             $ownsOne = $class::OWNS_ONE;
+            $belongsTo = $class::HAS_MANY;
+            $hasMany = $class::HAS_MANY;
+
+            $relations = \array_merge($ownsOne, $belongsTo, $hasMany);
 
             $classReflection   = new \ReflectionClass(\substr($class, 0, -6));
             $defaultProperties = $classReflection->getDefaultProperties();
 
             $invalidAcessors = [];
+
+            foreach ($relations as $column => $relation) {
+                if (!$classReflection->hasProperty($column)) {
+                    self::assertTrue(false, 'Mapper "' . $class . '" column "' . $column . '" has missing/invalid internal/member');
+                }
+
+                $property = $classReflection->getProperty($column) ?? null;
+                if ($property === null || (!$property->isPublic() && (!isset($relation['private']) || !$relation['private']))) {
+                    $invalidAcessors[] = $column;
+                }
+            }
 
             foreach ($columns as $cName => $column) {
                 $isArray = false;
