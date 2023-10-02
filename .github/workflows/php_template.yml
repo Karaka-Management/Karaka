@@ -131,9 +131,6 @@ jobs:
       uses: actions/checkout@main
       with:
         fetch-depth: 1
-    - name: Prepare paths
-      run: |
-        find ./ -type f -exec sed -i 's#/../../../Modules/Media#/../MainRepository/Modules/Media#g' {} \;
     - name: Checkout Karaka Repository
       uses: actions/checkout@main
       with:
