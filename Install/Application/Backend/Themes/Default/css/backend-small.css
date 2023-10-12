@@ -52,7 +52,6 @@ html, body {
   max-width: 100%;
   overflow: hidden;
   font-family: var(--font-family);
-  font-display: swap;
   font-weight: 100;
   color: #000; }
 

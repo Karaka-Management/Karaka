@@ -16,6 +16,7 @@ namespace Web\Backend;
 
 use Model\CoreSettings;
 use Modules\Admin\Models\AccountMapper;
+use Modules\Admin\Models\App;
 use Modules\Admin\Models\AppMapper;
 use Modules\Admin\Models\LocalizationMapper;
 use Modules\Admin\Models\NullAccount as ModelsNullAccount;
@@ -142,8 +143,6 @@ final class Application
         $con = $this->app->dbPool->get();
         DataMapperFactory::db($con);
 
-        $this->app->moduleManager->get('Monitoring', '')->helperLogRequestStat($request);
-
         /** @var \Modules\Admin\Models\App $app */
         $app = AppMapper::get()
             ->where('name', $this->app->appName)
@@ -156,7 +155,7 @@ final class Application
         $this->app->eventManager   = new EventManager($this->app->dispatcher);
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
         $this->app->l11nServer     = LocalizationMapper::get()->where('id', 1)->execute();
-        $this->app->unitId         = $this->getApplicationOrganization($request, $this->config['app']);
+        $this->app->unitId         = $this->getApplicationOrganization($request, $app, $this->config['app']);
 
         $aid                       = Auth::authenticate($this->app->sessionManager);
         $account                   = $this->loadAccount($aid);
@@ -233,6 +232,8 @@ final class Application
 
         $dispatched = $this->routeDispatching($request, $response, $account);
         $pageView->addData('dispatch', $dispatched);
+
+        $this->app->moduleManager->get('Monitoring', '')->helperLogRequestStat($request);
     }
 
     /**
@@ -286,17 +287,20 @@ final class Application
      * Get application organization
      *
      * @param HttpRequest $request Client request
+     * @param App         $app     Application
      * @param array       $config  App config
      *
      * @return int Organization id
      *
      * @since 1.0.0
      */
-    private function getApplicationOrganization(HttpRequest $request, array $config) : int
+    private function getApplicationOrganization(HttpRequest $request, App $app, array $config) : int
     {
         return (int) (
             $request->getDataString('u') ?? (
-                $config['domains'][$request->uri->host]['org'] ?? $config['default']['org']
+                ($app->defaultUnit ?? 0) === 0
+                    ? $config['domains'][$request->uri->host]['org'] ?? $config['default']['org']
+                    : $app->defaultUnit
             )
         );
     }
@@ -424,7 +428,7 @@ final class Application
         $head->addAsset(AssetType::CSS, 'Resources/fonts/Roboto/roboto.css', ['defer']);
 
         // Framework
-        $head->addAsset(AssetType::JS, 'jsOMS/Utils/oLib.js?v=1.0.0', ['nonce' => $scriptSrc, 'async']);
+        $head->addAsset(AssetType::JS, 'jsOMS/Utils/oLib.js?v=1.0.0', ['nonce' => $scriptSrc, 'type' => 'module', 'async']);
         $head->addAsset(AssetType::JS, 'jsOMS/UnhandledException.js?v=1.0.0', ['nonce' => $scriptSrc, 'async']);
         $head->addAsset(AssetType::JS, 'Web/Backend/js/backend.js?v=1.0.0', ['nonce' => $scriptSrc, 'type' => 'module', 'defer']);
 

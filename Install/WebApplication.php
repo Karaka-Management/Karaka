@@ -113,7 +113,7 @@ final class WebApplication extends InstallAbstract
     private function initResponse(HttpRequest $request, array $languages) : HttpResponse
     {
         $response = new HttpResponse(new Localization());
-        $response->header->set('content-type', 'text/html; charset=utf-8');
+        $response->header->set('Content-Type', 'text/html; charset=utf-8');
         $response->header->set('x-xss-protection', '1; mode=block');
         $response->header->set('x-content-type-options', 'nosniff');
         $response->header->set('x-frame-options', 'SAMEORIGIN');

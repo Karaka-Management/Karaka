@@ -45,7 +45,6 @@ use phpOMS\Module\ModuleManager;
 use phpOMS\Router\RouteStatus;
 use phpOMS\Router\RouteVerb;
 use phpOMS\Router\WebRouter;
-use phpOMS\System\MimeType;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
 use Web\WebApplication;
@@ -137,8 +136,6 @@ final class Application
         /** @var \phpOMS\DataStorage\Database\Connection\ConnectionAbstract $con */
         $con = $this->app->dbPool->get();
         DataMapperFactory::db($con);
-
-        $this->app->moduleManager->get('Monitoring')->helperLogRequestStat($request);
 
         /** @var \Modules\Admin\Models\App $app */
         $app = AppMapper::get()
@@ -281,17 +278,19 @@ final class Application
         $dispatched = $this->routeDispatching($request, $response, $account);
 
         if (empty($dispatched)) {
-            $response->header->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
+            $response->header->set('Content-Type', \phpOMS\System\MimeType::M_JSON . '; charset=utf-8', true);
             $response->header->status = RequestStatusCode::R_404;
             $response->set($request->uri->__toString(), [
                 'status'   => \phpOMS\Message\NotificationLevel::ERROR,
-                'title'    => '',
-                'message'  => '',
+                'title'    => 'Invalid endpoint',
+                'message'  => 'The endpoint you requested doesn\'t exist.',
                 'response' => [],
             ]);
         }
 
         $pageView->addData('dispatch', $dispatched);
+
+        $this->app->moduleManager->get('Monitoring')->helperLogRequestStat($request);
     }
 
     /**

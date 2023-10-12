@@ -84,7 +84,7 @@ $types = $this->l11nTypes;
                     <td class="wf-100"><?= $this->getHtml('Content', '0', '0'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
             <tbody>
                 <template class="oms-add-tpl-l11n">
-                    <tr data-id="" draggable="false">
+                    <tr class="animated medium-duration greenCircleFade" data-id="" draggable="false">
                         <td>
                             <i class="fa fa-cogs btn update-form"></i>
                             <input id="l11nTable-remove-0" type="checkbox" class="hidden">

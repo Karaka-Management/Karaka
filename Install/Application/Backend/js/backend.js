@@ -1,3 +1,4 @@
+import { jsOMS } from '../../../jsOMS/Utils/oLib.js';
 import { AssetManager } from '../../../jsOMS/Asset/AssetManager.js';
 import { Logger } from '../../../jsOMS/Log/Logger.js';
 import { CacheManager } from '../../../jsOMS/DataStorage/CacheManager.js';

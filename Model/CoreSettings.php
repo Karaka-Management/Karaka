@@ -157,32 +157,48 @@ final class CoreSettings implements SettingsInterface
          * @var array $option
         */
         foreach ($options as $option) {
-            $key = ($option['name'] ?? '')
-                . ':' . ($option['unit'] ?? '')
-                . ':' . ($option['app'] ?? '')
-                . ':' . ($option['module'] ?? '')
-                . ':' . ($option['group'] ?? '')
-                . ':' . ($option['account'] ?? '');
+            $key = '';
+            if (\is_array($option)) {
+                $key = ($option['name'] ?? '')
+                    . ':' . ($option['unit'] ?? '')
+                    . ':' . ($option['app'] ?? '')
+                    . ':' . ($option['module'] ?? '')
+                    . ':' . ($option['group'] ?? '')
+                    . ':' . ($option['account'] ?? '');
 
-            $key = \trim($key, ':');
+                $key = \trim($key, ':');
 
-            $setting = new Setting();
-            $setting->with(
-                $option['id'] ?? 0,
-                $option['name'] ?? '',
-                $option['content'] ?? '',
-                $option['pattern'] ?? '',
-                $option['unit'] ?? null,
-                $option['app'] ?? null,
-                $option['module'] ?? null,
-                $option['group'] ?? null,
-                $option['account'] ?? null,
-                $option['isEncrypted'] ?? false,
-            );
+                $setting = new Setting();
+                $setting->with(
+                    $option['id'] ?? 0,
+                    $option['name'] ?? '',
+                    $option['content'] ?? '',
+                    $option['pattern'] ?? '',
+                    $option['unit'] ?? null,
+                    $option['app'] ?? null,
+                    $option['module'] ?? null,
+                    $option['group'] ?? null,
+                    $option['account'] ?? null,
+                    $option['isEncrypted'] ?? false,
+                );
+            } elseif (\is_object($option)) {
+                $key = ($option->name ?? '')
+                . ':' . ($option->unit ?? '')
+                . ':' . ($option->app ?? '')
+                . ':' . ($option->module ?? '')
+                . ':' . ($option->group ?? '')
+                . ':' . ($option->account ?? '');
+
+                $key = \trim($key, ':');
+
+                $setting = $option;
+            } else {
+                return;
+            }
 
             $this->setOption($key, $setting, true);
-            if (isset($option['id'])) {
-                $this->setOption($option['id'], $setting, true);
+            if (isset($setting->id)) {
+                $this->setOption($setting->id, $setting, true);
             }
 
             if ($store) {

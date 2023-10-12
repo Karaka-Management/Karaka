@@ -250,3 +250,6 @@
 [submodule "Modules/EquipmentManagement"]
 	path = Modules/EquipmentManagement
 	url = https://github.com/Karaka-Management/oms-EquipmentManagement.git
+[submodule "Modules/SalesAnalysis"]
+	path = Modules/SalesAnalysis
+	url = https://github.com/Karaka-Management/oms-SalesAnalysis.git

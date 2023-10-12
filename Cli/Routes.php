@@ -11,6 +11,12 @@
             'verb' => 16,
         ],
     ],
+    '^/admin/encryption/change.*$' => [
+        0 => [
+            'dest' => '\Modules\Admin\Controller\CliController:cliEncryptionChange',
+            'verb' => 16,
+        ],
+    ],
     '^/admin/audit/blockchain/create.*$' => [
         0 => [
             'dest' => '\Modules\Admin\Controller\CliController:cliGenerateBlockchain',
@@ -29,6 +35,12 @@
             'verb' => 16,
         ],
     ],
+    '^/billing/bill/purchase/parse.*$' => [
+        0 => [
+            'dest' => '\Modules\Billing\Controller\CliController:cliParseSupplierBill',
+            'verb' => 16,
+        ],
+    ],
     '^.*/orw/check -i all*$' => [
         0 => [
             'dest' => '\Modules\OnlineResourceWatcher\Controller\ApiController:apiCheckResources',
@@ -37,12 +49,6 @@
                 'type' => 4,
                 'state' => 1,
             ],
-        ],
-    ],
-    '^/billing/bill/purchase/parse.*$' => [
-        0 => [
-            'dest' => '\Modules\Billing\Controller\CliController:cliParseSupplierBill',
-            'verb' => 16,
         ],
     ],
 ];

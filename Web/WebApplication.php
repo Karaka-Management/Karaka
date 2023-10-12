@@ -198,7 +198,14 @@ class WebApplication extends ApplicationAbstract
         $contentType = $request->header->get('accept');
 
         $response = new HttpResponse();
-        $response->header->set('content-type', empty($contentType) ? 'text/html; charset=utf-8' : \reset($contentType));
+
+        $response->header->set(
+            'Content-Type',
+            empty($contentType) || ($primaryType = \reset($contentType)) === '*/*'
+                ? 'text/html; charset=utf-8'
+                : $primaryType
+        );
+
         $response->header->set('x-xss-protection', '1; mode=block');
         $response->header->set('x-content-type-options', 'nosniff');
         $response->header->set('x-frame-options', 'SAMEORIGIN');
