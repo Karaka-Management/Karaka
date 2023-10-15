@@ -78,6 +78,7 @@ jobs:
         vendor/bin/phpcbf --standard=Build/Config/phpcs.xml ./
         find ./ -type f -not -path "./vendor/*" -not -path "./Build/*" -not -path "./MainRepository/*" -exec md5sum {} \; > hashs.txt
     - name: Check for modified files
+      if: always()
       id: git-format-check
       run: echo "modified=$(if git diff-index -G --quiet HEAD --; then echo "false"; else echo "true"; fi)" >> $GITHUB_OUTPUT
     - name: Push changes
