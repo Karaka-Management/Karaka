@@ -25,7 +25,9 @@
       <directory suffix="Test.php">../*</directory>
       <directory suffix="Routes.php">../*</directory>
       <directory suffix="Hooks.php">../*</directory>
-      <directory>../Modules/**/test*</directory>
+      <directory>../**/tests*</directory>
+      <directory>../Modules/tests*</directory>
+      <directory>../Modules/**/tests*</directory>
       <directory>../Modules/**/Theme*</directory>
       <directory>../Modules/**/Admin/Routes*</directory>
       <directory>../Modules/**/Admin/Hooks*</directory>
