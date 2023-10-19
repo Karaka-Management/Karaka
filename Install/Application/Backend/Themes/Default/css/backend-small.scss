@@ -100,17 +100,18 @@ main {
         color: rgba(255, 255, 255, 0.8);
         cursor: pointer;
 
-        .fa-volume-up {
+        .volume_up {
             display: none;
         }
 
-        .fa-volume-down {
+        .volume_down {
             display: inherit;
         }
     }
 
     i {
         font-size: 1rem;
+        font-weight: 200;
     }
 
     label+input+label {
@@ -124,11 +125,11 @@ main {
             & + label {
                 color: var(--nav-sub-background-highlight);
 
-                .fa-volume-up {
+                .volume_up {
                     display: inherit;
                 }
 
-                .fa-volume-down {
+                .volume_down {
                     display: none;
                 }
             }
@@ -181,7 +182,9 @@ nav .ham-trigger {
     }
 
     i {
-        margin-right: 5px;
+        margin-right: 10px;
+        font-size: 1.2rem;
+        font-weight: 200;
     }
 
     li {
@@ -249,7 +252,6 @@ img.profile-image {
     }
 
     .dropdown-closed {
-        justify-content: center;
         padding: 0 1rem 0 1rem;
     }
 

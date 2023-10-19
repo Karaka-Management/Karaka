@@ -421,9 +421,7 @@ final class Application
         */
 
         /* Load assets */
-        $head->addAsset(AssetType::CSS, 'Resources/fonts/fontawesome/css/font-awesome.min.css', ['defer']);
-        $head->addAsset(AssetType::CSS, 'Resources/fonts/linearicons/css/style.css', ['defer']);
-        $head->addAsset(AssetType::CSS, 'Resources/fonts/lineicons/css/lineicons.css', ['defer']);
+        $head->addAsset(AssetType::CSS, 'Resources/fonts/googleicons/styles.css', ['defer']);
         $head->addAsset(AssetType::CSS, 'cssOMS/styles.css?v=1.0.0', ['defer']);
         $head->addAsset(AssetType::CSS, 'Resources/fonts/Roboto/roboto.css', ['defer']);
 

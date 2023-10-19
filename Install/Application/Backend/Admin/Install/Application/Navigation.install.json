@@ -7,7 +7,7 @@
         "name": "Legal",
         "uri": null,
         "target": "self",
-        "icon": "fa fa-gavel",
+        "icon": "gavel",
         "order": 999999,
         "from": "",
         "permission": { "permission": 2, "category": null, "element": null },

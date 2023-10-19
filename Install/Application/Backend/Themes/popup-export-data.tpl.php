@@ -4,7 +4,7 @@ use phpOMS\Uri\UriFactory;
 
 ?>
 <span class="clickPopup end-xs">
-    <label for="<?= $this->id; ?>-export"><i class="fa end-xs lni lni-download download btn"></i></label>
+    <label for="<?= $this->id; ?>-export"><i class="end-xs g-icon download btn">download</i></label>
     <input id="<?= $this->id; ?>-export" name="<?= $this->id; ?>-export" type="checkbox">
     <div class="portlet popup">
             <div class="portlet-head"><?= $this->getHtml('Export', '0', '0'); ?></div>

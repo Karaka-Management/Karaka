@@ -82,35 +82,35 @@ $dispatch = $this->getData('dispatch') ?? [];
                 </select>
                 <div id="nav-side-settings">
                     <input id="audio-output" type="checkbox">
-                    <label for="audio-output"><i class="fa fa-volume-up"></i><i class="fa fa-volume-down"></i></label>
+                    <label for="audio-output"><i class="g-icon volume_up">volume_up</i><i class="g-icon volume_down">volume_down</i></label>
 
                     <input id="speech-recognition" type="checkbox">
-                    <label for="speech-recognition"><i class="fa fa-microphone"></i>
+                    <label for="speech-recognition"><i class="g-icon">mic</i>
                 </div>
             </span>
-            <label class="ham-trigger" for="nav-trigger"><i class="fa fa-bars p"></i></label>
+            <label class="ham-trigger" for="nav-trigger"><i class="g-icon p">menu</i></label>
         </span>
         <?= $side; ?>
     </nav>
     <main>
         <header>
             <form id="s-bar" method="GET" action="<?= UriFactory::build('{/api}search?{?}&app=Backend&csrf={$CSRF}'); ?>&search={!#iSearchBox}">
-                <label class="ham-trigger" for="nav-trigger"><i class="fa fa-bars p"></i></label>
+                <label class="ham-trigger" for="nav-trigger"><i class="g-icon p">menu</i></label>
                 <span role="search" class="inputWrapper">
                     <label id="iSearchType" for="iSearchType-check" class="dropdown search-type">
                         <div class="dropdown-closed">
                             <input id="iSearchType-e1" name="dropdown" type="radio" checked>
-                            <label for="iSearchType-check"><i class="fa fa-map-marker"></i></label>
+                            <label for="iSearchType-check"><i class="g-icon">location_on</i></label>
 
                             <input id="iSearchType-e2" name="dropdown" type="radio">
-                            <label for="iSearchType-check"><i class="fa fa-globe"></i></label>
+                            <label for="iSearchType-check"><i class="g-icon">public</i></label>
                         </div>
                         <input id="iSearchType-check" type="checkbox" name="dropdown-visibility-iSearchType-check">
                         <div class="dropdown-container">
                             <div class="dropdown-search"></div>
                             <div class="dropdown-content">
-                                <label for="iSearchType-e1"><i class="fa fa-map-marker"></i> Page</label>
-                                <label for="iSearchType-e2"><i class="fa fa-globe"></i> Global</label>
+                                <label for="iSearchType-e1"><i class="g-icon">location_on</i> Page</label>
+                                <label for="iSearchType-e2"><i class="g-icon">public</i> Global</label>
                                 <label for="iSearchType-check">Close</label>
                             </div>
                         </div>
@@ -118,8 +118,8 @@ $dispatch = $this->getData('dispatch') ?? [];
 
                     <span class="textWrapper">
                         <input id="iSearchBox" name="search" type="text" autocomplete="off" autofocus>
-                        <i class="frontIcon lni lni-search-alt" aria-hidden="true"></i>
-                        <i class="endIcon lni lni-close" aria-hidden="true"></i>
+                        <i class="frontIcon g-icon" aria-hidden="true">search</i>
+                        <i class="endIcon g-icon" aria-hidden="true">close</i>
                     </span>
                     <input type="submit" id="iSearchButton" name="searchButton" value="<?= $this->getHtml('Search', '0', '0'); ?>">
                 </span>
@@ -148,7 +148,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     <div id="app-message-container">
         <template id="app-message-tpl">
             <div class="log-msg">
-                <h1 class="log-msg-title"></h1><i class="close fa fa-times"></i>
+                <h1 class="log-msg-title"></h1><i class="close g-icon">close</i>
                 <div class="log-msg-content"></div>
                 <a class="button primary-button"></a>
                 <a class="button secondary-button"></a>

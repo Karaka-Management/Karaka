@@ -125,11 +125,12 @@ main {
   #nav-side-settings label {
     color: rgba(255, 255, 255, 0.8);
     cursor: pointer; }
-    #nav-side-settings label .fa-volume-up {
+    #nav-side-settings label .volume_up {
       display: none; }
-    #nav-side-settings label .fa-volume-down {
+    #nav-side-settings label .volume_down {
       display: inherit; }
   #nav-side-settings i {
+    font-weight: 200;
     font-size: 1rem; }
   #nav-side-settings label + input + label {
     margin-left: .3rem; }
@@ -137,9 +138,9 @@ main {
     display: none; }
     #nav-side-settings input:checked + label {
       color: var(--nav-sub-background-highlight); }
-      #nav-side-settings input:checked + label .fa-volume-up {
+      #nav-side-settings input:checked + label .volume_up {
         display: inherit; }
-      #nav-side-settings input:checked + label .fa-volume-down {
+      #nav-side-settings input:checked + label .volume_down {
         display: none; }
 
 .ham-trigger {
@@ -149,7 +150,7 @@ main {
   flex: 0;
   margin-right: 5px; }
   .ham-trigger i {
-    font-size: 1.5rem; }
+    font-size: 2rem; }
 
 nav .ham-trigger {
   color: var(--text-on-background-color-2);
@@ -176,7 +177,9 @@ nav .ham-trigger {
     #t-nav a:hover, #t-nav a:focus {
       color: var(--link-hover); }
   #t-nav i {
-    margin-right: 5px; }
+    margin-right: 10px;
+        font-size: 1.2rem;
+        font-weight: 200; }
   #t-nav li {
     display: inline; }
 

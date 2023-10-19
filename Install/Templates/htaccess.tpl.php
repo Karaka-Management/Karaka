@@ -63,15 +63,7 @@ AddType application/vnd.ms-fontobject .eot
     ExpiresByType application/x-javascript "access plus 7 days"
     ExpiresByType application/json "access plus 7 days"
 
-    <FilesMatch ".(js)$">
-        Header set Cache-Control "public, max-age=604800"
-    </FilesMatch>
-
     ExpiresByType text/css "access plus 7 days"
-
-    <FilesMatch ".(css)$">
-        Header set Cache-Control "public, max-age=604800"
-    </FilesMatch>
 
     <FilesMatch ".(php)$">
         ExpiresDefault A0

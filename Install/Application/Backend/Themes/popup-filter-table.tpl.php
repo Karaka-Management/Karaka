@@ -3,7 +3,7 @@ if ($data[5]) : ?>
 <span class="clickPopup">
     <input form="<?= $this->id; ?>-search" id="<?= $this->id; ?>-f-<?= $this->counter; ?>" name="<?= $this->id; ?>-f-<?= $data[0]; ?>-t" type="hidden" value="<?= $data[2]; ?>">
     <input id="<?= $this->id; ?>-f-<?= $this->counter; ?>-popup" name="<?= $this->id; ?>-f-<?= $this->counter; ?>-popup" type="checkbox">
-    <label for="<?= $this->id; ?>-f-<?= $this->counter; ?>-popup"><i class="filter lni lni-funnel btn"></i></label>
+    <label for="<?= $this->id; ?>-f-<?= $this->counter; ?>-popup"><i class="filter g-icon btn">filter_alt</i></label>
     <div class="popup">
         <ul>
             <li><?= $this->getHtml('Filter', '0', '0'); ?>

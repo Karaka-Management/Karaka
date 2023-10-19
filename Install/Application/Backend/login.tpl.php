@@ -26,15 +26,15 @@ use phpOMS\Uri\UriFactory;
             <form id="login" method="POST" action="<?= UriFactory::build('{/api}login?{?}'); ?>">
                 <label for="iName"><?= $this->getHtml('Username', '0', '0'); ?>:</label>
                 <div class="inputWithIcon">
-                    <i class="frontIcon fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                    <i class="frontIcon g-icon" aria-hidden="true">person</i>
                     <input id="iName" type="text" name="user" tabindex="1" value="" autocomplete="off" spellcheck="false" autofocus>
-                    <i class="endIcon fa fa-times close fa-lg fa-fw" aria-hidden="true"></i>
+                    <i class="endIcon g-icon" aria-hidden="true">close</i>
                 </div>
                 <label for="iPassword"><?= $this->getHtml('Password', '0', '0'); ?>:</label>
                 <div class="inputWithIcon">
-                    <i class="frontIcon fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
-                    <input id="iPassword" type="password" name="pass" tabindex="2" value="">
-                    <i class="endIcon fa fa-times close fa-lg fa-fw" aria-hidden="true"></i>
+                    <i class="frontIcon g-icon" aria-hidden="true">lock</i>
+                    <input id="iPassword" type="password" name="pass" tabindex="2" value="orange">
+                    <i class="endIcon g-icon" aria-hidden="true">close</i>
                 </div>
                 <input id="iLoginButton" name="loginButton" type="submit" value="<?= $this->getHtml('Login', '0', '0'); ?>" tabindex="3">
             </form>
@@ -45,7 +45,7 @@ use phpOMS\Uri\UriFactory;
         <div id="app-message-container">
             <template id="app-message-tpl">
                 <div class="log-msg">
-                    <h1 class="log-msg-title"></h1><i class="close fa fa-times"></i>
+                    <h1 class="log-msg-title"></h1><i class="close g-icon">close</i>
                     <div class="log-msg-content"></div>
                     <a class="button primary-button"></a>
                     <a class="button secondary-button"></a>

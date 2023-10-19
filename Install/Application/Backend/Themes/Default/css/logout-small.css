@@ -127,14 +127,14 @@ form input[type=password] {
     position: absolute;
     left: 0;
     top: 0;
-    padding: .65rem; }
+    padding: .5rem; }
   .inputWithIcon .endIcon {
     color: var(--input-icon-color);
     font-size: 1rem;
     position: absolute;
     right: 0;
     top: 0;
-    padding: .65rem; }
+    padding: .5rem; }
   .inputWithIcon .frontIcon + input[type="text"], .inputWithIcon .frontIcon + input[type="password"] {
     padding-left: 2.5rem; }
 

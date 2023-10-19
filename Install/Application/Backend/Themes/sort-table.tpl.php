@@ -16,7 +16,7 @@ use phpOMS\Uri\UriFactory;
                 && $data[1] === ($this->request->getData('sort_by') ?? '')
                 ? ' checked' : '';
                 ?>>
-        <i class="sort-asc lni lni-chevron-up"></i>
+        <i class="sort-asc g-icon">expand_less</i>
         <?php if ($this->exportUri !== '') : ?>
             </a>
         <?php endif; ?>
@@ -35,7 +35,7 @@ use phpOMS\Uri\UriFactory;
                 && $data[1] === ($this->request->getData('sort_by') ?? '')
                 ? ' checked' : '';
                 ?>>
-        <i class="sort-desc lni lni-chevron-down"></i>
+        <i class="sort-desc g-icon">expand_more</i>
     <?php if ($this->exportUri !== '') : ?>
         </a>
     <?php endif; ?>
