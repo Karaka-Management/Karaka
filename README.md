@@ -51,7 +51,7 @@ Currently Karaka is still developing the first Alpha version. As soon as we have
 
 General updates can be found in our info section at https://jingga.app/info and developer updates can be found in our developer section at https://jingga.app/dev. In our developer section you can also check out the automatically generated reports such as code coverage, code style, static analysis etc. as well as our code style guide lines and developer documentation.
 
-* [Project Status](https://github.com/Karaka-Management/Organization-Guide/blob/master/Project/PROJECT.md)
+* [Project Status](https://github.com/orgs/Karaka-Management/projects/10)
 
 ## Tech stack
 
@@ -62,7 +62,7 @@ General updates can be found in our info section at https://jingga.app/info and 
 
 ## Become a contributor
 
-Karaka has a very open culture and we always welcome new people who share our philosophy in providing create solutions which just work. You can find the development process description which also describes how to become a contributer in the [Organization documentation](https://github.com/Karaka-Management/Organization-Guide/blob/master/Processes/Development.md).
+Karaka has a very open culture and we always welcome new people who share our philosophy in providing create solutions which just work. You can find the development process description which also describes how to become a contributer in the [Organization documentation](https://github.com/Karaka-Management/Organization-Guide/blob/master/Processes/01_Development.md).
 
 ## Misc
 
