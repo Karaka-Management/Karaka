@@ -29,14 +29,10 @@
             'verb' => 16,
         ],
     ],
-    '^.*/orw/check -i all*$' => [
+    '^.*/workflow/instance.*$' => [
         0 => [
-            'dest' => '\Modules\OnlineResourceWatcher\Controller\ApiController:apiCheckResources',
-            'permission' => [
-                'module' => 'OnlineResourceWatcher',
-                'type' => 4,
-                'state' => 1,
-            ],
+            'dest' => '\Modules\Workflow\Controller\CliController:cliWorkflowInstanceCreate',
+            'verb' => 16,
         ],
     ],
     '^/billing/bill/purchase/parse.*$' => [
@@ -45,10 +41,14 @@
             'verb' => 16,
         ],
     ],
-    '^.*/workflow/instance.*$' => [
+    '^.*/orw/check -i all*$' => [
         0 => [
-            'dest' => '\Modules\Workflow\Controller\CliController:cliWorkflowInstanceCreate',
-            'verb' => 16,
+            'dest' => '\Modules\OnlineResourceWatcher\Controller\ApiController:apiCheckResources',
+            'permission' => [
+                'module' => 'OnlineResourceWatcher',
+                'type' => 4,
+                'state' => 1,
+            ],
         ],
     ],
 ];

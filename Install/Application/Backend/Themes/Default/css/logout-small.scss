@@ -17,7 +17,7 @@
 }
 
 html, body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Arial', Helvetica, sans-serif;
     background: var(--main-background);
     color: var(--text-on-background-color);
     display: flex;
@@ -166,22 +166,21 @@ form input[type=password] {
 .inputWithIcon {
     position: relative;
 
-    .frontIcon {
+    .frontIcon, .endIcon {
         color: var(--input-icon-color);
         font-size: 1rem;
         position: absolute;
-        left: 0;
-        top: 0;
         padding: .5rem;
+        font-weight: 200;
+        top: 0;
+    }
+
+    .frontIcon {
+        left: 0;
     }
 
     .endIcon {
-        color: var(--input-icon-color);
-        font-size: 1rem;
-        position: absolute;
         right: 0;
-        top: 0;
-        padding: .5rem;
     }
 
     .frontIcon + input[type="text"], .frontIcon + input[type="password"] {

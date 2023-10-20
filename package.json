@@ -6,16 +6,8 @@
   "directories": {
     "test": "tests"
   },
-  "dependencies": {
-    "chromedriver": "^91.0.1",
-    "eslint": "^8.12.0",
-    "geckodriver": "^3.0.2",
-    "node-sass": "^7.0.0",
-    "sass": "^1.57.1",
-    "selenium-webdriver": "^4.0.0-beta.4"
-  },
   "scripts": {
-    "scss": "node-sass Install/Application/Backend/Themes/Default/css/backend_vars.scss > Install/Application/Backend/Themes/Default/css/backend_vars.css && node-sass Install/Application/Backend/Themes/Default/css/backend-small.scss > Install/Application/Backend/Themes/Default/css/backend-small.css"
+    "build": "npx esbuild Web/Frontend/js/frontend.js --bundle --outfile=Web/Frontend/js/frontend.min.js --minify && npx esbuild Web/Backend/js/backend.js --bundle --outfile=Web/Backend/js/backend.min.js --minify"
   },
   "author": "Dennis Eichhorn",
   "main": "index.js",
@@ -29,6 +21,13 @@
   },
   "homepage": "https://github.com/Karaka-Management/Karaka#readme",
   "devDependencies": {
-    "eslint-plugin-import": "^2.27.5"
+    "esbuild": "0.19.5",
+    "eslint-plugin-import": "^2.27.5",
+    "chromedriver": "^91.0.1",
+    "eslint": "^8.12.0",
+    "geckodriver": "^3.0.2",
+    "node-sass": "^7.0.0",
+    "sass": "^1.57.1",
+    "selenium-webdriver": "^4.0.0-beta.4"
   }
 }

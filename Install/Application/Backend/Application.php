@@ -423,12 +423,10 @@ final class Application
         /* Load assets */
         $head->addAsset(AssetType::CSS, 'Resources/fonts/googleicons/styles.css', ['defer']);
         $head->addAsset(AssetType::CSS, 'cssOMS/styles.css?v=1.0.0', ['defer']);
-        $head->addAsset(AssetType::CSS, 'Resources/fonts/Roboto/roboto.css', ['defer']);
 
         // Framework
-        $head->addAsset(AssetType::JS, 'jsOMS/Utils/oLib.js?v=1.0.0', ['nonce' => $scriptSrc, 'type' => 'module', 'async']);
         $head->addAsset(AssetType::JS, 'jsOMS/UnhandledException.js?v=1.0.0', ['nonce' => $scriptSrc, 'async']);
-        $head->addAsset(AssetType::JS, 'Web/Backend/js/backend.js?v=1.0.0', ['nonce' => $scriptSrc, 'type' => 'module', 'defer']);
+        $head->addAsset(AssetType::JS, 'Web/Backend/js/backend.min.js?v=1.0.0', ['nonce' => $scriptSrc, 'type' => 'module', 'defer']);
 
         if ($request->hasData('debug')) {
             $head->addAsset(AssetType::CSS, 'cssOMS/debug.css?v=1.0.0');

@@ -12,7 +12,7 @@
   --text-on-background-color: rgba(255, 255, 255, 0.7); }
 
 html, body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Arial', Helvetica, sans-serif;
   background: var(--main-background);
   color: var(--text-on-background-color);
   display: flex;
@@ -121,20 +121,18 @@ form input[type=password] {
 
 .inputWithIcon {
   position: relative; }
+  .inputWithIcon .frontIcon, .inputWithIcon .endIcon {
+    color: var(--input-icon-color);
+    font-size: 1rem;
+    position: absolute;
+    padding: .5rem;
+    font-weight: 200; }
   .inputWithIcon .frontIcon {
-    color: var(--input-icon-color);
-    font-size: 1rem;
-    position: absolute;
     left: 0;
-    top: 0;
-    padding: .5rem; }
+    top: 0; }
   .inputWithIcon .endIcon {
-    color: var(--input-icon-color);
-    font-size: 1rem;
-    position: absolute;
     right: 0;
-    top: 0;
-    padding: .5rem; }
+    top: 0; }
   .inputWithIcon .frontIcon + input[type="text"], .inputWithIcon .frontIcon + input[type="password"] {
     padding-left: 2.5rem; }
 
