@@ -11,32 +11,36 @@
  * @link      https://jingga.app
  */
 declare(strict_types=1);
+
 $htaccess = <<<EOT
 # BEGIN Gzip Compression
 <ifmodule mod_rewrite.c>
      AddEncoding gzip .gz
-     <filesmatch "\.js\.gz$">
+     <FilesMatch "\.js\.gz$">
         AddType "text/javascript" .gz
-     </filesmatch>
-     <filesmatch "\.css\.gz$">
+     </FilesMatch>
+     <FilesMatch "\.css\.gz$">
         AddType "text/css" .gz
-     </filesmatch>
+     </FilesMatch>
+     <FilesMatch "\.svg\.gz$">
+        AddType "image/svg+xml" .gz
+     </FilesMatch>
 </ifmodule>
 
+AddType text/javascript .js
+AddType image/webp .webp
+AddType image/x-icon .ico
+AddType image/svg+xml .svg
 AddType font/ttf .ttf
 AddType font/otf .otf
 AddType application/font-woff .woff
+AddType application/font-woff2 .woff2
 AddType application/vnd.ms-fontobject .eot
 
 <ifmodule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript text/javascript
+    AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript text/javascript image/svg+xml
 </ifmodule>
 # END Gzip Compression
-
-# Force mime for javascript files
-<Files "*.js">
-    ForceType text/javascript
-</Files>
 
 # BEGIN Caching
 <ifModule mod_expires.c>
@@ -55,20 +59,20 @@ AddType application/vnd.ms-fontobject .eot
     ExpiresByType image/gif "access plus 1 month"
     ExpiresByType image/gif "access plus 1 month"
     ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 month"
     ExpiresByType image/svg+xml "access plus 1 month"
 
-    ExpiresByType text/javascript "access plus 7 days"
-    ExpiresByType text/x-javascript "access plus 7 days"
-    ExpiresByType application/javascript "access plus 7 days"
-    ExpiresByType application/x-javascript "access plus 7 days"
-    ExpiresByType application/json "access plus 7 days"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType text/x-javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    ExpiresByType application/json "access plus 1 month"
 
-    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType text/css "access plus 1 month"
 
-    <FilesMatch ".(php)$">
+    <FilesMatch "\.(php)$">
         ExpiresDefault A0
         Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
-        Header set Pragma "no-cache"
     </FilesMatch>
 </ifModule>
 # END Caching
