@@ -133,7 +133,6 @@ jobs:
       with:
         fetch-depth: 1
     - name: Checkout Karaka Repository
-      if: "contains(github.event.repository.name, 'oms-')"
       uses: actions/checkout@main
       with:
           fetch-depth: 1
