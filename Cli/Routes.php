@@ -29,18 +29,6 @@
             'verb' => 16,
         ],
     ],
-    '^.*/workflow/instance.*$' => [
-        0 => [
-            'dest' => '\Modules\Workflow\Controller\CliController:cliWorkflowInstanceCreate',
-            'verb' => 16,
-        ],
-    ],
-    '^/billing/bill/purchase/parse.*$' => [
-        0 => [
-            'dest' => '\Modules\Billing\Controller\CliController:cliParseSupplierBill',
-            'verb' => 16,
-        ],
-    ],
     '^.*/orw/check -i all*$' => [
         0 => [
             'dest' => '\Modules\OnlineResourceWatcher\Controller\ApiController:apiCheckResources',
@@ -49,6 +37,18 @@
                 'type' => 4,
                 'state' => 1,
             ],
+        ],
+    ],
+    '^/billing/bill/purchase/parse.*$' => [
+        0 => [
+            'dest' => '\Modules\Billing\Controller\CliController:cliParseSupplierBill',
+            'verb' => 16,
+        ],
+    ],
+    '^.*/workflow/instance.*$' => [
+        0 => [
+            'dest' => '\Modules\Workflow\Controller\CliController:cliWorkflowInstanceCreate',
+            'verb' => 16,
         ],
     ],
 ];
