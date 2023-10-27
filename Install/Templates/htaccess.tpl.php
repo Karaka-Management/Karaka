@@ -28,6 +28,7 @@ $htaccess = <<<EOT
 </ifmodule>
 
 AddType text/javascript .js
+AddType text/css .css
 AddType image/webp .webp
 AddType image/x-icon .ico
 AddType image/svg+xml .svg
@@ -44,6 +45,8 @@ AddType application/vnd.ms-fontobject .eot
 
 # BEGIN Caching
 <ifModule mod_expires.c>
+    Header unset Cache-Control
+
     ExpiresActive On
     ExpiresDefault A300
 
@@ -53,22 +56,22 @@ AddType application/vnd.ms-fontobject .eot
     ExpiresByType font/woff "access plus 1 year"
     ExpiresByType font/woff2 "access plus 1 year"
 
-    ExpiresByType image/jpeg "access plus 1 month"
-    ExpiresByType image/jpg "access plus 1 month"
-    ExpiresByType image/png "access plus 1 month"
-    ExpiresByType image/gif "access plus 1 month"
-    ExpiresByType image/gif "access plus 1 month"
-    ExpiresByType image/webp "access plus 1 month"
-    ExpiresByType image/x-icon "access plus 1 month"
-    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 31 days"
+    ExpiresByType image/jpg "access plus 31 days"
+    ExpiresByType image/png "access plus 31 days"
+    ExpiresByType image/gif "access plus 31 days"
+    ExpiresByType image/gif "access plus 31 days"
+    ExpiresByType image/webp "access plus 31 days"
+    ExpiresByType image/x-icon "access plus 31 days"
+    ExpiresByType image/svg+xml "access plus 31 days"
 
-    ExpiresByType text/javascript "access plus 1 month"
-    ExpiresByType text/x-javascript "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-    ExpiresByType application/x-javascript "access plus 1 month"
-    ExpiresByType application/json "access plus 1 month"
+    ExpiresByType text/javascript "access plus 31 days"
+    ExpiresByType text/x-javascript "access plus 31 days"
+    ExpiresByType application/javascript "access plus 31 days"
+    ExpiresByType application/x-javascript "access plus 31 days"
+    ExpiresByType application/json "access plus 31 days"
 
-    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/css "access plus 31 days"
 
     <FilesMatch "\.(php)$">
         ExpiresDefault A0

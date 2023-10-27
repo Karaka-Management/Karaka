@@ -39,6 +39,10 @@ $dispatch = $this->getData('dispatch') ?? [];
     <meta name="theme-color" content="#343a40">
     <meta name="msapplication-navbutton-color" content="#343a40">
     <meta name="apple-mobile-web-app-status-bar-style" content="#343a40">
+    <link rel="icon" type="image/png" sizes="512x512" href="Web/Backend/img/icon-512x512.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="Web/Backend/img/icon-128x128.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Web/Backend/img/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Web/Backend/img/icon-16x16.png">
     <meta name="description" content="<?= $this->getHtml(':meta', '0', '0'); ?>">
     <?= $head->meta->render(); ?>
 

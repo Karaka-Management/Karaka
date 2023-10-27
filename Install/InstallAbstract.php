@@ -226,6 +226,8 @@ abstract class InstallAbstract extends ApplicationAbstract
 
         $config = include __DIR__ . '/Templates/htaccess.tpl.php';
 
+        $_SERVER['OMS_PRIVATE_KEY_I'] = $privateKeyI;
+
         \file_put_contents(__DIR__ . '/../.htaccess', $config);
     }
 
