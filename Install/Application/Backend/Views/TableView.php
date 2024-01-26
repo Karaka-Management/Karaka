@@ -275,7 +275,7 @@ class TableView extends View
                 ? ''
                 : '&search=' . $request->getDataString('search'))
             : '?{?}&id='
-                . $obj->getId()
+                . $obj->id
                 . (empty($request->getDataString('search'))
                     ? ''
                     : '&search=' . $request->getDataString('search'))
@@ -306,7 +306,7 @@ class TableView extends View
                 ? ''
                 : '&search=' . $request->getDataString('search'))
             : '?{?}&id='
-                . ($hasNext ? $obj->getId() : $request->getDataString('id'))
+                . ($hasNext ? $obj->id : $request->getDataString('id'))
                 . (empty($request->getDataString('search'))
                     ? ''
                     : '&search=' . $request->getDataString('search'))

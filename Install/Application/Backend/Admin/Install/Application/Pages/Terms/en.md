@@ -6,12 +6,12 @@ For the purposes of these TERMS:
 
 * AFFILIATED/AFFILIATES means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.
 * COUNTRY refers to Germany
-* COMPANY (referred to as either "the Company", "We", "Us" or "Our" in this AGREEMENT) refers to jingga, Gartenstr. 26, 61206 Woellstadt.
+* COMPANY or jingga (referred to as either "the Company", "We", "Us" or "Our" in this AGREEMENT) refers to Jingga e. K., Kirchstr. 33, 61191 Rosbach.
 * DEVICE means any device that can access the SERVICE such as a computer, a cellphone or a digital tablet.
 * SERVICE(S) refers to the WEBSITE, APPLICATIONS, consulting and functionality offered by the Company
 * TERMS, POLICIES or AGREEMENT mean these terms that form the entire agreement between You and the COMPANY regarding the use of the SERVICE.
 * Third-party Social Media Service means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the SERVICES.
-* WEBSITE refers to jingga.app
+* WEBSITE refers to all websites owned by jingga
 * APPLICATION refers to all downloadable or installable content which can therfore be used on a given DEVICE.
 * You means the individual accessing or using the SERVICES, or the company, or other legal entity on behalf of which such individual is accessing or using the SERVICE, as applicable.
 
@@ -38,6 +38,8 @@ The Company has no control over, and assumes no responsibility for, the content 
 ## Termination
 
 We may terminate or suspend Your access immediately, without prior notice or liability, for any reason whatsoever, including without limitation if You breach these TERMS.
+
+SERVICES free of charge may be terminated at any time if the Company decides to do so. Paid SERVICES may be terminated by either PARTY with a notice period of 30 days prior to the expiry of the respective contract, otherwise the contract term shall be extended by a further period.
 
 Upon termination, Your right to use the SERVICES will cease immediately unless the SERVICES represents a "offline" SERVICE, a SERVICE or APPLICATION which doesn't require any online connection, other SERVICES which We terminated, or third-party services. We have no control over third-party resources and services which may be necessary for some of Our SERVICES. Changes by these third-parties may lead to the termination of the SERVICES or reducing their functionality. You understand these dependencies and SERVICE  limitations and accept that the termination or reduced functionality cannot be used as reason for dispute, revocation or similarly.
 

@@ -15,6 +15,7 @@ puphpet
 *.phar
 *.xml
 *.env
+*.js.map
 .htaccess
 .directory
 cookie.txt

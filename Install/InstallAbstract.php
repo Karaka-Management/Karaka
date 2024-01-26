@@ -50,7 +50,6 @@ use phpOMS\Module\ModuleManager;
 use phpOMS\Security\EncryptionHelper;
 use phpOMS\System\File\Local\Directory;
 use phpOMS\System\MimeType;
-use phpOMS\Uri\HttpUri;
 use phpOMS\Utils\IO\Zip\Zip;
 use phpOMS\Utils\TestUtils;
 
@@ -278,7 +277,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $monitoring->active = false;
 
         $response                 = new HttpResponse();
-        $request                  = new HttpRequest(new HttpUri(''));
+        $request                  = new HttpRequest();
         $request->header->account = 1;
         $request->setData('status', ModuleStatusUpdateType::INSTALL);
 
@@ -367,7 +366,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $module = $app->moduleManager->get('Admin');
 
         $response                 = new HttpResponse();
-        $request                  = new HttpRequest(new HttpUri(''));
+        $request                  = new HttpRequest();
         $request->header->account = 1;
         $request->setData('status', ModuleStatusUpdateType::INSTALL);
 
@@ -393,7 +392,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         /** @var \Modules\Organization\Models\Unit $default */
         $default       = UnitMapper::get()->where('id', 1)->execute();
         $default->name = $request->getDataString('orgname') ?? '';
-        $default->setStatus(Status::ACTIVE);
+        $default->status = Status::ACTIVE;
 
         UnitMapper::update()->execute($default);
 
@@ -438,15 +437,15 @@ abstract class InstallAbstract extends ApplicationAbstract
     protected static function installMainGroups() : void
     {
         $guest = new Group('guest');
-        $guest->setStatus(GroupStatus::ACTIVE);
+        $guest->status = GroupStatus::ACTIVE;
         GroupMapper::create()->execute($guest);
 
         $user = new Group('user');
-        $user->setStatus(GroupStatus::ACTIVE);
+        $user->status = GroupStatus::ACTIVE;
         GroupMapper::create()->execute($user);
 
         $admin = new Group('admin');
-        $admin->setStatus(GroupStatus::ACTIVE);
+        $admin->status = GroupStatus::ACTIVE;
         GroupMapper::create()->execute($admin);
     }
 
@@ -512,7 +511,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $module = self::$mManager->get('Admin');
 
         foreach ($apps as $app) {
-            $temp                  = new HttpRequest(new HttpUri(''));
+            $temp                  = new HttpRequest();
             $temp->header->account = 1;
             $temp->data['name']    = $app;
             $temp->data['type']    = ApplicationType::CONSOLE;
@@ -544,7 +543,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $module = self::$mManager->get('CMS');
 
         foreach ($apps as $app) {
-            $temp                  = new HttpRequest(new HttpUri(''));
+            $temp                  = new HttpRequest();
             $temp->header->account = 1;
             $temp->data['name']    = \basename($app);
             $temp->data['type']    = ApplicationType::WEB;
@@ -579,22 +578,25 @@ abstract class InstallAbstract extends ApplicationAbstract
     protected static function installMainUser(RequestAbstract $request, ConnectionAbstract $db) : void
     {
         $account = new Account();
-        $account->setStatus(AccountStatus::ACTIVE);
+        $account->status = AccountStatus::ACTIVE;
         $account->tries = 0;
-        $account->setType(AccountType::USER);
+        $account->type = AccountType::USER;
         $account->login = $request->getDataString('adminname') ?? '';
         $account->name1 = $request->getDataString('adminname') ?? '';
         $account->generatePassword($request->getDataString('adminpassword') ?? '');
         $account->setEmail($request->getDataString('adminemail') ?? '');
 
         $l11n = $account->l11n;
-        $l11n->loadFromLanguage($request->getDataString('defaultlang') ?? 'en', $request->getDataString('defaultcountry') ?? 'us');
+        $l11n->loadFromLanguage(
+            $request->getDataString('defaultlang') ?? 'en',
+            $request->getDataString('defaultcountry') ?? 'us'
+        );
 
         AccountCredentialMapper::create()->execute($account);
 
         $sth = $db->con->prepare(
             'INSERT INTO `account_group` (`account_group_group`, `account_group_account`) VALUES
-                (3, ' . $account->getId() . ');'
+                (3, ' . $account->id . ');'
         );
 
         if ($sth === false) {

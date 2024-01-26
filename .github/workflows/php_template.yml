@@ -17,6 +17,8 @@ jobs:
     strategy:
       fail-fast: false
       max-parallel: 3
+      matrix:
+        php-versions: ['8.1']
     steps:
     - name: Checkout Repository
       uses: actions/checkout@main

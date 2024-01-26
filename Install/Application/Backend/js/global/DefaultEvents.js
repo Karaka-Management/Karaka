@@ -1,6 +1,6 @@
-import { NotificationLevel }   from '../../../../jsOMS/Message/Notification/NotificationLevel.js';
-import { NotificationMessage } from '../../../../jsOMS/Message/Notification/NotificationMessage.js';
-import { NotificationType }    from '../../../../jsOMS/Message/Notification/NotificationType.js';
+import { NotificationLevel }   from '../../../../../jsOMS/Message/Notification/NotificationLevel.js';
+import { NotificationMessage } from '../../../../../jsOMS/Message/Notification/NotificationMessage.js';
+import { NotificationType }    from '../../../../../jsOMS/Message/Notification/NotificationType.js';
 
 /** global: jsOMS */
 export const DEFAULT_EVENTS = {

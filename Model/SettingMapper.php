@@ -88,8 +88,8 @@ final class SettingMapper extends DataMapperFactory
         $query->update(self::TABLE)
             ->set(['settings_content' => $option->content]);
 
-        if (!empty($option->getId())) {
-            $query->where('settings_id', '=', $option->getId());
+        if (!empty($option->id)) {
+            $query->where('settings_id', '=', $option->id);
         } else {
             if (!empty($option->name)) {
                 $query->where('settings_name', '=', $option->name);

@@ -2128,9 +2128,9 @@ f6a9cbe51e02ac7ffc04c1ca367b91fb  ./Modules/Profile/tests/Autoloader.php
 e4b016e3e334c7d407de724450210a92  ./Modules/Profile/Theme/Backend/Components/AccountGroupSelector/BaseView.php
 a6b9b5298a08838849f6ba1c237e2bba  ./Modules/Profile/Theme/Backend/Components/AccountGroupSelector/base.tpl.php
 5e5b4c715e1e0a22ca2be60f1a53eb63  ./Modules/Profile/Theme/Backend/Components/AccountGroupSelector/PopupView.php
-6241d6ec339b11ef2a3e227cbfa2b3a7  ./Modules/Profile/Theme/Backend/profile-list.tpl.php
+6241d6ec339b11ef2a3e227cbfa2b3a7  ./Modules/Profile/Theme/Backend/view-list.tpl.php
 2d26aefc9490201008a7138ae61a52d7  ./Modules/Profile/Theme/Backend/modules-settings.tpl.php
-c3e7de512388df8e0eff09423eb514e9  ./Modules/Profile/Theme/Backend/profile-single.tpl.php
+c3e7de512388df8e0eff09423eb514e9  ./Modules/Profile/Theme/Backend/view-single.tpl.php
 d6077906e8056c686c62e3683506d1cd  ./Modules/Profile/Theme/Backend/modules-create.tpl.php
 ad9eddca755f9928034becf9c19578cc  ./Modules/Profile/Theme/Backend/Lang/pl.lang.php
 feb966632c5f1b92766c8d0a4004cfd3  ./Modules/Profile/Theme/Backend/Lang/zh.lang.php

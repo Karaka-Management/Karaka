@@ -19,7 +19,7 @@ use phpOMS\Uri\UriFactory;
 <main>
     <div id="login-container">
         <div id="login-logo">
-            <img alt="<?= $this->getHtml('Logo', '0', '0'); ?>" src="<?= UriFactory::build('Web/Backend/img/logo.png'); ?>">
+            <img class="animated infinite medium-duration pulse" alt="<?= $this->getHtml('Logo', '0', '0'); ?>" src="<?= UriFactory::build('Web/Backend/img/logo.png'); ?>">
         </div>
         <header><h1><?= $this->getHtml('Login', '0', '0'); ?></h1></header>
         <div id="login-form">

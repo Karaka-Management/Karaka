@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "npx esbuild Web/Frontend/js/frontend.js --bundle --outfile=Web/Frontend/js/frontend.min.js --minify && npx esbuild Web/Backend/js/backend.js --bundle --outfile=Web/Backend/js/backend.min.js --minify"
+    "build": "npx esbuild Install/Application/Backend/js/backend.js --bundle --outfile=Install/Application/Backend/js/backend.min.js --minify && cp Install/Application/Backend/js/backend.min.js Web/Backend/js/backend.min.js"
   },
   "author": "Dennis Eichhorn",
   "main": "index.js",

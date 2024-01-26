@@ -1,5 +1,5 @@
-import { EventType } from '../../../../jsOMS/UI/Input/Mouse/EventType.js';
-import { ClickType } from '../../../../jsOMS/UI/Input/Mouse/ClickType.js';
+import { EventType } from '../../../../../jsOMS/UI/Input/Mouse/EventType.js';
+import { ClickType } from '../../../../../jsOMS/UI/Input/Mouse/ClickType.js';
 
 /** global: jsOMS */
 export const MOUSE_EVENTS = [

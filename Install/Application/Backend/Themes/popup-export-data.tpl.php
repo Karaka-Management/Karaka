@@ -8,7 +8,7 @@ use phpOMS\Uri\UriFactory;
     <input id="<?= $this->id; ?>-export" name="<?= $this->id; ?>-export" type="checkbox">
     <div class="portlet popup">
             <div class="portlet-head"><?= $this->getHtml('Export', '0', '0'); ?></div>
-            <table class="default">
+            <table class="default sticky">
                 <thead>
                     <tr>
                         <td><?= $this->getHtml('Name', '0', '0'); ?>

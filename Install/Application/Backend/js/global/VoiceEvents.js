@@ -1,11 +1,11 @@
-import { Logger }              from '../../../../jsOMS/Log/Logger.js';
-import { NotificationLevel }   from '../../../../jsOMS/Message/Notification/NotificationLevel.js';
-import { NotificationMessage } from '../../../../jsOMS/Message/Notification/NotificationMessage.js';
-import { NotificationType }    from '../../../../jsOMS/Message/Notification/NotificationType.js';
-import { Request }             from '../../../../jsOMS/Message/Request/Request.js';
-import { RequestMethod }       from '../../../../jsOMS/Message/Request/RequestMethod.js';
-import { RequestType }         from '../../../../jsOMS/Message/Request/RequestType.js';
-import { Response }            from '../../../../jsOMS/Message/Response/Response.js';
+import { Logger }              from '../../../../../jsOMS/Log/Logger.js';
+import { NotificationLevel }   from '../../../../../jsOMS/Message/Notification/NotificationLevel.js';
+import { NotificationMessage } from '../../../../../jsOMS/Message/Notification/NotificationMessage.js';
+import { NotificationType }    from '../../../../../jsOMS/Message/Notification/NotificationType.js';
+import { Request }             from '../../../../../jsOMS/Message/Request/Request.js';
+import { RequestMethod }       from '../../../../../jsOMS/Message/Request/RequestMethod.js';
+import { RequestType }         from '../../../../../jsOMS/Message/Request/RequestType.js';
+import { Response }            from '../../../../../jsOMS/Message/Response/Response.js';
 
 /** global: jsOMS */
 export const VOICE_EVENTS = {

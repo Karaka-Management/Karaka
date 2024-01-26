@@ -43,6 +43,7 @@ $types = $this->l11nTypes;
                     </select>
                 </div>
 
+                <?php if (!empty($types)) : ?>
                 <div class="form-group">
                     <label for="iLocalizationsType"><?= $this->getHtml('Type', '0', '0'); ?></label>
                     <select id="iLocalizationsType" name="type" data-tpl-text="/type" data-tpl-value="/type">
@@ -51,6 +52,7 @@ $types = $this->l11nTypes;
                         <?php endforeach; ?>
                     </select>
                 </div>
+                <?php endif; ?>
 
                 <div class="form-group">
                     <label for="iLocalizationContent"><?= $this->getHtml('Content', '0', '0'); ?></label>
@@ -70,7 +72,7 @@ $types = $this->l11nTypes;
     <section class="portlet">
         <div class="portlet-head"><?= $this->getHtml('Localizations', '0', '0'); ?><i class="g-icon download btn end-xs">download</i></div>
         <div class="slider">
-        <table id="l11nTable" class="default"
+        <table id="l11nTable" class="default sticky"
             data-tag="form"
             data-ui-element="tr"
             data-add-tpl=".oms-add-tpl-l11n"
@@ -80,7 +82,9 @@ $types = $this->l11nTypes;
                     <td>
                     <td><?= $this->getHtml('ID', '0', '0'); ?>
                     <td><?= $this->getHtml('Language', '0', '0'); ?>
+                    <?php if (!empty($types)) : ?>
                     <td><?= $this->getHtml('Name', '0', '0'); ?><i class="sort-asc g-icon">expand_less</i><i class="sort-desc g-icon">expand_more</i>
+                    <?php endif; ?>
                     <td class="wf-100"><?= $this->getHtml('Content', '0', '0'); ?><i class="sort-asc g-icon">expand_less</i><i class="sort-desc g-icon">expand_more</i>
             <tbody>
                 <template class="oms-add-tpl-l11n">
@@ -95,7 +99,9 @@ $types = $this->l11nTypes;
                             </span>
                         <td data-tpl-text="/id" data-tpl-value="/id"></td>
                         <td data-tpl-text="/language" data-tpl-value="/language"></td>
+                        <?php if (!empty($types)) : ?>
                         <td data-tpl-text="/type" data-tpl-value="/type" data-value=""></td>
+                        <?php endif; ?>
                         <td data-tpl-text="/content" data-tpl-value="/content"></td>
                     </tr>
                 </template>
@@ -114,7 +120,9 @@ $types = $this->l11nTypes;
                             <?php endif; ?>
                         <td data-tpl-text="/id" data-tpl-value="/id"><?= $value->id; ?>
                         <td data-tpl-text="/language" data-tpl-value="/language"><?= $value->language; ?>
+                        <?php if (!empty($types)) : ?>
                         <td data-tpl-text="/type" data-tpl-value="/type" data-value="<?= $value->name; ?>"><?= $this->printHtml($value->type->title); ?>
+                        <?php endif; ?>
                         <td data-tpl-text="/content" data-tpl-value="/content" data-value="<?= \str_replace(["\r\n", "\n"], ['&#10;', '&#10;'], $this->printHtml($value->content)); ?>"><?= $this->printHtml($value->content); ?>
                 <?php endforeach; ?>
                 <?php if ($c === 0) : ?>

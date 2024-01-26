@@ -88,9 +88,9 @@ final class CliApplication extends InstallAbstract
     {
         $response = new CliResponse(new Localization());
 
-        $response->header->l11n->setLanguage(
-            \in_array($request->header->l11n->language, $languages) ? $request->header->l11n->language : 'en'
-        );
+        $response->header->l11n->language = \in_array($request->header->l11n->language, $languages)
+            ? $request->header->l11n->language
+            : 'en';
 
         return $response;
     }

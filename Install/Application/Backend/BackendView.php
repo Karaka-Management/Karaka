@@ -38,7 +38,7 @@ class BackendView extends View
 {
     /**
      * Head
-     * 
+     *
      * @var Head
      * @since 1.0.0
      */
@@ -117,7 +117,7 @@ class BackendView extends View
      */
     public function getProfileImage() : string
     {
-        if ($this->profile->getId() || $this->profile->image->getPath() === '') {
+        if ($this->profile->id || $this->profile->image->getPath() === '') {
             return UriFactory::build($this->defaultProfileImage->getPath());
         }
 

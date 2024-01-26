@@ -16,7 +16,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-	'^.*/legal/privacy.*$' => [
+	'^.*/legal/privacy(\?.*$|$)' => [
         [
             'dest'       => '\Web\Backend\Controller\PageController:viewLegalDocuments',
             'verb'       => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
         ],
     ],
 
-    '^.*/legal/terms.*$' => [
+    '^.*/legal/terms(\?.*$|$)' => [
         [
             'dest'       => '\Web\Backend\Controller\PageController:viewLegalDocuments',
             'verb'       => RouteVerb::GET,
@@ -40,7 +40,7 @@ return [
         ],
     ],
 
-    '^.*/legal/imprint.*$' => [
+    '^.*/legal/imprint(\?.*$|$)' => [
         [
             'dest'       => '\Web\Backend\Controller\PageController:viewLegalDocuments',
             'verb'       => RouteVerb::GET,

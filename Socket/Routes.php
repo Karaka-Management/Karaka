@@ -1,5 +1,5 @@
 <?php return [
-    '^.*/testmodule.*$' => [
+    '^.*/testmodule(\?.*$|$)' => [
         1 => [
             'dest' => '\Modules\TestModule\Controller\Controller:testEndpoint',
             'verb' => 1,

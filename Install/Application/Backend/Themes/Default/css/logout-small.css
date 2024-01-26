@@ -67,7 +67,6 @@ main {
   text-align: center;
   margin-bottom: 10%; }
   #login-logo img {
-    animation: pulse 1.5s ease infinite alternate;
     width: 60%; }
 
 @keyframes pulse {

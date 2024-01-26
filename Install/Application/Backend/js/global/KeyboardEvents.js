@@ -1,4 +1,4 @@
-import { jsOMS } from '../../../../jsOMS/Utils/oLib.js';
+import { jsOMS } from '../../../../../jsOMS/Utils/oLib.js';
 /** global: jsOMS */
 export const KEYBOARD_EVENTS = [
     {

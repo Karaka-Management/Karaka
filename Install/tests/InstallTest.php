@@ -42,7 +42,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
     public function testInvalidInstallRequest() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new HttpUri(''));
+        $request  = new HttpRequest();
         $request->setMethod(RequestMethod::POST);
 
         WebApplication::installRequest($request, $response);
@@ -56,7 +56,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
     public function testInvalidDatabaseInstallRequest() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new HttpUri(''));
+        $request  = new HttpRequest();
         $request->setMethod(RequestMethod::POST);
 
         $request->setData('dbhost', '127.0.0.1');
@@ -218,7 +218,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
             ],
         ];
         $response = new HttpResponse();
-        $request  = new HttpRequest(new HttpUri(''));
+        $request  = new HttpRequest();
         $request->setMethod(RequestMethod::POST);
 
         $request->setData('dbhost', $config['db']['core']['masters']['admin']['host']);

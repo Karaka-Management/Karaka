@@ -26,6 +26,7 @@
   --button-colored-background-hover: #4aabf0;
   --table-caption-background: rgb(255, 255, 255);
   --table-head-background: rgba(54, 150, 219, 1);
+  --table-head-color: #fff;
   --table-row-background: rgb(255, 255, 255);
   --table-row-background-alt: rgb(255, 255, 255);
   --table-row-background-hover: #d4eeff;

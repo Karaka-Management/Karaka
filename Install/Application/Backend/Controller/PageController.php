@@ -32,7 +32,7 @@ use phpOMS\Views\View;
 final class PageController extends ModuleAbstract
 {
     /**
-     * Routing end-point for application behaviour.
+     * Routing end-point for application behavior.
      *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response

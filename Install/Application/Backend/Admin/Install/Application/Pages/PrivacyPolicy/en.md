@@ -6,12 +6,12 @@ For the purposes of these POLICIES:
 
 * AFFILIATED/AFFILIATES means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.
 * COUNTRY refers to Germany
-* COMPANY (referred to as either "the Company", "We", "Us" or "Our" in this AGREEMENT) refers to jingga, Gartenstr. 26, 61206 Woellstadt.
+* COMPANY or jingga (referred to as either "the Company", "We", "Us" or "Our" in this AGREEMENT) refers to Jingga e. K., Kirchstr. 33, 61191 Rosbach.
 * DEVICE means any device that can access the SERVICE such as a computer, a cellphone or a digital tablet.
 * SERVICE(S) refers to the WEBSITE, APPLICATIONS, consulting and functionality offered by the Company
 * TERMS, POLICIES or AGREEMENT mean these terms that form the entire agreement between You and the COMPANY regarding the use of the SERVICE.
 * Third-party Social Media Service means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the SERVICES.
-* WEBSITE refers to jingga.app
+* WEBSITE refers to all websites owned by jingga
 * APPLICATION refers to all downloadable or installable content which can therfore be used on a given DEVICE.
 * You means the individual accessing or using the SERVICES, or the company, or other legal entity on behalf of which such individual is accessing or using the SERVICE, as applicable.
 

@@ -129,7 +129,7 @@ final class CoreSettings implements SettingsInterface
                 // required because the above solution inserts only by string,
                 // this means the next get() call with just the int DB id would not hit the cache.
                 // summary: line 65 would fail
-                $this->setOption($option->getId(), $option, true);
+                $this->setOption($option->id, $option, true);
 
                 $options[$option->name] = $option;
             }

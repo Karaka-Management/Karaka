@@ -27,7 +27,7 @@ declare(strict_types=1);
             <img alt="Logo" src="img/logo.png" class="logo" width="50">
             <h1>Welcome</h1>
             <div>
-                <p>Karaka is a WebApp written in PHP and JavaScript supporting various database
+                <p>Jingga is a WebApp written in PHP and JavaScript supporting various database
                 and caching technologies. Many modules/extensions provide functionality for businesses,
                 education facilities, healthcare facilities and organizations in general.<p>
 
@@ -306,7 +306,7 @@ declare(strict_types=1);
                 <p>The following configuration options are general WebApp settings.</p>
                 <ul>
                     <li><label for="iOrgName">Organization Name</label>
-                    <li><input id="iOrgName" name="orgname" type="text" value="Karaka" form="installForm" required>
+                    <li><input id="iOrgName" name="orgname" type="text" value="Jingga" form="installForm" required>
                     <li><label for="iAdminName">Admin Login</label>
                     <li><input id="iAdminName" name="adminname" type="text" value="admin" form="installForm" required>
                     <li><label for="iAdminPassword">Admin Password</label>

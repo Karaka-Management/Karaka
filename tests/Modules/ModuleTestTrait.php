@@ -73,7 +73,7 @@ trait ModuleTestTrait
     public function testModuleIntegration() : void
     {
         $iResponse                 = new HttpResponse();
-        $iRequest                  = new HttpRequest(new HttpUri(''));
+        $iRequest                  = new HttpRequest();
         $iRequest->header->account = 1;
         $iRequest->setData('status', ModuleStatusUpdateType::INSTALL);
 

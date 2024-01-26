@@ -91,9 +91,8 @@ final class WebApplication extends InstallAbstract
         UriFactory::setupUriBuilder($request->uri);
 
         $langCode = \strtolower($request->uri->getPathElement(0));
-        $request->header->l11n->setLanguage(
-            empty($langCode) || !ISO639x1Enum::isValidValue($langCode) ? 'en' : $langCode
-        );
+        $request->header->l11n->language = empty($langCode) || !ISO639x1Enum::isValidValue($langCode) ? 'en' : $langCode;
+
         UriFactory::setQuery('/lang', $request->header->l11n->language);
 
         return $request;
