@@ -260,18 +260,18 @@ trait ModuleTestTrait
                     self::assertTrue(false, 'Schema "' . $schemaPath . '" name "' . $cName . '" is invalid');
                 }
 
-                if (!(\stripos($column['type'] ?? '', 'TINYINT') === 0
-                    || \stripos($column['type'] ?? '', 'SMALLINT') === 0
-                    || \stripos($column['type'] ?? '', 'INT') === 0
-                    || \stripos($column['type'] ?? '', 'BIGINT') === 0
-                    || \stripos($column['type'] ?? '', 'VARCHAR') === 0
-                    || \stripos($column['type'] ?? '', 'VARBINARY') === 0
-                    || \stripos($column['type'] ?? '', 'TEXT') === 0
-                    || \stripos($column['type'] ?? '', 'LONGTEXT') === 0
-                    || \stripos($column['type'] ?? '', 'BLOB') === 0
-                    || \stripos($column['type'] ?? '', 'DATETIME') === 0
-                    || \stripos($column['type'] ?? '', 'DECIMAL') === 0
-                )) {
+                if (!\str_starts_with($column['type'] ?? '', 'TINYINT')
+                    || !\str_starts_with($column['type'] ?? '', 'SMALLINT')
+                    || !\str_starts_with($column['type'] ?? '', 'INT')
+                    || !\str_starts_with($column['type'] ?? '', 'BIGINT')
+                    || !\str_starts_with($column['type'] ?? '', 'VARCHAR')
+                    || !\str_starts_with($column['type'] ?? '', 'VARBINARY')
+                    || !\str_starts_with($column['type'] ?? '', 'TEXT')
+                    || !\str_starts_with($column['type'] ?? '', 'LONGTEXT')
+                    || !\str_starts_with($column['type'] ?? '', 'BLOB')
+                    || !\str_starts_with($column['type'] ?? '', 'DATETIME')
+                    || !\str_starts_with($column['type'] ?? '', 'DECIMAL')
+                ) {
                     self::assertTrue(false, 'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" is a missing/invalid type');
                 }
             }
@@ -388,27 +388,27 @@ trait ModuleTestTrait
 
             // testing schema/mapper same column data type
             if (!(($column['type'] === 'string'
-                    && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
-                        || \stripos($db[$table]['fields'][$cName]['type'], 'VARBINARY') === 0
-                        || \stripos($db[$table]['fields'][$cName]['type'], 'BLOB') === 0
-                        || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0
-                        || \stripos($db[$table]['fields'][$cName]['type'], 'LONGTEXT') === 0))
+                    && (\str_starts_with($db[$table]['fields'][$cName]['type'], 'VARCHAR')
+                        || \str_starts_with($db[$table]['fields'][$cName]['type'], 'VARBINARY')
+                        || \str_starts_with($db[$table]['fields'][$cName]['type'], 'BLOB')
+                        || \str_starts_with($db[$table]['fields'][$cName]['type'], 'TEXT')
+                        || \str_starts_with($db[$table]['fields'][$cName]['type'], 'LONGTEXT')))
                 || ($column['type'] === 'int'
-                    && (\stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0
-                        || \stripos($db[$table]['fields'][$cName]['type'], 'SMALLINT') === 0
-                        || \stripos($db[$table]['fields'][$cName]['type'], 'INT') === 0
-                        || \stripos($db[$table]['fields'][$cName]['type'], 'BIGINT') === 0))
+                    && (\str_starts_with($db[$table]['fields'][$cName]['type'], 'TINYINT')
+                        || \str_starts_with($db[$table]['fields'][$cName]['type'], 'SMALLINT')
+                        || \str_starts_with($db[$table]['fields'][$cName]['type'], 'INT')
+                        || \str_starts_with($db[$table]['fields'][$cName]['type'], 'BIGINT')))
                 || ($column['type'] === 'Json'
-                    && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
-                        || \stripos($db[$table]['fields'][$cName]['type'], 'LONGTEXT') === 0
-                        || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0))
+                    && (\str_starts_with($db[$table]['fields'][$cName]['type'], 'VARCHAR')
+                        || \str_starts_with($db[$table]['fields'][$cName]['type'], 'LONGTEXT')
+                        || \str_starts_with($db[$table]['fields'][$cName]['type'], 'TEXT')))
                 || ($column['type'] === 'compress'
-                    && (\stripos($db[$table]['fields'][$cName]['type'], 'BLOB') === 0))
+                    && (\str_starts_with($db[$table]['fields'][$cName]['type'], 'BLOB')))
                 || ($column['type'] === 'Serializable')
-                || ($column['type'] === 'bool' && \stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0)
-                || ($column['type'] === 'float' && \stripos($db[$table]['fields'][$cName]['type'], 'DECIMAL') === 0)
-                || ($column['type'] === 'DateTime' && \stripos($db[$table]['fields'][$cName]['type'], 'DATETIME') === 0)
-                || ($column['type'] === 'DateTimeImmutable' && \stripos($db[$table]['fields'][$cName]['type'], 'DATETIME') === 0)
+                || ($column['type'] === 'bool' && \str_starts_with($db[$table]['fields'][$cName]['type'], 'TINYINT'))
+                || ($column['type'] === 'float' && \str_starts_with($db[$table]['fields'][$cName]['type'], 'DECIMAL'))
+                || ($column['type'] === 'DateTime' && \str_starts_with($db[$table]['fields'][$cName]['type'], 'DATETIME'))
+                || ($column['type'] === 'DateTimeImmutable' && \str_starts_with($db[$table]['fields'][$cName]['type'], 'DATETIME'))
             )) {
                 self::assertTrue(false, 'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" is incompatible with mapper "' . $class . '" definition "' . $db[$table]['fields'][$cName]['type'] . '" for field "' . $cName . '"');
 
@@ -781,7 +781,7 @@ trait ModuleTestTrait
                     ];
                 }
 
-                // check if required lanugages files exist IFF any language file of a specific type exists
+                // check if required languages files exist IFF any language file of a specific type exists
                 if ($langKeys[$type]['required'] === null) {
                     $langKeys[$type]['required'] = true;
 
@@ -803,6 +803,7 @@ trait ModuleTestTrait
                 $langArray = include $module::PATH . '/Theme/' . $theme . '/Lang/' . $file;
                 $langArray = \reset($langArray);
 
+                /** @var array $keys */
                 $keys = \array_keys($langArray);
 
                 if (empty($langKeys[$type]['keys'])) {
