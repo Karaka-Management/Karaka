@@ -6,7 +6,8 @@
  * @version    1.0.0
  * @since      1.0.0
  *
- * @todo Implement
+ * @performance Implement basic caching and responding
+ *      https://github.com/Karaka-Management/Karaka/issues/161
  */
 const CACHE_VERSION = 'static-v1';
 

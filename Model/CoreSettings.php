@@ -212,7 +212,8 @@ final class CoreSettings implements SettingsInterface
      */
     public function save(array $options = []) : void
     {
-        // @todo implement none-database options
+        // @feature The options are database focused but for applications we may also want simple memory/runtime options
+        //      https://github.com/Karaka-Management/Karaka/issues/252
         $options = empty($options) ? $this->options : $options;
 
         foreach ($options as $option) {

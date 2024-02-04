@@ -138,10 +138,10 @@ final class SettingMapper extends DataMapperFactory
         $query = self::getQuery();
 
         if (!empty($where['ids'])) {
-            $query->where('settings_id', 'in', $where['ids']);
+            $query->where('settings_id', 'IN', $where['ids']);
         } else {
             if (isset($where['names'])) {
-                $query->where('settings_name', 'in', $where['names']);
+                $query->where('settings_name', 'IN', $where['names']);
             }
 
             if (isset($where['unit'])) {

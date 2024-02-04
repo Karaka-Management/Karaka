@@ -92,15 +92,10 @@ class WebApplication extends ApplicationAbstract
                 'line'    => __LINE__, ]);
             $sub = new \Web\E500\Application($this, $config);
         } finally {
-            if ($sub === null) {
-                $sub = new \Web\E500\Application($this, $config);
-            }
+            $sub      ??= new \Web\E500\Application($this, $config);
+            $response ??= new HttpResponse();
+            $request  ??= HttpRequest::createFromSuperglobals();
 
-            if ($response === null) {
-                $response = new HttpResponse();
-            }
-
-            $request ??= HttpRequest::createFromSuperglobals();
             $sub->run($request, $response);
 
             $body = $response->getBody(true);

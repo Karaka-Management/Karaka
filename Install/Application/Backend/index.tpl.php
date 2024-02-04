@@ -98,15 +98,15 @@ $dispatch = $this->getData('dispatch') ?? [];
     </nav>
     <main>
         <header>
-            <form id="s-bar" method="GET" action="<?= UriFactory::build('{/api}search?{?}&app=Backend&csrf={$CSRF}'); ?>&search={!#iSearchBox}">
+            <form id="s-bar" method="GET" action="<?= UriFactory::build('{/base}/search?{?}&app=Backend&csrf={$CSRF}'); ?>&search={!#iSearchBox}">
                 <label class="ham-trigger" for="nav-trigger"><i class="g-icon p">menu</i></label>
                 <span role="search" class="inputWrapper">
                     <label id="iSearchType" for="iSearchType-check" class="dropdown search-type">
                         <div class="dropdown-closed">
-                            <input id="iSearchType-e1" name="dropdown" type="radio" checked>
+                            <input id="iSearchType-e1" name="scope" type="radio" value="page" checked>
                             <label for="iSearchType-check"><i class="g-icon">location_on</i></label>
 
-                            <input id="iSearchType-e2" name="dropdown" type="radio">
+                            <input id="iSearchType-e2" name="scope" type="radio" value="global">
                             <label for="iSearchType-check"><i class="g-icon">public</i></label>
                         </div>
                         <input id="iSearchType-check" type="checkbox" name="dropdown-visibility-iSearchType-check">
@@ -121,7 +121,7 @@ $dispatch = $this->getData('dispatch') ?? [];
                     </label>
 
                     <span class="textWrapper">
-                        <input id="iSearchBox" name="search" type="text" autocomplete="off" autofocus>
+                        <input id="iSearchBox" name="search" type="text" autocomplete="off" value="<?= $this->request->getDataString('search') ?? ''; ?>" autofocus>
                         <i class="frontIcon g-icon" aria-hidden="true">search</i>
                         <i class="endIcon g-icon" aria-hidden="true">close</i>
                     </span>

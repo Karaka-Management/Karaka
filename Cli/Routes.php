@@ -35,6 +35,12 @@
             'verb' => 16,
         ],
     ],
+    '^/purchase/order/suggestion(\?.*$|$)' => [
+        0 => [
+            'dest' => '\Modules\Purchase\Controller\CliController:cliGenerateOrderSuggestion',
+            'verb' => 16,
+        ],
+    ],
     '^/billing/bill/purchase/parse(\?.*$|$)' => [
         0 => [
             'dest' => '\Modules\Billing\Controller\CliController:cliParseSupplierBill',
