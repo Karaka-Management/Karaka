@@ -64,14 +64,6 @@ use phpOMS\Utils\TestUtils;
 abstract class InstallAbstract extends ApplicationAbstract
 {
     /**
-     * Module manager
-     *
-     * @var null|ModuleManager
-     * @since 1.0.0
-     */
-    protected static ?ModuleManager $mManager = null;
-
-    /**
      * Setup general handlers for the application.
      *
      * @return void
@@ -233,36 +225,15 @@ abstract class InstallAbstract extends ApplicationAbstract
     /**
      * Install core functionality
      *
-     * @param ConnectionAbstract $db Database connection
+     * @param ApplicationAbstract $app Application
      *
      * @return void
      *
      * @since 1.0.0
      */
-    protected static function installCore(ConnectionAbstract $db) : void
+    protected static function installCore(ApplicationAbstract $app) : void
     {
-        self::createBaseTables($db);
-
-        $app = new class() extends ApplicationAbstract
-        {
-            protected string $appName = 'Api';
-        };
-
-        $app->dbPool = new DatabasePool();
-        $app->dbPool->add('select', $db);
-        $app->dbPool->add('insert', $db);
-        $app->dbPool->add('update', $db);
-        $app->dbPool->add('schema', $db);
-
-        self::$mManager      = self::$mManager ?? new ModuleManager($app, __DIR__ . '/../Modules/');
-        $app->moduleManager  = self::$mManager;
-        $app->appSettings    = new CoreSettings();
-        $app->unitId         = 1;
-        $app->accountManager = new AccountManager(new HttpSession());
-        $app->l11nManager    = new L11nManager();
-        $app->l11nServer     = new Localization();
-        $app->dispatcher     = new Dispatcher($app);
-        $app->eventManager   = new EventManager($app->dispatcher);
+        self::createBaseTables($app->dbPool->get('schema'));
 
         $toInstall = [
             'Admin',
@@ -325,35 +296,14 @@ abstract class InstallAbstract extends ApplicationAbstract
     /**
      * Install the core modules
      *
-     * @param ConnectionAbstract $db Database connection
+     * @param ApplicationAbstract $app Application
      *
      * @return void
      *
      * @since 1.0.0
      */
-    protected static function installCoreModules(ConnectionAbstract $db) : void
+    protected static function installCoreModules(ApplicationAbstract $app) : void
     {
-        $app = new class() extends ApplicationAbstract
-        {
-            protected string $appName = 'Api';
-        };
-
-        $app->dbPool = new DatabasePool();
-        $app->dbPool->add('select', $db);
-        $app->dbPool->add('insert', $db);
-        $app->dbPool->add('update', $db);
-        $app->dbPool->add('schema', $db);
-
-        self::$mManager      = self::$mManager ?? new ModuleManager($app, __DIR__ . '/../Modules/');
-        $app->moduleManager  = self::$mManager;
-        $app->appSettings    = new CoreSettings();
-        $app->unitId         = 1;
-        $app->accountManager = new AccountManager(new HttpSession());
-        $app->l11nServer     = new Localization();
-        $app->dispatcher     = new Dispatcher($app);
-        $app->eventManager   = new EventManager($app->dispatcher);
-        $app->eventManager->importFromFile(__DIR__ . '/../Web/Api/Hooks.php');
-
         $toInstall = [
             'Organization',
             'Help',
@@ -491,24 +441,20 @@ abstract class InstallAbstract extends ApplicationAbstract
     /**
      * Install applications
      *
-     * @param RequestAbstract    $request Request
-     * @param ConnectionAbstract $db      Database connection
+     * @param RequestAbstract     $request Request
+     * @param ApplicationAbstract $app     Database connection
      *
      * @return void
      *
      * @since 1.0.0
      */
-    protected static function installLocalApplications(RequestAbstract $request, ConnectionAbstract $db) : void
+    protected static function installLocalApplications(RequestAbstract $request, ApplicationAbstract $app) : void
     {
-        if (self::$mManager === null) {
-            return;
-        }
-
         $apps  = ['Cli'];
         $theme = 'Default';
 
         /** @var \Modules\Admin\Controller\ApiController $module */
-        $module = self::$mManager->get('Admin');
+        $module = $app->moduleManager->get('Admin');
 
         foreach ($apps as $app) {
             $temp                  = new HttpRequest();
@@ -524,40 +470,36 @@ abstract class InstallAbstract extends ApplicationAbstract
      * Install applications
      *
      * @param RequestAbstract    $request Request
-     * @param ConnectionAbstract $db      Database connection
+     * @param ApplicationAbstract $db     Database connection
      *
      * @return void
      *
      * @since 1.0.0
      */
-    protected static function installWebApplications(RequestAbstract $request, ConnectionAbstract $db) : void
+    protected static function installWebApplications(RequestAbstract $request, ApplicationAbstract $app) : void
     {
-        if (self::$mManager === null) {
-            return;
-        }
-
         $apps  = $request->getDataList('apps');
         $theme = 'Default';
 
         /** @var \Modules\CMS\Controller\ApiController $module */
-        $module = self::$mManager->get('CMS');
+        $module = $app->moduleManager->get('CMS');
 
-        foreach ($apps as $app) {
+        foreach ($apps as $appName) {
             $temp                  = new HttpRequest();
             $temp->header->account = 1;
-            $temp->data['name']    = \basename($app);
+            $temp->data['name']    = \basename($appName);
             $temp->data['type']    = ApplicationType::WEB;
             $temp->data['theme']   = $theme;
 
-            Zip::pack(__DIR__ . '/../' . $app, __DIR__ . '/' . \basename($app) . '.zip');
+            Zip::pack(__DIR__ . '/../' . $appName, __DIR__ . '/' . \basename($appName) . '.zip');
 
             TestUtils::setMember($temp, 'files', [
                 [
-                    'name'     => \basename($app) . '.zip',
+                    'name'     => \basename($appName) . '.zip',
                     'type'     => MimeType::M_ZIP,
-                    'tmp_name' => __DIR__ . '/' . \basename($app) . '.zip',
+                    'tmp_name' => __DIR__ . '/' . \basename($appName) . '.zip',
                     'error'    => \UPLOAD_ERR_OK,
-                    'size'     => \filesize(__DIR__ . '/' . \basename($app) . '.zip'),
+                    'size'     => \filesize(__DIR__ . '/' . \basename($appName) . '.zip'),
                 ],
             ]);
 

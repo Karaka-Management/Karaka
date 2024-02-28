@@ -15,15 +15,14 @@ declare(strict_types=1);
 use phpOMS\Uri\UriFactory;
 
 ?>
-<div class="centerText box">
-    <div>This content doesn't exist.</div>
-</div>
-
-<!--
-<div class="centerText box">
-    <div><img alt="404 error image" src="<?= UriFactory::build('Web/Backend/img/inline_404.svg'); ?>" width="30%"></div>
-</div>
--->
-<div class="centerText box">
-    <div>Please contact an admin if you think this is an unexpected error.</div>
+<div class="row">
+    <div class="col-xs-12">
+        <section class="portlet">
+            <div class="portlet-body cT">
+                <div>This content doesn't exist</div>
+                <img alt="404 error image" style="margin: 1rem; max-height: 90%; max-width: 90%;" src="<?= UriFactory::build('Web/Backend/img/404.svg'); ?>">
+                <div>Please contact an admin if you think this is an unexpected behavior</div>
+            </div>
+        </section>
+    </div>
 </div>

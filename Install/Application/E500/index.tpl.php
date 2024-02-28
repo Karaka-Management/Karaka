@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Jingga
  *
@@ -32,10 +31,16 @@ use phpOMS\Uri\UriFactory;
     <?= $this->head->renderAssets(); ?>
 </head>
 <body>
-<header></header>
-<main class="centerText">
-    <h1 class="leftText"><?= $this->getHtml('ErrorMessage', '0', '0'); ?></h1>
-    <img alt="500 error image" src="<?= UriFactory::build('Web/E500/img/logo_error.png'); ?>">
-    <p><?= $this->getHtml('Description', '0', '0'); ?></p>
+<main class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <section class="portlet">
+                <div class="portlet-body cT">
+                    <div><?= $this->getHtml('ErrorMessage', '0', '0'); ?></div>
+                    <img alt="500 error image" style="margin: 1rem; max-height: 90%; max-width: 90%;" src="<?= UriFactory::build('Web/E500/img/server_error.svg'); ?>">
+                    <div><?= $this->getHtml('Description', '0', '0'); ?></div>
+                </div>
+            </section>
+        </div>
+    </div>
 </main>
-<footer></footer>

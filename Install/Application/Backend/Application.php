@@ -64,6 +64,14 @@ use Web\WebApplication;
 final class Application
 {
     /**
+     * Application version
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    public const VERSION = '1.0.0';
+
+    /**
      * WebApplication.
      *
      * @var WebApplication
@@ -92,6 +100,7 @@ final class Application
     {
         $this->app          = $app;
         $this->app->appName = 'Backend';
+        $this->app->version = self::VERSION;
         $this->config       = $config;
     }
 
@@ -421,14 +430,14 @@ final class Application
         */
 
         /* Load assets */
-        $head->addAsset(AssetType::CSS, 'Resources/fonts/googleicons/styles.css', ['defer']);
-        $head->addAsset(AssetType::CSS, 'cssOMS/styles.css?v=1.0.0', ['defer']);
+        $head->addAsset(AssetType::CSS, 'cssOMS/styles.css?v=' . self::VERSION, ['defer']);
+        $head->addAsset(AssetType::CSS, 'cssOMS/print.css?v=' . self::VERSION, ['media' => 'print', 'defer']);
 
         // Framework
-        $head->addAsset(AssetType::JS, 'Web/Backend/js/backend.min.js?v=1.0.0', ['nonce' => $scriptSrc, 'type' => 'module', 'defer']);
+        $head->addAsset(AssetType::JS, 'Web/Backend/js/backend.min.js?v=' . self::VERSION, ['nonce' => $scriptSrc, 'type' => 'module', 'defer']);
 
         if ($request->hasData('debug')) {
-            $head->addAsset(AssetType::CSS, 'cssOMS/debug.css?v=1.0.0');
+            $head->addAsset(AssetType::CSS, 'cssOMS/debug.css?v=' . self::VERSION);
             \phpOMS\DataStorage\Database\Query\Builder::$log = true;
         }
 

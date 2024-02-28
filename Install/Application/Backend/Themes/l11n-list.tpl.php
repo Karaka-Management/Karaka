@@ -61,8 +61,8 @@ $types = $this->l11nTypes;
             </div>
             <div class="portlet-foot">
                 <input id="bLocalizationAdd" formmethod="put" type="submit" class="add-form" value="<?= $this->getHtml('Add', '0', '0'); ?>">
-                <input id="bLocalizationSave" formmethod="post" type="submit" class="save-form hidden button save" value="<?= $this->getHtml('Update', '0', '0'); ?>">
-                <input type="submit" class="cancel-form hidden button close" value="<?= $this->getHtml('Cancel', '0', '0'); ?>">
+                <input id="bLocalizationSave" formmethod="post" type="submit" class="save-form vh button save" value="<?= $this->getHtml('Update', '0', '0'); ?>">
+                <input type="submit" class="cancel-form vh button close" value="<?= $this->getHtml('Cancel', '0', '0'); ?>">
             </div>
         </form>
     </section>
@@ -91,7 +91,7 @@ $types = $this->l11nTypes;
                     <tr class="animated medium-duration greenCircleFade" data-id="" draggable="false">
                         <td>
                             <i class="g-icon btn update-form">settings</i>
-                            <input id="l11nTable-remove-0" type="checkbox" class="hidden">
+                            <input id="l11nTable-remove-0" type="checkbox" class="vh">
                             <label for="l11nTable-remove-0" class="checked-visibility-alt"><i class="g-icon btn form-action">close</i></label>
                             <span class="checked-visibility">
                                 <label for="l11nTable-remove-0" class="link default"><?= $this->getHtml('Cancel', '0', '0'); ?></label>
@@ -111,7 +111,7 @@ $types = $this->l11nTypes;
                         <td>
                             <i class="g-icon btn update-form">settings</i>
                             <?php if (!$value->type->isRequired) : ?>
-                            <input id="l11nTable-remove-<?= $value->id; ?>" type="checkbox" class="hidden">
+                            <input id="l11nTable-remove-<?= $value->id; ?>" type="checkbox" class="vh">
                             <label for="l11nTable-remove-<?= $value->id; ?>" class="checked-visibility-alt"><i class="g-icon btn form-action">close</i></label>
                             <span class="checked-visibility">
                                 <label for="l11nTable-remove-<?= $value->id; ?>" class="link default"><?= $this->getHtml('Cancel', '0', '0'); ?></label>

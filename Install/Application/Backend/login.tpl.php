@@ -26,15 +26,15 @@ use phpOMS\Uri\UriFactory;
             <form id="login" method="POST" action="<?= UriFactory::build('{/api}login?{?}'); ?>">
                 <label for="iName"><?= $this->getHtml('Username', '0', '0'); ?>:</label>
                 <div class="inputWithIcon">
-                    <i class="frontIcon g-icon" aria-hidden="true">person</i>
+                    <i class="frontIco g-icon" aria-hidden="true">person</i>
                     <input id="iName" type="text" name="user" tabindex="1" value="" autocomplete="off" spellcheck="false" autofocus>
-                    <i class="endIcon g-icon" aria-hidden="true">close</i>
+                    <i class="endIco g-icon" aria-hidden="true">close</i>
                 </div>
                 <label for="iPassword"><?= $this->getHtml('Password', '0', '0'); ?>:</label>
                 <div class="inputWithIcon">
-                    <i class="frontIcon g-icon" aria-hidden="true">lock</i>
+                    <i class="frontIco g-icon" aria-hidden="true">lock</i>
                     <input id="iPassword" type="password" name="pass" tabindex="2" value="orange">
-                    <i class="endIcon g-icon" aria-hidden="true">close</i>
+                    <i class="endIco g-icon" aria-hidden="true">close</i>
                 </div>
                 <input id="iLoginButton" name="loginButton" type="submit" value="<?= $this->getHtml('Login', '0', '0'); ?>" tabindex="3">
             </form>

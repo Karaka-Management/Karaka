@@ -28,11 +28,11 @@ $search = $this->getSearchLink(
     <?php if ($data[1]) : ?>
     <form class="inline" id="<?= $this->id; ?>-search" method="GET" action="<?= UriFactory::build($search); ?>&search={#<?= $this->id; ?>-searchbox}">
         <span role="search" class="inputWrapper">
-            <span class="textWrapper">
+            <span class="txtWrap">
                 <input id="<?= $this->id; ?>-searchbox" name="search" type="text" autocomplete="off" value="<?= $this->request->getData('search') ?? ''; ?>" autofocus>
-                <i class="endIcon g-icon close" aria-hidden="true">close</i>
+                <i class="endIco g-icon close" aria-hidden="true">close</i>
             </span>
-            <button type="submit"><i class="frontIcon g-icon" aria-hidden="true">search</i></button>
+            <button type="submit"><i class="frontIco g-icon" aria-hidden="true">search</i></button>
         </span>
     </form>
     <?php endif; ?>

@@ -6,52 +6,48 @@ html, body {
     min-width: 100%;
     max-width: 100%;
     overflow: hidden;
-    font-family: var(--font-family);
+    font-family: var(--ff);
     font-weight: 100;
     color: #000;
 }
 
-body {
+body, body > nav, main, main > header, main > header > form, #logo, #content {
     display: flex;
+}
+
+body > nav, main, #logo, #content {
+    flex-direction: column;
 }
 
 body > nav {
     width: 250px;
     overflow-y: auto;
     font-size: 0.8em;
-    background: var(--nav-category-background);
+    background: var(--nav-cat-bg);
     color: rgba(255, 255, 255, 0.8);
     flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
     user-select: none;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
     max-width: 100%;
     height: 100%;
-    background: var(--main-background);
+    background: var(--main-bg);
     overflow-x: auto; /* required for table overflow, otherwise tables in the portlet cause overflows */
-
     flex: 1;
     box-sizing: border-box;
 
     > header {
-        background: var(--header-background);
-        border-bottom: 1px solid var(--box-border);
+        background: var(--header-bg);
+        border-bottom: 1px solid var(--bborder);
         padding: 0 1rem 0 1rem;
         box-sizing: border-box;
-        display: flex;
         align-items: center;
         flex-flow: row;
         flex-shrink: 0;
         height: 65px;
-        //box-shadow: 0 0 3px 1px rgba(72, 71, 114, 0.3);
 
         > form {
-            display: flex;
             flex: 1;
             padding: 0 5px 0 5px;
             max-width: 800px;
@@ -64,7 +60,7 @@ main {
         input[type=text] {
             width: 100%;
             background: rgba(255, 255, 255, 1);
-            border: 1px solid var(--input-border);
+            border: 1px solid var(--iborder);
             text-shadow: none;
             box-shadow: none;
             transition : border 500ms ease-out;
@@ -79,15 +75,11 @@ main {
     height: 100%;
     flex: 1;
     text-align: right;
-
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
-
     padding-left: 1rem;
 
     select {
-        background: var(--nav-category-background);
+        background: var(--nav-cat-bg);
         color: rgba(255, 255, 255, 0.8);
         font-size: .8rem;
     }
@@ -123,7 +115,7 @@ main {
 
         &:checked {
             & + label {
-                color: var(--nav-sub-background-highlight);
+                color: var(--nav-sub-bg-hl);
 
                 .volume_up {
                     display: inherit;
@@ -150,21 +142,143 @@ main {
 }
 
 nav .ham-trigger {
-    color: var(--text-on-background-color-2);
+    color: var(--txt-on-bg-c-2);
     margin: 0 0 0 5px;
     display: none;
+}
+
+.nav-trigger {
+    position: absolute;
+    display: none;
+
+    &:checked + nav {
+        width: 0%;
+    }
 }
 
 #t-nav-container {
     margin-left: auto;
 }
 
-#content {
+#nav-side-outer {
+    overflow-y: auto;
+    height: 100%;
+    user-select: none;
+    scrollbar-color: var(--btn-c-bg) var(--nav-cat-bg);
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--btn-c-bg);
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--nav-cat-bg);
+    }
+}
+
+#nav-side-inner {
+    flex: 0;
     display: flex;
+    flex-flow: column;
+    box-sizing: border-box;
+    border-top: 1px solid #4b5055;
+
+    span {
+        flex-grow: 1;
+    }
+
+    input {
+        display: none;
+
+        &:checked + ul {
+            .expand {
+                transition: all .3s ease;
+                transform: rotateZ(90deg);
+            }
+
+            > li:nth-child(n+2), .expand {
+                display: inherit;
+            }
+        }
+    }
+
+    input + ul {
+        .expand {
+            transition: all .3s ease;
+            transform: rotateZ(0deg);
+        }
+
+        > li:nth-child(n+2) {
+            display: none;
+        }
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        padding: .3rem .5rem .3rem .5rem;
+        cursor: pointer;
+    }
+
+    > li {
+        display: block;
+
+        a {
+            display: block;
+            padding: .5rem .75rem .5rem .75rem;
+            border-left: 3px solid transparent;
+
+            &:hover, &:focus {
+                background: var(--nav-sub-bg-hover);
+                border-left: 3px solid var(--nav-sub-bg-hl);
+            }
+        }
+
+        li {
+            &:not(:first-child) {
+                background: var(--nav-sub-bg);
+            }
+
+            a {
+                &:hover, &.active, &:focus {
+                    background: var(--nav-cat-bg-hover);
+                }
+            }
+        }
+
+
+        li:first-child {
+            border-bottom: 1px solid #212628;
+        }
+
+        li:first-child {
+            border-top: 1px solid #4b5055;
+        }
+    }
+
+    > li:first-child {
+        li:first-child {
+            border-top: none;
+        }
+    }
+
+    i {
+        flex-grow: 0;
+
+        &+span {
+            margin-left: 5px;
+        }
+    }
+}
+
+#content {
     flex: 1;
     padding: 0 0 1rem 1rem;
     overflow-y: auto;
-    flex-direction: column;
 }
 
 #t-nav {
@@ -177,7 +291,7 @@ nav .ham-trigger {
         line-height: 25px;
 
         &:hover, &:focus {
-            color: var(--link-hover);
+            color: var(--lhover);
         }
     }
 
@@ -190,17 +304,6 @@ nav .ham-trigger {
     li {
         display: inline;
     }
-}
-
-#dim {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    opacity: 0.5;
-    z-index: 5;
 }
 
 #u-box {
@@ -233,8 +336,8 @@ img.profile-image {
 
 #iSearchType {
     min-width: 50px;
-    background: var(--button-colored-background);
-    color: var(--text-on-background-color-2);
+    background: var(--btn-c-bg);
+    color: var(--txt-on-bg-c-2);
     width: auto;
     height: 30px;
     border: none;
@@ -244,11 +347,11 @@ img.profile-image {
     }
 
     &:hover, &:focus {
-        background: var(--button-colored-background-hover);
+        background: var(--btn-c-bg-hover);
     }
 
     label {
-        color: var(--text-on-background-color-2);
+        color: var(--txt-on-bg-c-2);
     }
 
     .dropdown-closed {
@@ -256,42 +359,86 @@ img.profile-image {
     }
 
     .dropdown-container {
-        background: var(--button-colored-background);
+        background: var(--btn-c-bg);
         border: 0;
         white-space: nowrap;
 
         label {
             &:hover, &:focus {
-                background: var(--button-colored-background-hover);
+                background: var(--btn-c-bg-hover);
             }
         }
     }
 }
 
-#app-message-container {
-    position: absolute;
-    margin: 0 auto;
-    right: 10px;
-    top: 85px;
-    padding: 0;
+@media only screen and (max-width: 48em) {
+    nav .ham-trigger {
+        display: flex;
+    }
 
-    .log-msg {
-        z-index: 11;
-        margin: 0 auto;
-        right: 0;
-        top: 0;
-        margin-bottom: 10px;
+    .nav-trigger:checked + nav {
+        width: 100% !important;
+    }
+
+    .nav-trigger:checked ~ main {
+        display: none !important;
+    }
+
+    main > header  {
+        flex-flow: column;
+        height: auto;
+        padding: 1rem;
+
+        form {
+            width: 100%;
+        }
+    }
+
+    #t-nav-container {
+        order: -1;
+        margin-bottom: .5rem;
     }
 }
 
-.log-msg {
-    position: relative;
+@media only screen and (max-width: 62em) {
+    #t-nav .link {
+        display: none;
+    }
 
-    .close {
-        position: absolute;
-        top: 5px;
-        right: 5px;
+    .nav-trigger:not(:checked) + nav {
+        width: 0%;
+    }
+
+    .nav-trigger:checked + nav {
+        width: auto;
+        min-width: 250px;
     }
 }
 
-@import "backend_media.scss";
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 100;
+    src: url('/Resources/fonts/googleicons/100.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 200;
+    src: url('/Resources/fonts/googleicons/200.woff2') format('woff2');
+}
+
+.g-icon {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    font-size: 1.5rem;
+    font-weight: 200;
+}

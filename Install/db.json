@@ -42,7 +42,7 @@
     "module_load": {
         "name": "module_load",
         "fields": {
-            "module_id": {
+            "module_load_id": {
                 "name": "module_load_id",
                 "type": "INT",
                 "null": false,

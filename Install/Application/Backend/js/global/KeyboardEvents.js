@@ -1,5 +1,9 @@
 import { jsOMS } from '../../../../../jsOMS/Utils/oLib.js';
 /** global: jsOMS */
+/**
+ * @todo Implement table/link navigation
+ *      https://github.com/Karaka-Management/Karaka/issues/162
+ */
 export const KEYBOARD_EVENTS = [
     {
         'element': '', // jump into search bar

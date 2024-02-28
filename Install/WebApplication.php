@@ -15,15 +15,23 @@ declare(strict_types=1);
 
 namespace Install;
 
+use Model\CoreSettings;
+use phpOMS\Account\AccountManager;
+use phpOMS\Application\ApplicationAbstract;
+use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
+use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Dispatcher\Dispatcher;
+use phpOMS\Event\EventManager;
 use phpOMS\Localization\ISO639x1Enum;
+use phpOMS\Localization\L11nManager;
 use phpOMS\Localization\Localization;
 use phpOMS\Log\FileLogger;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\Http\RequestStatusCode;
+use phpOMS\Module\ModuleManager;
 use phpOMS\Router\RouteVerb;
 use phpOMS\Router\WebRouter;
 use phpOMS\System\MimeType;
@@ -225,12 +233,34 @@ final class WebApplication extends InstallAbstract
 
         self::clearOld();
         self::installConfigFile($request);
-        self::installCore($db);
+
+        $app = new class() extends ApplicationAbstract
+        {
+            protected string $appName = 'Api';
+        };
+
+        $app->dbPool = new DatabasePool();
+        $app->dbPool->add('select', $db);
+        $app->dbPool->add('insert', $db);
+        $app->dbPool->add('update', $db);
+        $app->dbPool->add('schema', $db);
+
+        $app->moduleManager  = new ModuleManager($app, __DIR__ . '/../Modules/');
+        $app->appSettings    = new CoreSettings();
+        $app->unitId         = 1;
+        $app->l11nManager    = new L11nManager();
+        $app->accountManager = new AccountManager(new HttpSession());
+        $app->l11nServer     = new Localization();
+        $app->dispatcher     = new Dispatcher($app);
+        $app->eventManager   = new EventManager($app->dispatcher);
+        $app->eventManager->importFromFile(__DIR__ . '/../Web/Api/Hooks.php');
+
+        self::installCore($app);
         self::installGroups();
         self::installUsers($request, $db);
-        self::installWebApplications($request, $db);
-        self::installLocalApplications($request, $db);
-        self::installCoreModules($db);
+        self::installWebApplications($request, $app);
+        self::installLocalApplications($request, $app);
+        self::installCoreModules($app);
         self::configureCoreModules($request, $db);
 
         $response->header->status = RequestStatusCode::R_200;

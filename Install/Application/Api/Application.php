@@ -61,6 +61,14 @@ use Web\WebApplication;
 final class Application
 {
     /**
+     * Application version
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    public const VERSION = '1.0.0';
+
+    /**
      * WebApplication.
      *
      * @var WebApplication
@@ -89,6 +97,7 @@ final class Application
     {
         $this->app          = $app;
         $this->app->appName = 'Api';
+        $this->app->version = self::VERSION;
         $this->config       = $config;
     }
 
@@ -286,6 +295,14 @@ final class Application
                 'message'  => 'The endpoint you requested doesn\'t exist.',
                 'response' => [],
             ]);
+
+            \phpOMS\Log\FileLogger::getInstance()->warning(
+                \phpOMS\Log\FileLogger::MSG_FULL, [
+                    'message' => 'Invalid endpoint: ' . $request->uri->__toString(),
+                    'line'    => __LINE__,
+                    'file'    => self::class,
+                ]
+            );
         }
 
         $pageView->addData('dispatch', $dispatched);

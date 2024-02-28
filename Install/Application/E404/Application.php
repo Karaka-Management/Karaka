@@ -21,7 +21,6 @@ use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Model\Html\Head;
 use phpOMS\System\File\PathException;
-use phpOMS\Views\View;
 use Web\WebApplication;
 
 /**
@@ -35,6 +34,14 @@ use Web\WebApplication;
  */
 final class Application
 {
+    /**
+     * Application version
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    public const VERSION = '1.0.0';
+
     /**
      * WebApplication.
      *
@@ -54,7 +61,7 @@ final class Application
     /**
      * Constructor.
      *
-     * @param Webapplication $app    Application
+     * @param WebApplication $app    Application
      * @param array          $config Configuration
      *
      * @since 1.0.0
@@ -64,6 +71,7 @@ final class Application
         $this->app          = $app;
         $this->config       = $config;
         $this->app->appName = 'E404';
+        $this->app->version = self::VERSION;
     }
 
     /**
@@ -102,7 +110,7 @@ final class Application
         $response->header->status = RequestStatusCode::R_404;
 
         $head = new Head();
-        $head->addAsset(AssetType::CSS, 'cssOMS/styles.css?v=1.0.0');
+        $head->addAsset(AssetType::CSS, 'cssOMS/styles.css?v=' . self::VERSION);
 
         $pageView->head = $head;
     }

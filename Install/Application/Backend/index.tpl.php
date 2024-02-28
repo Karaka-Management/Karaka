@@ -98,7 +98,7 @@ $dispatch = $this->getData('dispatch') ?? [];
     </nav>
     <main>
         <header>
-            <form id="s-bar" method="GET" action="<?= UriFactory::build('{/base}/search?{?}&app=Backend&csrf={$CSRF}'); ?>&search={!#iSearchBox}">
+        <form id="s-bar" method="GET" action="<?= UriFactory::build('{/base}/search?{?}&app=Backend&csrf={$CSRF}'); ?>">
                 <label class="ham-trigger" for="nav-trigger"><i class="g-icon p">menu</i></label>
                 <span role="search" class="inputWrapper">
                     <label id="iSearchType" for="iSearchType-check" class="dropdown search-type">
@@ -115,17 +115,17 @@ $dispatch = $this->getData('dispatch') ?? [];
                             <div class="dropdown-content">
                                 <label for="iSearchType-e1"><i class="g-icon">location_on</i> Page</label>
                                 <label for="iSearchType-e2"><i class="g-icon">public</i> Global</label>
-                                <label for="iSearchType-check">Close</label>
+                                <label for="iSearchType-check"><?= $this->getHtml('Close', '0', '0'); ?></label>
                             </div>
                         </div>
                     </label>
 
-                    <span class="textWrapper">
+                    <span class="txtWrap">
                         <input id="iSearchBox" name="search" type="text" autocomplete="off" value="<?= $this->request->getDataString('search') ?? ''; ?>" autofocus>
-                        <i class="frontIcon g-icon" aria-hidden="true">search</i>
-                        <i class="endIcon g-icon" aria-hidden="true">close</i>
+                        <i class="frontIco g-icon" aria-hidden="true">search</i>
+                        <i class="endIco g-icon" aria-hidden="true">close</i>
                     </span>
-                    <input type="submit" id="iSearchButton" name="searchButton" value="<?= $this->getHtml('Search', '0', '0'); ?>">
+                    <a class="button" href="<?= UriFactory::build('{/base}/search?{?}&app=Backend&csrf={$CSRF}'); ?>&search={#iSearchBox}"><?= $this->getHtml('Search', '0', '0'); ?></a>
                 </span>
             </form>
             <div id="t-nav-container"><?= $top; ?></div>
@@ -138,13 +138,18 @@ $dispatch = $this->getData('dispatch') ?? [];
                 if (!($view instanceof \phpOMS\Views\NullView)
                     && $view instanceof \phpOMS\Contract\RenderableInterface
                 ) {
+                    $render = $view->render();
+                    if ($render === '') {
+                        continue;
+                    }
+
+                    echo $render;
                     ++$c;
-                    echo $view->render();
                 }
             }
 
             if ($c === 0) {
-                echo '<div class="emptyPage"></div>';
+                include __DIR__ . '/Error/404.tpl.php';
             }
             ?>
         </div>
@@ -160,8 +165,8 @@ $dispatch = $this->getData('dispatch') ?? [];
         </template>
     </div>
 
-<template id="table-context-menu-tpl">
-    <div id="table-context-menu" class="context-menu">
+<template id="table-ctx-menu-tpl">
+    <div id="table-ctx-menu" class="ctx-menu">
         <ul>
             <li class="context-line">
                 <label class="checkbox" for="itable1-visibile-">

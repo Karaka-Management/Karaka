@@ -253,3 +253,6 @@
 [submodule "Modules/SalesAnalysis"]
 	path = Modules/SalesAnalysis
 	url = https://github.com/Karaka-Management/oms-SalesAnalysis.git
+[submodule "Modules/Notification"]
+	path = Modules/Notification
+	url = https://github.com/Karaka-Management/oms-Notification.git

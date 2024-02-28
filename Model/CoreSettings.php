@@ -27,6 +27,10 @@ use phpOMS\DataStorage\Cache\CachePool;
  * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
+ *
+ * @question Maybe it makes sense to allow modules and applications to install settings to be loaded based on the route.
+ *      This would mean application would load all required settings at the beginning once and further queries
+ *      would not be necessary effectively saving a bunch of individual queries.
  */
 final class CoreSettings implements SettingsInterface
 {
@@ -94,7 +98,7 @@ final class CoreSettings implements SettingsInterface
 
         // all from cache
         if (empty($ids) && empty($names)) {
-            return \count($options) > 1 ? $options : \reset($options);
+            return $expectsArray ? $options : \reset($options);
         }
 
         /**
