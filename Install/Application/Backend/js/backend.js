@@ -65,6 +65,8 @@ export class Application
 
         this.reInit();
 
+        this.setupGeolocation();
+        this.setupNotificationManager();
         this.setupServiceWorker();
         this.setResponseMessages();
         this.setVoiceActions();
@@ -99,18 +101,40 @@ export class Application
         });
     };
 
+    setupGeolocation()
+    {
+        if ('geolocation' in navigator) {
+            navigator.geolocation.getCurrentPosition(position => {});
+        }
+    };
+
+    setupNotificationManager()
+    {
+        this.notifyManager.browserNotifier.requestPermission();
+    };
+
     /**
      * Setup the service worker
      *
      * @return {void}
      *
-     * @sicne 1.0.0
+     * @since 1.0.0
      */
     setupServiceWorker ()
     {
         /** global: navigator */
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/Web/Backend/ServiceWorker.js', {scope: this.request.getBase()}).catch(function (e)
+            navigator.serviceWorker.register('sw.min.js').then(function (e) {
+                self.periodicSync.register("get-latest-notification", {
+                    minInterval: 60 * 1,
+                }).then(() => {
+                    Logger.instance.warning('PeriodicSync registration worked.');
+                })
+                .catch(function (e)
+                {
+                    Logger.instance.warning('PeriodicSync registration failed.');
+                });
+            }).catch(function (e)
             {
                 Logger.instance.warning('ServiceWorker registration failed.');
             });
@@ -122,7 +146,7 @@ export class Application
      *
      * @return {void}
      *
-     * @sicne 1.0.0
+     * @since 1.0.0
      */
     setResponseMessages ()
     {
@@ -139,7 +163,7 @@ export class Application
      *
      * @return {void}
      *
-     * @sicne 1.0.0
+     * @since 1.0.0
      */
     setActions ()
     {
@@ -156,7 +180,7 @@ export class Application
      *
      * @return {void}
      *
-     * @sicne 1.0.0
+     * @since 1.0.0
      */
     setKeyboardActions ()
     {
@@ -177,7 +201,7 @@ export class Application
      *
      * @return {void}
      *
-     * @sicne 1.0.0
+     * @since 1.0.0
      */
     setMouseActions ()
     {
@@ -200,7 +224,7 @@ export class Application
      *
      * @return {void}
      *
-     * @sicne 1.0.0
+     * @since 1.0.0
      */
     setVoiceActions ()
     {

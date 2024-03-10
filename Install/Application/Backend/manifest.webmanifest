@@ -1,11 +1,18 @@
 {
     "lang": "en",
     "dir": "ltr",
-    "start_url": "../../en/backend",
+    "start_url": "/",
+    "scope": "/",
+    "orientation": "any",
+    "theme_color": "#343a40",
+    "background_color": "white",
     "type": "privileged",
     "name": "Jingga Backend",
-    "description": "Karaka backend application.",
+    "description": "Jingga backend application.",
     "short_name": "Jingga",
+    "display": "minimal-ui",
+    "display_override": ["minimal-ui", "standalone"],
+    "protocol_handlers": [],
     "icons": [
         {
             "src": "img/icon-72x72.png",
@@ -104,20 +111,27 @@
             "purpose": "maskable"
         }
     ],
-    "scope": "/",
-    "display": "standalone",
-    "orientation": "any",
-    "theme_color": "#343a40",
-    "background_color": "white",
-    "permissions": {
-        "audio-capture" : {
-            "description" : "Audio capture"
+    "permissions": [
+        "audio-capture",
+        "video-capture",
+        "speech-recognition",
+        "notifications",
+        "geolocation"
+    ],
+    "screenshots": [
+        {
+            "src": "img/screenshot-640x320.png",
+            "sizes": "640x320",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Jingga"
         },
-        "video-capture": {
-            "description": "Video capture"
-        },
-        "speech-recognition" : {
-            "description" : "Speech recognition"
+        {
+            "src": "img/screenshot-320x640.png",
+            "sizes": "320x640",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Jingga"
         }
-    }
+    ]
 }

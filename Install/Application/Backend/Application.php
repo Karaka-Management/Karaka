@@ -431,6 +431,7 @@ final class Application
 
         /* Load assets */
         $head->addAsset(AssetType::CSS, 'cssOMS/styles.css?v=' . self::VERSION, ['defer']);
+        //$head->addAsset(AssetType::CSS, 'Web/Backend/css/backend-dark.css?v=1.0.0', ['media' => '(prefers-color-scheme: dark)', 'defer']);
         $head->addAsset(AssetType::CSS, 'cssOMS/print.css?v=' . self::VERSION, ['media' => 'print', 'defer']);
 
         // Framework

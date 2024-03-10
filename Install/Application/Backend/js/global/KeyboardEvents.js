@@ -39,7 +39,7 @@ export const KEYBOARD_EVENTS = [
             let defaultSubmit = -1;
 
             for (let i = 0; i < length; ++i) {
-                if (jsOMS.hasClass(buttons[i], 'hidden')) {
+                if (jsOMS.hasClass(buttons[i], 'vh')) {
                     continue;
                 }
 

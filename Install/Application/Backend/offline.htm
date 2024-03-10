@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#343a40">
+        <meta name="msapplication-navbutton-color" content="#343a40">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#343a40">
+        <meta name="description" content="Offline page>">
+        <base href="/">
+        <title>Jingga offline page</title>
+        <link rel="shortcut icon" href="Web/Backend/img/favicon.ico?v=1.0.0" type="image/x-icon">
+        <style>
+            :root {
+                --ff: 'Arial', Helvetica, sans-serif;
+
+                --header-height: 30rem;
+                --header-bg: #3b4fbb;
+                --header-bg-hl: #6abbe3;
+                --header-border: #5063cf;
+
+                --block1-background: #0d1d44;
+                --footer-background: #0d1d44;
+
+                --btn-bg: #2D70B4;
+            }
+
+            html, body {
+                font-family: 'Arial', Helvetica, sans-serif;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+
+            html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, nav, section, iframe, label {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body > header {
+                color: #fff;
+                letter-spacing: 1px;
+                background-image: radial-gradient(200rem 100rem at top, var(--header-bg-hl) 0%, var(--header-bg) 30%);
+                border-bottom: 1px solid var(--header-bg-hl);
+                overflow: hidden;
+            }
+
+            #header-content {
+                height: var(--header-height);
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            body > header .box {
+                max-width: 500px;
+            }
+
+            body > header .box h1 {
+                font-size: 2.5rem;
+                font-weight: 200;
+                color: rgba(255, 255, 255, 1);
+                padding-bottom: 1rem;
+            }
+
+            body > header .box p {
+                line-height: 1.75rem;
+                margin-top: 2rem;
+                font-weight: 300;
+            }
+
+            body > header .img:after {
+                content: '';
+                position: absolute;
+                bottom: 0%;
+                left: 5%;
+                width: 90%;
+                height: 5%;
+                border-radius: 50%;
+                box-shadow: 0px 20px 5px hsla(0, 0%, 0%, 0.25);
+            }
+
+            main {
+                display: flex;
+                flex-direction: column;
+                flex-grow:1;
+            }
+
+            .floater {
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px 0 20px;
+                box-sizing: border-box;
+            }
+
+            .block a, .block a:hover, .block a:active, .block a:focus {
+                color: var(--btn-bg);
+            }
+
+            .block .floater > h1 {
+                font-weight: 200;
+                margin: 0 0 0.5rem 0;
+            }
+
+            .block1 {
+                flex: 1;
+                background: var(--block1-background);
+                color: #fff;
+                padding: 20px 0 20px 0;
+            }
+
+            .block1 .section {
+                margin-bottom: 4rem;
+            }
+
+            .block1 p {
+                line-height: 1.5rem;
+            }
+
+            .block1 .box p {
+                margin: 0 0 1.5rem 0;
+            }
+
+            .block1 .box {
+                flex: 2;
+            }
+
+            footer {
+                color:rgba(255, 255, 255, 0.50);
+                background: var(--footer-background);
+                padding: 2rem 0 2rem 0;
+                overflow: hidden;
+            }
+
+            footer h1, footer p {
+                font-size: 0.8rem;
+                margin-bottom: 1rem;
+            }
+
+            footer ul {
+                font-size: 0.8rem;
+                list-style-type: none;
+            }
+
+            footer li {
+                margin-bottom: .5rem;
+            }
+
+            footer a {
+                color:rgba(255, 255, 255, 1);
+                white-space: nowrap;
+                display: inline-flex;
+                align-items: center;
+                opacity: .65
+            }
+
+            footer a img {
+                margin-right: .25rem;
+            }
+
+            footer a:hover {
+                color:rgba(255, 255, 255, 0.85);
+            }
+
+            footer .flex > div {
+                min-width: 100px;
+                flex-basis: auto;
+                flex-grow: 1;
+            }
+
+            footer .flex > div:not(:first-child) {
+                margin-left: 2rem;
+            }
+
+            .slide-up-fade-in {
+                animation: slide-up-fade-in ease 1s;
+                animation-iteration-count: 1;
+                transform-origin: 50% 50%;
+                animation-fill-mode:forwards; /*when the spec is finished*/
+                opacity: 0;
+                opacity: 1\9;
+            }
+
+            a {
+                text-decoration: none;
+                outline: none;
+                color: var(--btn-bg);
+            }
+
+            .button {
+                background: var(--btn-bg);
+                border-radius: 2rem;
+                border: none;
+                color: rgba(255, 255, 255, 0.95);
+                cursor: pointer;
+                transition: background-color 0.5s ease,
+                            color 0.5s ease;
+            }
+
+            .button.small:hover {
+                color: var(--btn-bg);
+            }
+
+            .button.small {
+                padding: .3rem 1rem .3rem 1rem;
+                min-width: 5rem;
+                font-size: .9rem;
+                height: auto;
+                color: #fff;
+            }
+
+            .button:hover, .button:active, .button:focus {
+                color: var(--btn-bg);
+                background: #fff;
+            }
+
+            .tcenter {
+                text-align: center;
+            }
+
+            .spacer {
+                padding: 3rem;
+            }
+
+            @keyframes slide-up-fade-in {
+                0% {
+                    opacity:0;
+                    transform:  translate(0px,40px)  ;
+                }
+                100% {
+                    opacity:1;
+                    transform:  translate(0px,0px)  ;
+                }
+            }
+
+            @media only screen and (max-width: 600px) {
+                footer .flex {
+                    flex-wrap: wrap;
+                }
+
+                footer .flex div:first-child {
+                    min-width: 250px;
+                }
+
+                header .box {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="floater">
+                <div id="header-content">
+                    <span class="box slide-up-fade-in">
+                        <h1>Business Solutions made simple!</h1>
+                        <p>Modern business software in one application for all company sizes and types. The Jingga software supports you with your tasks and relieves you from as much administrative work as possible so you can focus on the important aspects of your business.</p>
+                    </span>
+                    <span class="img"><img alt="logo" width="240" height="226" fetchpriority="high" src="Web/Backend/img/logo.webp"></span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="block block1">
+                <div class="floater">
+                    <h1>Offline Mode</h1>
+                    <p>You are currently in the offline mode. This can happen if your Internet connection is not available. We try to provide many of our pages and features even when you are offline. Despite our best efforts some content may not be available.</p>
+                </div>
+
+                <div class="spacer"></div>
+
+                <div class="floater tcenter">
+                    <a class="button small" onclick="history.back()" href="">Back</a>
+                    <a class="button small" onclick="window.location.reload();" href="">Reload</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+
+        </footer>

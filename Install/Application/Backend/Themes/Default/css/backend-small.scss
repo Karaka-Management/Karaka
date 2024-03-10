@@ -1,4 +1,4 @@
-@import "backend_vars.scss";
+@import "../../../../../../cssOMS/vars.scss";
 
 html, body {
     width: 100%;
@@ -8,7 +8,7 @@ html, body {
     overflow: hidden;
     font-family: var(--ff);
     font-weight: 100;
-    color: #000;
+    color: var(--default-c);
 }
 
 body, body > nav, main, main > header, main > header > form, #logo, #content {
@@ -131,7 +131,7 @@ main {
 
 .ham-trigger {
     display: flex;
-    color: #000;
+    color: var(--default-c);
     align-items: center;
     flex: 0;
     margin-right: 5px;
@@ -164,7 +164,7 @@ nav .ham-trigger {
     overflow-y: auto;
     height: 100%;
     user-select: none;
-    scrollbar-color: var(--btn-c-bg) var(--nav-cat-bg);
+    scrollbar-color: var(--btn-bg) var(--nav-cat-bg);
     scrollbar-width: thin;
 
     &::-webkit-scrollbar {
@@ -172,7 +172,7 @@ nav .ham-trigger {
     }
 
     &::-webkit-scrollbar-thumb {
-        background: var(--btn-c-bg);
+        background: var(--btn-bg);
     }
 
     &::-webkit-scrollbar-track {
@@ -283,7 +283,6 @@ nav .ham-trigger {
 
 #t-nav {
     font-size: .8rem;
-    color: #000;
     font-weight: 300;
 
     a {
@@ -336,7 +335,7 @@ img.profile-image {
 
 #iSearchType {
     min-width: 50px;
-    background: var(--btn-c-bg);
+    background: var(--btn-bg);
     color: var(--txt-on-bg-c-2);
     width: auto;
     height: 30px;
@@ -347,7 +346,7 @@ img.profile-image {
     }
 
     &:hover, &:focus {
-        background: var(--btn-c-bg-hover);
+        background: var(--btn-bg-hover);
     }
 
     label {
@@ -359,13 +358,13 @@ img.profile-image {
     }
 
     .dropdown-container {
-        background: var(--btn-c-bg);
+        background: var(--btn-bg);
         border: 0;
         white-space: nowrap;
 
         label {
             &:hover, &:focus {
-                background: var(--btn-c-bg-hover);
+                background: var(--btn-bg-hover);
             }
         }
     }
