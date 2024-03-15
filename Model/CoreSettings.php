@@ -49,12 +49,12 @@ final class CoreSettings implements SettingsInterface
      */
     public function get(
         mixed $ids = null,
-        string|array $names = null,
-        int $unit = null,
-        int $app = null,
-        string $module = null,
-        int $group = null,
-        int $account = null
+        string|array|null $names = null,
+        ?int $unit = null,
+        ?int $app = null,
+        ?string $module = null,
+        ?int $group = null,
+        ?int $account = null
     ) : mixed {
         $options      = [];
         $expectsArray = \is_array($ids) || \is_array($names);
@@ -159,7 +159,7 @@ final class CoreSettings implements SettingsInterface
     {
         /**
          * @var array $option
-        */
+         */
         foreach ($options as $option) {
             $key = '';
             if (\is_array($option)) {
@@ -221,7 +221,11 @@ final class CoreSettings implements SettingsInterface
         $options = empty($options) ? $this->options : $options;
 
         foreach ($options as $option) {
-            if (\is_array($option) && !($option['session'] ?? false)) {
+            if ($option['session'] ?? false) {
+                continue;
+            }
+
+            if (\is_array($option)) {
                 $setting = new Setting();
                 $setting->with(
                     $option['id'] ?? 0,

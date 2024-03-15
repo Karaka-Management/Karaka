@@ -57,7 +57,7 @@ class L11nView extends View
     /**
      * {@inheritdoc}
      */
-    public function __construct(L11nManager $l11n = null, RequestAbstract $request, ResponseAbstract $response)
+    public function __construct(?L11nManager $l11n = null, RequestAbstract $request, ResponseAbstract $response)
     {
         parent::__construct($l11n, $request, $response);
         $this->setTemplate('/Web/Backend/Themes/l11n-list');

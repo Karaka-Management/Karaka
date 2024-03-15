@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Install;
 
-use Model\CoreSettings;
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountCredentialMapper;
 use Modules\Admin\Models\Group;
@@ -27,7 +26,6 @@ use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Organization\Models\Status;
 use Modules\Organization\Models\UnitMapper;
-use phpOMS\Account\AccountManager;
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use phpOMS\Account\GroupStatus;
@@ -36,17 +34,10 @@ use phpOMS\Application\ApplicationAbstract;
 use phpOMS\Application\ApplicationType;
 use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
-use phpOMS\DataStorage\Session\HttpSession;
-use phpOMS\Dispatcher\Dispatcher;
-use phpOMS\Event\EventManager;
-use phpOMS\Localization\L11nManager;
-use phpOMS\Localization\Localization;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Module\ModuleManager;
 use phpOMS\Security\EncryptionHelper;
 use phpOMS\System\File\Local\Directory;
 use phpOMS\System\MimeType;
@@ -340,8 +331,8 @@ abstract class InstallAbstract extends ApplicationAbstract
     {
         // setup basic units
         /** @var \Modules\Organization\Models\Unit $default */
-        $default       = UnitMapper::get()->where('id', 1)->execute();
-        $default->name = $request->getDataString('orgname') ?? '';
+        $default         = UnitMapper::get()->where('id', 1)->execute();
+        $default->name   = $request->getDataString('orgname') ?? '';
         $default->status = Status::ACTIVE;
 
         UnitMapper::update()->execute($default);
@@ -386,15 +377,15 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function installMainGroups() : void
     {
-        $guest = new Group('guest');
+        $guest         = new Group('guest');
         $guest->status = GroupStatus::ACTIVE;
         GroupMapper::create()->execute($guest);
 
-        $user = new Group('user');
+        $user         = new Group('user');
         $user->status = GroupStatus::ACTIVE;
         GroupMapper::create()->execute($user);
 
-        $admin = new Group('admin');
+        $admin         = new Group('admin');
         $admin->status = GroupStatus::ACTIVE;
         GroupMapper::create()->execute($admin);
     }
@@ -469,8 +460,8 @@ abstract class InstallAbstract extends ApplicationAbstract
     /**
      * Install applications
      *
-     * @param RequestAbstract    $request Request
-     * @param ApplicationAbstract $db     Database connection
+     * @param RequestAbstract     $request Request
+     * @param ApplicationAbstract $app     Application
      *
      * @return void
      *
@@ -519,12 +510,12 @@ abstract class InstallAbstract extends ApplicationAbstract
      */
     protected static function installMainUser(RequestAbstract $request, ConnectionAbstract $db) : void
     {
-        $account = new Account();
+        $account         = new Account();
         $account->status = AccountStatus::ACTIVE;
-        $account->tries = 0;
-        $account->type = AccountType::USER;
-        $account->login = $request->getDataString('adminname') ?? '';
-        $account->name1 = $request->getDataString('adminname') ?? '';
+        $account->tries  = 0;
+        $account->type   = AccountType::USER;
+        $account->login  = $request->getDataString('adminname') ?? '';
+        $account->name1  = $request->getDataString('adminname') ?? '';
         $account->generatePassword($request->getDataString('adminpassword') ?? '');
         $account->setEmail($request->getDataString('adminemail') ?? '');
 

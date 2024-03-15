@@ -139,11 +139,11 @@ class Setting implements \JsonSerializable
         string $name = '',
         string $content = '',
         string $pattern = '',
-        int $unit = null,
-        int $app = null,
-        string $module = null,
-        int $group = null,
-        int $account = null,
+        ?int $unit = null,
+        ?int $app = null,
+        ?string $module = null,
+        ?int $group = null,
+        ?int $account = null,
         bool $isEncrypted = false,
     ) : self {
         $this->id          = $id;
@@ -183,11 +183,11 @@ class Setting implements \JsonSerializable
         string $name = '',
         string $content = '',
         string $pattern = '',
-        int $unit = null,
-        int $app = null,
-        string $module = null,
-        int $group = null,
-        int $account = null,
+        ?int $unit = null,
+        ?int $app = null,
+        ?string $module = null,
+        ?int $group = null,
+        ?int $account = null,
         bool $isEncrypted = false
     ) {
         $this->id          = $id;

@@ -509,7 +509,7 @@ final class Application
         $profileImage = $this->app->appSettings->get(names: SettingsEnum::DEFAULT_PROFILE_IMAGE, module: 'Profile');
 
         /** @var \Modules\Media\Models\Media $image */
-        $image                         = MediaMapper::get()
+        $image = MediaMapper::get()
             ->where('id', (int) $profileImage->content)
             ->execute();
         $pageView->defaultProfileImage = $image;

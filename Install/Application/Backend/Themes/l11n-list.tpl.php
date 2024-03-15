@@ -16,9 +16,9 @@ use phpOMS\Localization\ISO639Enum;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Uri\UriFactory;
 
-$l11n = $this->l11ns;
+$l11n      = $this->l11ns;
 $languages = ISO639x1Enum::getConstants();
-$types = $this->l11nTypes;
+$types     = $this->l11nTypes;
 ?>
 
 <div class="col-xs-12 col-md-6">
@@ -38,7 +38,7 @@ $types = $this->l11nTypes;
                     <label for="iLocalizationsLanguage"><?= $this->getHtml('Language', '0', '0'); ?></label>
                     <select id="iLocalizationsLanguage" name="language" data-tpl-text="/language" data-tpl-value="/language">
                         <?php foreach ($languages as $language) : ?>
-                            <option value="<?= $language ?>"<?= $this->response->header->l11n->language === $language ? ' selected' : ''; ?>><?= $this->printHtml(ISO639Enum::getBy2Code($language)); ?>
+                            <option value="<?= $language; ?>"<?= $this->response->header->l11n->language === $language ? ' selected' : ''; ?>><?= $this->printHtml(ISO639Enum::getBy2Code($language)); ?>
                         <?php endforeach; ?>
                     </select>
                 </div>

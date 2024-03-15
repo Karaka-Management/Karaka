@@ -266,7 +266,7 @@ class TableView extends View
      *
      * @since 1.0.0
      */
-    public function getPreviousLink(RequestAbstract $request, object $obj = null, bool $hasPrevious = false) : string
+    public function getPreviousLink(RequestAbstract $request, ?object $obj = null, bool $hasPrevious = false) : string
     {
         return $this->baseUri . (
             $obj === null
@@ -297,7 +297,7 @@ class TableView extends View
      *
      * @since 1.0.0
      */
-    public function getNextLink(RequestAbstract $request, object $obj = null, $hasNext = false) : string
+    public function getNextLink(RequestAbstract $request, ?object $obj = null, $hasNext = false) : string
     {
         return $this->baseUri . (
             $obj === null

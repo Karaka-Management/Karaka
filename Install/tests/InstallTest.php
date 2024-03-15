@@ -19,7 +19,6 @@ use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\Http\RequestMethod;
 use phpOMS\Message\Http\RequestStatusCode;
-use phpOMS\Uri\HttpUri;
 
 /**
  * @internal
@@ -120,11 +119,11 @@ class InstallTest extends \PHPUnit\Framework\TestCase
      */
     public function testInstall() : void
     {
-        $config   = [
-            'db'       => [
+        $config = [
+            'db' => [
                 'core' => [
                     'masters' => [
-                        'admin'  => [
+                        'admin' => [
                             'db'       => 'mysql', /* db type */
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
@@ -133,7 +132,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'database' => 'omt', /* db name */
                             'weight'   => 1000, /* db table weight */
                         ],
-                        'insert'  => [
+                        'insert' => [
                             'db'       => 'mysql', /* db type */
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
@@ -142,7 +141,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'database' => 'omt', /* db name */
                             'weight'   => 1000, /* db table weight */
                         ],
-                        'select'  => [
+                        'select' => [
                             'db'       => 'mysql', /* db type */
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
@@ -151,7 +150,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'database' => 'omt', /* db name */
                             'weight'   => 1000, /* db table weight */
                         ],
-                        'update'  => [
+                        'update' => [
                             'db'       => 'mysql', /* db type */
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
@@ -160,7 +159,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'database' => 'omt', /* db name */
                             'weight'   => 1000, /* db table weight */
                         ],
-                        'delete'  => [
+                        'delete' => [
                             'db'       => 'mysql', /* db type */
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
@@ -169,7 +168,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'database' => 'omt', /* db name */
                             'weight'   => 1000, /* db table weight */
                         ],
-                        'schema'  => [
+                        'schema' => [
                             'db'       => 'mysql', /* db type */
                             'host'     => '127.0.0.1', /* db host address */
                             'port'     => '3306', /* db host port */
@@ -192,19 +191,19 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                     'port' => 11211,
                 ],
             ],
-            'log'      => [
+            'log' => [
                 'file' => [
                     'path' => __DIR__ . '/Logs',
                 ],
             ],
-            'page'     => [
+            'page' => [
                 'root'  => '/',
                 'https' => false,
             ],
-            'app'      => [
+            'app' => [
                 'path' => __DIR__,
             ],
-            'socket'   => [
+            'socket' => [
                 'master' => [
                     'host'  => '127.0.0.1',
                     'limit' => 300,
@@ -214,7 +213,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
             'language' => [
                 'en',
             ],
-            'apis'     => [
+            'apis' => [
             ],
         ];
         $response = new HttpResponse();

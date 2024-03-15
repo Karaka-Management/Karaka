@@ -85,7 +85,7 @@ class BackendView extends View
      *
      * @since 1.0.0
      */
-    public function __construct(L11nManager $l11n = null, RequestAbstract $request = null, ResponseAbstract $response = null)
+    public function __construct(?L11nManager $l11n = null, ?RequestAbstract $request = null, ?ResponseAbstract $response = null)
     {
         parent::__construct($l11n, $request, $response);
 
