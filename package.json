@@ -6,6 +6,14 @@
   "directories": {
     "test": "tests"
   },
+  "dependencies": {
+    "chromedriver": "^119.0.1",
+    "eslint": "^8.12.0",
+    "geckodriver": "^3.0.2",
+    "node-sass": "^7.0.0",
+    "sass": "^1.57.1",
+    "selenium-webdriver": "^4.0.0-beta.4"
+  },
   "scripts": {
     "release": "npx esbuild Install/Application/Backend/js/backend.js --bundle --outfile=Install/Application/Backend/js/backend.min.js --minify && cp Install/Application/Backend/js/backend.min.js Web/Backend/js/backend.min.js && esbuild Install/Application/Backend/js/sw.js --bundle --outfile=Install/Application/Backend/js/sw.min.js --minify && cp Install/Application/Backend/js/sw.min.js Web/Backend/js/sw.min.js",
     "test": "npx esbuild Install/Application/Backend/js/backend.js --bundle --outfile=Install/Application/Backend/js/backend.min.js && cp Install/Application/Backend/js/backend.min.js Web/Backend/js/backend.min.js && esbuild Install/Application/Backend/js/sw.js --bundle --outfile=Install/Application/Backend/js/sw.min.js && cp Install/Application/Backend/js/sw.min.js Web/Backend/js/sw.min.js",
