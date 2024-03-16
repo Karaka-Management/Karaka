@@ -5,6 +5,7 @@ import { preventEvent } from '../../../../../jsOMS/Model/Action/Event/Prevent.js
 import { domClickAction } from '../../../../../jsOMS/Model/Action/Dom/Click.js';
 import { domGetValue } from '../../../../../jsOMS/Model/Action/Dom/GetValue.js';
 import { domSetValue } from '../../../../../jsOMS/Model/Action/Dom/SetValue.js';
+import { domChangeAttribute } from '../../../../../jsOMS/Model/Action/Dom/ChangeAttribute.js';
 import { formSubmitAction } from '../../../../../jsOMS/Model/Action/Dom/FormSubmit.js';
 
 export const ACTION_EVENTS = {
@@ -16,4 +17,5 @@ export const ACTION_EVENTS = {
     'event.prevent': preventEvent, /** global: preventEvent */
     'dom.get': domGetValue, /** global: domGetValue */
     'dom.set': domSetValue, /** global: domSetValue */
+    'dom.attr.change': domChangeAttribute, /** global: domChangeAttribute */
 };
