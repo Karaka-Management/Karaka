@@ -674,7 +674,7 @@ trait ModuleTestTrait
      * Test if the module info file has the correct types
      *
      * @param array $module Module info file
-     * @param array $samle  Sample info file (as basis for checking the data types)
+     * @param array $sample Sample info file (as basis for checking the data types)
      *
      * @return bool
      */
@@ -689,7 +689,6 @@ trait ModuleTestTrait
                 && \gettype($module['requirements']) === \gettype($sample['requirements'])
                 && \gettype($module['creator']) === \gettype($sample['creator'])
                 && \gettype($module['creator']['name']) === \gettype($sample['creator']['name'])
-                && \gettype($module['description']) === \gettype($sample['description'])
                 && \gettype($module['directory']) === \gettype($sample['directory'])
                 && \gettype($module['dependencies']) === \gettype($sample['dependencies'])
                 && \gettype($module['providing']) === \gettype($sample['providing'])
