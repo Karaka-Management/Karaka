@@ -81,7 +81,7 @@ class Application
 
         $this->app->logger = FileLogger::getInstance($config['log']['file']['path'], true);
 
-        $this->app->logger->info('Setting up TCP socket application...');
+        $this->app->logger?->info('Setting up TCP socket application...');
 
         $this->app->dbPool = new DatabasePool();
         $this->app->dbPool->create('core', $config['db']['core']['masters']['admin']);
@@ -111,7 +111,7 @@ class Application
         $this->app->dispatcher    = new Dispatcher($this->app);
         $this->app->l11nManager   = new L11nManager();
 
-        $this->app->logger->info('Initializing active modules...');
+        $this->app->logger?->info('Initializing active modules...');
         /*$modules = $this->moduleManager->getActiveModules();
         foreach ($modules as $name => $module) {
             $this->moduleManager->initModule($name);

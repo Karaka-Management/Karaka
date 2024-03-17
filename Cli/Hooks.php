@@ -3,6 +3,9 @@
         'callback' => [
             0 => '\Modules\Admin\Controller\CliController:runEncryptionChangeFromHook',
             1 => '\Modules\Media\Controller\CliController:runEncryptionChangeFromHook',
+            2 => '\Modules\Admin\Controller\CliController:runEncryptionChangeFromHook',
+            3 => '\Modules\Media\Controller\CliController:runEncryptionChangeFromHook',
+            4 => '\Modules\Media\Controller\CliController:runEncryptionChangeFromHook',
         ],
     ],
     '/.*/' => [

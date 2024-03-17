@@ -23,27 +23,15 @@
             'verb' => 16,
         ],
     ],
-    '^.*/admin/monitoring/log( .*$|$)' => [
-        0 => [
-            'dest' => '\Modules\Monitoring\Controller\CliController:cliLogReport',
-            'verb' => 16,
-        ],
-    ],
-    '^.*/workflow/instance( .*$|$)' => [
-        0 => [
-            'dest' => '\Modules\Workflow\Controller\CliController:cliWorkflowInstanceCreate',
-            'verb' => 16,
-        ],
-    ],
     '^/billing/bill/purchase/parse( .*$|$)' => [
         0 => [
             'dest' => '\Modules\Billing\Controller\CliController:cliParseSupplierBill',
             'verb' => 16,
         ],
     ],
-    '^/purchase/order/suggestion/create( .*$|$)' => [
+    '^.*/admin/monitoring/log( .*$|$)' => [
         0 => [
-            'dest' => '\Modules\Purchase\Controller\CliController:cliGenerateOrderSuggestion',
+            'dest' => '\Modules\Monitoring\Controller\CliController:cliLogReport',
             'verb' => 16,
         ],
     ],
@@ -55,6 +43,18 @@
                 'type' => 4,
                 'state' => 1,
             ],
+        ],
+    ],
+    '^/purchase/order/suggestion/create( .*$|$)' => [
+        0 => [
+            'dest' => '\Modules\Purchase\Controller\CliController:cliGenerateOrderSuggestion',
+            'verb' => 16,
+        ],
+    ],
+    '^.*/workflow/instance( .*$|$)' => [
+        0 => [
+            'dest' => '\Modules\Workflow\Controller\CliController:cliWorkflowInstanceCreate',
+            'verb' => 16,
         ],
     ],
 ];

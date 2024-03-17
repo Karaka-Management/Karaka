@@ -261,16 +261,16 @@ trait ModuleTestTrait
                 }
 
                 if (!\str_starts_with($column['type'] ?? '', 'TINYINT')
-                    || !\str_starts_with($column['type'] ?? '', 'SMALLINT')
-                    || !\str_starts_with($column['type'] ?? '', 'INT')
-                    || !\str_starts_with($column['type'] ?? '', 'BIGINT')
-                    || !\str_starts_with($column['type'] ?? '', 'VARCHAR')
-                    || !\str_starts_with($column['type'] ?? '', 'VARBINARY')
-                    || !\str_starts_with($column['type'] ?? '', 'TEXT')
-                    || !\str_starts_with($column['type'] ?? '', 'LONGTEXT')
-                    || !\str_starts_with($column['type'] ?? '', 'BLOB')
-                    || !\str_starts_with($column['type'] ?? '', 'DATETIME')
-                    || !\str_starts_with($column['type'] ?? '', 'DECIMAL')
+                    && !\str_starts_with($column['type'] ?? '', 'SMALLINT')
+                    && !\str_starts_with($column['type'] ?? '', 'INT')
+                    && !\str_starts_with($column['type'] ?? '', 'BIGINT')
+                    && !\str_starts_with($column['type'] ?? '', 'VARCHAR')
+                    && !\str_starts_with($column['type'] ?? '', 'VARBINARY')
+                    && !\str_starts_with($column['type'] ?? '', 'TEXT')
+                    && !\str_starts_with($column['type'] ?? '', 'LONGTEXT')
+                    && !\str_starts_with($column['type'] ?? '', 'BLOB')
+                    && !\str_starts_with($column['type'] ?? '', 'DATETIME')
+                    && !\str_starts_with($column['type'] ?? '', 'DECIMAL')
                 ) {
                     self::assertTrue(false, 'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" is a missing/invalid type');
                 }
@@ -805,6 +805,9 @@ trait ModuleTestTrait
 
                 /** @var array $keys */
                 $keys = \array_keys($langArray);
+
+                $diff1 = [];
+                $diff2 = [];
 
                 if (empty($langKeys[$type]['keys'])) {
                     $langKeys[$type]['keys'] = $keys;
