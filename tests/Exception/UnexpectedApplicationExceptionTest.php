@@ -24,7 +24,7 @@ use Web\Exception\UnexpectedApplicationException;
 class UnexpectedApplicationExceptionTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Web\Exception\UnexpectedApplicationException
+     * @covers \Web\Exception\UnexpectedApplicationException
      * @group framework
      */
     public function testException() : void

@@ -23,7 +23,7 @@ use Model\SettingMapper;
 class SettingMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Model\SettingMapper
+     * @covers \Model\SettingMapper
      * @group framework
      */
     public function testCR() : void

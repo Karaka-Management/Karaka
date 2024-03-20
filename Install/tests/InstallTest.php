@@ -35,7 +35,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Install\WebApplication<extended>
+     * @covers \Install\WebApplication<extended>
      * @group admin
      */
     public function testInvalidInstallRequest() : void
@@ -49,7 +49,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Install\WebApplication<extended>
+     * @covers \Install\WebApplication<extended>
      * @group admin
      */
     public function testInvalidDatabaseInstallRequest() : void
@@ -96,24 +96,24 @@ class InstallTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Install\WebApplication<extended>
+     * @covers \Install\WebApplication<extended>
      *
-     * @covers phpOMS\Application\ApplicationManager
-     * @covers phpOMS\Module\ModuleManager
+     * @covers \phpOMS\Application\ApplicationManager
+     * @covers \phpOMS\Module\ModuleManager
      *
-     * @covers Modules\Admin\Controller\ApiController
-     * @covers Modules\CMS\Controller\ApiController
+     * @covers \Modules\Admin\Controller\ApiController
+     * @covers \Modules\CMS\Controller\ApiController
      *
-     * @covers Modules\Admin\Admin\Installer
-     * @covers Modules\Auditor\Admin\Installer
-     * @covers Modules\Organization\Admin\Installer
-     * @covers Modules\Help\Admin\Installer
-     * @covers Modules\Profile\Admin\Installer
-     * @covers Modules\Navigation\Admin\Installer
-     * @covers Modules\Dashboard\Admin\Installer
-     * @covers Modules\CMS\Admin\Installer
-     * @covers Modules\Tag\Admin\Installer
-     * @covers Modules\Media\Admin\Installer
+     * @covers \Modules\Admin\Admin\Installer
+     * @covers \Modules\Auditor\Admin\Installer
+     * @covers \Modules\Organization\Admin\Installer
+     * @covers \Modules\Help\Admin\Installer
+     * @covers \Modules\Profile\Admin\Installer
+     * @covers \Modules\Navigation\Admin\Installer
+     * @covers \Modules\Dashboard\Admin\Installer
+     * @covers \Modules\CMS\Admin\Installer
+     * @covers \Modules\Tag\Admin\Installer
+     * @covers \Modules\Media\Admin\Installer
      *
      * @group admin
      */

@@ -24,7 +24,7 @@ use Web\Exception\DatabaseException;
 class DatabaseExceptionTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Web\Exception\DatabaseException
+     * @covers \Web\Exception\DatabaseException
      * @group framework
      */
     public function testException() : void

@@ -29,7 +29,7 @@ class SettingTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Model\Setting
+     * @covers \Model\Setting
      * @group framework
      */
     public function testDefault() : void
@@ -38,7 +38,7 @@ class SettingTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Model\Setting
+     * @covers \Model\Setting
      * @group framework
      */
     public function testWithInitailization() : void

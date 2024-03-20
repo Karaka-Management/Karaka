@@ -22,7 +22,7 @@ use Model\NullSetting;
 class NullSettingTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Model\NullSetting
+     * @covers \Model\NullSetting
      * @group framework
      */
     public function testDefault() : void

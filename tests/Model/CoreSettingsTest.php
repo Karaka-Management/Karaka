@@ -32,9 +32,9 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Model\CoreSettings
-     * @covers Model\Setting
-     * @covers Model\SettingMapper
+     * @covers \Model\CoreSettings
+     * @covers \Model\Setting
+     * @covers \Model\SettingMapper
      * @group framework
      */
     public function testSettingsGet() : void
@@ -62,9 +62,9 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Model\CoreSettings
-     * @covers Model\Setting
-     * @covers Model\SettingMapper
+     * @covers \Model\CoreSettings
+     * @covers \Model\Setting
+     * @covers \Model\SettingMapper
      * @group framework
      */
     public function testSettingsSet() : void
@@ -99,9 +99,9 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Model\CoreSettings
-     * @covers Model\Setting
-     * @covers Model\SettingMapper
+     * @covers \Model\CoreSettings
+     * @covers \Model\Setting
+     * @covers \Model\SettingMapper
      * @group framework
      */
     public function testSettingsCreate() : void
@@ -121,9 +121,9 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Model\CoreSettings
-     * @covers Model\Setting
-     * @covers Model\SettingMapper
+     * @covers \Model\CoreSettings
+     * @covers \Model\Setting
+     * @covers \Model\SettingMapper
      * @group framework
      */
     public function testSettingsSetWithoutStore() : void
@@ -152,9 +152,9 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Model\CoreSettings
-     * @covers Model\Setting
-     * @covers Model\SettingMapper
+     * @covers \Model\CoreSettings
+     * @covers \Model\Setting
+     * @covers \Model\SettingMapper
      * @group framework
      */
     public function testSettingsSave() : void
@@ -186,9 +186,9 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Model\CoreSettings
-     * @covers Model\Setting
-     * @covers Model\SettingMapper
+     * @covers \Model\CoreSettings
+     * @covers \Model\Setting
+     * @covers \Model\SettingMapper
      * @group framework
      */
     public function testSetWithSave() : void

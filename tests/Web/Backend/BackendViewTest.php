@@ -26,7 +26,7 @@ use Web\Backend\BackendView;
 class BackendViewTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Web\Backend\BackendView
+     * @covers \Web\Backend\BackendView
      * @group framework
      */
     public function testDefault() : void
@@ -37,7 +37,7 @@ class BackendViewTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Web\Backend\BackendView
+     * @covers \Web\Backend\BackendView
      * @group framework
      */
     public function testProfileImageUrl() : void
