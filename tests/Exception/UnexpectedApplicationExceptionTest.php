@@ -21,12 +21,10 @@ use Web\Exception\UnexpectedApplicationException;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Web\Exception\UnexpectedApplicationException::class)]
 class UnexpectedApplicationExceptionTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Web\Exception\UnexpectedApplicationException
-     * @group framework
-     */
+    #[\PHPUnit\Framework\Attributes\Group('framework')]
     public function testException() : void
     {
         self::assertInstanceOf(\RuntimeException::class, new UnexpectedApplicationException(''));

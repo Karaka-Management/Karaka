@@ -23,10 +23,7 @@ use Cli\CliApplication;
  */
 class CliApplicationTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers Cli\CliApplication
-     * @group framework
-     */
+    #[\PHPUnit\Framework\Attributes\Group('framework')]
     public function testCliApplication() : void
     {
         $console = new CliApplication(

@@ -66,10 +66,10 @@ trait ModuleTestTrait
     }
 
     /**
-     * @group admin
      * @slowThreshold 5000
-     * @group module
      */
+    #[\PHPUnit\Framework\Attributes\Group('admin')]
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testModuleIntegration() : void
     {
         $iResponse                 = new HttpResponse();
@@ -89,10 +89,8 @@ trait ModuleTestTrait
         self::assertTrue($this->app->moduleManager->isActive(self::NAME), 'Module "' . self::NAME . '" is not active.');
     }
 
-    /**
-     * @group module
-     * @coversNothing
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
+    #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testMembers() : void
     {
         $module = $this->app->moduleManager->get(self::NAME);
@@ -105,10 +103,8 @@ trait ModuleTestTrait
         self::assertGreaterThanOrEqual(0, Version::compare($module::VERSION, '1.0.0'));
     }
 
-    /**
-     * @group module
-     * @coversNothing
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
+    #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testValidMapper() : void
     {
         $mappers = \glob(__DIR__ . '/../../Modules/' . self::NAME . '/Models/*Mapper.php');
@@ -145,10 +141,8 @@ trait ModuleTestTrait
         return '\\Modules\\' . self::NAME . '\\Models\\' . $name;
     }
 
-    /**
-     * @group module
-     * @coversNothing
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
+    #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testMapperAgainstModel() : void
     {
         $mappers = \glob(__DIR__ . '/../../Modules/' . self::NAME . '/Models/*Mapper.php');
@@ -234,10 +228,8 @@ trait ModuleTestTrait
         self::assertTrue(true);
     }
 
-    /**
-     * @group module
-     * @coversNothing
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
+    #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testValidDbSchema() : void
     {
         $schemaPath = __DIR__ . '/../../Modules/' . self::NAME . '/Admin/Install/db.json';
@@ -281,10 +273,8 @@ trait ModuleTestTrait
         self::assertTrue(Json::validateTemplate($dbTemplate, $db), 'Invalid db template for ' . self::NAME);
     }
 
-    /**
-     * @group module
-     * @coversNothing
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
+    #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testDbSchemaAgainstDb() : void
     {
         $builder = new SchemaBuilder($this->app->dbPool->get());
@@ -318,10 +308,8 @@ trait ModuleTestTrait
         self::assertTrue(true);
     }
 
-    /**
-     * @group module
-     * @coversNothing
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
+    #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testMapperAgainstDbSchema() : void
     {
 
@@ -427,10 +415,8 @@ trait ModuleTestTrait
         return 0;
     }
 
-    /**
-     * @group module
-     * @coversNothing
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
+    #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testJson() : void
     {
         $sampleInfo    = \json_decode(\file_get_contents(__DIR__ . '/../../Modules/TestModule/info.json'), true);
@@ -448,10 +434,8 @@ trait ModuleTestTrait
         self::assertTrue(Json::validateTemplate($infoTemplate, $info), 'Invalid info template for ' . self::NAME);
     }
 
-    /**
-     * @group module
-     * @coversNothing
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
+    #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testDependency() : void
     {
         $module = $this->app->moduleManager->get(self::NAME);
@@ -465,10 +449,8 @@ trait ModuleTestTrait
         self::assertTrue($this->dependencyTest($info, $this->app->moduleManager->getInstalledModules(false)), 'Invalid dependency configuration in ' . self::NAME);
     }
 
-    /**
-     * @group module
-     * @coversNothing
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
+    #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testRoutes() : void
     {
         $this->app->moduleManager      = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
@@ -494,10 +476,8 @@ trait ModuleTestTrait
         }
     }
 
-    /**
-     * @group module
-     * @coversNothing
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
+    #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testHooks() : void
     {
         $this->app->moduleManager     = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
@@ -523,11 +503,9 @@ trait ModuleTestTrait
         }
     }
 
-    /**
-     * @group final
-     * @group module
-     * @coversNothing
-     */
+    #[\PHPUnit\Framework\Attributes\Group('final')]
+    #[\PHPUnit\Framework\Attributes\Group('module')]
+    #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testNavigation() : void
     {
         $module = $this->app->moduleManager->get(self::NAME);
@@ -703,10 +681,8 @@ trait ModuleTestTrait
         return false;
     }
 
-    /**
-     * @group module
-     * @coversNothing
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
+    #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testRequestLoads() : void
     {
         if (!\defined('self::URI_LOAD') || empty(self::URI_LOAD)) {
@@ -734,10 +710,8 @@ trait ModuleTestTrait
         self::assertTrue($this->app->moduleManager->isRunning(self::NAME));
     }
 
-    /**
-     * @group module
-     * @coversNothing
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
+    #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testLanguage() : void
     {
         $module = $this->app->moduleManager->get(self::NAME);

@@ -21,12 +21,10 @@ use Web\Exception\DatabaseException;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Web\Exception\DatabaseException::class)]
 class DatabaseExceptionTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Web\Exception\DatabaseException
-     * @group framework
-     */
+    #[\PHPUnit\Framework\Attributes\Group('framework')]
     public function testException() : void
     {
         self::assertInstanceOf(\RuntimeException::class, new DatabaseException(''));

@@ -23,6 +23,21 @@ use phpOMS\Message\Http\RequestStatusCode;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Install\WebApplication::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\phpOMS\Application\ApplicationManager::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\phpOMS\Module\ModuleManager::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Admin\Controller\ApiController::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\CMS\Controller\ApiController::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Admin\Admin\Installer::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Auditor\Admin\Installer::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Organization\Admin\Installer::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Help\Admin\Installer::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Profile\Admin\Installer::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Navigation\Admin\Installer::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Dashboard\Admin\Installer::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\CMS\Admin\Installer::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Tag\Admin\Installer::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Media\Admin\Installer::class)]
 class InstallTest extends \PHPUnit\Framework\TestCase
 {
     public function testPermissions() : void
@@ -34,10 +49,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         self::assertTrue(\is_writable(__DIR__ . '/../../Web'));
     }
 
-    /**
-     * @covers \Install\WebApplication<extended>
-     * @group admin
-     */
+    #[\PHPUnit\Framework\Attributes\Group('admin')]
     public function testInvalidInstallRequest() : void
     {
         $response = new HttpResponse();
@@ -48,10 +60,7 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(RequestStatusCode::R_400, $response->header->status);
     }
 
-    /**
-     * @covers \Install\WebApplication<extended>
-     * @group admin
-     */
+    #[\PHPUnit\Framework\Attributes\Group('admin')]
     public function testInvalidDatabaseInstallRequest() : void
     {
         $response = new HttpResponse();
@@ -95,28 +104,8 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(RequestStatusCode::R_400, $response->header->status);
     }
 
-    /**
-     * @covers \Install\WebApplication<extended>
-     *
-     * @covers \phpOMS\Application\ApplicationManager
-     * @covers \phpOMS\Module\ModuleManager
-     *
-     * @covers \Modules\Admin\Controller\ApiController
-     * @covers \Modules\CMS\Controller\ApiController
-     *
-     * @covers \Modules\Admin\Admin\Installer
-     * @covers \Modules\Auditor\Admin\Installer
-     * @covers \Modules\Organization\Admin\Installer
-     * @covers \Modules\Help\Admin\Installer
-     * @covers \Modules\Profile\Admin\Installer
-     * @covers \Modules\Navigation\Admin\Installer
-     * @covers \Modules\Dashboard\Admin\Installer
-     * @covers \Modules\CMS\Admin\Installer
-     * @covers \Modules\Tag\Admin\Installer
-     * @covers \Modules\Media\Admin\Installer
-     *
-     * @group admin
-     */
+
+    #[\PHPUnit\Framework\Attributes\Group('admin')]
     public function testInstall() : void
     {
         $config = [

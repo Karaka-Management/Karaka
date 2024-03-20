@@ -22,6 +22,9 @@ use Modules\Admin\Models\SettingsEnum;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Model\CoreSettings::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Model\Setting::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Model\SettingMapper::class)]
 class CoreSettingsTest extends \PHPUnit\Framework\TestCase
 {
     protected CoreSettings $settings;
@@ -31,12 +34,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         $this->settings = new CoreSettings();
     }
 
-    /**
-     * @covers \Model\CoreSettings
-     * @covers \Model\Setting
-     * @covers \Model\SettingMapper
-     * @group framework
-     */
+    #[\PHPUnit\Framework\Attributes\Group('framework')]
     public function testSettingsGet() : void
     {
         $this->settings->set([
@@ -61,12 +59,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    /**
-     * @covers \Model\CoreSettings
-     * @covers \Model\Setting
-     * @covers \Model\SettingMapper
-     * @group framework
-     */
+    #[\PHPUnit\Framework\Attributes\Group('framework')]
     public function testSettingsSet() : void
     {
         self::assertEmpty(
@@ -98,12 +91,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    /**
-     * @covers \Model\CoreSettings
-     * @covers \Model\Setting
-     * @covers \Model\SettingMapper
-     * @group framework
-     */
+    #[\PHPUnit\Framework\Attributes\Group('framework')]
     public function testSettingsCreate() : void
     {
         self::assertEmpty(
@@ -120,12 +108,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    /**
-     * @covers \Model\CoreSettings
-     * @covers \Model\Setting
-     * @covers \Model\SettingMapper
-     * @group framework
-     */
+    #[\PHPUnit\Framework\Attributes\Group('framework')]
     public function testSettingsSetWithoutStore() : void
     {
         self::assertEmpty(
@@ -151,12 +134,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    /**
-     * @covers \Model\CoreSettings
-     * @covers \Model\Setting
-     * @covers \Model\SettingMapper
-     * @group framework
-     */
+    #[\PHPUnit\Framework\Attributes\Group('framework')]
     public function testSettingsSave() : void
     {
         $this->settings->save([
@@ -185,12 +163,7 @@ class CoreSettingsTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    /**
-     * @covers \Model\CoreSettings
-     * @covers \Model\Setting
-     * @covers \Model\SettingMapper
-     * @group framework
-     */
+    #[\PHPUnit\Framework\Attributes\Group('framework')]
     public function testSetWithSave() : void
     {
         $setting = new Setting();

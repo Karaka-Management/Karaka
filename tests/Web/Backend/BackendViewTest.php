@@ -23,12 +23,10 @@ use Web\Backend\BackendView;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Web\Backend\BackendView::class)]
 class BackendViewTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Web\Backend\BackendView
-     * @group framework
-     */
+    #[\PHPUnit\Framework\Attributes\Group('framework')]
     public function testDefault() : void
     {
         $view = new BackendView();
@@ -36,10 +34,7 @@ class BackendViewTest extends \PHPUnit\Framework\TestCase
         self::assertStringContainsString('', $view->getProfileImage());
     }
 
-    /**
-     * @covers \Web\Backend\BackendView
-     * @group framework
-     */
+    #[\PHPUnit\Framework\Attributes\Group('framework')]
     public function testProfileImageUrl() : void
     {
         $view = new BackendView();

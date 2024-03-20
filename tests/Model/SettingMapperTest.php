@@ -20,12 +20,10 @@ use Model\SettingMapper;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Model\SettingMapper::class)]
 class SettingMapperTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Model\SettingMapper
-     * @group framework
-     */
+    #[\PHPUnit\Framework\Attributes\Group('framework')]
     public function testCR() : void
     {
         $setting = new Setting();
