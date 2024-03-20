@@ -2,7 +2,7 @@
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @package   Template
  * @copyright Dennis Eichhorn
@@ -31,7 +31,7 @@ return <<<EOT
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @package   Install
  * @copyright Dennis Eichhorn
