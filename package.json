@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "dependencies": {
-    "chromedriver": "^123.0.0",
+    "chromedriver": "^123.0.1",
     "eslint": "^8.57.0",
     "geckodriver": "^4.3.3",
     "node-sass": "^9.0.0",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "esbuild": "0.19.5",
     "eslint-plugin-import": "^2.29.1",
-    "chromedriver": "^123.0.0",
+    "chromedriver": "^123.0.1",
     "eslint": "^8.57.0",
     "geckodriver": "^4.3.3",
     "node-sass": "^9.0.0",
