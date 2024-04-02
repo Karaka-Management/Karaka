@@ -59,7 +59,7 @@ main {
 
         input[type=text] {
             width: 100%;
-            background: rgba(255, 255, 255, 1);
+            background: var(--ipt-bg);
             border: 1px solid var(--iborder);
             text-shadow: none;
             box-shadow: none;

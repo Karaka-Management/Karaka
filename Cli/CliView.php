@@ -54,7 +54,7 @@ class CliView extends View
      * @var Unit[]
      * @since 1.0.0
      */
-    protected array $organizations = [];
+    public array $organizations = [];
 
     /**
      * Constructor
@@ -70,20 +70,5 @@ class CliView extends View
         parent::__construct($l11n, $request, $response);
 
         $this->profile = new NullProfile();
-    }
-
-    /**
-     * Set organizations
-     *
-     * @param Unit[] $organizations Organizations
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     * @codeCoverageIgnore
-     */
-    public function setOrganizations(array $organizations) : void
-    {
-        $this->organizations = $organizations;
     }
 }

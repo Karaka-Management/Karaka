@@ -431,15 +431,22 @@ final class Application
 
         /* Load assets */
         $head->addAsset(AssetType::CSS, 'cssOMS/styles.css?v=' . self::VERSION, ['defer']);
-        //$head->addAsset(AssetType::CSS, 'Web/Backend/css/backend-dark.css?v=1.0.0', ['media' => '(prefers-color-scheme: dark)', 'defer']);
         $head->addAsset(AssetType::CSS, 'cssOMS/print.css?v=' . self::VERSION, ['media' => 'print', 'defer']);
 
         // Framework
         $head->addAsset(AssetType::JS, 'Web/Backend/js/backend.min.js?v=' . self::VERSION, ['nonce' => $scriptSrc, 'type' => 'module', 'defer']);
 
-        if ($request->hasData('debug')) {
-            $head->addAsset(AssetType::CSS, 'cssOMS/debug.css?v=' . self::VERSION);
-            \phpOMS\DataStorage\Database\Query\Builder::$log = true;
+        // @feature Make user setting by storing it in the localstorage of the user
+        if ($request->hasKey('darkmode')) {
+            $head->addAsset(AssetType::CSS, 'Web/Backend/css/backend-dark.css?v=1.0.0', ['defer']);
+        }
+
+        if ($request->hasKey('debug')) {
+            $account = $this->app->accountManager->get($request->header->account);
+            if ($account->hasPermission(PermissionType::CREATE, $this->app->unitId, $this->app->appId)) {
+                $head->addAsset(AssetType::CSS, 'cssOMS/debug.css?v=' . self::VERSION);
+                \phpOMS\DataStorage\Database\Query\Builder::$log = true;
+            }
         }
 
         $css = \file_get_contents(__DIR__ . '/css/backend-small.css');
@@ -496,7 +503,7 @@ final class Application
     private function createDefaultPageView(HttpRequest $request, HttpResponse $response, BackendView $pageView) : void
     {
         /** @var \Modules\Organization\Models\Unit[] $units */
-        $units = UnitMapper::getAll()->execute();
+        $units = UnitMapper::getAll()->executeGetArray();
         $pageView->setOrganizations($units);
 
         /** @var \Modules\Profile\Models\Profile $profile */

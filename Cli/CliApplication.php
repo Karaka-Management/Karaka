@@ -395,15 +395,11 @@ final class CliApplication extends ApplicationAbstract
      */
     private function createDefaultPageView(CliRequest $request, CliResponse $response, CliView $pageView) : void
     {
-        /** @var \Modules\Organization\Models\Unit[] $unit */
-        $unit = UnitMapper::getAll()->execute();
-        $pageView->setOrganizations($unit);
+        $pageView->organizations = UnitMapper::getAll()->executeGetArray();
 
-        /** @var \Modules\Profile\Models\Profile $profile */
-        $profile           = ProfileMapper::get()
+        $pageView->profile = ProfileMapper::get()
             ->where('account', $request->header->account)
             ->execute();
-        $pageView->profile = $profile;
 
         $pageView->setTemplate('/Cli/index');
     }
