@@ -104,7 +104,6 @@ class InstallTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(RequestStatusCode::R_400, $response->header->status);
     }
 
-
     #[\PHPUnit\Framework\Attributes\Group('admin')]
     public function testInstall() : void
     {

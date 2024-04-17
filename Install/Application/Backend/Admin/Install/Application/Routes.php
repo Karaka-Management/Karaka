@@ -16,10 +16,11 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-	'^.*/legal/privacy(\?.*$|$)' => [
+	'^/legal/privacy(\?.*$|$)' => [
         [
             'dest'       => '\Web\Backend\Controller\PageController:viewLegalDocuments',
             'verb'       => RouteVerb::GET,
+            'active'     => true,
             'permission' => [
                 'module' => null,
                 'type'   => PermissionType::READ,
@@ -28,10 +29,11 @@ return [
         ],
     ],
 
-    '^.*/legal/terms(\?.*$|$)' => [
+    '^/legal/terms(\?.*$|$)' => [
         [
             'dest'       => '\Web\Backend\Controller\PageController:viewLegalDocuments',
             'verb'       => RouteVerb::GET,
+            'active'     => true,
             'permission' => [
                 'module' => null,
                 'type'   => PermissionType::READ,
@@ -40,10 +42,11 @@ return [
         ],
     ],
 
-    '^.*/legal/imprint(\?.*$|$)' => [
+    '^/legal/imprint(\?.*$|$)' => [
         [
             'dest'       => '\Web\Backend\Controller\PageController:viewLegalDocuments',
             'verb'       => RouteVerb::GET,
+            'active'     => true,
             'permission' => [
                 'module' => null,
                 'type'   => PermissionType::READ,

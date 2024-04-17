@@ -127,17 +127,6 @@ final class Application
 
         $this->app->router = new WebRouter();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
-        $this->app->router->add(
-            '/backend/e403',
-            function() use ($request, $response) {
-                $view = new View($this->app->l11nManager, $request, $response);
-                $view->setTemplate('/Web/Backend/Error/403_inline');
-                $response->header->status = RequestStatusCode::R_403;
-
-                return $view;
-            },
-            RouteVerb::GET
-        );
 
         /* CSRF token OK? */
         if ($request->hasData('CSRF')
@@ -165,6 +154,8 @@ final class Application
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
         $this->app->l11nServer     = LocalizationMapper::get()->where('id', 1)->execute();
         $this->app->unitId         = $this->getApplicationOrganization($request, $app, $this->config['app']);
+
+        $this->app->sessionManager->data['unit'] = $this->app->unitId;
 
         $aid                       = Auth::authenticate($this->app->sessionManager);
         $account                   = $this->loadAccount($aid);
@@ -272,6 +263,8 @@ final class Application
             || $routes === ['dest' => RouteStatus::INVALID_PERMISSIONS]
             || $routes === ['dest' => RouteStatus::INVALID_DATA]
         ) {
+            $response->header->status = RequestStatusCode::R_403;
+
             return $this->app->dispatcher->dispatch(
                 $this->app->router->route(
                     '/' . \strtolower($this->app->appName) . '/e403',
@@ -280,6 +273,8 @@ final class Application
                 ),
                 $request, $response);
         } elseif ($routes === ['dest' => RouteStatus::NOT_LOGGED_IN]) {
+            $response->header->status = RequestStatusCode::R_403;
+
             return $this->app->dispatcher->dispatch(
                 $this->app->router->route(
                     '/' . \strtolower($this->app->appName) . '/login',
@@ -288,12 +283,21 @@ final class Application
                 ),
                 $request, $response);
         } else {
+            if (empty($routes)) {
+                $response->header->status = RequestStatusCode::R_404;
+            }
+
             return $this->app->dispatcher->dispatch($routes, $request, $response);
         }
     }
 
     /**
      * Get application organization
+     *
+     *  1. Use uri parameter
+     *  2. Use session
+     *  3. Use app config
+     *  3. Use host config
      *
      * @param HttpRequest $request Client request
      * @param App         $app     Application
@@ -306,10 +310,12 @@ final class Application
     private function getApplicationOrganization(HttpRequest $request, App $app, array $config) : int
     {
         return (int) (
-            $request->getDataString('u') ?? (
-                ($app->defaultUnit ?? 0) === 0
-                    ? $config['domains'][$request->uri->host]['org'] ?? $config['default']['org']
-                    : $app->defaultUnit
+            $request->getDataInt('u') ?? (
+                $this->app->sessionManager->data['unit'] ?? (
+                    ($app->defaultUnit ?? 0) === 0
+                        ? ($config['domains'][$request->uri->host]['org'] ?? $config['default']['org'])
+                        : $app->defaultUnit
+                )
             )
         );
     }

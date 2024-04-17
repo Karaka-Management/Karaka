@@ -12,8 +12,6 @@
  */
 declare(strict_types=1);
 
-use phpOMS\Contract\RenderableInterface;
-
 $dispatch = $this->getData('dispatch') ?? [];
 
 echo \PHP_EOL;

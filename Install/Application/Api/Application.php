@@ -162,6 +162,9 @@ final class Application
         $this->app->l11nServer     = LocalizationMapper::get()->where('id', 1)->execute();
 
         $this->app->unitId = $this->getApplicationOrganization($request, $this->config['app']);
+
+        $this->app->sessionManager->data['unit'] = $this->app->unitId;
+
         $pageView->setData('unitId', $this->app->unitId);
 
         $aid = $request->hasData('api')
@@ -417,6 +420,10 @@ final class Application
     /**
      * Get application organization
      *
+     *  1. Use uri parameter
+     *  2. Use session
+     *  3. Use default config
+     *
      * @param HttpRequest $request Client request
      * @param array       $config  App config
      *
@@ -426,9 +433,10 @@ final class Application
      */
     private function getApplicationOrganization(HttpRequest $request, array $config) : int
     {
-        return $request->getDataInt('u')
-            ?? ($config['domains'][$request->uri->host]['org']
-                ?? $config['default']['org']
-            );
+        return $request->getDataInt('u') ?? (
+            $this->app->sessionManager->data['unit'] ?? (
+                $config['domains'][$request->uri->host]['org'] ?? $config['default']['org']
+            )
+        );
     }
 }
