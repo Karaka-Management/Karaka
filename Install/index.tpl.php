@@ -29,17 +29,25 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
             <img alt="Logo" src="img/logo.png" class="logo" width="50">
             <h1>Welcome</h1>
             <div>
-                <p>Jingga is a WebApp written in PHP and JavaScript supporting various database
-                and caching technologies. Many modules/extensions provide functionality for businesses,
+                <p>Jingga is a comprehensive WebApp mostly written in PHP and JavaScript.
+                Many modules/extensions provide functionality for businesses,
                 education facilities, healthcare facilities and organizations in general.<p>
+
+                <strong>Option 1</strong>
 
                 <p>On the following pages you'll be guided through the installation process for the WebApp.
                 Most of the customization can be done after installation such as configuring localization,
                 installing additional modules, creating organizations etc.</p>
 
+                <strong>Option 2</strong>
+
                 <p>In case you don't want to use this web installation tool you can also use the console
-                installation tool. Just navigate in your shell to the install directory and then into
-                Cli the subdirectory. There you simply run the install script and are good to go.</p>
+                installation tool. Just navigate in your shell to the <code>Install</code> directory, modify the <code>cli.php</code>
+                and <code>config.php</code> and then run the <code>cli.php</code> as <code>www-data</code>:
+                    <blockquote>sudo -u www-data php cli.php</blockquote>
+                </p>
+
+                <strong>Support</strong>
 
                 <p>In case you encounter any problems during the installation process please feel free to
                 ask for help on our website or contact our support email at
@@ -121,7 +129,7 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
                         <tr>
                             <td>
                             <td>Critcal
-                            <td>/Modules
+                            <td>/Modules/Media/Files
                             <td class="<?= \is_writable(__DIR__ . '/../Modules/Media/Files') ? 'OK' : 'FAILED'; ?>"><?= \decoct(\fileperms(__DIR__ . '/../Modules/Media/Files') & 0777); ?>
                         <tr>
                             <td>
