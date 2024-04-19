@@ -1,5 +1,4 @@
-<?php declare(strict_types=1);
-return [
+<?php return [
     '^/* .*?$' => [
         0 => [
             'dest' => '\Modules\Admin\Controller\CliController:viewEmptyCommand',
@@ -50,12 +49,12 @@ return [
     ],
     '^.*/orw/check -i all*$' => [
         0 => [
-            'dest'       => '\Modules\OnlineResourceWatcher\Controller\ApiController:apiCheckResources',
-            'active'     => true,
+            'dest' => '\Modules\OnlineResourceWatcher\Controller\ApiController:apiCheckResources',
+            'active' => true,
             'permission' => [
                 'module' => 'OnlineResourceWatcher',
-                'type'   => 4,
-                'state'  => 1,
+                'type' => 4,
+                'state' => 1,
             ],
         ],
     ],

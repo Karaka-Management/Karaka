@@ -4,7 +4,7 @@
  *
  * PHP Version 8.2
  *
- * @package   Template
+ * @package   Web\Backend
  * @copyright Dennis Eichhorn
  * @license   OMS License 2.0
  * @version   1.0.0
@@ -14,11 +14,9 @@ declare(strict_types=1);
 
 use phpOMS\Utils\Parser\Markdown\Markdown;
 ?>
-
-<div class="row">
-    <div class="col-xs-12">
-        <section class="portlet">
-            <article><?= Markdown::parse($this->data['content'] ?? ''); ?></article>
-        </section>
-    </div>
-</div>
+<?php include __DIR__ . '/head.tpl.php'; ?>
+<body>
+<main>
+    <article><?= Markdown::parse($this->data['content'] ?? ''); ?></article>
+</main>
+<?php include __DIR__ . '/foot.tpl.php'; ?>

@@ -29,7 +29,7 @@ $head = $this->head;
                 <input id="iResetButton" name="resetButton" type="submit" value="<?= $this->getHtml('Reset', '0', '0'); ?>" tabindex="3">
             </form>
         </div>
-        <div id="below-form"><a href="<?= UriFactory::build('{/base}/{/backend}'); ?>" tabindex="2"><?= $this->getHtml('Back', '0', '0'); ?></a></div>
+        <div id="below-form"><a href="<?= UriFactory::build('{/base}/'); ?>" tabindex="2"><?= $this->getHtml('Back', '0', '0'); ?></a></div>
     </div>
 </main>
 <?php include __DIR__ . '/foot.tpl.php'; ?>

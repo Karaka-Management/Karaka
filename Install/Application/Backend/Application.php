@@ -479,12 +479,24 @@ final class Application
      */
     private function createBaseLoggedOutResponse(HttpRequest $request, HttpResponse $response, Head $head, View $pageView) : void
     {
-        $file = \in_array($request->uri->getPathElement(0), ['forgot', 'reset', 'privacy', 'imprint', 'terms'])
-            ? 'Themes/login/' . $request->uri->getPathElement(0)
-            : 'login';
-
         $response->header->status = RequestStatusCode::R_403;
-        $pageView->setTemplate('/Web/Backend/' . $file);
+
+        if (\in_array($request->uri->getPathElement(0), ['privacy', 'imprint', 'terms'])) {
+            /** @var \Modules\CMS\Models\Page $page */
+            $page = \Modules\CMS\Models\PageMapper::get()
+                ->with('l11n')
+                ->where('app', 2)
+                ->where('name', \strtolower($request->uri->getPathElement(0)))
+                ->where('l11n/language', $response->header->l11n->language)
+                ->execute();
+
+            $pageView->setTemplate('/Web/Backend/Themes/login/legal');
+            $pageView->data['content'] = $page->getL11n(\strtolower($request->uri->getPathElement(0)))->content;
+        } elseif (\in_array($request->uri->getPathElement(0), ['forgot', 'reset'])) {
+            $pageView->setTemplate('/Web/Backend/Themes/login/' . $request->uri->getPathElement(0));
+        } else {
+            $pageView->setTemplate('/Web/Backend/login');
+        }
 
         $css = \file_get_contents(__DIR__ . '/css/logout-small.css');
         if ($css === false) {
