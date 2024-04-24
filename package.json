@@ -12,7 +12,7 @@
     "geckodriver": "^4.3.3",
     "node-sass": "^9.0.0",
     "sass": "^1.75.0",
-    "selenium-webdriver": "^4.18.1"
+    "selenium-webdriver": "^4.19.0"
   },
   "scripts": {
     "release": "npx esbuild Install/Application/Backend/js/backend.js --bundle --outfile=Install/Application/Backend/js/backend.min.js --minify && cp Install/Application/Backend/js/backend.min.js Web/Backend/js/backend.min.js && esbuild Install/Application/Backend/js/sw.js --bundle --outfile=Install/Application/Backend/js/sw.min.js --minify && cp Install/Application/Backend/js/sw.min.js Web/Backend/js/sw.min.js",
@@ -38,6 +38,6 @@
     "geckodriver": "^4.3.3",
     "node-sass": "^9.0.0",
     "sass": "^1.75.0",
-    "selenium-webdriver": "^4.18.1"
+    "selenium-webdriver": "^4.19.0"
   }
 }
