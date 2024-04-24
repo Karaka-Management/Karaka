@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "chromedriver": "^123.0.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.1.1",
     "geckodriver": "^4.3.3",
     "node-sass": "^9.0.0",
     "sass": "^1.72.0",
@@ -34,7 +34,7 @@
     "esbuild": "0.19.5",
     "eslint-plugin-import": "^2.29.1",
     "chromedriver": "^123.0.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.1.1",
     "geckodriver": "^4.3.3",
     "node-sass": "^9.0.0",
     "sass": "^1.72.0",
