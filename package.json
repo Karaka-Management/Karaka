@@ -7,16 +7,17 @@
     "test": "tests"
   },
   "dependencies": {
-    "chromedriver": "^123.0.0",
-    "eslint": "^9.1.1",
+    "chromedriver": "^122.0.6",
+    "eslint": "^8.12.0",
     "geckodriver": "^4.3.3",
     "node-sass": "^9.0.0",
-    "sass": "^1.75.0",
+    "sass": "^1.72.0",
     "selenium-webdriver": "^4.18.1"
   },
   "scripts": {
-    "release": "npx esbuild Install/Application/Backend/js/backend.js --bundle --outfile=Install/Application/Backend/js/backend.min.js --minify && cp Install/Application/Backend/js/backend.min.js Web/Backend/js/backend.min.js && esbuild Install/Application/Backend/js/sw.js --bundle --outfile=Install/Application/Backend/js/sw.min.js --minify && cp Install/Application/Backend/js/sw.min.js Web/Backend/js/sw.min.js",
-    "test": "npx esbuild Install/Application/Backend/js/backend.js --bundle --outfile=Install/Application/Backend/js/backend.min.js && cp Install/Application/Backend/js/backend.min.js Web/Backend/js/backend.min.js && esbuild Install/Application/Backend/js/sw.js --bundle --outfile=Install/Application/Backend/js/sw.min.js && cp Install/Application/Backend/js/sw.min.js Web/Backend/js/sw.min.js",
+    "release": "npm run build && npm run scss",
+    "build": "npx esbuild Install/Application/Backend/js/backend.js --bundle --outfile=Install/Application/Backend/js/backend.min.js --minify && cp Install/Application/Backend/js/backend.min.js Web/Backend/js/backend.min.js && esbuild Install/Application/Backend/js/sw.js --bundle --outfile=Install/Application/Backend/js/sw.min.js --minify && cp Install/Application/Backend/js/sw.min.js Web/Backend/js/sw.min.js",
+    "demo": "npx esbuild Install/Application/Backend/js/backend.js --bundle --outfile=Install/Application/Backend/js/backend.min.js && cp Install/Application/Backend/js/backend.min.js Web/Backend/js/backend.min.js && esbuild Install/Application/Backend/js/sw.js --bundle --outfile=Install/Application/Backend/js/sw.min.js && cp Install/Application/Backend/js/sw.min.js Web/Backend/js/sw.min.js",
     "scss": "scss cssOMS/styles.scss cssOMS/styles.css --style=compressed && scss cssOMS/animate.scss cssOMS/animate.css --style=compressed && scss cssOMS/timeline.scss cssOMS/timeline.css --style=compressed && scss cssOMS/tree.scss cssOMS/tree.css --style=compressed && scss cssOMS/print.scss cssOMS/print.css --style=compressed && scss Install/Application/Backend/Themes/Default/css/backend-small.scss Install/Application/Backend/Themes/Default/css/backend-small.css --style=compressed && scss Install/Application/Backend/Themes/Default/css/backend-dark.scss Install/Application/Backend/Themes/Default/css/backend-dark.css --style=compressed && scss Install/Application/Backend/Themes/Default/css/logout-small.scss Install/Application/Backend/Themes/Default/css/logout-small.css --style=compressed && scss privateSetup/cms/Frontend/Themes/Default/css/frontend.scss privateSetup/cms/Frontend/Themes/Default/css/frontend.css --style=compressed && scss privateSetup/cms/Frontend/Themes/Default/css/front.scss privateSetup/cms/Frontend/Themes/Default/css/front.css --style=compressed && scss privateSetup/cms/Frontend/Themes/Default/css/frontend-small.scss privateSetup/cms/Frontend/Themes/Default/css/frontend-small.css --style=compressed"
   },
   "author": "Dennis Eichhorn",
@@ -31,13 +32,17 @@
   },
   "homepage": "https://github.com/Karaka-Management/Karaka#readme",
   "devDependencies": {
+    "chromedriver": "^122.0.6",
     "esbuild": "0.19.5",
+    "eslint": "^8.12.0",
     "eslint-plugin-import": "^2.29.1",
-    "chromedriver": "^123.0.0",
-    "eslint": "^9.1.1",
     "geckodriver": "^4.3.3",
+    "jasmine": "^5.1.0",
+    "jasmine-core": "^5.1.2",
+    "jasmine-spec-reporter": "^7.0.0",
+    "karma-jasmine": "^5.1.0",
     "node-sass": "^9.0.0",
-    "sass": "^1.75.0",
+    "sass": "^1.72.0",
     "selenium-webdriver": "^4.18.1"
   }
 }
