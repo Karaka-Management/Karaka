@@ -12,7 +12,7 @@ For the purposes of these POLICIES:
 * TERMS, POLICIES or AGREEMENT mean these terms that form the entire agreement between You and the COMPANY regarding the use of the SERVICE.
 * Third-party Social Media Service means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the SERVICES.
 * WEBSITE refers to all websites owned by jingga
-* APPLICATION refers to all downloadable or installable content which can therfore be used on a given DEVICE.
+* APPLICATION refers to all downloadable or installable content which can therefore be used on a given DEVICE.
 * You means the individual accessing or using the SERVICES, or the company, or other legal entity on behalf of which such individual is accessing or using the SERVICE, as applicable.
 
 ## What is personal data?

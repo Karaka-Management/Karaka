@@ -345,9 +345,49 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
 import { jsOMS } from '../jsOMS/Utils/oLib.js';
 import { ResponseManager } from '../jsOMS/Message/Response/ResponseManager.js';
 import { EventManager } from '../jsOMS/Event/EventManager.js'
+import { UIManager } from '../jsOMS/UI/UIManager.js'
 import { Form } from '../jsOMS/UI/Component/Form.js'
 import { redirectMessage } from '../jsOMS/Model/Action/Dom/Redirect.js';
 import { Logger } from '../jsOMS/Log/Logger.js';
+
+export class Application {
+    constructor ()
+    {
+        this.logger   = Logger.getInstance(true, false, false);
+        window.logger = this.logger;
+
+        this.responseManager = new ResponseManager()
+        this.eventManager = new EventManager();
+        this.uiManager       = new UIManager(this);
+        this.responseManager.add('redirect', redirectMessage);
+
+        this.uiManager.formManager.bind('installForm');
+        this.uiManager.formManager.get('installForm').injectSubmit(function(e) {
+            const valid = e.isValid();
+
+            if (valid) {
+                document.getElementsByTagName('main')[0].setAttribute(
+                    'style',
+                    'margin-left: ' + (5 * -100) + '%;'
+                );
+
+                window.omsApp.eventManager.trigger(e.id);
+            } else {
+                window.alert('You didn\'t fill out all required configuration fields. Please check your settings also on the previous pages.');
+            }
+
+            return valid;
+        });
+
+        this.uiManager.formManager.get('installForm').setSuccess(function(e) {
+            window.location.replace('http://'
+                + document.getElementById('iDomain').value
+                + jsOMS.rtrim(document.getElementById('iWebSubdir').value, '/')
+                + '/backend'
+            );
+        });
+    }
+};
 
 jsOMS.ready(function ()
 {
@@ -379,38 +419,6 @@ jsOMS.ready(function ()
         });
     }
 
-    /* setup App */
-    const app = {
-        responseManager: new ResponseManager(),
-        eventManager: new EventManager()
-    };
-
-    app.responseManager.add('redirect', redirectMessage);
-
-    const formManager = new Form(app),
-        logger        = Logger.getInstance();
-
-    window.logger = logger;
-    formManager.bind('installForm');
-    formManager.get('installForm').injectSubmit(function(e) {
-        const valid = e.isValid();
-
-        if (valid) {
-            document.getElementsByTagName('main')[0].setAttribute(
-                'style',
-                'margin-left: ' + (5 * -100) + '%;'
-            );
-
-            app.eventManager.trigger(e.id);
-        } else {
-            window.alert('You didn\'t fill out all required configuration fields. Please check your settings also on the previous pages.');
-        }
-
-        return valid;
-    });
-
-    formManager.get('installForm').setSuccess(function(e) {
-        window.location.replace('http://' + document.getElementById('iDomain').value + document.getElementById('iWebSubdir').value + '/backend');
-    });
+    window.omsApp = new Application();
 });
 </script>

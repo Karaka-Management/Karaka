@@ -33,7 +33,7 @@ use phpOMS\Uri\UriFactory;
                 <label for="iPassword"><?= $this->getHtml('Password', '0', '0'); ?>:</label>
                 <div class="inputWithIcon">
                     <i class="frontIco g-icon" aria-hidden="true">lock</i>
-                    <input id="iPassword" type="password" name="pass" tabindex="2" value="orange">
+                    <input id="iPassword" type="password" name="pass" tabindex="2" value="">
                     <i class="endIco g-icon" aria-hidden="true">close</i>
                 </div>
                 <input id="iLoginButton" name="loginButton" type="submit" value="<?= $this->getHtml('Login', '0', '0'); ?>" tabindex="3">

@@ -229,6 +229,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $toInstall = [
             'Admin',
             'Auditor',
+            'Monitoring',
         ];
 
         $module     = $app->moduleManager->get('Admin', 'Api');
