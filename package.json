@@ -11,7 +11,7 @@
     "eslint": "^9.1.1",
     "geckodriver": "^4.3.3",
     "node-sass": "^9.0.0",
-    "sass": "^1.72.0",
+    "sass": "^1.75.0",
     "selenium-webdriver": "^4.18.1"
   },
   "scripts": {
@@ -37,7 +37,7 @@
     "eslint": "^9.1.1",
     "geckodriver": "^4.3.3",
     "node-sass": "^9.0.0",
-    "sass": "^1.72.0",
+    "sass": "^1.75.0",
     "selenium-webdriver": "^4.18.1"
   }
 }
