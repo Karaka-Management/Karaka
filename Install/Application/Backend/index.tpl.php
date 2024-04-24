@@ -3,7 +3,7 @@
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @package   Web\Backend
  * @copyright Dennis Eichhorn
@@ -81,7 +81,7 @@ $dispatch = $this->getData('dispatch') ?? [];
                     data-action='[{"listener": "change", "action": [{"key": 1, "type": "redirect", "uri": "{%}&u={!#unit-selector}", "target": "self"}]}]'
                     title="Unit selector">
                     <?php foreach ($this->organizations as $organization) : ?>
-                        <option value="<?= $this->printHtml((string) $organization->id); ?>"<?= $this->getData('unitId') == $organization->id ? ' selected' : ''; ?>><?= $this->printHtml($organization->name); ?>
+                        <option value="<?= $organization->id; ?>"<?= $this->getData('unitId') == $organization->id ? ' selected' : ''; ?>><?= $this->printHtml($organization->name); ?>
                     <?php endforeach; ?>
                 </select>
                 <div id="nav-side-settings">

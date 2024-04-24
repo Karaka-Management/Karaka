@@ -2,7 +2,7 @@
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @package   Template
  * @copyright Dennis Eichhorn
@@ -11,8 +11,6 @@
  * @link      https://jingga.app
  */
 declare(strict_types=1);
-
-use phpOMS\Contract\RenderableInterface;
 
 $dispatch = $this->getData('dispatch') ?? [];
 

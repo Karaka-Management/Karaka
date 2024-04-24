@@ -2,7 +2,7 @@
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @package   tests
  * @copyright Dennis Eichhorn
@@ -19,6 +19,7 @@ use Model\Setting;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Model\Setting::class)]
 class SettingTest extends \PHPUnit\Framework\TestCase
 {
     private Setting $setting;
@@ -28,19 +29,13 @@ class SettingTest extends \PHPUnit\Framework\TestCase
         $this->setting = new Setting();
     }
 
-    /**
-     * @covers Model\Setting
-     * @group framework
-     */
+    #[\PHPUnit\Framework\Attributes\Group('framework')]
     public function testDefault() : void
     {
         self::assertEquals(0, $this->setting->getId());
     }
 
-    /**
-     * @covers Model\Setting
-     * @group framework
-     */
+    #[\PHPUnit\Framework\Attributes\Group('framework')]
     public function testWithInitailization() : void
     {
         $this->setting->with(1, 'name', 'content', 'pattern', 2, 3, 'module', 4, 5);

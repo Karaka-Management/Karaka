@@ -2,7 +2,7 @@
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @package   Model
  * @copyright Dennis Eichhorn
@@ -221,11 +221,11 @@ final class CoreSettings implements SettingsInterface
         $options = empty($options) ? $this->options : $options;
 
         foreach ($options as $option) {
-            if ($option['session'] ?? false) {
-                continue;
-            }
-
             if (\is_array($option)) {
+                if ($option['session'] ?? false) {
+                    continue;
+                }
+
                 $setting = new Setting();
                 $setting->with(
                     $option['id'] ?? 0,

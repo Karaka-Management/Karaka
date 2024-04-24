@@ -2,7 +2,7 @@
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @package   Template
  * @copyright Dennis Eichhorn
@@ -12,13 +12,15 @@
  */
 declare(strict_types=1);
 
+use phpOMS\Utils\Parser\Markdown\Markdown;
+
 /** @var \phpOMS\Views\View $this View */?><!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <script src="../jsOMS/Utils/oLib.js"></script>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <script src="../jsOMS/Utils/oLib.js" nonce="<?= $this->request->getDataString('nonce'); ?>" type="module"></script>
 </head>
 <body>
 <main>
@@ -27,21 +29,29 @@ declare(strict_types=1);
             <img alt="Logo" src="img/logo.png" class="logo" width="50">
             <h1>Welcome</h1>
             <div>
-                <p>Jingga is a WebApp written in PHP and JavaScript supporting various database
-                and caching technologies. Many modules/extensions provide functionality for businesses,
+                <p>Jingga is a comprehensive WebApp mostly written in PHP and JavaScript.
+                Many modules/extensions provide functionality for businesses,
                 education facilities, healthcare facilities and organizations in general.<p>
 
-                <p>In the following pages you'll be guided through the installation process for the WebApp.
+                <strong>Option 1</strong>
+
+                <p>On the following pages you'll be guided through the installation process for the WebApp.
                 Most of the customization can be done after installation such as configuring localization,
-                installing additional modules, creating organization etc.</p>
+                installing additional modules, creating organizations etc.</p>
+
+                <strong>Option 2</strong>
 
                 <p>In case you don't want to use this web installation tool you can also use the console
-                installation tool. Just navigate in your shell to the install directory and then into
-                Cli the subdirectory. There you simply run the install script and are good to go.</p>
+                installation tool. Just navigate in your shell to the <code>Install</code> directory, modify the <code>cli.php</code>
+                and <code>config.php</code> and then run the <code>cli.php</code> as <code>www-data</code>:
+                    <blockquote>sudo -u www-data php cli.php</blockquote>
+                </p>
+
+                <strong>Support</strong>
 
                 <p>In case you encounter any problems during the installation process please feel free to
                 ask for help on our website or contact our support email at
-                <strong>test.email@karaka.de</strong></p>
+                <strong>info@jingga.app</strong></p>
 
                 <p><button class="next">Next</button></p>
             </div>
@@ -54,18 +64,10 @@ declare(strict_types=1);
             <div>
                 <p>Upon clicking Agree you agree with the following license agreement.</p>
 
+                <p>In addition, our terms (<a target="_blank" href="https://jingga.app/terms">https://jingga.app/terms</a>) apply.</p>
+
                 <blockquote>
-                    <p>The OMS License 2.0</p>
-
-                    <p>Copyright (c) <Dennis Eichhorn> All Rights Reserved</p>
-
-                    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                    THE SOFTWARE.</p>
+                    <?= Markdown::parse(\file_get_contents(__DIR__ . '/../LICENSE.txt')); ?>
                 </blockquote>
 
                 <p><button class="prev">Previous</button><button class="next">Agree</button></p>
@@ -87,7 +89,7 @@ declare(strict_types=1);
                 <p>All non critical elements can be fixed after installation if you find yourself in need of one of the
                 features. All critical elements must be fixed before you can continue with the installation.</p>
 
-                <p>For help please check our <a href="https://jingga.app">Installation Guide</a>.</p>
+                <p>For help please check our <a target="_blank" href="https://jingga.app/info">Installation Guide</a>.</p>
                 <?php $isOK = \version_compare('8.0.0', \PHP_VERSION) < 1 && \extension_loaded('pdo'); ?>
                 <table>
                     <thead>
@@ -127,7 +129,7 @@ declare(strict_types=1);
                         <tr>
                             <td>
                             <td>Critcal
-                            <td>/Modules
+                            <td>/Modules/Media/Files
                             <td class="<?= \is_writable(__DIR__ . '/../Modules/Media/Files') ? 'OK' : 'FAILED'; ?>"><?= \decoct(\fileperms(__DIR__ . '/../Modules/Media/Files') & 0777); ?>
                         <tr>
                             <td>
@@ -200,7 +202,7 @@ declare(strict_types=1);
                 </table>
 
                 <p><strong>Tip:</strong> Many PHP extension just need to be activated in your php.ini file located
-                at <?= \php_ini_loaded_file(); ?>. Reload the installation in your browser after making any adjustments.</p>
+                at <code><?= \php_ini_loaded_file(); ?></code> or in the <code>ini</code> files located in the <code>conf.d</code> directory. Reload your webserver and then the installation in your browser after making any adjustments.</p>
 
                 <p><button class="prev">Previous</button><button class="next"<?= $isOK ? '' : ' disabled';?>>Next</button></p>
             </div>
@@ -320,6 +322,7 @@ declare(strict_types=1);
                     <li><label for="iDefaultLang">Default Language</label>
                     <li><select id="iDefaultLang" name="defaultlang" form="installForm">
                             <option value="en" selected>English
+                            <option value="de">German
                         </select>
                 </ul>
                 <p><button class="prev">Previous</button><button class="install" type="submit" form="installForm">Install</button></p>
@@ -338,12 +341,53 @@ declare(strict_types=1);
         </section>
     </div>
 </main>
-<script type="module">
+<script type="module" nonce="<?= $this->request->data['nonce'] ?? ''; ?>">
+import { jsOMS } from '../jsOMS/Utils/oLib.js';
 import { ResponseManager } from '../jsOMS/Message/Response/ResponseManager.js';
 import { EventManager } from '../jsOMS/Event/EventManager.js'
+import { UIManager } from '../jsOMS/UI/UIManager.js'
 import { Form } from '../jsOMS/UI/Component/Form.js'
-import { redirectMessage } from '../jsOMS/Model/Message/Redirect.js';
+import { redirectMessage } from '../jsOMS/Model/Action/Dom/Redirect.js';
 import { Logger } from '../jsOMS/Log/Logger.js';
+
+export class Application {
+    constructor ()
+    {
+        this.logger   = Logger.getInstance(true, false, false);
+        window.logger = this.logger;
+
+        this.responseManager = new ResponseManager()
+        this.eventManager = new EventManager();
+        this.uiManager       = new UIManager(this);
+        this.responseManager.add('redirect', redirectMessage);
+
+        this.uiManager.formManager.bind('installForm');
+        this.uiManager.formManager.get('installForm').injectSubmit(function(e) {
+            const valid = e.isValid();
+
+            if (valid) {
+                document.getElementsByTagName('main')[0].setAttribute(
+                    'style',
+                    'margin-left: ' + (5 * -100) + '%;'
+                );
+
+                window.omsApp.eventManager.trigger(e.id);
+            } else {
+                window.alert('You didn\'t fill out all required configuration fields. Please check your settings also on the previous pages.');
+            }
+
+            return valid;
+        });
+
+        this.uiManager.formManager.get('installForm').setSuccess(function(e) {
+            window.location.replace('http://'
+                + document.getElementById('iDomain').value
+                + jsOMS.rtrim(document.getElementById('iWebSubdir').value, '/')
+                + '/backend'
+            );
+        });
+    }
+};
 
 jsOMS.ready(function ()
 {
@@ -375,38 +419,6 @@ jsOMS.ready(function ()
         });
     }
 
-    /* setup App */
-    const app = {
-        responseManager: new ResponseManager(),
-        eventManager: new EventManager()
-    };
-
-    app.responseManager.add('redirect', redirectMessage);
-
-    const formManager = new Form(app),
-        logger        = Logger.getInstance();
-
-    window.logger = logger;
-    formManager.bind('installForm');
-    formManager.get('installForm').injectSubmit(function(e) {
-        const valid = e.isValid();
-
-        if (valid) {
-            document.getElementsByTagName('main')[0].setAttribute(
-                'style',
-                'margin-left: ' + (5 * -100) + '%;'
-            );
-
-            app.eventManager.trigger(e.id);
-        } else {
-            window.alert('You didn\'t fill out all required configuration fields. Please check your settings also on the previous pages.');
-        }
-
-        return valid;
-    });
-
-    formManager.get('installForm').setSuccess(function(e) {
-        window.location.replace('http://' + document.getElementById('iDomain').value + document.getElementById('iWebSubdir').value + '/backend');
-    });
+    window.omsApp = new Application();
 });
 </script>

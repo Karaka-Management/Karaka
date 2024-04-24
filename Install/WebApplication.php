@@ -3,7 +3,7 @@
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @package   Install
  * @copyright Dennis Eichhorn
@@ -197,6 +197,17 @@ final class WebApplication extends InstallAbstract
     {
         $view = new View(null, $request, $response);
         $view->setTemplate('/Install/index');
+
+        $view->data['nonce'] = \bin2hex(\random_bytes(32));
+        $request->data['nonce'] = $view->data['nonce'];
+
+        $response->header->set('content-security-policy',
+            'base-uri \'self\';'
+            . 'object-src \'none\';'
+            . 'script-src \'nonce-' . $request->getDataString('nonce') . '\' \'strict-dynamic\';'
+            . 'worker-src \'self\';'
+        );
+
         $response->set('Content', $view);
     }
 
@@ -215,6 +226,12 @@ final class WebApplication extends InstallAbstract
     public static function installRequest(HttpRequest $request, HttpResponse $response) : void
     {
         $response->header->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
+        $response->header->set('content-security-policy',
+            'base-uri \'self\';'
+            . 'object-src \'none\';'
+            . 'script-src \'nonce-' . $request->getDataString('nonce') . '\' \'strict-dynamic\';'
+            . 'worker-src \'self\';'
+        );
 
         if (!empty(self::validateRequest($request))) {
             $response->header->status = RequestStatusCode::R_400;

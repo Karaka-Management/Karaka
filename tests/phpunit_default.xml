@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="Bootstrap.php" colors="true" columns="120" stopOnError="true" stopOnFailure="false" stopOnIncomplete="false" stopOnSkipped="false" beStrictAboutTestsThatDoNotTestAnything="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
-  <coverage includeUncoveredFiles="true" processUncoveredFiles="false">
-    <include>
-      <directory suffix=".php">../phpOMS</directory>
-      <directory suffix=".php">../Model</directory>
-      <directory suffix=".php">../Web/Exception</directory>
-      <directory suffix=".php">../Install</directory>
-      <directory suffix=".php">../Modules</directory>
-      <directory suffix=".php">../Socket</directory>
-      <directory suffix=".php">../Console</directory>
-    </include>
-    <exclude>
-      <directory>*vendor*</directory>
-      <directory>*MainRepository*</directory>
-      <directory>vendor</directory>
-      <directory>../vendor</directory>
-      <directory>../Install/Application</directory>
-      <directory>../phpOMS/vendor</directory>
-      <directory>../phpOMS/Localization/LanguageDetection/resources</directory>
-      <directory>*tests*</directory>
-      <directory>*/tests*</directory>
-      <directory suffix="tpl.php">../*</directory>
-      <directory suffix="lang.php">../*</directory>
-      <directory suffix="Test.php">../*</directory>
-      <directory suffix="Routes.php">../*</directory>
-      <directory suffix="Hooks.php">../*</directory>
-      <directory>../**/tests*</directory>
-      <directory>../Modules/tests*</directory>
-      <directory>../Modules/**/tests*</directory>
-      <directory>../Modules/**/Theme*</directory>
-      <directory>../Modules/**/Admin/Routes*</directory>
-      <directory>../Modules/**/Admin/Hooks*</directory>
-      <directory>../Modules/**/Admin/Install*</directory>
-      <directory>../Modules/Media/Files*</directory>
-    </exclude>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="Bootstrap.php" colors="true" columns="120" stopOnError="true" stopOnFailure="false" stopOnIncomplete="false" stopOnSkipped="false" beStrictAboutTestsThatDoNotTestAnything="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.0/phpunit.xsd" cacheDirectory=".phpunit.cache">
+  <coverage includeUncoveredFiles="true">
     <report>
       <clover outputFile="coverage.xml"/>
       <html outputDirectory="../Build/coverage" lowUpperBound="75" highLowerBound="95"/>
@@ -70,4 +37,39 @@
     <const name="WEB_SERVER_DOCROOT" value="./"/>
     <const name="RESET" value="1"/>
   </php>
+  <source>
+    <include>
+      <directory suffix=".php">../phpOMS</directory>
+      <directory suffix=".php">../Model</directory>
+      <directory suffix=".php">../Web/Exception</directory>
+      <directory suffix=".php">../Install</directory>
+      <directory suffix=".php">../Modules</directory>
+      <directory suffix=".php">../Socket</directory>
+      <directory suffix=".php">../Console</directory>
+    </include>
+    <exclude>
+      <directory>*vendor*</directory>
+      <directory>*MainRepository*</directory>
+      <directory>vendor</directory>
+      <directory>../vendor</directory>
+      <directory>../Install/Application</directory>
+      <directory>../phpOMS/vendor</directory>
+      <directory>../phpOMS/Localization/LanguageDetection/resources</directory>
+      <directory>*tests*</directory>
+      <directory>*/tests*</directory>
+      <directory suffix="tpl.php">../*</directory>
+      <directory suffix="lang.php">../*</directory>
+      <directory suffix="Test.php">../*</directory>
+      <directory suffix="Routes.php">../*</directory>
+      <directory suffix="Hooks.php">../*</directory>
+      <directory>../**/tests*</directory>
+      <directory>../Modules/tests*</directory>
+      <directory>../Modules/**/tests*</directory>
+      <directory>../Modules/**/Theme*</directory>
+      <directory>../Modules/**/Admin/Routes*</directory>
+      <directory>../Modules/**/Admin/Hooks*</directory>
+      <directory>../Modules/**/Admin/Install*</directory>
+      <directory>../Modules/Media/Files*</directory>
+    </exclude>
+  </source>
 </phpunit>

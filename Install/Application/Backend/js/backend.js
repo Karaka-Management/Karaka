@@ -103,7 +103,7 @@ export class Application
 
     setupGeolocation()
     {
-        if ('geolocation' in navigator) {
+        if ('geolocation' in navigator && window.isSecureContext) {
             navigator.geolocation.getCurrentPosition(position => {});
         }
     };
@@ -123,7 +123,7 @@ export class Application
     setupServiceWorker ()
     {
         /** global: navigator */
-        if ('serviceWorker' in navigator) {
+        if ('serviceWorker' in navigator && window.isSecureContext) {
             navigator.serviceWorker.register('sw.min.js').then(function (e) {
                 self.periodicSync.register("get-latest-notification", {
                     minInterval: 60 * 1,

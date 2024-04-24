@@ -2,7 +2,7 @@
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @package   Web\Backend
  * @copyright Dennis Eichhorn
@@ -33,7 +33,7 @@ use phpOMS\Uri\UriFactory;
                 <input id="iForgotButton" name="forgotButton" type="submit" value="<?= $this->getHtml('Submit', '0', '0'); ?>" tabindex="3">
             </form>
         </div>
-        <div id="below-form"><a href="<?= UriFactory::build('{/base}/{/backend}'); ?>" tabindex="2"><?= $this->getHtml('Back', '0', '0'); ?></a></div>
+        <div id="below-form"><a href="<?= UriFactory::build('{/base}/'); ?>" tabindex="2"><?= $this->getHtml('Back', '0', '0'); ?></a></div>
     </div>
 </main>
 <?php include __DIR__ . '/foot.tpl.php'; ?>

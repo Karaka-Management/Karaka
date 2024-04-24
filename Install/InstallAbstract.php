@@ -2,7 +2,7 @@
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @package   Install
  * @copyright Dennis Eichhorn
@@ -229,6 +229,7 @@ abstract class InstallAbstract extends ApplicationAbstract
         $toInstall = [
             'Admin',
             'Auditor',
+            'Monitoring',
         ];
 
         $module     = $app->moduleManager->get('Admin', 'Api');

@@ -2,7 +2,7 @@
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @package   Web\Backend
  * @copyright Dennis Eichhorn
@@ -127,17 +127,6 @@ final class Application
 
         $this->app->router = new WebRouter();
         $this->app->router->importFromFile(__DIR__ . '/Routes.php');
-        $this->app->router->add(
-            '/backend/e403',
-            function() use ($request, $response) {
-                $view = new View($this->app->l11nManager, $request, $response);
-                $view->setTemplate('/Web/Backend/Error/403_inline');
-                $response->header->status = RequestStatusCode::R_403;
-
-                return $view;
-            },
-            RouteVerb::GET
-        );
 
         /* CSRF token OK? */
         if ($request->hasData('CSRF')
@@ -165,6 +154,8 @@ final class Application
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
         $this->app->l11nServer     = LocalizationMapper::get()->where('id', 1)->execute();
         $this->app->unitId         = $this->getApplicationOrganization($request, $app, $this->config['app']);
+
+        $this->app->sessionManager->data['unit'] = $this->app->unitId;
 
         $aid                       = Auth::authenticate($this->app->sessionManager);
         $account                   = $this->loadAccount($aid);
@@ -272,6 +263,8 @@ final class Application
             || $routes === ['dest' => RouteStatus::INVALID_PERMISSIONS]
             || $routes === ['dest' => RouteStatus::INVALID_DATA]
         ) {
+            $response->header->status = RequestStatusCode::R_403;
+
             return $this->app->dispatcher->dispatch(
                 $this->app->router->route(
                     '/' . \strtolower($this->app->appName) . '/e403',
@@ -280,6 +273,8 @@ final class Application
                 ),
                 $request, $response);
         } elseif ($routes === ['dest' => RouteStatus::NOT_LOGGED_IN]) {
+            $response->header->status = RequestStatusCode::R_403;
+
             return $this->app->dispatcher->dispatch(
                 $this->app->router->route(
                     '/' . \strtolower($this->app->appName) . '/login',
@@ -288,12 +283,21 @@ final class Application
                 ),
                 $request, $response);
         } else {
+            if (empty($routes)) {
+                $response->header->status = RequestStatusCode::R_404;
+            }
+
             return $this->app->dispatcher->dispatch($routes, $request, $response);
         }
     }
 
     /**
      * Get application organization
+     *
+     *  1. Use uri parameter
+     *  2. Use session
+     *  3. Use app config
+     *  3. Use host config
      *
      * @param HttpRequest $request Client request
      * @param App         $app     Application
@@ -306,10 +310,12 @@ final class Application
     private function getApplicationOrganization(HttpRequest $request, App $app, array $config) : int
     {
         return (int) (
-            $request->getDataString('u') ?? (
-                ($app->defaultUnit ?? 0) === 0
-                    ? $config['domains'][$request->uri->host]['org'] ?? $config['default']['org']
-                    : $app->defaultUnit
+            $request->getDataInt('u') ?? (
+                $this->app->sessionManager->data['unit'] ?? (
+                    ($app->defaultUnit ?? 0) === 0
+                        ? ($config['domains'][$request->uri->host]['org'] ?? $config['default']['org'])
+                        : $app->defaultUnit
+                )
             )
         );
     }
@@ -431,15 +437,22 @@ final class Application
 
         /* Load assets */
         $head->addAsset(AssetType::CSS, 'cssOMS/styles.css?v=' . self::VERSION, ['defer']);
-        //$head->addAsset(AssetType::CSS, 'Web/Backend/css/backend-dark.css?v=1.0.0', ['media' => '(prefers-color-scheme: dark)', 'defer']);
         $head->addAsset(AssetType::CSS, 'cssOMS/print.css?v=' . self::VERSION, ['media' => 'print', 'defer']);
 
         // Framework
         $head->addAsset(AssetType::JS, 'Web/Backend/js/backend.min.js?v=' . self::VERSION, ['nonce' => $scriptSrc, 'type' => 'module', 'defer']);
 
-        if ($request->hasData('debug')) {
-            $head->addAsset(AssetType::CSS, 'cssOMS/debug.css?v=' . self::VERSION);
-            \phpOMS\DataStorage\Database\Query\Builder::$log = true;
+        // @feature Make user setting by storing it in the localstorage of the user
+        if ($request->hasKey('darkmode')) {
+            $head->addAsset(AssetType::CSS, 'Web/Backend/css/backend-dark.css?v=1.0.0', ['defer']);
+        }
+
+        if ($request->hasKey('debug')) {
+            $account = $this->app->accountManager->get($request->header->account);
+            if ($account->hasPermission(PermissionType::CREATE, $this->app->unitId, $this->app->appId)) {
+                $head->addAsset(AssetType::CSS, 'cssOMS/debug.css?v=' . self::VERSION);
+                \phpOMS\DataStorage\Database\Query\Builder::$log = true;
+            }
         }
 
         $css = \file_get_contents(__DIR__ . '/css/backend-small.css');
@@ -466,12 +479,24 @@ final class Application
      */
     private function createBaseLoggedOutResponse(HttpRequest $request, HttpResponse $response, Head $head, View $pageView) : void
     {
-        $file = \in_array($request->uri->getPathElement(0), ['forgot', 'reset', 'privacy', 'imprint', 'terms'])
-            ? 'Themes/login/' . $request->uri->getPathElement(0)
-            : 'login';
-
         $response->header->status = RequestStatusCode::R_403;
-        $pageView->setTemplate('/Web/Backend/' . $file);
+
+        if (\in_array($request->uri->getPathElement(0), ['privacy', 'imprint', 'terms'])) {
+            /** @var \Modules\CMS\Models\Page $page */
+            $page = \Modules\CMS\Models\PageMapper::get()
+                ->with('l11n')
+                ->where('app', 2)
+                ->where('name', \strtolower($request->uri->getPathElement(0)))
+                ->where('l11n/language', $response->header->l11n->language)
+                ->execute();
+
+            $pageView->setTemplate('/Web/Backend/Themes/login/legal');
+            $pageView->data['content'] = $page->getL11n(\strtolower($request->uri->getPathElement(0)))->content;
+        } elseif (\in_array($request->uri->getPathElement(0), ['forgot', 'reset'])) {
+            $pageView->setTemplate('/Web/Backend/Themes/login/' . $request->uri->getPathElement(0));
+        } else {
+            $pageView->setTemplate('/Web/Backend/login');
+        }
 
         $css = \file_get_contents(__DIR__ . '/css/logout-small.css');
         if ($css === false) {
@@ -496,7 +521,7 @@ final class Application
     private function createDefaultPageView(HttpRequest $request, HttpResponse $response, BackendView $pageView) : void
     {
         /** @var \Modules\Organization\Models\Unit[] $units */
-        $units = UnitMapper::getAll()->execute();
+        $units = UnitMapper::getAll()->executeGetArray();
         $pageView->setOrganizations($units);
 
         /** @var \Modules\Profile\Models\Profile $profile */

@@ -416,6 +416,8 @@ if (\defined('RESET') && RESET === '1') {
     }
 }
 
+$GLOBALS['CONFIG'] = $CONFIG;
+
 $httpSession        = new HttpSession();
 $GLOBALS['session'] = $httpSession;
 

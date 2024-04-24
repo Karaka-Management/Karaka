@@ -2,7 +2,7 @@
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @package   Modules\Media
  * @copyright Dennis Eichhorn
@@ -42,7 +42,7 @@ class BaseView extends View
     /**
      * {@inheritdoc}
      */
-    public function __construct(?L11nManager $l11n = null, RequestAbstract $request, ResponseAbstract $response)
+    public function __construct(?L11nManager $l11n = null, ?RequestAbstract $request = null, ?ResponseAbstract $response = null)
     {
         parent::__construct($l11n, $request, $response);
         $this->setTemplate('/Web/Backend/Themes/Backend/popup-additional-function');

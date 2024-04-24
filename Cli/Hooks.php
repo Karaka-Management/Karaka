@@ -5,9 +5,4 @@
             1 => '\Modules\Media\Controller\CliController:runEncryptionChangeFromHook',
         ],
     ],
-    '/.*/' => [
-        'callback' => [
-            0 => '\Modules\Workflow\Controller\CliController:runWorkflowFromHook',
-        ],
-    ],
 ];

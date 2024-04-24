@@ -2,7 +2,7 @@
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @package   Modules\Localization
  * @copyright Dennis Eichhorn
@@ -15,6 +15,6 @@ declare(strict_types=1);
 return ['Navigation' => [
     'Imprint'       => 'Imprint',
     'Legal'         => 'Legal',
-    'PrivacyPolicy' => 'PrivacyPolicy',
+    'PrivacyPolicy' => 'Privacy Policy',
     'Terms'         => 'Terms',
 ]];

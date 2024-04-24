@@ -2,7 +2,7 @@
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @package   Template
  * @copyright Dennis Eichhorn
@@ -13,14 +13,12 @@
 declare(strict_types=1);
 
 use phpOMS\Utils\Parser\Markdown\Markdown;
-
-$content = $this->getData('content');
 ?>
 
 <div class="row">
     <div class="col-xs-12">
         <section class="portlet">
-            <article><?= Markdown::parse($content); ?></article>
+            <article><?= Markdown::parse($this->data['content'] ?? ''); ?></article>
         </section>
     </div>
 </div>

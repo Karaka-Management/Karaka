@@ -26,7 +26,7 @@ $search = $this->getSearchLink(
         <a rel="prefetch" href="<?= UriFactory::build($next); ?>"><i class="g-icon btn">chevron_right</i></a>
     <?php endif; ?>
     <?php if ($data[1]) : ?>
-    <form class="inline" id="<?= $this->id; ?>-search" method="GET" action="<?= UriFactory::build($search); ?>&search={#<?= $this->id; ?>-searchbox}">
+    <form class="inline" id="<?= $this->id; ?>-search" method="GET" action="<?= UriFactory::build($search); ?>&search={#<?= $this->id; ?>-searchbox}&csrf={$CSRF}">
         <span role="search" class="inputWrapper">
             <span class="txtWrap">
                 <input id="<?= $this->id; ?>-searchbox" name="search" type="text" autocomplete="off" value="<?= $this->request->getData('search') ?? ''; ?>" autofocus>

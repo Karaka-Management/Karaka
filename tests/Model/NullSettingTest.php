@@ -2,7 +2,7 @@
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @package   tests
  * @copyright Dennis Eichhorn
@@ -19,12 +19,10 @@ use Model\NullSetting;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Model\NullSetting::class)]
 class NullSettingTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers Model\NullSetting
-     * @group framework
-     */
+    #[\PHPUnit\Framework\Attributes\Group('framework')]
     public function testDefault() : void
     {
         $null = new NullSetting(123);
