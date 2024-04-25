@@ -466,13 +466,21 @@ trait ModuleTestTrait
         // test routes
         if (\is_file($module::PATH . '/Admin/Routes/Web/Backend.php')) {
             $moduleRoutes = include $module::PATH . '/Admin/Routes/Web/Backend.php';
-            self::assertEquals(1, $this->routesTest($moduleRoutes, $totalBackendRoutes), 'Backend route assert failed for '. self::NAME);
+            self::assertEquals(
+                [],
+                $invalidRoutes = $this->routesTest($moduleRoutes, $totalBackendRoutes),
+                'Backend route assert failed for '. self::NAME . ' (' . \implode(', ', $invalidRoutes) . ')'
+            );
         }
 
         // test routes
         if (\is_file($module::PATH . '/Admin/Routes/Web/Api.php')) {
             $moduleRoutes = include $module::PATH . '/Admin/Routes/Web/Api.php';
-            self::assertEquals(1, $this->routesTest($moduleRoutes, $totalApiRoutes), 'Api route assert failed for '. self::NAME);
+            self::assertEquals(
+                [],
+                $invalidRoutes = $this->routesTest($moduleRoutes, $totalApiRoutes),
+                'Api route assert failed for '. self::NAME . ' (' . \implode(', ', $invalidRoutes) . ')'
+            );
         }
     }
 
@@ -493,13 +501,21 @@ trait ModuleTestTrait
         // test hooks
         if (\is_file($module::PATH . '/Admin/Hooks/Web/Backend.php')) {
             $moduleHooks = include $module::PATH . '/Admin/Hooks/Web/Backend.php';
-            self::assertEquals(1, $this->hooksTest($moduleHooks, $totalBackendHooks), 'Backend hook assert failed for '. self::NAME);
+            self::assertEquals(
+                [],
+                $invalidHooks = $this->hooksTest($moduleHooks, $totalBackendHooks),
+                'Backend hook assert failed for '. self::NAME . ' (' . \implode(', ', $invalidHooks) . ')'
+            );
         }
 
         // test hooks
         if (\is_file($module::PATH . '/Admin/Hooks/Web/Api.php')) {
             $moduleHooks = include $module::PATH . '/Admin/Hooks/Web/Api.php';
-            self::assertEquals(1, $this->hooksTest($moduleHooks, $totalApiHooks), 'Api hook assert failed for '. self::NAME);
+            self::assertEquals(
+                [],
+                $invalidHooks = $this->hooksTest($moduleHooks, $totalApiHooks),
+                'Api hook assert failed for '. self::NAME . ' (' . \implode(', ', $invalidHooks) . ')'
+            );
         }
     }
 
@@ -583,14 +599,15 @@ trait ModuleTestTrait
      * @param array $module Routes of the module from the respective app and module route file
      * @param array $total  Routing file of the respective application which contains all app routes
      *
-     * @return int
+     * @return array
      */
-    private function routesTest(array $module, array $total) : int
+    private function routesTest(array $module, array $total) : array
     {
+        $invalid = [];
         foreach ($module as $route => $dests) {
             // test route existence after installation
             if (!isset($total[$route])) {
-                return -1;
+                $invalid[] = $route;
             }
 
             // test route class
@@ -598,7 +615,7 @@ trait ModuleTestTrait
                 $parts = \explode(':', $verb['dest']);
                 $path  = __DIR__ . '/../../' . \ltrim(\strtr($parts[0], '\\', '/'), '/') . '.php';
                 if (!\is_file($path)) {
-                    return -2;
+                    $invalid[] = $path;
                 }
 
                 // test route method
@@ -606,12 +623,12 @@ trait ModuleTestTrait
                 if (\stripos($content, 'function ' . $parts[\count($parts) - 1]) === false
                     && \strpos($parts[\count($parts) - 1], 'Trait') === false
                 ) {
-                    return -3;
+                    $invlaid[] = $parts[\count($parts) - 1];
                 }
             }
         }
 
-        return 1;
+        return $invalid;
     }
 
     /**
@@ -620,13 +637,14 @@ trait ModuleTestTrait
      * @param array $module Hooks of the module from the respective app and module hook file
      * @param array $total  Routing file of the respective application which contains all app routes
      *
-     * @return int
+     * @return array
      */
-    private function hooksTest(array $module, array $total) : int
+    private function hooksTest(array $module, array $total) : array
     {
+        $invalid = [];
         foreach ($module as $route => $dests) {
             if (!isset($total[$route])) {
-                return -1;
+                $invalid[] = $route;
             }
 
             // test route class
@@ -634,18 +652,18 @@ trait ModuleTestTrait
                 $parts = \explode(':', $callback);
                 $path  = __DIR__ . '/../../' . \ltrim(\strtr($parts[0], '\\', '/'), '/') . '.php';
                 if (!\is_file($path)) {
-                    return -2;
+                    $invalid[] = $path;
                 }
 
                 // test route method
                 $content = \file_get_contents($path);
                 if (\stripos($content, 'function ' . $parts[\count($parts) - 1]) === false) {
-                    return -3;
+                    $invlaid[] = $parts[\count($parts) - 1];
                 }
             }
         }
 
-        return 1;
+        return $invalid;
     }
 
     /**
