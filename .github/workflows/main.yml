@@ -267,7 +267,6 @@ jobs:
       env:
         VALIDATE_ALL_CODEBASE: false
         VALIDATE_CLANG_FORMAT : true
-        DEFAULT_BRANCH: develop
         GITHUB_TOKEN: ${{ secrets.GH_PAT }}
   custom:
     runs-on: ubuntu-latest
