@@ -141,8 +141,8 @@ jobs:
     - run: npm install
     - name: jasmine
       run: |
-        chmod +x Build/Config/jasmine_build.sh
-        Build/Config/jasmine_build.sh
+        chmod +x ./Build/Config/jasmine_build.sh
+        ./Build/Config/jasmine_build.sh
         cd jsOMS
         npx jasmine --config=../Build/Config/jasmine.json
   cpp-tests:
