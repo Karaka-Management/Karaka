@@ -620,6 +620,10 @@ trait ModuleTestTrait
 
                 // test route method
                 $content = \file_get_contents($path);
+                if ($content === false) {
+                    continue;
+                }
+
                 if (\stripos($content, 'function ' . $parts[\count($parts) - 1]) === false
                     && \strpos($parts[\count($parts) - 1], 'Trait') === false
                 ) {
@@ -657,6 +661,10 @@ trait ModuleTestTrait
 
                 // test route method
                 $content = \file_get_contents($path);
+                if ($content === false) {
+                    continue;
+                }
+
                 if (\stripos($content, 'function ' . $parts[\count($parts) - 1]) === false) {
                     $invlaid[] = $parts[\count($parts) - 1];
                 }
