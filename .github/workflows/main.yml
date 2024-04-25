@@ -142,7 +142,7 @@ jobs:
     - name: jasmine
       run: |
         chmod +x ./Build/Config/jasmine_build.sh
-        ./Build/Config/jasmine_build.sh
+        ./Build/Config/jasmine_build.sh ./jsOMS/tests
         cd jsOMS
         npx jasmine --config=../Build/Config/jasmine.json
   cpp-tests:
