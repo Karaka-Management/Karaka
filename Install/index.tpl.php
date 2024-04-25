@@ -215,6 +215,8 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
             <div>
                 <p>Please create a database this WebApp can use and configure every field.</p>
 
+                <p><strong>IMPORTANT: </strong>Some modules require <i>SUPER</i> privileges to create database triggers and functions. Please make sure this is enabled. In MySQL/MariaDB you need <i>log_bin_trust_function_creators = 1</i> in your my.cnf file or <i>SET GLOBAL log_bin_trust_function_creators = 1;</i> in your database</p>
+
                 <form id="installForm" name="installForm" method="put" action="<?= $this->request->uri->__toString(); ?>">
                     <ul>
                         <li><label for="iDbHost">Address</label>
