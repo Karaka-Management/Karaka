@@ -24,7 +24,10 @@ jobs:
     - name: Install dependencies
       run: npm install
     - name: Compile CSS
-      run: npm run scss
+      run: |
+        npx sass Install/Application/Backend/Themes/Default/css/backend-small.scss Install/Application/Backend/Themes/Default/css/backend-small.css --style=compressed
+        npx sass Install/Application/Backend/Themes/Default/css/backend-dark.scss Install/Application/Backend/Themes/Default/css/backend-dark.css --style=compressed
+        npx sass Install/Application/Backend/Themes/Default/css/logout-small.scss Install/Application/Backend/Themes/Default/css/logout-small.css --style=compressed
     - name: Compile JS
       run: npx esbuild Install/Application/Backend/js/backend.js --bundle --outfile=Install/Application/Backend/js/backend.min.js --minify
     - name: Check for modified files
@@ -260,7 +263,7 @@ jobs:
         VALIDATE_ALL_CODEBASE: false
         VALIDATE_CLANG_FORMAT : true
         DEFAULT_BRANCH: develop
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
   custom:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'NO_CI')"
