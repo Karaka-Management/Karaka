@@ -3,7 +3,7 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  build_css:
+  build_release:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'NO_CI')"
     steps:
@@ -39,7 +39,7 @@ jobs:
         git add *.css
         git commit -m "Automatic css build" || true
         git push || true
-  code-tests:
+  php-tests:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'NO_CI')"
     services:
@@ -76,7 +76,7 @@ jobs:
       fail-fast: false
       max-parallel: 3
       matrix:
-        php-versions: ['8.1']
+        php-versions: ['8.3']
     steps:
     - name: Checkout Repository
       uses: actions/checkout@main
@@ -114,6 +114,16 @@ jobs:
       run: composer install
     - name: phpunit
       run: vendor/bin/phpunit --coverage-clover tests/coverage.xml --configuration tests/phpunit_no_coverage.xml
+  js-tests:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'NO_CI')"
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@main
+      with:
+        fetch-depth: 1
+        submodules: recursive
+        token: ${{ secrets.GH_PAT }}
     - name: Install NPM
       uses: actions/setup-node@v3
       with:
@@ -160,7 +170,7 @@ jobs:
       fail-fast: false
       max-parallel: 3
       matrix:
-        php-versions: ['8.1']
+        php-versions: ['8.3']
     steps:
     - name: Checkout Repository
       uses: actions/checkout@main
@@ -194,7 +204,7 @@ jobs:
       fail-fast: false
       max-parallel: 3
       matrix:
-        php-versions: ['8.1']
+        php-versions: ['8.3']
     steps:
     - name: Checkout Repository
       uses: actions/checkout@main
@@ -231,6 +241,16 @@ jobs:
     - run: npm install
     - name: eslint
       run: npx eslint ./jsOMS -c Build/Config/.eslintrc.json
+    - name: Copy config file
+      run: |
+        cp ./Build/Config/.clang-format ./.clang-format
+    - name: Lint c/cpp
+      uses: super-linter/super-linter@v6.4.0
+      env:
+        VALIDATE_ALL_CODEBASE: false
+        VALIDATE_CLANG_FORMAT : true
+        DEFAULT_BRANCH: develop
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
   custom:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'NO_CI')"
@@ -238,7 +258,7 @@ jobs:
       fail-fast: false
       max-parallel: 3
       matrix:
-        php-versions: ['8.1']
+        php-versions: ['8.3']
     steps:
     - name: Checkout Repository
       uses: actions/checkout@main
