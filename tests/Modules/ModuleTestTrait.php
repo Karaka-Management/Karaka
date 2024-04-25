@@ -615,7 +615,7 @@ trait ModuleTestTrait
                 $parts = \explode(':', $verb['dest']);
                 $path  = __DIR__ . '/../../' . \ltrim(\strtr($parts[0], '\\', '/'), '/') . '.php';
                 if (!\is_file($path)) {
-                    $invalid[] = $path;
+                    $invalid[] = $verb['dest'];
                 }
 
                 // test route method
@@ -656,7 +656,7 @@ trait ModuleTestTrait
                 $parts = \explode(':', $callback);
                 $path  = __DIR__ . '/../../' . \ltrim(\strtr($parts[0], '\\', '/'), '/') . '.php';
                 if (!\is_file($path)) {
-                    $invalid[] = $path;
+                    $invalid[] = $callback;
                 }
 
                 // test route method
