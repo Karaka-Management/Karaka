@@ -49,9 +49,7 @@ const language = 'en';
     await driver.sleep(50);
 
     await driver.findElement(By.id('iUnitCreate')).click();
-    await driver.sleep(500);
-
-    await driver.get(base + '/organization/unit/view?id=2');
+    await driver.sleep(3000);
 
     await driver.findElement(By.css('#iName')).sendKeys('Testing');
     await driver.sleep(50);

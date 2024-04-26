@@ -31,15 +31,13 @@ const language = 'en';
     await driver.findElement(By.css('#idescription')).sendKeys('Selenium test position');
     await driver.sleep(50);
 
-    await driver.findElement(By.id('iSubmit')).click();
-    await driver.sleep(500);
-
-    await driver.get(base + '/organization/position/view?id=1');
+    await driver.findElement(By.id('iCreateSubmit')).click();
+    await driver.sleep(3000);
 
     await driver.findElement(By.css('#iName')).sendKeys('Position');
     await driver.sleep(50);
 
-    await driver.findElement(By.id('iSubmit')).click();
+    await driver.findElement(By.id('iSaveSubmit')).click();
     await driver.sleep(500);
 
     await driver.navigate().refresh();
