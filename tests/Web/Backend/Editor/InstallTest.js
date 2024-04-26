@@ -20,30 +20,15 @@ const language = 'en';
     await driver.sleep(500);
 
     ///////////////////////////////////////////////////////////////////////////////////////
-    // ACCOUNT TESTS
+    // INSTALL
     ///////////////////////////////////////////////////////////////////////////////////////
-    await driver.get(base + '/admin/account/create');
+    await driver.get(base + '/admin/module/info?id=Editor');
     await driver.sleep(500);
 
-    await driver.findElement(By.css('#iUsername')).sendKeys('test_account');
-    await driver.sleep(50);
+    await driver.findElement(By.id('fModuleInstallButton')).click();
+    await driver.sleep(10000);
 
-    await driver.findElement(By.css('#iName1')).sendKeys('Selenium');
-    await driver.sleep(50);
-
-    await driver.findElement(By.css('#iName2')).sendKeys('EndToEnd');
-    await driver.sleep(50);
-
-    await driver.findElement(By.css('#iEmail')).sendKeys('test@jingga.app');
-    await driver.sleep(50);
-
-    await driver.findElement(By.css('#iPassword')).sendKeys('test@jingga.app');
-    await driver.sleep(50);
-
-    await driver.findElement(By.id('iCreateAccount')).click();
-    await driver.sleep(500);
-
-    await driver.get(base + '/admin/account/view?id=2');
+    await driver.navigate().refresh();
 
     await driver.sleep(5000);
     await driver.quit();

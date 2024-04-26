@@ -22,28 +22,38 @@ const language = 'en';
     ///////////////////////////////////////////////////////////////////////////////////////
     // ACCOUNT TESTS
     ///////////////////////////////////////////////////////////////////////////////////////
-    await driver.get(base + '/admin/account/create');
+    await driver.get(base + '/editor/create');
     await driver.sleep(500);
 
-    await driver.findElement(By.css('#iUsername')).sendKeys('test_account');
+    await driver.findElement(By.css('input[name=title]')).sendKeys('Test Title');
     await driver.sleep(50);
 
-    await driver.findElement(By.css('#iName1')).sendKeys('Selenium');
+    await driver.findElement(By.css('textarea[name=plain]')).sendKeys('This is some test content');
     await driver.sleep(50);
 
-    await driver.findElement(By.css('#iName2')).sendKeys('EndToEnd');
-    await driver.sleep(50);
+    await driver.findElement(By.css('input[name=save-editor]')).click();
+    await driver.sleep(3000);
 
-    await driver.findElement(By.css('#iEmail')).sendKeys('test@jingga.app');
-    await driver.sleep(50);
+    await driver.get(base + '/editor/view?id=1');
+    await driver.sleep(3000);
 
-    await driver.findElement(By.css('#iPassword')).sendKeys('test@jingga.app');
-    await driver.sleep(50);
-
-    await driver.findElement(By.id('iCreateAccount')).click();
+    await driver.findElement(By.css('#iEditorEdit')).click();
     await driver.sleep(500);
+    await driver.findElement(By.css('label[for=editor-c-tab-1]')).click();
+    await driver.sleep(50);
 
-    await driver.get(base + '/admin/account/view?id=2');
+    await driver.findElement(By.css('input[name=title]')).clear();
+    await driver.findElement(By.css('input[name=title]')).sendKeys('Test New Title');
+    await driver.sleep(50);
+
+    await driver.findElement(By.css('textarea[name=plain]')).clear();
+    await driver.findElement(By.css('textarea[name=plain]')).sendKeys('This is some other test content');
+    await driver.sleep(50);
+
+    await driver.findElement(By.css('input[name=save-editor]')).click();
+    await driver.sleep(3000);
+
+    await driver.get(base + '/editor/view?id=1');
 
     await driver.sleep(5000);
     await driver.quit();
