@@ -9,7 +9,69 @@ export const KEYBOARD_EVENTS = [
         'element': '', // jump into search bar
         'keys': [17, 80], // ctrl+p
         'callback': function (e) {document.getElementById('iSearchBox').focus();}
-    }, {
+    },
+    {
+        'element': '', // preview
+        'keys': [17], // ctrl+hover
+        'callback': async function (e) {
+            const hoveredElement = document.querySelector('[data-preview]:hover');
+            const previewCheckbox = document.getElementById('hover-preview-checkbox');
+
+            if (hoveredElement === null) {
+                previewCheckbox.checked = false;
+
+                return;
+            }
+
+            const preview = document.getElementById('hover-preview');
+
+            const hoveredElementRec = hoveredElement.getBoundingClientRect();
+
+            const link = hoveredElement.getAttribute('data-preview');
+            if (!link) {
+                return;
+            }
+
+            try {
+                const response = await fetch(link, { mode: 'cors' });
+                const html = await response.text();
+                preview.innerHTML = html;
+
+                const previewElementRec = preview.getBoundingClientRect();
+
+                // Check if boxes (link/preview) overlap
+                if (((previewElementRec.left < hoveredElementRec.left && previewElementRec.right > hoveredElementRec.left)
+                        || (previewElementRec.left > hoveredElementRec.left && previewElementRec.left < hoveredElementRec.right))
+                    && ((previewElementRec.top < hoveredElementRec.top && previewElementRec.bottom > hoveredElementRec.top)
+                        || (previewElementRec.top > hoveredElementRec.top && previewElementRec.top < hoveredElementRec.bottom))
+                ) {
+                    /*
+                    const newX = previewElementRec.right <= hoveredElementRec.left
+                        ? previewElementRec.right
+                        : hoveredElementRec.left - (previewElementRec.right - previewElementRec.left);
+                    */
+
+                    let newY = previewElementRec.top < hoveredElementRec.top
+                        ? hoveredElementRec.top - previewElementRec.height - 20
+                        : hoveredElementRec.bottom + 20;
+
+                    if (newY < 0) {
+                        newY = hoveredElementRec.bottom + 20;
+                    } else if (newY + previewElementRec.height > window.innerHeight) {
+                        newY = hoveredElementRec.top - previewElementRec.height - 20;
+                    }
+
+                    //preview.style.left = parseInt(newX) + 'px';
+                    preview.style.top = parseInt(newY) + 'px';
+                }
+
+                previewCheckbox.checked = true;
+            } catch (error) {
+                console.error('Error fetching content:', error.message);
+            }
+        }
+    },
+    {
         'element': 'form, input, textarea, select', // submit currently focused form with the first found submit element (add, update, save)
         'keys': [17, 13], // ctrl+enter
         'callback': function (e) {

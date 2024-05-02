@@ -230,14 +230,17 @@ abstract class InstallAbstract extends ApplicationAbstract
             'Admin',
             'Auditor',
             'Monitoring',
+            'Search',
         ];
 
         $module     = $app->moduleManager->get('Admin', 'Api');
         $auditor    = $app->moduleManager->get('Auditor', 'Api');
         $monitoring = $app->moduleManager->get('Monitoring', '');
+        $search     = $app->moduleManager->get('Search', 'Api');
 
         $auditor->active    = false;
         $monitoring->active = false;
+        $search->active = false;
 
         $response                 = new HttpResponse();
         $request                  = new HttpRequest();
@@ -251,6 +254,7 @@ abstract class InstallAbstract extends ApplicationAbstract
 
         $auditor->active    = true;
         $monitoring->active = true;
+        $search->active     = true;
     }
 
     /**

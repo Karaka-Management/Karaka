@@ -1,6 +1,6 @@
 import { redirectMessage } from '../../../../../jsOMS/Model/Action/Dom/Redirect.js';
 import { requestAction } from '../../../../../jsOMS/Model/Action/Message/Request.js';
-import { reloadButtonAction } from '../../../../../jsOMS/Model/Action/Dom/Reload.js';
+import { logAction } from '../../../../../jsOMS/Model/Action/Message/Log.js';
 import { preventEvent } from '../../../../../jsOMS/Model/Action/Event/Prevent.js';
 import { jumpAction } from '../../../../../jsOMS/Model/Action/Event/Jump.js';
 import { ifAction } from '../../../../../jsOMS/Model/Action/Event/If.js';
@@ -13,7 +13,7 @@ import { formSubmitAction } from '../../../../../jsOMS/Model/Action/Dom/FormSubm
 export const ACTION_EVENTS = {
     'redirect': redirectMessage, /** global: redirectMessage */
     'message.request': requestAction, /** global: requestAction */
-    'dom.reload': reloadButtonAction, /** global: reloadButtonAction */
+    'message.log': logAction, /** global: logAction */
     'dom.click': domClickAction, /** global: domClickAction */
     'form.submit': formSubmitAction, /** global: domClickAction */
     'event.prevent': preventEvent, /** global: preventEvent */

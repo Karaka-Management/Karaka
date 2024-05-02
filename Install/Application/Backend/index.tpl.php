@@ -60,110 +60,112 @@ $dispatch = $this->getData('dispatch') ?? [];
     <script><?= $head->renderScript(); ?></script>
 </head>
 <body>
-    <div class="vh" id="dim"></div>
-    <?php
-        if ($this->getData('appStatus') === ApplicationStatus::READ_ONLY
-            || $this->getData('appStatus') === ApplicationStatus::DISABLED
-        ) :
-    ?>
-        <div id="stickyMessage warning">The application is currently in maintenance mode, you cannot make any changes.</div>
-    <?php endif; ?>
-    <input type="checkbox" id="nav-trigger" name="nav-hamburger" class="nav-trigger">
-    <nav id="nav-side">
-        <span id="u-box">
-            <a href="<?= UriFactory::build('{/base}/profile/view?{?}&id=' . $this->profile->id); ?>">
-                <img alt="<?= $this->getHtml('User', '0', '0'); ?>" loading="lazy" src="<?= $this->getProfileImage(); ?>">
-            </a>
-            <span id="logo" itemscope itemtype="http://schema.org/Organization">
-                <div>&nbsp;</div>
-                <select
-                    class="plain" id="unit-selector" name="unit"
-                    data-action='[{"listener": "change", "action": [{"key": 1, "type": "redirect", "uri": "{%}&u={!#unit-selector}", "target": "self"}]}]'
-                    title="Unit selector">
-                    <?php foreach ($this->organizations as $organization) : ?>
-                        <option value="<?= $organization->id; ?>"<?= $this->getData('unitId') == $organization->id ? ' selected' : ''; ?>><?= $this->printHtml($organization->name); ?>
-                    <?php endforeach; ?>
-                </select>
-                <div id="nav-side-settings">
-                    <input id="audio-output" type="checkbox">
-                    <label for="audio-output"><i class="g-icon volume_up">volume_up</i><i class="g-icon volume_down">volume_down</i></label>
+<div class="vh" id="dim"></div>
+<div class="vh" id="dim"></div>
+<input id="hover-preview-checkbox" class="vh" type="checkbox">
+<?php
+    if ($this->getData('appStatus') === ApplicationStatus::READ_ONLY
+        || $this->getData('appStatus') === ApplicationStatus::DISABLED
+    ) :
+?>
+    <div id="stickyMessage warning">The application is currently in maintenance mode, you cannot make any changes.</div>
+<?php endif; ?>
+<input type="checkbox" id="nav-trigger" name="nav-hamburger" class="nav-trigger">
+<nav id="nav-side">
+    <span id="u-box">
+        <a href="<?= UriFactory::build('{/base}/profile/view?{?}&id=' . $this->profile->id); ?>">
+            <img alt="<?= $this->getHtml('User', '0', '0'); ?>" loading="lazy" src="<?= $this->getProfileImage(); ?>">
+        </a>
+        <span id="logo" itemscope itemtype="http://schema.org/Organization">
+            <div>&nbsp;</div>
+            <select
+                class="plain" id="unit-selector" name="unit"
+                data-action='[{"listener": "change", "action": [{"key": 1, "type": "redirect", "uri": "{%}&u={!#unit-selector}", "target": "self"}]}]'
+                title="Unit selector">
+                <?php foreach ($this->organizations as $organization) : ?>
+                    <option value="<?= $organization->id; ?>"<?= $this->getData('unitId') == $organization->id ? ' selected' : ''; ?>><?= $this->printHtml($organization->name); ?>
+                <?php endforeach; ?>
+            </select>
+            <div id="nav-side-settings">
+                <input id="audio-output" type="checkbox">
+                <label for="audio-output"><i class="g-icon volume_up">volume_up</i><i class="g-icon volume_down">volume_down</i></label>
 
-                    <input id="speech-recognition" type="checkbox">
-                    <label for="speech-recognition"><i class="g-icon">mic</i>
-                </div>
-            </span>
-            <label class="ham-trigger" for="nav-trigger"><i class="g-icon p">menu</i></label>
-        </span>
-        <?= $side; ?>
-    </nav>
-    <main>
-        <header>
-        <form id="s-bar" method="GET" action="<?= UriFactory::build('{/base}/search?{?}&app=Backend&csrf={$CSRF}'); ?>">
-                <label class="ham-trigger" for="nav-trigger"><i class="g-icon p">menu</i></label>
-                <span role="search" class="inputWrapper">
-                    <label id="iSearchType" for="iSearchType-check" class="dropdown search-type">
-                        <div class="dropdown-closed">
-                            <input id="iSearchType-e1" name="scope" type="radio" value="page" checked>
-                            <label for="iSearchType-check"><i class="g-icon">location_on</i></label>
-
-                            <input id="iSearchType-e2" name="scope" type="radio" value="global">
-                            <label for="iSearchType-check"><i class="g-icon">public</i></label>
-                        </div>
-                        <input id="iSearchType-check" type="checkbox" name="dropdown-visibility-iSearchType-check">
-                        <div class="dropdown-container">
-                            <div class="dropdown-search"></div>
-                            <div class="dropdown-content">
-                                <label for="iSearchType-e1"><i class="g-icon">location_on</i> Page</label>
-                                <label for="iSearchType-e2"><i class="g-icon">public</i> Global</label>
-                                <label for="iSearchType-check"><?= $this->getHtml('Close', '0', '0'); ?></label>
-                            </div>
-                        </div>
-                    </label>
-
-                    <span class="txtWrap">
-                        <input id="iSearchBox" name="search" type="text" autocomplete="off" value="<?= $this->request->getDataString('search') ?? ''; ?>" autofocus>
-                        <i class="frontIco g-icon" aria-hidden="true">search</i>
-                        <i class="endIco g-icon" aria-hidden="true">close</i>
-                    </span>
-                    <a class="button" href="<?= UriFactory::build('{/base}/search?{?}&app=Backend&csrf={$CSRF}'); ?>&search={#iSearchBox}"><?= $this->getHtml('Search', '0', '0'); ?></a>
-                </span>
-            </form>
-            <div id="t-nav-container"><?= $top; ?></div>
-        </header>
-
-        <div id="content" class="container-fluid" role="main">
-            <?php
-            $c = 0;
-            foreach ($dispatch as $view) {
-                if (!($view instanceof \phpOMS\Views\NullView)
-                    && $view instanceof \phpOMS\Contract\RenderableInterface
-                ) {
-                    $render = $view->render();
-                    if ($render === '') {
-                        continue;
-                    }
-
-                    echo $render;
-                    ++$c;
-                }
-            }
-
-            if ($c === 0) {
-                include __DIR__ . '/Error/404.tpl.php';
-            }
-            ?>
-        </div>
-    </main>
-    <div id="app-message-container">
-        <template id="app-message-tpl">
-            <div class="log-msg">
-                <h1 class="log-msg-title"></h1><i class="close g-icon">close</i>
-                <div class="log-msg-content"></div>
-                <a class="button primary-button"></a>
-                <a class="button secondary-button"></a>
+                <input id="speech-recognition" type="checkbox">
+                <label for="speech-recognition"><i class="g-icon">mic</i>
             </div>
-        </template>
+        </span>
+        <label class="ham-trigger" for="nav-trigger"><i class="g-icon p">menu</i></label>
+    </span>
+    <?= $side; ?>
+</nav>
+<main>
+    <header>
+    <form id="s-bar" method="GET" action="<?= UriFactory::build('{/base}/search?{?}&app=Backend&csrf={$CSRF}'); ?>">
+            <label class="ham-trigger" for="nav-trigger"><i class="g-icon p">menu</i></label>
+            <span role="search" class="inputWrapper">
+                <label id="iSearchType" for="iSearchType-check" class="dropdown search-type">
+                    <div class="dropdown-closed">
+                        <input id="iSearchType-e1" name="scope" type="radio" value="page" checked>
+                        <label for="iSearchType-check"><i class="g-icon">location_on</i></label>
+
+                        <input id="iSearchType-e2" name="scope" type="radio" value="global">
+                        <label for="iSearchType-check"><i class="g-icon">public</i></label>
+                    </div>
+                    <input id="iSearchType-check" type="checkbox" name="dropdown-visibility-iSearchType-check">
+                    <div class="dropdown-container">
+                        <div class="dropdown-search"></div>
+                        <div class="dropdown-content">
+                            <label for="iSearchType-e1"><i class="g-icon">location_on</i> Page</label>
+                            <label for="iSearchType-e2"><i class="g-icon">public</i> Global</label>
+                            <label for="iSearchType-check"><?= $this->getHtml('Close', '0', '0'); ?></label>
+                        </div>
+                    </div>
+                </label>
+
+                <span class="txtWrap">
+                    <input id="iSearchBox" name="search" type="text" autocomplete="off" value="<?= $this->request->getDataString('search') ?? ''; ?>" autofocus>
+                    <i class="frontIco g-icon" aria-hidden="true">search</i>
+                    <i class="endIco g-icon" aria-hidden="true">close</i>
+                </span>
+                <a class="button" href="<?= UriFactory::build('{/base}/search?{?}&app=Backend&csrf={$CSRF}'); ?>&search={#iSearchBox}"><?= $this->getHtml('Search', '0', '0'); ?></a>
+            </span>
+        </form>
+        <div id="t-nav-container"><?= $top; ?></div>
+    </header>
+
+    <div id="content" class="container-fluid" role="main">
+        <?php
+        $c = 0;
+        foreach ($dispatch as $view) {
+            if (!($view instanceof \phpOMS\Views\NullView)
+                && $view instanceof \phpOMS\Contract\RenderableInterface
+            ) {
+                $render = $view->render();
+                if ($render === '') {
+                    continue;
+                }
+
+                echo $render;
+                ++$c;
+            }
+        }
+
+        if ($c === 0) {
+            include __DIR__ . '/Error/404.tpl.php';
+        }
+        ?>
     </div>
+</main>
+<div id="app-message-container">
+    <template id="app-message-tpl">
+        <div class="log-msg">
+            <h1 class="log-msg-title"></h1><i class="close g-icon">close</i>
+            <div class="log-msg-content"></div>
+            <a class="button primary-button"></a>
+            <a class="button secondary-button"></a>
+        </div>
+    </template>
+</div>
 
 <template id="table-ctx-menu-tpl">
     <div id="table-ctx-menu" class="ctx-menu">

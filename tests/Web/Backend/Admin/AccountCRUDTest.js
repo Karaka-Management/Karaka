@@ -43,7 +43,10 @@ const language = 'en';
     await driver.findElement(By.id('iCreateAccount')).click();
     await driver.sleep(500);
 
-    await driver.get(base + '/admin/account/view?id=2');
+    await driver.findElement(By.id('account-profile-create')).click();
+    await driver.sleep(500);
+
+    await driver.get(base + '/profile/view?id=2');
 
     await driver.sleep(5000);
     await driver.quit();
