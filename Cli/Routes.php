@@ -29,4 +29,33 @@
             'verb' => 16,
         ],
     ],
+    '^.*/workflow/instance( .*$|$)' => [
+        0 => [
+            'dest' => '\Modules\Workflow\Controller\CliController:cliWorkflowInstanceCreate',
+            'verb' => 16,
+        ],
+    ],
+    '^/billing/bill/purchase/parse( .*$|$)' => [
+        0 => [
+            'dest' => '\Modules\Billing\Controller\CliController:cliParseSupplierBill',
+            'verb' => 16,
+        ],
+    ],
+    '^/purchase/order/suggestion/create( .*$|$)' => [
+        0 => [
+            'dest' => '\Modules\Purchase\Controller\CliController:cliGenerateOrderSuggestion',
+            'verb' => 16,
+        ],
+    ],
+    '^.*/orw/check -i all*$' => [
+        0 => [
+            'dest' => '\Modules\OnlineResourceWatcher\Controller\ApiController:apiCheckResources',
+            'active' => true,
+            'permission' => [
+                'module' => 'OnlineResourceWatcher',
+                'type' => 4,
+                'state' => 1,
+            ],
+        ],
+    ],
 ];

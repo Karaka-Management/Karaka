@@ -49,9 +49,9 @@
 [submodule "Modules/Help"]
 	path = Modules/Help
 	url = https://github.com/Karaka-Management/oms-Help.git
-[submodule "Modules/Helper"]
-	path = Modules/Helper
-	url = https://github.com/Karaka-Management/oms-Helper.git
+[submodule "Modules/Script"]
+	path = Modules/Script
+	url = https://github.com/Karaka-Management/oms-Script.git
 [submodule "Modules/Monitoring"]
 	path = Modules/Monitoring
 	url = https://github.com/Karaka-Management/oms-Monitoring.git
@@ -256,3 +256,6 @@
 [submodule "Modules/Notification"]
 	path = Modules/Notification
 	url = https://github.com/Karaka-Management/oms-Notification.git
+[submodule "Modules/Customs"]
+	path = Modules/Customs
+	url = https://github.com/Karaka-Management/oms-Customs.git

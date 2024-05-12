@@ -24,6 +24,8 @@ Indem Sie auf die DIENSTE zugreifen oder sie nutzen, erklären Sie sich damit ei
 
 Ihr Zugang zu den DIENSTEN und deren Nutzung hängt auch davon ab, dass Sie die Datenschutzrichtlinie des Unternehmens akzeptieren und einhalten. Unsere Datenschutzrichtlinie beschreibt unsere Richtlinien und Verfahren für die Erfassung, Nutzung und Offenlegung Ihrer persönlichen Daten, wenn Sie die DIENSTE nutzen, und informiert Sie über Ihre Datenschutzrechte und darüber, wie das Gesetz Sie schützt. Bitte lesen Sie unsere Datenschutzrichtlinien sorgfältig durch, bevor Sie unsere DIENSTE nutzen.
 
+Insoweit das UNTERNEHMEN für SIE als Auftragsverarbeiter im Sinne von Art. 28 Abs. 3 DSGVO tätig wird, gelten ergänzend zu diesen Allgemeinen Geschäftsbedingungen spezielle Regelungen zur Auftragsverarbeitungsvereinbarung, welche unter AVV abrufbar sind.
+
 Diese GESCHÄFTSBEDINGUNGEN gelten auch für alle künftigen Geschäftsbeziehungen, insofern nicht anderweitig spezifiziert.
 
 ## Angebote und Vertagsschließung
@@ -32,7 +34,7 @@ Alle Angebote des UNTERNEHMENs sind freibleibend und unverbindliche. Angebote de
 
 Zeichnungen, Abbildungen, Maße, Gewicht oder sonstige Leistungsdaten sind nur verbindlich, wenn diese ausdrücklich schriftlich vereinbart sind.
 
-Angaben aus Prospoekten, Preislisten oder dem Angebot sind nicht rechtsverbindlich, es sei denn, sie sind ausdrücklich Vertragsbestandteil geworden. Mündliche Zusagen und Nebenabreden, die über den schriftlichen Vertrag hinausgehen sind nicht zulässig.
+Angaben aus Prospekten, Preislisten oder dem Angebot sind nicht rechtsverbindlich, es sei denn, sie sind ausdrücklich Vertragsbestandteil geworden. Mündliche Zusagen und Nebenabreden, die über den schriftlichen Vertrag hinausgehen sind nicht zulässig.
 
 ## Copyright
 

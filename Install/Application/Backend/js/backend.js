@@ -74,7 +74,42 @@ export class Application
         this.setKeyboardActions();
         this.setMouseActions();
         this.setPopstate();
+
+        this.setupMobileHeaderHandling();
     };
+
+    setupMobileHeaderHandling()
+    {
+        const content = document.getElementById('content');
+        if (content === null) {
+            return;
+        }
+
+        if (window.innerWidth < 800) {
+            document.querySelector('main>header').style.display = 'none';
+        }
+
+        let startY = 0;
+        content.addEventListener('touchstart', function (e) {
+            if (window.innerWidth > 799) {
+                return;
+            }
+
+            startY = e.touches[0].clientY;
+        });
+
+        content.addEventListener('touchmove', function (e) {
+            if (window.innerWidth > 799) {
+                return;
+            }
+
+            if (e.touches[0].clientY > startY + 50 && this.scrollTop === 0) {
+                document.querySelector('main>header').style.display = '';
+            } else if (e.touches[0].clientY < startY - 50) {
+                document.querySelector('main>header').style.display = 'none';
+            }
+        });
+    }
 
     reInit()
     {

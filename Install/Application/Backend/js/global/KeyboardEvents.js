@@ -62,10 +62,16 @@ export const KEYBOARD_EVENTS = [
                     }
 
                     //preview.style.left = parseInt(newX) + 'px';
-                    preview.style.top = parseInt(newY) + 'px';
+
+                    let newYStyle = parseInt(newY) + 'px';
+                    if (preview.style.top !== newYStyle) {
+                        preview.style.top = parseInt(newY) + 'px';
+                    }
                 }
 
-                previewCheckbox.checked = true;
+                if (!previewCheckbox.checked) {
+                    previewCheckbox.checked = true;
+                }
             } catch (error) {
                 console.error('Error fetching content:', error.message);
             }

@@ -61,8 +61,8 @@ $dispatch = $this->getData('dispatch') ?? [];
 </head>
 <body>
 <div class="vh" id="dim"></div>
-<div class="vh" id="dim"></div>
 <input id="hover-preview-checkbox" class="vh" type="checkbox">
+<div class="checked-visibility" id="hover-preview"></div>
 <?php
     if ($this->getData('appStatus') === ApplicationStatus::READ_ONLY
         || $this->getData('appStatus') === ApplicationStatus::DISABLED
@@ -100,28 +100,9 @@ $dispatch = $this->getData('dispatch') ?? [];
 </nav>
 <main>
     <header>
-    <form id="s-bar" method="GET" action="<?= UriFactory::build('{/base}/search?{?}&app=Backend&csrf={$CSRF}'); ?>">
+        <form id="s-bar" method="GET" action="<?= UriFactory::build('{/base}/search?{?}&app=Backend&csrf={$CSRF}'); ?>">
             <label class="ham-trigger" for="nav-trigger"><i class="g-icon p">menu</i></label>
             <span role="search" class="inputWrapper">
-                <label id="iSearchType" for="iSearchType-check" class="dropdown search-type">
-                    <div class="dropdown-closed">
-                        <input id="iSearchType-e1" name="scope" type="radio" value="page" checked>
-                        <label for="iSearchType-check"><i class="g-icon">location_on</i></label>
-
-                        <input id="iSearchType-e2" name="scope" type="radio" value="global">
-                        <label for="iSearchType-check"><i class="g-icon">public</i></label>
-                    </div>
-                    <input id="iSearchType-check" type="checkbox" name="dropdown-visibility-iSearchType-check">
-                    <div class="dropdown-container">
-                        <div class="dropdown-search"></div>
-                        <div class="dropdown-content">
-                            <label for="iSearchType-e1"><i class="g-icon">location_on</i> Page</label>
-                            <label for="iSearchType-e2"><i class="g-icon">public</i> Global</label>
-                            <label for="iSearchType-check"><?= $this->getHtml('Close', '0', '0'); ?></label>
-                        </div>
-                    </div>
-                </label>
-
                 <span class="txtWrap">
                     <input id="iSearchBox" name="search" type="text" autocomplete="off" value="<?= $this->request->getDataString('search') ?? ''; ?>" autofocus>
                     <i class="frontIco g-icon" aria-hidden="true">search</i>

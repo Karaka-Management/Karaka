@@ -15,18 +15,17 @@ declare(strict_types=1);
 namespace Web\Backend;
 
 use Model\CoreSettings;
+use Modules\Admin\Models\Account as AdminAccount;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\App;
 use Modules\Admin\Models\AppMapper;
 use Modules\Admin\Models\LocalizationMapper;
-use Modules\Admin\Models\NullAccount as ModelsNullAccount;
 use Modules\Media\Models\MediaMapper;
 use Modules\Organization\Models\UnitMapper;
 use Modules\Profile\Models\ProfileMapper;
 use Modules\Profile\Models\SettingsEnum;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
-use phpOMS\Account\NullAccount;
 use phpOMS\Account\PermissionType;
 use phpOMS\Asset\AssetType;
 use phpOMS\Auth\Auth;
@@ -46,7 +45,6 @@ use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Model\Html\Head;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\RouteStatus;
-use phpOMS\Router\RouteVerb;
 use phpOMS\Router\WebRouter;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
@@ -148,8 +146,12 @@ final class Application
 
         $this->app->appId = $app->id;
 
-        $this->app->cachePool      = new CachePool();
-        $this->app->appSettings    = new CoreSettings();
+        $this->app->cachePool = new CachePool();
+        foreach (($this->config['cache'] ?? []) as $name => $cache) {
+            $this->app->cachePool->create($name, $cache);
+        }
+
+        $this->app->appSettings    = new CoreSettings($this->app->cachePool->get());
         $this->app->eventManager   = new EventManager($this->app->dispatcher);
         $this->app->accountManager = new AccountManager($this->app->sessionManager);
         $this->app->l11nServer     = LocalizationMapper::get()->where('id', 1)->execute();
@@ -371,10 +373,12 @@ final class Application
      */
     private function loadAccount(int $uid) : Account
     {
-        $account = AccountMapper::getWithPermissions($uid);
+        if (($json = $this->app->cachePool->get()->get('account:' . $uid)) === null || ($json['id'] ?? 0) === 0) {
+            $account = AccountMapper::getWithPermissions($uid);
 
-        if ($account instanceof ModelsNullAccount) {
-            $account = new NullAccount();
+            $this->app->cachePool->get()->add('account:' . $uid, $account->jsonSerialize(), 3600);
+        } else {
+            $account = AdminAccount::fromJson($json);
         }
 
         $this->app->accountManager->add($account);
@@ -418,10 +422,12 @@ final class Application
         $scriptSrc = \bin2hex(\random_bytes(32));
         $this->app->appSettings->setOption('script-nonce', $scriptSrc);
 
+        // @security 'unsafe-eval' is required for wasm ('wasm-unsafe-eval' is not working?!)
+        //      Remove once wasm can be loaded via nonce
         $response->header->set('content-security-policy',
             'base-uri \'self\';'
             . 'object-src \'none\';'
-            . 'script-src \'nonce-' . $scriptSrc . '\' \'strict-dynamic\';'
+            . 'script-src \'nonce-' . $scriptSrc . '\' \'strict-dynamic\' \'unsafe-eval\';'
             . 'worker-src \'self\';'
         );
 
@@ -529,6 +535,11 @@ final class Application
         $pageView->profile = $profile;
 
         $pageView->setData('nav', $this->getNavigation($request, $response));
+
+        // Cache general settings
+        $this->app->appSettings->get(null, [
+            SettingsEnum::DEFAULT_PROFILE_IMAGE, \Modules\Admin\Models\SettingsEnum::LOGIN_STATUS,
+        ]);
 
         /** @var \Model\Setting $profileImage */
         $profileImage = $this->app->appSettings->get(names: SettingsEnum::DEFAULT_PROFILE_IMAGE, module: 'Profile');

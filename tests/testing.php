@@ -16,7 +16,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/Autoloader.php';
 
-use Modules\Helper\Models\TemplateMapper;
+use Modules\Script\Models\TemplateMapper;
 use Modules\Media\Models\CollectionMapper;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;

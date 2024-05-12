@@ -16,7 +16,7 @@ namespace Model;
 
 use phpOMS\Config\OptionsTrait;
 use phpOMS\Config\SettingsInterface;
-use phpOMS\DataStorage\Cache\CachePool;
+use phpOMS\DataStorage\Cache\Connection\ConnectionInterface;
 
 /**
  * Core settings class.
@@ -39,10 +39,15 @@ final class CoreSettings implements SettingsInterface
     /**
      * Cache manager (pool).
      *
-     * @var null|CachePool
+     * @var null|ConnectionInterface
      * @since 1.0.0
      */
-    protected ?CachePool $cache = null;
+    protected ?ConnectionInterface $cache = null;
+
+    public function __construct(?ConnectionInterface $cache = null)
+    {
+        $this->cache = $cache;
+    }
 
     /**
      * {@inheritdoc}
@@ -69,6 +74,9 @@ final class CoreSettings implements SettingsInterface
                 if ($this->exists($id)) {
                     $options[$id] = $this->getOption($id);
                     unset($ids[$i]);
+                } elseif ($this->cache?->exists($id)) {
+                    $options[$id] = $this->cache->get('setting:' . $id);
+                    unset($ids[$i]);
                 }
             }
         }
@@ -92,6 +100,9 @@ final class CoreSettings implements SettingsInterface
                 if ($this->exists($key)) {
                     $options[$name] = $this->getOption($key);
                     unset($names[$i]);
+                } elseif ($this->cache?->exists($key)) {
+                    $options[$name] = $this->cache->get('setting:' . $key);
+                    unset($ids[$i]);
                 }
             }
         }
@@ -129,11 +140,13 @@ final class CoreSettings implements SettingsInterface
                 $key = \trim($key, ':');
 
                 $this->setOption($key, $option, true);
+                $this->cache?->add('setting:' . $key, $option, 3600);
 
                 // required because the above solution inserts only by string,
                 // this means the next get() call with just the int DB id would not hit the cache.
                 // summary: line 65 would fail
                 $this->setOption($option->id, $option, true);
+                $this->cache?->add('setting:' . $option->id, $option, 3600);
 
                 $options[$option->name] = $option;
             }
@@ -201,8 +214,11 @@ final class CoreSettings implements SettingsInterface
             }
 
             $this->setOption($key, $setting, true);
+            $this->cache?->delete('setting:' . $key);
+
             if (isset($setting->id)) {
                 $this->setOption($setting->id, $setting, true);
+                $this->cache?->delete('setting:' . $setting->id);
             }
 
             if ($store) {

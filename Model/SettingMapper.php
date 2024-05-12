@@ -116,12 +116,7 @@ final class SettingMapper extends DataMapperFactory
             }
         }
 
-        $sth = self::$db->con->prepare($query->toSql());
-        if ($sth === false) {
-            return; // @codeCoverageIgnore
-        }
-
-        $sth->execute();
+        $query->execute();
     }
 
     /**
@@ -165,6 +160,6 @@ final class SettingMapper extends DataMapperFactory
             }
         }
 
-        return self::getAll()->execute($query);
+        return self::getAll()->executeGetArray($query);
     }
 }

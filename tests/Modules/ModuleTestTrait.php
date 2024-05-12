@@ -819,4 +819,216 @@ trait ModuleTestTrait
 
         self::assertTrue(true);
     }
+
+    #[\PHPUnit\Framework\Attributes\Group('module')]
+    #[\PHPUnit\Framework\Attributes\CoversNothing]
+    public function testNavigationLanguage() : void
+    {
+        $module = $this->app->moduleManager->get(self::NAME);
+        if ($module::ID === 0) {
+            return;
+        }
+
+        if (!\is_file($module::PATH . '/Admin/Install/Navigation.install.json')) {
+            return;
+        }
+
+        $navigation = \json_decode(\file_get_contents($module::PATH . '/Admin/Install/Navigation.install.json'), true);
+
+        if (!\is_dir($module::PATH . '/Theme')) {
+            return;
+        }
+
+        $themes = \scandir($module::PATH . '/Theme');
+        if ($themes === false) {
+            return;
+        }
+
+        foreach ($themes as $theme) {
+            if ($theme === '.' || $theme === '..' || !\is_file($module::PATH . '/Theme/' . $theme . '/Lang/Navigation.en.lang.php')) {
+                continue;
+            }
+
+            $langFile = include $module::PATH . '/Theme/' . $theme . '/Lang/Navigation.en.lang.php';
+            $found = [];
+
+            \array_walk_recursive($navigation, function ($item, $key) use (&$missing, $langFile) {
+                if ($key !== 'name') {
+                    return;
+                }
+
+                $found[] = $item;
+            });
+
+            if (!empty($diff = \array_diff($found, $langFile['Navigation']))) {
+                self::assertTrue(false, 'Differences in Navigation language file and Navigation file: ' . \implode(',', $diff));
+            }
+        }
+
+        self::assertTrue(true);
+    }
+
+    #[\PHPUnit\Framework\Attributes\Group('module')]
+    #[\PHPUnit\Framework\Attributes\CoversNothing]
+    public function testNullModelExistence() : void
+    {
+        $module = $this->app->moduleManager->get(self::NAME);
+        if ($module::ID === 0) {
+            return;
+        }
+
+        if (!\is_dir($module::PATH . '/Models')) {
+            return;
+        }
+
+        $mappers = \scandir($module::PATH . '/Models');
+        if ($mappers === false) {
+            return;
+        }
+
+        foreach ($mappers as $mapper) {
+            if ($mapper === '..' || $mapper === '.'
+                || !\str_ends_with($mapper, 'Mapper.php')
+            ) {
+                continue;
+            }
+
+            $mapperContent = \file_get_contents($module::PATH . '/Models/' . $mapper);
+            $model = \substr($mapper, 0, -10);
+
+            if (\stripos($mapperContent, 'public const MODEL =') !== false
+                && \stripos($mapperContent, 'public const MODEL = ' . $model . '::class') === false
+            ) {
+                continue;
+            }
+
+            if (!\is_file($module::PATH . '/Models/Null' . $model . '.php')) {
+                self::assertTrue(false, 'Missing Null model for: ' . $mapper);
+                return;
+            }
+        }
+
+        self::assertTrue(true);
+    }
+
+    public function testTemplateLanguage() : void
+    {
+        $module = $this->app->moduleManager->get(self::NAME);
+        if ($module::ID === 0) {
+            return;
+        }
+
+        if (!\is_dir($module::PATH . '/Theme')) {
+            return;
+        }
+
+        $themes = \scandir($module::PATH . '/Theme');
+        if ($themes === false) {
+            return;
+        }
+
+        foreach ($themes as $theme) {
+            if ($theme === '.' || $theme === '..') {
+                continue;
+            }
+
+            $missingLanguage = [];
+            $unusedLanguage = [];
+
+            $lang = [];
+
+            if (empty($lang) && \is_dir($module::PATH . '/Theme/' . $theme . '/Lang')) {
+                $lang = include $module::PATH . '/Theme/' . $theme . '/Lang/en.lang.php';
+                $lang = $lang[self::NAME];
+
+                $unusedLanguage = $lang;
+            }
+
+            $tpls = \scandir($module::PATH . '/Theme/' . $theme);
+            if ($tpls === false) {
+                return;
+            }
+
+            foreach ($tpls as $tpl) {
+                if ($tpl === '.' || $tpl === '..' || !\str_ends_with($tpl, '.tpl.php')) {
+                    continue;
+                }
+
+                $fileContent = \file_get_contents($module::PATH . '/Theme/' . $theme . '/' . $tpl);
+
+                // unused
+                foreach ($unusedLanguage as $key => $_) {
+                    if (\str_starts_with(':', $key)) {
+                        unset($unusedLanguage[$key]);
+                        continue;
+                    }
+
+                    if (\stripos($fileContent, '$this->getHtml(\'' . $key . '\')') !== false
+                        || \stripos($fileContent, '$this->getHtml(\'' . $key . '\', \'' . self::NAME . '\', \'' . $theme . '\')') !== false
+                    ) {
+                        unset($unusedLanguage[$key]);
+                    }
+                }
+
+                // in template
+                $matches = [];
+                \preg_match_all('/\$this\->getHtml\(\'([a-zA-Z0-9:\-]+?)\'\)/', $fileContent, $matches);
+                foreach (($matches[1] ?? []) as $match) {
+                    if (\stripos($match, ':') !== false) {
+                        continue;
+                    }
+
+                    if(!isset($lang[$match])) {
+                        $missingLanguage[] = $match;
+                    }
+                }
+            }
+
+            if (!empty($unusedLanguage)) {
+                self::assertTrue(false, 'Unused language: ' . \implode(',', \array_keys($unusedLanguage)));
+            }
+
+            if (!empty($missingLanguage)) {
+                self::assertTrue(false, 'Missing language from templates: ' . \implode(',', \array_keys($unusedLanguage)));
+            }
+        }
+
+        self::assertTrue(true);
+    }
+
+    public function testTemplates() : void
+    {
+        $module = $this->app->moduleManager->get(self::NAME);
+        if ($module::ID === 0) {
+            return;
+        }
+
+        if (!\is_dir($module::PATH . '/Theme')) {
+            return;
+        }
+
+        $tpls = \scandir($module::PATH . '/Theme/Backend');
+        if ($tpls === false) {
+            return;
+        }
+
+        if (!\is_file($module::PATH . '/Controller/BackendController.php')) {
+            return;
+        }
+
+        $backend = \file_get_contents($module::PATH . '/Controller/BackendController.php');
+        $unused = [];
+
+        foreach ($tpls as $tpl) {
+            if ($tpl === '.' || $tpl === '..') {
+                continue;
+            }
+
+            if (\stripos($backend, $tpl) === false) {
+                $unused[] = $tpl;
+            }
+        }
+
+        self::assertEquals([], $unused, 'Unused template files: ' . \implode(',', $unused));
+    }
 }

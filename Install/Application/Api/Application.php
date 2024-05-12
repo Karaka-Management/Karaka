@@ -16,15 +16,14 @@ declare(strict_types=1);
 namespace Web\Api;
 
 use Model\CoreSettings;
+use Modules\Admin\Models\Account as AdminAccount;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\AppMapper;
 use Modules\Admin\Models\LocalizationMapper;
-use Modules\Admin\Models\NullAccount as ModelsNullAccount;
 use Modules\Admin\Models\PermissionCategory;
 use Modules\Admin\Models\SettingsEnum;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
-use phpOMS\Account\NullAccount;
 use phpOMS\Account\PermissionType;
 use phpOMS\Application\ApplicationAbstract;
 use phpOMS\Application\ApplicationStatus;
@@ -153,8 +152,12 @@ final class Application
 
         $this->app->appId = $app->id;
 
-        $this->app->cachePool    = new CachePool();
-        $this->app->appSettings  = new CoreSettings();
+        $this->app->cachePool = new CachePool();
+        foreach (($this->config['cache'] ?? []) as $name => $cache) {
+            $this->app->cachePool->create($name, $cache);
+        }
+
+        $this->app->appSettings  = new CoreSettings($this->app->cachePool->get());
         $this->app->eventManager = new EventManager($this->app->dispatcher);
         $this->app->eventManager->importFromFile(__DIR__ . '/Hooks.php');
 
@@ -371,10 +374,12 @@ final class Application
      */
     private function loadAccount(int $uid) : Account
     {
-        $account = AccountMapper::getWithPermissions($uid);
+        if (($json = $this->app->cachePool->get()->get('account:' . $uid)) === null || ($json['id'] ?? 0) === 0) {
+            $account = AccountMapper::getWithPermissions($uid);
 
-        if ($account instanceof ModelsNullAccount) {
-            $account = new NullAccount();
+            $this->app->cachePool->get()->add('account:' . $uid, $account->jsonSerialize(), 3600);
+        } else {
+            $account = AdminAccount::fromJson($json);
         }
 
         $this->app->accountManager->add($account);

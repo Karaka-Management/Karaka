@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 return [[
-    ':meta'                => 'Karaka backend application for businesses including EPR, CRM, Intranet, Office and much more.',
+    ':meta'                => 'Jingga backend application for businesses including EPR, CRM, Intranet, Office and much more.',
     'Add'                  => 'Add',
     'Back'                 => 'Back',
     'Cancel'               => 'Cancel',
@@ -66,6 +66,7 @@ return [[
     'Wednesday'            => 'Wednesday',
     'InvalidDelete'        => 'Cannot delete element(s), invalid data supplied.',
     'InvalidCreate'        => 'Cannot create element(s), invalid data supplied.',
+    'DuplicateCreate'      => 'Cannot create element(s), data already exists.',
     'InvalidUpdate'        => 'Cannot update element(s), invalid data supplied.',
     'InvalidReturn'        => 'Cannot return element(s).',
     'InvalidAdd'           => 'Cannot add element(s), invalid data supplied.',

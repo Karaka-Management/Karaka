@@ -104,11 +104,13 @@ return [
     ],
     'cache' => [
         'redis' => [
+            'type'   => 'redis',
             'db'   => 1,
             'host' => '127.0.0.1',
             'port' => 6379,
         ],
         'memcached' => [
+            'type' => 'mem',
             'host' => '127.0.0.1',
             'port' => 11211,
         ],

@@ -69,5 +69,6 @@ return [[
     'Localizations'  => 'Localizations',
     'Content'        => 'Content',
     'Type'           => 'Type',
+    'Total'           => 'Total',
     'PleaseSelect'   => 'Please Select',
 ]];
