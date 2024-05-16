@@ -13,6 +13,7 @@
 declare(strict_types=1);
 
 use phpOMS\Utils\Parser\Markdown\Markdown;
+
 ?>
 <?php include __DIR__ . '/head.tpl.php'; ?>
 <body>

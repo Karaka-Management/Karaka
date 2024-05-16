@@ -240,7 +240,7 @@ abstract class InstallAbstract extends ApplicationAbstract
 
         $auditor->active    = false;
         $monitoring->active = false;
-        $search->active = false;
+        $search->active     = false;
 
         $response                 = new HttpResponse();
         $request                  = new HttpRequest();

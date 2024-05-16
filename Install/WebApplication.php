@@ -198,7 +198,7 @@ final class WebApplication extends InstallAbstract
         $view = new View(null, $request, $response);
         $view->setTemplate('/Install/index');
 
-        $view->data['nonce'] = \bin2hex(\random_bytes(32));
+        $view->data['nonce']    = \bin2hex(\random_bytes(32));
         $request->data['nonce'] = $view->data['nonce'];
 
         $response->header->set('content-security-policy',

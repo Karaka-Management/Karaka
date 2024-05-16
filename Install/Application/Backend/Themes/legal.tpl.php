@@ -13,6 +13,7 @@
 declare(strict_types=1);
 
 use phpOMS\Utils\Parser\Markdown\Markdown;
+
 ?>
 
 <div class="row">

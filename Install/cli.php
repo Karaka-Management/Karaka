@@ -9,7 +9,6 @@
  * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
- *
  */
 declare(strict_types=1);
 
@@ -36,13 +35,13 @@ require_once __DIR__ . '/../phpOMS/Autoloader.php';
 
 $config = require_once __DIR__ . '/config.php';
 
-$orgname = 'Jingga';
-$adminname = 'admin';
-$adminpassword = 'orange';
-$adminemail = 'admin@demo.app';
-$domain = '127.0.0.1';
-$websubdir =  $config['page']['root'];
-$defaultlang = 'en';
+$orgname        = 'Jingga';
+$adminname      = 'admin';
+$adminpassword  = 'orange';
+$adminemail     = 'admin@demo.app';
+$domain         = '127.0.0.1';
+$websubdir      = $config['page']['root'];
+$defaultlang    = 'en';
 $defaultcountry = 'US';
 
 /////////////////////////////////////////////////////////////////

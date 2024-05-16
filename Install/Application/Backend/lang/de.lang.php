@@ -58,6 +58,6 @@ return [[
     'Tuesday'        => 'Dienstag',
     'User'           => 'Benutzer',
     'Username'       => 'Benutzer',
-    'Total'       => 'Gesamt',
+    'Total'          => 'Gesamt',
     'Wednesday'      => 'Mittwoch',
 ]];

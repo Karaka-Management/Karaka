@@ -16,17 +16,17 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/Autoloader.php';
 
-use Modules\Script\Models\TemplateMapper;
 use Modules\Media\Models\CollectionMapper;
+use Modules\Script\Models\TemplateMapper;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 use phpOMS\DataStorage\Session\HttpSession;
 
 $CONFIG = [
-    'db'       => [
+    'db' => [
         'core' => [
             'masters' => [
-                'admin'  => [
+                'admin' => [
                     'db'       => 'mysql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '3306', /* db host port */
@@ -35,7 +35,7 @@ $CONFIG = [
                     'database' => 'omt', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'insert'  => [
+                'insert' => [
                     'db'       => 'mysql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '3306', /* db host port */
@@ -44,7 +44,7 @@ $CONFIG = [
                     'database' => 'omt', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'select'  => [
+                'select' => [
                     'db'       => 'mysql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '3306', /* db host port */
@@ -53,7 +53,7 @@ $CONFIG = [
                     'database' => 'omt', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'update'  => [
+                'update' => [
                     'db'       => 'mysql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '3306', /* db host port */
@@ -62,7 +62,7 @@ $CONFIG = [
                     'database' => 'omt', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'delete'  => [
+                'delete' => [
                     'db'       => 'mysql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '3306', /* db host port */
@@ -71,7 +71,7 @@ $CONFIG = [
                     'database' => 'omt', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'schema'  => [
+                'schema' => [
                     'db'       => 'mysql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '3306', /* db host port */
@@ -82,7 +82,7 @@ $CONFIG = [
                 ],
             ],
             'postgresql' => [
-                'admin'  => [
+                'admin' => [
                     'db'       => 'pgsql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '5432', /* db host port */
@@ -91,7 +91,7 @@ $CONFIG = [
                     'database' => 'omt', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'insert'  => [
+                'insert' => [
                     'db'       => 'pgsql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '5432', /* db host port */
@@ -100,7 +100,7 @@ $CONFIG = [
                     'database' => 'omt', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'select'  => [
+                'select' => [
                     'db'       => 'pgsql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '5432', /* db host port */
@@ -109,7 +109,7 @@ $CONFIG = [
                     'database' => 'omt', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'update'  => [
+                'update' => [
                     'db'       => 'pgsql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '5432', /* db host port */
@@ -118,7 +118,7 @@ $CONFIG = [
                     'database' => 'omt', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'delete'  => [
+                'delete' => [
                     'db'       => 'pgsql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '5432', /* db host port */
@@ -127,7 +127,7 @@ $CONFIG = [
                     'database' => 'omt', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'schema'  => [
+                'schema' => [
                     'db'       => 'pgsql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '5432', /* db host port */
@@ -138,39 +138,39 @@ $CONFIG = [
                 ],
             ],
             'sqlite' => [
-                'admin'  => [
+                'admin' => [
                     'db'       => 'sqlite', /* db type */
                     'database' => __DIR__ . '/test.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'insert'  => [
+                'insert' => [
                     'db'       => 'sqlite', /* db type */
                     'database' => __DIR__ . '/test.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'select'  => [
+                'select' => [
                     'db'       => 'sqlite', /* db type */
                     'database' => __DIR__ . '/test.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'update'  => [
+                'update' => [
                     'db'       => 'sqlite', /* db type */
                     'database' => __DIR__ . '/test.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'delete'  => [
+                'delete' => [
                     'db'       => 'sqlite', /* db type */
                     'database' => __DIR__ . '/test.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'schema'  => [
+                'schema' => [
                     'db'       => 'sqlite', /* db type */
                     'database' => __DIR__ . '/test.sqlite', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
             ],
             'mssql' => [
-                'admin'  => [
+                'admin' => [
                     'db'       => 'mssql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '5432', /* db host port */
@@ -179,7 +179,7 @@ $CONFIG = [
                     'database' => 'omt', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'insert'  => [
+                'insert' => [
                     'db'       => 'mssql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '5432', /* db host port */
@@ -188,7 +188,7 @@ $CONFIG = [
                     'database' => 'omt', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'select'  => [
+                'select' => [
                     'db'       => 'mssql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '5432', /* db host port */
@@ -197,7 +197,7 @@ $CONFIG = [
                     'database' => 'omt', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'update'  => [
+                'update' => [
                     'db'       => 'mssql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '5432', /* db host port */
@@ -206,7 +206,7 @@ $CONFIG = [
                     'database' => 'omt', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'delete'  => [
+                'delete' => [
                     'db'       => 'mssql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '5432', /* db host port */
@@ -215,7 +215,7 @@ $CONFIG = [
                     'database' => 'omt', /* db name */
                     'weight'   => 1000, /* db table prefix */
                 ],
-                'schema'  => [
+                'schema' => [
                     'db'       => 'mssql', /* db type */
                     'host'     => '127.0.0.1', /* db host address */
                     'port'     => '5432', /* db host port */
@@ -254,16 +254,16 @@ $CONFIG = [
             'password' => '123456',
         ],
     ],
-    'log'      => [
+    'log' => [
         'file' => [
             'path' => __DIR__ . '/Logs',
         ],
     ],
-    'page'     => [
+    'page' => [
         'root'  => '/',
         'https' => false,
     ],
-    'socket'   => [
+    'socket' => [
         'master' => [
             'host'  => '127.0.0.1',
             'limit' => 300,
@@ -273,7 +273,7 @@ $CONFIG = [
     'language' => [
         'en',
     ],
-    'apis'     => [
+    'apis' => [
     ],
 ];
 

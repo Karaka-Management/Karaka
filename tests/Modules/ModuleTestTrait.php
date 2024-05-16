@@ -155,10 +155,10 @@ trait ModuleTestTrait
                 continue;
             }
 
-            $columns = $class::COLUMNS;
-            $ownsOne = $class::OWNS_ONE;
+            $columns   = $class::COLUMNS;
+            $ownsOne   = $class::OWNS_ONE;
             $belongsTo = $class::HAS_MANY;
-            $hasMany = $class::HAS_MANY;
+            $hasMany   = $class::HAS_MANY;
 
             $relations = \array_merge($ownsOne, $belongsTo, $hasMany);
 
@@ -312,9 +312,8 @@ trait ModuleTestTrait
     #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testMapperAgainstDbSchema() : void
     {
-
-        $mappers    = \glob(__DIR__ . '/../../Modules/' . self::NAME . '/Models/*Mapper.php');
-        $info       = \json_decode(\file_get_contents(__DIR__ . '/../../Modules/' . self::NAME . '/info.json'), true);
+        $mappers = \glob(__DIR__ . '/../../Modules/' . self::NAME . '/Models/*Mapper.php');
+        $info    = \json_decode(\file_get_contents(__DIR__ . '/../../Modules/' . self::NAME . '/info.json'), true);
 
         $toCheck = [self::NAME];
         foreach ($info['dependencies'] as $dependency => $version) {
@@ -419,8 +418,8 @@ trait ModuleTestTrait
     #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testJson() : void
     {
-        $sampleInfo    = \json_decode(\file_get_contents(__DIR__ . '/../../Modules/TestModule/info.json'), true);
-        $infoTemplate  = \json_decode(\file_get_contents(__DIR__ . '/../../phpOMS/Module/infoLayout.json'), true);
+        $sampleInfo   = \json_decode(\file_get_contents(__DIR__ . '/../../Modules/TestModule/info.json'), true);
+        $infoTemplate = \json_decode(\file_get_contents(__DIR__ . '/../../phpOMS/Module/infoLayout.json'), true);
 
         $module = $this->app->moduleManager->get(self::NAME);
 
@@ -453,9 +452,9 @@ trait ModuleTestTrait
     #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testRoutes() : void
     {
-        $this->app->moduleManager      = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
-        $totalBackendRoutes            = \is_file(__DIR__ . '/../../Web/Backend/Routes.php') ? include __DIR__ . '/../../Web/Backend/Routes.php' : [];
-        $totalApiRoutes                = \is_file(__DIR__ . '/../../Web/Api/Routes.php') ? include __DIR__ . '/../../Web/Api/Routes.php' : [];
+        $this->app->moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
+        $totalBackendRoutes       = \is_file(__DIR__ . '/../../Web/Backend/Routes.php') ? include __DIR__ . '/../../Web/Backend/Routes.php' : [];
+        $totalApiRoutes           = \is_file(__DIR__ . '/../../Web/Api/Routes.php') ? include __DIR__ . '/../../Web/Api/Routes.php' : [];
 
         $module = $this->app->moduleManager->get(self::NAME);
 
@@ -488,9 +487,9 @@ trait ModuleTestTrait
     #[\PHPUnit\Framework\Attributes\CoversNothing]
     public function testHooks() : void
     {
-        $this->app->moduleManager     = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
-        $totalBackendHooks            = \is_file(__DIR__ . '/../../Web/Backend/Hooks.php') ? include __DIR__ . '/../../Web/Backend/Hooks.php' : [];
-        $totalApiHooks                = \is_file(__DIR__ . '/../../Web/Api/Hooks.php') ? include __DIR__ . '/../../Web/Api/Hooks.php' : [];
+        $this->app->moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules/');
+        $totalBackendHooks        = \is_file(__DIR__ . '/../../Web/Backend/Hooks.php') ? include __DIR__ . '/../../Web/Backend/Hooks.php' : [];
+        $totalApiHooks            = \is_file(__DIR__ . '/../../Web/Api/Hooks.php') ? include __DIR__ . '/../../Web/Api/Hooks.php' : [];
 
         $module = $this->app->moduleManager->get(self::NAME);
 
@@ -850,9 +849,9 @@ trait ModuleTestTrait
             }
 
             $langFile = include $module::PATH . '/Theme/' . $theme . '/Lang/Navigation.en.lang.php';
-            $found = [];
+            $found    = [];
 
-            \array_walk_recursive($navigation, function ($item, $key) use (&$missing, $langFile) {
+            \array_walk_recursive($navigation, function ($item, $key) use (&$missing, $langFile) : void {
                 if ($key !== 'name') {
                     return;
                 }
@@ -894,7 +893,7 @@ trait ModuleTestTrait
             }
 
             $mapperContent = \file_get_contents($module::PATH . '/Models/' . $mapper);
-            $model = \substr($mapper, 0, -10);
+            $model         = \substr($mapper, 0, -10);
 
             if (\stripos($mapperContent, 'public const MODEL =') !== false
                 && \stripos($mapperContent, 'public const MODEL = ' . $model . '::class') === false
@@ -933,7 +932,7 @@ trait ModuleTestTrait
             }
 
             $missingLanguage = [];
-            $unusedLanguage = [];
+            $unusedLanguage  = [];
 
             $lang = [];
 
@@ -1017,7 +1016,7 @@ trait ModuleTestTrait
         }
 
         $backend = \file_get_contents($module::PATH . '/Controller/BackendController.php');
-        $unused = [];
+        $unused  = [];
 
         foreach ($tpls as $tpl) {
             if ($tpl === '.' || $tpl === '..') {

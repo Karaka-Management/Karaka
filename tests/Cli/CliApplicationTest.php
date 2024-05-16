@@ -32,7 +32,7 @@ class CliApplicationTest extends \PHPUnit\Framework\TestCase
 
         self::assertInstanceOf('\Cli\CliApplication', $console);
 
-        restore_error_handler();
-        restore_exception_handler();
+        \restore_error_handler();
+        \restore_exception_handler();
     }
 }
