@@ -1019,11 +1019,11 @@ trait ModuleTestTrait
         $unused  = [];
 
         foreach ($tpls as $tpl) {
-            if ($tpl === '.' || $tpl === '..') {
+            if ($tpl === '.' || $tpl === '..' || !\str_ends_with($tpl, '.tpl.php')) {
                 continue;
             }
 
-            if (\stripos($backend, $tpl) === false) {
+            if (\stripos($backend, \substr($tpl, 0, -8)) === false) {
                 $unused[] = $tpl;
             }
         }

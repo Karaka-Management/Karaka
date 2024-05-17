@@ -44,6 +44,13 @@ final class CoreSettings implements SettingsInterface
      */
     protected ?ConnectionInterface $cache = null;
 
+    /**
+     * Constructor.
+     *
+     * @param null|ConnectionInterface $cache Cache connection
+     *
+     * @since 1.0.0
+     */
     public function __construct(?ConnectionInterface $cache = null)
     {
         $this->cache = $cache;
