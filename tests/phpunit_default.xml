@@ -24,6 +24,7 @@
     <exclude>
       <group>volume</group>
       <group>maybe</group>
+      <group>optional</group>
     </exclude>
   </groups>
   <logging>

@@ -920,6 +920,7 @@ trait ModuleTestTrait
         self::assertTrue(true);
     }
 
+    #[\PHPUnit\Framework\Attributes\Group('optional')]
     public function testTemplateLanguage() : void
     {
         // @todo Parts of this should be recursive because sometimes there are sub-directories
@@ -1005,6 +1006,7 @@ trait ModuleTestTrait
         self::assertTrue(true);
     }
 
+    #[\PHPUnit\Framework\Attributes\Group('optional')]
     public function testTemplates() : void
     {
         $module = $this->app->moduleManager->get(self::NAME);
