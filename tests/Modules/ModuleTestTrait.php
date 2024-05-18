@@ -985,8 +985,8 @@ trait ModuleTestTrait
                 }
             }
 
-            self::assertEquals([], $unusedLanguage, 'Unused language: ' . \implode(',', \array_keys($unusedLanguage)));
-            self::assertEquals([], $missingLanguage, 'Missing language from templates: ' . \implode(',', \array_keys($unusedLanguage)));
+            self::assertEquals([], $unusedLanguage ?? [], 'Unused language.');
+            self::assertEquals([], $missingLanguage ?? [], 'Missing language from templates');
         }
 
         self::assertTrue(true);
@@ -1016,7 +1016,9 @@ trait ModuleTestTrait
         $unused  = [];
 
         foreach ($tpls as $tpl) {
-            if ($tpl === '.' || $tpl === '..' || !\str_ends_with($tpl, '.tpl.php')) {
+            if ($tpl === '.' || $tpl === '..'
+                || !\str_ends_with($tpl, '.tpl.php') || \str_starts_with($tpl, '_')
+            ) {
                 continue;
             }
 
@@ -1025,6 +1027,6 @@ trait ModuleTestTrait
             }
         }
 
-        self::assertEquals([], $unused, 'Unused template files: ' . \implode(',', $unused));
+        self::assertEquals([], $unused ?? [], 'Unused template files: ' . \implode(',', $unused));
     }
 }

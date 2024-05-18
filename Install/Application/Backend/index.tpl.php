@@ -17,7 +17,7 @@ use phpOMS\Application\ApplicationStatus;
 use phpOMS\Uri\UriFactory;
 
 /** @var Web\Backend\BackendView $this */
-$nav = $this->getData('nav');
+$nav = $this->data['nav'];
 
 $nav->setTemplate('/Modules/Navigation/Theme/Backend/top');
 $top = $nav->render();
@@ -29,7 +29,7 @@ $side = $nav->render();
 $head = $this->head;
 
 /** @var array $dispatch */
-$dispatch = $this->getData('dispatch') ?? [];
+$dispatch = $this->data['dispatch'] ?? [];
 ?>
 <!DOCTYPE HTML>
 <html lang="<?= $this->printHtml($this->response->header->l11n->language); ?>">
@@ -64,8 +64,8 @@ $dispatch = $this->getData('dispatch') ?? [];
 <input id="hover-preview-checkbox" class="vh" type="checkbox">
 <div class="checked-visibility" id="hover-preview"></div>
 <?php
-    if ($this->getData('appStatus') === ApplicationStatus::READ_ONLY
-        || $this->getData('appStatus') === ApplicationStatus::DISABLED
+    if ($this->data['appStatus'] === ApplicationStatus::READ_ONLY
+        || $this->data['appStatus'] === ApplicationStatus::DISABLED
     ) :
 ?>
     <div id="stickyMessage warning">The application is currently in maintenance mode, you cannot make any changes.</div>
@@ -83,7 +83,7 @@ $dispatch = $this->getData('dispatch') ?? [];
                 data-action='[{"listener": "change", "action": [{"key": 1, "type": "redirect", "uri": "{%}&u={!#unit-selector}", "target": "self"}]}]'
                 title="Unit selector">
                 <?php foreach ($this->organizations as $organization) : ?>
-                    <option value="<?= $organization->id; ?>"<?= $this->getData('unitId') == $organization->id ? ' selected' : ''; ?>><?= $this->printHtml($organization->name); ?>
+                    <option value="<?= $organization->id; ?>"<?= $this->data['unitId'] == $organization->id ? ' selected' : ''; ?>><?= $this->printHtml($organization->name); ?>
                 <?php endforeach; ?>
             </select>
             <div id="nav-side-settings">
