@@ -943,15 +943,15 @@ trait ModuleTestTrait
                 $unusedLanguage = $lang;
             }
 
-            foreach ($unusedLanguage as $key => $_) {
-                if (\str_starts_with(':', $key)) {
-                    unset($unusedLanguage[$key]);
-                }
-            }
-
             $tpls = \scandir($module::PATH . '/Theme/' . $theme);
             if ($tpls === false) {
                 return;
+            }
+
+            foreach ($unusedLanguage as $key => $_) {
+                if (\str_starts_with($key, ':')) {
+                    unset($unusedLanguage[$key]);
+                }
             }
 
             foreach ($tpls as $tpl) {
@@ -985,13 +985,8 @@ trait ModuleTestTrait
                 }
             }
 
-            if (!empty($unusedLanguage)) {
-                self::assertTrue(false, 'Unused language: ' . \implode(',', \array_keys($unusedLanguage)));
-            }
-
-            if (!empty($missingLanguage)) {
-                self::assertTrue(false, 'Missing language from templates: ' . \implode(',', \array_keys($unusedLanguage)));
-            }
+            self::assertEquals([], $unusedLanguage, 'Unused language: ' . \implode(',', \array_keys($unusedLanguage)));
+            self::assertEquals([], $missingLanguage, 'Missing language from templates: ' . \implode(',', \array_keys($unusedLanguage)));
         }
 
         self::assertTrue(true);
