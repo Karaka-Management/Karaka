@@ -38,6 +38,8 @@ trait ModuleTestTrait
 {
     protected ApplicationAbstract $app;
 
+    protected const LANGUAGES = ['en', 'de'];
+
     /**
      * {@inheritdoc}
      */
@@ -744,7 +746,6 @@ trait ModuleTestTrait
             return;
         }
 
-        $required = ['en', 'de'];
         if (!\is_dir($module::PATH . '/Theme')) {
             return;
         }
@@ -784,7 +785,7 @@ trait ModuleTestTrait
                     $langKeys[$type]['required'] = true;
 
                     $missingLanguages = [];
-                    foreach ($required as $lang) {
+                    foreach (self::LANGUAGES as $lang) {
                         if (!\in_array(($type !== '' ? $type . '.' : '') . $lang . '.lang.php', $langFiles)) {
                             $langKeys[$type]['required'] = false;
                             $missingLanguages[]          = $lang;
