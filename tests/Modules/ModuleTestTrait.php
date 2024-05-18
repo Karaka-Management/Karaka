@@ -921,6 +921,9 @@ trait ModuleTestTrait
 
     public function testTemplateLanguage() : void
     {
+        // @todo Parts of this should be recursive because sometimes there are sub-directories
+        //      One such example are Components
+        //      Alternatively, use glob
         $module = $this->app->moduleManager->get(self::NAME);
         if ($module::ID === 0) {
             return;
