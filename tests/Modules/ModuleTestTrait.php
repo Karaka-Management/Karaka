@@ -901,6 +901,15 @@ trait ModuleTestTrait
                 continue;
             }
 
+            // Is most likely a helper mapper that is used for additional functions
+            if (\stripos($mapperContent, 'public const COLUMNS =') === false
+                && \stripos($mapperContent, 'public const HAS_MANY =') === false
+                && \stripos($mapperContent, 'public const OWNS_ONE =') === false
+                && \stripos($mapperContent, 'public const BELONGS_TO =') === false
+            ) {
+                continue;
+            }
+
             if (!\is_file($module::PATH . '/Models/Null' . $model . '.php')) {
                 self::assertTrue(false, 'Missing Null model for: ' . $mapper);
                 return;
