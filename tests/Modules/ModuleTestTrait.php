@@ -943,6 +943,12 @@ trait ModuleTestTrait
                 $unusedLanguage = $lang;
             }
 
+            foreach ($unusedLanguage as $key => $_) {
+                if (\str_starts_with(':', $key)) {
+                    unset($unusedLanguage[$key]);
+                }
+            }
+
             $tpls = \scandir($module::PATH . '/Theme/' . $theme);
             if ($tpls === false) {
                 return;
@@ -957,12 +963,8 @@ trait ModuleTestTrait
 
                 // unused
                 foreach ($unusedLanguage as $key => $_) {
-                    if (\str_starts_with(':', $key)) {
-                        unset($unusedLanguage[$key]);
-                        continue;
-                    }
-
                     if (\stripos($fileContent, '$this->getHtml(\'' . $key . '\')') !== false
+                        || \stripos($fileContent, '$this->getHtml(\'' . $key . '\', \'' . self::NAME . '\')') !== false
                         || \stripos($fileContent, '$this->getHtml(\'' . $key . '\', \'' . self::NAME . '\', \'' . $theme . '\')') !== false
                     ) {
                         unset($unusedLanguage[$key]);
