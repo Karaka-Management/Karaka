@@ -896,8 +896,11 @@ trait ModuleTestTrait
             $mapperContent = \file_get_contents($module::PATH . '/Models/' . $mapper);
             $model         = \substr($mapper, 0, -10);
 
+            // Is either model with different name or model with same name in different path (use is used)
             if (\stripos($mapperContent, 'public const MODEL =') !== false
-                && \stripos($mapperContent, 'public const MODEL = ' . $model . '::class') === false
+                && (\stripos($mapperContent, 'public const MODEL = ' . $model . '::class') === false
+                    || \stripos($mappercontent, '\\' . $model . ';') !== false
+                )
             ) {
                 continue;
             }

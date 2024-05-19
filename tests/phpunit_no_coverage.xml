@@ -18,7 +18,6 @@
     <exclude>
       <group>slow</group>
       <group>volume</group>
-      <group>maybe</group>
       <group>optional</group>
     </exclude>
   </groups>
