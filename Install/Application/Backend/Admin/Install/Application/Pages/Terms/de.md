@@ -24,7 +24,7 @@ Indem Sie auf die DIENSTE zugreifen oder sie nutzen, erklären Sie sich damit ei
 
 Ihr Zugang zu den DIENSTEN und deren Nutzung hängt auch davon ab, dass Sie die Datenschutzrichtlinie des Unternehmens akzeptieren und einhalten. Unsere Datenschutzrichtlinie beschreibt unsere Richtlinien und Verfahren für die Erfassung, Nutzung und Offenlegung Ihrer persönlichen Daten, wenn Sie die DIENSTE nutzen, und informiert Sie über Ihre Datenschutzrechte und darüber, wie das Gesetz Sie schützt. Bitte lesen Sie unsere Datenschutzrichtlinien sorgfältig durch, bevor Sie unsere DIENSTE nutzen.
 
-Insoweit das UNTERNEHMEN für SIE als Auftragsverarbeiter im Sinne von Art. 28 Abs. 3 DSGVO tätig wird, gelten ergänzend zu diesen Allgemeinen Geschäftsbedingungen spezielle Regelungen zur Auftragsverarbeitungsvereinbarung, welche unter AVV abrufbar sind.
+Insoweit das UNTERNEHMEN für SIE als Auftragsverarbeiter im Sinne von Art. 28 Abs. 3 DSGVO tätig wird, gelten ergänzend zu diesen Allgemeinen Geschäftsbedingungen spezielle Regelungen zur Auftragsverarbeitungsvereinbarung, welche unter DPA abrufbar sind.
 
 Diese GESCHÄFTSBEDINGUNGEN gelten auch für alle künftigen Geschäftsbeziehungen, insofern nicht anderweitig spezifiziert.
 

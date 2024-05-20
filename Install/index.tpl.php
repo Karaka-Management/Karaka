@@ -6,7 +6,7 @@
  *
  * @package   Template
  * @copyright Dennis Eichhorn
- * @license   OMS License 2.0
+ * @license   OMS License 2.2
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -90,7 +90,7 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
                 features. All critical elements must be fixed before you can continue with the installation.</p>
 
                 <p>For help please check our <a target="_blank" href="https://jingga.app/info">Installation Guide</a>.</p>
-                <?php $isOK = \version_compare('8.0.0', \PHP_VERSION) < 1 && \extension_loaded('pdo'); ?>
+                <?php $isOK = \version_compare('8.3.0', \PHP_VERSION) < 1 && \extension_loaded('pdo'); ?>
                 <table>
                     <thead>
                         <tr>
@@ -100,14 +100,14 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
                             <th>Your Environment
                     <tbody>
                         <tr>
-                            <td class="<?= \version_compare('8.0.0', \PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>"><?= \version_compare('8.0.0', \PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>
+                            <td class="<?= \version_compare('8.3.0', \PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>"><?= \version_compare('8.3.0', \PHP_VERSION) < 1 ? 'OK' : 'FAILED'; ?>
                             <td>Critcal
-                            <td>PHP version >= 8.0.0
+                            <td>PHP version >= 8.3.0
                             <td><?= \PHP_VERSION; ?>
                         <tr>
                             <td class="<?= ($filePerm = \is_writable(__DIR__ . '/../Install')
                                 && \is_writable(__DIR__ . '/../Modules')
-                                && \is_writable(__DIR__ . '/../Modules/Media/Files')
+                                && (!\is_dir(__DIR__ . '/../Modules/Media/Files') || \is_writable(__DIR__ . '/../Modules/Media/Files'))
                                 && \is_writable(__DIR__ . '/../Web')
                                 && (!\is_file(__DIR__ . '/../Cli/Routes.php') || \is_writable(__DIR__ . '/../Cli/Routes.php'))
                                 && (!\is_file(__DIR__ . '/../Cli/Hooks.php') || \is_writable(__DIR__ . '/../Cli/Hooks.php'))
@@ -130,7 +130,10 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
                             <td>
                             <td>Critcal
                             <td>/Modules/Media/Files
-                            <td class="<?= \is_writable(__DIR__ . '/../Modules/Media/Files') ? 'OK' : 'FAILED'; ?>"><?= \decoct(\fileperms(__DIR__ . '/../Modules/Media/Files') & 0777); ?>
+                            <td class="<?= \is_writable(__DIR__ . '/../Modules/Media') 
+                                && (!\is_dir(__DIR__ . '/../Modules/Media/Files') || \is_writable(__DIR__ . '/../Modules/Media/Files'))
+                                    ? 'OK' 
+                                    : 'FAILED'; ?>"><?= \is_dir(__DIR__ . '/../Modules/Media/Files') ? \decoct(\fileperms(__DIR__ . '/../Modules/Media/Files') & 0777) : ''; ?>
                         <tr>
                             <td>
                             <td>Critcal

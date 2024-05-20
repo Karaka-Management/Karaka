@@ -6,7 +6,7 @@
  *
  * @package   Web
  * @copyright Dennis Eichhorn
- * @license   OMS License 2.0
+ * @license   OMS License 2.2
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -30,7 +30,7 @@ use Web\Exception\UnexpectedApplicationException;
  * Application class.
  *
  * @package Web
- * @license OMS License 2.0
+ * @license OMS License 2.2
  * @link    https://jingga.app
  * @since   1.0.0
  *
@@ -47,17 +47,23 @@ class WebApplication extends ApplicationAbstract
      */
     public function __construct(array $config)
     {
-        $response = null;
-        $sub      = null;
+        $response        = null;
+        $sub             = null;
+        $applicationName = '';
 
         try {
             $this->setupHandlers();
 
             $this->logger = FileLogger::getInstance($config['log']['file']['path'], false);
 
-            $applicationName = $this->getApplicationName(HttpUri::fromCurrent(), $config['app'], $config['page']['root']);
-            $request         = $this->initRequest($config['page']['root'], $config['app']);
-            $response        = $this->initResponse($request);
+            $applicationName = $this->getApplicationName(
+                HttpUri::fromCurrent(), 
+                $config['app'], 
+                $config['page']['root']
+            );
+
+            $request  = $this->initRequest($config['page']['root'], $config['app']);
+            $response = $this->initResponse($request);
 
             $responseLanguage = $response->header->l11n->language;
             UriFactory::setQuery('/base', $responseLanguage . '/' . \strtolower($applicationName), true);
@@ -102,14 +108,11 @@ class WebApplication extends ApplicationAbstract
 
             if (isset($this->sessionManager)) {
                 $this->sessionManager->save();
+                $this->sessionManager->lock();
             }
 
             if (!$response->header->isLocked()) {
                 $response->header->push();
-            }
-
-            if (isset($this->sessionManager)) {
-                $this->sessionManager->lock();
             }
 
             echo $body;

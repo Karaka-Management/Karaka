@@ -6,7 +6,7 @@
  *
  * @package   Web\Backend\Views
  * @copyright Dennis Eichhorn
- * @license   OMS License 2.0
+ * @license   OMS License 2.2
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -23,7 +23,7 @@ use phpOMS\Views\View;
  * Component view.
  *
  * @package Web\Backend\Views
- * @license OMS License 2.0
+ * @license OMS License 2.2
  * @link    https://jingga.app
  * @since   1.0.0
  * @codeCoverageIgnore

@@ -6,7 +6,7 @@
  *
  * @package   Web\Exception
  * @copyright Dennis Eichhorn
- * @license   OMS License 2.0
+ * @license   OMS License 2.2
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -18,7 +18,7 @@ namespace Web\Exception;
  * Permission exception class.
  *
  * @package Web\Exception
- * @license OMS License 2.0
+ * @license OMS License 2.2
  * @link    https://jingga.app
  * @since   1.0.0
  */
