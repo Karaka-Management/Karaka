@@ -33,6 +33,8 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
                 Many modules/extensions provide functionality for businesses,
                 education facilities, healthcare facilities and organizations in general.<p>
 
+                <p>Before following this installation script, make sure you checked out the documentation at <a href="https://jingga.app/info?page=setup/install">https://jingga.app</a></p>
+
                 <strong>Option 1</strong>
 
                 <p>On the following pages you'll be guided through the installation process for the WebApp.
@@ -130,9 +132,9 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
                             <td>
                             <td>Critcal
                             <td>/Modules/Media/Files
-                            <td class="<?= \is_writable(__DIR__ . '/../Modules/Media') 
+                            <td class="<?= \is_writable(__DIR__ . '/../Modules/Media')
                                 && (!\is_dir(__DIR__ . '/../Modules/Media/Files') || \is_writable(__DIR__ . '/../Modules/Media/Files'))
-                                    ? 'OK' 
+                                    ? 'OK'
                                     : 'FAILED'; ?>"><?= \is_dir(__DIR__ . '/../Modules/Media/Files') ? \decoct(\fileperms(__DIR__ . '/../Modules/Media/Files') & 0777) : ''; ?>
                         <tr>
                             <td>
