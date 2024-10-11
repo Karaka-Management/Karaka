@@ -57,8 +57,8 @@ class WebApplication extends ApplicationAbstract
             $this->logger = FileLogger::getInstance($config['log']['file']['path'], false);
 
             $applicationName = $this->getApplicationName(
-                HttpUri::fromCurrent(), 
-                $config['app'], 
+                HttpUri::fromCurrent(),
+                $config['app'],
                 $config['page']['root']
             );
 

@@ -32,6 +32,7 @@ $types     = $this->l11nTypes;
                 <div class="form-group">
                     <label for="iLocalizationId"><?= $this->getHtml('ID', '0', '0'); ?></label>
                     <input type="text" id="iLocalizationId" name="id" data-tpl-text="/id" data-tpl-value="/id" disabled>
+                    <input type="hidden" id="iLocalizationRef" name="ref" value="<?= $this->ref; ?>">
                 </div>
 
                 <div class="form-group">
@@ -56,7 +57,7 @@ $types     = $this->l11nTypes;
 
                 <div class="form-group">
                     <label for="iLocalizationContent"><?= $this->getHtml('Content', '0', '0'); ?></label>
-                    <textarea class="textarea contenteditable" id="iLocalizationContent" name="content" data-tpl-value="/content" value="" contenteditable></textarea>
+                    <textarea class="textarea contenteditable" id="iLocalizationContent" name="content" data-tpl-value="/content" data-tpl-text="/content" value="" contenteditable></textarea>
                 </div>
             </div>
             <div class="portlet-foot">

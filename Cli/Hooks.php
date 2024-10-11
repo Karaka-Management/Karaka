@@ -1,5 +1,4 @@
-<?php declare(strict_types=1);
-return [
+<?php return [
     'Module:Admin-encryption-change' => [
         'callback' => [
             0 => '\Modules\Admin\Controller\CliController:runEncryptionChangeFromHook',

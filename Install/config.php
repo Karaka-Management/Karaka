@@ -25,7 +25,6 @@ return [
                     'login'    => 'root', /* db login name */
                     'password' => 'root', /* db login password */
                     'database' => 'omd', /* db name */
-                    'weight'   => 1000, /* db table prefix */
                 ],
                 'insert' => [
                     'db'       => 'mysql', /* db type */
@@ -34,7 +33,6 @@ return [
                     'login'    => 'root', /* db login name */
                     'password' => 'root', /* db login password */
                     'database' => 'omd', /* db name */
-                    'weight'   => 1000, /* db table prefix */
                 ],
                 'select' => [
                     'db'       => 'mysql', /* db type */
@@ -43,7 +41,6 @@ return [
                     'login'    => 'root', /* db login name */
                     'password' => 'root', /* db login password */
                     'database' => 'omd', /* db name */
-                    'weight'   => 1000, /* db table prefix */
                 ],
                 'update' => [
                     'db'       => 'mysql', /* db type */
@@ -52,7 +49,6 @@ return [
                     'login'    => 'root', /* db login name */
                     'password' => 'root', /* db login password */
                     'database' => 'omd', /* db name */
-                    'weight'   => 1000, /* db table prefix */
                 ],
                 'delete' => [
                     'db'       => 'mysql', /* db type */
@@ -61,7 +57,6 @@ return [
                     'login'    => 'root', /* db login name */
                     'password' => 'root', /* db login password */
                     'database' => 'omd', /* db name */
-                    'weight'   => 1000, /* db table prefix */
                 ],
                 'schema' => [
                     'db'       => 'mysql', /* db type */
@@ -70,7 +65,6 @@ return [
                     'login'    => 'root', /* db login name */
                     'password' => 'root', /* db login password */
                     'database' => 'omd', /* db name */
-                    'weight'   => 1000, /* db table prefix */
                 ],
             ],
         ],

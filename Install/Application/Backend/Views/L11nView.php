@@ -30,6 +30,8 @@ use phpOMS\Views\View;
  */
 class L11nView extends View
 {
+    public string $ref = '';
+
     /**
      * L11ns
      *
@@ -72,6 +74,7 @@ class L11nView extends View
         $this->l11ns     = $data[0];
         $this->l11nTypes = $data[1];
         $this->apiUri    = $data[2];
+        $this->ref    = $data[4] ?? '';
 
         return parent::render();
     }

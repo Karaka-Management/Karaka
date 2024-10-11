@@ -52,7 +52,6 @@ return [
                     'login'    => '{$admin['login']}', /* db login name */
                     'password' => '{$admin['password']}', /* db login password */
                     'database' => '{$dbname}', /* db name */
-                    'weight'   => 1000, /* db table weight */
                 ],
                 'insert'  => [
                     'db'       => '{$db}', /* db type */
@@ -61,7 +60,6 @@ return [
                     'login'    => '{$insert['login']}', /* db login name */
                     'password' => '{$insert['password']}', /* db login password */
                     'database' => '{$dbname}', /* db name */
-                    'weight'   => 1000, /* db table weight */
                 ],
                 'select'  => [
                     'db'       => '{$db}', /* db type */
@@ -70,7 +68,6 @@ return [
                     'login'    => '{$select['login']}', /* db login name */
                     'password' => '{$select['password']}', /* db login password */
                     'database' => '{$dbname}', /* db name */
-                    'weight'   => 1000, /* db table weight */
                 ],
                 'update'  => [
                     'db'       => '{$db}', /* db type */
@@ -79,7 +76,6 @@ return [
                     'login'    => '{$update['login']}', /* db login name */
                     'password' => '{$update['password']}', /* db login password */
                     'database' => '{$dbname}', /* db name */
-                    'weight'   => 1000, /* db table weight */
                 ],
                 'delete'  => [
                     'db'       => '{$db}', /* db type */
@@ -88,7 +84,6 @@ return [
                     'login'    => '{$delete['login']}', /* db login name */
                     'password' => '{$delete['password']}', /* db login password */
                     'database' => '{$dbname}', /* db name */
-                    'weight'   => 1000, /* db table weight */
                 ],
                 'schema'  => [
                     'db'       => '{$db}', /* db type */
@@ -97,23 +92,11 @@ return [
                     'login'    => '{$schema['login']}', /* db login name */
                     'password' => '{$schema['password']}', /* db login password */
                     'database' => '{$dbname}', /* db name */
-                    'weight'   => 1000, /* db table weight */
                 ],
             ],
         ],
     ],
     'cache' => [
-        'redis' => [
-            'type'   => 'redis',
-            'db'   => 1,
-            'host' => '127.0.0.1',
-            'port' => 6379,
-        ],
-        'memcached' => [
-            'type' => 'mem',
-            'host' => '127.0.0.1',
-            'port' => 11211,
-        ],
     ],
     'log'      => [
         'file' => [

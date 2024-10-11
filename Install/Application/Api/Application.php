@@ -132,7 +132,7 @@ final class Application
         $this->app->dbPool->create('delete', $this->config['db']['core']['masters']['delete']);
         $this->app->dbPool->create('schema', $this->config['db']['core']['masters']['schema']);
 
-        /* Checking csrf token, if a csrf token is required at all has to be decided in the route or controller */
+        /* Checking CSRF token, if a CSRF token is required at all has to be decided in the route or controller */
         if ($request->hasData('CSRF')
             && !\hash_equals($this->app->sessionManager->data['CSRF'] ?? '', $request->getDataString('CSRF'))
         ) {
@@ -231,6 +231,8 @@ final class Application
 
             return;
         }
+
+        $this->app->sessionManager->sessionEnd();
 
         // add tpl loading
         $this->app->router->add(

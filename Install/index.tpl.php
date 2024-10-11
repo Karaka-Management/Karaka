@@ -29,7 +29,7 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
             <img alt="Logo" src="img/logo.png" class="logo" width="50">
             <h1>Welcome</h1>
             <div>
-                <p>Jingga is a comprehensive WebApp mostly written in PHP and JavaScript.
+                <p>Jingga is a comprehensive WebApp mostly written in PHP and JS.
                 Many modules/extensions provide functionality for businesses,
                 education facilities, healthcare facilities and organizations in general.<p>
 

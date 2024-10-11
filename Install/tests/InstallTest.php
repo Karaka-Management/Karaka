@@ -118,7 +118,6 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'login'    => 'test', /* db login name */
                             'password' => 'orange', /* db login password */
                             'database' => 'omt', /* db name */
-                            'weight'   => 1000, /* db table weight */
                         ],
                         'insert' => [
                             'db'       => 'mysql', /* db type */
@@ -127,7 +126,6 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'login'    => 'test', /* db login name */
                             'password' => 'orange', /* db login password */
                             'database' => 'omt', /* db name */
-                            'weight'   => 1000, /* db table weight */
                         ],
                         'select' => [
                             'db'       => 'mysql', /* db type */
@@ -136,7 +134,6 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'login'    => 'test', /* db login name */
                             'password' => 'orange', /* db login password */
                             'database' => 'omt', /* db name */
-                            'weight'   => 1000, /* db table weight */
                         ],
                         'update' => [
                             'db'       => 'mysql', /* db type */
@@ -145,7 +142,6 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'login'    => 'test', /* db login name */
                             'password' => 'orange', /* db login password */
                             'database' => 'omt', /* db name */
-                            'weight'   => 1000, /* db table weight */
                         ],
                         'delete' => [
                             'db'       => 'mysql', /* db type */
@@ -154,7 +150,6 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'login'    => 'test', /* db login name */
                             'password' => 'orange', /* db login password */
                             'database' => 'omt', /* db name */
-                            'weight'   => 1000, /* db table weight */
                         ],
                         'schema' => [
                             'db'       => 'mysql', /* db type */
@@ -163,7 +158,6 @@ class InstallTest extends \PHPUnit\Framework\TestCase
                             'login'    => 'test', /* db login name */
                             'password' => 'orange', /* db login password */
                             'database' => 'omt', /* db name */
-                            'weight'   => 1000, /* db table weight */
                         ],
                     ],
                 ],

@@ -71,7 +71,7 @@ return [[
     'InvalidReturn'        => 'Cannot return element(s).',
     'InvalidAdd'           => 'Cannot add element(s), invalid data supplied.',
     'InvalidRemove'        => 'Cannot remove element(s), invalid data supplied.',
-    'InvalidPermission'    => 'Insufficient authorization.',
+    'InvalidPermission'    => 'Insufficient permissions.',
     'SuccessfulDelete'     => 'Element(s) successfully deleted.',
     'SuccessfulCreate'     => 'Element(s) successfully created.',
     'SuccessfulUpdate'     => 'Element(s) successfully updated.',
