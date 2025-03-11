@@ -21,6 +21,7 @@ use phpOMS\Application\ApplicationAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
+use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
@@ -135,6 +136,35 @@ final class WebApplication extends InstallAbstract
             : 'en';
 
         return $response;
+    }
+
+    /**
+     * Validate the correctness of the environment.
+     * Can we install the software?
+     *
+     * @param HttpRequest $request   Client request
+     * @param array       $languages Supported languages
+     *
+     * @return HttpResponse Initial client request
+     *
+     * @since 1.0.0
+     * @codeCoverageIgnore
+     */
+    private function validateEnvironment(HttpResponse $response) : void
+    {
+        // @todo handle different Database types
+        $query   = new Builder($this->dbPool->get());
+        $results = $query->raw('SHOW VARIABLES LIKE \'log_bin_trust_function_creators\';')
+            ->execute()
+            ?->fetchAll(\PDO::FETCH_ASSOC) ?? [];
+
+        $response->data['db_function'] = false;
+        foreach ($results as $result) {
+            if ($result['log_bin_trust_function_creators'] === 'ON' || $result['log_bin_trust_function_creators'] === 1) {
+                $response->data['db_function'] = true;
+                break;
+            }
+        }
     }
 
     /**
@@ -271,6 +301,9 @@ final class WebApplication extends InstallAbstract
         $app->dispatcher     = new Dispatcher($app);
         $app->eventManager   = new EventManager($app->dispatcher);
         $app->eventManager->importFromFile(__DIR__ . '/../Web/Api/Hooks.php');
+
+        // @todo There should be a call to validateEnvironment() here and on failure inform the user
+        //          https://github.com/Karaka-Management/Karaka/issues/363
 
         self::installCore($app);
         self::installGroups();

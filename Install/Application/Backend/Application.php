@@ -229,7 +229,7 @@ final class Application
             return;
         }
 
-        $this->app->sessionManager->sessionEnd();
+        //$this->app->sessionManager->sessionEnd();
 
         $this->app->moduleManager->initRequestModules($request);
         $this->createDefaultPageView($request, $response, $pageView);
