@@ -249,6 +249,7 @@ form input[type=submit]:focus {
     font-style: normal;
     font-weight: 100;
     src: url('/Resources/fonts/googleicons/100.woff2') format('woff2');
+    font-display: swap;
 }
 
 @font-face {
@@ -256,6 +257,7 @@ form input[type=submit]:focus {
     font-style: normal;
     font-weight: 200;
     src: url('/Resources/fonts/googleicons/200.woff2') format('woff2');
+    font-display: swap;
 }
 
 .g-icon {

@@ -259,3 +259,6 @@
 [submodule "Modules/Customs"]
 	path = Modules/Customs
 	url = https://github.com/Karaka-Management/oms-Customs.git
+[submodule "Modules/Approval"]
+	path = Modules/Approval
+	url = https://github.com/Karaka-Management/oms-Approval.git

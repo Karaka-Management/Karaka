@@ -20,7 +20,6 @@ $l11n      = $this->l11ns;
 $languages = ISO639x1Enum::getConstants();
 $types     = $this->l11nTypes;
 ?>
-
 <div class="col-xs-12 col-md-6">
     <section class="portlet">
         <form id="l11nForm" action="<?= UriFactory::build($this->apiUri); ?>" method="post"

@@ -14,7 +14,7 @@
 declare(strict_types=1);
 
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -27,7 +27,7 @@ declare(strict_types=1);
 
     <title>Error 404</title>
 
-    <?= $this->getData('head')->renderAssets(); ?>
+    <?= $this->data['head']->renderAssets(); ?>
 </head>
 <body>
 <header></header>

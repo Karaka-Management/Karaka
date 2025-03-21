@@ -429,9 +429,12 @@ final class Application
         $response->header->set('content-security-policy',
             'base-uri \'self\';'
             . 'object-src \'none\';'
-            . 'script-src \'nonce-' . $scriptSrc . '\' \'strict-dynamic\' \'unsafe-eval\';'
+            . 'script-src \'nonce-' . $scriptSrc . '\' \'strict-dynamic\' \'unsafe-inline\' \'unsafe-eval\' https:;'
             . 'worker-src \'self\';'
         );
+
+        $response->header->set('cross-origin-opener-policy', 'same-origin');
+        $response->header->set('strict-transport-security', 'max-age=63072000; includeSubDomains; preload');
 
         /*
         $response->header->set('content-security-policy',
@@ -443,6 +446,10 @@ final class Application
         );
         */
 
+        /* Preload assets */
+        $head->addAsset(AssetType::LINK, 'cssOMS/styles.css?v=' . self::VERSION, ['rel' => 'preload', 'as' => 'style']);
+        $head->addAsset(AssetType::LINK, 'Web/Backend/js/backend.min.js?v=' . self::VERSION, ['rel' => 'preload', 'as' => 'script', 'nonce' => $scriptSrc, 'crossorigin' => 'anonymous']);
+
         /* Load assets */
         $head->addAsset(AssetType::CSS, 'cssOMS/styles.css?v=' . self::VERSION, ['defer']);
         $head->addAsset(AssetType::CSS, 'cssOMS/print.css?v=' . self::VERSION, ['media' => 'print', 'defer']);
@@ -452,6 +459,7 @@ final class Application
 
         // @feature Make user setting by storing it in the localstorage of the user
         if ($request->hasKey('darkmode')) {
+            $head->addAsset(AssetType::LINK, 'Web/Backend/css/backend-dark.css?v=1.0.0', ['rel' => 'preload', 'as' => 'style']);
             $head->addAsset(AssetType::CSS, 'Web/Backend/css/backend-dark.css?v=1.0.0', ['defer']);
         }
 

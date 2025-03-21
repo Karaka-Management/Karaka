@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-$dispatch = $this->getData('dispatch') ?? [];
+$dispatch = $this->data['dispatch'] ?? [];
 
 echo \PHP_EOL;
 

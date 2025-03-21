@@ -15,7 +15,7 @@ declare(strict_types=1);
 use phpOMS\Uri\UriFactory;
 
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">

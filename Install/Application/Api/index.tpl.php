@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 /** @var array $dispatch */
-$dispatch = $this->getData('dispatch') ?? [];
+$dispatch = $this->data['dispatch'] ?? [];
 
 foreach ($dispatch as $view) {
     if ($view instanceof \phpOMS\Contract\RenderableInterface) {

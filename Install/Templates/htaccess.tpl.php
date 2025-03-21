@@ -56,22 +56,22 @@ AddType application/vnd.ms-fontobject .eot
     ExpiresByType font/woff "access plus 1 year"
     ExpiresByType font/woff2 "access plus 1 year"
 
-    ExpiresByType image/jpeg "access plus 31 days"
-    ExpiresByType image/jpg "access plus 31 days"
-    ExpiresByType image/png "access plus 31 days"
-    ExpiresByType image/gif "access plus 31 days"
-    ExpiresByType image/gif "access plus 31 days"
-    ExpiresByType image/webp "access plus 31 days"
-    ExpiresByType image/x-icon "access plus 31 days"
-    ExpiresByType image/svg+xml "access plus 31 days"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
 
-    ExpiresByType text/javascript "access plus 31 days"
-    ExpiresByType text/x-javascript "access plus 31 days"
-    ExpiresByType application/javascript "access plus 31 days"
-    ExpiresByType application/x-javascript "access plus 31 days"
-    ExpiresByType application/json "access plus 31 days"
+    ExpiresByType text/javascript "access plus 1 year"
+    ExpiresByType text/x-javascript "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType application/x-javascript "access plus 1 year"
+    ExpiresByType application/json "access plus 1 year"
 
-    ExpiresByType text/css "access plus 31 days"
+    ExpiresByType text/css "access plus 1 year"
 
     <FilesMatch "\.(php)$">
         ExpiresDefault A0

@@ -16,7 +16,7 @@ use phpOMS\Uri\UriFactory;
 
 $head = $this->head;
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="<?= $this->printHtml($this->response->header->l11n->language); ?>">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">

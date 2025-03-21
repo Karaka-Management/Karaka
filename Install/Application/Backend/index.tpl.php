@@ -31,7 +31,7 @@ $head = $this->head;
 /** @var array $dispatch */
 $dispatch = $this->data['dispatch'] ?? [];
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="<?= $this->printHtml($this->response->header->l11n->language); ?>">
 <head>
     <meta charset="utf-8">
@@ -54,6 +54,8 @@ $dispatch = $this->data['dispatch'] ?? [];
 
     <title><?= $this->printHtml($head->title); ?></title>
 
+    <link rel="preload" href="/Resources/fonts/googleicons/100.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/Resources/fonts/googleicons/200.woff2" as="font" type="font/woff2" crossorigin>
     <?= $head->renderAssets(); ?>
 
     <style><?= $head->renderStyle(); ?></style>
@@ -104,7 +106,7 @@ $dispatch = $this->data['dispatch'] ?? [];
             <label class="ham-trigger" for="nav-trigger"><i class="g-icon p">menu</i></label>
             <span role="search" class="inputWrapper">
                 <span class="txtWrap">
-                    <input id="iSearchBox" name="search" type="text" autocomplete="off" value="<?= $this->request->getDataString('search') ?? ''; ?>" autofocus>
+                    <input id="iSearchBox" name="search" type="text" autocomplete="off" value="<?= $this->request->getDataString('search') ?? ''; ?>" aria-label="<?= $this->getHtml('Search', '0', '0'); ?>" autofocus>
                     <i class="frontIco g-icon" aria-hidden="true">search</i>
                     <i class="endIco g-icon" aria-hidden="true">close</i>
                 </span>

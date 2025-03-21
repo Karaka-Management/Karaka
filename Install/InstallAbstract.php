@@ -132,12 +132,12 @@ abstract class InstallAbstract extends ApplicationAbstract
     protected static function setupDatabaseConnection(RequestAbstract $request) : ConnectionAbstract
     {
         return ConnectionFactory::create([
-            'db'       => (string) $request->getData('dbtype'),
-            'host'     => (string) $request->getData('dbhost'),
-            'port'     => (int) $request->getData('dbport'),
-            'database' => (string) $request->getData('dbname'),
-            'login'    => (string) $request->getData('schemauser'),
-            'password' => (string) $request->getData('schemapassword'),
+            'db'       => $request->getDataString('dbtype') ?? '',
+            'host'     => $request->getDataString('dbhost') ?? '',
+            'port'     => $request->getDataInt('dbport') ?? 0,
+            'database' => $request->getDataString('dbname') ?? '',
+            'login'    => $request->getDataString('schemauser') ?? '',
+            'password' => $request->getDataString('schemapassword') ?? '',
         ]);
     }
 

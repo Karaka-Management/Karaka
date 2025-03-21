@@ -96,7 +96,7 @@ export class Application
             }
 
             startY = e.touches[0].clientY;
-        });
+        }, {passive: true});
 
         content.addEventListener('touchmove', function (e) {
             if (window.innerWidth > 799) {
@@ -108,7 +108,7 @@ export class Application
             } else if (e.touches[0].clientY < startY - 50) {
                 document.querySelector('main>header').style.display = 'none';
             }
-        });
+        }, {passive: true});
     }
 
     reInit()

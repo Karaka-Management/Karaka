@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 return [
-    '/POST:Module:TestModule.*?\-create/' => [
+    '/POST:TestModule.*?\-create/' => [
         'callback' => [
             1    => '\Modules\TestModule\Controller\Controller:testHook',
             2    => '\Modules\TestModule\Controller\Controller:testHook',

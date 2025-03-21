@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 use phpOMS\Utils\Parser\Markdown\Markdown;
 
-/** @var \phpOMS\Views\View $this View */?><!DOCTYPE HTML>
+/** @var \phpOMS\Views\View $this View */?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
