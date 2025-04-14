@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  tos_website:
+    build:
+      context: .
+      dockerfile: WebsiteDockerfile
+    develop:
+      watch:
+        - action: sync
+          path: ./../
+          target: /var/www/html/jingga-php
+          ignore:
+            - node_modules
+            - composer
+            - .git
+    ports:
+      - "127.0.0.3:80:80"
+      - "127.0.0.3:9003:9003"
+    extra_hosts:
+      host.docker.internal: host-gateway
+    volumes:
+      - ./../:/var/www/html/jingga-php
+    depends_on:
+      - mariadb
+
+  mariadb:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: orange
+      MYSQL_DATABASE: omd
+      MYSQL_USER: demo
+      MYSQL_PASSWORD: orange
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+
+volumes:
+  esdata:

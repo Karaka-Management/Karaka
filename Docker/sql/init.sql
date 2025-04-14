@@ -1,0 +1,13 @@
+SET GLOBAL log_bin_trust_function_creators = 1;
+
+CREATE DATABASE IF NOT EXISTS oms;
+CREATE DATABASE IF NOT EXISTS omd;
+CREATE DATABASE IF NOT EXISTS omt;
+
+CREATE USER 'demo'@'%' IDENTIFIED BY 'orange';
+GRANT ALL PRIVILEGES ON oms.* TO 'demo'@'%';
+
+CREATE USER 'test'@'%' IDENTIFIED BY 'orange';
+GRANT ALL PRIVILEGES ON oms.* TO 'test'@'%';
+
+USE oms;
